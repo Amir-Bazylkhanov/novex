@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+@theme {
+  --color-canvas: #FAFBFB;
+  --color-ink: #111A2A;
+  --color-teal: #219FA2;
+  --color-teal-dark: #276F83;
+  --color-teal-light: #71C5C7;
+  --color-mist: #ABCFD3;
+  --color-coral: #F38A76;
+  --color-coral-light: #E7AA9C;
+  --color-slateink: #69758B;
+  --color-line: #B1B9C5;
+
+  --font-display: 'Manrope', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+}
+
+@layer base {
+  body {
+    @apply bg-canvas font-sans text-ink antialiased;
+  }
+
+  ::selection {
+    @apply bg-teal/20 text-ink;
+  }
+}
