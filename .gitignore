@@ -50,3 +50,4 @@ client_secret_*.json
 
 # Local marketing source media and generated exports
 marketing/
+.env*
