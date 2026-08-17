@@ -6,29 +6,6 @@ import { useLanguage } from '../context/LanguageContext.tsx';
 import { useAuth } from '../context/AuthContext.tsx';
 import LoginRequiredModal from './auth/LoginRequiredModal.tsx';
 
-const NAV_LINKS: Array<{ href: string; label: Localized }> = [
-  {
-    href: '#robots',
-    label: { ru: 'Роботы', kk: 'Роботтар', en: 'Robots' },
-  },
-  {
-    href: '#how-it-works',
-    label: { ru: 'Как это работает', kk: 'Қалай жұмыс істейді', en: 'How it works' },
-  },
-  {
-    href: '#subjects',
-    label: { ru: 'Предметы', kk: 'Пәндер', en: 'Subjects' },
-  },
-  {
-    href: '#for-schools',
-    label: { ru: 'Для школ', kk: 'Мектептерге', en: 'For schools' },
-  },
-  {
-    href: '#faq',
-    label: { ru: 'FAQ', kk: 'FAQ', en: 'FAQ' },
-  },
-];
-
 const APP_NAV_LINKS: Array<{ to: string; label: Localized }> = [
   {
     to: '/dashboard',
@@ -124,9 +101,6 @@ const Header: React.FC = () => {
   const [loginPromptPath, setLoginPromptPath] = useState<string | null>(null);
   const closeLoginPrompt = useCallback(() => setLoginPromptPath(null), []);
 
-  // Anchor links only resolve on the landing page; elsewhere go home first.
-  const onLanding = pathname === '/';
-  const navHref = (href: string) => (onLanding ? href : `/${href}`);
   const isAppActive = (to: string) => pathname === to || pathname.startsWith(`${to}/`);
   const firstName = profile?.full_name?.trim().split(/\s+/)[0] ?? '';
   const avatarInitial = (firstName || user?.email || '?').charAt(0).toUpperCase();
@@ -175,8 +149,7 @@ const Header: React.FC = () => {
 
         <nav aria-label="Main" className="hidden items-center gap-1 lg:flex">
           {/* App tabs are visible to everyone. Signed-in users navigate; signed-out
-              visitors get the login modal instead. Marketing anchors join the bar
-              only at xl — eight items would overflow the lg row. */}
+              visitors get the login modal instead. */}
           {APP_NAV_LINKS.map((link) => {
             const active = isAppActive(link.to);
             const className = `${FOCUS_RING} rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
@@ -202,16 +175,6 @@ const Header: React.FC = () => {
               </button>
             );
           })}
-          {!user &&
-            NAV_LINKS.map((link) => (
-              <a
-                key={link.href}
-                href={navHref(link.href)}
-                className={`${FOCUS_RING} hidden rounded-lg px-2.5 py-2 text-sm font-medium text-slateink transition-colors hover:text-teal xl:block`}
-              >
-                {loc(language, link.label)}
-              </a>
-            ))}
         </nav>
 
         <div className="hidden items-center gap-3 lg:flex">
@@ -318,17 +281,6 @@ const Header: React.FC = () => {
                 </button>
               );
             })}
-            {!user &&
-              NAV_LINKS.map((link) => (
-                <a
-                  key={link.href}
-                  href={navHref(link.href)}
-                  onClick={closeMenu}
-                  className={`${FOCUS_RING} rounded-lg px-2 py-3 text-base font-medium text-ink transition-colors hover:text-teal`}
-                >
-                  {loc(language, link.label)}
-                </a>
-              ))}
           </nav>
           <div className="mt-4 flex flex-col gap-3">
             <LanguageSwitcher onSwitch={closeMenu} />
