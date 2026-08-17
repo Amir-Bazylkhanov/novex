@@ -275,7 +275,7 @@ const TeacherPanel: React.FC = () => {
                 <span className="h-2.5 w-2.5 rounded-full bg-teal-light" />
               </div>
               <span className="rounded-md border border-line/50 bg-white px-3 py-1 text-[11px] font-medium text-slateink">
-                novex.kz/teacher
+                novex-edu.vercel.app/teacher
               </span>
             </div>
 

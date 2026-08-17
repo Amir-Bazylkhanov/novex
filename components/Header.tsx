@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
+import { LogOut, Menu, X } from 'lucide-react';
 import { loc, type Lang, type Localized } from '../utils/i18n.ts';
 import { useLanguage } from '../context/LanguageContext.tsx';
+import { useAuth } from '../context/AuthContext.tsx';
 
 const NAV_LINKS: Array<{ href: string; label: Localized }> = [
   {
@@ -28,6 +30,8 @@ const NAV_LINKS: Array<{ href: string; label: Localized }> = [
 
 const SIGN_IN: Localized = { ru: 'Войти', kk: 'Кіру', en: 'Sign in' };
 const START_FREE: Localized = { ru: 'Начать бесплатно', kk: 'Тегін бастау', en: 'Start free' };
+const SIGN_OUT: Localized = { ru: 'Выйти', kk: 'Шығу', en: 'Sign out' };
+const PROFILE_LABEL: Localized = { ru: 'Личный кабинет', kk: 'Жеке кабинет', en: 'Profile' };
 const OPEN_MENU: Localized = { ru: 'Открыть меню', kk: 'Мәзірді ашу', en: 'Open menu' };
 const CLOSE_MENU: Localized = { ru: 'Закрыть меню', kk: 'Мәзірді жабу', en: 'Close menu' };
 
@@ -90,8 +94,16 @@ const LanguageSwitcher: React.FC<{ onSwitch?: () => void }> = ({ onSwitch }) => 
 
 const Header: React.FC = () => {
   const { language } = useLanguage();
+  const { user, profile, signOut } = useAuth();
+  const { pathname } = useLocation();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+
+  // Anchor links only resolve on the landing page; elsewhere go home first.
+  const onLanding = pathname === '/';
+  const navHref = (href: string) => (onLanding ? href : `/${href}`);
+  const firstName = profile?.full_name?.trim().split(/\s+/)[0] ?? '';
+  const avatarInitial = (firstName || user?.email || '?').charAt(0).toUpperCase();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -133,7 +145,7 @@ const Header: React.FC = () => {
           {NAV_LINKS.map((link) => (
             <a
               key={link.href}
-              href={link.href}
+              href={navHref(link.href)}
               className={`${FOCUS_RING} rounded-lg px-3 py-2 text-sm font-medium text-slateink transition-colors hover:text-teal`}
             >
               {loc(language, link.label)}
@@ -143,18 +155,46 @@ const Header: React.FC = () => {
 
         <div className="hidden items-center gap-3 lg:flex">
           <LanguageSwitcher />
-          <a
-            href="#cta"
-            className={`${FOCUS_RING} rounded-xl px-4 py-2 text-sm font-semibold text-ink transition-colors hover:text-teal`}
-          >
-            {loc(language, SIGN_IN)}
-          </a>
-          <a
-            href="#cta"
-            className={`${FOCUS_RING} rounded-xl bg-teal px-4 py-2 text-sm font-semibold text-white shadow-[0_4px_14px_rgba(33,159,162,0.25)] transition-colors hover:bg-teal-dark`}
-          >
-            {loc(language, START_FREE)}
-          </a>
+          {user ? (
+            <>
+              <Link
+                to="/profile"
+                aria-label={loc(language, PROFILE_LABEL)}
+                className={`${FOCUS_RING} flex items-center gap-2 rounded-xl px-2 py-1.5 text-sm font-semibold text-ink transition-colors hover:text-teal`}
+              >
+                <span
+                  aria-hidden="true"
+                  className="flex h-8 w-8 items-center justify-center rounded-full bg-teal text-sm font-bold text-white"
+                >
+                  {avatarInitial}
+                </span>
+                {firstName || user.email}
+              </Link>
+              <button
+                type="button"
+                onClick={() => void signOut()}
+                aria-label={loc(language, SIGN_OUT)}
+                className={`${FOCUS_RING} rounded-xl p-2 text-slateink transition-colors hover:text-teal`}
+              >
+                <LogOut className="h-5 w-5" aria-hidden="true" />
+              </button>
+            </>
+          ) : (
+            <>
+              <Link
+                to="/login"
+                className={`${FOCUS_RING} rounded-xl px-4 py-2 text-sm font-semibold text-ink transition-colors hover:text-teal`}
+              >
+                {loc(language, SIGN_IN)}
+              </Link>
+              <Link
+                to="/signup"
+                className={`${FOCUS_RING} rounded-xl bg-teal px-4 py-2 text-sm font-semibold text-white shadow-[0_4px_14px_rgba(33,159,162,0.25)] transition-colors hover:bg-teal-dark`}
+              >
+                {loc(language, START_FREE)}
+              </Link>
+            </>
+          )}
         </div>
 
         <button
@@ -182,7 +222,7 @@ const Header: React.FC = () => {
             {NAV_LINKS.map((link) => (
               <a
                 key={link.href}
-                href={link.href}
+                href={navHref(link.href)}
                 onClick={closeMenu}
                 className={`${FOCUS_RING} rounded-lg px-2 py-3 text-base font-medium text-ink transition-colors hover:text-teal`}
               >
@@ -192,20 +232,52 @@ const Header: React.FC = () => {
           </nav>
           <div className="mt-4 flex flex-col gap-3">
             <LanguageSwitcher onSwitch={closeMenu} />
-            <a
-              href="#cta"
-              onClick={closeMenu}
-              className={`${FOCUS_RING} rounded-xl border border-line bg-white px-4 py-2.5 text-center text-sm font-semibold text-ink transition-colors hover:border-teal hover:text-teal`}
-            >
-              {loc(language, SIGN_IN)}
-            </a>
-            <a
-              href="#cta"
-              onClick={closeMenu}
-              className={`${FOCUS_RING} rounded-xl bg-teal px-4 py-2.5 text-center text-sm font-semibold text-white shadow-[0_4px_14px_rgba(33,159,162,0.25)] transition-colors hover:bg-teal-dark`}
-            >
-              {loc(language, START_FREE)}
-            </a>
+            {user ? (
+              <>
+                <Link
+                  to="/profile"
+                  onClick={closeMenu}
+                  className={`${FOCUS_RING} flex items-center justify-center gap-2 rounded-xl bg-teal px-4 py-2.5 text-sm font-semibold text-white shadow-[0_4px_14px_rgba(33,159,162,0.25)] transition-colors hover:bg-teal-dark`}
+                >
+                  <span
+                    aria-hidden="true"
+                    className="flex h-6 w-6 items-center justify-center rounded-full bg-white text-xs font-bold text-teal"
+                  >
+                    {avatarInitial}
+                  </span>
+                  {firstName || user.email}
+                </Link>
+                <button
+                  type="button"
+                  onClick={() => {
+                    closeMenu();
+                    void signOut();
+                  }}
+                  aria-label={loc(language, SIGN_OUT)}
+                  className={`${FOCUS_RING} flex items-center justify-center gap-2 rounded-xl border border-line bg-white px-4 py-2.5 text-sm font-semibold text-ink transition-colors hover:border-teal hover:text-teal`}
+                >
+                  <LogOut className="h-4 w-4" aria-hidden="true" />
+                  {loc(language, SIGN_OUT)}
+                </button>
+              </>
+            ) : (
+              <>
+                <Link
+                  to="/login"
+                  onClick={closeMenu}
+                  className={`${FOCUS_RING} rounded-xl border border-line bg-white px-4 py-2.5 text-center text-sm font-semibold text-ink transition-colors hover:border-teal hover:text-teal`}
+                >
+                  {loc(language, SIGN_IN)}
+                </Link>
+                <Link
+                  to="/signup"
+                  onClick={closeMenu}
+                  className={`${FOCUS_RING} rounded-xl bg-teal px-4 py-2.5 text-center text-sm font-semibold text-white shadow-[0_4px_14px_rgba(33,159,162,0.25)] transition-colors hover:bg-teal-dark`}
+                >
+                  {loc(language, START_FREE)}
+                </Link>
+              </>
+            )}
           </div>
         </div>
       )}

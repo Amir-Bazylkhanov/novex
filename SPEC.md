@@ -461,6 +461,110 @@ Header nav (5 items): Роботы `#robots` · Как это работает `
 
 ---
 
+## 7. AUTH & PROFILE (phase 2)
+
+Supabase project `nqjrtltqmjyzfmoytwvl` (eu-central-1). Client keys are in `.env.local` as
+`VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY`. Email + password auth only for the MVP —
+no OAuth, no magic links.
+
+### 7.1 `services/supabaseClient.ts` — exact API
+```ts
+import { createClient } from '@supabase/supabase-js';
+export const supabase = createClient(
+  import.meta.env.VITE_SUPABASE_URL as string,
+  import.meta.env.VITE_SUPABASE_ANON_KEY as string,
+  { auth: { persistSession: true, autoRefreshToken: true, detectSessionInUrl: false } },
+);
+```
+
+### 7.2 `context/AuthContext.tsx` — FROZEN public API
+```ts
+export type Role = 'student' | 'teacher' | 'admin';
+export type Goal = 'ent' | 'olympiad' | 'revision' | 'admission';
+
+export interface Profile {
+  id: string;
+  full_name: string | null;
+  role: Role;
+  grade: number | null;          // 7..12
+  subjects: string[];            // subject slugs
+  goal: Goal | null;
+  language: Lang;                // 'ru' | 'kk' | 'en'
+  school: string | null;
+  region: string | null;
+}
+
+export const AuthProvider: React.FC<{ children: React.ReactNode }>;
+
+export function useAuth(): {
+  user: { id: string; email: string } | null;
+  profile: Profile | null;
+  loading: boolean;              // true until the initial session check resolves
+  signIn(email: string, password: string): Promise<{ error: string | null }>;
+  signUp(email: string, password: string, fullName: string): Promise<{ error: string | null }>;
+  signOut(): Promise<void>;
+  updateProfile(patch: Partial<Profile>): Promise<{ error: string | null }>;
+};
+```
+- Subscribe to `supabase.auth.onAuthStateChange` and keep `user` in sync; unsubscribe on unmount.
+- Load the row from `public.profiles` whenever `user` changes; `profile` is null while signed out.
+- Error strings returned to callers must be **localized user-facing text**, never a raw
+  Supabase error code. Map at minimum: invalid credentials, email already registered,
+  weak password, network failure.
+
+### 7.3 Database — `supabase/migrations/0001_profiles.sql`
+One table, `public.profiles`, keyed by `auth.users.id`:
+
+| column | type | notes |
+|---|---|---|
+| `id` | `uuid` PK | `references auth.users(id) on delete cascade` |
+| `full_name` | `text` | |
+| `role` | `text` not null default `'student'` | check in student/teacher/admin |
+| `grade` | `smallint` | check between 7 and 12 |
+| `subjects` | `text[]` not null default `'{}'` | |
+| `goal` | `text` | check in ent/olympiad/revision/admission |
+| `language` | `text` not null default `'ru'` | check in ru/kk/en |
+| `school` | `text` | |
+| `region` | `text` | |
+| `created_at` | `timestamptz` not null default `now()` | |
+| `updated_at` | `timestamptz` not null default `now()` | |
+
+Hard requirements:
+- `alter table public.profiles enable row level security;`
+- Three policies, all `to authenticated`, all wrapping the function call:
+  `select` / `insert` / `update` where `(select auth.uid()) = id`. **No delete policy.**
+  Wrapping as `(select auth.uid())` is mandatory — an unwrapped `auth.uid()` is re-evaluated
+  per row and is the single most common RLS performance bug.
+- A `security definer` trigger `public.handle_new_user()` with `set search_path = ''` that
+  inserts a profile row on `auth.users` insert, taking `full_name` from
+  `new.raw_user_meta_data->>'full_name'`. Fully schema-qualify every identifier inside it.
+- An `updated_at` touch trigger on update.
+- No extra index needed for RLS: `id` is the primary key, so the PK index already serves it.
+- Lowercase, unquoted identifiers throughout.
+
+### 7.4 Pages & routing
+| Route | Component | Access |
+|---|---|---|
+| `/login` | `components/auth/LoginPage.tsx` | public; redirect to `/profile` if already signed in |
+| `/signup` | `components/auth/SignupPage.tsx` | public; same redirect |
+| `/profile` | `components/ProfilePage.tsx` | protected |
+
+- `components/ProtectedRoute.tsx` wraps protected routes: while `loading` render a centered
+  spinner, if no `user` `<Navigate to="/login" replace state={{ from: location }} />`.
+- After sign-in, return the user to `state.from` if present, else `/profile`.
+- Auth pages share the landing page's visual language: `canvas` background, white card
+  `rounded-2xl border border-line/50`, teal primary button, a `RobotAvatar robot="nov2"` as a
+  friendly greeter, and the Novex wordmark linking home.
+- `ProfilePage` sections: account (email, display name), **learning profile — grade 7–12,
+  subjects, goal (ЕНТ / олимпиада / повторение / поступление), school, region**, interface
+  language (writes through to both the profile row and `useLanguage().setLanguage`), and sign out.
+  The learning-profile block is MVP requirement **B** — it must save and reload correctly.
+- `Header` reflects auth state: signed out → «Войти» + «Начать бесплатно»; signed in → the
+  user's name/initial linking to `/profile` and a sign-out control. Works in the mobile menu too.
+- Every string in all three languages, same `loc()` contract as everywhere else.
+
+---
+
 ## 5. Definition of done
 - `npm run build` passes with zero TypeScript errors.
 - `npm run dev` renders the full page with no console errors or warnings.

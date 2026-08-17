@@ -96,9 +96,9 @@ const ITEMS: FaqItem[] = [
       en: 'How does a school join Novex?',
     },
     a: {
-      ru: 'Напишите нам на hello@novex.kz — мы поможем создать кабинет школы, добавить классы и выдать доступ учителям. Для государственных школ подключение и использование бесплатны.',
-      kk: 'Бізге hello@novex.kz адресіне жазыңыз — мектеп кабинетін құруға, сыныптарды қосуға және мұғалімдерге қолжетімділік беруге көмектесеміз. Мемлекеттік мектептерге қосылу мен пайдалану тегін.',
-      en: 'Write to us at hello@novex.kz — we will help create the school account, add classes and give teachers access. Onboarding and usage are free for state schools.',
+      ru: 'Напишите нам на amirbazylkhanov@gmail.com — мы поможем создать кабинет школы, добавить классы и выдать доступ учителям. Для государственных школ подключение и использование бесплатны.',
+      kk: 'Бізге amirbazylkhanov@gmail.com адресіне жазыңыз — мектеп кабинетін құруға, сыныптарды қосуға және мұғалімдерге қолжетімділік беруге көмектесеміз. Мемлекеттік мектептерге қосылу мен пайдалану тегін.',
+      en: 'Write to us at amirbazylkhanov@gmail.com — we will help create the school account, add classes and give teachers access. Onboarding and usage are free for state schools.',
     },
   },
 ];

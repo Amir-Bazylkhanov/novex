@@ -38,7 +38,7 @@ const COLUMNS: Array<{ title: Localized; links: Array<{ href: string; label: Loc
     links: [
       { href: '#faq', label: { ru: 'Частые вопросы', kk: 'Жиі қойылатын сұрақтар', en: 'FAQ' } },
       { href: '#how-it-works', label: { ru: 'Как это работает', kk: 'Қалай жұмыс істейді', en: 'How it works' } },
-      { href: 'mailto:hello@novex.kz', label: { ru: 'Связаться с нами', kk: 'Бізбен байланысу', en: 'Contact us' } },
+      { href: 'mailto:amirbazylkhanov@gmail.com', label: { ru: 'Связаться с нами', kk: 'Бізбен байланысу', en: 'Contact us' } },
     ],
   },
 ];
@@ -126,10 +126,10 @@ const Footer: React.FC = () => {
             <span>
               {loc(language, CONTACT)}{' '}
               <a
-                href="mailto:hello@novex.kz"
+                href="mailto:amirbazylkhanov@gmail.com"
                 className={`${FOCUS_RING} rounded text-teal-light transition-colors hover:text-canvas`}
               >
-                hello@novex.kz
+                amirbazylkhanov@gmail.com
               </a>
             </span>
           </div>

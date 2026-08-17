@@ -210,7 +210,7 @@ const StudentDashboardPreview: React.FC = () => {
                 <span className="h-2.5 w-2.5 rounded-full bg-teal-light" />
               </div>
               <span className="rounded-md border border-line/50 bg-white px-3 py-1 text-[11px] font-medium text-slateink">
-                novex.kz/app/progress
+                novex-edu.vercel.app/app/progress
               </span>
             </div>
 
