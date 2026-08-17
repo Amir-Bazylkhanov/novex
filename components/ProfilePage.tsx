@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 import {
   BookOpen,
   Camera,
@@ -12,6 +13,7 @@ import {
   School,
   Target,
   Trash2,
+  TrendingUp,
   User,
 } from 'lucide-react';
 import { loc, type Localized } from '../utils/i18n.ts';
@@ -30,6 +32,16 @@ const PAGE_SUB: Localized = {
   ru: 'Аккаунт, учебный профиль и язык интерфейса',
   kk: 'Аккаунт, оқу профилі және интерфейс тілі',
   en: 'Account, learning profile and interface language',
+};
+const LINK_PROGRESS: Localized = {
+  ru: 'Мой прогресс',
+  kk: 'Менің прогресім',
+  en: 'My progress',
+};
+const LINK_LESSONS: Localized = {
+  ru: 'К урокам',
+  kk: 'Сабақтарға',
+  en: 'To lessons',
 };
 const LOADING: Localized = {
   ru: 'Загружаем…',
@@ -318,6 +330,22 @@ const ProfilePage: React.FC = () => {
             {loc(language, PAGE_TITLE)}
           </h1>
           <p className="mt-2 text-sm text-slateink md:text-base">{loc(language, PAGE_SUB)}</p>
+          <div className="mt-5 flex flex-wrap gap-3">
+            <Link
+              to="/dashboard"
+              className={`${FOCUS_RING} inline-flex items-center gap-2 rounded-xl border border-line bg-white px-5 py-2.5 text-sm font-semibold text-ink transition-colors hover:border-teal hover:text-teal`}
+            >
+              <TrendingUp className="h-4 w-4 text-teal" aria-hidden="true" />
+              {loc(language, LINK_PROGRESS)}
+            </Link>
+            <Link
+              to="/learn"
+              className={`${FOCUS_RING} inline-flex items-center gap-2 rounded-xl border border-line bg-white px-5 py-2.5 text-sm font-semibold text-ink transition-colors hover:border-teal hover:text-teal`}
+            >
+              <BookOpen className="h-4 w-4 text-teal" aria-hidden="true" />
+              {loc(language, LINK_LESSONS)}
+            </Link>
+          </div>
         </header>
 
         <form onSubmit={handleSubmit} noValidate className="mt-8 space-y-6">

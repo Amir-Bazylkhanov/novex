@@ -82,10 +82,15 @@ const SAVE_ERROR: Localized = {
   kk: 'Нәтижені сақтау мүмкін болмады. Байланысты тексер — диагностиканың өзі жоғалмады.',
   en: 'Could not save the result. Check your connection — the diagnostic itself is not lost.',
 };
-const CTA_PROFILE: Localized = {
-  ru: 'Перейти в профиль',
-  kk: 'Профильге өту',
-  en: 'Go to profile',
+const CTA_DASHBOARD: Localized = {
+  ru: 'Перейти к прогрессу',
+  kk: 'Прогреске өту',
+  en: 'Go to progress',
+};
+const CTA_LESSON: Localized = {
+  ru: 'Начать урок',
+  kk: 'Сабақты бастау',
+  en: 'Start a lesson',
 };
 
 const scoreLine = (lang: 'ru' | 'kk' | 'en', score: number, total: number): string => {
@@ -306,13 +311,21 @@ const DiagnosticResult: React.FC<DiagnosticResultProps> = ({ results, grade, sub
         )}
       </div>
 
-      <Link
-        to="/profile"
-        className={`${FOCUS_RING} inline-flex items-center gap-2 rounded-xl bg-teal px-6 py-3 text-sm font-semibold text-white shadow-[0_4px_14px_rgba(33,159,162,0.25)] transition-colors hover:bg-teal-dark`}
-      >
-        {loc(language, CTA_PROFILE)}
-        <ArrowRight className="h-4 w-4" aria-hidden="true" />
-      </Link>
+      <div className="flex flex-wrap gap-3">
+        <Link
+          to="/dashboard"
+          className={`${FOCUS_RING} inline-flex items-center gap-2 rounded-xl bg-teal px-6 py-3 text-sm font-semibold text-white shadow-[0_4px_14px_rgba(33,159,162,0.25)] transition-colors hover:bg-teal-dark`}
+        >
+          {loc(language, CTA_DASHBOARD)}
+          <ArrowRight className="h-4 w-4" aria-hidden="true" />
+        </Link>
+        <Link
+          to="/learn"
+          className={`${FOCUS_RING} inline-flex items-center gap-2 rounded-xl border border-line bg-white px-6 py-3 text-sm font-semibold text-ink transition-colors hover:border-teal hover:text-teal`}
+        >
+          {loc(language, CTA_LESSON)}
+        </Link>
+      </div>
     </div>
   );
 };

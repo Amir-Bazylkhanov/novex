@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { LogOut, Menu, X } from 'lucide-react';
 import { loc, type Lang, type Localized } from '../utils/i18n.ts';
 import { useLanguage } from '../context/LanguageContext.tsx';
 import { useAuth } from '../context/AuthContext.tsx';
+import LoginRequiredModal from './auth/LoginRequiredModal.tsx';
 
 const NAV_LINKS: Array<{ href: string; label: Localized }> = [
   {
@@ -25,6 +26,21 @@ const NAV_LINKS: Array<{ href: string; label: Localized }> = [
   {
     href: '#faq',
     label: { ru: 'FAQ', kk: 'FAQ', en: 'FAQ' },
+  },
+];
+
+const APP_NAV_LINKS: Array<{ to: string; label: Localized }> = [
+  {
+    to: '/dashboard',
+    label: { ru: 'Прогресс', kk: 'Үдеріс', en: 'Progress' },
+  },
+  {
+    to: '/learn',
+    label: { ru: 'Уроки', kk: 'Сабақтар', en: 'Lessons' },
+  },
+  {
+    to: '/teacher',
+    label: { ru: 'Для учителя', kk: 'Мұғалімге', en: 'For teachers' },
   },
 ];
 
@@ -104,10 +120,14 @@ const Header: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [avatarBroken, setAvatarBroken] = useState(false);
+  /** App route a signed-out visitor tried to open; non-null shows the login modal. */
+  const [loginPromptPath, setLoginPromptPath] = useState<string | null>(null);
+  const closeLoginPrompt = useCallback(() => setLoginPromptPath(null), []);
 
   // Anchor links only resolve on the landing page; elsewhere go home first.
   const onLanding = pathname === '/';
   const navHref = (href: string) => (onLanding ? href : `/${href}`);
+  const isAppActive = (to: string) => pathname === to || pathname.startsWith(`${to}/`);
   const firstName = profile?.full_name?.trim().split(/\s+/)[0] ?? '';
   const avatarInitial = (firstName || user?.email || '?').charAt(0).toUpperCase();
   const avatarUrl = avatarBroken ? null : (profile?.avatar_url ?? null);
@@ -135,7 +155,8 @@ const Header: React.FC = () => {
   const closeMenu = () => setMenuOpen(false);
 
   return (
-    <header
+    <>
+      <header
       className={`sticky top-0 z-50 border-b border-line/50 bg-canvas/85 backdrop-blur-md transition-shadow ${
         scrolled ? 'shadow-[0_1px_12px_rgba(17,26,42,0.08)]' : ''
       }`}
@@ -153,15 +174,44 @@ const Header: React.FC = () => {
         </Link>
 
         <nav aria-label="Main" className="hidden items-center gap-1 lg:flex">
-          {NAV_LINKS.map((link) => (
-            <a
-              key={link.href}
-              href={navHref(link.href)}
-              className={`${FOCUS_RING} rounded-lg px-3 py-2 text-sm font-medium text-slateink transition-colors hover:text-teal`}
-            >
-              {loc(language, link.label)}
-            </a>
-          ))}
+          {/* App tabs are visible to everyone. Signed-in users navigate; signed-out
+              visitors get the login modal instead. Marketing anchors join the bar
+              only at xl — eight items would overflow the lg row. */}
+          {APP_NAV_LINKS.map((link) => {
+            const active = isAppActive(link.to);
+            const className = `${FOCUS_RING} rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
+              active ? 'bg-teal/10 text-teal-dark' : 'text-slateink hover:text-teal'
+            }`;
+            return user ? (
+              <Link
+                key={link.to}
+                to={link.to}
+                aria-current={active ? 'page' : undefined}
+                className={className}
+              >
+                {loc(language, link.label)}
+              </Link>
+            ) : (
+              <button
+                key={link.to}
+                type="button"
+                onClick={() => setLoginPromptPath(link.to)}
+                className={className}
+              >
+                {loc(language, link.label)}
+              </button>
+            );
+          })}
+          {!user &&
+            NAV_LINKS.map((link) => (
+              <a
+                key={link.href}
+                href={navHref(link.href)}
+                className={`${FOCUS_RING} hidden rounded-lg px-2.5 py-2 text-sm font-medium text-slateink transition-colors hover:text-teal xl:block`}
+              >
+                {loc(language, link.label)}
+              </a>
+            ))}
         </nav>
 
         <div className="hidden items-center gap-3 lg:flex">
@@ -239,16 +289,46 @@ const Header: React.FC = () => {
           className="border-t border-line/50 bg-canvas px-5 pb-6 pt-3 sm:px-6 lg:hidden"
         >
           <nav aria-label="Mobile" className="flex flex-col">
-            {NAV_LINKS.map((link) => (
-              <a
-                key={link.href}
-                href={navHref(link.href)}
-                onClick={closeMenu}
-                className={`${FOCUS_RING} rounded-lg px-2 py-3 text-base font-medium text-ink transition-colors hover:text-teal`}
-              >
-                {loc(language, link.label)}
-              </a>
-            ))}
+            {APP_NAV_LINKS.map((link) => {
+              const active = isAppActive(link.to);
+              const className = `${FOCUS_RING} rounded-lg px-2 py-3 text-left text-base font-medium transition-colors ${
+                active ? 'bg-teal/10 text-teal-dark' : 'text-ink hover:text-teal'
+              }`;
+              return user ? (
+                <Link
+                  key={link.to}
+                  to={link.to}
+                  onClick={closeMenu}
+                  aria-current={active ? 'page' : undefined}
+                  className={className}
+                >
+                  {loc(language, link.label)}
+                </Link>
+              ) : (
+                <button
+                  key={link.to}
+                  type="button"
+                  onClick={() => {
+                    closeMenu();
+                    setLoginPromptPath(link.to);
+                  }}
+                  className={className}
+                >
+                  {loc(language, link.label)}
+                </button>
+              );
+            })}
+            {!user &&
+              NAV_LINKS.map((link) => (
+                <a
+                  key={link.href}
+                  href={navHref(link.href)}
+                  onClick={closeMenu}
+                  className={`${FOCUS_RING} rounded-lg px-2 py-3 text-base font-medium text-ink transition-colors hover:text-teal`}
+                >
+                  {loc(language, link.label)}
+                </a>
+              ))}
           </nav>
           <div className="mt-4 flex flex-col gap-3">
             <LanguageSwitcher onSwitch={closeMenu} />
@@ -310,7 +390,16 @@ const Header: React.FC = () => {
           </div>
         </div>
       )}
-    </header>
+      </header>
+
+      {/* Rendered outside <header>: its backdrop-blur creates a containing block
+          that would break the modal's fixed positioning. */}
+      <LoginRequiredModal
+        open={loginPromptPath !== null}
+        intendedPath={loginPromptPath}
+        onClose={closeLoginPrompt}
+      />
+    </>
   );
 };
 

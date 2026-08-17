@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import {
   ArrowRight,
@@ -178,19 +179,19 @@ const Hero: React.FC = () => {
           </p>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-            <a
-              href="#how-it-works"
+            <Link
+              to="/onboarding"
               className={`${FOCUS_RING} inline-flex items-center justify-center gap-2 rounded-xl bg-teal px-6 py-3.5 text-base font-semibold text-white shadow-[0_4px_14px_rgba(33,159,162,0.25)] transition-colors hover:bg-teal-dark`}
             >
               {loc(language, CTA_PRIMARY)}
               <ArrowRight className="h-5 w-5" aria-hidden="true" />
-            </a>
-            <a
-              href="#subjects"
+            </Link>
+            <Link
+              to="/signup"
               className={`${FOCUS_RING} inline-flex items-center justify-center rounded-xl border border-line bg-white px-6 py-3.5 text-base font-semibold text-ink transition-colors hover:border-teal hover:text-teal`}
             >
               {loc(language, CTA_SECONDARY)}
-            </a>
+            </Link>
           </div>
 
           <p className="mt-6 text-sm text-slateink">{loc(language, TRUST)}</p>

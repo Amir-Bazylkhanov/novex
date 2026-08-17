@@ -13,7 +13,7 @@ const LOADING: Localized = {
 
 const ProtectedRoute: React.FC = () => {
   const { language } = useLanguage();
-  const { user, loading } = useAuth();
+  const { user, profile, loading } = useAuth();
   const location = useLocation();
 
   if (loading) {
@@ -30,6 +30,13 @@ const ProtectedRoute: React.FC = () => {
 
   if (!user) {
     return <Navigate to="/login" replace state={{ from: location }} />;
+  }
+
+  // First-time users must finish the diagnostic before the rest of the app.
+  // Wait until the profile row has actually arrived (null = still loading);
+  // /onboarding itself is exempt, or the redirect would loop.
+  if (profile && !profile.onboarded && location.pathname !== '/onboarding') {
+    return <Navigate to="/onboarding" replace />;
   }
 
   return <Outlet />;
