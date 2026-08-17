@@ -98,12 +98,18 @@ const Header: React.FC = () => {
   const { pathname } = useLocation();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [avatarBroken, setAvatarBroken] = useState(false);
 
   // Anchor links only resolve on the landing page; elsewhere go home first.
   const onLanding = pathname === '/';
   const navHref = (href: string) => (onLanding ? href : `/${href}`);
   const firstName = profile?.full_name?.trim().split(/\s+/)[0] ?? '';
   const avatarInitial = (firstName || user?.email || '?').charAt(0).toUpperCase();
+  const avatarUrl = avatarBroken ? null : (profile?.avatar_url ?? null);
+
+  useEffect(() => {
+    setAvatarBroken(false);
+  }, [profile?.avatar_url]);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -162,12 +168,21 @@ const Header: React.FC = () => {
                 aria-label={loc(language, PROFILE_LABEL)}
                 className={`${FOCUS_RING} flex items-center gap-2 rounded-xl px-2 py-1.5 text-sm font-semibold text-ink transition-colors hover:text-teal`}
               >
-                <span
-                  aria-hidden="true"
-                  className="flex h-8 w-8 items-center justify-center rounded-full bg-teal text-sm font-bold text-white"
-                >
-                  {avatarInitial}
-                </span>
+                {avatarUrl ? (
+                  <img
+                    src={avatarUrl}
+                    alt=""
+                    onError={() => setAvatarBroken(true)}
+                    className="h-8 w-8 rounded-full object-cover"
+                  />
+                ) : (
+                  <span
+                    aria-hidden="true"
+                    className="flex h-8 w-8 items-center justify-center rounded-full bg-teal text-sm font-bold text-white"
+                  >
+                    {avatarInitial}
+                  </span>
+                )}
                 {firstName || user.email}
               </Link>
               <button
@@ -239,12 +254,21 @@ const Header: React.FC = () => {
                   onClick={closeMenu}
                   className={`${FOCUS_RING} flex items-center justify-center gap-2 rounded-xl bg-teal px-4 py-2.5 text-sm font-semibold text-white shadow-[0_4px_14px_rgba(33,159,162,0.25)] transition-colors hover:bg-teal-dark`}
                 >
-                  <span
-                    aria-hidden="true"
-                    className="flex h-6 w-6 items-center justify-center rounded-full bg-white text-xs font-bold text-teal"
-                  >
-                    {avatarInitial}
-                  </span>
+                  {avatarUrl ? (
+                    <img
+                      src={avatarUrl}
+                      alt=""
+                      onError={() => setAvatarBroken(true)}
+                      className="h-6 w-6 rounded-full object-cover"
+                    />
+                  ) : (
+                    <span
+                      aria-hidden="true"
+                      className="flex h-6 w-6 items-center justify-center rounded-full bg-white text-xs font-bold text-teal"
+                    >
+                      {avatarInitial}
+                    </span>
+                  )}
                   {firstName || user.email}
                 </Link>
                 <button

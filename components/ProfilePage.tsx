@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import {
   BookOpen,
+  Camera,
   Check,
   Globe,
   GraduationCap,
@@ -11,6 +12,7 @@ import {
   Save,
   School,
   Target,
+  Trash2,
   User,
 } from 'lucide-react';
 import { loc, type Lang, type Localized } from '../utils/i18n.ts';
@@ -60,6 +62,21 @@ const NAME_PLACEHOLDER: Localized = {
   ru: 'Как тебя зовут?',
   kk: 'Есімің кім?',
   en: 'What should we call you?',
+};
+const UPLOAD_PHOTO: Localized = {
+  ru: 'Загрузить фото',
+  kk: 'Сурет жүктеу',
+  en: 'Upload photo',
+};
+const UPLOADING_PHOTO: Localized = {
+  ru: 'Загружаем…',
+  kk: 'Жүктелуде…',
+  en: 'Uploading…',
+};
+const REMOVE_PHOTO: Localized = {
+  ru: 'Удалить фото',
+  kk: 'Суретті жою',
+  en: 'Remove photo',
 };
 
 const ROBOT_LABEL: Localized = {
@@ -203,7 +220,7 @@ const CHIP_ON = 'border-teal bg-teal text-white shadow-[0_4px_14px_rgba(33,159,1
 const CHIP_OFF = 'border-line bg-white text-ink hover:border-teal/60 hover:text-teal';
 
 const ProfilePage: React.FC = () => {
-  const { user, profile, loading, signOut, updateProfile } = useAuth();
+  const { user, profile, loading, signOut, updateProfile, uploadAvatar } = useAuth();
   const { language, setLanguage } = useLanguage();
 
   const [form, setForm] = useState<FormState>({
@@ -218,6 +235,8 @@ const ProfilePage: React.FC = () => {
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [avatarUploading, setAvatarUploading] = useState(false);
+  const [avatarBroken, setAvatarBroken] = useState(false);
   const hydratedIdRef = useRef<string | null>(null);
 
   useEffect(() => {
@@ -239,6 +258,11 @@ const ProfilePage: React.FC = () => {
   useEffect(() => {
     if (dirty) setSaved(false);
   }, [dirty]);
+
+  // a new avatar URL gets a fresh chance to load
+  useEffect(() => {
+    setAvatarBroken(false);
+  }, [profile?.avatar_url]);
 
   if (loading || !user || !profile) {
     return (
@@ -280,6 +304,26 @@ const ProfilePage: React.FC = () => {
     if (langError) setError(langError);
   };
 
+  const avatarInitial = (profile.full_name?.trim() || user.email).charAt(0).toUpperCase();
+
+  const handleAvatarChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    // reset so picking the same file again still fires onChange
+    event.target.value = '';
+    if (!file || avatarUploading) return;
+    setAvatarUploading(true);
+    setError(null);
+    const { error: uploadError } = await uploadAvatar(file);
+    setAvatarUploading(false);
+    if (uploadError) setError(uploadError);
+  };
+
+  const handleAvatarRemove = async () => {
+    setError(null);
+    const { error: removeError } = await updateProfile({ avatar_url: null });
+    if (removeError) setError(removeError);
+  };
+
   const toggleSubject = (slug: string) =>
     setForm((f) => ({
       ...f,
@@ -311,6 +355,57 @@ const ProfilePage: React.FC = () => {
               {loc(language, ACCOUNT_HEADING)}
             </h2>
             <p className="mt-1 text-sm text-slateink">{loc(language, ACCOUNT_DESC)}</p>
+
+            <div className="mt-5 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
+              {profile.avatar_url && !avatarBroken ? (
+                <img
+                  src={profile.avatar_url}
+                  alt={profile.full_name ?? user.email}
+                  onError={() => setAvatarBroken(true)}
+                  className="h-24 w-24 rounded-full object-cover ring-2 ring-line/60"
+                />
+              ) : (
+                <span
+                  aria-hidden="true"
+                  className="flex h-24 w-24 items-center justify-center rounded-full bg-teal font-display text-3xl font-bold text-white ring-2 ring-line/60"
+                >
+                  {avatarInitial}
+                </span>
+              )}
+              <div className="flex flex-wrap items-center gap-3">
+                <label className="cursor-pointer">
+                  <input
+                    type="file"
+                    accept="image/*"
+                    disabled={avatarUploading}
+                    onChange={(e) => void handleAvatarChange(e)}
+                    className="peer sr-only"
+                    aria-label={loc(language, UPLOAD_PHOTO)}
+                  />
+                  <span
+                    className={`${CHIP} gap-1.5 px-4 py-2.5 ${CHIP_OFF} peer-disabled:cursor-not-allowed peer-disabled:opacity-50`}
+                  >
+                    {avatarUploading ? (
+                      <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" />
+                    ) : (
+                      <Camera className="h-4 w-4" aria-hidden="true" />
+                    )}
+                    {avatarUploading ? loc(language, UPLOADING_PHOTO) : loc(language, UPLOAD_PHOTO)}
+                  </span>
+                </label>
+                {profile.avatar_url && (
+                  <button
+                    type="button"
+                    disabled={avatarUploading}
+                    onClick={() => void handleAvatarRemove()}
+                    className={`${FOCUS_RING} inline-flex items-center gap-1.5 rounded-xl border border-line bg-white px-4 py-2.5 text-sm font-semibold text-ink transition-colors hover:border-coral hover:text-coral disabled:cursor-not-allowed disabled:opacity-50`}
+                  >
+                    <Trash2 className="h-4 w-4" aria-hidden="true" />
+                    {loc(language, REMOVE_PHOTO)}
+                  </button>
+                )}
+              </div>
+            </div>
 
             <div className="mt-5 grid gap-4 sm:grid-cols-2">
               <div>

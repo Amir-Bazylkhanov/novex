@@ -15,6 +15,7 @@ export interface Profile {
   language: Lang;
   school: string | null;
   region: string | null;
+  avatar_url: string | null;
 }
 
 interface AuthUser {
@@ -35,6 +36,7 @@ interface AuthContextValue {
   signInWithGoogle(): Promise<{ error: string | null }>;
   signOut(): Promise<void>;
   updateProfile(patch: Partial<Profile>): Promise<{ error: string | null }>;
+  uploadAvatar(file: File): Promise<{ error: string | null; url: string | null }>;
 }
 
 const AuthContext = createContext<AuthContextValue | null>(null);
@@ -70,6 +72,18 @@ const ERR_UNKNOWN: Localized = {
   ru: 'Что-то пошло не так. Попробуйте ещё раз.',
   kk: 'Бірдеңе дұрыс болмады. Қайтадан көріңіз.',
   en: 'Something went wrong. Please try again.',
+};
+
+const ERR_NOT_IMAGE: Localized = {
+  ru: 'Можно загрузить только файл изображения.',
+  kk: 'Тек сурет файлын жүктеуге болады.',
+  en: 'Only image files can be uploaded.',
+};
+
+const ERR_IMAGE_TOO_BIG: Localized = {
+  ru: 'Фото слишком большое. Максимальный размер — 2 МБ.',
+  kk: 'Сурет тым үлкен. Ең үлкен өлшемі — 2 МБ.',
+  en: 'The photo is too large. Maximum size is 2 MB.',
 };
 
 /** Active UI language, read the same way LanguageContext initializes it. */
@@ -147,7 +161,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     let cancelled = false;
     supabase
       .from('profiles')
-      .select('id, full_name, role, grade, subjects, goal, language, school, region')
+      .select('id, full_name, role, grade, subjects, goal, language, school, region, avatar_url')
       .eq('id', user.id)
       .maybeSingle()
       .then(({ data, error }) => {
@@ -218,9 +232,47 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     [user],
   );
 
+  const uploadAvatar = useCallback(
+    async (file: File): Promise<{ error: string | null; url: string | null }> => {
+      const lang = activeLang();
+      if (!user) return { error: loc(lang, ERR_UNKNOWN), url: null };
+      if (!file.type.startsWith('image/')) return { error: loc(lang, ERR_NOT_IMAGE), url: null };
+      if (file.size > 2 * 1024 * 1024) {
+        return { error: loc(lang, ERR_IMAGE_TOO_BIG), url: null };
+      }
+      try {
+        // timestamped name so the CDN never serves the previous avatar
+        const ext =
+          (file.name.split('.').pop() ?? '').toLowerCase().replace(/[^a-z0-9]/g, '') || 'jpg';
+        const path = `${user.id}/${Date.now()}.${ext}`;
+        const { error: uploadError } = await supabase.storage
+          .from('avatars')
+          .upload(path, file, { upsert: true });
+        if (uploadError) return { error: mapAuthError(uploadError), url: null };
+        const { data } = supabase.storage.from('avatars').getPublicUrl(path);
+        const { error: profileError } = await updateProfile({ avatar_url: data.publicUrl });
+        if (profileError) return { error: profileError, url: null };
+        return { error: null, url: data.publicUrl };
+      } catch (err) {
+        return { error: mapAuthError(err), url: null };
+      }
+    },
+    [user, updateProfile],
+  );
+
   return (
     <AuthContext.Provider
-      value={{ user, profile, loading, signIn, signUp, signInWithGoogle, signOut, updateProfile }}
+      value={{
+        user,
+        profile,
+        loading,
+        signIn,
+        signUp,
+        signInWithGoogle,
+        signOut,
+        updateProfile,
+        uploadAvatar,
+      }}
     >
       {children}
     </AuthContext.Provider>
