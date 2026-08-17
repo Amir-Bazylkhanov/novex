@@ -1,5 +1,5 @@
 import React from 'react';
-import { loc, type Lang, type Localized } from '../utils/i18n.ts';
+import { loc, type Localized } from '../utils/i18n.ts';
 import { useLanguage } from '../context/LanguageContext.tsx';
 import { RobotAvatar } from './robots/RobotAvatars.tsx';
 
@@ -55,17 +55,11 @@ const HACKATHON: Localized = {
   en: 'Future Minds Hackathon 2026 · Social Impact',
 };
 
-const LANGS: Array<{ code: Lang; short: string }> = [
-  { code: 'ru', short: 'RU' },
-  { code: 'kk', short: 'KK' },
-  { code: 'en', short: 'EN' },
-];
-
 const FOCUS_RING =
   'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2 focus-visible:ring-offset-ink';
 
 const Footer: React.FC = () => {
-  const { language, setLanguage } = useLanguage();
+  const { language } = useLanguage();
 
   return (
     <footer className="bg-ink text-canvas">
@@ -134,25 +128,6 @@ const Footer: React.FC = () => {
             </span>
           </div>
 
-          <div
-            role="group"
-            aria-label="Language / Тіл / Язык"
-            className="flex w-fit items-center rounded-full border border-canvas/20 p-0.5"
-          >
-            {LANGS.map(({ code, short }) => (
-              <button
-                key={code}
-                type="button"
-                aria-pressed={language === code}
-                onClick={() => setLanguage(code)}
-                className={`${FOCUS_RING} rounded-full px-2.5 py-1 text-xs font-semibold transition-colors ${
-                  language === code ? 'bg-teal text-white' : 'text-canvas/70 hover:text-canvas'
-                }`}
-              >
-                {short}
-              </button>
-            ))}
-          </div>
         </div>
 
         <p className="mt-6 text-xs text-canvas/50">{loc(language, HACKATHON)}</p>

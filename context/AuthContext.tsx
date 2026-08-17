@@ -1,6 +1,7 @@
 import React, { createContext, useCallback, useContext, useEffect, useRef, useState } from 'react';
 import { supabase } from '../services/supabaseClient.ts';
 import { loc, type Lang, type Localized } from '../utils/i18n.ts';
+import { useLanguage } from './LanguageContext.tsx';
 
 export type Role = 'student' | 'teacher' | 'admin';
 export type Goal = 'ent' | 'olympiad' | 'revision' | 'admission';
@@ -16,12 +17,35 @@ export interface Profile {
   school: string | null;
   region: string | null;
   avatar_url: string | null;
+  onboarded: boolean;
 }
 
 interface AuthUser {
   id: string;
   email: string;
+  /** Photo from the OAuth provider (Google), if the session carries one. */
+  providerAvatar: string | null;
 }
+
+/** Map a Supabase session user to our lighter AuthUser shape. */
+const toAuthUser = (u: {
+  id: string;
+  email?: string;
+  user_metadata?: Record<string, unknown>;
+}): AuthUser => {
+  const meta = u.user_metadata ?? {};
+  const pick = (key: string): string | null =>
+    typeof meta[key] === 'string' && meta[key] ? (meta[key] as string) : null;
+  return {
+    id: u.id,
+    email: u.email ?? '',
+    providerAvatar: pick('avatar_url') ?? pick('picture'),
+  };
+};
+
+/** Avatars the user uploaded live in our own bucket; Google's must not clobber them. */
+const isUploadedAvatar = (url: string | null): boolean =>
+  !!url && url.includes('/storage/v1/object/public/avatars/');
 
 interface AuthContextValue {
   user: AuthUser | null;
@@ -121,6 +145,9 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [profile, setProfile] = useState<Profile | null>(null);
   const [loading, setLoading] = useState(true);
   const mountedRef = useRef(true);
+  const { setLanguage } = useLanguage();
+  /** Which user's saved language has already been applied this session. */
+  const appliedLangForUserRef = useRef<string | null>(null);
 
   useEffect(() => {
     mountedRef.current = true;
@@ -131,7 +158,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       .then(({ data }) => {
         if (!mountedRef.current) return;
         const sessionUser = data.session?.user ?? null;
-        setUser(sessionUser ? { id: sessionUser.id, email: sessionUser.email ?? '' } : null);
+        setUser(sessionUser ? toAuthUser(sessionUser) : null);
       })
       .catch(() => {
         // keep user null; the app still renders signed-out
@@ -143,7 +170,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     // keep user in sync with auth events
     const { data: subscription } = supabase.auth.onAuthStateChange((_event, session) => {
       const sessionUser = session?.user ?? null;
-      setUser(sessionUser ? { id: sessionUser.id, email: sessionUser.email ?? '' } : null);
+      setUser(sessionUser ? toAuthUser(sessionUser) : null);
     });
 
     return () => {
@@ -161,12 +188,38 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     let cancelled = false;
     supabase
       .from('profiles')
-      .select('id, full_name, role, grade, subjects, goal, language, school, region, avatar_url')
+      .select('id, full_name, role, grade, subjects, goal, language, school, region, avatar_url, onboarded')
       .eq('id', user.id)
       .maybeSingle()
       .then(({ data, error }) => {
         if (cancelled || error || !data) return;
-        setProfile(data as Profile);
+        const loaded = data as Profile;
+        setProfile(loaded);
+        // Apply the language saved on the account, so the choice follows the
+        // user to another browser or device. Guarded by a ref so it runs once
+        // per user — otherwise it would fight the header switcher, which writes
+        // the opposite direction, and the two would loop.
+        if (appliedLangForUserRef.current !== loaded.id) {
+          appliedLangForUserRef.current = loaded.id;
+          if (loaded.language) setLanguage(loaded.language);
+        }
+
+        // Keep the Google photo current on every sign-in. Google rotates these
+        // URLs when the user changes their picture, and the signup trigger only
+        // ever fires once, so without this the avatar goes stale (or stays null
+        // for accounts created before avatar_url existed).
+        // A photo the user uploaded themselves always wins — never overwrite it.
+        const fromGoogle = user.providerAvatar;
+        if (fromGoogle && !isUploadedAvatar(loaded.avatar_url) && loaded.avatar_url !== fromGoogle) {
+          void supabase
+            .from('profiles')
+            .update({ avatar_url: fromGoogle })
+            .eq('id', loaded.id)
+            .then(({ error: syncError }) => {
+              if (cancelled || syncError) return;
+              setProfile((prev) => (prev ? { ...prev, avatar_url: fromGoogle } : prev));
+            });
+        }
       });
     return () => {
       cancelled = true;

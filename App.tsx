@@ -9,13 +9,22 @@ import LoginPage from './components/auth/LoginPage.tsx';
 import SignupPage from './components/auth/SignupPage.tsx';
 import AuthCallback from './components/auth/AuthCallback.tsx';
 import ProfilePage from './components/ProfilePage.tsx';
+import DiagnosticPage from './components/diagnostic/DiagnosticPage.tsx';
+import DashboardPage from './components/dashboard/DashboardPage.tsx';
+import LearnPage from './components/learn/LearnPage.tsx';
+import LessonPage from './components/learn/LessonPage.tsx';
+import TeacherPage from './components/teacher/TeacherPage.tsx';
+import TutorChat from './components/chat/TutorChat.tsx';
 import ProtectedRoute from './components/ProtectedRoute.tsx';
 
 const Shell: React.FC = () => {
   const { pathname } = useLocation();
   // Auth pages render their own chrome (own Novex wordmark), so no Header/Footer there.
   const bareRoute =
-    pathname === '/login' || pathname === '/signup' || pathname === '/auth/callback';
+    pathname === '/login' ||
+    pathname === '/signup' ||
+    pathname === '/auth/callback' ||
+    pathname === '/onboarding';
 
   return (
     <>
@@ -27,10 +36,17 @@ const Shell: React.FC = () => {
         <Route path="/auth/callback" element={<AuthCallback />} />
         <Route element={<ProtectedRoute />}>
           <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/onboarding" element={<DiagnosticPage />} />
+          <Route path="/dashboard" element={<DashboardPage />} />
+          <Route path="/learn" element={<LearnPage />} />
+          <Route path="/learn/:slug" element={<LessonPage />} />
+          <Route path="/teacher" element={<TeacherPage />} />
         </Route>
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
       {!bareRoute && <Footer />}
+      {/* Tutor chat rides along on the app surfaces, not the marketing page. */}
+      {!bareRoute && pathname !== '/' && <TutorChat />}
     </>
   );
 };

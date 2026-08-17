@@ -64,6 +64,10 @@ const LogoGlyph: React.FC = () => (
 
 const LanguageSwitcher: React.FC<{ onSwitch?: () => void }> = ({ onSwitch }) => {
   const { language, setLanguage } = useLanguage();
+  // Signed-in users get their choice saved to the profile row, so it follows
+  // the account to another browser or device. Signed-out visitors fall back to
+  // the localStorage persistence inside LanguageContext.
+  const { user, updateProfile } = useAuth();
   return (
     <div
       role="group"
@@ -77,6 +81,7 @@ const LanguageSwitcher: React.FC<{ onSwitch?: () => void }> = ({ onSwitch }) => 
           aria-pressed={language === code}
           onClick={() => {
             setLanguage(code);
+            if (user) void updateProfile({ language: code });
             onSwitch?.();
           }}
           className={`${FOCUS_RING} rounded-full px-2.5 py-1 text-xs font-semibold transition-colors ${
@@ -136,8 +141,8 @@ const Header: React.FC = () => {
       }`}
     >
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-5 sm:px-6 lg:px-8">
-        <a
-          href="#top"
+        <Link
+          to="/"
           className={`${FOCUS_RING} flex items-center gap-2 rounded-lg`}
           aria-label="Novex"
         >
@@ -145,7 +150,7 @@ const Header: React.FC = () => {
           <span className="font-display text-xl font-extrabold tracking-tight text-ink">
             Novex
           </span>
-        </a>
+        </Link>
 
         <nav aria-label="Main" className="hidden items-center gap-1 lg:flex">
           {NAV_LINKS.map((link) => (

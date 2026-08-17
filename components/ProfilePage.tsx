@@ -3,7 +3,6 @@ import {
   BookOpen,
   Camera,
   Check,
-  Globe,
   GraduationCap,
   Loader2,
   LogOut,
@@ -15,7 +14,7 @@ import {
   Trash2,
   User,
 } from 'lucide-react';
-import { loc, type Lang, type Localized } from '../utils/i18n.ts';
+import { loc, type Localized } from '../utils/i18n.ts';
 import { useLanguage } from '../context/LanguageContext.tsx';
 import { useAuth, type Profile, type Goal } from '../context/AuthContext.tsx';
 import { RobotAvatar } from './robots/RobotAvatars.tsx';
@@ -120,17 +119,6 @@ const REGION_PLACEHOLDER: Localized = {
   en: 'e.g. Almaty',
 };
 
-const LANGUAGE_HEADING: Localized = {
-  ru: 'Язык интерфейса',
-  kk: 'Интерфейс тілі',
-  en: 'Interface language',
-};
-const LANGUAGE_DESC: Localized = {
-  ru: 'Интерфейс переключится сразу после выбора.',
-  kk: 'Тілді таңдаған соң интерфейс бірден ауысады.',
-  en: 'The interface switches the moment you pick one.',
-};
-
 const SAVE_BTN: Localized = { ru: 'Сохранить', kk: 'Сақтау', en: 'Save' };
 const SAVING: Localized = { ru: 'Сохраняем…', kk: 'Сақталуда…', en: 'Saving…' };
 const SAVED: Localized = { ru: 'Сохранено', kk: 'Сақталды', en: 'Saved' };
@@ -159,12 +147,6 @@ const GOALS: Array<{ value: Goal; label: Localized }> = [
   { value: 'olympiad', label: { ru: 'Олимпиада', kk: 'Олимпиада', en: 'Olympiad' } },
   { value: 'revision', label: { ru: 'Повторение темы', kk: 'Тақырыпты қайталау', en: 'Topic revision' } },
   { value: 'admission', label: { ru: 'Поступление', kk: 'Оқуға түсу', en: 'Admission' } },
-];
-
-const LANGS: Array<{ value: Lang; label: Localized }> = [
-  { value: 'ru', label: { ru: 'Русский', kk: 'Русский', en: 'Русский' } },
-  { value: 'kk', label: { ru: 'Қазақша', kk: 'Қазақша', en: 'Қазақша' } },
-  { value: 'en', label: { ru: 'English', kk: 'English', en: 'English' } },
 ];
 
 const GRADES: readonly number[] = [7, 8, 9, 10, 11, 12];
@@ -221,7 +203,7 @@ const CHIP_OFF = 'border-line bg-white text-ink hover:border-teal/60 hover:text-
 
 const ProfilePage: React.FC = () => {
   const { user, profile, loading, signOut, updateProfile, uploadAvatar } = useAuth();
-  const { language, setLanguage } = useLanguage();
+  const { language } = useLanguage();
 
   const [form, setForm] = useState<FormState>({
     fullName: '',
@@ -295,13 +277,6 @@ const ProfilePage: React.FC = () => {
     }
     setBaseline(serialize(form));
     setSaved(true);
-  };
-
-  const handleLanguageChange = async (value: Lang) => {
-    setLanguage(value);
-    setError(null);
-    const { error: langError } = await updateProfile({ language: value });
-    if (langError) setError(langError);
   };
 
   const avatarInitial = (profile.full_name?.trim() || user.email).charAt(0).toUpperCase();
@@ -624,47 +599,6 @@ const ProfilePage: React.FC = () => {
             )}
           </div>
         </form>
-
-        {/* Interface language — saves immediately */}
-        <section aria-labelledby="language-heading" className={`${CARD} mt-6`}>
-          <div className="flex items-center gap-3">
-            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-mist/40">
-              <Globe className="h-5 w-5 text-teal-dark" aria-hidden="true" />
-            </span>
-            <div>
-              <h2
-                id="language-heading"
-                className="font-display text-xl font-bold tracking-tight text-ink"
-              >
-                {loc(language, LANGUAGE_HEADING)}
-              </h2>
-              <p className="mt-0.5 text-sm text-slateink">{loc(language, LANGUAGE_DESC)}</p>
-            </div>
-          </div>
-          <fieldset className="mt-4">
-            <legend className="sr-only">{loc(language, LANGUAGE_HEADING)}</legend>
-            <div className="flex flex-wrap gap-2">
-              {LANGS.map((opt) => {
-                const selected = language === opt.value;
-                return (
-                  <label key={opt.value} className="cursor-pointer">
-                    <input
-                      type="radio"
-                      name="interface-language"
-                      value={opt.value}
-                      checked={selected}
-                      onChange={() => void handleLanguageChange(opt.value)}
-                      className="peer sr-only"
-                    />
-                    <span className={`${CHIP} px-5 py-2.5 ${selected ? CHIP_ON : CHIP_OFF}`}>
-                      {loc(language, opt.label)}
-                    </span>
-                  </label>
-                );
-              })}
-            </div>
-          </fieldset>
-        </section>
 
         <div className="mt-10 border-t border-line/50 pt-6">
           <button
