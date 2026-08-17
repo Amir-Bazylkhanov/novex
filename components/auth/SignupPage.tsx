@@ -1,6 +1,19 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { Link, Navigate, useNavigate } from 'react-router-dom';
-import { Loader2, Lock, Mail, User, UserPlus } from 'lucide-react';
+import {
+  AlertCircle,
+  ArrowLeft,
+  Check,
+  Circle,
+  Eye,
+  EyeOff,
+  Loader2,
+  Lock,
+  Mail,
+  MailCheck,
+  User,
+  UserPlus,
+} from 'lucide-react';
 import { loc, type Localized } from '../../utils/i18n.ts';
 import { useLanguage } from '../../context/LanguageContext.tsx';
 import { useAuth } from '../../context/AuthContext.tsx';
@@ -17,9 +30,9 @@ const SUBTITLE: Localized = {
   en: 'Free for students and schools',
 };
 const NAME_LABEL: Localized = {
-  ru: 'Имя и фамилия',
-  kk: 'Аты-жөніңіз',
-  en: 'Full name',
+  ru: 'Имя',
+  kk: 'Аты',
+  en: 'Name',
 };
 const EMAIL_LABEL: Localized = { ru: 'Email', kk: 'Email', en: 'Email' };
 const PASSWORD_LABEL: Localized = {
@@ -65,17 +78,79 @@ const ERR_EMAIL: Localized = {
   en: 'Enter a valid email address',
 };
 const ERR_PASSWORD: Localized = {
-  ru: 'Пароль — минимум 8 символов',
-  kk: 'Құпия сөз кемінде 8 таңбадан тұруы керек',
-  en: 'Password must be at least 8 characters',
+  ru: 'Пароль не соответствует требованиям',
+  kk: 'Құпия сөз талаптарға сәйкес келмейді',
+  en: 'Password does not meet the requirements',
 };
 const ERR_CONFIRM: Localized = {
   ru: 'Пароли не совпадают',
   kk: 'Құпия сөздер сәйкес келмейді',
   en: 'Passwords do not match',
 };
+const SUMMARY_ERROR: Localized = {
+  ru: 'Проверьте выделенные поля',
+  kk: 'Белгіленген өрістерді тексеріңіз',
+  en: 'Check the highlighted fields',
+};
+const SHOW_PASSWORD: Localized = {
+  ru: 'Показать пароль',
+  kk: 'Құпия сөзді көрсету',
+  en: 'Show password',
+};
+const HIDE_PASSWORD: Localized = {
+  ru: 'Скрыть пароль',
+  kk: 'Құпия сөзді жасыру',
+  en: 'Hide password',
+};
+const RULE_LENGTH: Localized = {
+  ru: 'Минимум 8 символов',
+  kk: 'Кемінде 8 таңба',
+  en: 'At least 8 characters',
+};
+const RULE_UPPER: Localized = {
+  ru: 'Заглавная буква',
+  kk: 'Бас әріп',
+  en: 'An uppercase letter',
+};
+const RULE_LOWER: Localized = {
+  ru: 'Строчная буква',
+  kk: 'Кіші әріп',
+  en: 'A lowercase letter',
+};
+const RULE_DIGIT: Localized = {
+  ru: 'Цифра',
+  kk: 'Сан',
+  en: 'A digit',
+};
+const BACK: Localized = { ru: 'Назад', kk: 'Артқа', en: 'Back' };
+const CONFIRM_TITLE: Localized = {
+  ru: 'Проверьте почту',
+  kk: 'Поштаңызды тексеріңіз',
+  en: 'Check your inbox',
+};
+const CONFIRM_BODY: Localized = {
+  ru: 'Мы отправили ссылку для подтверждения на',
+  kk: 'Растау сілтемесін мына мекенжайға жібердік:',
+  en: 'We sent a confirmation link to',
+};
+const CONFIRM_BODY2: Localized = {
+  ru: 'Перейдите по ней, чтобы завершить регистрацию.',
+  kk: 'Тіркелуді аяқтау үшін сілтемені басыңыз.',
+  en: 'Click it to finish creating your account.',
+};
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+const PASSWORD_RULES: Array<{
+  key: string;
+  label: Localized;
+  test: (password: string) => boolean;
+}> = [
+  { key: 'length', label: RULE_LENGTH, test: (p) => p.length >= 8 },
+  { key: 'upper', label: RULE_UPPER, test: (p) => /[A-Z]/.test(p) },
+  { key: 'lower', label: RULE_LOWER, test: (p) => /[a-z]/.test(p) },
+  { key: 'digit', label: RULE_DIGIT, test: (p) => /\d/.test(p) },
+];
 
 const FOCUS_RING =
   'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2 focus-visible:ring-offset-canvas';
@@ -115,6 +190,7 @@ const GoogleIcon: React.FC = () => (
 );
 
 type SignupFields = { name?: string; email?: string; password?: string; confirm?: string };
+type SignupValues = { name: string; email: string; password: string; confirm: string };
 
 const SignupPage: React.FC = () => {
   const { language } = useLanguage();
@@ -125,33 +201,67 @@ const SignupPage: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirm, setConfirm] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirm, setShowConfirm] = useState(false);
   const [fieldErrors, setFieldErrors] = useState<SignupFields>({});
+  const [submitAttempted, setSubmitAttempted] = useState(false);
   const [formError, setFormError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const [googleLoading, setGoogleLoading] = useState(false);
+  const [pendingEmail, setPendingEmail] = useState<string | null>(null);
+  const inputRefs = useRef<Partial<Record<keyof SignupFields, HTMLInputElement | null>>>({});
 
   if (user) {
     return <Navigate to="/profile" replace />;
   }
 
+  const onBack = () => {
+    if (window.history.length > 1) {
+      navigate(-1);
+    } else {
+      navigate('/');
+    }
+  };
+
+  const validate = (values: SignupValues): SignupFields => {
+    const errors: SignupFields = {};
+    if (!values.name.trim()) errors.name = loc(language, ERR_NAME);
+    if (!EMAIL_RE.test(values.email.trim())) errors.email = loc(language, ERR_EMAIL);
+    if (!PASSWORD_RULES.every((rule) => rule.test(values.password))) {
+      errors.password = loc(language, ERR_PASSWORD);
+    }
+    if (values.confirm !== values.password || !values.confirm) {
+      errors.confirm = loc(language, ERR_CONFIRM);
+    }
+    return errors;
+  };
+
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (submitting) return;
 
-    const errors: SignupFields = {};
-    if (!name.trim()) errors.name = loc(language, ERR_NAME);
-    if (!EMAIL_RE.test(email.trim())) errors.email = loc(language, ERR_EMAIL);
-    if (password.length < 8) errors.password = loc(language, ERR_PASSWORD);
-    if (confirm !== password || !confirm) errors.confirm = loc(language, ERR_CONFIRM);
+    setSubmitAttempted(true);
+    const errors = validate({ name, email, password, confirm });
     setFieldErrors(errors);
-    if (errors.name || errors.email || errors.password || errors.confirm) return;
+    const order: Array<keyof SignupFields> = ['name', 'email', 'password', 'confirm'];
+    const firstInvalid = order.find((key) => errors[key]);
+    if (firstInvalid) {
+      inputRefs.current[firstInvalid]?.focus();
+      return;
+    }
 
     setFormError(null);
     setSubmitting(true);
     try {
-      const { error } = await signUp(email.trim(), password, name.trim());
+      const { error, needsConfirmation } = await signUp(email.trim(), password, name.trim());
       if (error) {
         setFormError(error);
+        return;
+      }
+      if (needsConfirmation) {
+        // Email confirmation is enabled: no session until the inbox link is
+        // clicked, so show a confirmation state instead of navigating.
+        setPendingEmail(email.trim());
         return;
       }
       navigate('/profile', { replace: true });
@@ -173,29 +283,37 @@ const SignupPage: React.FC = () => {
     }
   };
 
-  const inputClass = (invalid: boolean) =>
-    `${FOCUS_RING} w-full rounded-xl border bg-white py-3 pl-11 pr-4 text-base text-ink placeholder:text-slateink/60 transition-colors ${
+  const inputClass = (invalid: boolean, isPassword: boolean) =>
+    `${FOCUS_RING} w-full rounded-xl border bg-white py-3 pl-11 ${
+      isPassword ? 'pr-11' : 'pr-4'
+    } text-base text-ink placeholder:text-slateink/60 transition-colors ${
       invalid ? 'border-coral' : 'border-line hover:border-teal/60'
     }`;
+
+  const hasFieldErrors = Boolean(
+    fieldErrors.name || fieldErrors.email || fieldErrors.password || fieldErrors.confirm,
+  );
 
   const fields: Array<{
     id: string;
     label: Localized;
     icon: React.ComponentType<{ className?: string }>;
-    type: string;
+    type?: string;
+    isPassword?: boolean;
+    visible?: boolean;
+    onToggleVisibility?: () => void;
     autoComplete: string;
     value: string;
-    onChange: (v: string) => void;
+    set: (v: string) => void;
     errorKey: keyof SignupFields;
   }> = [
     {
       id: 'signup-name',
       label: NAME_LABEL,
       icon: User,
-      type: 'text',
       autoComplete: 'name',
       value: name,
-      onChange: setName,
+      set: setName,
       errorKey: 'name',
     },
     {
@@ -205,27 +323,31 @@ const SignupPage: React.FC = () => {
       type: 'email',
       autoComplete: 'email',
       value: email,
-      onChange: setEmail,
+      set: setEmail,
       errorKey: 'email',
     },
     {
       id: 'signup-password',
       label: PASSWORD_LABEL,
       icon: Lock,
-      type: 'password',
+      isPassword: true,
+      visible: showPassword,
+      onToggleVisibility: () => setShowPassword((v) => !v),
       autoComplete: 'new-password',
       value: password,
-      onChange: setPassword,
+      set: setPassword,
       errorKey: 'password',
     },
     {
       id: 'signup-confirm',
       label: CONFIRM_LABEL,
       icon: Lock,
-      type: 'password',
+      isPassword: true,
+      visible: showConfirm,
+      onToggleVisibility: () => setShowConfirm((v) => !v),
       autoComplete: 'new-password',
       value: confirm,
-      onChange: setConfirm,
+      set: setConfirm,
       errorKey: 'confirm',
     },
   ];
@@ -245,6 +367,50 @@ const SignupPage: React.FC = () => {
         </Link>
 
         <div className="w-full rounded-2xl border border-line/50 bg-white p-6 shadow-[0_24px_60px_rgba(17,26,42,0.08)] sm:p-8">
+          <button
+            type="button"
+            onClick={onBack}
+            className={`${FOCUS_RING} -ml-2 mb-4 inline-flex items-center gap-1.5 rounded-lg px-2 py-1 text-sm font-medium text-slateink transition-colors hover:text-teal`}
+          >
+            <ArrowLeft className="h-4 w-4" aria-hidden="true" />
+            {loc(language, BACK)}
+          </button>
+
+          {pendingEmail ? (
+            <div className="flex flex-col items-center text-center">
+              <RobotAvatar robot="nov2" className="h-16 w-16" />
+              <h1 className="mt-4 font-display text-2xl font-extrabold tracking-tight text-teal sm:text-3xl">
+                {loc(language, CONFIRM_TITLE)}
+              </h1>
+              <p className="mt-3 flex items-start gap-2 text-left text-sm text-slateink">
+                <MailCheck className="mt-0.5 h-5 w-5 shrink-0 text-teal" aria-hidden="true" />
+                <span>
+                  {loc(language, CONFIRM_BODY)}{' '}
+                  <span className="font-semibold text-ink">{pendingEmail}</span>.{' '}
+                  {loc(language, CONFIRM_BODY2)}
+                </span>
+              </p>
+              <p className="mt-6 text-sm text-slateink">
+                <Link
+                  to="/login"
+                  className={`${FOCUS_RING} rounded font-semibold text-teal transition-colors hover:text-teal-dark`}
+                >
+                  {loc(language, TO_LOGIN)}
+                </Link>
+              </p>
+            </div>
+          ) : (
+            <>
+              {hasFieldErrors && (
+            <div
+              role="alert"
+              className="mb-5 flex items-center gap-2 rounded-xl border border-coral bg-coral-light/25 px-4 py-3 text-sm font-medium text-ink"
+            >
+              <AlertCircle className="h-4 w-4 shrink-0 text-coral" aria-hidden="true" />
+              {loc(language, SUMMARY_ERROR)}
+            </div>
+          )}
+
           <div className="flex flex-col items-center text-center">
             <RobotAvatar robot="nov2" className="h-16 w-16" />
             <h1 className="mt-4 font-display text-2xl font-extrabold tracking-tight text-ink sm:text-3xl">
@@ -298,19 +464,75 @@ const SignupPage: React.FC = () => {
                     />
                     <input
                       id={f.id}
-                      type={f.type}
+                      ref={(el) => {
+                        inputRefs.current[f.errorKey] = el;
+                      }}
+                      type={f.isPassword ? (f.visible ? 'text' : 'password') : (f.type ?? 'text')}
                       autoComplete={f.autoComplete}
                       value={f.value}
-                      onChange={(e) => f.onChange(e.target.value)}
-                      aria-invalid={Boolean(error)}
+                      onChange={(e) => {
+                        f.set(e.target.value);
+                        if (submitAttempted) {
+                          setFieldErrors(
+                            validate({
+                              name,
+                              email,
+                              password,
+                              confirm,
+                              [f.errorKey]: e.target.value,
+                            }),
+                          );
+                        }
+                      }}
+                      aria-invalid={error ? true : undefined}
                       aria-describedby={error ? `${f.id}-error` : undefined}
-                      className={inputClass(Boolean(error))}
+                      className={inputClass(Boolean(error), Boolean(f.isPassword))}
                     />
+                    {f.isPassword && (
+                      <button
+                        type="button"
+                        onClick={f.onToggleVisibility}
+                        aria-label={loc(language, f.visible ? HIDE_PASSWORD : SHOW_PASSWORD)}
+                        className={`${FOCUS_RING} absolute right-3 top-1/2 -translate-y-1/2 rounded text-slateink transition-colors hover:text-teal`}
+                      >
+                        {f.visible ? (
+                          <EyeOff className="h-5 w-5" aria-hidden="true" />
+                        ) : (
+                          <Eye className="h-5 w-5" aria-hidden="true" />
+                        )}
+                      </button>
+                    )}
                   </div>
                   {error && (
-                    <p id={`${f.id}-error`} className="mt-1.5 text-sm font-medium text-coral">
+                    <p
+                      id={`${f.id}-error`}
+                      className="mt-1.5 flex items-center gap-1.5 text-sm font-medium text-coral"
+                    >
+                      <AlertCircle className="h-4 w-4 shrink-0" aria-hidden="true" />
                       {error}
                     </p>
+                  )}
+                  {f.errorKey === 'password' && password.length > 0 && (
+                    <ul className="mt-2 space-y-1.5">
+                      {PASSWORD_RULES.map((rule) => {
+                        const met = rule.test(password);
+                        return (
+                          <li
+                            key={rule.key}
+                            className={`flex items-center gap-2 text-sm transition-colors duration-200 motion-reduce:transition-none ${
+                              met ? 'text-teal' : 'text-slateink'
+                            }`}
+                          >
+                            {met ? (
+                              <Check className="h-4 w-4 shrink-0" aria-hidden="true" />
+                            ) : (
+                              <Circle className="h-4 w-4 shrink-0" aria-hidden="true" />
+                            )}
+                            <span>{loc(language, rule.label)}</span>
+                          </li>
+                        );
+                      })}
+                    </ul>
                   )}
                 </div>
               );
@@ -339,6 +561,8 @@ const SignupPage: React.FC = () => {
               {loc(language, TO_LOGIN)}
             </Link>
           </p>
+            </>
+          )}
         </div>
       </div>
     </main>

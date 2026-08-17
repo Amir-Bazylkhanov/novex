@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
-import { Loader2, Lock, LogIn, Mail } from 'lucide-react';
+import { AlertCircle, ArrowLeft, Eye, EyeOff, Loader2, Lock, LogIn, Mail } from 'lucide-react';
 import { loc, type Localized } from '../../utils/i18n.ts';
 import { useLanguage } from '../../context/LanguageContext.tsx';
 import { useAuth } from '../../context/AuthContext.tsx';
@@ -50,10 +50,26 @@ const ERR_EMAIL: Localized = {
   en: 'Enter a valid email address',
 };
 const ERR_PASSWORD: Localized = {
-  ru: 'Пароль — минимум 8 символов',
-  kk: 'Құпия сөз кемінде 8 таңбадан тұруы керек',
-  en: 'Password must be at least 8 characters',
+  ru: 'Введите пароль',
+  kk: 'Құпия сөзді енгізіңіз',
+  en: 'Enter your password',
 };
+const SUMMARY_ERROR: Localized = {
+  ru: 'Проверьте выделенные поля',
+  kk: 'Белгіленген өрістерді тексеріңіз',
+  en: 'Check the highlighted fields',
+};
+const SHOW_PASSWORD: Localized = {
+  ru: 'Показать пароль',
+  kk: 'Құпия сөзді көрсету',
+  en: 'Show password',
+};
+const HIDE_PASSWORD: Localized = {
+  ru: 'Скрыть пароль',
+  kk: 'Құпия сөзді жасыру',
+  en: 'Hide password',
+};
+const BACK: Localized = { ru: 'Назад', kk: 'Артқа', en: 'Back' };
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -85,7 +101,7 @@ const GoogleIcon: React.FC = () => (
     />
     <path
       fill="#FBBC05"
-      d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"
+      d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"
     />
     <path
       fill="#34A853"
@@ -93,6 +109,8 @@ const GoogleIcon: React.FC = () => (
     />
   </svg>
 );
+
+type LoginFields = { email?: string; password?: string };
 
 const LoginPage: React.FC = () => {
   const { language } = useLanguage();
@@ -102,26 +120,63 @@ const LoginPage: React.FC = () => {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [fieldErrors, setFieldErrors] = useState<{ email?: string; password?: string }>({});
+  const [showPassword, setShowPassword] = useState(false);
+  const [fieldErrors, setFieldErrors] = useState<LoginFields>({});
+  const [submitAttempted, setSubmitAttempted] = useState(false);
   const [formError, setFormError] = useState<string | null>(
     () => (location.state as { error?: string } | null)?.error ?? null,
   );
   const [submitting, setSubmitting] = useState(false);
   const [googleLoading, setGoogleLoading] = useState(false);
+  const emailRef = useRef<HTMLInputElement | null>(null);
+  const passwordRef = useRef<HTMLInputElement | null>(null);
+
+  // The error arrives via AuthCallback's navigate('/login', { state: { error } }).
+  // Clear it from history state after reading so a refresh does not re-show it.
+  useEffect(() => {
+    const state = location.state as { error?: string } | null;
+    if (state?.error) {
+      const rest = { ...state };
+      delete rest.error;
+      navigate(location.pathname, { replace: true, state: rest });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   if (user) {
     return <Navigate to="/profile" replace />;
   }
 
+  const onBack = () => {
+    if (window.history.length > 1) {
+      navigate(-1);
+    } else {
+      navigate('/');
+    }
+  };
+
+  const validate = (emailValue: string, passwordValue: string): LoginFields => {
+    const errors: LoginFields = {};
+    if (!EMAIL_RE.test(emailValue.trim())) errors.email = loc(language, ERR_EMAIL);
+    if (!passwordValue) errors.password = loc(language, ERR_PASSWORD);
+    return errors;
+  };
+
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (submitting) return;
 
-    const errors: { email?: string; password?: string } = {};
-    if (!EMAIL_RE.test(email.trim())) errors.email = loc(language, ERR_EMAIL);
-    if (password.length < 8) errors.password = loc(language, ERR_PASSWORD);
+    setSubmitAttempted(true);
+    const errors = validate(email, password);
     setFieldErrors(errors);
-    if (errors.email || errors.password) return;
+    if (errors.email) {
+      emailRef.current?.focus();
+      return;
+    }
+    if (errors.password) {
+      passwordRef.current?.focus();
+      return;
+    }
 
     setFormError(null);
     setSubmitting(true);
@@ -152,10 +207,14 @@ const LoginPage: React.FC = () => {
     }
   };
 
-  const inputClass = (invalid: boolean) =>
-    `${FOCUS_RING} w-full rounded-xl border bg-white py-3 pl-11 pr-4 text-base text-ink placeholder:text-slateink/60 transition-colors ${
+  const inputClass = (invalid: boolean, isPassword: boolean) =>
+    `${FOCUS_RING} w-full rounded-xl border bg-white py-3 pl-11 ${
+      isPassword ? 'pr-11' : 'pr-4'
+    } text-base text-ink placeholder:text-slateink/60 transition-colors ${
       invalid ? 'border-coral' : 'border-line hover:border-teal/60'
     }`;
+
+  const hasFieldErrors = Boolean(fieldErrors.email || fieldErrors.password);
 
   return (
     <main className="flex min-h-screen flex-col bg-canvas px-5 py-10 sm:px-6">
@@ -172,6 +231,25 @@ const LoginPage: React.FC = () => {
         </Link>
 
         <div className="w-full rounded-2xl border border-line/50 bg-white p-6 shadow-[0_24px_60px_rgba(17,26,42,0.08)] sm:p-8">
+          <button
+            type="button"
+            onClick={onBack}
+            className={`${FOCUS_RING} -ml-2 mb-4 inline-flex items-center gap-1.5 rounded-lg px-2 py-1 text-sm font-medium text-slateink transition-colors hover:text-teal`}
+          >
+            <ArrowLeft className="h-4 w-4" aria-hidden="true" />
+            {loc(language, BACK)}
+          </button>
+
+          {hasFieldErrors && (
+            <div
+              role="alert"
+              className="mb-5 flex items-center gap-2 rounded-xl border border-coral bg-coral-light/25 px-4 py-3 text-sm font-medium text-ink"
+            >
+              <AlertCircle className="h-4 w-4 shrink-0 text-coral" aria-hidden="true" />
+              {loc(language, SUMMARY_ERROR)}
+            </div>
+          )}
+
           <div className="flex flex-col items-center text-center">
             <RobotAvatar robot="nov2" className="h-16 w-16" />
             <h1 className="mt-4 font-display text-2xl font-extrabold tracking-tight text-ink sm:text-3xl">
@@ -224,17 +302,27 @@ const LoginPage: React.FC = () => {
                 />
                 <input
                   id="login-email"
+                  ref={emailRef}
                   type="email"
                   autoComplete="email"
                   value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  aria-invalid={Boolean(fieldErrors.email)}
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                    if (submitAttempted) {
+                      setFieldErrors(validate(e.target.value, password));
+                    }
+                  }}
+                  aria-invalid={fieldErrors.email ? true : undefined}
                   aria-describedby={fieldErrors.email ? 'login-email-error' : undefined}
-                  className={inputClass(Boolean(fieldErrors.email))}
+                  className={inputClass(Boolean(fieldErrors.email), false)}
                 />
               </div>
               {fieldErrors.email && (
-                <p id="login-email-error" className="mt-1.5 text-sm font-medium text-coral">
+                <p
+                  id="login-email-error"
+                  className="mt-1.5 flex items-center gap-1.5 text-sm font-medium text-coral"
+                >
+                  <AlertCircle className="h-4 w-4 shrink-0" aria-hidden="true" />
                   {fieldErrors.email}
                 </p>
               )}
@@ -254,17 +342,39 @@ const LoginPage: React.FC = () => {
                 />
                 <input
                   id="login-password"
-                  type="password"
+                  ref={passwordRef}
+                  type={showPassword ? 'text' : 'password'}
                   autoComplete="current-password"
                   value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  aria-invalid={Boolean(fieldErrors.password)}
+                  onChange={(e) => {
+                    setPassword(e.target.value);
+                    if (submitAttempted) {
+                      setFieldErrors(validate(email, e.target.value));
+                    }
+                  }}
+                  aria-invalid={fieldErrors.password ? true : undefined}
                   aria-describedby={fieldErrors.password ? 'login-password-error' : undefined}
-                  className={inputClass(Boolean(fieldErrors.password))}
+                  className={inputClass(Boolean(fieldErrors.password), true)}
                 />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword((v) => !v)}
+                  aria-label={loc(language, showPassword ? HIDE_PASSWORD : SHOW_PASSWORD)}
+                  className={`${FOCUS_RING} absolute right-3 top-1/2 -translate-y-1/2 rounded text-slateink transition-colors hover:text-teal`}
+                >
+                  {showPassword ? (
+                    <EyeOff className="h-5 w-5" aria-hidden="true" />
+                  ) : (
+                    <Eye className="h-5 w-5" aria-hidden="true" />
+                  )}
+                </button>
               </div>
               {fieldErrors.password && (
-                <p id="login-password-error" className="mt-1.5 text-sm font-medium text-coral">
+                <p
+                  id="login-password-error"
+                  className="mt-1.5 flex items-center gap-1.5 text-sm font-medium text-coral"
+                >
+                  <AlertCircle className="h-4 w-4 shrink-0" aria-hidden="true" />
                   {fieldErrors.password}
                 </p>
               )}

@@ -52,9 +52,9 @@ const EMAIL_LABEL: Localized = {
   en: 'Email',
 };
 const NAME_LABEL: Localized = {
-  ru: 'Имя и фамилия',
-  kk: 'Аты-жөні',
-  en: 'Display name',
+  ru: 'Имя',
+  kk: 'Аты',
+  en: 'Name',
 };
 const NAME_PLACEHOLDER: Localized = {
   ru: 'Как тебя зовут?',

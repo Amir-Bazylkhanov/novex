@@ -27,7 +27,11 @@ interface AuthContextValue {
   profile: Profile | null;
   loading: boolean;
   signIn(email: string, password: string): Promise<{ error: string | null }>;
-  signUp(email: string, password: string, fullName: string): Promise<{ error: string | null }>;
+  signUp(
+    email: string,
+    password: string,
+    fullName: string,
+  ): Promise<{ error: string | null; needsConfirmation: boolean }>;
   signInWithGoogle(): Promise<{ error: string | null }>;
   signOut(): Promise<void>;
   updateProfile(patch: Partial<Profile>): Promise<{ error: string | null }>;
@@ -166,14 +170,19 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   const signUp = useCallback(async (email: string, password: string, fullName: string) => {
     try {
-      const { error } = await supabase.auth.signUp({
+      const { data, error } = await supabase.auth.signUp({
         email,
         password,
         options: { data: { full_name: fullName } },
       });
-      return { error: error ? mapAuthError(error) : null };
+      return {
+        error: error ? mapAuthError(error) : null,
+        // With email confirmation enabled Supabase returns a user but no
+        // session — the user must click the link in their inbox first.
+        needsConfirmation: !error && !data.session,
+      };
     } catch (err) {
-      return { error: mapAuthError(err) };
+      return { error: mapAuthError(err), needsConfirmation: false };
     }
   }, []);
 
