@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-NOVEX is an AI platform that gives Kazakhstani school students (grades 7–12) personalized education regardless of which school or region they are in. It is a hackathon MVP for **Future Minds Hackathon 2026 — Track 2: Social Impact Challenge**.
+NOVEX is an AI platform that gives Kazakhstani school students (grades 7–12) personalized education regardless of which school or region they are in. It is a hackathon MVP for **Future Minds Hackathon 2026 — Track 2: Social Impact Challenge** (submission deadline 25 Aug 2026). The official case brief lives at `docs/hackathon-brief.pdf` — it defines the required capabilities A–F below, the bonus features, the deliverables (pitch deck ≤12 slides, public repo, ≤3-min video demo or live link), and the judging criteria.
 
 The product vision is a 5-step loop: student signs up → picks grade / subject / goal (exam, olympiad, topic revision) → the platform recommends level-matched materials and tasks → the student completes tasks and gets AI feedback → a teacher / admin tracks progress through a dashboard.
 
@@ -17,7 +17,11 @@ The required MVP capabilities (SPEC.md §0) are:
 - **E.** Tasks & feedback module: 2–3 topics with tasks / mini-tests, correct/incorrect feedback with explanation
 - **F.** Teacher / admin panel: class-level progress statistics, ability to add topics, tasks or materials
 
-Current state: **the public landing page is built; the app modules (B–F) come next.** The landing must clearly demonstrate every required capability so a judge reading it understands the full product. `SPEC.md` is the single source of truth for design and copy contracts — read it before touching the landing.
+Current state: **landing plus all app modules are built and deployed at novex-edu.vercel.app** — auth (email + Google), profile with avatar upload, diagnostic onboarding, dashboard, 5 real lessons, teacher panel, and an AI tutor chat backed by live edge functions. `SPEC.md` is the single source of truth for design and copy contracts — read it before touching the landing.
+
+### Relationship to Locus
+
+Novex's requirements overlap heavily with **Locus** (`C:\Users\Dituar\CursorProjects\Locus`), our existing production project, so the deliberate strategy is to reuse working code and patterns from it instead of building from scratch: the `loc()` i18n contract, the Supabase client/auth setup, the edge-function proxy pattern, and the AI provider access itself. Reused pieces are **adapted, not copied verbatim** — restyled to the Novex palette (Locus is purple-on-black, Novex is teal-on-white), recolored, and trimmed to hackathon scope. Novex's `ai-chat` edge function forwards to Locus's `novex-ai` function (shared-secret auth), so Novex uses Locus's AI API keys — accepted for the hackathon since Novex will be abandoned afterward. **Locus is live production: never break it, and any Locus change must be additive and path-scoped (its working tree carries unrelated in-flight work that must stay untouched).**
 
 ## Commands
 
@@ -107,7 +111,7 @@ Rules:
 - **Frontend:** React 18, TypeScript 5.8, Tailwind CSS v4 (via `@tailwindcss/vite` plugin), Framer Motion, lucide-react
 - **Routing:** react-router-dom 6
 - **Build:** Vite 6 (dev server on port 3000)
-- **Backend:** Supabase is configured via env vars but **not yet wired into the app** — there is no client, no queries, no auth yet
+- **Backend:** Supabase (project `nqjrtltqmjyzfmoytwvl`, separate from Locus's) — PKCE auth via `services/supabaseClient.ts`, `profiles` / `diagnostic_results` / `lesson_progress` tables with RLS, `avatars` storage bucket, and the `ai-chat` edge function
 
 ## Key Patterns
 
