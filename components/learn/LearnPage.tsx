@@ -24,6 +24,7 @@ import { useLanguage } from '../../context/LanguageContext.tsx';
 import { useAuth, type Role } from '../../context/AuthContext.tsx';
 import { supabase } from '../../services/supabaseClient.ts';
 import { RobotAvatar, type MentorRobotId } from '../robots/RobotAvatars.tsx';
+import RobotShowcase from './RobotShowcase.tsx';
 import RobotBackdrop from '../RobotBackdrop.tsx';
 import {
   LESSON_SUBJECTS,
@@ -514,12 +515,7 @@ const LearnPage: React.FC = () => {
           {activeMentor === null ? (
             /* LEVEL 1 — robot picker */
             <div className="mt-10" aria-labelledby="mentor-picker-heading">
-              <motion.div
-                initial={reducedMotion ? { opacity: 0 } : { opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-80px' }}
-                transition={{ duration: 0.5 }}
-              >
+              <div className="learn-heading-in">
                 <h2
                   id="mentor-picker-heading"
                   className="font-display text-lg font-bold tracking-tight text-ink sm:text-xl"
@@ -529,70 +525,40 @@ const LearnPage: React.FC = () => {
                 <p className="mt-1 max-w-2xl text-sm text-slateink sm:text-base">
                   {loc(language, PICKER_SUB)}
                 </p>
-              </motion.div>
+              </div>
 
-              <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-                {MENTORS.map((mentor, index) => {
+              <RobotShowcase
+                robots={MENTORS.map((mentor) => {
                   const mentorLessons = LESSONS.filter((l) =>
                     mentor.subjects.includes(l.subject),
                   );
                   const completedCount = mentorLessons.filter(
                     (l) => progress[l.slug]?.status === 'completed',
                   ).length;
-                  const isMentorRecommended =
-                    role !== 'teacher' &&
-                    mentor.subjects.some((s) => recommendedSubjects.has(s));
-                  return (
-                    <motion.div
-                      key={mentor.id}
-                      initial={reducedMotion ? { opacity: 0 } : { opacity: 0, y: 24 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true, margin: '-80px' }}
-                      transition={{ duration: 0.5, delay: index * 0.08 }}
-                      whileHover={reducedMotion ? undefined : { y: -4 }}
-                    >
-                      <button
-                        type="button"
-                        onClick={() => setSelectedRobot(mentor.id)}
-                        className={`${FOCUS_RING} group flex h-full w-full flex-col items-center rounded-2xl border border-line/50 bg-white px-6 py-8 text-center shadow-[0_1px_3px_rgba(17,26,42,0.04)] transition-colors duration-200 hover:border-teal/60`}
-                      >
-                        <RobotAvatar robot={mentor.id} className="h-32 w-32 sm:h-36 sm:w-36" />
-                        <p className="mt-4 font-mono text-[11px] font-medium uppercase tracking-widest text-teal-dark">
-                          {loc(language, mentor.codeLabel)}
-                        </p>
-                        <h3 className="mt-1 font-display text-xl font-extrabold tracking-tight text-ink group-hover:text-teal-dark">
-                          {loc(language, mentor.name)}
-                        </h3>
-                        <p className="mt-1.5 text-sm text-slateink">
-                          {loc(language, mentor.tagline)}
-                        </p>
-                        <div className="mt-4 flex flex-wrap items-center justify-center gap-2">
-                          {LESSON_SUBJECTS.filter((s) =>
-                            mentor.subjects.includes(s.slug),
-                          ).map((s) => (
-                            <span
-                              key={s.slug}
-                              className="inline-flex items-center gap-1.5 rounded-full bg-mist/30 px-2.5 py-1 text-xs font-semibold text-teal-dark"
-                            >
-                              {SUBJECT_ICONS[s.slug]}
-                              {loc(language, s.label)}
-                            </span>
-                          ))}
-                        </div>
-                        <p className="mt-3 text-xs font-medium text-slateink">
-                          {mentorLessonsLine(language, mentorLessons.length, completedCount)}
-                        </p>
-                        {isMentorRecommended && (
-                          <span className="mt-3 inline-flex items-center gap-1 rounded-full border border-coral/40 px-2.5 py-1 text-[11px] font-semibold text-coral">
-                            <Sparkles className="h-3 w-3" aria-hidden="true" />
-                            {loc(language, RECOMMENDED_BADGE)}
-                          </span>
-                        )}
-                      </button>
-                    </motion.div>
-                  );
+                  return {
+                    id: mentor.id,
+                    idLine: loc(language, mentor.codeLabel),
+                    name: loc(language, mentor.name),
+                    tagline: loc(language, mentor.tagline),
+                    chips: LESSON_SUBJECTS.filter((s) =>
+                      mentor.subjects.includes(s.slug),
+                    ).map((s) => ({
+                      icon: SUBJECT_ICONS[s.slug],
+                      label: loc(language, s.label),
+                    })),
+                    countsLine: mentorLessonsLine(
+                      language,
+                      mentorLessons.length,
+                      completedCount,
+                    ),
+                    recommended:
+                      role !== 'teacher' &&
+                      mentor.subjects.some((s) => recommendedSubjects.has(s)),
+                    recommendedBadge: loc(language, RECOMMENDED_BADGE),
+                    onSelect: () => setSelectedRobot(mentor.id),
+                  };
                 })}
-              </div>
+              />
             </div>
           ) : (
             /* LEVEL 2 — the chosen mentor's lessons */

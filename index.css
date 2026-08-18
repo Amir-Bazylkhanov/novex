@@ -26,3 +26,25 @@
     @apply bg-teal/20 text-ink;
   }
 }
+
+/* /learn picker heading reveal. Deliberately CSS-driven (not framer-motion):
+   this heading gates the mentor picker, so its reveal must not depend on a
+   JS-driven animation loop. Static under prefers-reduced-motion. */
+@keyframes learn-heading-in {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.learn-heading-in {
+  animation: learn-heading-in 0.5s ease-out backwards;
+}
+@media (prefers-reduced-motion: reduce) {
+  .learn-heading-in {
+    animation: none;
+  }
+}

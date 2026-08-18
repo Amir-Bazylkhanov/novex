@@ -172,14 +172,19 @@ const MODEL_OPTIONS: Array<{ id: TutorModel; label: string }> = [
 
 const MODEL_STORAGE_KEY = 'novex.tutorModel';
 
-function loadModel(): TutorModel {
+function storedModel(): TutorModel | null {
   try {
     const stored = window.localStorage.getItem(MODEL_STORAGE_KEY);
     if (MODEL_OPTIONS.some((o) => o.id === stored)) return stored as TutorModel;
   } catch {
-    // localStorage unavailable — fall through to default
+    // localStorage unavailable — fall through to null
   }
-  return 'claude-sonnet-5';
+  return null;
+}
+
+/** Model precedence: this session's in-chat choice (localStorage) > profile > default. */
+function loadModel(preferred: TutorModel | null | undefined): TutorModel {
+  return storedModel() ?? preferred ?? 'claude-sonnet-5';
 }
 
 /** System prompt for NOV-02, telling the model which UI language to answer in. */
@@ -264,7 +269,7 @@ interface ChatMessage {
 
 const TutorChat: React.FC = () => {
   const { language } = useLanguage();
-  const { user } = useAuth();
+  const { user, profile, updateProfile } = useAuth();
   const reduceMotion = useReducedMotion();
 
   const [open, setOpen] = useState(false);
@@ -272,7 +277,7 @@ const TutorChat: React.FC = () => {
   const [input, setInput] = useState('');
   const [typing, setTyping] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [model, setModelState] = useState<TutorModel>(loadModel);
+  const [model, setModelState] = useState<TutorModel>(() => loadModel(profile?.preferredModel));
   const [modelMenuOpen, setModelMenuOpen] = useState(false);
 
   const fabRef = useRef<HTMLButtonElement>(null);
@@ -285,14 +290,27 @@ const TutorChat: React.FC = () => {
 
   const systemPrompt = useMemo(() => buildSystemPrompt(language), [language]);
 
-  const setModel = useCallback((next: TutorModel) => {
-    setModelState(next);
-    try {
-      window.localStorage.setItem(MODEL_STORAGE_KEY, next);
-    } catch {
-      // localStorage unavailable — the in-memory choice still works
-    }
-  }, []);
+  const setModel = useCallback(
+    (next: TutorModel) => {
+      setModelState(next);
+      try {
+        window.localStorage.setItem(MODEL_STORAGE_KEY, next);
+      } catch {
+        // localStorage unavailable — the in-memory choice still works
+      }
+      // Remember the choice on the profile too, so it follows the user to
+      // another device. Fire-and-forget: a failed write keeps the local choice.
+      void updateProfile({ preferredModel: next });
+    },
+    [updateProfile],
+  );
+
+  // The profile may arrive after the first render — apply its preferred model
+  // only when the user has not picked one in-chat this session (localStorage).
+  useEffect(() => {
+    if (!profile?.preferredModel || storedModel()) return;
+    setModelState(profile.preferredModel);
+  }, [profile?.preferredModel]);
 
   // Focus the input on open; return focus to the FAB on close.
   useEffect(() => {

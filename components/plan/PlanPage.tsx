@@ -189,6 +189,7 @@ interface ProfilePlanRow {
   grade: number | null;
   subjects: string[] | null;
   goal: string | null;
+  goals: string[] | null;
   exam_date: string | null;
 }
 
@@ -485,7 +486,7 @@ const PlanPage: React.FC = () => {
         const [profileRes, diagRes, planRes] = await Promise.all([
           supabase
             .from('profiles')
-            .select('grade, subjects, goal, exam_date')
+            .select('grade, subjects, goal, goals, exam_date')
             .eq('id', user.id)
             .maybeSingle(),
           supabase
@@ -538,7 +539,7 @@ const PlanPage: React.FC = () => {
       const [profileRes, diagRes] = await Promise.all([
         supabase
           .from('profiles')
-          .select('grade, subjects, goal, exam_date')
+          .select('grade, subjects, goal, goals, exam_date')
           .eq('id', user.id)
           .maybeSingle(),
         supabase
@@ -582,9 +583,17 @@ const PlanPage: React.FC = () => {
   const profileRow = source?.profileRow ?? null;
   const exam = profileRow ? parseFutureDate(profileRow.exam_date) : null;
   const daysLeft = exam ? Math.ceil((exam.getTime() - startOfToday().getTime()) / DAY_MS) : 0;
+  // All selected goals, falling back to the legacy single-goal column.
+  const goalValues = profileRow
+    ? cleanSlugs(profileRow.goals).length > 0
+      ? cleanSlugs(profileRow.goals)
+      : profileRow.goal
+        ? [profileRow.goal]
+        : []
+    : [];
   const goalLabel =
-    profileRow?.goal && GOAL_LABELS[profileRow.goal]
-      ? loc(language, GOAL_LABELS[profileRow.goal])
+    goalValues.length > 0
+      ? goalValues.map((g) => (GOAL_LABELS[g] ? loc(language, GOAL_LABELS[g]) : g)).join(', ')
       : loc(language, NO_GOAL_SHORT);
 
   const subjectLabel = (slug: string): string => {

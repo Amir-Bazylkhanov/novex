@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
 
 export type RobotId = 'nov1' | 'nov2' | 'nov3';
 /** Mentor robots for the /learn picker: Логик, Полиглот, Кибер. */
@@ -41,12 +42,54 @@ const GEAR_MOTION_CSS = `
 }
 `;
 
-/** Inline-SVG robot mascot. Square aspect. Size it with className, e.g. "h-24 w-24". */
-export const RobotAvatar: React.FC<{ robot: AnyRobotId; className?: string }> = ({
-  robot,
-  className,
-}) => {
+/* Fixed per-robot seeds so the blink rhythm differs per character but stays
+   deterministic across renders (4–7 s interval range). */
+const BLINK_SEED: Record<AnyRobotId, number> = {
+  nov1: 1,
+  nov2: 4,
+  nov3: 7,
+  nov4: 2,
+  nov5: 5,
+  nov6: 9,
+};
+
+/** Inline-SVG robot mascot. Square aspect. Size it with className, e.g. "h-24 w-24".
+    Optional animation hooks (used by the /learn robot showcase): eyeOffset shifts
+    the pupils towards the cursor, animated enables idle details (blink, glint, scan). */
+export const RobotAvatar: React.FC<{
+  robot: AnyRobotId;
+  className?: string;
+  /** Pupil shift in SVG units, clamped to ±2.5. */
+  eyeOffset?: { x: number; y: number };
+  /** Enables idle animations: eyelid blink, nov4 glasses glint, nov6 visor scan. */
+  animated?: boolean;
+}> = ({ robot, className, eyeOffset, animated = false }) => {
   const accent = ACCENT[robot];
+  const ox = Math.max(-2.5, Math.min(2.5, eyeOffset?.x ?? 0));
+  const oy = Math.max(-2.5, Math.min(2.5, eyeOffset?.y ?? 0));
+  const pupilTransform = eyeOffset ? `translate(${ox} ${oy})` : undefined;
+
+  /* Eyelid blink: a brief overlay over the eyes every 4–7 s (seeded per robot). */
+  const [blinking, setBlinking] = useState(false);
+  useEffect(() => {
+    if (!animated) return;
+    let alive = true;
+    let timer = 0;
+    const wait = 4000 + ((BLINK_SEED[robot] * 331) % 3000);
+    const close = () => {
+      if (!alive) return;
+      setBlinking(true);
+      window.setTimeout(() => {
+        if (alive) setBlinking(false);
+      }, 150);
+      timer = window.setTimeout(close, wait);
+    };
+    timer = window.setTimeout(close, wait);
+    return () => {
+      alive = false;
+      window.clearTimeout(timer);
+    };
+  }, [animated, robot]);
   /* Head silhouette per character: nov4 square/analytical, nov5 extra-round
      and friendly, nov6 angular techy, nov1–3 keep the original rounded rect. */
   const headRx = robot === 'nov4' ? 10 : robot === 'nov5' ? 46 : robot === 'nov6' ? 16 : 26;
@@ -168,22 +211,42 @@ export const RobotAvatar: React.FC<{ robot: AnyRobotId; className?: string }> = 
           <rect x="50" y="62" width="40" height="30" rx="6" fill="none" stroke={accent} strokeWidth="3.5" />
           <rect x="110" y="62" width="40" height="30" rx="6" fill="none" stroke={accent} strokeWidth="3.5" />
           <line x1="90" y1="77" x2="110" y2="77" stroke={accent} strokeWidth="3.5" />
-          <rect x="62" y="71" width="16" height="12" rx="2" fill={accent} />
-          <line x1="67" y1="71" x2="67" y2="83" stroke={WHITE} strokeWidth="1.5" />
-          <line x1="62" y1="77" x2="78" y2="77" stroke={WHITE} strokeWidth="1.5" />
-          <rect x="122" y="71" width="16" height="12" rx="2" fill={accent} />
-          <line x1="127" y1="71" x2="127" y2="83" stroke={WHITE} strokeWidth="1.5" />
-          <line x1="122" y1="77" x2="138" y2="77" stroke={WHITE} strokeWidth="1.5" />
+          <g transform={pupilTransform}>
+            <rect x="62" y="71" width="16" height="12" rx="2" fill={accent} />
+            <line x1="67" y1="71" x2="67" y2="83" stroke={WHITE} strokeWidth="1.5" />
+            <line x1="62" y1="77" x2="78" y2="77" stroke={WHITE} strokeWidth="1.5" />
+          </g>
+          <g transform={pupilTransform}>
+            <rect x="122" y="71" width="16" height="12" rx="2" fill={accent} />
+            <line x1="127" y1="71" x2="127" y2="83" stroke={WHITE} strokeWidth="1.5" />
+            <line x1="122" y1="77" x2="138" y2="77" stroke={WHITE} strokeWidth="1.5" />
+          </g>
+          {/* glint sweeping across the glasses (animated mode only) */}
+          {animated && (
+            <motion.rect
+              x="46"
+              y="60"
+              width="12"
+              height="34"
+              rx="4"
+              fill={WHITE}
+              opacity="0.4"
+              animate={{ x: [0, 108, 108] }}
+              transition={{ duration: 3.6, times: [0, 0.45, 1], repeat: Infinity, ease: 'easeInOut' }}
+            />
+          )}
         </>
       )}
       {robot === 'nov5' && (
         <>
           <circle cx="70" cy="76" r="22" fill={accent} opacity="0.16" className="nvx-pulse" />
           <circle cx="130" cy="76" r="22" fill={accent} opacity="0.16" className="nvx-pulse" />
-          <circle cx="70" cy="76" r="14" fill={accent} />
-          <circle cx="130" cy="76" r="14" fill={accent} />
-          <circle cx="65" cy="71" r="4.5" fill={WHITE} opacity="0.85" />
-          <circle cx="125" cy="71" r="4.5" fill={WHITE} opacity="0.85" />
+          <g transform={pupilTransform}>
+            <circle cx="70" cy="76" r="14" fill={accent} />
+            <circle cx="130" cy="76" r="14" fill={accent} />
+            <circle cx="65" cy="71" r="4.5" fill={WHITE} opacity="0.85" />
+            <circle cx="125" cy="71" r="4.5" fill={WHITE} opacity="0.85" />
+          </g>
         </>
       )}
       {robot === 'nov6' && (
@@ -191,8 +254,48 @@ export const RobotAvatar: React.FC<{ robot: AnyRobotId; className?: string }> = 
           {/* single wide visor with scan dot */}
           <rect x="52" y="64" width="96" height="26" rx="13" fill={accent} opacity="0.16" className="nvx-pulse" />
           <rect x="56" y="68" width="88" height="18" rx="9" fill={accent} />
-          <circle cx="80" cy="77" r="3.5" fill={WHITE} opacity="0.9" className="nvx-blink" />
-          <rect x="100" y="74.5" width="30" height="5" rx="2.5" fill={WHITE} opacity="0.5" />
+          <g transform={pupilTransform}>
+            <circle cx="80" cy="77" r="3.5" fill={WHITE} opacity="0.9" className="nvx-blink" />
+            <rect x="100" y="74.5" width="30" height="5" rx="2.5" fill={WHITE} opacity="0.5" />
+          </g>
+          {/* scanning bar sweeping the visor (animated mode only) */}
+          {animated && (
+            <motion.rect
+              x="58"
+              y="69.5"
+              width="5"
+              height="15"
+              rx="2.5"
+              fill={WHITE}
+              opacity="0.85"
+              animate={{ x: [0, 81, 0] }}
+              transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+            />
+          )}
+        </>
+      )}
+
+      {/* eyelid blink overlays (animated mode only) */}
+      {blinking && robot === 'nov4' && (
+        <>
+          <rect x="54" y="66" width="32" height="22" rx="5" fill={WHITE} />
+          <rect x="114" y="66" width="32" height="22" rx="5" fill={WHITE} />
+          <line x1="57" y1="77" x2="83" y2="77" stroke={accent} strokeWidth="2.5" strokeLinecap="round" />
+          <line x1="117" y1="77" x2="143" y2="77" stroke={accent} strokeWidth="2.5" strokeLinecap="round" />
+        </>
+      )}
+      {blinking && robot === 'nov5' && (
+        <>
+          <circle cx="70" cy="76" r="15" fill={WHITE} />
+          <circle cx="130" cy="76" r="15" fill={WHITE} />
+          <path d="M 58 77 Q 70 81 82 77" stroke={accent} strokeWidth="3" fill="none" strokeLinecap="round" />
+          <path d="M 118 77 Q 130 81 142 77" stroke={accent} strokeWidth="3" fill="none" strokeLinecap="round" />
+        </>
+      )}
+      {blinking && robot === 'nov6' && (
+        <>
+          <rect x="56" y="68" width="88" height="18" rx="9" fill={WHITE} />
+          <line x1="68" y1="77" x2="132" y2="77" stroke={accent} strokeWidth="3.5" strokeLinecap="round" />
         </>
       )}
 

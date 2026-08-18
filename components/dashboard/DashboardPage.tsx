@@ -408,6 +408,9 @@ const DashboardPage: React.FC = () => {
 
   const days = daysUntilEnt();
   const examDays = profile.examDate ? daysUntilDate(profile.examDate) : null;
+  // All selected goals, falling back to the legacy single-goal column.
+  const displayGoals: Goal[] =
+    profile.goals.length > 0 ? profile.goals : profile.goal ? [profile.goal] : [];
 
   const reminders: Array<{ key: string; text: string; to: string | null }> = [];
   if (examDays !== null && examDays >= 0 && examDays <= 30) {
@@ -759,14 +762,19 @@ const DashboardPage: React.FC = () => {
                   <p className="mt-1 text-sm text-slateink">{loc(language, UNT_CAPTION)}</p>
                 </div>
 
-                {profile.goal ? (
+                {displayGoals.length > 0 ? (
                   <div className="mt-5 flex flex-wrap items-center gap-2">
                     <span className="text-sm font-semibold text-slateink">
                       {loc(language, YOUR_GOAL)}:
                     </span>
-                    <span className="inline-flex items-center rounded-full border border-teal/40 bg-teal/10 px-3.5 py-1.5 text-sm font-semibold text-teal-dark">
-                      {loc(language, GOAL_LABELS[profile.goal])}
-                    </span>
+                    {displayGoals.map((g) => (
+                      <span
+                        key={g}
+                        className="inline-flex items-center rounded-full border border-teal/40 bg-teal/10 px-3.5 py-1.5 text-sm font-semibold text-teal-dark"
+                      >
+                        {loc(language, GOAL_LABELS[g])}
+                      </span>
+                    ))}
                   </div>
                 ) : (
                   <p className="mt-5 text-sm text-slateink">{loc(language, NO_GOAL)}</p>

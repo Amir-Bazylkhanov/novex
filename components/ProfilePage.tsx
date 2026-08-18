@@ -1,10 +1,12 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
+  Award,
   BookOpen,
   Calendar,
   Camera,
   Check,
+  Cog,
   GraduationCap,
   Loader2,
   LogOut,
@@ -21,7 +23,8 @@ import {
 } from 'lucide-react';
 import { loc, type Localized } from '../utils/i18n.ts';
 import { useLanguage } from '../context/LanguageContext.tsx';
-import { useAuth, type Profile, type Goal } from '../context/AuthContext.tsx';
+import { useAuth, type ExamScores, type Profile, type Goal } from '../context/AuthContext.tsx';
+import type { TutorModel } from '../services/aiService.ts';
 import { supabase } from '../services/supabaseClient.ts';
 import { RobotAvatar } from './robots/RobotAvatars.tsx';
 
@@ -111,7 +114,11 @@ const LEARNING_DESC: Localized = {
 };
 
 const GRADE_LABEL: Localized = { ru: 'Класс', kk: 'Сынып', en: 'Grade' };
-const SUBJECTS_LABEL: Localized = { ru: 'Предметы', kk: 'Пәндер', en: 'Subjects' };
+const SUBJECTS_LABEL: Localized = {
+  ru: 'Предметы для изучения',
+  kk: 'Оқитын пәндер',
+  en: 'Subjects to study',
+};
 const SUBJECTS_HINT: Localized = {
   ru: 'Можно выбрать несколько',
   kk: 'Бірнешеуін таңдауға болады',
@@ -121,6 +128,11 @@ const GOAL_LABEL: Localized = {
   ru: 'Цель занятий',
   kk: 'Сабақтың мақсаты',
   en: 'Goal',
+};
+const GOAL_HINT: Localized = {
+  ru: 'Можно выбрать несколько',
+  kk: 'Бірнешеуін таңдауға болады',
+  en: 'You can pick several',
 };
 const SCHOOL_LABEL: Localized = { ru: 'Школа', kk: 'Мектеп', en: 'School' };
 const SCHOOL_PLACEHOLDER: Localized = {
@@ -139,6 +151,67 @@ const EXAM_DATE_LABEL: Localized = {
   kk: 'Емтихан күні немесе мақсат дедлайны',
   en: 'Exam date or goal deadline',
 };
+
+const EXAMS_HEADING: Localized = {
+  ru: 'Экзамены и баллы',
+  kk: 'Емтихандар мен баллдар',
+  en: 'Exams and scores',
+};
+const EXAMS_DESC: Localized = {
+  ru: 'Текущие или целевые баллы — необязательно. Наставник и Куратор учтут их в рекомендациях.',
+  kk: 'Ағымдағы немесе мақсатты баллдар — міндетті емес. Тәлімгер мен Куратор оларды ұсыныстарда ескереді.',
+  en: 'Current or target scores — optional. The Tutor and the Curator will factor them into recommendations.',
+};
+const ENT_SCORE_LABEL: Localized = {
+  ru: 'Балл ЕНТ (цель или текущий)',
+  kk: 'ҰБТ баллы (мақсат немесе ағымдағы)',
+  en: 'UNT score (target or current)',
+};
+const SAT_SCORE_LABEL: Localized = { ru: 'SAT', kk: 'SAT', en: 'SAT' };
+const IELTS_SCORE_LABEL: Localized = { ru: 'IELTS', kk: 'IELTS', en: 'IELTS' };
+const SCORE_PLACEHOLDER: Localized = { ru: '—', kk: '—', en: '—' };
+const ENT_SCORE_ERROR: Localized = {
+  ru: 'Целое число от 0 до 140',
+  kk: '0-ден 140-қа дейінгі бүтін сан',
+  en: 'An integer between 0 and 140',
+};
+const SAT_SCORE_ERROR: Localized = {
+  ru: 'От 400 до 1600 с шагом 10',
+  kk: '400-ден 1600-ге дейін, қадамы 10',
+  en: '400–1600 in steps of 10',
+};
+const IELTS_SCORE_ERROR: Localized = {
+  ru: 'От 0 до 9 с шагом 0.5',
+  kk: '0-ден 9-ға дейін, қадамы 0,5',
+  en: '0–9 in steps of 0.5',
+};
+
+const MODEL_HEADING: Localized = {
+  ru: 'ИИ-наставник',
+  kk: 'ИИ-тәлімгер',
+  en: 'AI tutor',
+};
+const MODEL_DESC: Localized = {
+  ru: 'Модель, которой Наставник отвечает в чате. Цена за сообщение: 1–5 ⚙ Новасов.',
+  kk: 'Тәлімгер чатта жауап беретін модель. Бір хабарламаның бағасы: 1–5 ⚙ Новас.',
+  en: 'The model the Tutor answers with in chat. Price per message: 1–5 ⚙ Novas.',
+};
+const MODEL_SELECT_LABEL: Localized = { ru: 'Модель', kk: 'Модель', en: 'Model' };
+const MODEL_DEFAULT_OPTION: Localized = {
+  ru: 'По умолчанию (Sonnet 5)',
+  kk: 'Әдепкі (Sonnet 5)',
+  en: 'Default (Sonnet 5)',
+};
+
+// Brand names stay identical in all three languages, so labels are plain strings.
+// Listed most expensive first.
+const MODEL_OPTIONS: Array<{ id: TutorModel; label: string }> = [
+  { id: 'claude-opus-5', label: 'Opus 5' },
+  { id: 'gpt-5.6-sol', label: 'ChatGPT 5.6 Sol' },
+  { id: 'claude-sonnet-5', label: 'Sonnet 5' },
+  { id: 'gpt-5.6-terra', label: 'ChatGPT 5.6 Terra' },
+  { id: 'gpt-5.6-luna', label: 'ChatGPT 5.6 Luna' },
+];
 
 const SAVE_BTN: Localized = { ru: 'Сохранить', kk: 'Сақтау', en: 'Save' };
 const SAVING: Localized = { ru: 'Сохраняем…', kk: 'Сақталуда…', en: 'Saving…' };
@@ -225,20 +298,28 @@ interface FormState {
   fullName: string;
   grade: number | null;
   subjects: string[];
-  goal: Goal | null;
+  goals: Goal[];
   school: string;
   region: string;
   examDate: string;
+  entScore: string;
+  satScore: string;
+  ieltsScore: string;
+  preferredModel: TutorModel | null;
 }
 
 const fromProfile = (p: Profile): FormState => ({
   fullName: p.full_name ?? '',
   grade: p.grade,
   subjects: [...p.subjects],
-  goal: p.goal,
+  goals: [...p.goals],
   school: p.school ?? '',
   region: p.region ?? '',
   examDate: p.examDate ?? '',
+  entScore: p.examScores.ent !== undefined ? String(p.examScores.ent) : '',
+  satScore: p.examScores.sat !== undefined ? String(p.examScores.sat) : '',
+  ieltsScore: p.examScores.ielts !== undefined ? String(p.examScores.ielts) : '',
+  preferredModel: p.preferredModel,
 });
 
 const serialize = (f: FormState): string =>
@@ -246,11 +327,43 @@ const serialize = (f: FormState): string =>
     fullName: f.fullName.trim(),
     grade: f.grade,
     subjects: [...f.subjects].sort(),
-    goal: f.goal,
+    goals: [...f.goals].sort(),
     school: f.school.trim(),
     region: f.region.trim(),
     examDate: f.examDate,
+    entScore: f.entScore.trim(),
+    satScore: f.satScore.trim(),
+    ieltsScore: f.ieltsScore.trim(),
+    preferredModel: f.preferredModel,
   });
+
+/* Exam score validation — empty means "not set"; only non-empty values are checked. */
+
+const validEntScore = (raw: string): boolean => {
+  if (!/^\d+$/.test(raw)) return false;
+  const n = Number(raw);
+  return n >= 0 && n <= 140;
+};
+
+const validSatScore = (raw: string): boolean => {
+  if (!/^\d+$/.test(raw)) return false;
+  const n = Number(raw);
+  return n >= 400 && n <= 1600 && n % 10 === 0;
+};
+
+const validIeltsScore = (raw: string): boolean => {
+  const n = Number(raw.replace(',', '.'));
+  return !Number.isNaN(n) && n >= 0 && n <= 9 && (n * 2) % 1 === 0;
+};
+
+/** Parse the raw inputs into the exam_scores jsonb shape, omitting empty keys. */
+const buildExamScores = (f: FormState): ExamScores => {
+  const scores: ExamScores = {};
+  if (f.entScore.trim()) scores.ent = Number(f.entScore.trim());
+  if (f.satScore.trim()) scores.sat = Number(f.satScore.trim());
+  if (f.ieltsScore.trim()) scores.ielts = Number(f.ieltsScore.trim().replace(',', '.'));
+  return scores;
+};
 
 /* --- shared classes --- */
 
@@ -280,10 +393,14 @@ const ProfilePage: React.FC = () => {
     fullName: '',
     grade: null,
     subjects: [],
-    goal: null,
+    goals: [],
     school: '',
     region: '',
     examDate: '',
+    entScore: '',
+    satScore: '',
+    ieltsScore: '',
+    preferredModel: null,
   });
   const [baseline, setBaseline] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
@@ -392,7 +509,7 @@ const ProfilePage: React.FC = () => {
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (!dirty || saving) return;
+    if (!dirty || saving || examErrors) return;
     setSaving(true);
     setError(null);
     setSaved(false);
@@ -400,10 +517,13 @@ const ProfilePage: React.FC = () => {
       full_name: form.fullName.trim() || null,
       grade: form.grade,
       subjects: [...form.subjects].sort(),
-      goal: form.goal,
+      // updateProfile rewrites the legacy goal column as goals[0] ?? null
+      goals: [...form.goals],
       school: form.school.trim() || null,
       region: form.region.trim() || null,
       examDate: form.examDate || null,
+      examScores: buildExamScores(form),
+      preferredModel: form.preferredModel,
     };
     const { error: saveError } = await updateProfile(patch);
     setSaving(false);
@@ -443,9 +563,22 @@ const ProfilePage: React.FC = () => {
         : [...f.subjects, slug],
     }));
 
+  const toggleGoal = (value: Goal) =>
+    setForm((f) => ({
+      ...f,
+      goals: f.goals.includes(value)
+        ? f.goals.filter((g) => g !== value)
+        : [...f.goals, value],
+    }));
+
+  const entInvalid = form.entScore.trim() !== '' && !validEntScore(form.entScore.trim());
+  const satInvalid = form.satScore.trim() !== '' && !validSatScore(form.satScore.trim());
+  const ieltsInvalid = form.ieltsScore.trim() !== '' && !validIeltsScore(form.ieltsScore.trim());
+  const examErrors = entInvalid || satInvalid || ieltsInvalid;
+
   return (
     <main className="min-h-screen bg-canvas font-sans text-ink">
-      <div className="mx-auto w-full max-w-3xl px-5 py-12 sm:px-6 md:py-16 lg:px-8">
+      <div className="mx-auto w-full max-w-5xl px-5 py-12 sm:px-6 md:py-16 lg:px-8">
         <header aria-labelledby="profile-heading">
           <h1
             id="profile-heading"
@@ -472,9 +605,10 @@ const ProfilePage: React.FC = () => {
           </div>
         </header>
 
-        <form onSubmit={handleSubmit} noValidate className="mt-8 space-y-6">
+        <div className="mt-8 space-y-6 lg:grid lg:grid-cols-2 lg:items-start lg:gap-6 lg:space-y-0">
+          <form onSubmit={handleSubmit} noValidate className="space-y-6 lg:contents lg:space-y-0">
           {/* Account */}
-          <section aria-labelledby="account-heading" className={CARD}>
+          <section aria-labelledby="account-heading" className={`${CARD} lg:col-span-2`}>
             <h2
               id="account-heading"
               className="font-display text-xl font-bold tracking-tight text-ink"
@@ -652,17 +786,18 @@ const ProfilePage: React.FC = () => {
                 <Target className="h-4 w-4 text-teal" aria-hidden="true" />
                 {loc(language, GOAL_LABEL)}
               </legend>
+              <p className="mt-1 text-xs text-slateink">{loc(language, GOAL_HINT)}</p>
               <div className="mt-2.5 flex flex-wrap gap-2">
                 {GOALS.map((g) => {
-                  const selected = form.goal === g.value;
+                  const selected = form.goals.includes(g.value);
                   return (
                     <label key={g.value} className="cursor-pointer">
                       <input
-                        type="radio"
-                        name="goal"
+                        type="checkbox"
+                        name="goals"
                         value={g.value}
                         checked={selected}
-                        onChange={() => setForm((f) => ({ ...f, goal: g.value }))}
+                        onChange={() => toggleGoal(g.value)}
                         className="peer sr-only"
                       />
                       <span className={`${CHIP} gap-1.5 px-4 py-2.5 ${selected ? CHIP_ON : CHIP_OFF}`}>
@@ -736,19 +871,148 @@ const ProfilePage: React.FC = () => {
             </div>
           </section>
 
+          {/* Exams and scores */}
+          <section aria-labelledby="exams-heading" className={CARD}>
+            <div className="flex items-start gap-3">
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-mist/30 text-teal-dark">
+                <Target className="h-5 w-5" aria-hidden="true" />
+              </span>
+              <div>
+                <h2
+                  id="exams-heading"
+                  className="font-display text-xl font-bold tracking-tight text-ink"
+                >
+                  {loc(language, EXAMS_HEADING)}
+                </h2>
+                <p className="mt-1 text-sm text-slateink">{loc(language, EXAMS_DESC)}</p>
+              </div>
+            </div>
+
+            <div className="mt-5 grid gap-4 sm:grid-cols-3">
+              <div>
+                <label htmlFor="profile-ent-score" className={LABEL}>
+                  {loc(language, ENT_SCORE_LABEL)}
+                </label>
+                <div className="relative mt-1.5">
+                  <Award
+                    className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-slateink"
+                    aria-hidden="true"
+                  />
+                  <input
+                    id="profile-ent-score"
+                    type="text"
+                    inputMode="numeric"
+                    value={form.entScore}
+                    onChange={(e) => setForm((f) => ({ ...f, entScore: e.target.value }))}
+                    placeholder={loc(language, SCORE_PLACEHOLDER)}
+                    aria-invalid={entInvalid}
+                    className={`${INPUT} pl-10 ${entInvalid ? 'border-coral' : ''}`}
+                  />
+                </div>
+                {entInvalid && (
+                  <p role="alert" className="mt-1.5 text-xs font-medium text-coral">
+                    {loc(language, ENT_SCORE_ERROR)}
+                  </p>
+                )}
+              </div>
+              <div>
+                <label htmlFor="profile-sat-score" className={LABEL}>
+                  {loc(language, SAT_SCORE_LABEL)}
+                </label>
+                <input
+                  id="profile-sat-score"
+                  type="text"
+                  inputMode="numeric"
+                  value={form.satScore}
+                  onChange={(e) => setForm((f) => ({ ...f, satScore: e.target.value }))}
+                  placeholder={loc(language, SCORE_PLACEHOLDER)}
+                  aria-invalid={satInvalid}
+                  className={`${INPUT} mt-1.5 ${satInvalid ? 'border-coral' : ''}`}
+                />
+                {satInvalid && (
+                  <p role="alert" className="mt-1.5 text-xs font-medium text-coral">
+                    {loc(language, SAT_SCORE_ERROR)}
+                  </p>
+                )}
+              </div>
+              <div>
+                <label htmlFor="profile-ielts-score" className={LABEL}>
+                  {loc(language, IELTS_SCORE_LABEL)}
+                </label>
+                <input
+                  id="profile-ielts-score"
+                  type="text"
+                  inputMode="decimal"
+                  value={form.ieltsScore}
+                  onChange={(e) => setForm((f) => ({ ...f, ieltsScore: e.target.value }))}
+                  placeholder={loc(language, SCORE_PLACEHOLDER)}
+                  aria-invalid={ieltsInvalid}
+                  className={`${INPUT} mt-1.5 ${ieltsInvalid ? 'border-coral' : ''}`}
+                />
+                {ieltsInvalid && (
+                  <p role="alert" className="mt-1.5 text-xs font-medium text-coral">
+                    {loc(language, IELTS_SCORE_ERROR)}
+                  </p>
+                )}
+              </div>
+            </div>
+          </section>
+
+          {/* AI tutor model */}
+          <section aria-labelledby="model-heading" className={CARD}>
+            <div className="flex items-start gap-3">
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-mist/30 text-teal-dark">
+                <Cog className="h-5 w-5" aria-hidden="true" />
+              </span>
+              <div>
+                <h2
+                  id="model-heading"
+                  className="font-display text-xl font-bold tracking-tight text-ink"
+                >
+                  {loc(language, MODEL_HEADING)}
+                </h2>
+                <p className="mt-1 text-sm text-slateink">{loc(language, MODEL_DESC)}</p>
+              </div>
+            </div>
+
+            <div className="mt-5 max-w-xs">
+              <label htmlFor="profile-model" className={LABEL}>
+                {loc(language, MODEL_SELECT_LABEL)}
+              </label>
+              <select
+                id="profile-model"
+                value={form.preferredModel ?? ''}
+                onChange={(e) =>
+                  setForm((f) => ({
+                    ...f,
+                    preferredModel: (e.target.value || null) as TutorModel | null,
+                  }))
+                }
+                className={`${INPUT} mt-1.5`}
+              >
+                <option value="">{loc(language, MODEL_DEFAULT_OPTION)}</option>
+                {MODEL_OPTIONS.map((option) => (
+                  <option key={option.id} value={option.id}>
+                    {option.label}
+                  </option>
+                ))}
+              </select>
+            </div>
+          </section>
+
           {error && (
             <div
               role="alert"
-              className="rounded-xl border border-coral/40 bg-coral/10 px-4 py-3 text-sm font-medium text-coral"
+              className="rounded-xl border border-coral/40 bg-coral/10 px-4 py-3 text-sm font-medium text-coral lg:col-span-2"
             >
               {error}
             </div>
           )}
 
-          <div className="flex flex-wrap items-center gap-3">
+          <div className="flex flex-wrap items-center gap-3 lg:col-span-2">
             <button
               type="submit"
-              disabled={!dirty || saving}
+              disabled={!dirty || saving || examErrors}
               className={`${FOCUS_RING} inline-flex items-center gap-2 rounded-xl bg-teal px-6 py-3 text-sm font-semibold text-white shadow-[0_4px_14px_rgba(33,159,162,0.25)] transition-colors hover:bg-teal-dark disabled:cursor-not-allowed disabled:border disabled:border-line disabled:bg-white disabled:text-slateink disabled:shadow-none`}
             >
               {saving ? (
@@ -768,11 +1032,11 @@ const ProfilePage: React.FC = () => {
               </span>
             )}
           </div>
-        </form>
+          </form>
 
         {/* My class — students only */}
         {profile.role === 'student' && (
-          <section aria-labelledby="class-heading" className={`${CARD} mt-6`}>
+          <section aria-labelledby="class-heading" className={CARD}>
             <div className="flex items-start gap-3">
               <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-mist/30 text-teal-dark">
                 <Users className="h-5 w-5" aria-hidden="true" />
@@ -868,6 +1132,7 @@ const ProfilePage: React.FC = () => {
             )}
           </section>
         )}
+        </div>
 
         <div className="mt-10 border-t border-line/50 pt-6">
           <button

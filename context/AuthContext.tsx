@@ -1,10 +1,20 @@
 import React, { createContext, useCallback, useContext, useEffect, useRef, useState } from 'react';
 import { supabase } from '../services/supabaseClient.ts';
+import type { TutorModel } from '../services/aiService.ts';
 import { loc, type Lang, type Localized } from '../utils/i18n.ts';
 import { useLanguage } from './LanguageContext.tsx';
 
 export type Role = 'student' | 'teacher' | 'admin';
 export type Goal = 'ent' | 'olympiad' | 'revision' | 'admission';
+
+const GOAL_VALUES: readonly Goal[] = ['ent', 'olympiad', 'revision', 'admission'];
+
+/** Optional exam scores from the exam_scores jsonb column (empty keys omitted). */
+export interface ExamScores {
+  ent?: number;
+  sat?: number;
+  ielts?: number;
+}
 
 export interface Profile {
   id: string;
@@ -12,13 +22,20 @@ export interface Profile {
   role: Role;
   grade: number | null;
   subjects: string[];
+  /** Legacy single goal — kept in sync with goals[0] on save. */
   goal: Goal | null;
+  /** All selected goals from the goals text[] column. */
+  goals: Goal[];
   language: Lang;
   school: string | null;
   region: string | null;
   avatar_url: string | null;
   /** Exam / goal deadline from the exam_date column (snake_case in the DB). */
   examDate: string | null;
+  /** Exam scores from the exam_scores jsonb column. */
+  examScores: ExamScores;
+  /** Tutor chat model from the preferred_model column. */
+  preferredModel: TutorModel | null;
   onboarded: boolean;
 }
 
@@ -192,16 +209,33 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     supabase
       .from('profiles')
       .select(
-        'id, full_name, role, grade, subjects, goal, language, school, region, avatar_url, exam_date, onboarded',
+        'id, full_name, role, grade, subjects, goal, goals, language, school, region, avatar_url, exam_date, exam_scores, preferred_model, onboarded',
       )
       .eq('id', user.id)
       .maybeSingle()
       .then(({ data, error }) => {
         if (cancelled || error || !data) return;
-        const { exam_date, ...rest } = data as Omit<Profile, 'examDate'> & {
+        const { exam_date, exam_scores, preferred_model, goals, ...rest } = data as Omit<
+          Profile,
+          'examDate' | 'examScores' | 'preferredModel' | 'goals'
+        > & {
           exam_date: string | null;
+          exam_scores: ExamScores | null;
+          preferred_model: TutorModel | null;
+          goals: string[] | null;
         };
-        const loaded: Profile = { ...rest, examDate: exam_date ?? null };
+        // goals is backfilled from the legacy goal server-side; stay defensive
+        // and fall back to the single goal if the array ever comes back empty.
+        const cleanGoals = (goals ?? []).filter((g): g is Goal =>
+          GOAL_VALUES.includes(g as Goal),
+        );
+        const loaded: Profile = {
+          ...rest,
+          goals: cleanGoals.length > 0 ? cleanGoals : rest.goal ? [rest.goal] : [],
+          examDate: exam_date ?? null,
+          examScores: exam_scores ?? {},
+          preferredModel: preferred_model ?? null,
+        };
         setProfile(loaded);
         // Apply the language saved on the account, so the choice follows the
         // user to another browser or device. Guarded by a ref so it runs once
@@ -285,13 +319,26 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     async (patch: Partial<Profile>) => {
       if (!user) return { error: loc(activeLang(), ERR_UNKNOWN) };
       try {
-        // camelCase examDate maps to the exam_date column; everything else
-        // already matches its column name
-        const { examDate, ...rest } = patch;
-        const row = examDate === undefined ? rest : { ...rest, exam_date: examDate };
+        // camelCase keys map to snake_case columns; everything else already
+        // matches its column name. Saving goals also rewrites the legacy
+        // single-goal column as goals[0] ?? null for compatibility.
+        const { examDate, examScores, preferredModel, goals, ...rest } = patch;
+        const row: Record<string, unknown> = { ...rest };
+        if (examDate !== undefined) row.exam_date = examDate;
+        if (examScores !== undefined) row.exam_scores = examScores;
+        if (preferredModel !== undefined) row.preferred_model = preferredModel;
+        if (goals !== undefined) {
+          row.goals = goals;
+          row.goal = goals[0] ?? null;
+        }
         const { error } = await supabase.from('profiles').update(row).eq('id', user.id);
         if (error) return { error: mapAuthError(error) };
-        setProfile((prev) => (prev ? { ...prev, ...patch } : prev));
+        setProfile((prev) => {
+          if (!prev) return prev;
+          const next = { ...prev, ...patch };
+          if (goals !== undefined) next.goal = goals[0] ?? null;
+          return next;
+        });
         return { error: null };
       } catch (err) {
         return { error: mapAuthError(err) };

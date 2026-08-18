@@ -71,6 +71,11 @@ const GOAL_LABEL: Localized = {
   kk: 'Мақсатың қандай?',
   en: 'What is your goal?',
 };
+const GOAL_HINT: Localized = {
+  ru: 'Можно выбрать несколько.',
+  kk: 'Бірнешеуін таңдауға болады.',
+  en: 'You can pick several.',
+};
 const SUBJECTS_LABEL: Localized = {
   ru: 'Предметы, которые ты бы хотел изучать',
   kk: 'Оқығың келетін пәндер',
@@ -160,7 +165,7 @@ type Phase = 'setup' | 'quiz' | 'result';
 
 const DiagnosticPage: React.FC = () => {
   const { language } = useLanguage();
-  const { profile, loading } = useAuth();
+  const { profile, loading, updateProfile } = useAuth();
   const reducedMotion = useReducedMotion();
   const [searchParams] = useSearchParams();
 
@@ -175,7 +180,7 @@ const DiagnosticPage: React.FC = () => {
 
   const [phase, setPhase] = useState<Phase>(probeSubject ? 'quiz' : 'setup');
   const [grade, setGrade] = useState<number | null>(null);
-  const [goal, setGoal] = useState<Goal | null>(null);
+  const [goals, setGoals] = useState<Goal[]>([]);
   const [picked, setPicked] = useState<DiagnosticSubject[]>(
     probeSubject ? [probeSubject] : [],
   );
@@ -198,7 +203,7 @@ const DiagnosticPage: React.FC = () => {
     if (profile && !hydratedRef.current) {
       hydratedRef.current = true;
       setGrade(profile.grade);
-      setGoal(profile.goal);
+      setGoals(profile.goals);
       if (!probeSubject) {
         setPicked(
           profile.subjects.filter((s): s is DiagnosticSubject =>
@@ -246,8 +251,17 @@ const DiagnosticPage: React.FC = () => {
           : [...prev, slug],
     );
 
+  const toggleGoal = (value: Goal) =>
+    setGoals((prev) =>
+      prev.includes(value) ? prev.filter((g) => g !== value) : [...prev, value],
+    );
+
   const startQuiz = () => {
-    if (!grade || !goal || picked.length === 0) return;
+    if (!grade || goals.length === 0 || picked.length === 0) return;
+    // Persist the chosen goals right away (the legacy goal column is rewritten
+    // as goals[0] by updateProfile; DiagnosticResult re-saves it with the rest
+    // of the onboarding fields when the run finishes).
+    void updateProfile({ goals: [...goals] });
     setAnswers([]);
     setSubjectIndex(0);
     setAskedIds([]);
@@ -394,17 +408,18 @@ const DiagnosticPage: React.FC = () => {
                   <Target className="h-4 w-4 text-teal" aria-hidden="true" />
                   {loc(language, GOAL_LABEL)}
                 </legend>
+                <p className="mt-1 text-xs text-slateink">{loc(language, GOAL_HINT)}</p>
                 <div className="mt-2.5 flex flex-wrap gap-2">
                   {GOAL_OPTIONS.map((g) => {
-                    const isPicked = goal === g.value;
+                    const isPicked = goals.includes(g.value);
                     return (
                       <label key={g.value} className="cursor-pointer">
                         <input
-                          type="radio"
-                          name="diagnostic-goal"
+                          type="checkbox"
+                          name="diagnostic-goals"
                           value={g.value}
                           checked={isPicked}
-                          onChange={() => setGoal(g.value)}
+                          onChange={() => toggleGoal(g.value)}
                           className="peer sr-only"
                         />
                         <span
@@ -456,7 +471,7 @@ const DiagnosticPage: React.FC = () => {
 
               <button
                 type="button"
-                disabled={!grade || !goal || picked.length === 0}
+                disabled={!grade || goals.length === 0 || picked.length === 0}
                 onClick={startQuiz}
                 className={`${FOCUS_RING} mt-8 inline-flex items-center gap-2 rounded-xl bg-teal px-6 py-3 text-sm font-semibold text-white shadow-[0_4px_14px_rgba(33,159,162,0.25)] transition-colors hover:bg-teal-dark disabled:cursor-not-allowed disabled:border disabled:border-line disabled:bg-white disabled:text-slateink disabled:shadow-none`}
               >
@@ -585,7 +600,7 @@ const DiagnosticPage: React.FC = () => {
               results={results}
               grade={effectiveGrade}
               subjects={picked}
-              goal={goal}
+              goal={goals[0] ?? null}
               isProbe={probeSubject !== null}
             />
           )}
