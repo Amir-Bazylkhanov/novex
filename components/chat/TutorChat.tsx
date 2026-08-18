@@ -1,25 +1,21 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
-import { MessageCircle, Send, Sparkles, X } from 'lucide-react';
-import { loc, type Localized } from '../../utils/i18n.ts';
+import { MessageCircle, Send, X } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { loc, type Lang, type Localized } from '../../utils/i18n.ts';
 import { useLanguage } from '../../context/LanguageContext.tsx';
+import { useAuth } from '../../context/AuthContext.tsx';
 import { RobotAvatar } from '../robots/RobotAvatars.tsx';
-import {
-  FALLBACK_TEXT,
-  TUTOR_QA,
-  TUTOR_TOPICS,
-  findResponse,
-} from '../../constants/tutorResponses.ts';
+import { TUTOR_QA } from '../../constants/tutorResponses.ts';
+import { askTutor, type TutorModel } from '../../services/aiService.ts';
 
 /**
  * Floating AI tutor chat widget (NOV-02 Наставник).
  *
- * HONESTY NOTE: no live AI backend is wired up in this project — the provider
- * keys live on a different Supabase project. This widget is a scripted demo:
- * answers come from the pre-written bank in `constants/tutorResponses.ts`,
- * and the panel is permanently labelled "Demo mode" so nobody mistakes it for
- * a live model. The typing indicator is a short pause before showing a
- * prepared answer, not a fake streaming illusion.
+ * Live backend: the widget calls the Novex edge function `ai-chat` via
+ * `services/aiService.ts`, which relays through the Locus `novex-ai` function
+ * to Anthropic / OpenAI. `constants/tutorResponses.ts` is still on disk but
+ * is used here ONLY for the suggested starter-question chips.
  */
 
 const UNIT_LABEL: Localized = {
@@ -28,22 +24,10 @@ const UNIT_LABEL: Localized = {
   en: 'NOV-02 · TUTOR',
 };
 
-const DEMO_BADGE: Localized = {
-  ru: 'Демо-режим',
-  kk: 'Демо режимі',
-  en: 'Demo mode',
-};
-
-const DEMO_SUBTEXT: Localized = {
-  ru: 'Ответы — готовые примеры: живую модель ещё подключают.',
-  kk: 'Жауаптар — дайын мысалдар: нақты модель әлі қосылуда.',
-  en: 'Replies are pre-written examples while the live model is being connected.',
-};
-
 const INTRO_TEXT: Localized = {
-  ru: 'Привет! Я объясняю темы шаг за шагом. Сейчас я в демо-режиме: отвечаю готовыми примерами по пяти темам — спроси что-нибудь из них.',
-  kk: 'Сәлем! Мен тақырыптарды қадамдап түсіндіремін. Қазір демо режиміндемін: бес тақырып бойынша дайын мысалдармен жауап беремін — солардың бірінен сұрап көр.',
-  en: 'Hi! I explain topics step by step. Right now I am in demo mode: I answer with pre-written examples on five topics — try asking about one of them.',
+  ru: 'Привет! Я объясняю темы шаг за шагом — спроси про математику, физику, английский или информатику.',
+  kk: 'Сәлем! Мен тақырыптарды қадамдап түсіндіремін — математика, физика, ағылшын тілі немесе информатика бойынша сұрап көр.',
+  en: 'Hi! I explain topics step by step — ask me about maths, physics, English or computer science.',
 };
 
 const CHIPS_LABEL: Localized = {
@@ -59,9 +43,9 @@ const INPUT_PLACEHOLDER: Localized = {
 };
 
 const TYPING_LABEL: Localized = {
-  ru: 'Наставник подбирает готовый пример…',
-  kk: 'Тәлімгер дайын мысалды таңдауда…',
-  en: 'The Tutor is picking a prepared example…',
+  ru: 'Наставник думает…',
+  kk: 'Тәлімгер ойлануда…',
+  en: 'The Tutor is thinking…',
 };
 
 const ARIA_OPEN_CHAT: Localized = {
@@ -89,9 +73,41 @@ const ARIA_MESSAGES: Localized = {
 };
 
 const ARIA_PANEL: Localized = {
-  ru: 'Чат с ИИ-наставником NOV-02, демо-режим',
-  kk: 'NOV-02 ИИ-тәлімгермен чат, демо режимі',
-  en: 'Chat with the NOV-02 AI tutor, demo mode',
+  ru: 'Чат с ИИ-наставником NOV-02',
+  kk: 'NOV-02 ИИ-тәлімгермен чат',
+  en: 'Chat with the NOV-02 AI tutor',
+};
+
+const ARIA_MODEL_SWITCHER: Localized = {
+  ru: 'Выбор модели ИИ',
+  kk: 'ИИ моделін таңдау',
+  en: 'Choose the AI model',
+};
+
+const MODEL_HINTS: Record<TutorModel, Localized> = {
+  'claude-sonnet-5': { ru: 'Быстрый', kk: 'Жылдам', en: 'Fast' },
+  'claude-opus-5': {
+    ru: 'Для сложных задач',
+    kk: 'Күрделі тапсырмаларға',
+    en: 'For hard problems',
+  },
+  'gpt-5.6-terra': {
+    ru: 'Альтернативный взгляд',
+    kk: 'Балама көзқарас',
+    en: 'An alternative take',
+  },
+};
+
+const SIGNIN_PROMPT: Localized = {
+  ru: 'Чтобы задавать вопросы Наставнику, войди в аккаунт — это бесплатно.',
+  kk: 'Тәлімгерге сұрақ қою үшін аккаунтқа кір — бұл тегін.',
+  en: 'Sign in to ask the Tutor questions — it is free.',
+};
+
+const SIGNIN_CTA: Localized = {
+  ru: 'Войти',
+  kk: 'Кіру',
+  en: 'Sign in',
 };
 
 const FOCUS_RING =
@@ -107,32 +123,69 @@ const SUGGESTED_IDS = [
 ];
 const SUGGESTED = TUTOR_QA.filter((qa) => SUGGESTED_IDS.includes(qa.id));
 
+const MODEL_OPTIONS: Array<{ id: TutorModel; label: string }> = [
+  { id: 'claude-sonnet-5', label: 'Sonnet' },
+  { id: 'claude-opus-5', label: 'Opus' },
+  { id: 'gpt-5.6-terra', label: 'ChatGPT' },
+];
+
+const MODEL_STORAGE_KEY = 'novex.tutorModel';
+
+function loadModel(): TutorModel {
+  try {
+    const stored = window.localStorage.getItem(MODEL_STORAGE_KEY);
+    if (MODEL_OPTIONS.some((o) => o.id === stored)) return stored as TutorModel;
+  } catch {
+    // localStorage unavailable — fall through to default
+  }
+  return 'claude-sonnet-5';
+}
+
+/** System prompt for NOV-02, telling the model which UI language to answer in. */
+function buildSystemPrompt(language: Lang): string {
+  const langName = language === 'ru' ? 'Russian' : language === 'kk' ? 'Kazakh' : 'English';
+  return [
+    'You are NOV-02 "Наставник" (Tutor), a patient AI tutor for Kazakhstani school students in grades 7–12.',
+    'Explain everything step by step, in a friendly and encouraging tone, at a level a school student can follow.',
+    `Always answer in ${langName} — the user’s current interface language.`,
+    'Never just give the final answer without the reasoning: show the steps first, then the answer, and invite a follow-up question.',
+  ].join(' ');
+}
+
 interface ChatMessage {
   id: number;
   from: 'user' | 'tutor';
   text: string;
-  /** Topic label shown above tutor answers from the bank. */
-  topic?: string;
 }
-
-/** Pause before showing a prepared answer — a short beat, not fake streaming. */
-const REPLY_DELAY_MS = 900;
 
 const TutorChat: React.FC = () => {
   const { language } = useLanguage();
+  const { user } = useAuth();
   const reduceMotion = useReducedMotion();
 
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [input, setInput] = useState('');
   const [typing, setTyping] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [model, setModelState] = useState<TutorModel>(loadModel);
 
   const fabRef = useRef<HTMLButtonElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
-  const timerRef = useRef<number | null>(null);
   const nextIdRef = useRef(1);
   const prevOpenRef = useRef(false);
+
+  const systemPrompt = useMemo(() => buildSystemPrompt(language), [language]);
+
+  const setModel = useCallback((next: TutorModel) => {
+    setModelState(next);
+    try {
+      window.localStorage.setItem(MODEL_STORAGE_KEY, next);
+    } catch {
+      // localStorage unavailable — the in-memory choice still works
+    }
+  }, []);
 
   // Focus the input on open; return focus to the FAB on close.
   useEffect(() => {
@@ -158,51 +211,37 @@ const TutorChat: React.FC = () => {
   useEffect(() => {
     const el = scrollRef.current;
     if (el) el.scrollTop = el.scrollHeight;
-  }, [messages, typing]);
-
-  // Never leave a pending reply timer behind on unmount.
-  useEffect(
-    () => () => {
-      if (timerRef.current !== null) window.clearTimeout(timerRef.current);
-    },
-    [],
-  );
-
-  const buildAnswer = useCallback(
-    (question: string): ChatMessage => {
-      const id = nextIdRef.current++;
-      const match = findResponse(question);
-      if (match) {
-        return {
-          id,
-          from: 'tutor',
-          topic: loc(language, match.topicLabel),
-          text: match.steps.map((step, i) => `${i + 1}. ${loc(language, step)}`).join('\n'),
-        };
-      }
-      const topics = TUTOR_TOPICS.map((t) => `· ${loc(language, t)}`).join('\n');
-      return {
-        id,
-        from: 'tutor',
-        text: `${loc(language, FALLBACK_TEXT)}\n${topics}`,
-      };
-    },
-    [language],
-  );
+  }, [messages, typing, error]);
 
   const send = useCallback(
     (raw: string) => {
       const text = raw.trim();
-      if (!text || typing) return;
-      setMessages((prev) => [...prev, { id: nextIdRef.current++, from: 'user', text }]);
+      if (!text || typing || !user) return;
+      const userMsg: ChatMessage = { id: nextIdRef.current++, from: 'user', text };
+      setError(null);
+      setMessages((prev) => [...prev, userMsg]);
       setInput('');
       setTyping(true);
-      timerRef.current = window.setTimeout(() => {
+
+      const history = [...messages, userMsg].map((m) => ({
+        role: m.from === 'user' ? ('user' as const) : ('assistant' as const),
+        content: m.text,
+      }));
+
+      void (async () => {
+        const reply = await askTutor({ model, messages: history, system: systemPrompt });
         setTyping(false);
-        setMessages((prev) => [...prev, buildAnswer(text)]);
-      }, REPLY_DELAY_MS);
+        if (reply.error || reply.text === null) {
+          setError(reply.error ?? '');
+          return;
+        }
+        setMessages((prev) => [
+          ...prev,
+          { id: nextIdRef.current++, from: 'tutor', text: reply.text as string },
+        ]);
+      })();
     },
-    [typing, buildAnswer],
+    [typing, user, messages, model, systemPrompt],
   );
 
   const panelMotion = reduceMotion
@@ -233,33 +272,48 @@ const TutorChat: React.FC = () => {
             className="fixed inset-x-3 bottom-3 top-16 z-50 flex flex-col overflow-hidden rounded-2xl border border-line/60 bg-white shadow-[0_24px_60px_rgba(17,26,42,0.18)] sm:inset-x-auto sm:top-auto sm:bottom-24 sm:right-5 sm:h-[min(560px,calc(100vh-8rem))] sm:w-[400px]"
           >
             {/* header */}
-            <div className="flex items-center gap-3 border-b border-line/40 bg-canvas px-4 py-3">
-              <RobotAvatar robot="nov2" className="h-10 w-10 shrink-0" />
-              <div className="min-w-0 flex-1">
-                <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
+            <div className="border-b border-line/40 bg-canvas px-4 py-3">
+              <div className="flex items-center gap-3">
+                <RobotAvatar robot="nov2" className="h-10 w-10 shrink-0" />
+                <div className="min-w-0 flex-1">
                   <span className="font-mono text-[11px] font-semibold uppercase tracking-widest text-teal">
                     {loc(language, UNIT_LABEL)}
                   </span>
-                  <span
-                    title={loc(language, DEMO_SUBTEXT)}
-                    className="inline-flex items-center gap-1 rounded-full border border-teal/30 bg-mist/25 px-2 py-0.5 text-[10px] font-semibold text-teal-dark"
+                  {/* model switcher */}
+                  <div
+                    role="group"
+                    aria-label={loc(language, ARIA_MODEL_SWITCHER)}
+                    className="mt-1.5 inline-flex rounded-lg border border-line/50 bg-white p-0.5"
                   >
-                    <Sparkles className="h-3 w-3" aria-hidden="true" />
-                    {loc(language, DEMO_BADGE)}
-                  </span>
+                    {MODEL_OPTIONS.map((option) => (
+                      <button
+                        key={option.id}
+                        type="button"
+                        aria-pressed={model === option.id}
+                        onClick={() => setModel(option.id)}
+                        className={`${FOCUS_RING} rounded-md px-2.5 py-1 text-[11px] font-semibold transition-colors ${
+                          model === option.id
+                            ? 'bg-teal text-white'
+                            : 'text-slateink hover:text-teal'
+                        }`}
+                      >
+                        {option.label}
+                      </button>
+                    ))}
+                  </div>
                 </div>
-                <p className="mt-0.5 text-[11px] leading-snug text-slateink">
-                  {loc(language, DEMO_SUBTEXT)}
-                </p>
+                <button
+                  type="button"
+                  onClick={() => setOpen(false)}
+                  aria-label={loc(language, ARIA_CLOSE_CHAT)}
+                  className={`${FOCUS_RING} flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-line/50 bg-white text-slateink transition-colors hover:border-teal hover:text-teal`}
+                >
+                  <X className="h-4 w-4" aria-hidden="true" />
+                </button>
               </div>
-              <button
-                type="button"
-                onClick={() => setOpen(false)}
-                aria-label={loc(language, ARIA_CLOSE_CHAT)}
-                className={`${FOCUS_RING} flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-line/50 bg-white text-slateink transition-colors hover:border-teal hover:text-teal`}
-              >
-                <X className="h-4 w-4" aria-hidden="true" />
-              </button>
+              <p className="mt-1 text-[11px] leading-snug text-slateink">
+                {loc(language, MODEL_HINTS[model])}
+              </p>
             </div>
 
             {/* message log */}
@@ -278,23 +332,36 @@ const TutorChat: React.FC = () => {
                       {loc(language, INTRO_TEXT)}
                     </div>
                   </div>
-                  <div className="pt-1">
-                    <p className="text-[11px] font-semibold uppercase tracking-wide text-slateink">
-                      {loc(language, CHIPS_LABEL)}
-                    </p>
-                    <div className="mt-2 flex flex-wrap gap-2">
-                      {SUGGESTED.map((qa) => (
-                        <button
-                          key={qa.id}
-                          type="button"
-                          onClick={() => send(loc(language, qa.question))}
-                          className={`${FOCUS_RING} rounded-full border border-teal/30 bg-mist/20 px-3 py-1.5 text-left text-xs font-medium text-teal-dark transition-colors hover:border-teal hover:bg-mist/40`}
-                        >
-                          {loc(language, qa.question)}
-                        </button>
-                      ))}
+                  {user ? (
+                    <div className="pt-1">
+                      <p className="text-[11px] font-semibold uppercase tracking-wide text-slateink">
+                        {loc(language, CHIPS_LABEL)}
+                      </p>
+                      <div className="mt-2 flex flex-wrap gap-2">
+                        {SUGGESTED.map((qa) => (
+                          <button
+                            key={qa.id}
+                            type="button"
+                            onClick={() => send(loc(language, qa.question))}
+                            className={`${FOCUS_RING} rounded-full border border-teal/30 bg-mist/20 px-3 py-1.5 text-left text-xs font-medium text-teal-dark transition-colors hover:border-teal hover:bg-mist/40`}
+                          >
+                            {loc(language, qa.question)}
+                          </button>
+                        ))}
+                      </div>
                     </div>
-                  </div>
+                  ) : (
+                    <div className="rounded-2xl border border-teal/30 bg-mist/20 px-3.5 py-3 text-sm leading-relaxed text-ink">
+                      <p>{loc(language, SIGNIN_PROMPT)}</p>
+                      <Link
+                        to="/login"
+                        onClick={() => setOpen(false)}
+                        className={`${FOCUS_RING} mt-2 inline-flex items-center rounded-lg bg-teal px-3.5 py-1.5 text-xs font-semibold text-white transition-colors hover:bg-teal-dark`}
+                      >
+                        {loc(language, SIGNIN_CTA)}
+                      </Link>
+                    </div>
+                  )}
                 </>
               )}
 
@@ -310,11 +377,6 @@ const TutorChat: React.FC = () => {
                   <div key={msg.id} className="flex items-start gap-2.5">
                     <RobotAvatar robot="nov2" className="h-8 w-8 shrink-0" />
                     <div className="max-w-[85%] rounded-2xl rounded-tl-md border border-line/50 bg-white px-3.5 py-2.5 shadow-[0_1px_3px_rgba(17,26,42,0.04)]">
-                      {msg.topic && (
-                        <p className="mb-1.5 font-mono text-[10px] font-semibold uppercase tracking-widest text-teal">
-                          {msg.topic}
-                        </p>
-                      )}
                       <p className="whitespace-pre-line text-sm leading-relaxed text-ink">
                         {msg.text}
                       </p>
@@ -344,6 +406,16 @@ const TutorChat: React.FC = () => {
               )}
             </div>
 
+            {/* error alert */}
+            {error && (
+              <div
+                role="alert"
+                className="border-t border-coral/40 bg-coral-light/20 px-4 py-2.5 text-xs leading-snug text-ink"
+              >
+                {error}
+              </div>
+            )}
+
             {/* input */}
             <form
               onSubmit={(event) => {
@@ -368,11 +440,12 @@ const TutorChat: React.FC = () => {
                 }}
                 rows={2}
                 placeholder={loc(language, INPUT_PLACEHOLDER)}
-                className="max-h-28 min-w-0 flex-1 resize-none rounded-xl border border-line/50 bg-white px-3.5 py-2.5 text-sm text-ink placeholder:text-slateink/70 focus:border-teal focus:outline-none focus-visible:ring-2 focus-visible:ring-teal/40"
+                disabled={!user}
+                className="max-h-28 min-w-0 flex-1 resize-none rounded-xl border border-line/50 bg-white px-3.5 py-2.5 text-sm text-ink placeholder:text-slateink/70 focus:border-teal focus:outline-none focus-visible:ring-2 focus-visible:ring-teal/40 disabled:cursor-not-allowed disabled:opacity-60"
               />
               <button
                 type="submit"
-                disabled={!input.trim() || typing}
+                disabled={!input.trim() || typing || !user}
                 aria-label={loc(language, ARIA_SEND)}
                 className={`${FOCUS_RING} flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-teal text-white shadow-[0_4px_14px_rgba(33,159,162,0.25)] transition-colors hover:bg-teal-dark disabled:cursor-not-allowed disabled:opacity-40 disabled:shadow-none`}
               >
