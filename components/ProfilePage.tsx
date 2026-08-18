@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
   BookOpen,
+  Calendar,
   Camera,
   Check,
   GraduationCap,
@@ -11,14 +12,17 @@ import {
   MapPin,
   Save,
   School,
+  Search,
   Target,
   Trash2,
   TrendingUp,
   User,
+  Users,
 } from 'lucide-react';
 import { loc, type Localized } from '../utils/i18n.ts';
 import { useLanguage } from '../context/LanguageContext.tsx';
 import { useAuth, type Profile, type Goal } from '../context/AuthContext.tsx';
+import { supabase } from '../services/supabaseClient.ts';
 import { RobotAvatar } from './robots/RobotAvatars.tsx';
 
 /* --- content --- */
@@ -130,6 +134,11 @@ const REGION_PLACEHOLDER: Localized = {
   kk: 'Мысалы: Алматы',
   en: 'e.g. Almaty',
 };
+const EXAM_DATE_LABEL: Localized = {
+  ru: 'Дата экзамена или дедлайн цели',
+  kk: 'Емтихан күні немесе мақсат дедлайны',
+  en: 'Exam date or goal deadline',
+};
 
 const SAVE_BTN: Localized = { ru: 'Сохранить', kk: 'Сақтау', en: 'Save' };
 const SAVING: Localized = { ru: 'Сохраняем…', kk: 'Сақталуда…', en: 'Saving…' };
@@ -138,6 +147,47 @@ const SIGN_OUT: Localized = {
   ru: 'Выйти из аккаунта',
   kk: 'Аккаунттан шығу',
   en: 'Sign out',
+};
+
+const CLASS_HEADING: Localized = {
+  ru: 'Мой класс',
+  kk: 'Менің сыныбым',
+  en: 'My class',
+};
+const CLASS_DESC: Localized = {
+  ru: 'Выбери свой класс — и уроки твоего учителя появятся в разделе «Обучение».',
+  kk: 'Сыныбыңды таңда — мұғаліміңнің сабақтары «Оқу» бөлімінде пайда болады.',
+  en: 'Pick your class and your teacher’s lessons will show up in Learn.',
+};
+const CLASS_SEARCH_LABEL: Localized = {
+  ru: 'Поиск по школе',
+  kk: 'Мектеп бойынша іздеу',
+  en: 'Search by school',
+};
+const CLASS_SEARCH_PLACEHOLDER: Localized = {
+  ru: 'Начни вводить название школы…',
+  kk: 'Мектеп атауын жаза баста…',
+  en: 'Start typing your school name…',
+};
+const CLASS_EMPTY: Localized = {
+  ru: 'Такой школы не нашлось. Проверь название или спроси учителя, создан ли класс.',
+  kk: 'Мұндай мектеп табылмады. Атауын тексер немесе сынып құрылғанын мұғалімнен сұра.',
+  en: 'No school matches. Check the name or ask your teacher if the class exists.',
+};
+const CLASS_CURRENT: Localized = {
+  ru: 'Ты состоишь в классе',
+  kk: 'Сенің сыныбың',
+  en: 'You are a member of',
+};
+const CLASS_LEAVE: Localized = {
+  ru: 'Выйти из класса',
+  kk: 'Сыныптан шығу',
+  en: 'Leave class',
+};
+const CLASS_SAVE_ERROR: Localized = {
+  ru: 'Не удалось сохранить класс. Попробуй ещё раз.',
+  kk: 'Сыныпты сақтай алмадық. Қайтадан көр.',
+  en: 'Could not save your class. Try again.',
 };
 
 const SUBJECTS: Array<{ slug: string; label: Localized }> = [
@@ -165,6 +215,12 @@ const GRADES: readonly number[] = [7, 8, 9, 10, 11, 12];
 
 /* --- form state --- */
 
+interface ClassRow {
+  id: string;
+  school: string;
+  label: string;
+}
+
 interface FormState {
   fullName: string;
   grade: number | null;
@@ -172,6 +228,7 @@ interface FormState {
   goal: Goal | null;
   school: string;
   region: string;
+  examDate: string;
 }
 
 const fromProfile = (p: Profile): FormState => ({
@@ -181,6 +238,7 @@ const fromProfile = (p: Profile): FormState => ({
   goal: p.goal,
   school: p.school ?? '',
   region: p.region ?? '',
+  examDate: p.examDate ?? '',
 });
 
 const serialize = (f: FormState): string =>
@@ -191,6 +249,7 @@ const serialize = (f: FormState): string =>
     goal: f.goal,
     school: f.school.trim(),
     region: f.region.trim(),
+    examDate: f.examDate,
   });
 
 /* --- shared classes --- */
@@ -224,6 +283,7 @@ const ProfilePage: React.FC = () => {
     goal: null,
     school: '',
     region: '',
+    examDate: '',
   });
   const [baseline, setBaseline] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
@@ -232,6 +292,14 @@ const ProfilePage: React.FC = () => {
   const [avatarUploading, setAvatarUploading] = useState(false);
   const [avatarBroken, setAvatarBroken] = useState(false);
   const hydratedIdRef = useRef<string | null>(null);
+
+  // class membership (student role only) — class_id is not part of the
+  // AuthContext profile mapping, so this card reads/writes it directly
+  const [myClassId, setMyClassId] = useState<string | null>(null);
+  const [classOptions, setClassOptions] = useState<ClassRow[]>([]);
+  const [classQuery, setClassQuery] = useState('');
+  const [classSaving, setClassSaving] = useState(false);
+  const [classError, setClassError] = useState<string | null>(null);
 
   useEffect(() => {
     if (profile && hydratedIdRef.current !== profile.id) {
@@ -258,6 +326,61 @@ const ProfilePage: React.FC = () => {
     setAvatarBroken(false);
   }, [profile?.avatar_url]);
 
+  // load the student's current class and the list of classes to pick from
+  useEffect(() => {
+    if (!profile || profile.role !== 'student') return;
+    let cancelled = false;
+    Promise.all([
+      supabase.from('profiles').select('class_id').eq('id', profile.id).maybeSingle(),
+      supabase.from('classes').select('id, school, label').order('school').order('label'),
+    ]).then(([membershipRes, classesRes]) => {
+      if (cancelled) return;
+      if (!membershipRes.error && membershipRes.data) {
+        setMyClassId((membershipRes.data as { class_id: string | null }).class_id);
+      }
+      if (!classesRes.error && classesRes.data) {
+        setClassOptions(classesRes.data as ClassRow[]);
+      }
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [profile]);
+
+  // filter by school name, then group the matches under each school
+  const groupedClasses = useMemo(() => {
+    const q = classQuery.trim().toLowerCase();
+    const filtered = q
+      ? classOptions.filter((c) => c.school.toLowerCase().includes(q))
+      : classOptions;
+    const groups: Array<{ school: string; items: ClassRow[] }> = [];
+    for (const c of filtered) {
+      const last = groups[groups.length - 1];
+      if (last && last.school === c.school) last.items.push(c);
+      else groups.push({ school: c.school, items: [c] });
+    }
+    return groups;
+  }, [classOptions, classQuery]);
+
+  const myClass = myClassId ? (classOptions.find((c) => c.id === myClassId) ?? null) : null;
+
+  const saveClass = async (nextClassId: string | null) => {
+    if (!profile || classSaving) return;
+    setClassSaving(true);
+    setClassError(null);
+    const { error: updateError } = await supabase
+      .from('profiles')
+      .update({ class_id: nextClassId })
+      .eq('id', profile.id);
+    setClassSaving(false);
+    if (updateError) {
+      setClassError(loc(language, CLASS_SAVE_ERROR));
+      return;
+    }
+    setMyClassId(nextClassId);
+    setClassQuery('');
+  };
+
   if (loading || !user || !profile) {
     return (
       <div role="status" className="flex min-h-screen items-center justify-center bg-canvas">
@@ -280,6 +403,7 @@ const ProfilePage: React.FC = () => {
       goal: form.goal,
       school: form.school.trim() || null,
       region: form.region.trim() || null,
+      examDate: form.examDate || null,
     };
     const { error: saveError } = await updateProfile(patch);
     setSaving(false);
@@ -412,24 +536,6 @@ const ProfilePage: React.FC = () => {
 
             <div className="mt-5 grid gap-4 sm:grid-cols-2">
               <div>
-                <label htmlFor="profile-email" className={LABEL}>
-                  {loc(language, EMAIL_LABEL)}
-                </label>
-                <div className="relative mt-1.5">
-                  <Mail
-                    className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-slateink"
-                    aria-hidden="true"
-                  />
-                  <input
-                    id="profile-email"
-                    type="email"
-                    readOnly
-                    value={user.email}
-                    className={`${INPUT} cursor-default bg-canvas pl-10 text-slateink`}
-                  />
-                </div>
-              </div>
-              <div>
                 <label htmlFor="profile-name" className={LABEL}>
                   {loc(language, NAME_LABEL)}
                 </label>
@@ -446,6 +552,24 @@ const ProfilePage: React.FC = () => {
                     onChange={(e) => setForm((f) => ({ ...f, fullName: e.target.value }))}
                     placeholder={loc(language, NAME_PLACEHOLDER)}
                     className={`${INPUT} pl-10`}
+                  />
+                </div>
+              </div>
+              <div>
+                <label htmlFor="profile-email" className={LABEL}>
+                  {loc(language, EMAIL_LABEL)}
+                </label>
+                <div className="relative mt-1.5">
+                  <Mail
+                    className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-slateink"
+                    aria-hidden="true"
+                  />
+                  <input
+                    id="profile-email"
+                    type="email"
+                    readOnly
+                    value={user.email}
+                    className={`${INPUT} cursor-default bg-canvas pl-10 text-slateink`}
                   />
                 </div>
               </div>
@@ -591,6 +715,24 @@ const ProfilePage: React.FC = () => {
                   />
                 </div>
               </div>
+              <div>
+                <label htmlFor="profile-exam-date" className={LABEL}>
+                  {loc(language, EXAM_DATE_LABEL)}
+                </label>
+                <div className="relative mt-1.5">
+                  <Calendar
+                    className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-slateink"
+                    aria-hidden="true"
+                  />
+                  <input
+                    id="profile-exam-date"
+                    type="date"
+                    value={form.examDate}
+                    onChange={(e) => setForm((f) => ({ ...f, examDate: e.target.value }))}
+                    className={`${INPUT} pl-10`}
+                  />
+                </div>
+              </div>
             </div>
           </section>
 
@@ -627,6 +769,105 @@ const ProfilePage: React.FC = () => {
             )}
           </div>
         </form>
+
+        {/* My class — students only */}
+        {profile.role === 'student' && (
+          <section aria-labelledby="class-heading" className={`${CARD} mt-6`}>
+            <div className="flex items-start gap-3">
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-mist/30 text-teal-dark">
+                <Users className="h-5 w-5" aria-hidden="true" />
+              </span>
+              <div>
+                <h2
+                  id="class-heading"
+                  className="font-display text-xl font-bold tracking-tight text-ink"
+                >
+                  {loc(language, CLASS_HEADING)}
+                </h2>
+                <p className="mt-1 text-sm text-slateink">{loc(language, CLASS_DESC)}</p>
+              </div>
+            </div>
+
+            {myClass ? (
+              <div className="mt-5 flex flex-wrap items-center gap-3">
+                <p className="min-w-0 flex-1">
+                  <span className="block text-xs font-semibold uppercase tracking-wide text-slateink">
+                    {loc(language, CLASS_CURRENT)}
+                  </span>
+                  <span className="mt-0.5 block font-display text-base font-bold text-ink">
+                    {myClass.school} · {myClass.label}
+                  </span>
+                </p>
+                <button
+                  type="button"
+                  disabled={classSaving}
+                  onClick={() => void saveClass(null)}
+                  className={`${FOCUS_RING} inline-flex items-center gap-1.5 rounded-xl border border-line bg-white px-4 py-2.5 text-sm font-semibold text-ink transition-colors hover:border-coral hover:text-coral disabled:cursor-not-allowed disabled:opacity-50`}
+                >
+                  {classSaving ? (
+                    <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" />
+                  ) : (
+                    <LogOut className="h-4 w-4" aria-hidden="true" />
+                  )}
+                  {loc(language, CLASS_LEAVE)}
+                </button>
+              </div>
+            ) : (
+              <div className="mt-5">
+                <label htmlFor="class-search" className={LABEL}>
+                  {loc(language, CLASS_SEARCH_LABEL)}
+                </label>
+                <div className="relative mt-1.5">
+                  <Search
+                    className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-slateink"
+                    aria-hidden="true"
+                  />
+                  <input
+                    id="class-search"
+                    type="text"
+                    value={classQuery}
+                    onChange={(e) => setClassQuery(e.target.value)}
+                    placeholder={loc(language, CLASS_SEARCH_PLACEHOLDER)}
+                    className={`${INPUT} pl-10`}
+                  />
+                </div>
+                <div className="mt-3 max-h-72 space-y-4 overflow-y-auto pr-1">
+                  {groupedClasses.length > 0 ? (
+                    groupedClasses.map((group) => (
+                      <div key={group.school}>
+                        <p className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wide text-slateink">
+                          <School className="h-3.5 w-3.5" aria-hidden="true" />
+                          {group.school}
+                        </p>
+                        <div className="mt-1.5 space-y-1.5">
+                          {group.items.map((c) => (
+                            <button
+                              key={c.id}
+                              type="button"
+                              disabled={classSaving}
+                              onClick={() => void saveClass(c.id)}
+                              className={`${FOCUS_RING} flex w-full items-center gap-2 rounded-xl border border-line bg-white px-4 py-2.5 text-left text-sm font-semibold text-ink transition-colors hover:border-teal/60 hover:text-teal disabled:cursor-not-allowed disabled:opacity-50`}
+                            >
+                              {c.label}
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                    ))
+                  ) : (
+                    <p className="text-sm text-slateink">{loc(language, CLASS_EMPTY)}</p>
+                  )}
+                </div>
+              </div>
+            )}
+
+            {classError && (
+              <p role="alert" className="mt-4 text-sm font-medium text-coral">
+                {classError}
+              </p>
+            )}
+          </section>
+        )}
 
         <div className="mt-10 border-t border-line/50 pt-6">
           <button

@@ -8,7 +8,6 @@ import SubjectsGrid from './landing/SubjectsGrid.tsx';
 import StudentDashboardPreview from './landing/StudentDashboardPreview.tsx';
 import TeacherPanel from './landing/TeacherPanel.tsx';
 import ImpactStats from './landing/ImpactStats.tsx';
-import Pricing from './landing/Pricing.tsx';
 import FAQ from './landing/FAQ.tsx';
 import FinalCTA from './landing/FinalCTA.tsx';
 
@@ -24,7 +23,6 @@ const LandingPage: React.FC = () => {
       <StudentDashboardPreview />
       <TeacherPanel />
       <ImpactStats />
-      <Pricing />
       <FAQ />
       <FinalCTA />
     </main>

@@ -22,7 +22,7 @@ const COLUMNS: Array<{ title: Localized; links: Array<{ href: string; label: Loc
       { href: '#features', label: { ru: 'Возможности', kk: 'Мүмкіндіктер', en: 'Features' } },
       { href: '#subjects', label: { ru: 'Предметы', kk: 'Пәндер', en: 'Subjects' } },
       { href: '#dashboard', label: { ru: 'Кабинет ученика', kk: 'Оқушы кабинеті', en: 'Student dashboard' } },
-      { href: '#pricing', label: { ru: 'Тарифы', kk: 'Тарифтер', en: 'Pricing' } },
+      { href: '/pricing', label: { ru: 'Тарифы', kk: 'Тарифтер', en: 'Pricing' } },
     ],
   },
   {

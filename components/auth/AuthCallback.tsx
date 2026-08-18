@@ -33,11 +33,30 @@ const AuthCallback: React.FC = () => {
         navigate('/login', { replace: true, state: { error: message } });
         return;
       }
-      const { error } = await supabase.auth.exchangeCodeForSession(code);
+      // SignupPage stashes the role picked before the OAuth redirect; read and
+      // clear it up front so it is removed in every outcome below.
+      let pendingRole: string | null = null;
+      try {
+        pendingRole = window.localStorage.getItem('novex.pendingRole');
+        window.localStorage.removeItem('novex.pendingRole');
+      } catch {
+        // localStorage unavailable — nothing to apply
+      }
+      const { data, error } = await supabase.auth.exchangeCodeForSession(code);
       if (cancelled) return;
       if (error) {
         navigate('/login', { replace: true, state: { error: message } });
       } else {
+        // The signup trigger defaults everyone to student, so a pending
+        // teacher choice is applied to the profile here. Errors are ignored —
+        // the profile may already be a teacher.
+        if (pendingRole === 'teacher' && data.session?.user) {
+          await supabase
+            .from('profiles')
+            .update({ role: 'teacher', onboarded: true })
+            .eq('id', data.session.user.id);
+        }
+        if (cancelled) return;
         navigate('/profile', { replace: true });
       }
     };

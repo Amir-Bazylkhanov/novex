@@ -1,10 +1,12 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { LogOut, Menu, X } from 'lucide-react';
+import { ChevronDown, LogOut, Menu, User, X } from 'lucide-react';
 import { loc, type Lang, type Localized } from '../utils/i18n.ts';
 import { useLanguage } from '../context/LanguageContext.tsx';
 import { useAuth } from '../context/AuthContext.tsx';
 import LoginRequiredModal from './auth/LoginRequiredModal.tsx';
+import NovaBadge from './NovaBadge.tsx';
+import NotificationsBell from './NotificationsBell.tsx';
 
 const APP_NAV_LINKS: Array<{ to: string; label: Localized }> = [
   {
@@ -16,15 +18,26 @@ const APP_NAV_LINKS: Array<{ to: string; label: Localized }> = [
     label: { ru: 'Уроки', kk: 'Сабақтар', en: 'Lessons' },
   },
   {
+    to: '/practice',
+    label: { ru: 'Практика', kk: 'Практика', en: 'Practice' },
+  },
+  {
+    to: '/plan',
+    label: { ru: 'План', kk: 'Жоспар', en: 'Plan' },
+  },
+  {
     to: '/teacher',
     label: { ru: 'Для учителя', kk: 'Мұғалімге', en: 'For teachers' },
   },
 ];
 
+const PRICING_LABEL: Localized = { ru: 'Тарифы', kk: 'Тарифтер', en: 'Pricing' };
 const SIGN_IN: Localized = { ru: 'Войти', kk: 'Кіру', en: 'Sign in' };
 const START_FREE: Localized = { ru: 'Начать бесплатно', kk: 'Тегін бастау', en: 'Start free' };
 const SIGN_OUT: Localized = { ru: 'Выйти', kk: 'Шығу', en: 'Sign out' };
 const PROFILE_LABEL: Localized = { ru: 'Личный кабинет', kk: 'Жеке кабинет', en: 'Profile' };
+const PROFILE_MENU_LABEL: Localized = { ru: 'Профиль', kk: 'Профиль', en: 'Profile' };
+const LANGUAGE_LABEL: Localized = { ru: 'Язык', kk: 'Тіл', en: 'Language' };
 const OPEN_MENU: Localized = { ru: 'Открыть меню', kk: 'Мәзірді ашу', en: 'Open menu' };
 const CLOSE_MENU: Localized = { ru: 'Закрыть меню', kk: 'Мәзірді жабу', en: 'Close menu' };
 
@@ -96,6 +109,8 @@ const Header: React.FC = () => {
   const { pathname } = useLocation();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [profileMenuOpen, setProfileMenuOpen] = useState(false);
+  const profileMenuRef = useRef<HTMLDivElement>(null);
   const [avatarBroken, setAvatarBroken] = useState(false);
   /** App route a signed-out visitor tried to open; non-null shows the login modal. */
   const [loginPromptPath, setLoginPromptPath] = useState<string | null>(null);
@@ -125,6 +140,24 @@ const Header: React.FC = () => {
     window.addEventListener('keydown', onKeyDown);
     return () => window.removeEventListener('keydown', onKeyDown);
   }, [menuOpen]);
+
+  useEffect(() => {
+    if (!profileMenuOpen) return;
+    const onMouseDown = (e: MouseEvent) => {
+      if (profileMenuRef.current && !profileMenuRef.current.contains(e.target as Node)) {
+        setProfileMenuOpen(false);
+      }
+    };
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setProfileMenuOpen(false);
+    };
+    document.addEventListener('mousedown', onMouseDown);
+    document.addEventListener('keydown', onKeyDown);
+    return () => {
+      document.removeEventListener('mousedown', onMouseDown);
+      document.removeEventListener('keydown', onKeyDown);
+    };
+  }, [profileMenuOpen]);
 
   const closeMenu = () => setMenuOpen(false);
 
@@ -178,42 +211,87 @@ const Header: React.FC = () => {
         </nav>
 
         <div className="hidden items-center gap-3 lg:flex">
-          <LanguageSwitcher />
           {user ? (
             <>
-              <Link
-                to="/profile"
-                aria-label={loc(language, PROFILE_LABEL)}
-                className={`${FOCUS_RING} flex items-center gap-2 rounded-xl px-2 py-1.5 text-sm font-semibold text-ink transition-colors hover:text-teal`}
-              >
-                {avatarUrl ? (
-                  <img
-                    src={avatarUrl}
-                    alt=""
-                    onError={() => setAvatarBroken(true)}
-                    className="h-8 w-8 rounded-full object-cover"
-                  />
-                ) : (
-                  <span
+              <NovaBadge />
+              <NotificationsBell />
+              <div className="relative" ref={profileMenuRef}>
+                <button
+                  type="button"
+                  aria-haspopup="menu"
+                  aria-expanded={profileMenuOpen}
+                  aria-label={loc(language, PROFILE_LABEL)}
+                  onClick={() => setProfileMenuOpen((open) => !open)}
+                  className={`${FOCUS_RING} flex items-center gap-2 rounded-xl px-2 py-1.5 text-sm font-semibold text-ink transition-colors hover:text-teal`}
+                >
+                  {avatarUrl ? (
+                    <img
+                      src={avatarUrl}
+                      alt=""
+                      onError={() => setAvatarBroken(true)}
+                      className="h-8 w-8 rounded-full object-cover"
+                    />
+                  ) : (
+                    <span
+                      aria-hidden="true"
+                      className="flex h-8 w-8 items-center justify-center rounded-full bg-teal text-sm font-bold text-white"
+                    >
+                      {avatarInitial}
+                    </span>
+                  )}
+                  {firstName || user.email}
+                  <ChevronDown
                     aria-hidden="true"
-                    className="flex h-8 w-8 items-center justify-center rounded-full bg-teal text-sm font-bold text-white"
+                    className={`h-4 w-4 transition-transform ${profileMenuOpen ? 'rotate-180' : ''}`}
+                  />
+                </button>
+                {profileMenuOpen && (
+                  <div
+                    role="menu"
+                    className="absolute right-0 z-50 mt-2 w-56 rounded-xl border border-line bg-white py-1 shadow-lg"
                   >
-                    {avatarInitial}
-                  </span>
+                    <Link
+                      to="/profile"
+                      role="menuitem"
+                      onClick={() => setProfileMenuOpen(false)}
+                      className={`${FOCUS_RING} flex items-center gap-3 px-4 py-2.5 text-sm font-medium text-slateink transition-colors hover:text-teal`}
+                    >
+                      <User className="h-4 w-4" aria-hidden="true" />
+                      {loc(language, PROFILE_MENU_LABEL)}
+                    </Link>
+                    <div className="my-1 border-t border-line" aria-hidden="true" />
+                    <div className="flex items-center justify-between gap-2 px-4 py-2.5">
+                      <span className="text-xs font-semibold uppercase tracking-wider text-slateink">
+                        {loc(language, LANGUAGE_LABEL)}
+                      </span>
+                      <LanguageSwitcher />
+                    </div>
+                    <div className="my-1 border-t border-line" aria-hidden="true" />
+                    <button
+                      type="button"
+                      role="menuitem"
+                      onClick={() => {
+                        setProfileMenuOpen(false);
+                        void signOut();
+                      }}
+                      className={`${FOCUS_RING} flex w-full items-center gap-3 px-4 py-2.5 text-sm font-medium text-slateink transition-colors hover:text-coral`}
+                    >
+                      <LogOut className="h-4 w-4" aria-hidden="true" />
+                      {loc(language, SIGN_OUT)}
+                    </button>
+                  </div>
                 )}
-                {firstName || user.email}
-              </Link>
-              <button
-                type="button"
-                onClick={() => void signOut()}
-                aria-label={loc(language, SIGN_OUT)}
-                className={`${FOCUS_RING} rounded-xl p-2 text-slateink transition-colors hover:text-teal`}
-              >
-                <LogOut className="h-5 w-5" aria-hidden="true" />
-              </button>
+              </div>
             </>
           ) : (
             <>
+              <LanguageSwitcher />
+              <Link
+                to="/pricing"
+                className={`${FOCUS_RING} rounded-lg px-3 py-2 text-sm font-medium text-slateink transition-colors hover:text-ink`}
+              >
+                {loc(language, PRICING_LABEL)}
+              </Link>
               <Link
                 to="/login"
                 className={`${FOCUS_RING} rounded-xl px-4 py-2 text-sm font-semibold text-ink transition-colors hover:text-teal`}
@@ -286,6 +364,10 @@ const Header: React.FC = () => {
             <LanguageSwitcher onSwitch={closeMenu} />
             {user ? (
               <>
+                <div className="flex items-center justify-center gap-3">
+                  <NovaBadge />
+                  <NotificationsBell />
+                </div>
                 <Link
                   to="/profile"
                   onClick={closeMenu}
@@ -323,6 +405,13 @@ const Header: React.FC = () => {
               </>
             ) : (
               <>
+                <Link
+                  to="/pricing"
+                  onClick={closeMenu}
+                  className={`${FOCUS_RING} rounded-xl px-4 py-2.5 text-center text-sm font-semibold text-slateink transition-colors hover:text-ink`}
+                >
+                  {loc(language, PRICING_LABEL)}
+                </Link>
                 <Link
                   to="/login"
                   onClick={closeMenu}

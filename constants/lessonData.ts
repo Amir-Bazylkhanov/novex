@@ -7,12 +7,17 @@ import type { Localized } from '../utils/i18n.ts';
  * cards (`available: false`) that render muted in the catalogue and never
  * navigate. Placeholders intentionally carry empty `theory` / `questions`.
  *
+ * Practice questions carry a `difficulty` (1–3): the LessonPage walks them
+ * adaptively — two correct in a row jump to a harder question, a wrong
+ * answer steps down. No question is ever repeated.
+ *
  * Every answer key has been verified by hand — do not reorder options
  * without updating `correctIndex`.
  */
 
 export type LessonSubject = 'math' | 'physics' | 'english' | 'informatics';
 export type LessonDifficulty = 'easy' | 'medium' | 'hard';
+export type QuestionDifficulty = 1 | 2 | 3;
 
 export interface LessonTheoryBlock {
   heading: Localized;
@@ -30,6 +35,8 @@ export interface LessonQuestion {
   correctIndex: number;
   /** Step-by-step reasoning shown after answering — never just "correct". */
   explanation: Localized;
+  /** Adaptive-practice level (as in the diagnostic): 1 basics → 3 hardest. */
+  difficulty: QuestionDifficulty;
 }
 
 export interface Lesson {
@@ -183,6 +190,7 @@ export const LESSONS: Lesson[] = [
           kk: '1-қадам: коэффициенттерді анықтаймыз — a = 1, b = 4, c = 4. 2-қадам: D = b² − 4ac = 16 − 16 = 0. 3-қадам: D = 0 болғанда теңдеудің дәл бір түбірі болады. Демек, жауап — бір түбір.',
           en: 'Step 1: identify the coefficients — a = 1, b = 4, c = 4. Step 2: D = b² − 4ac = 16 − 16 = 0. Step 3: when D = 0 the equation has exactly one root. So the answer is one root.',
         },
+        difficulty: 1,
       },
       {
         id: 'qe-solve',
@@ -204,6 +212,7 @@ export const LESSONS: Lesson[] = [
           kk: '1-қадам: D = (−3)² − 4·1·(−10) = 9 + 40 = 49. 2-қадам: √49 = 7. 3-қадам: x₁ = (3 + 7)/2 = 5, x₂ = (3 − 7)/2 = −2. Назар аудар: −b = −(−3) = 3, −3 емес.',
           en: 'Step 1: D = (−3)² − 4·1·(−10) = 9 + 40 = 49. Step 2: √49 = 7. Step 3: x₁ = (3 + 7)/2 = 5, x₂ = (3 − 7)/2 = −2. Note that −b = −(−3) = 3, not −3.',
         },
+        difficulty: 2,
       },
       {
         id: 'qe-discriminant',
@@ -225,6 +234,7 @@ export const LESSONS: Lesson[] = [
           kk: '1-қадам: a = 2, b = −4, c = 1. 2-қадам: D = b² − 4ac = (−4)² − 4·2·1. 3-қадам: (−4)² = 16, ал 4·2·1 = 8. 4-қадам: D = 16 − 8 = 8. Жауабы: 8.',
           en: 'Step 1: a = 2, b = −4, c = 1. Step 2: D = b² − 4ac = (−4)² − 4·2·1. Step 3: (−4)² = 16 and 4·2·1 = 8. Step 4: D = 16 − 8 = 8. The answer is 8.',
         },
+        difficulty: 2,
       },
       {
         id: 'qe-vieta',
@@ -246,6 +256,7 @@ export const LESSONS: Lesson[] = [
           kk: '1-қадам: x² + px + q = 0 үшін түбірлер қосындысы −p, көбейтіндісі q. Мұнда қосынды −1, көбейтінді −6 болуы керек. 2-қадам: таңдаймыз: 2 + (−3) = −1 және 2 · (−3) = −6. Сәйкес келеді! Жауабы: x = 2 және x = −3.',
           en: 'Step 1: for x² + px + q = 0 the sum of the roots is −p and the product is q. Here the sum must be −1 and the product −6. Step 2: try 2 and −3: 2 + (−3) = −1 and 2 · (−3) = −6. That fits! Answer: x = 2 and x = −3.',
         },
+        difficulty: 3,
       },
     ],
   },
@@ -366,6 +377,7 @@ export const LESSONS: Lesson[] = [
           kk: '1-қадам: жалпы түрін жазамыз: y = kx + b. 2-қадам: y = −5x + 2 функциясымен салыстырамыз. 3-қадам: k — x-тың алдындағы сан, яғни −5. Ал 2 саны — b, бос мүше. Жауабы: k = −5.',
           en: 'Step 1: recall the general form y = kx + b. Step 2: compare with y = −5x + 2. Step 3: k is the number in front of x, which is −5. The number 2 is b, the constant term. Answer: k = −5.',
         },
+        difficulty: 1,
       },
       {
         id: 'lf-intercept',
@@ -387,6 +399,7 @@ export const LESSONS: Lesson[] = [
           kk: '1-қадам: y осінде әрқашан x = 0. 2-қадам: қоямыз: y = 2·0 + 3 = 3. 3-қадам: қиылысу нүктесі — (0; 3). Жылдам әдіс: бұл жай ғана (0; b) нүктесі.',
           en: 'Step 1: on the y-axis x is always 0. Step 2: substitute: y = 2·0 + 3 = 3. Step 3: the intersection point is (0; 3). Quick way: it is simply the point (0; b).',
         },
+        difficulty: 1,
       },
       {
         id: 'lf-increasing',
@@ -412,6 +425,7 @@ export const LESSONS: Lesson[] = [
           kk: '1-қадам: функция k > 0 болғанда өспелі болады. 2-қадам: коэффициенттерге қараймыз: 0,5 > 0, ал −1 мен −3 нөлден кіші. 3-қадам: y = 4 — тұрақты сан, графигі көлденең: ол өспейді де, кемімейді де. Жауабы: y = 0,5x − 7.',
           en: 'Step 1: a function increases when k > 0. Step 2: check the slopes: 0.5 > 0, while −1 and −3 are negative. Step 3: y = 4 is a constant — its graph is horizontal, neither rising nor falling. Answer: y = 0.5x − 7.',
         },
+        difficulty: 2,
       },
       {
         id: 'lf-point',
@@ -433,6 +447,7 @@ export const LESSONS: Lesson[] = [
           kk: '1-қадам: нүктенің координаттары формуланы дұрыс теңдікке айналдырса, ол графикке тиісті. 2-қадам: x = 2 қоямыз: y = 3·2 + 1 = 7. 3-қадам: дәл 7 шықты — нүктенің координатымен сәйкес. Демек, (2; 7) нүктесі графикте жатады.',
           en: 'Step 1: a point lies on the graph if its coordinates make the formula a true equality. Step 2: substitute x = 2: y = 3·2 + 1 = 7. Step 3: we got exactly 7, matching the point. So (2; 7) is on the graph.',
         },
+        difficulty: 3,
       },
     ],
   },
@@ -550,6 +565,7 @@ export const LESSONS: Lesson[] = [
           kk: '1-қадам: берілгендерін жазамыз: m = 3 кг, a = 2 м/с². 2-қадам: Ньютонның екінші заңы бойынша F = ma. 3-қадам: қоямыз: F = 3 · 2 = 6 Н. Жауабы: 6 Н.',
           en: "Step 1: write down the data: m = 3 kg, a = 2 m/s². Step 2: by Newton's second law F = ma. Step 3: substitute: F = 3 · 2 = 6 N. Answer: 6 N.",
         },
+        difficulty: 1,
       },
       {
         id: 'nl-inertia',
@@ -587,6 +603,7 @@ export const LESSONS: Lesson[] = [
           kk: '1-қадам: тежелгенге дейін жолаушы мен автобус бірдей жылдамдықпен қозғалды. 2-қадам: автобус кенеттен баяулайды, бірақ жолаушыға күш дерлік әсер етпейді. 3-қадам: бірінші заң бойынша күш жылдамдықты өзгерткенше дене оны сақтайды — жолаушы автобуске қарағанда «алға кетеді». Бұл — инерцияның көрінісі.',
           en: 'Step 1: before braking, the passenger and the bus moved at the same speed. Step 2: the bus slows sharply, but almost no force acts on the passenger. Step 3: by the first law a body keeps its velocity until a force changes it — so the passenger "moves ahead" relative to the bus. This is inertia.',
         },
+        difficulty: 2,
       },
       {
         id: 'nl-third-law',
@@ -624,6 +641,7 @@ export const LESSONS: Lesson[] = [
           kk: '1-қадам: үшінші заң — әр әсерге тең әрі қарама-қарсы қарсы әсер сәйкес келеді. 2-қадам: кітап үстелге төмен әсер етеді, демек үстел кітапқа жоғары әсер етеді. 3-қадам: күштер шамасы жөнінен тең, бірақ әртүрлі денелерге (үстел мен кітапқа) түседі, сондықтан бірін-бірі жоймайды.',
           en: 'Step 1: the third law — every action has an equal and opposite reaction. Step 2: the book pushes down on the table, so the table pushes up on the book. Step 3: the forces are equal in size but act on different bodies (the table and the book), so they do not cancel out.',
         },
+        difficulty: 2,
       },
       {
         id: 'nl-weight',
@@ -645,6 +663,7 @@ export const LESSONS: Lesson[] = [
           kk: '1-қадам: массаны килограмға айналдырамыз: 500 г = 0,5 кг. 2-қадам: ауырлық күші F = mg. 3-қадам: F = 0,5 · 10 = 5 Н. Жауабы: 5 Н. Жиі кездесетін қате — 500-ді қойып 5000 Н алу: әрқашан SI жүйесіне айналдыр!',
           en: 'Step 1: convert the mass to kilograms: 500 g = 0.5 kg. Step 2: the force of gravity is F = mg. Step 3: F = 0.5 · 10 = 5 N. Answer: 5 N. A common mistake is plugging in 500 and getting 5000 N — always convert to SI units!',
         },
+        difficulty: 3,
       },
     ],
   },
@@ -767,6 +786,7 @@ export const LESSONS: Lesson[] = [
           kk: '1-қадам: ісшіл She — үшінші жақ жекеше, сондықтан has керек. 2-қадам: has-тен кейін етістіктің үшінші формасы келеді: finish → finished. 3-қадам: жинаймыз: She has finished her homework. «Has finish» нұсқасы мүмкін емес: have/has-тен кейін әрқашан V3 тұрады.',
           en: 'Step 1: the subject is She — third person singular, so we need has. Step 2: after has comes the third form of the verb: finish → finished. Step 3: put it together: She has finished her homework. "Has finish" is impossible: have/has is always followed by V3.',
         },
+        difficulty: 1,
       },
       {
         id: 'pp-since-for',
@@ -788,6 +808,7 @@ export const LESSONS: Lesson[] = [
           kk: '1-қадам: since уақыт сәтімен қолданылады (since 2015, since Monday), ал for — мерзіммен (for ten years). 2-қадам: 2015 — мерзім емес, сәт. 3-қадам: демек, дұрысы since: I have lived here since 2015. From нұсқасы Present Perfect-пен қолданылмайды.',
           en: 'Step 1: since goes with a point in time (since 2015, since Monday); for goes with a period (for ten years). Step 2: 2015 is a point, not a period. Step 3: so the correct word is since: I have lived here since 2015. "From" is not used with the Present Perfect.',
         },
+        difficulty: 2,
       },
       {
         id: 'pp-vs-past',
@@ -813,6 +834,7 @@ export const LESSONS: Lesson[] = [
           kk: '1-қадам: уақыт белгісін іздейміз — yesterday, нақты өткен уақыт. 2-қадам: нақты өткен уақытпен Present Perfect қолданылмайды: Past Simple керек. 3-қадам: watch етістігінің екінші формасы — watched. Дұрысы: I watched this film yesterday.',
           en: 'Step 1: look for a time marker — yesterday, a precise past time. Step 2: the Present Perfect is not used with a precise past time; you need the Past Simple. Step 3: the second form of watch is watched. Correct: I watched this film yesterday.',
         },
+        difficulty: 2,
       },
       {
         id: 'pp-irregular',
@@ -838,6 +860,7 @@ export const LESSONS: Lesson[] = [
           kk: '1-қадам: has-тен кейін етістіктің үшінші формасы керек. 2-қадам: «бір жерде болған» — have been to; be етістігінің үшінші формасы — been (be → was/were → been). 3-қадам: was — екінші форма, has-тен кейін қойылмайды; beed және goed деген сөздер мүлдем жоқ. Дұрысы: He has been to Astana twice.',
           en: 'Step 1: after has we need the third form of the verb. Step 2: "have been to" means "have visited"; the third form of be is been (be → was/were → been). Step 3: was is the second form and cannot follow has; beed and goed do not exist. Correct: He has been to Astana twice.',
         },
+        difficulty: 3,
       },
     ],
   },
@@ -975,6 +998,7 @@ export const LESSONS: Lesson[] = [
           kk: '1-қадам: анықтаманы еске түсірейік — алгоритм қадамдар тізбегі. 2-қадам: кілт сөздерді нақтылайық: қадамдар саны шекті, әр қадам нақты, соңында нәтиже алынады. 3-қадам: бағдарлама — алгоритмнің компьютер тілінде жазылуы ғана, ал алгоритм компьютерсіз де бар (рецепт, нұсқаулық).',
           en: 'Step 1: recall the definition — an algorithm is a sequence of steps. Step 2: highlight the key words: the number of steps is finite, each step is precise, and a result is produced. Step 3: a program is only an algorithm written in a computer language; the algorithm itself exists without a computer (a recipe, an instruction).',
         },
+        difficulty: 1,
       },
       {
         id: 'ab-flowchart',
@@ -996,6 +1020,7 @@ export const LESSONS: Lesson[] = [
           kk: '1-қадам: сопақша — басы мен соңы. 2-қадам: тік төртбұрыш — әрекет, параллелограмм — енгізу мен шығару. 3-қадам: шарт ромбмен белгіленеді — одан «иә» және «жоқ» екі тармақ шығады.',
           en: 'Step 1: the oval is the start and end. Step 2: the rectangle is an action, the parallelogram is input and output. Step 3: a condition is drawn as a diamond — two branches leave it: "yes" and "no".',
         },
+        difficulty: 1,
       },
       {
         id: 'ab-branch',
@@ -1017,6 +1042,7 @@ export const LESSONS: Lesson[] = [
           kk: '1-қадам: шарт бар ма, тексереміз: «егер жаңбыр жауса» — бар. 2-қадам: жауапқа байланысты қай қадам орындалатыны шешіледі: қолшатыр ма, қалпақ па. 3-қадам: қайталау жоқ, демек цикл емес; жол біреу емес, демек сызықтық емес. Бұл — тармақталу.',
           en: 'Step 1: check for a condition: "if it is raining" — there is one. Step 2: which step runs depends on the answer: umbrella or cap. Step 3: nothing repeats, so it is not a loop; there is more than one path, so it is not linear. It is a branch.',
         },
+        difficulty: 2,
       },
       {
         id: 'ab-loop',
@@ -1050,6 +1076,7 @@ export const LESSONS: Lesson[] = [
           kk: '1-қадам: цикл — шарт орындалып тұрғанша қадамдарды қайталау. 2-қадам: «10 рет секір» — секіру саны онға жеткенше қайталанады. 3-қадам: қалған нұсқалар — сызықтық қадамдар немесе тармақталу («егер суық болса»), оларда қайталау жоқ.',
           en: 'Step 1: a loop repeats steps while a condition holds. Step 2: "jump 10 times" — the jump repeats until the count reaches ten. Step 3: the other options are linear steps or a branch ("if it is cold") — there is no repetition in them.',
         },
+        difficulty: 3,
       },
     ],
   },

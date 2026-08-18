@@ -5,7 +5,7 @@
 //         -> Anthropic / OpenAI
 // The shared secret never reaches the browser.
 
-const ALLOWED_MODELS = ['claude-sonnet-5', 'claude-opus-5', 'gpt-5.6-terra'] as const;
+const ALLOWED_MODELS = ['claude-sonnet-5', 'claude-opus-5', 'gpt-5.6-terra', 'gpt-5.6-luna', 'gpt-5.6-sol'] as const;
 
 const ALLOWED_ORIGINS = [
   'https://novex-edu.vercel.app',

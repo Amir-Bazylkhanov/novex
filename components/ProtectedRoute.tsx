@@ -32,10 +32,16 @@ const ProtectedRoute: React.FC = () => {
     return <Navigate to="/login" replace state={{ from: location }} />;
   }
 
-  // First-time users must finish the diagnostic before the rest of the app.
-  // Wait until the profile row has actually arrived (null = still loading);
-  // /onboarding itself is exempt, or the redirect would loop.
-  if (profile && !profile.onboarded && location.pathname !== '/onboarding') {
+  // First-time students must finish the diagnostic before the rest of the app
+  // (teachers and admins never do). Wait until the profile row has actually
+  // arrived (null = still loading); /onboarding itself is exempt, or the
+  // redirect would loop.
+  if (
+    profile &&
+    profile.role === 'student' &&
+    !profile.onboarded &&
+    location.pathname !== '/onboarding'
+  ) {
     return <Navigate to="/onboarding" replace />;
   }
 

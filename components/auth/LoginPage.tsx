@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AlertCircle, ArrowLeft, Eye, EyeOff, Loader2, Lock, LogIn, Mail } from 'lucide-react';
 import { loc, type Localized } from '../../utils/i18n.ts';
 import { useLanguage } from '../../context/LanguageContext.tsx';
@@ -114,7 +114,7 @@ type LoginFields = { email?: string; password?: string };
 
 const LoginPage: React.FC = () => {
   const { language } = useLanguage();
-  const { user, signIn, signInWithGoogle } = useAuth();
+  const { user, profile, signIn, signInWithGoogle } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -143,9 +143,19 @@ const LoginPage: React.FC = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  if (user) {
-    return <Navigate to="/profile" replace />;
-  }
+  // Once signed in, wait for the profile row (it loads async after the
+  // session appears) so teachers can be routed to their dashboard; everyone
+  // else keeps the previous destination.
+  useEffect(() => {
+    if (!user || !profile) return;
+    if (profile.role === 'teacher') {
+      navigate('/teacher', { replace: true });
+      return;
+    }
+    const state = location.state as { from?: { pathname?: string } | string } | null;
+    const from = typeof state?.from === 'string' ? state.from : state?.from?.pathname;
+    navigate(from ?? '/profile', { replace: true });
+  }, [user, profile, navigate, location.state]);
 
   const onBack = () => {
     if (window.history.length > 1) {
@@ -186,9 +196,7 @@ const LoginPage: React.FC = () => {
         setFormError(error);
         return;
       }
-      const state = location.state as { from?: { pathname?: string } | string } | null;
-      const from = typeof state?.from === 'string' ? state.from : state?.from?.pathname;
-      navigate(from ?? '/profile', { replace: true });
+      // The effect above navigates once the profile finishes loading.
     } finally {
       setSubmitting(false);
     }

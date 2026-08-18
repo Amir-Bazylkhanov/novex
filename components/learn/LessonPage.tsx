@@ -11,6 +11,8 @@ import {
   Loader2,
   Lock,
   RotateCcw,
+  TrendingDown,
+  TrendingUp,
   X,
   Zap,
 } from 'lucide-react';
@@ -70,6 +72,16 @@ const START_PRACTICE: Localized = {
   en: 'Start practice',
 };
 const ANSWER_BTN: Localized = { ru: 'Ответить', kk: 'Жауап беру', en: 'Answer' };
+const ADAPT_UP: Localized = {
+  ru: 'Сложность растёт',
+  kk: 'Қиындық артып келеді',
+  en: 'Difficulty is going up',
+};
+const ADAPT_DOWN: Localized = {
+  ru: 'Сделаем полегче',
+  kk: 'Сәл жеңілірек етейік',
+  en: 'Let’s make it easier',
+};
 const NEXT_BTN: Localized = { ru: 'Дальше', kk: 'Келесі', en: 'Next' };
 const FINISH_BTN: Localized = {
   ru: 'Завершить урок',
@@ -215,6 +227,9 @@ const LessonRunner: React.FC<{ lesson: Lesson }> = ({ lesson }) => {
   const [selected, setSelected] = useState<number | null>(null);
   const [answered, setAnswered] = useState(false);
   const [answers, setAnswers] = useState<LessonAnswer[]>([]);
+  const [streak, setStreak] = useState(0);
+  const [nextCursor, setNextCursor] = useState<number | null>(null);
+  const [adapted, setAdapted] = useState<'up' | 'down' | null>(null);
   const [saveState, setSaveState] = useState<SaveState>('idle');
 
   const savedRef = useRef(false);
@@ -298,26 +313,76 @@ const LessonRunner: React.FC<{ lesson: Lesson }> = ({ lesson }) => {
     setSelected(null);
     setAnswered(false);
     setAnswers([]);
+    setStreak(0);
+    setNextCursor(null);
+    setAdapted(null);
     setPhase('quiz');
   };
 
   const submitAnswer = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (!currentQuestion || selected === null || answered) return;
-    setAnswers((prev) => [
-      ...prev,
+    const correct = selected === currentQuestion.correctIndex;
+    const nextAnswers: LessonAnswer[] = [
+      ...answers,
       {
         questionId: currentQuestion.id,
         topicLabel: currentQuestion.topicLabel,
-        correct: selected === currentQuestion.correctIndex,
+        correct,
       },
-    ]);
+    ];
+    const nextStreak = correct ? streak + 1 : 0;
+
+    // adaptive pick: two right in a row → one step harder, a wrong answer → one step down
+    const askedIds = nextAnswers.map((a) => a.questionId);
+    const unasked = lesson.questions
+      .map((_, i) => i)
+      .filter((i) => !askedIds.includes(lesson.questions[i].id));
+    let next: number | null = null;
+    let adapt: 'up' | 'down' | null = null;
+    if (unasked.length > 0) {
+      if (nextStreak >= 2) {
+        const harder = unasked.filter(
+          (i) => lesson.questions[i].difficulty > currentQuestion.difficulty,
+        );
+        if (harder.length > 0) {
+          adapt = 'up';
+          next = harder.reduce((best, i) => {
+            const a = lesson.questions[best];
+            const b = lesson.questions[i];
+            return b.difficulty < a.difficulty || (b.difficulty === a.difficulty && i < best)
+              ? i
+              : best;
+          });
+        }
+      } else if (!correct) {
+        const easier = unasked.filter(
+          (i) => lesson.questions[i].difficulty < currentQuestion.difficulty,
+        );
+        if (easier.length > 0) {
+          adapt = 'down';
+          next = easier.reduce((best, i) => {
+            const a = lesson.questions[best];
+            const b = lesson.questions[i];
+            return b.difficulty > a.difficulty || (b.difficulty === a.difficulty && i < best)
+              ? i
+              : best;
+          });
+        }
+      }
+      if (next === null) next = unasked.find((i) => i > cursor) ?? unasked[0];
+    }
+
+    setAnswers(nextAnswers);
     setAnswered(true);
+    setStreak(adapt ? 0 : nextStreak);
+    setAdapted(adapt);
+    setNextCursor(next);
   };
 
   const goNext = () => {
-    if (cursor + 1 < totalQuestions) {
-      setCursor(cursor + 1);
+    if (nextCursor !== null) {
+      setCursor(nextCursor);
       setSelected(null);
       setAnswered(false);
     } else {
@@ -334,6 +399,9 @@ const LessonRunner: React.FC<{ lesson: Lesson }> = ({ lesson }) => {
     setSelected(null);
     setAnswered(false);
     setAnswers([]);
+    setStreak(0);
+    setNextCursor(null);
+    setAdapted(null);
   };
 
   return (
@@ -445,6 +513,16 @@ const LessonRunner: React.FC<{ lesson: Lesson }> = ({ lesson }) => {
               <p className="font-mono text-[11px] font-medium uppercase tracking-widest text-slateink">
                 {loc(language, currentQuestion.topicLabel)}
               </p>
+              {adapted && (
+                <p className="mt-1.5 inline-flex items-center gap-1.5 rounded-full bg-mist/30 px-2.5 py-1 font-mono text-[11px] font-medium uppercase tracking-widest text-teal-dark">
+                  {adapted === 'up' ? (
+                    <TrendingUp className="h-3 w-3" aria-hidden="true" />
+                  ) : (
+                    <TrendingDown className="h-3 w-3" aria-hidden="true" />
+                  )}
+                  {loc(language, adapted === 'up' ? ADAPT_UP : ADAPT_DOWN)}
+                </p>
+              )}
               <h2
                 ref={questionHeadingRef}
                 tabIndex={-1}
@@ -557,10 +635,7 @@ const LessonRunner: React.FC<{ lesson: Lesson }> = ({ lesson }) => {
                     onClick={goNext}
                     className={`${PRIMARY_BTN} mt-4 w-full justify-center sm:w-auto`}
                   >
-                    {loc(
-                      language,
-                      cursor + 1 < totalQuestions ? NEXT_BTN : FINISH_BTN,
-                    )}
+                    {loc(language, nextCursor !== null ? NEXT_BTN : FINISH_BTN)}
                     <ChevronRight className="h-4 w-4" aria-hidden="true" />
                   </button>
                 </motion.div>

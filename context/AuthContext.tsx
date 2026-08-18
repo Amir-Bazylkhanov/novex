@@ -17,6 +17,8 @@ export interface Profile {
   school: string | null;
   region: string | null;
   avatar_url: string | null;
+  /** Exam / goal deadline from the exam_date column (snake_case in the DB). */
+  examDate: string | null;
   onboarded: boolean;
 }
 
@@ -56,6 +58,7 @@ interface AuthContextValue {
     email: string,
     password: string,
     fullName: string,
+    role: 'student' | 'teacher',
   ): Promise<{ error: string | null; needsConfirmation: boolean }>;
   signInWithGoogle(): Promise<{ error: string | null }>;
   signOut(): Promise<void>;
@@ -188,12 +191,17 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     let cancelled = false;
     supabase
       .from('profiles')
-      .select('id, full_name, role, grade, subjects, goal, language, school, region, avatar_url, onboarded')
+      .select(
+        'id, full_name, role, grade, subjects, goal, language, school, region, avatar_url, exam_date, onboarded',
+      )
       .eq('id', user.id)
       .maybeSingle()
       .then(({ data, error }) => {
         if (cancelled || error || !data) return;
-        const loaded = data as Profile;
+        const { exam_date, ...rest } = data as Omit<Profile, 'examDate'> & {
+          exam_date: string | null;
+        };
+        const loaded: Profile = { ...rest, examDate: exam_date ?? null };
         setProfile(loaded);
         // Apply the language saved on the account, so the choice follows the
         // user to another browser or device. Guarded by a ref so it runs once
@@ -235,23 +243,26 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     }
   }, []);
 
-  const signUp = useCallback(async (email: string, password: string, fullName: string) => {
-    try {
-      const { data, error } = await supabase.auth.signUp({
-        email,
-        password,
-        options: { data: { full_name: fullName } },
-      });
-      return {
-        error: error ? mapAuthError(error) : null,
-        // With email confirmation enabled Supabase returns a user but no
-        // session — the user must click the link in their inbox first.
-        needsConfirmation: !error && !data.session,
-      };
-    } catch (err) {
-      return { error: mapAuthError(err), needsConfirmation: false };
-    }
-  }, []);
+  const signUp = useCallback(
+    async (email: string, password: string, fullName: string, role: 'student' | 'teacher') => {
+      try {
+        const { data, error } = await supabase.auth.signUp({
+          email,
+          password,
+          options: { data: { full_name: fullName, role } },
+        });
+        return {
+          error: error ? mapAuthError(error) : null,
+          // With email confirmation enabled Supabase returns a user but no
+          // session — the user must click the link in their inbox first.
+          needsConfirmation: !error && !data.session,
+        };
+      } catch (err) {
+        return { error: mapAuthError(err), needsConfirmation: false };
+      }
+    },
+    [],
+  );
 
   const signInWithGoogle = useCallback(async () => {
     try {
@@ -274,7 +285,11 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     async (patch: Partial<Profile>) => {
       if (!user) return { error: loc(activeLang(), ERR_UNKNOWN) };
       try {
-        const { error } = await supabase.from('profiles').update(patch).eq('id', user.id);
+        // camelCase examDate maps to the exam_date column; everything else
+        // already matches its column name
+        const { examDate, ...rest } = patch;
+        const row = examDate === undefined ? rest : { ...rest, exam_date: examDate };
+        const { error } = await supabase.from('profiles').update(row).eq('id', user.id);
         if (error) return { error: mapAuthError(error) };
         setProfile((prev) => (prev ? { ...prev, ...patch } : prev));
         return { error: null };

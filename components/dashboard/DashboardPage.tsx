@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import {
   AlertTriangle,
   ArrowRight,
   Award,
+  Bell,
   BookOpen,
   Calendar,
   Sparkles,
@@ -14,6 +16,8 @@ import { useLanguage } from '../../context/LanguageContext.tsx';
 import { useAuth, type Goal } from '../../context/AuthContext.tsx';
 import { RobotAvatar } from '../robots/RobotAvatars.tsx';
 import { supabase } from '../../services/supabaseClient.ts';
+import AnalyticsSection, { type NovaTransactionRow } from './AnalyticsSection.tsx';
+import AchievementsTab from './AchievementsTab.tsx';
 
 /* --- content --- */
 
@@ -120,6 +124,55 @@ const GOAL_LABELS: Record<Goal, Localized> = {
   revision: { ru: 'Повторение темы', kk: 'Тақырыпты қайталау', en: 'Topic revision' },
   admission: { ru: 'Поступление', kk: 'Оқуға түсу', en: 'Admission' },
 };
+const GOAL_COUNTDOWN: Localized = {
+  ru: 'осталось {n} {word}',
+  kk: '{n} {word} қалды',
+  en: '{n} {word} left',
+};
+const GOAL_TODAY: Localized = { ru: 'сегодня!', kk: 'бүгін!', en: 'today!' };
+const GOAL_OVERDUE: Localized = {
+  ru: 'дата уже прошла — обнови её в профиле',
+  kk: 'күн өтіп кетті — профильде жаңартып қой',
+  en: 'the date has passed — update it in your profile',
+};
+const GOAL_NO_DATE_HINT: Localized = {
+  ru: 'Укажи дату экзамена в профиле, чтобы видеть обратный отсчёт',
+  kk: 'Кері санақты көру үшін емтихан күнін профильде көрсет',
+  en: 'Set the exam date in your profile to see a countdown',
+};
+const GOAL_PLAN_LINK: Localized = {
+  ru: 'План подготовки от NOV-03',
+  kk: 'NOV-03 дайындық жоспары',
+  en: 'Prep plan from NOV-03',
+};
+
+const REMINDERS_TITLE: Localized = {
+  ru: 'Напоминания',
+  kk: 'Еске салғыштар',
+  en: 'Reminders',
+};
+const REMINDER_DEADLINE: Localized = {
+  ru: 'До цели {n} {word} — держи темп!',
+  kk: 'Мақсатқа {n} {word} қалды — қарқынды жоғалтпа!',
+  en: '{n} {word} to your goal — keep up the pace!',
+};
+const REMINDER_REVIEW: Localized = {
+  ru: 'Пора повторить: {topic}',
+  kk: 'Қайталайтын уақыт келді: {topic}',
+  en: 'Time to review: {topic}',
+};
+
+const ACHIEVEMENTS_TITLE: Localized = {
+  ru: 'Достижения',
+  kk: 'Жетістіктер',
+  en: 'Achievements',
+};
+const TAB_OVERVIEW: Localized = { ru: 'Обзор', kk: 'Шолу', en: 'Overview' };
+const TAB_GROUP_LABEL: Localized = {
+  ru: 'Разделы дашборда',
+  kk: 'Дашборд бөлімдері',
+  en: 'Dashboard sections',
+};
 
 const CONTINUE_TITLE: Localized = {
   ru: 'Продолжить обучение',
@@ -172,6 +225,7 @@ interface LessonProgressRow {
   subject: string;
   status: string;
   xp: number | null;
+  completed_at: string | null;
 }
 
 interface DiagnosticRow {
@@ -184,6 +238,10 @@ interface DiagnosticRow {
 interface DashboardData {
   lessons: LessonProgressRow[];
   diagnostic: DiagnosticRow | null;
+  transactions: NovaTransactionRow[];
+  hasPlan: boolean;
+  hasTeacherModules: boolean;
+  profileCreatedAt: string | null;
 }
 
 interface SubjectStat {
@@ -216,6 +274,15 @@ const buildSubjectStats = (lessons: LessonProgressRow[]): SubjectStat[] => {
 const daysUntilEnt = (): number =>
   Math.max(0, Math.ceil((ENT_TARGET.getTime() - Date.now()) / 86_400_000));
 
+/* Whole days from today to an ISO date (YYYY-MM-DD); negative means overdue. */
+const daysUntilDate = (iso: string): number | null => {
+  const target = new Date(`${iso}T00:00:00`);
+  if (Number.isNaN(target.getTime())) return null;
+  const now = new Date();
+  const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  return Math.round((target.getTime() - today.getTime()) / 86_400_000);
+};
+
 const daysWord = (lang: Lang, days: number): string => {
   if (lang === 'kk') return 'күн';
   if (lang === 'en') return days === 1 ? 'day' : 'days';
@@ -237,19 +304,30 @@ const DashboardPage: React.FC = () => {
   const { language } = useLanguage();
   const [data, setData] = useState<DashboardData | null>(null);
   const [loadError, setLoadError] = useState(false);
+  const [activeTab, setActiveTab] = useState<'overview' | 'achievements'>('overview');
 
   useEffect(() => {
     if (!user) return;
     let cancelled = false;
     const load = async () => {
       try {
-        const [lessonsRes, diagRes] = await Promise.all([
-          supabase.from('lesson_progress').select('lesson_slug, subject, status, xp'),
+        const [lessonsRes, diagRes, txRes, planRes, modulesRes, profileRes] = await Promise.all([
+          supabase
+            .from('lesson_progress')
+            .select('lesson_slug, subject, status, xp, completed_at'),
           supabase
             .from('diagnostic_results')
             .select('subject, weak_topics, strong_topics, created_at')
             .order('created_at', { ascending: false })
             .limit(1),
+          supabase
+            .from('nova_transactions')
+            .select('amount, action_type, description, created_at')
+            .order('created_at', { ascending: false })
+            .limit(15),
+          supabase.from('study_plans').select('user_id').eq('user_id', user.id).maybeSingle(),
+          supabase.from('teacher_modules').select('id').limit(1),
+          supabase.from('profiles').select('created_at').eq('id', user.id).maybeSingle(),
         ]);
         if (cancelled) return;
         if (lessonsRes.error || diagRes.error) {
@@ -258,7 +336,22 @@ const DashboardPage: React.FC = () => {
         }
         const lessons = (lessonsRes.data ?? []) as LessonProgressRow[];
         const diagRows = (diagRes.data ?? []) as DiagnosticRow[];
-        setData({ lessons, diagnostic: diagRows[0] ?? null });
+        // Secondary reads degrade to empty defaults — a missing table or RLS
+        // denial must not break the whole dashboard.
+        const transactions = txRes.error
+          ? []
+          : ((txRes.data ?? []) as NovaTransactionRow[]);
+        const profileRow = profileRes.error
+          ? null
+          : ((profileRes.data ?? null) as { created_at: string } | null);
+        setData({
+          lessons,
+          diagnostic: diagRows[0] ?? null,
+          transactions,
+          hasPlan: !planRes.error && planRes.data !== null,
+          hasTeacherModules: !modulesRes.error && (modulesRes.data ?? []).length > 0,
+          profileCreatedAt: profileRow?.created_at ?? null,
+        });
       } catch {
         if (!cancelled) setLoadError(true);
       }
@@ -312,6 +405,42 @@ const DashboardPage: React.FC = () => {
     : '';
 
   const days = daysUntilEnt();
+  const examDays = profile.examDate ? daysUntilDate(profile.examDate) : null;
+
+  const reminders: Array<{ key: string; text: string; to: string | null }> = [];
+  if (examDays !== null && examDays >= 0 && examDays <= 30) {
+    reminders.push({
+      key: 'deadline',
+      text: fill(loc(language, REMINDER_DEADLINE), {
+        n: examDays,
+        word: daysWord(language, examDays),
+      }),
+      to: null,
+    });
+  }
+  if (firstWeak) {
+    reminders.push({
+      key: 'review',
+      text: fill(loc(language, REMINDER_REVIEW), { topic: firstWeak }),
+      to: '/learn',
+    });
+  }
+  const visibleReminders = reminders.slice(0, 2);
+
+  const transactions = data?.transactions ?? [];
+  const novasEarned = transactions.reduce((sum, tx) => sum + (tx.amount > 0 ? tx.amount : 0), 0);
+  const novasSpent = transactions.reduce((sum, tx) => sum + (tx.amount < 0 ? -tx.amount : 0), 0);
+  const distinctLessonDays = new Set(
+    lessons
+      .filter((row) => row.status === 'completed' && row.completed_at)
+      .map((row) => (row.completed_at ?? '').slice(0, 10)),
+  ).size;
+
+  const profileCreatedAt = data?.profileCreatedAt ?? null;
+  const profileCreatedMs = profileCreatedAt ? new Date(profileCreatedAt).getTime() : NaN;
+  const daysWithUs = Number.isNaN(profileCreatedMs)
+    ? null
+    : Math.max(1, Math.ceil((Date.now() - profileCreatedMs) / 86_400_000));
 
   const displayName = profile.full_name?.trim() || user.email;
   const greeting = displayName
@@ -332,6 +461,73 @@ const DashboardPage: React.FC = () => {
             {loc(language, GREETING_SUB)}
           </p>
         </header>
+
+        <div
+          className="mt-6 flex flex-wrap gap-2"
+          role="group"
+          aria-label={loc(language, TAB_GROUP_LABEL)}
+        >
+          {(
+            [
+              { key: 'overview', label: TAB_OVERVIEW },
+              { key: 'achievements', label: ACHIEVEMENTS_TITLE },
+            ] as const
+          ).map(({ key, label }) => {
+            const active = activeTab === key;
+            return (
+              <button
+                key={key}
+                type="button"
+                aria-selected={active}
+                onClick={() => setActiveTab(key)}
+                className={`${FOCUS_RING} rounded-full border px-5 py-2 text-sm transition-colors ${
+                  active
+                    ? 'border-teal bg-mist/40 font-semibold text-teal-dark'
+                    : 'border-line bg-white font-medium text-slateink hover:border-teal/60 hover:text-teal-dark'
+                }`}
+              >
+                {loc(language, label)}
+              </button>
+            );
+          })}
+        </div>
+
+        {activeTab === 'overview' ? (
+          <>
+        {visibleReminders.length > 0 && (
+          <section
+            aria-labelledby="dash-reminders-heading"
+            className="mt-6 rounded-2xl border border-line/50 bg-white p-4 shadow-[0_1px_3px_rgba(17,26,42,0.04)] sm:px-6"
+          >
+            <div className="flex items-center gap-3">
+              <span className={`${HEADING_ICON} bg-mist/40`}>
+                <Bell className="h-5 w-5 text-teal-dark" aria-hidden="true" />
+              </span>
+              <h2
+                id="dash-reminders-heading"
+                className="font-display text-lg font-bold tracking-tight text-ink"
+              >
+                {loc(language, REMINDERS_TITLE)}
+              </h2>
+            </div>
+            <ul className="mt-3 space-y-2">
+              {visibleReminders.map((reminder) => (
+                <li key={reminder.key}>
+                  {reminder.to ? (
+                    <Link
+                      to={reminder.to}
+                      className={`${FOCUS_RING} inline-flex items-center gap-1.5 rounded-md text-sm font-medium text-teal-dark underline decoration-teal/40 underline-offset-4 transition-colors hover:text-teal`}
+                    >
+                      {reminder.text}
+                    </Link>
+                  ) : (
+                    <p className="text-sm text-ink">{reminder.text}</p>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
 
         <div className="mt-8 grid gap-6 lg:grid-cols-2">
           {loadError ? (
@@ -572,6 +768,39 @@ const DashboardPage: React.FC = () => {
                 ) : (
                   <p className="mt-5 text-sm text-slateink">{loc(language, NO_GOAL)}</p>
                 )}
+
+                {examDays !== null && (
+                  <p
+                    className={`mt-3 text-sm font-semibold ${
+                      examDays < 0 ? 'text-coral' : 'text-teal-dark'
+                    }`}
+                  >
+                    {examDays === 0
+                      ? loc(language, GOAL_TODAY)
+                      : examDays < 0
+                        ? loc(language, GOAL_OVERDUE)
+                        : fill(loc(language, GOAL_COUNTDOWN), {
+                            n: examDays,
+                            word: daysWord(language, examDays),
+                          })}
+                  </p>
+                )}
+                {!profile.examDate && profile.goal && (
+                  <Link
+                    to="/profile"
+                    className={`${FOCUS_RING} mt-3 inline-block rounded-md text-sm font-medium text-slateink underline decoration-line underline-offset-4 transition-colors hover:text-teal`}
+                  >
+                    {loc(language, GOAL_NO_DATE_HINT)}
+                  </Link>
+                )}
+
+                <Link
+                  to="/plan"
+                  className={`${FOCUS_RING} mt-4 inline-flex items-center gap-2 rounded-xl border border-line bg-white px-5 py-2.5 text-sm font-semibold text-ink transition-colors hover:border-teal hover:text-teal`}
+                >
+                  {loc(language, GOAL_PLAN_LINK)}
+                  <ArrowRight className="h-4 w-4 text-teal" aria-hidden="true" />
+                </Link>
               </section>
 
               {/* Продолжить обучение */}
@@ -596,6 +825,45 @@ const DashboardPage: React.FC = () => {
             </>
           )}
         </div>
+
+        {!loadError && data && (
+          <AnalyticsSection
+            totalXp={totalXp}
+            lessonsDone={doneTotal}
+            daysWithUs={daysWithUs}
+            transactions={transactions}
+          />
+        )}
+          </>
+        ) : loadError ? (
+          <div role="alert" className={`${CARD} mt-8 flex items-start gap-3 border-coral/40`}>
+            <AlertTriangle className="h-5 w-5 shrink-0 text-coral" aria-hidden="true" />
+            <p className="text-sm font-medium text-ink">{loc(language, ERR_LOAD)}</p>
+          </div>
+        ) : !data ? (
+          <div role="status" className={`${CARD} mt-8 flex items-center justify-center py-16`}>
+            <span
+              className="h-8 w-8 animate-spin rounded-full border-[3px] border-line border-t-teal"
+              aria-hidden="true"
+            />
+            <span className="sr-only">{loc(language, LOADING)}</span>
+          </div>
+        ) : (
+          <AchievementsTab
+            data={{
+              lessonsDone: doneTotal,
+              totalXp,
+              hasDiagnostic: diagnostic !== null,
+              hasGoal: profile.goal !== null,
+              hasPlan: data.hasPlan,
+              hasTeacherModules: data.hasTeacherModules,
+              novasEarned,
+              novasSpent,
+              distinctLessonDays,
+              profileCreatedAt,
+            }}
+          />
+        )}
       </div>
     </main>
   );

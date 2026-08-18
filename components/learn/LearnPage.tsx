@@ -4,18 +4,23 @@ import { motion, useReducedMotion } from 'framer-motion';
 import {
   Atom,
   Calculator,
+  Calendar,
   Check,
   ChevronRight,
   Clock,
   Cpu,
   Languages,
+  ListChecks,
   Loader2,
   Lock,
+  School,
+  Sparkles,
+  Users,
   Zap,
 } from 'lucide-react';
 import { loc, type Localized } from '../../utils/i18n.ts';
 import { useLanguage } from '../../context/LanguageContext.tsx';
-import { useAuth } from '../../context/AuthContext.tsx';
+import { useAuth, type Role } from '../../context/AuthContext.tsx';
 import { supabase } from '../../services/supabaseClient.ts';
 import { RobotAvatar } from '../robots/RobotAvatars.tsx';
 import {
@@ -62,6 +67,12 @@ const SOON_NOTE: Localized = {
   en: 'This module is still in the works — we will add it soon. Meanwhile, try one of the available lessons.',
 };
 
+const RECOMMENDED_BADGE: Localized = {
+  ru: 'Рекомендовано NOV-02',
+  kk: 'NOV-02 ұсынған',
+  en: 'Recommended by NOV-02',
+};
+
 const STATUS_IN_PROGRESS: Localized = {
   ru: 'В процессе',
   kk: 'Орындалуда',
@@ -71,6 +82,32 @@ const STATUS_NOT_STARTED: Localized = {
   ru: 'Не начат',
   kk: 'Басталмаған',
   en: 'Not started',
+};
+
+const CLASS_SECTION_TITLE: Localized = {
+  ru: 'Уроки моего класса',
+  kk: 'Сыныбымның сабақтары',
+  en: 'My class lessons',
+};
+const CLASS_SECTION_EMPTY: Localized = {
+  ru: 'Учитель пока не добавил уроки для твоего класса.',
+  kk: 'Мұғалім әзірге сыныбыңа сабақ қосқан жоқ.',
+  en: 'Your teacher has not added any lessons for your class yet.',
+};
+const TEACHER_BADGE: Localized = {
+  ru: 'Урок учителя',
+  kk: 'Мұғалім сабағы',
+  en: 'Teacher lesson',
+};
+const JOIN_BANNER_TEXT: Localized = {
+  ru: 'Присоединись к своему классу, чтобы видеть уроки учителя',
+  kk: 'Мұғалімнің сабақтарын көру үшін сыныбыңа қосыл',
+  en: 'Join your class to see your teacher’s lessons',
+};
+const JOIN_BANNER_BTN: Localized = {
+  ru: 'Выбрать класс',
+  kk: 'Сыныпты таңдау',
+  en: 'Choose your class',
 };
 
 const DIFFICULTY_LABEL: Record<LessonDifficulty, Localized> = {
@@ -90,6 +127,19 @@ const minutesLine = (lang: 'ru' | 'kk' | 'en', minutes: number): string => {
   return `${minutes} мин`;
 };
 
+const questionsLine = (lang: 'ru' | 'kk' | 'en', total: number): string => {
+  if (lang === 'kk') return `Сұрақтар: ${total}`;
+  if (lang === 'en') return `Questions: ${total}`;
+  return `Вопросов: ${total}`;
+};
+
+const dateLine = (lang: 'ru' | 'kk' | 'en', iso: string): string =>
+  new Intl.DateTimeFormat(lang === 'kk' ? 'kk-KZ' : lang === 'en' ? 'en-GB' : 'ru-RU', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  }).format(new Date(iso));
+
 /* --- shared classes --- */
 
 const FOCUS_RING =
@@ -107,6 +157,25 @@ interface LessonProgressRow {
   status: 'in_progress' | 'completed';
   score: number | null;
   total: number | null;
+}
+
+interface DiagnosticResultRow {
+  subject: string;
+  weak_topics: string[] | null;
+}
+
+interface ClassRow {
+  id: string;
+  school: string;
+  label: string;
+}
+
+interface TeacherLessonRow {
+  id: string;
+  title: string;
+  subject: string;
+  questions: unknown;
+  created_at: string;
 }
 
 /** Small meta row shared by real and placeholder cards. */
@@ -135,31 +204,92 @@ const LearnPage: React.FC = () => {
   const reducedMotion = useReducedMotion();
 
   const [progress, setProgress] = useState<Record<string, LessonProgressRow>>({});
+  const [recommendedSubjects, setRecommendedSubjects] = useState<Set<string>>(new Set());
+  const [role, setRole] = useState<Role | null>(null);
+  const [myClass, setMyClass] = useState<ClassRow | null>(null);
+  const [teacherLessons, setTeacherLessons] = useState<TeacherLessonRow[]>([]);
   const [loadingProgress, setLoadingProgress] = useState(true);
   const [lockedSlug, setLockedSlug] = useState<string | null>(null);
 
-  // load the signed-in user's lesson progress; signed-out users just see cards
+  // load the signed-in user's lesson progress, diagnostic results and class
+  // membership (with its teacher lessons); signed-out users just see cards
   useEffect(() => {
     if (authLoading) return;
     if (!user) {
       setProgress({});
+      setRecommendedSubjects(new Set());
+      setRole(null);
+      setMyClass(null);
+      setTeacherLessons([]);
       setLoadingProgress(false);
       return;
     }
     let cancelled = false;
-    supabase
-      .from('lesson_progress')
-      .select('lesson_slug, status, score, total')
-      .eq('user_id', user.id)
-      .then(({ data, error }) => {
-        if (cancelled) return;
-        if (!error && data) {
-          const map: Record<string, LessonProgressRow> = {};
-          for (const row of data as LessonProgressRow[]) map[row.lesson_slug] = row;
-          setProgress(map);
+    const load = async () => {
+      const profileRes = await supabase
+        .from('profiles')
+        .select('role, class_id')
+        .eq('id', user.id)
+        .maybeSingle();
+      const profileRow =
+        !profileRes.error && profileRes.data
+          ? (profileRes.data as { role: Role; class_id: string | null })
+          : null;
+
+      const [progressRes, diagnosticRes] = await Promise.all([
+        supabase
+          .from('lesson_progress')
+          .select('lesson_slug, status, score, total')
+          .eq('user_id', user.id),
+        supabase
+          .from('diagnostic_results')
+          .select('subject, weak_topics')
+          .eq('user_id', user.id),
+      ]);
+
+      let classRow: ClassRow | null = null;
+      let classLessons: TeacherLessonRow[] = [];
+      if (profileRow?.role === 'student' && profileRow.class_id) {
+        const [classRes, lessonsRes] = await Promise.all([
+          supabase
+            .from('classes')
+            .select('id, school, label')
+            .eq('id', profileRow.class_id)
+            .maybeSingle(),
+          supabase
+            .from('teacher_lessons')
+            .select('id, title, subject, questions, created_at')
+            .eq('class_id', profileRow.class_id)
+            .order('created_at', { ascending: false }),
+        ]);
+        if (!classRes.error && classRes.data) classRow = classRes.data as ClassRow;
+        if (!lessonsRes.error && lessonsRes.data) {
+          classLessons = lessonsRes.data as TeacherLessonRow[];
         }
-        setLoadingProgress(false);
-      });
+      }
+
+      if (cancelled) return;
+      setRole(profileRow?.role ?? null);
+      setMyClass(classRow);
+      setTeacherLessons(classLessons);
+      if (!progressRes.error && progressRes.data) {
+        const map: Record<string, LessonProgressRow> = {};
+        for (const row of progressRes.data as LessonProgressRow[]) map[row.lesson_slug] = row;
+        setProgress(map);
+      }
+      if (!diagnosticRes.error && diagnosticRes.data) {
+        const subjects = new Set<string>();
+        for (const row of diagnosticRes.data as DiagnosticResultRow[]) {
+          const topics = row.weak_topics ?? [];
+          if (topics.some((t) => typeof t === 'string' && t.trim().length > 0)) {
+            subjects.add(row.subject);
+          }
+        }
+        setRecommendedSubjects(subjects);
+      }
+      setLoadingProgress(false);
+    };
+    void load();
     return () => {
       cancelled = true;
     };
@@ -173,6 +303,9 @@ const LearnPage: React.FC = () => {
       </div>
     );
   }
+
+  const isRecommended = (lesson: Lesson): boolean =>
+    lesson.available && recommendedSubjects.has(lesson.subject);
 
   const statusBadge = (lesson: Lesson) => {
     const row = progress[lesson.slug];
@@ -231,8 +364,95 @@ const LearnPage: React.FC = () => {
             </div>
           </div>
 
+          {/* teacher-authored lessons for the student's own class */}
+          {role === 'student' && myClass && (
+            <div className="mt-10">
+              <h2 className="flex flex-wrap items-center gap-2 font-display text-lg font-bold tracking-tight text-ink sm:text-xl">
+                <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-mist/30 text-teal-dark">
+                  <Users className="h-4 w-4" aria-hidden="true" />
+                </span>
+                {loc(language, CLASS_SECTION_TITLE)}
+                <span className="rounded-full bg-teal/10 px-2.5 py-1 font-sans text-xs font-semibold text-teal-dark">
+                  {myClass.school} · {myClass.label}
+                </span>
+              </h2>
+              {teacherLessons.length > 0 ? (
+                <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                  {teacherLessons.map((lesson, index) => (
+                    <motion.div
+                      key={lesson.id}
+                      initial={reducedMotion ? { opacity: 0 } : { opacity: 0, y: 16 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true, margin: '-40px' }}
+                      transition={{ duration: 0.4, delay: index * 0.05 }}
+                    >
+                      <Link
+                        to={`/learn/class/${lesson.id}`}
+                        className={`${FOCUS_RING} group flex h-full flex-col rounded-2xl border border-line/50 bg-white p-5 shadow-[0_1px_3px_rgba(17,26,42,0.04)] transition-all duration-200 hover:-translate-y-1 hover:border-teal/40 hover:shadow-[0_8px_30px_rgba(33,159,162,0.10)]`}
+                      >
+                        <div className="flex items-start justify-between gap-2">
+                          <h3 className="font-display text-base font-bold tracking-tight text-ink group-hover:text-teal-dark">
+                            {lesson.title}
+                          </h3>
+                          <ChevronRight
+                            className="mt-0.5 h-4 w-4 shrink-0 text-slateink transition-colors group-hover:text-teal"
+                            aria-hidden="true"
+                          />
+                        </div>
+                        <div className="mt-3 flex flex-wrap items-center gap-2 text-xs text-slateink">
+                          <span className="inline-flex items-center rounded-full bg-mist/30 px-2.5 py-1 font-semibold text-teal-dark">
+                            {lesson.subject}
+                          </span>
+                          <span className="inline-flex items-center gap-1">
+                            <ListChecks className="h-3.5 w-3.5" aria-hidden="true" />
+                            {questionsLine(
+                              language,
+                              Array.isArray(lesson.questions) ? lesson.questions.length : 0,
+                            )}
+                          </span>
+                          <span className="inline-flex items-center gap-1">
+                            <Calendar className="h-3.5 w-3.5" aria-hidden="true" />
+                            {dateLine(language, lesson.created_at)}
+                          </span>
+                        </div>
+                        <div className="mt-3 flex flex-wrap items-center gap-2 pt-1">
+                          <span className="inline-flex items-center gap-1 rounded-full bg-teal/10 px-2.5 py-1 text-xs font-semibold text-teal-dark">
+                            <Users className="h-3 w-3" aria-hidden="true" />
+                            {loc(language, TEACHER_BADGE)}
+                          </span>
+                        </div>
+                      </Link>
+                    </motion.div>
+                  ))}
+                </div>
+              ) : (
+                <p className="mt-3 text-sm text-slateink">{loc(language, CLASS_SECTION_EMPTY)}</p>
+              )}
+            </div>
+          )}
+
+          {/* nudge for students who have not joined a class yet */}
+          {role === 'student' && !myClass && (
+            <div className="mt-8 flex flex-wrap items-center gap-3 rounded-2xl border border-line bg-white px-4 py-3 shadow-[0_1px_3px_rgba(17,26,42,0.04)]">
+              <School className="h-5 w-5 shrink-0 text-teal" aria-hidden="true" />
+              <p className="min-w-0 flex-1 text-sm font-medium text-ink">
+                {loc(language, JOIN_BANNER_TEXT)}
+              </p>
+              <Link
+                to="/profile"
+                className={`${FOCUS_RING} inline-flex shrink-0 items-center gap-2 rounded-xl bg-teal px-4 py-2 text-sm font-semibold text-white shadow-[0_4px_14px_rgba(33,159,162,0.25)] transition-colors hover:bg-teal-dark`}
+              >
+                {loc(language, JOIN_BANNER_BTN)}
+                <ChevronRight className="h-4 w-4" aria-hidden="true" />
+              </Link>
+            </div>
+          )}
+
           {LESSON_SUBJECTS.map((subject) => {
-            const lessons = LESSONS.filter((l) => l.subject === subject.slug);
+            // stable sort: lessons recommended from the diagnostics go first
+            const lessons = LESSONS.filter((l) => l.subject === subject.slug).sort(
+              (a, b) => Number(isRecommended(b)) - Number(isRecommended(a)),
+            );
             if (lessons.length === 0) return null;
             return (
               <div key={subject.slug} className="mt-10">
@@ -270,7 +490,15 @@ const LearnPage: React.FC = () => {
                             {loc(language, lesson.summary)}
                           </p>
                           <LessonMeta lesson={lesson} />
-                          <div className="mt-3 pt-1">{statusBadge(lesson)}</div>
+                          <div className="mt-3 flex flex-wrap items-center gap-2 pt-1">
+                            {statusBadge(lesson)}
+                            {isRecommended(lesson) && (
+                              <span className="inline-flex items-center gap-1 rounded-full border border-coral/40 px-2.5 py-1 text-[11px] font-semibold text-coral">
+                                <Sparkles className="h-3 w-3" aria-hidden="true" />
+                                {loc(language, RECOMMENDED_BADGE)}
+                              </span>
+                            )}
+                          </div>
                         </Link>
                       </motion.div>
                     ) : (

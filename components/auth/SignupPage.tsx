@@ -7,12 +7,14 @@ import {
   Circle,
   Eye,
   EyeOff,
+  GraduationCap,
   Loader2,
   Lock,
   Mail,
   MailCheck,
   User,
   UserPlus,
+  Users,
 } from 'lucide-react';
 import { loc, type Localized } from '../../utils/i18n.ts';
 import { useLanguage } from '../../context/LanguageContext.tsx';
@@ -122,6 +124,21 @@ const RULE_DIGIT: Localized = {
   kk: 'Сан',
   en: 'A digit',
 };
+const ROLE_LEGEND: Localized = {
+  ru: 'Кто вы?',
+  kk: 'Сіз кімсіз?',
+  en: 'Who are you?',
+};
+const ROLE_STUDENT: Localized = {
+  ru: 'Я ученик',
+  kk: 'Мен оқушымын',
+  en: "I'm a student",
+};
+const ROLE_TEACHER: Localized = {
+  ru: 'Я учитель',
+  kk: 'Мен мұғаліммін',
+  en: "I'm a teacher",
+};
 const BACK: Localized = { ru: 'Назад', kk: 'Артқа', en: 'Back' };
 const CONFIRM_TITLE: Localized = {
   ru: 'Проверьте почту',
@@ -191,12 +208,23 @@ const GoogleIcon: React.FC = () => (
 
 type SignupFields = { name?: string; email?: string; password?: string; confirm?: string };
 type SignupValues = { name: string; email: string; password: string; confirm: string };
+type SignupRole = 'student' | 'teacher';
+
+const ROLE_OPTIONS: Array<{
+  value: SignupRole;
+  label: Localized;
+  icon: React.ComponentType<{ className?: string }>;
+}> = [
+  { value: 'student', label: ROLE_STUDENT, icon: GraduationCap },
+  { value: 'teacher', label: ROLE_TEACHER, icon: Users },
+];
 
 const SignupPage: React.FC = () => {
   const { language } = useLanguage();
-  const { user, signUp, signInWithGoogle } = useAuth();
+  const { user, profile, signUp, signInWithGoogle } = useAuth();
   const navigate = useNavigate();
 
+  const [role, setRole] = useState<SignupRole>('student');
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -212,7 +240,7 @@ const SignupPage: React.FC = () => {
   const inputRefs = useRef<Partial<Record<keyof SignupFields, HTMLInputElement | null>>>({});
 
   if (user) {
-    return <Navigate to="/profile" replace />;
+    return <Navigate to={profile?.role === 'teacher' ? '/teacher' : '/profile'} replace />;
   }
 
   const onBack = () => {
@@ -253,7 +281,7 @@ const SignupPage: React.FC = () => {
     setFormError(null);
     setSubmitting(true);
     try {
-      const { error, needsConfirmation } = await signUp(email.trim(), password, name.trim());
+      const { error, needsConfirmation } = await signUp(email.trim(), password, name.trim(), role);
       if (error) {
         setFormError(error);
         return;
@@ -264,7 +292,7 @@ const SignupPage: React.FC = () => {
         setPendingEmail(email.trim());
         return;
       }
-      navigate('/profile', { replace: true });
+      navigate(role === 'teacher' ? '/teacher' : '/profile', { replace: true });
     } finally {
       setSubmitting(false);
     }
@@ -274,6 +302,13 @@ const SignupPage: React.FC = () => {
     if (googleLoading || submitting) return;
     setFormError(null);
     setGoogleLoading(true);
+    // The OAuth round-trip loses component state, so the chosen role is
+    // stashed for AuthCallback to apply to the new profile.
+    try {
+      window.localStorage.setItem('novex.pendingRole', role);
+    } catch {
+      // localStorage unavailable — the account falls back to student
+    }
     const { error } = await signInWithGoogle();
     // On success the browser is redirected to Google, so only an error
     // needs handling here.
@@ -449,6 +484,36 @@ const SignupPage: React.FC = () => {
           </div>
 
           <form onSubmit={onSubmit} noValidate className="flex flex-col gap-4">
+            <fieldset>
+              <legend className="sr-only">{loc(language, ROLE_LEGEND)}</legend>
+              <div role="radiogroup" aria-label={loc(language, ROLE_LEGEND)} className="grid grid-cols-2 gap-3">
+                {ROLE_OPTIONS.map((option) => {
+                  const selected = role === option.value;
+                  const RoleIcon = option.icon;
+                  return (
+                    <label
+                      key={option.value}
+                      className={`flex cursor-pointer flex-col items-center gap-2 rounded-xl border px-4 py-3.5 text-sm font-semibold transition-colors has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-teal has-[:focus-visible]:ring-offset-2 has-[:focus-visible]:ring-offset-canvas ${
+                        selected
+                          ? 'border-teal bg-mist/30 text-teal-dark'
+                          : 'border-line text-slateink hover:border-teal/60'
+                      }`}
+                    >
+                      <input
+                        type="radio"
+                        name="signup-role"
+                        value={option.value}
+                        checked={selected}
+                        onChange={() => setRole(option.value)}
+                        className="sr-only"
+                      />
+                      <RoleIcon className="h-6 w-6" aria-hidden="true" />
+                      {loc(language, option.label)}
+                    </label>
+                  );
+                })}
+              </div>
+            </fieldset>
             {fields.map((f) => {
               const Icon = f.icon;
               const error = fieldErrors[f.errorKey];

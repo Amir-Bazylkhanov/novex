@@ -46,6 +46,7 @@ const PLANS: Plan[] = [
       { ru: 'Диагностика уровня по предметам', kk: 'Пәндер бойынша деңгей диагностикасы', en: 'Level diagnostics by subject' },
       { ru: 'Базовые модули и мини-тесты', kk: 'Негізгі модульдер мен шағын тесттер', en: 'Core modules and mini-tests' },
       { ru: 'ИИ-наставник с дневным лимитом', kk: 'Күндік лимиті бар ИИ-тәлімгер', en: 'AI tutor with a daily limit' },
+      { ru: '100 ⚙ Новасов на старте + заработок за уроки', kk: 'Стартта 100 ⚙ Новас + сабақтар үшін табыс', en: '100 ⚙ Novas to start + earnings from lessons' },
       { ru: 'Прогресс по темам в кабинете', kk: 'Кабинетте тақырыптар бойынша үдеріс', en: 'Topic progress in the dashboard' },
     ],
     cta: { ru: 'Начать бесплатно', kk: 'Тегін бастау', en: 'Start for free' },
@@ -62,6 +63,7 @@ const PLANS: Plan[] = [
     },
     features: [
       { ru: 'Безлимитный ИИ-наставник NOV-02', kk: 'Шексіз ИИ-тәлімгер NOV-02', en: 'Unlimited AI tutor NOV-02' },
+      { ru: '+500 ⚙ Новасов каждый месяц', kk: 'Ай сайын +500 ⚙ Новас', en: '+500 ⚙ Novas every month' },
       { ru: 'Полная подготовка к ЕНТ и олимпиадам', kk: 'ҰБТ мен олимпиадаларға толық дайындық', en: 'Full UNT and olympiad prep' },
       { ru: 'Персональный план от NOV-03', kk: 'NOV-03-тен жеке дайындық жоспары', en: 'Personal roadmap from NOV-03' },
       { ru: 'Разбор каждой ошибки шаг за шагом', kk: 'Әр қатені қадамдап талдау', en: 'Step-by-step review of every mistake' },
@@ -87,6 +89,7 @@ const PLANS: Plan[] = [
       { ru: 'Аналитика: кому нужна помощь', kk: 'Аналитика: кімге көмек керек', en: 'Analytics: who needs help' },
       { ru: 'Добавление своих тем и заданий', kk: 'Өз тақырыптары мен тапсырмаларын қосу', en: 'Add your own topics and tasks' },
       { ru: 'Напоминания о сроках для класса', kk: 'Сыныпқа мерзім еске салғыштары', en: 'Deadline reminders for the class' },
+      { ru: '+300 ⚙ Новасов каждому ученику ежемесячно', kk: 'Әр оқушыға ай сайын +300 ⚙ Новас', en: '+300 ⚙ Novas per student every month' },
     ],
     cta: { ru: 'Подключить школу', kk: 'Мектепті қосу', en: 'Onboard a school' },
     popular: false,

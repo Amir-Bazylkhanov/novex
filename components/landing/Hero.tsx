@@ -45,12 +45,6 @@ const CTA_PRIMARY: Localized = {
   kk: 'Диагностикадан өту',
   en: 'Take the diagnostic',
 };
-const CTA_SECONDARY: Localized = {
-  ru: 'Начать обучение',
-  kk: 'Оқуды бастау',
-  en: 'Start learning',
-};
-
 const TRUST: Localized = {
   ru: 'Работает на казахском, русском и английском · Бесплатно для школ',
   kk: 'Қазақша, орысша және ағылшынша жұмыс істейді · Мектептерге тегін',
@@ -185,12 +179,6 @@ const Hero: React.FC = () => {
             >
               {loc(language, CTA_PRIMARY)}
               <ArrowRight className="h-5 w-5" aria-hidden="true" />
-            </Link>
-            <Link
-              to="/signup"
-              className={`${FOCUS_RING} inline-flex items-center justify-center rounded-xl border border-line bg-white px-6 py-3.5 text-base font-semibold text-ink transition-colors hover:border-teal hover:text-teal`}
-            >
-              {loc(language, CTA_SECONDARY)}
             </Link>
           </div>
 

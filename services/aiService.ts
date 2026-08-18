@@ -1,11 +1,14 @@
 import { supabase } from './supabaseClient.ts';
 import { loc, type Lang, type Localized } from '../utils/i18n.ts';
 
-// ChatGPT option is gpt-5.6-terra: it sits at the Sonnet tier
-// ($2 in / $12 out per MTok vs Sonnet 5 at $3/$15) — the right
-// capability/cost point for school-level tutoring. gpt-5.6-sol is
-// flagship-priced with pricier output than Opus 5 — overkill here.
-export type TutorModel = 'claude-sonnet-5' | 'claude-opus-5' | 'gpt-5.6-terra';
+// The edge function accepts all five models. Per-message Novas costs and
+// the default live in components/chat/TutorChat.tsx (NOVA_COST).
+export type TutorModel =
+  | 'claude-sonnet-5'
+  | 'claude-opus-5'
+  | 'gpt-5.6-luna'
+  | 'gpt-5.6-terra'
+  | 'gpt-5.6-sol';
 
 const ERR_NOT_SIGNED_IN: Localized = {
   ru: 'Чтобы общаться с Наставником, войдите в аккаунт.',
