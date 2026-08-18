@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { loc, type Localized } from '../utils/i18n.ts';
 import { useLanguage } from '../context/LanguageContext.tsx';
 import { RobotAvatar } from './robots/RobotAvatars.tsx';
@@ -36,7 +37,7 @@ const COLUMNS: Array<{ title: Localized; links: Array<{ href: string; label: Loc
   {
     title: { ru: 'Поддержка', kk: 'Қолдау', en: 'Support' },
     links: [
-      { href: '#faq', label: { ru: 'Частые вопросы', kk: 'Жиі қойылатын сұрақтар', en: 'FAQ' } },
+      { href: '/faq', label: { ru: 'Частые вопросы', kk: 'Жиі қойылатын сұрақтар', en: 'FAQ' } },
       { href: '#how-it-works', label: { ru: 'Как это работает', kk: 'Қалай жұмыс істейді', en: 'How it works' } },
       { href: 'mailto:amirbazylkhanov@gmail.com', label: { ru: 'Связаться с нами', kk: 'Бізбен байланысу', en: 'Contact us' } },
     ],
@@ -98,12 +99,21 @@ const Footer: React.FC = () => {
               <ul className="mt-4 space-y-2.5">
                 {col.links.map((link) => (
                   <li key={link.href + link.label.en}>
-                    <a
-                      href={link.href}
-                      className={`${FOCUS_RING} rounded text-sm text-canvas/80 transition-colors hover:text-teal-light`}
-                    >
-                      {loc(language, link.label)}
-                    </a>
+                    {link.href.startsWith('/') ? (
+                      <Link
+                        to={link.href}
+                        className={`${FOCUS_RING} rounded text-sm text-canvas/80 transition-colors hover:text-teal-light`}
+                      >
+                        {loc(language, link.label)}
+                      </Link>
+                    ) : (
+                      <a
+                        href={link.href}
+                        className={`${FOCUS_RING} rounded text-sm text-canvas/80 transition-colors hover:text-teal-light`}
+                      >
+                        {loc(language, link.label)}
+                      </a>
+                    )}
                   </li>
                 ))}
               </ul>

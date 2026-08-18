@@ -35,7 +35,6 @@ import {
 
 /* --- content --- */
 
-const WORDMARK: Localized = { ru: 'Novex', kk: 'Novex', en: 'Novex' };
 const ROBOT_LABEL: Localized = {
   ru: 'NOV-02 · Наставник',
   kk: 'NOV-02 · Тәлімгер',
@@ -409,15 +408,6 @@ const LearnPage: React.FC = () => {
     <main className="relative min-h-screen bg-canvas font-sans text-ink">
       <RobotBackdrop density="full" />
       <div className="relative z-10 mx-auto w-full max-w-7xl px-5 py-8 sm:px-6 md:py-12 lg:px-8">
-        <div className="mb-8">
-          <Link
-            to="/"
-            className={`${FOCUS_RING} rounded font-display text-xl font-extrabold tracking-tight text-teal-dark`}
-          >
-            {loc(language, WORDMARK)}
-          </Link>
-        </div>
-
         <section id="learn" aria-labelledby="learn-heading">
           <div className="flex items-start gap-4">
             <RobotAvatar robot="nov2" className="h-14 w-14 shrink-0 sm:h-16 sm:w-16" />

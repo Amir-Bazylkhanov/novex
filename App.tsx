@@ -6,6 +6,7 @@ import Header from './components/Header.tsx';
 import Footer from './components/Footer.tsx';
 import LandingPage from './components/LandingPage.tsx';
 import PricingPage from './components/PricingPage.tsx';
+import FaqPage from './components/FaqPage.tsx';
 import LoginPage from './components/auth/LoginPage.tsx';
 import SignupPage from './components/auth/SignupPage.tsx';
 import AuthCallback from './components/auth/AuthCallback.tsx';
@@ -22,6 +23,19 @@ import TutorChat from './components/chat/TutorChat.tsx';
 import FeedbackWidget from './components/FeedbackWidget.tsx';
 import ProtectedRoute from './components/ProtectedRoute.tsx';
 
+// Route changes should start at the top of the new page; hash navigation is
+// left to the browser/anchor logic. scroll-behavior: smooth on the document
+// element (see App) would otherwise animate this jump, so override per-call.
+const ScrollToTop: React.FC = () => {
+  const { pathname, hash } = useLocation();
+  useEffect(() => {
+    if (!hash) {
+      window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
+    }
+  }, [pathname, hash]);
+  return null;
+};
+
 const Shell: React.FC = () => {
   const { pathname } = useLocation();
   // Auth pages render their own chrome (own Novex wordmark), so no Header/Footer there.
@@ -33,10 +47,12 @@ const Shell: React.FC = () => {
 
   return (
     <>
+      <ScrollToTop />
       {!bareRoute && <Header />}
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/pricing" element={<PricingPage />} />
+        <Route path="/faq" element={<FaqPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/auth/callback" element={<AuthCallback />} />

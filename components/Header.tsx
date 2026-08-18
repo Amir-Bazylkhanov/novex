@@ -8,6 +8,7 @@ import {
   LogOut,
   Map,
   Menu,
+  Tag,
   TrendingUp,
   User,
   Users,
@@ -229,6 +230,20 @@ const Header: React.FC = () => {
               </button>
             );
           })}
+          {/* Signed-out visitors get a Pricing tab as the last nav item. Unlike
+              the app tabs it links straight to the public page — no login modal.
+              Signed-in users reach pricing via the Nova badge and footer. */}
+          {!user && (
+            <Link
+              to="/pricing"
+              aria-current={isAppActive('/pricing') ? 'page' : undefined}
+              className={`${FOCUS_RING} rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
+                isAppActive('/pricing') ? 'bg-teal/10 text-teal-dark' : 'text-slateink hover:text-teal'
+              }`}
+            >
+              {loc(language, PRICING_LABEL)}
+            </Link>
+          )}
         </nav>
 
         <div className="hidden items-center gap-3 lg:flex">
@@ -308,12 +323,6 @@ const Header: React.FC = () => {
             <>
               <LanguageSwitcher />
               <Link
-                to="/pricing"
-                className={`${FOCUS_RING} rounded-lg px-3 py-2 text-sm font-medium text-slateink transition-colors hover:text-ink`}
-              >
-                {loc(language, PRICING_LABEL)}
-              </Link>
-              <Link
                 to="/signup"
                 className={`${FOCUS_RING} rounded-xl bg-teal px-4 py-2 text-sm font-semibold text-white shadow-[0_4px_14px_rgba(33,159,162,0.25)] transition-colors hover:bg-teal-dark`}
               >
@@ -385,18 +394,54 @@ const Header: React.FC = () => {
                 </button>
               );
             })}
+            {user && (
+              <Link
+                to="/profile"
+                onClick={closeMenu}
+                aria-current={isAppActive('/profile') ? 'page' : undefined}
+                className={`${FOCUS_RING} flex items-center gap-3 rounded-xl px-3 py-3 text-left text-base font-medium transition-colors active:bg-mist/60 ${
+                  isAppActive('/profile') ? 'bg-mist/40 text-teal-dark' : 'text-ink'
+                }`}
+              >
+                <User aria-hidden="true" className="h-5 w-5 shrink-0" />
+                {loc(language, PROFILE_MENU_LABEL)}
+                <ChevronRight
+                  aria-hidden="true"
+                  className="ml-auto h-4 w-4 shrink-0 text-slateink"
+                />
+              </Link>
+            )}
+            {/* Signed-out: Pricing as the last nav row, straight to the public
+                page — no login modal, unlike the app rows above. */}
+            {!user && (
+              <Link
+                to="/pricing"
+                onClick={closeMenu}
+                aria-current={isAppActive('/pricing') ? 'page' : undefined}
+                className={`${FOCUS_RING} flex items-center gap-3 rounded-xl px-3 py-3 text-left text-base font-medium transition-colors active:bg-mist/60 ${
+                  isAppActive('/pricing') ? 'bg-mist/40 text-teal-dark' : 'text-ink'
+                }`}
+              >
+                <Tag aria-hidden="true" className="h-5 w-5 shrink-0" />
+                {loc(language, PRICING_LABEL)}
+                <ChevronRight
+                  aria-hidden="true"
+                  className="ml-auto h-4 w-4 shrink-0 text-slateink"
+                />
+              </Link>
+            )}
           </nav>
           <div className="mt-4 flex flex-col gap-3">
-            {/* Same px-3 as the nav rows above, so the compact pill group
-                aligns with them instead of stretching full-width. */}
-            <div className="px-3">
-              <LanguageSwitcher onSwitch={closeMenu} />
-            </div>
             {user ? (
               <>
-                <div className="flex items-center justify-center gap-3">
-                  <NovaBadge />
-                  <NotificationsBell />
+                {/* Same px-3 as the nav rows above, so the compact pill group
+                    aligns with them instead of stretching full-width. */}
+                <div className="flex items-center justify-between px-3">
+                  <LanguageSwitcher onSwitch={closeMenu} />
+                  <div className="flex items-center gap-3">
+                    <NovaBadge />
+                    <NotificationsBell />
+                  </div>
                 </div>
                 <Link
                   to="/profile"
@@ -435,13 +480,10 @@ const Header: React.FC = () => {
               </>
             ) : (
               <>
-                <Link
-                  to="/pricing"
-                  onClick={closeMenu}
-                  className={`${FOCUS_RING} rounded-xl px-4 py-2.5 text-center text-sm font-semibold text-slateink transition-colors hover:text-ink`}
-                >
-                  {loc(language, PRICING_LABEL)}
-                </Link>
+                {/* Signed-out: lang pill alone on its own row, unchanged. */}
+                <div className="px-3">
+                  <LanguageSwitcher onSwitch={closeMenu} />
+                </div>
                 <Link
                   to="/signup"
                   onClick={closeMenu}

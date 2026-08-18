@@ -53,13 +53,11 @@ There is no test runner configured yet.
 
 1. `Hero`
 2. `HowItWorks`
-3. `StudentDashboardPreview`
-4. `TeacherPanel`
-5. `ImpactStats`
-6. `FAQ`
-7. `FinalCTA`
+3. `TeacherPanel`
+4. `ImpactStats`
+5. `FinalCTA`
 
-`Header` and `Footer` live outside `<main>` in `App.tsx`. Do not reorder or re-add sections without the user's say-so: `ProblemSection`, `AIPersonalization` and `SubjectsGrid` were removed by user decision (their files remain in `components/landing/` unused), and `Pricing` moved to the dedicated `/pricing` page (`components/PricingPage.tsx` wraps the section component).
+`Header` and `Footer` live outside `<main>` in `App.tsx`. Do not reorder or re-add sections without the user's say-so: `ProblemSection`, `AIPersonalization`, `SubjectsGrid` and `StudentDashboardPreview` were removed by user decision (their files remain in `components/landing/` unused), `Pricing` moved to the dedicated `/pricing` page (`components/PricingPage.tsx` wraps the section component), and `FAQ` moved to the dedicated `/faq` page (`components/FaqPage.tsx` wraps the section component).
 
 ## Design System
 

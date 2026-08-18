@@ -203,7 +203,11 @@ export const TEACHER_STUDENTS: TeacherStudent[] = [
   },
 ];
 
-/** Class-level average per topic — drives the bar chart. Below 50 renders coral. */
+/**
+ * Class-level average per topic. The NOV-03 «Требуют внимания» card stays
+ * topic-based (uses this order for tie-breaking); the bar chart shows the
+ * per-subject averages derived in CLASS_SUBJECT_PERFORMANCE below.
+ */
 export const CLASS_TOPIC_PERFORMANCE: Array<{ slug: string; pct: number }> = [
   { slug: 'percentages', pct: 72 },
   { slug: 'linear-equations', pct: 76 },
@@ -215,6 +219,31 @@ export const CLASS_TOPIC_PERFORMANCE: Array<{ slug: string; pct: number }> = [
   { slug: 'grammar-tenses', pct: 52 },
   { slug: 'vocabulary', pct: 68 },
 ];
+
+/** Which demo topics roll up into each subject for the chart. */
+const SUBJECT_TOPICS: Record<SubjectSlug, string[]> = {
+  math: ['percentages', 'linear-equations', 'quadratic-equations', 'trigonometry', 'geometry-basics'],
+  physics: ['kinematics', 'electricity'],
+  english: ['grammar-tenses', 'vocabulary'],
+};
+
+/**
+ * Class-level average per subject — drives the «Успеваемость по предметам»
+ * bar chart. Each value is the average of the subject's demo topic scores
+ * above. Below 60 renders coral.
+ */
+export const CLASS_SUBJECT_PERFORMANCE: Array<{
+  slug: SubjectSlug;
+  label: Localized;
+  pct: number;
+}> = SUBJECTS.map(({ slug, label }) => {
+  const topics = SUBJECT_TOPICS[slug];
+  const total = topics.reduce(
+    (sum, topic) => sum + (CLASS_TOPIC_PERFORMANCE.find((entry) => entry.slug === topic)?.pct ?? 0),
+    0,
+  );
+  return { slug, label, pct: Math.round(total / topics.length) };
+});
 
 /** Weekly class activity summary (demo values). */
 export const WEEK_STATS = {

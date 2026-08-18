@@ -8,7 +8,6 @@ import {
   ChevronDown,
   Clock,
   Flag,
-  GraduationCap,
   Info,
   ListChecks,
   Plus,
@@ -24,6 +23,7 @@ import { supabase } from '../../services/supabaseClient.ts';
 import { RobotAvatar } from '../robots/RobotAvatars.tsx';
 import RobotBackdrop from '../RobotBackdrop.tsx';
 import {
+  CLASS_SUBJECT_PERFORMANCE,
   CLASS_TOPIC_PERFORMANCE,
   INITIAL_MODULES,
   SUBJECTS,
@@ -314,7 +314,7 @@ const CHART_HEADING: Localized = {
   kk: 'Пәндер бойынша үлгерім',
   en: 'Performance by subject',
 };
-const CHART_TOPIC_COL: Localized = { ru: 'Тема', kk: 'Тақырып', en: 'Topic' };
+const CHART_SUBJECT_COL: Localized = { ru: 'Предмет', kk: 'Пән', en: 'Subject' };
 const CHART_SCORE_COL: Localized = {
   ru: 'Средний балл',
   kk: 'Орташа балл',
@@ -728,7 +728,7 @@ const TeacherPage: React.FC = () => {
     }
     let bestSlug: string | null = null;
     let bestList: TeacherStudent[] = [];
-    // tie-break by chart order so the result is stable
+    // tie-break by the demo topic order so the result is stable
     for (const { slug } of CLASS_TOPIC_PERFORMANCE) {
       const list = byTopic.get(slug);
       if (list && list.length > bestList.length) {
@@ -1247,10 +1247,6 @@ const TeacherPage: React.FC = () => {
           className="flex flex-wrap items-start gap-4"
         >
           <div className="min-w-0">
-            <span className="inline-flex items-center gap-2 rounded-full border border-teal/30 bg-mist/25 px-3.5 py-1.5 text-xs font-semibold text-teal-dark">
-              <GraduationCap className="h-3.5 w-3.5" aria-hidden="true" />
-              {loc(language, PAGE_TITLE)}
-            </span>
             <h1
               id="teacher-heading"
               className="mt-4 font-display text-3xl font-extrabold tracking-tight text-ink md:text-4xl"
@@ -2089,31 +2085,31 @@ const TeacherPage: React.FC = () => {
               <caption>{loc(language, CHART_HEADING)}</caption>
               <thead>
                 <tr>
-                  <th>{loc(language, CHART_TOPIC_COL)}</th>
+                  <th>{loc(language, CHART_SUBJECT_COL)}</th>
                   <th>{loc(language, CHART_SCORE_COL)}</th>
                 </tr>
               </thead>
               <tbody>
-                {CLASS_TOPIC_PERFORMANCE.map((topic) => (
-                  <tr key={topic.slug}>
-                    <td>{loc(language, TOPIC_LABELS[topic.slug])}</td>
-                    <td>{topic.pct}%</td>
+                {CLASS_SUBJECT_PERFORMANCE.map((subject) => (
+                  <tr key={subject.slug}>
+                    <td>{loc(language, subject.label)}</td>
+                    <td>{subject.pct}%</td>
                   </tr>
                 ))}
               </tbody>
             </table>
             <div aria-hidden="true" className="mt-4 space-y-2.5">
-              {CLASS_TOPIC_PERFORMANCE.map((topic) => {
-                const weak = topic.pct < 50;
+              {CLASS_SUBJECT_PERFORMANCE.map((subject) => {
+                const weak = subject.pct < 60;
                 return (
-                  <div key={topic.slug} className="flex items-center gap-3">
+                  <div key={subject.slug} className="flex items-center gap-3">
                     <p className="w-32 shrink-0 truncate text-xs font-medium text-ink sm:w-40">
-                      {loc(language, TOPIC_LABELS[topic.slug])}
+                      {loc(language, subject.label)}
                     </p>
                     <div className="h-2.5 min-w-0 flex-1 overflow-hidden rounded-full bg-mist/40">
                       <div
                         className={`h-full rounded-full ${weak ? 'bg-coral' : 'bg-teal'}`}
-                        style={{ width: `${topic.pct}%` }}
+                        style={{ width: `${subject.pct}%` }}
                       />
                     </div>
                     <p
@@ -2121,7 +2117,7 @@ const TeacherPage: React.FC = () => {
                         weak ? 'text-coral' : 'text-teal-dark'
                       }`}
                     >
-                      {topic.pct}%
+                      {subject.pct}%
                     </p>
                   </div>
                 );
