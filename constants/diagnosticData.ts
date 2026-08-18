@@ -1,4 +1,4 @@
-import type { Localized } from '../utils/i18n.ts';
+import { loc, type Lang, type Localized } from '../utils/i18n.ts';
 
 /**
  * NOV-01 Диагност — question bank for the post-signup placement diagnostic.
@@ -437,4 +437,65 @@ export function buildResults(
       strongTopics,
     };
   });
+}
+
+/**
+ * Localized names for every topic slug used in DIAGNOSTIC_QUESTIONS.
+ * Slugs are stored raw in diagnostic_results.weak_topics / strong_topics,
+ * so all UI must render them through this map.
+ */
+export const TOPIC_NAMES: Record<string, Localized> = {
+  // math
+  'linear-equations': { ru: 'Линейные уравнения', kk: 'Сызықтық теңдеулер', en: 'Linear equations' },
+  percentages: { ru: 'Проценты', kk: 'Пайыздар', en: 'Percentages' },
+  'quadratic-equations': {
+    ru: 'Квадратные уравнения',
+    kk: 'Квадрат теңдеулер',
+    en: 'Quadratic equations',
+  },
+  'linear-functions': { ru: 'Линейная функция', kk: 'Сызықтық функция', en: 'Linear functions' },
+  'geometric-progression': {
+    ru: 'Геометрическая прогрессия',
+    kk: 'Геометриялық прогрессия',
+    en: 'Geometric progression',
+  },
+  // physics
+  speed: { ru: 'Скорость', kk: 'Жылдамдық', en: 'Speed' },
+  units: { ru: 'Единицы измерения', kk: 'Өлшем бірліктері', en: 'Units of measurement' },
+  'newton-second-law': {
+    ru: 'Второй закон Ньютона',
+    kk: 'Ньютонның екінші заңы',
+    en: "Newton's second law",
+  },
+  'ohm-law': { ru: 'Закон Ома', kk: 'Ом заңы', en: "Ohm's law" },
+  'kinetic-energy': { ru: 'Кинетическая энергия', kk: 'Кинетикалық энергия', en: 'Kinetic energy' },
+  // english
+  'present-simple': { ru: 'Present Simple', kk: 'Present Simple', en: 'Present Simple' },
+  'past-simple': { ru: 'Past Simple', kk: 'Past Simple', en: 'Past Simple' },
+  'present-perfect': { ru: 'Present Perfect', kk: 'Present Perfect', en: 'Present Perfect' },
+  comparatives: { ru: 'Сравнительная степень', kk: 'Салыстырмалы шырай', en: 'Comparatives' },
+  'passive-voice': { ru: 'Пассивный залог', kk: 'Ырықсыз етіс', en: 'Passive voice' },
+};
+
+/** Localized display name for a topic slug; falls back to the raw id. */
+export function topicName(lang: Lang, id: string): string {
+  const known = TOPIC_NAMES[id];
+  return known ? loc(lang, known) : id;
+}
+
+/**
+ * Diagnostic topic id → slug of a real, available lesson in
+ * constants/lessonData.ts that covers it. Only topics with an actually
+ * playable lesson (`available: true`) are mapped; the rest link to /learn.
+ */
+export const TOPIC_LESSON_SLUGS: Record<string, string> = {
+  'quadratic-equations': 'quadratic-equations',
+  'linear-functions': 'linear-functions',
+  'newton-second-law': 'newtons-laws',
+  'present-perfect': 'present-perfect',
+};
+
+/** Only the hardest (difficulty-3) questions of a subject — the grade-up probe pool. */
+export function hardQuestionsForSubject(subject: DiagnosticSubject): DiagnosticQuestion[] {
+  return DIAGNOSTIC_QUESTIONS.filter((q) => q.subject === subject && q.difficulty === 3);
 }

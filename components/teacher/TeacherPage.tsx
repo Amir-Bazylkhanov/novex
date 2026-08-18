@@ -22,6 +22,7 @@ import { useLanguage } from '../../context/LanguageContext.tsx';
 import { useAuth } from '../../context/AuthContext.tsx';
 import { supabase } from '../../services/supabaseClient.ts';
 import { RobotAvatar } from '../robots/RobotAvatars.tsx';
+import RobotBackdrop from '../RobotBackdrop.tsx';
 import {
   CLASS_TOPIC_PERFORMANCE,
   INITIAL_MODULES,
@@ -309,9 +310,9 @@ const STAT_TIME: Localized = {
 const MIN_UNIT: Localized = { ru: 'мин', kk: 'мин', en: 'min' };
 
 const CHART_HEADING: Localized = {
-  ru: 'Успеваемость по темам',
-  kk: 'Тақырыптар бойынша үлгерім',
-  en: 'Performance by topic',
+  ru: 'Успеваемость по предметам',
+  kk: 'Пәндер бойынша үлгерім',
+  en: 'Performance by subject',
 };
 const CHART_TOPIC_COL: Localized = { ru: 'Тема', kk: 'Тақырып', en: 'Topic' };
 const CHART_SCORE_COL: Localized = {
@@ -1237,8 +1238,9 @@ const TeacherPage: React.FC = () => {
   );
 
   return (
-    <main className="min-h-screen bg-canvas font-sans text-ink">
-      <div className="mx-auto w-full max-w-7xl px-5 py-10 sm:px-6 md:py-14 lg:px-8">
+    <main className="relative min-h-screen bg-canvas font-sans text-ink">
+      <RobotBackdrop density="subtle" />
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-5 py-10 sm:px-6 md:py-14 lg:px-8">
         {/* header */}
         <header
           aria-labelledby="teacher-heading"

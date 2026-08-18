@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useReducedMotion } from 'framer-motion';
 import {
+  ArrowLeft,
   Atom,
   Calculator,
   Calendar,
@@ -22,7 +23,8 @@ import { loc, type Localized } from '../../utils/i18n.ts';
 import { useLanguage } from '../../context/LanguageContext.tsx';
 import { useAuth, type Role } from '../../context/AuthContext.tsx';
 import { supabase } from '../../services/supabaseClient.ts';
-import { RobotAvatar } from '../robots/RobotAvatars.tsx';
+import { RobotAvatar, type MentorRobotId } from '../robots/RobotAvatars.tsx';
+import RobotBackdrop from '../RobotBackdrop.tsx';
 import {
   LESSON_SUBJECTS,
   LESSONS,
@@ -72,6 +74,66 @@ const RECOMMENDED_BADGE: Localized = {
   kk: 'NOV-02 ұсынған',
   en: 'Recommended by NOV-02',
 };
+
+const PICKER_TITLE: Localized = {
+  ru: 'Выбери наставника по направлению',
+  kk: 'Бағытың бойынша тәлімгерді таңда',
+  en: 'Choose your mentor by subject',
+};
+const PICKER_SUB: Localized = {
+  ru: 'Каждый робот ведёт своё направление. Нажми на наставника, чтобы увидеть его уроки.',
+  kk: 'Әр роботтың өз бағыты бар. Сабақтарын көру үшін тәлімгерді бас.',
+  en: 'Each robot leads its own track. Pick a mentor to see their lessons.',
+};
+const BACK_TO_MENTORS: Localized = {
+  ru: 'Ко всем наставникам',
+  kk: 'Барлық тәлімгерге оралу',
+  en: 'Back to all mentors',
+};
+
+interface Mentor {
+  id: MentorRobotId;
+  codeLabel: Localized;
+  name: Localized;
+  tagline: Localized;
+  subjects: LessonSubject[];
+}
+
+const MENTORS: Mentor[] = [
+  {
+    id: 'nov4',
+    codeLabel: { ru: 'NOV-04 · ЛОГИК', kk: 'NOV-04 · ЛОГИК', en: 'NOV-04 · LOGIC' },
+    name: { ru: 'Логик', kk: 'Логик', en: 'Logic' },
+    tagline: {
+      ru: 'Точные науки: от уравнений до законов Ньютона',
+      kk: 'Дәл ғылымдар: теңдеулерден Ньютон заңдарына дейін',
+      en: "Exact sciences: from equations to Newton's laws",
+    },
+    subjects: ['math', 'physics'],
+  },
+  {
+    id: 'nov5',
+    codeLabel: { ru: 'NOV-05 · ПОЛИГЛОТ', kk: 'NOV-05 · ПОЛИГЛОТ', en: 'NOV-05 · POLYGLOT' },
+    name: { ru: 'Полиглот', kk: 'Полиглот', en: 'Polyglot' },
+    tagline: {
+      ru: 'Языки: понимать и говорить уверенно',
+      kk: 'Тілдер: терең түсініп, сенімді сөйлеу',
+      en: 'Languages: understand and speak with confidence',
+    },
+    subjects: ['english'],
+  },
+  {
+    id: 'nov6',
+    codeLabel: { ru: 'NOV-06 · КИБЕР', kk: 'NOV-06 · КИБЕР', en: 'NOV-06 · CYBER' },
+    name: { ru: 'Кибер', kk: 'Кибер', en: 'Cyber' },
+    tagline: {
+      ru: 'Алгоритмы и код — мышление будущего',
+      kk: 'Алгоритмдер мен код — болашақтың ойлау әдісі',
+      en: 'Algorithms and code — the thinking of the future',
+    },
+    subjects: ['informatics'],
+  },
+];
 
 const STATUS_IN_PROGRESS: Localized = {
   ru: 'В процессе',
@@ -131,6 +193,12 @@ const questionsLine = (lang: 'ru' | 'kk' | 'en', total: number): string => {
   if (lang === 'kk') return `Сұрақтар: ${total}`;
   if (lang === 'en') return `Questions: ${total}`;
   return `Вопросов: ${total}`;
+};
+
+const mentorLessonsLine = (lang: 'ru' | 'kk' | 'en', total: number, completed: number): string => {
+  if (lang === 'kk') return `Сабақтар: ${total} · аяқталғаны: ${completed}`;
+  if (lang === 'en') return `Lessons: ${total} · completed: ${completed}`;
+  return `Уроки: ${total} · пройдено: ${completed}`;
 };
 
 const dateLine = (lang: 'ru' | 'kk' | 'en', iso: string): string =>
@@ -210,6 +278,8 @@ const LearnPage: React.FC = () => {
   const [teacherLessons, setTeacherLessons] = useState<TeacherLessonRow[]>([]);
   const [loadingProgress, setLoadingProgress] = useState(true);
   const [lockedSlug, setLockedSlug] = useState<string | null>(null);
+  // in-page two-level navigation: null = robot picker, otherwise the mentor's lessons
+  const [selectedRobot, setSelectedRobot] = useState<MentorRobotId | null>(null);
 
   // load the signed-in user's lesson progress, diagnostic results and class
   // membership (with its teacher lessons); signed-out users just see cards
@@ -333,9 +403,12 @@ const LearnPage: React.FC = () => {
     );
   };
 
+  const activeMentor = MENTORS.find((m) => m.id === selectedRobot) ?? null;
+
   return (
-    <main className="min-h-screen bg-canvas font-sans text-ink">
-      <div className="mx-auto w-full max-w-7xl px-5 py-8 sm:px-6 md:py-12 lg:px-8">
+    <main className="relative min-h-screen bg-canvas font-sans text-ink">
+      <RobotBackdrop density="full" />
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-5 py-8 sm:px-6 md:py-12 lg:px-8">
         <div className="mb-8">
           <Link
             to="/"
@@ -448,7 +521,122 @@ const LearnPage: React.FC = () => {
             </div>
           )}
 
-          {LESSON_SUBJECTS.map((subject) => {
+          {activeMentor === null ? (
+            /* LEVEL 1 — robot picker */
+            <div className="mt-10" aria-labelledby="mentor-picker-heading">
+              <motion.div
+                initial={reducedMotion ? { opacity: 0 } : { opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-80px' }}
+                transition={{ duration: 0.5 }}
+              >
+                <h2
+                  id="mentor-picker-heading"
+                  className="font-display text-lg font-bold tracking-tight text-ink sm:text-xl"
+                >
+                  {loc(language, PICKER_TITLE)}
+                </h2>
+                <p className="mt-1 max-w-2xl text-sm text-slateink sm:text-base">
+                  {loc(language, PICKER_SUB)}
+                </p>
+              </motion.div>
+
+              <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                {MENTORS.map((mentor, index) => {
+                  const mentorLessons = LESSONS.filter((l) =>
+                    mentor.subjects.includes(l.subject),
+                  );
+                  const completedCount = mentorLessons.filter(
+                    (l) => progress[l.slug]?.status === 'completed',
+                  ).length;
+                  const isMentorRecommended =
+                    role !== 'teacher' &&
+                    mentor.subjects.some((s) => recommendedSubjects.has(s));
+                  return (
+                    <motion.div
+                      key={mentor.id}
+                      initial={reducedMotion ? { opacity: 0 } : { opacity: 0, y: 24 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true, margin: '-80px' }}
+                      transition={{ duration: 0.5, delay: index * 0.08 }}
+                      whileHover={reducedMotion ? undefined : { y: -4 }}
+                    >
+                      <button
+                        type="button"
+                        onClick={() => setSelectedRobot(mentor.id)}
+                        className={`${FOCUS_RING} group flex h-full w-full flex-col items-center rounded-2xl border border-line/50 bg-white px-6 py-8 text-center shadow-[0_1px_3px_rgba(17,26,42,0.04)] transition-colors duration-200 hover:border-teal/60`}
+                      >
+                        <RobotAvatar robot={mentor.id} className="h-32 w-32 sm:h-36 sm:w-36" />
+                        <p className="mt-4 font-mono text-[11px] font-medium uppercase tracking-widest text-teal-dark">
+                          {loc(language, mentor.codeLabel)}
+                        </p>
+                        <h3 className="mt-1 font-display text-xl font-extrabold tracking-tight text-ink group-hover:text-teal-dark">
+                          {loc(language, mentor.name)}
+                        </h3>
+                        <p className="mt-1.5 text-sm text-slateink">
+                          {loc(language, mentor.tagline)}
+                        </p>
+                        <div className="mt-4 flex flex-wrap items-center justify-center gap-2">
+                          {LESSON_SUBJECTS.filter((s) =>
+                            mentor.subjects.includes(s.slug),
+                          ).map((s) => (
+                            <span
+                              key={s.slug}
+                              className="inline-flex items-center gap-1.5 rounded-full bg-mist/30 px-2.5 py-1 text-xs font-semibold text-teal-dark"
+                            >
+                              {SUBJECT_ICONS[s.slug]}
+                              {loc(language, s.label)}
+                            </span>
+                          ))}
+                        </div>
+                        <p className="mt-3 text-xs font-medium text-slateink">
+                          {mentorLessonsLine(language, mentorLessons.length, completedCount)}
+                        </p>
+                        {isMentorRecommended && (
+                          <span className="mt-3 inline-flex items-center gap-1 rounded-full border border-coral/40 px-2.5 py-1 text-[11px] font-semibold text-coral">
+                            <Sparkles className="h-3 w-3" aria-hidden="true" />
+                            {loc(language, RECOMMENDED_BADGE)}
+                          </span>
+                        )}
+                      </button>
+                    </motion.div>
+                  );
+                })}
+              </div>
+            </div>
+          ) : (
+            /* LEVEL 2 — the chosen mentor's lessons */
+            <div className="mt-10">
+              <button
+                type="button"
+                onClick={() => setSelectedRobot(null)}
+                className={`${FOCUS_RING} inline-flex items-center gap-2 rounded-xl border border-line/60 bg-white px-4 py-2 text-sm font-semibold text-teal-dark transition-colors hover:border-teal/50 hover:text-teal`}
+              >
+                <ArrowLeft className="h-4 w-4" aria-hidden="true" />
+                {loc(language, BACK_TO_MENTORS)}
+              </button>
+
+              <div className="mt-6 flex items-start gap-4">
+                <RobotAvatar
+                  robot={activeMentor.id}
+                  className="h-20 w-20 shrink-0 sm:h-24 sm:w-24"
+                />
+                <div>
+                  <p className="font-mono text-[11px] font-medium uppercase tracking-widest text-teal-dark">
+                    {loc(language, activeMentor.codeLabel)}
+                  </p>
+                  <h2 className="mt-0.5 font-display text-xl font-extrabold tracking-tight text-ink sm:text-2xl">
+                    {loc(language, activeMentor.name)}
+                  </h2>
+                  <p className="mt-1 max-w-2xl text-sm text-slateink sm:text-base">
+                    {loc(language, activeMentor.tagline)}
+                  </p>
+                </div>
+              </div>
+
+              {LESSON_SUBJECTS.filter((subject) =>
+                activeMentor.subjects.includes(subject.slug),
+              ).map((subject) => {
             // stable sort: lessons recommended from the diagnostics go first
             const lessons = LESSONS.filter((l) => l.subject === subject.slug).sort(
               (a, b) => Number(isRecommended(b)) - Number(isRecommended(a)),
@@ -546,6 +734,8 @@ const LearnPage: React.FC = () => {
               </div>
             );
           })}
+            </div>
+          )}
         </section>
       </div>
     </main>

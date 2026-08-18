@@ -1,10 +1,7 @@
 import React from 'react';
 import Hero from './landing/Hero.tsx';
-import ProblemSection from './landing/ProblemSection.tsx';
 import HowItWorks from './landing/HowItWorks.tsx';
 import RobotTeam from './landing/RobotTeam.tsx';
-import AIPersonalization from './landing/AIPersonalization.tsx';
-import SubjectsGrid from './landing/SubjectsGrid.tsx';
 import StudentDashboardPreview from './landing/StudentDashboardPreview.tsx';
 import TeacherPanel from './landing/TeacherPanel.tsx';
 import ImpactStats from './landing/ImpactStats.tsx';
@@ -15,11 +12,8 @@ const LandingPage: React.FC = () => {
   return (
     <main>
       <Hero />
-      <ProblemSection />
       <HowItWorks />
       <RobotTeam />
-      <AIPersonalization />
-      <SubjectsGrid />
       <StudentDashboardPreview />
       <TeacherPanel />
       <ImpactStats />

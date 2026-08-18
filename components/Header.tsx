@@ -1,6 +1,19 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { ChevronDown, LogOut, Menu, User, X } from 'lucide-react';
+import {
+  BookOpen,
+  ChevronDown,
+  ChevronRight,
+  ClipboardList,
+  LogOut,
+  Map,
+  Menu,
+  TrendingUp,
+  User,
+  Users,
+  X,
+  type LucideIcon,
+} from 'lucide-react';
 import { loc, type Lang, type Localized } from '../utils/i18n.ts';
 import { useLanguage } from '../context/LanguageContext.tsx';
 import { useAuth } from '../context/AuthContext.tsx';
@@ -8,31 +21,39 @@ import LoginRequiredModal from './auth/LoginRequiredModal.tsx';
 import NovaBadge from './NovaBadge.tsx';
 import NotificationsBell from './NotificationsBell.tsx';
 
-const APP_NAV_LINKS: Array<{ to: string; label: Localized }> = [
+const APP_NAV_LINKS: Array<{
+  to: string;
+  label: Localized;
+  icon: LucideIcon;
+}> = [
   {
     to: '/dashboard',
     label: { ru: 'Прогресс', kk: 'Үдеріс', en: 'Progress' },
+    icon: TrendingUp,
   },
   {
     to: '/learn',
     label: { ru: 'Уроки', kk: 'Сабақтар', en: 'Lessons' },
+    icon: BookOpen,
   },
   {
     to: '/practice',
     label: { ru: 'Практика', kk: 'Практика', en: 'Practice' },
+    icon: ClipboardList,
   },
   {
     to: '/plan',
     label: { ru: 'План', kk: 'Жоспар', en: 'Plan' },
+    icon: Map,
   },
   {
     to: '/teacher',
     label: { ru: 'Для учителя', kk: 'Мұғалімге', en: 'For teachers' },
+    icon: Users,
   },
 ];
 
 const PRICING_LABEL: Localized = { ru: 'Тарифы', kk: 'Тарифтер', en: 'Pricing' };
-const SIGN_IN: Localized = { ru: 'Войти', kk: 'Кіру', en: 'Sign in' };
 const START_FREE: Localized = { ru: 'Начать бесплатно', kk: 'Тегін бастау', en: 'Start free' };
 const SIGN_OUT: Localized = { ru: 'Выйти', kk: 'Шығу', en: 'Sign out' };
 const PROFILE_LABEL: Localized = { ru: 'Личный кабинет', kk: 'Жеке кабинет', en: 'Profile' };
@@ -78,7 +99,7 @@ const LanguageSwitcher: React.FC<{ onSwitch?: () => void }> = ({ onSwitch }) => 
     <div
       role="group"
       aria-label="Language / Тіл / Язык"
-      className="flex items-center rounded-full border border-line/60 bg-white p-0.5"
+      className="inline-flex items-center rounded-full border border-line/60 bg-white p-0.5"
     >
       {LANGS.map(({ code, short }) => (
         <button
@@ -293,12 +314,6 @@ const Header: React.FC = () => {
                 {loc(language, PRICING_LABEL)}
               </Link>
               <Link
-                to="/login"
-                className={`${FOCUS_RING} rounded-xl px-4 py-2 text-sm font-semibold text-ink transition-colors hover:text-teal`}
-              >
-                {loc(language, SIGN_IN)}
-              </Link>
-              <Link
                 to="/signup"
                 className={`${FOCUS_RING} rounded-xl bg-teal px-4 py-2 text-sm font-semibold text-white shadow-[0_4px_14px_rgba(33,159,162,0.25)] transition-colors hover:bg-teal-dark`}
               >
@@ -332,9 +347,20 @@ const Header: React.FC = () => {
           <nav aria-label="Mobile" className="flex flex-col">
             {APP_NAV_LINKS.map((link) => {
               const active = isAppActive(link.to);
-              const className = `${FOCUS_RING} rounded-lg px-2 py-3 text-left text-base font-medium transition-colors ${
-                active ? 'bg-teal/10 text-teal-dark' : 'text-ink hover:text-teal'
+              const Icon = link.icon;
+              const className = `${FOCUS_RING} flex items-center gap-3 rounded-xl px-3 py-3 text-left text-base font-medium transition-colors active:bg-mist/60 ${
+                active ? 'bg-mist/40 text-teal-dark' : 'text-ink'
               }`;
+              const rowContent = (
+                <>
+                  <Icon aria-hidden="true" className="h-5 w-5 shrink-0" />
+                  {loc(language, link.label)}
+                  <ChevronRight
+                    aria-hidden="true"
+                    className="ml-auto h-4 w-4 shrink-0 text-slateink"
+                  />
+                </>
+              );
               return user ? (
                 <Link
                   key={link.to}
@@ -343,7 +369,7 @@ const Header: React.FC = () => {
                   aria-current={active ? 'page' : undefined}
                   className={className}
                 >
-                  {loc(language, link.label)}
+                  {rowContent}
                 </Link>
               ) : (
                 <button
@@ -355,13 +381,17 @@ const Header: React.FC = () => {
                   }}
                   className={className}
                 >
-                  {loc(language, link.label)}
+                  {rowContent}
                 </button>
               );
             })}
           </nav>
           <div className="mt-4 flex flex-col gap-3">
-            <LanguageSwitcher onSwitch={closeMenu} />
+            {/* Same px-3 as the nav rows above, so the compact pill group
+                aligns with them instead of stretching full-width. */}
+            <div className="px-3">
+              <LanguageSwitcher onSwitch={closeMenu} />
+            </div>
             {user ? (
               <>
                 <div className="flex items-center justify-center gap-3">
@@ -411,13 +441,6 @@ const Header: React.FC = () => {
                   className={`${FOCUS_RING} rounded-xl px-4 py-2.5 text-center text-sm font-semibold text-slateink transition-colors hover:text-ink`}
                 >
                   {loc(language, PRICING_LABEL)}
-                </Link>
-                <Link
-                  to="/login"
-                  onClick={closeMenu}
-                  className={`${FOCUS_RING} rounded-xl border border-line bg-white px-4 py-2.5 text-center text-sm font-semibold text-ink transition-colors hover:border-teal hover:text-teal`}
-                >
-                  {loc(language, SIGN_IN)}
                 </Link>
                 <Link
                   to="/signup"

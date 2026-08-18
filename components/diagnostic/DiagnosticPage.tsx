@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import {
   Atom,
@@ -10,17 +10,22 @@ import {
   Languages,
   ListChecks,
   Loader2,
+  RotateCcw,
+  School,
+  Target,
   TrendingDown,
   TrendingUp,
+  Trophy,
 } from 'lucide-react';
 import { loc, type Localized } from '../../utils/i18n.ts';
 import { useLanguage } from '../../context/LanguageContext.tsx';
-import { useAuth } from '../../context/AuthContext.tsx';
+import { useAuth, type Goal } from '../../context/AuthContext.tsx';
 import { RobotAvatar } from '../robots/RobotAvatars.tsx';
 import DiagnosticResult from './DiagnosticResult.tsx';
 import {
   DIAGNOSTIC_SUBJECTS,
   buildResults,
+  hardQuestionsForSubject,
   questionsForSubject,
   type AnswerRecord,
   type DiagnosticSubject,
@@ -41,6 +46,11 @@ const LOADING: Localized = {
   en: 'Loading…',
 };
 
+const PROBE_TITLE: Localized = {
+  ru: 'Тест уровнем выше',
+  kk: 'Бір деңгей жоғары тест',
+  en: 'Next-level test',
+};
 const SETUP_TITLE: Localized = {
   ru: 'Диагностика уровня',
   kk: 'Деңгей диагностикасы',
@@ -56,10 +66,15 @@ const GRADE_LABEL: Localized = {
   kk: 'Қай сыныпта оқисың?',
   en: 'Which grade are you in?',
 };
+const GOAL_LABEL: Localized = {
+  ru: 'Какая у тебя цель?',
+  kk: 'Мақсатың қандай?',
+  en: 'What is your goal?',
+};
 const SUBJECTS_LABEL: Localized = {
-  ru: 'Предметы для диагностики',
-  kk: 'Диагностика үшін пәндер',
-  en: 'Subjects to diagnose',
+  ru: 'Предметы, которые ты бы хотел изучать',
+  kk: 'Оқығың келетін пәндер',
+  en: 'Subjects you would like to study',
 };
 const SUBJECTS_HINT: Localized = {
   ru: 'Выбери от одного до трёх предметов.',
@@ -116,6 +131,29 @@ const SUBJECT_ICONS: Record<DiagnosticSubject, React.ReactNode> = {
   english: <Languages className="h-4 w-4" aria-hidden="true" />,
 };
 
+const GOAL_OPTIONS: readonly { value: Goal; label: Localized; icon: React.ReactNode }[] = [
+  {
+    value: 'ent',
+    label: { ru: 'ЕНТ', kk: 'ҰБТ', en: 'ENT' },
+    icon: <GraduationCap className="h-4 w-4" aria-hidden="true" />,
+  },
+  {
+    value: 'olympiad',
+    label: { ru: 'Олимпиада', kk: 'Олимпиада', en: 'Olympiad' },
+    icon: <Trophy className="h-4 w-4" aria-hidden="true" />,
+  },
+  {
+    value: 'revision',
+    label: { ru: 'Повторение темы', kk: 'Тақырыпты қайталау', en: 'Topic revision' },
+    icon: <RotateCcw className="h-4 w-4" aria-hidden="true" />,
+  },
+  {
+    value: 'admission',
+    label: { ru: 'Поступление', kk: 'Оқуға түсу', en: 'Admission' },
+    icon: <School className="h-4 w-4" aria-hidden="true" />,
+  },
+];
+
 const OPTION_LETTERS = ['A', 'B', 'C', 'D'] as const;
 
 type Phase = 'setup' | 'quiz' | 'result';
@@ -124,10 +162,23 @@ const DiagnosticPage: React.FC = () => {
   const { language } = useLanguage();
   const { profile, loading } = useAuth();
   const reducedMotion = useReducedMotion();
+  const [searchParams] = useSearchParams();
 
-  const [phase, setPhase] = useState<Phase>('setup');
+  // Grade-up probe mode: /onboarding?probe=<subject> skips setup and runs
+  // only the hardest questions of that one subject.
+  const probeParam = searchParams.get('probe');
+  const probeSubject: DiagnosticSubject | null = DIAGNOSTIC_SUBJECTS.some(
+    (s) => s.slug === probeParam,
+  )
+    ? (probeParam as DiagnosticSubject)
+    : null;
+
+  const [phase, setPhase] = useState<Phase>(probeSubject ? 'quiz' : 'setup');
   const [grade, setGrade] = useState<number | null>(null);
-  const [picked, setPicked] = useState<DiagnosticSubject[]>([]);
+  const [goal, setGoal] = useState<Goal | null>(null);
+  const [picked, setPicked] = useState<DiagnosticSubject[]>(
+    probeSubject ? [probeSubject] : [],
+  );
 
   // quiz state
   const [answers, setAnswers] = useState<AnswerRecord[]>([]);
@@ -147,18 +198,26 @@ const DiagnosticPage: React.FC = () => {
     if (profile && !hydratedRef.current) {
       hydratedRef.current = true;
       setGrade(profile.grade);
-      setPicked(
-        profile.subjects.filter((s): s is DiagnosticSubject =>
-          DIAGNOSTIC_SUBJECTS.some((d) => d.slug === s),
-        ),
-      );
+      setGoal(profile.goal);
+      if (!probeSubject) {
+        setPicked(
+          profile.subjects.filter((s): s is DiagnosticSubject =>
+            DIAGNOSTIC_SUBJECTS.some((d) => d.slug === s),
+          ),
+        );
+      }
     }
-  }, [profile]);
+  }, [profile, probeSubject]);
 
   const activeSubject = picked[subjectIndex];
   const subjectQuestions = useMemo(
-    () => (activeSubject ? questionsForSubject(activeSubject) : []),
-    [activeSubject],
+    () =>
+      activeSubject
+        ? probeSubject
+          ? hardQuestionsForSubject(activeSubject)
+          : questionsForSubject(activeSubject)
+        : [],
+    [activeSubject, probeSubject],
   );
   const currentQuestion = subjectQuestions[cursor] ?? null;
 
@@ -188,7 +247,7 @@ const DiagnosticPage: React.FC = () => {
     );
 
   const startQuiz = () => {
-    if (!grade || picked.length === 0) return;
+    if (!grade || !goal || picked.length === 0) return;
     setAnswers([]);
     setSubjectIndex(0);
     setAskedIds([]);
@@ -268,8 +327,12 @@ const DiagnosticPage: React.FC = () => {
     }
   };
 
-  const totalQuestions = picked.length * 5;
+  const totalQuestions = probeSubject ? subjectQuestions.length : picked.length * 5;
   const answeredCount = answers.length;
+  const activeSubjectLabel =
+    DIAGNOSTIC_SUBJECTS.find((s) => s.slug === activeSubject)?.label ?? { ru: '', kk: '', en: '' };
+  // In probe mode the grade comes from the profile (the student already onboarded).
+  const effectiveGrade = grade ?? profile?.grade ?? null;
 
   return (
     <main className="min-h-screen bg-canvas font-sans text-ink">
@@ -328,6 +391,36 @@ const DiagnosticPage: React.FC = () => {
 
               <fieldset className="mt-6">
                 <legend className="flex items-center gap-2 text-sm font-semibold text-ink">
+                  <Target className="h-4 w-4 text-teal" aria-hidden="true" />
+                  {loc(language, GOAL_LABEL)}
+                </legend>
+                <div className="mt-2.5 flex flex-wrap gap-2">
+                  {GOAL_OPTIONS.map((g) => {
+                    const isPicked = goal === g.value;
+                    return (
+                      <label key={g.value} className="cursor-pointer">
+                        <input
+                          type="radio"
+                          name="diagnostic-goal"
+                          value={g.value}
+                          checked={isPicked}
+                          onChange={() => setGoal(g.value)}
+                          className="peer sr-only"
+                        />
+                        <span
+                          className={`${CHIP} gap-1.5 px-4 py-2.5 ${isPicked ? CHIP_ON : CHIP_OFF}`}
+                        >
+                          {g.icon}
+                          {loc(language, g.label)}
+                        </span>
+                      </label>
+                    );
+                  })}
+                </div>
+              </fieldset>
+
+              <fieldset className="mt-6">
+                <legend className="flex items-center gap-2 text-sm font-semibold text-ink">
                   <ListChecks className="h-4 w-4 text-teal" aria-hidden="true" />
                   {loc(language, SUBJECTS_LABEL)}
                 </legend>
@@ -363,7 +456,7 @@ const DiagnosticPage: React.FC = () => {
 
               <button
                 type="button"
-                disabled={!grade || picked.length === 0}
+                disabled={!grade || !goal || picked.length === 0}
                 onClick={startQuiz}
                 className={`${FOCUS_RING} mt-8 inline-flex items-center gap-2 rounded-xl bg-teal px-6 py-3 text-sm font-semibold text-white shadow-[0_4px_14px_rgba(33,159,162,0.25)] transition-colors hover:bg-teal-dark disabled:cursor-not-allowed disabled:border disabled:border-line disabled:bg-white disabled:text-slateink disabled:shadow-none`}
               >
@@ -375,12 +468,20 @@ const DiagnosticPage: React.FC = () => {
 
           {phase === 'quiz' && currentQuestion && (
             <div>
+              {probeSubject && (
+                <h1
+                  id="diagnostic-heading"
+                  className="mb-4 font-display text-xl font-extrabold tracking-tight text-ink sm:text-2xl"
+                >
+                  {loc(language, PROBE_TITLE)} · {loc(language, activeSubjectLabel)}
+                </h1>
+              )}
               {/* progress */}
               <div className="flex items-center justify-between gap-3">
                 <p aria-live="polite" className="text-sm font-semibold text-ink">
                   {counterLine(language, answeredCount + 1, totalQuestions)}
                   <span className="ml-2 font-normal text-slateink">
-                    · {loc(language, DIAGNOSTIC_SUBJECTS.find((s) => s.slug === activeSubject)?.label ?? { ru: '', kk: '', en: '' })}
+                    · {loc(language, activeSubjectLabel)}
                   </span>
                 </p>
                 <p className="font-mono text-[11px] font-medium uppercase tracking-widest text-teal-dark">
@@ -479,8 +580,14 @@ const DiagnosticPage: React.FC = () => {
             </div>
           )}
 
-          {phase === 'result' && results && grade !== null && (
-            <DiagnosticResult results={results} grade={grade} subjects={picked} />
+          {phase === 'result' && results && effectiveGrade !== null && (
+            <DiagnosticResult
+              results={results}
+              grade={effectiveGrade}
+              subjects={picked}
+              goal={goal}
+              isProbe={probeSubject !== null}
+            />
           )}
         </section>
       </div>

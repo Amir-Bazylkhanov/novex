@@ -361,6 +361,19 @@ close, keeping links AA-contrast.
 - Every claim must be something the MVP can actually demonstrate.
 - Use Kazakhstani context naturally: ЕНТ, области, сельские школы, НИШ/обычные школы, олимпиады.
 
+### 4.1 Валюта «Новасы» (Novas currency)
+
+The in-app currency is **Новасы** (kk: Новас, en: Novas), always shown with the gear icon ⚙
+(lucide `Cog`). Russian declension rule — follow it in every new string:
+
+- **«Новасов»** (genitive plural) whenever the word is governed by a number or acts as a
+  counted/measured label: «171 новасов заработано» → label «НОВАСОВ ЗАРАБОТАНО»,
+  «+500 ⚙ Новасов каждый месяц», «100 ⚙ Новасов на старте».
+- **«Новасы»** only as plain nominative/accusative plural subject or object:
+  «Новасы закончились», «Новасы — валюта Novex», «Заработай первые новасы», «Потрать новасы».
+
+In Kazakh a numeral takes the singular: «100 ⚙ Новас», «Сізге {amount} новас берілді».
+
 ## 6. ROBOT THEME (overrides anything above that conflicts)
 
 Novex has a signature visual theme, the way the predecessor project had a space/cosmos theme

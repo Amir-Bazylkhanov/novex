@@ -12,9 +12,11 @@ import {
   TrendingUp,
 } from 'lucide-react';
 import { loc, type Lang, type Localized } from '../../utils/i18n.ts';
+import { topicName } from '../../constants/diagnosticData.ts';
 import { useLanguage } from '../../context/LanguageContext.tsx';
 import { useAuth, type Goal } from '../../context/AuthContext.tsx';
 import { RobotAvatar } from '../robots/RobotAvatars.tsx';
+import RobotBackdrop from '../RobotBackdrop.tsx';
 import { supabase } from '../../services/supabaseClient.ts';
 import AnalyticsSection, { type NovaTransactionRow } from './AnalyticsSection.tsx';
 import AchievementsTab from './AchievementsTab.tsx';
@@ -421,7 +423,7 @@ const DashboardPage: React.FC = () => {
   if (firstWeak) {
     reminders.push({
       key: 'review',
-      text: fill(loc(language, REMINDER_REVIEW), { topic: firstWeak }),
+      text: fill(loc(language, REMINDER_REVIEW), { topic: topicName(language, firstWeak) }),
       to: '/learn',
     });
   }
@@ -448,8 +450,9 @@ const DashboardPage: React.FC = () => {
     : loc(language, GREETING_FALLBACK);
 
   return (
-    <main className="min-h-screen bg-canvas font-sans text-ink">
-      <div className="mx-auto w-full max-w-5xl px-5 py-12 sm:px-6 md:py-16 lg:px-8">
+    <main className="relative min-h-screen bg-canvas font-sans text-ink">
+      <RobotBackdrop density="subtle" />
+      <div className="relative z-10 mx-auto w-full max-w-5xl px-5 py-12 sm:px-6 md:py-16 lg:px-8">
         <header aria-labelledby="dash-heading">
           <h1
             id="dash-heading"
@@ -669,7 +672,7 @@ const DashboardPage: React.FC = () => {
                           key={topic}
                           className="inline-flex items-center rounded-full border border-coral/40 bg-coral/10 px-3.5 py-1.5 text-sm font-semibold text-ink"
                         >
-                          {topic}
+                          {topicName(language, topic)}
                         </li>
                       ))}
                     </ul>
@@ -681,7 +684,7 @@ const DashboardPage: React.FC = () => {
                         </p>
                         <p className="mt-1 text-sm text-ink">
                           {firstWeak
-                            ? fill(loc(language, ROBOT_ADVICE), { topic: firstWeak })
+                            ? fill(loc(language, ROBOT_ADVICE), { topic: topicName(language, firstWeak) })
                             : loc(language, WEAK_NONE)}
                         </p>
                       </div>
@@ -721,7 +724,7 @@ const DashboardPage: React.FC = () => {
                         key={topic}
                         className="inline-flex items-center rounded-full border border-teal/40 bg-teal/10 px-3.5 py-1.5 text-sm font-semibold text-teal-dark"
                       >
-                        {topic}
+                        {topicName(language, topic)}
                       </li>
                     ))}
                   </ul>

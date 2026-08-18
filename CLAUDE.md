@@ -52,18 +52,14 @@ There is no test runner configured yet.
 `components/LandingPage.tsx` renders sections in exactly this order (top → bottom):
 
 1. `Hero`
-2. `ProblemSection`
-3. `HowItWorks`
-4. `AIPersonalization`
-5. `SubjectsGrid`
-6. `StudentDashboardPreview`
-7. `TeacherPanel`
-8. `ImpactStats`
-9. `Pricing`
-10. `FAQ`
-11. `FinalCTA`
+2. `HowItWorks`
+3. `StudentDashboardPreview`
+4. `TeacherPanel`
+5. `ImpactStats`
+6. `FAQ`
+7. `FinalCTA`
 
-`Header` and `Footer` live outside `<main>` in `App.tsx`. Do not reorder sections — the order is a SPEC.md contract tied to the hackathon judging weights (the AI personalization section is the highest-scoring and must stay concrete and technical).
+`Header` and `Footer` live outside `<main>` in `App.tsx`. Do not reorder or re-add sections without the user's say-so: `ProblemSection`, `AIPersonalization` and `SubjectsGrid` were removed by user decision (their files remain in `components/landing/` unused), and `Pricing` moved to the dedicated `/pricing` page (`components/PricingPage.tsx` wraps the section component).
 
 ## Design System
 

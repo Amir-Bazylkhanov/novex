@@ -14,6 +14,7 @@ import {
 import { loc, type Lang, type Localized } from '../../utils/i18n.ts';
 import { useLanguage } from '../../context/LanguageContext.tsx';
 import { RobotAvatar } from '../robots/RobotAvatars.tsx';
+import RobotBackdrop from '../RobotBackdrop.tsx';
 import { DIAGNOSTIC_SUBJECTS, type DiagnosticSubject } from '../../constants/diagnosticData.ts';
 import {
   assembleSession,
@@ -352,8 +353,9 @@ const PracticePage: React.FC = () => {
   const isLastQuestion = session !== null && current === session.questions.length - 1;
 
   return (
-    <main className="min-h-screen bg-canvas font-sans text-ink">
-      <div className="mx-auto w-full max-w-3xl px-5 py-8 sm:px-6 md:py-12 lg:px-8">
+    <main className="relative min-h-screen bg-canvas font-sans text-ink">
+      <RobotBackdrop density="subtle" />
+      <div className="relative z-10 mx-auto w-full max-w-3xl px-5 py-8 sm:px-6 md:py-12 lg:px-8">
         <section id="practice" aria-labelledby="practice-heading">
           {/* NOV-02 header — visible in every phase */}
           <div className="flex items-start gap-4">

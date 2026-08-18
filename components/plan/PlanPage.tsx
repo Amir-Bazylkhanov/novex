@@ -19,7 +19,9 @@ import { useLanguage } from '../../context/LanguageContext.tsx';
 import { useAuth } from '../../context/AuthContext.tsx';
 import { supabase } from '../../services/supabaseClient.ts';
 import { RobotAvatar } from '../robots/RobotAvatars.tsx';
+import RobotBackdrop from '../RobotBackdrop.tsx';
 import { LESSONS, lessonBySlug } from '../../constants/lessonData.ts';
+import { topicName } from '../../constants/diagnosticData.ts';
 
 /* --- content --- */
 
@@ -164,37 +166,6 @@ const SUBJECT_LABELS: Record<string, Localized> = {
   kazakh: { ru: 'Қазақ тілі', kk: 'Қазақ тілі', en: 'Kazakh language' },
   english: { ru: 'English', kk: 'Ағылшын тілі', en: 'English' },
   history: { ru: 'История Казахстана', kk: 'Қазақстан тарихы', en: 'History of Kazakhstan' },
-};
-
-/** Localized names for the stable topic slugs stored in diagnostic_results.weak_topics. */
-const TOPIC_LABELS: Record<string, Localized> = {
-  'linear-equations': { ru: 'Линейные уравнения', kk: 'Сызықтық теңдеулер', en: 'Linear equations' },
-  percentages: { ru: 'Проценты', kk: 'Пайыздар', en: 'Percentages' },
-  'quadratic-equations': {
-    ru: 'Квадратные уравнения',
-    kk: 'Квадрат теңдеулер',
-    en: 'Quadratic equations',
-  },
-  'linear-functions': { ru: 'Линейная функция', kk: 'Сызықтық функция', en: 'Linear functions' },
-  'geometric-progression': {
-    ru: 'Геометрическая прогрессия',
-    kk: 'Геометриялық прогрессия',
-    en: 'Geometric progression',
-  },
-  speed: { ru: 'Скорость', kk: 'Жылдамдық', en: 'Speed' },
-  units: { ru: 'Единицы измерения', kk: 'Өлшем бірліктері', en: 'Units of measurement' },
-  'newton-second-law': {
-    ru: 'Второй закон Ньютона',
-    kk: 'Ньютонның екінші заңы',
-    en: "Newton's second law",
-  },
-  'ohm-law': { ru: 'Закон Ома', kk: 'Ом заңы', en: "Ohm's law" },
-  'kinetic-energy': { ru: 'Кинетическая энергия', kk: 'Кинетикалық энергия', en: 'Kinetic energy' },
-  'present-simple': { ru: 'Present Simple', kk: 'Present Simple', en: 'Present Simple' },
-  'past-simple': { ru: 'Past Simple', kk: 'Past Simple', en: 'Past Simple' },
-  'present-perfect': { ru: 'Present Perfect', kk: 'Present Perfect', en: 'Present Perfect' },
-  comparatives: { ru: 'Сравнительная степень', kk: 'Салыстырмалы шырай', en: 'Comparatives' },
-  'passive-voice': { ru: 'Пассивный залог', kk: 'Ырықсыз етіс', en: 'Passive voice' },
 };
 
 const DATE_LOCALE: Record<Lang, string> = { ru: 'ru-RU', kk: 'kk-KZ', en: 'en-GB' };
@@ -451,8 +422,7 @@ const PlanItemRow: React.FC<{ item: PlanItemJson }> = ({ item }) => {
   }
 
   const topic = item.ref ?? '';
-  const known = TOPIC_LABELS[topic];
-  const label: Localized = known ?? { ru: topic, kk: topic, en: topic };
+  const label = topicName(language, topic);
   const lesson = LESSONS.find((l) => l.topic === topic && l.available);
   return (
     <li className="flex items-center gap-2.5 text-sm">
@@ -462,10 +432,10 @@ const PlanItemRow: React.FC<{ item: PlanItemJson }> = ({ item }) => {
           to={`/learn/${lesson.slug}`}
           className={`${FOCUS_RING} rounded font-medium text-teal-dark underline decoration-teal/40 underline-offset-4 transition-colors hover:text-teal`}
         >
-          {loc(language, label)}
+          {label}
         </Link>
       ) : (
-        <span className="font-medium text-ink">{loc(language, label)}</span>
+        <span className="font-medium text-ink">{label}</span>
       )}
     </li>
   );
@@ -637,8 +607,9 @@ const PlanPage: React.FC = () => {
   const activeWeek = plan ? currentWeekIndex(plan) : -1;
 
   return (
-    <main className="min-h-screen bg-canvas font-sans text-ink">
-      <div className="mx-auto w-full max-w-5xl px-5 py-12 sm:px-6 md:py-16 lg:px-8">
+    <main className="relative min-h-screen bg-canvas font-sans text-ink">
+      <RobotBackdrop density="subtle" />
+      <div className="relative z-10 mx-auto w-full max-w-5xl px-5 py-12 sm:px-6 md:py-16 lg:px-8">
         <header aria-labelledby="plan-heading">
           <div className="flex items-start gap-4">
             <RobotAvatar robot="nov3" className="h-14 w-14 shrink-0 sm:h-16 sm:w-16" />

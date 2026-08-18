@@ -21,8 +21,8 @@ const STAT_LESSONS: Localized = {
   en: 'Lessons completed',
 };
 const STAT_NOVAS: Localized = {
-  ru: 'Новасы заработано',
-  kk: 'Табылған новастар',
+  ru: 'Новасов заработано',
+  kk: 'Жиналған Новас',
   en: 'Novas earned',
 };
 const STAT_DAYS: Localized = { ru: 'Дней с нами', kk: 'Бізбен бірге күн', en: 'Days with us' };

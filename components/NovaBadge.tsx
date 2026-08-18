@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Cog } from 'lucide-react';
 import { loc, type Localized } from '../utils/i18n.ts';
 import { useLanguage } from '../context/LanguageContext.tsx';
@@ -53,6 +54,12 @@ const SPEND_MENTOR: Localized = {
   en: 'Questions to the Mentor in the AI chat (1–5 ⚙ per message depending on the model)',
 };
 
+const PRICING_HINT: Localized = {
+  ru: 'Нажми, чтобы открыть тарифы',
+  kk: 'Тарифтерді ашу үшін бас',
+  en: 'Click to see plans',
+};
+
 const REFRESH_MS = 60_000;
 
 const NovaBadge: React.FC = () => {
@@ -95,15 +102,15 @@ const NovaBadge: React.FC = () => {
         if (event.key === 'Escape') setOpen(false);
       }}
     >
-      <span
-        tabIndex={0}
-        aria-label={loc(language, NOVAS_LABEL)}
+      <Link
+        to="/pricing"
+        aria-label={`${loc(language, NOVAS_LABEL)} — ${loc(language, PRICING_HINT)}`}
         aria-expanded={open}
-        className="flex items-center gap-1.5 rounded-full border border-line bg-white px-3 py-1.5 text-sm font-semibold text-ink"
+        className="flex cursor-pointer items-center gap-1.5 rounded-full border border-line bg-white px-3 py-1.5 text-sm font-semibold text-ink hover:border-teal"
       >
         <Cog className="h-4 w-4 text-teal" aria-hidden="true" />
         {balance}
-      </span>
+      </Link>
       {open && (
         <span
           role="tooltip"
@@ -132,6 +139,9 @@ const NovaBadge: React.FC = () => {
                 {loc(language, item)}
               </span>
             ))}
+          </span>
+          <span className="mt-3 block text-teal">
+            {loc(language, PRICING_HINT)}
           </span>
         </span>
       )}

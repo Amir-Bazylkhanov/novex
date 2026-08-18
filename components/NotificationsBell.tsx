@@ -26,17 +26,17 @@ const EMPTY: Localized = {
 
 const WELCOME_TEXT: Localized = {
   ru: 'Добро пожаловать! Вам начислено {amount} новасов',
-  kk: 'Қош келдіңіз! Сізге {amount} новасы берілді',
+  kk: 'Қош келдіңіз! Сізге {amount} новас берілді',
   en: 'Welcome! You have been granted {amount} Novas',
 };
 const LESSON_REWARD_TEXT: Localized = {
   ru: 'Урок пройден: +{amount} новасов',
-  kk: 'Сабақ аяқталды: +{amount} новасы',
+  kk: 'Сабақ аяқталды: +{amount} новас',
   en: 'Lesson completed: +{amount} Novas',
 };
 const DIAGNOSTIC_REWARD_TEXT: Localized = {
   ru: 'Диагностика пройдена: +{amount} новасов',
-  kk: 'Диагностика аяқталды: +{amount} новасы',
+  kk: 'Диагностика аяқталды: +{amount} новас',
   en: 'Diagnostic completed: +{amount} Novas',
 };
 const NEW_MODULE_TEXT: Localized = {
