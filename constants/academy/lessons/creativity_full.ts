@@ -38,7 +38,9 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
               { en: "Multiply width in inches by DPI: 8.27 × 300 = 2481 pixels wide.", ru: "Умножьте ширину в дюймах на DPI: 8,27 × 300 = 2481 пикселей в ширину.", kk: "Дюймдегі енін DPI-ға көбейтіңіз: 8,27 × 300 = 2481 пиксель ені." },
               { en: "Multiply height in inches by DPI: 11.69 × 300 = 3507 pixels tall.", ru: "Умножьте высоту в дюймах на DPI: 11,69 × 300 = 3507 пикселей в высоту.", kk: "Дюймдегі биіктігін DPI-ға көбейтіңіз: 11,69 × 300 = 3507 пиксель биіктігі." }
             ],
-            answer: "The canvas should be 2481 × 3507 pixels for crisp A4 printing at 300 DPI."
+            answer: "The canvas should be 2481 × 3507 pixels for crisp A4 printing at 300 DPI.",
+            answerRu: "Холст должен быть 2481 × 3507 пикселей, чтобы печать на A4 при 300 DPI была чёткой.",
+            answerKk: "A4 парағын 300 DPI-мен анық басып шығару үшін кенеп 2481 × 3507 пиксель болуы керек."
           }
         ],
         practiceProblems: [
@@ -48,6 +50,8 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "Какой тип изображения теряет качество при увеличении — растровый или векторный?",
             questionKk: "Қай кескін түрі үлкейткенде сапасын жоғалтады — растрлық па әлде векторлық па?",
             answer: "Raster",
+            answerRu: "Растровый",
+            answerKk: "Растрлық",
             hint: "Think about what happens to individual pixels when they are stretched.",
             hintRu: "Подумайте, что происходит с отдельными пикселями при растяжении.",
             hintKk: "Жеке пиксельдерді созғанда не болатынын ойлаңыз.",
@@ -59,6 +63,8 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "Изображение для соцсетей 1080 × 1080 пикселей отображается на экране 72 DPI. Каков размер отображения в дюймах?",
             questionKk: "Әлеуметтік желіге арналған 1080 × 1080 пиксельдік кескін 72 DPI экранда көрсетіледі. Дюймдегі көрсету өлшемі қандай?",
             answer: "15 × 15 inches (1080 ÷ 72 = 15)",
+            answerRu: "15 × 15 дюймов (1080 ÷ 72 = 15)",
+            answerKk: "15 × 15 дюйм (1080 ÷ 72 = 15)",
             hint: "Divide pixel dimensions by DPI to get inches.",
             hintRu: "Разделите размеры в пикселях на DPI, чтобы получить дюймы.",
             hintKk: "Дюймді алу үшін пиксельдік өлшемдерді DPI-ға бөліңіз.",
@@ -70,6 +76,8 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "У вас фото 640 × 480, и нужно напечатать его с разрешением 300 DPI. Каким будет размер печати, и будет ли оно чётким для рамки 5×7 дюймов?",
             questionKk: "Сізде 640 × 480 фото бар және оны 300 DPI-мен басып шығару керек. Басып шығару өлшемі қандай болады және 5×7 дюймдік жақтауға сапалы бола ма?",
             answer: "Print size is 2.13 × 1.6 inches (640÷300, 480÷300). It will NOT be sharp enough for a 5×7 frame — you need at least 1500 × 2100 pixels.",
+            answerRu: "Размер печати — 2.13 × 1.6 дюйма (640÷300, 480÷300). Для рамки 5×7 он будет недостаточно чётким — нужно не менее 1500 × 2100 пикселей.",
+            answerKk: "Басып шығару өлшемі — 2.13 × 1.6 дюйм (640÷300, 480÷300). 5×7 жақтауы үшін ол жеткілікті анық болмайды — кемінде 1500 × 2100 пиксель қажет.",
             xp: 20
           }
         ]
@@ -104,7 +112,9 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
               { en: "Calming designs need low contrast and smooth transitions — this suggests analogous colors.", ru: "Успокаивающий дизайн требует низкого контраста и плавных переходов — это указывает на аналоговые цвета.", kk: "Тыныштандыратын дизайн төмен контраст пен тегіс ауысуларды қажет етеді — бұл аналогты түстерді көрсетеді." },
               { en: "Choose analogous cool tones like blue, blue-green, and green with high brightness and low saturation for a serene feel.", ru: "Выберите аналоговые холодные тона: синий, сине-зелёный и зелёный с высокой яркостью и низкой насыщенностью для спокойного ощущения.", kk: "Тыныш сезім үшін жоғары жарықтық пен төмен қанықтығы бар көк, көк-жасыл және жасыл сияқты аналогты салқын реңктерді таңдаңыз." }
             ],
-            answer: "Use an analogous color harmony with cool tones (blue, blue-green, green) at high brightness and low saturation."
+            answer: "Use an analogous color harmony with cool tones (blue, blue-green, green) at high brightness and low saturation.",
+            answerRu: "Используйте аналоговую цветовую гармонию с холодными тонами (синий, сине-зелёный, зелёный) при высокой яркости и низкой насыщенности.",
+            answerKk: "Жоғары жарықтық пен төмен қанықтығы бар салқын реңктерден (көк, көк-жасыл, жасыл) тұратын аналогты түс үйлесімділігін қолданыңыз."
           }
         ],
         practiceProblems: [
@@ -114,6 +124,8 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "Какой комплементарный цвет у красного на цветовом круге?",
             questionKk: "Түс дөңгелегінде қызыл түстің комплементар түсі қандай?",
             answer: "Green",
+            answerRu: "Зелёный",
+            answerKk: "Жасыл",
             hint: "Look directly across the color wheel from red.",
             hintRu: "Посмотрите прямо напротив красного на цветовом круге.",
             hintKk: "Түс дөңгелегінде қызылдың тура қарсысына қараңыз.",
@@ -125,6 +137,8 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "Цвет имеет значения HSB: H:200, S:80%, B:60%. Это яркий или приглушённый цвет, светлый или тёмный?",
             questionKk: "Түстің HSB мәндері: H:200, S:80%, B:60%. Бұл ашық па әлде өңсіз бе, жарық па әлде қараңғы ма?",
             answer: "Vivid (saturation 80% is high) and medium-dark (brightness 60% is moderate).",
+            answerRu: "Яркий (насыщенность 80% — высокая) и средне-тёмный (яркость 60% — умеренная).",
+            answerKk: "Ашық (қанықтық 80% — жоғары) және орташа қараңғы (жарықтық 60% — орташа).",
             hint: "Saturation above 60% is vivid; brightness below 70% tends toward darker tones.",
             hintRu: "Насыщенность выше 60% — яркий; яркость ниже 70% — тёмные тона.",
             hintKk: "Қанықтық 60%-дан жоғары — ашық; жарықтық 70%-дан төмен — қараңғы реңктер.",
@@ -136,6 +150,8 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "Разработайте триадную цветовую схему, начиная с оранжевого (H:30). Какие два других значения оттенка, и какое настроение создаёт эта схема?",
             questionKk: "Қызғылт сарыдан (H:30) бастап триадалық түс схемасын жасаңыз. Қалған екі реңк мәні қандай және бұл схема қандай көңіл-күй тудырады?",
             answer: "H:150 (green) and H:270 (violet). Triadic schemes feel vibrant and balanced — energetic yet harmonious.",
+            answerRu: "H:150 (зелёный) и H:270 (фиолетовый). Триадные схемы выглядят ярко и сбалансированно — энергично, но гармонично.",
+            answerKk: "H:150 (жасыл) және H:270 (күлгін). Триадалық схемалар жарқын әрі теңгерімді әсер береді — қуатты, бірақ үйлесімді.",
             xp: 20
           }
         ]
@@ -164,7 +180,9 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
               { en: "Focus on silhouette first — a distinctive outline is recognizable even at tiny sizes. Use 2-3 pixels for key features like head, body, and limbs.", ru: "Сначала сосредоточьтесь на силуэте — характерный контур узнаваем даже при крошечных размерах. Используйте 2-3 пикселя для ключевых элементов: голова, тело, конечности.", kk: "Алдымен силуэтке назар аударыңыз — ерекше контур кішкентай өлшемдерде де танылады. Бас, дене және аяқ-қол сияқты негізгі элементтерге 2-3 пиксель пайдаланыңыз." },
               { en: "Use a limited palette of 4-5 colors with clear contrast between the character and background. Add one highlight color for the character's most distinctive feature.", ru: "Используйте ограниченную палитру из 4-5 цветов с чётким контрастом между персонажем и фоном. Добавьте один акцентный цвет для самой характерной детали персонажа.", kk: "Кейіпкер мен фон арасындағы анық контрастпен 4-5 түстен тұратын шектеулі палитра қолданыңыз. Кейіпкердің ең ерекше бөлшегіне бір акцент түс қосыңыз." }
             ],
-            answer: "Prioritize a clear silhouette with 2-3 pixel features and a 4-5 color palette with strong character-background contrast."
+            answer: "Prioritize a clear silhouette with 2-3 pixel features and a 4-5 color palette with strong character-background contrast.",
+            answerRu: "Сделайте ставку на чёткий силуэт с деталями в 2-3 пикселя и палитру из 4-5 цветов с сильным контрастом между персонажем и фоном.",
+            answerKk: "2-3 пиксельдік бөлшектері бар айқын силуэтке және кейіпкер мен фон арасындағы күшті контрасты бар 4-5 түсті палитраға басымдық беріңіз."
           }
         ],
         practiceProblems: [
@@ -174,6 +192,8 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "Сколько всего пикселей на холсте 16×16?",
             questionKk: "16×16 кенепте барлығы қанша пиксель бар?",
             answer: "256 pixels",
+            answerRu: "256 пикселей",
+            answerKk: "256 пиксель",
             hint: "Multiply width by height.",
             hintRu: "Умножьте ширину на высоту.",
             hintKk: "Енін биіктігіне көбейтіңіз.",
@@ -185,6 +205,8 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "У вас спрайт 32×32 с палитрой из 6 цветов. Вы хотите добавить затенение. Каков наиболее эффективный подход без добавления слишком многих новых цветов?",
             questionKk: "Сізде 6 түсті палитрасы бар 32×32 спрайт бар. Көлеңке қосқыңыз келеді. Тым көп жаңа түс қоспай ең тиімді тәсіл қандай?",
             answer: "Add one darker shade for each base color (total 12 colors). Use the dark variant on edges facing away from the light source.",
+            answerRu: "Добавьте по одному более тёмному оттенку к каждому базовому цвету (всего 12 цветов). Используйте тёмный вариант на краях, обращённых от источника света.",
+            answerKk: "Әр негізгі түске бір қараңғы реңк қосыңыз (барлығы 12 түс). Қараңғы нұсқаны жарық көзінен теріс жақтағы жиектерде қолданыңыз.",
             hint: "Lower the brightness of each existing color by 20-30% to create shadow variants.",
             hintRu: "Уменьшите яркость каждого цвета на 20-30% для создания теневых вариантов.",
             hintKk: "Көлеңке нұсқаларын жасау үшін әр түстің жарықтығын 20-30%-ға азайтыңыз.",
@@ -196,6 +218,8 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "Спроектируйте 4-кадровый цикл ходьбы для персонажа 16×16. Опишите, что меняется в каждом кадре и почему этого минимального количества кадров достаточно.",
             questionKk: "16×16 кейіпкер үшін 4 кадрлық жүру циклін жобалаңыз. Әр кадрда не өзгеретінін және неліктен бұл минималды кадр саны жеткілікті екенін сипаттаңыз.",
             answer: "Frame 1: standing (neutral). Frame 2: right leg forward, left arm forward. Frame 3: standing again (passing position). Frame 4: left leg forward, right arm forward. Four frames work because they capture the two key poses (stride left, stride right) plus two transition frames.",
+            answerRu: "Кадр 1: стоит (нейтральная поза). Кадр 2: правая нога впереди, левая рука впереди. Кадр 3: снова стоит (позиция прохождения). Кадр 4: левая нога впереди, правая рука впереди. Четырёх кадров достаточно, потому что они фиксируют две ключевые позы (шаг левой ногой, шаг правой ногой) плюс два переходных кадра.",
+            answerKk: "1-кадр: тік тұрған қалып (бейтарап). 2-кадр: оң аяқ алда, сол қол алда. 3-кадр: қайта тік тұрған қалып (өту позициясы). 4-кадр: сол аяқ алда, оң қол алда. Төрт кадр жеткілікті, себебі олар екі негізгі позаны (сол аяқпен қадам, оң аяқпен қадам) және екі өтпелі кадрды қамтиды.",
             xp: 20
           }
         ]
@@ -224,7 +248,9 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
               { en: "First increase contrast by 20-30% to separate light and dark areas. Then adjust the levels or curves to set proper black and white points.", ru: "Сначала увеличьте контраст на 20-30%, чтобы разделить светлые и тёмные области. Затем настройте уровни или кривые для установки правильных точек чёрного и белого.", kk: "Алдымен жарық және қараңғы аймақтарды бөлу үшін контрастты 20-30%-ға арттырыңыз. Содан кейін дұрыс қара және ақ нүктелерді орнату үшін деңгейлерді немесе қисықтарды реттеңіз." },
               { en: "Increase saturation slightly (10-15%) to restore color vibrancy. Apply sharpening as the final step to enhance details.", ru: "Немного увеличьте насыщенность (10-15%) для восстановления яркости цветов. Примените повышение резкости как последний шаг для улучшения деталей.", kk: "Түс жарқындығын қалпына келтіру үшін қанықтықты сәл (10-15%) арттырыңыз. Бөлшектерді жақсарту үшін соңғы қадам ретінде айқындауды қолданыңыз." }
             ],
-            answer: "Increase contrast 20-30%, set proper black/white points via levels, boost saturation 10-15%, and apply sharpening last."
+            answer: "Increase contrast 20-30%, set proper black/white points via levels, boost saturation 10-15%, and apply sharpening last.",
+            answerRu: "Увеличьте контраст на 20-30%, задайте правильные точки чёрного и белого с помощью уровней, повысьте насыщенность на 10-15% и в конце примените повышение резкости.",
+            answerKk: "Контрастты 20-30%-ға арттырыңыз, деңгейлер арқылы дұрыс қара/ақ нүктелерін орнатыңыз, қанықтықты 10-15%-ға көтеріңіз және соңында айқындауды қолданыңыз."
           }
         ],
         practiceProblems: [
@@ -234,6 +260,8 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "Что означает 'недеструктивное редактирование'?",
             questionKk: "'Бұзбайтын өңдеу' не дегенді білдіреді?",
             answer: "Making changes without permanently altering the original image, so you can always undo or modify adjustments.",
+            answerRu: "Внесение изменений без постоянного изменения исходного изображения, чтобы всегда можно было отменить или скорректировать правки.",
+            answerKk: "Түпнұсқа кескінді тұрақты өзгертпей өзгерістер енгізу — осылайша реттеулерді әрқашан болдырмауға немесе өзгертуге болады.",
             hint: "Think about editing that preserves the original file.",
             hintRu: "Подумайте о редактировании, которое сохраняет оригинальный файл.",
             hintKk: "Түпнұсқа файлды сақтайтын өңдеу туралы ойланыңыз.",
@@ -245,6 +273,8 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "Вам нужно обрезать пейзажную фотографию в квадрат для Instagram. По правилу третей, где должна располагаться линия горизонта?",
             questionKk: "Instagram үшін пейзаждық фотосуретті шаршыға қиюыңыз керек. Үштен бір ережесі бойынша, көкжиек сызығын қайда орналастыру керек?",
             answer: "Place the horizon on the upper or lower third line (1/3 or 2/3 from top), not in the center. If the sky is interesting, give it 2/3; if the ground is, give it 2/3.",
+            answerRu: "Разместите горизонт на верхней или нижней линии третей (1/3 или 2/3 от верха), а не по центру. Если небо интересное — отдайте ему 2/3; если интересна земля — отдайте ей 2/3.",
+            answerKk: "Көкжиек сызығын ортаға емес, жоғарғы немесе төменгі үштен бір сызығына (жоғарыдан 1/3 немесе 2/3) орналастырыңыз. Аспан қызықты болса, оған 2/3 беріңіз; жер қызықты болса, оған 2/3 беріңіз.",
             hint: "Divide the square into 3 equal horizontal bands.",
             hintRu: "Разделите квадрат на 3 равные горизонтальные полосы.",
             hintKk: "Шаршыны 3 тең көлденең жолаққа бөліңіз.",
@@ -256,6 +286,8 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "На портрете есть резкие тени на одной стороне лица. Опишите два разных метода редактирования для исправления этого без создания ненатурального вида.",
             questionKk: "Портретте беттің бір жағында қатты көлеңкелер бар. Жалған көрінбей оны түзетудің екі түрлі өңдеу техникасын сипаттаңыз.",
             answer: "1) Use dodge tool at low opacity (10-15%) to gradually lighten shadow areas while preserving texture. 2) Use a curves adjustment layer with a mask that only affects the shadow side, lifting the midtones gently.",
+            answerRu: "1) Используйте инструмент осветления с низкой непрозрачностью (10-15%), чтобы постепенно высветлить теневые области, сохраняя текстуру. 2) Примените корректирующий слой кривых с маской, которая действует только на теневую сторону, мягко поднимая средние тона.",
+            answerKk: "1) Текстураны сақтай отырып, көлеңкелі аймақтарды біртіндеп жарықтандыру үшін төмен мөлдірсіздіктегі (10-15%) жарықтандыру құралын қолданыңыз. 2) Тек көлеңке жағына әсер ететін маскасы бар қисықтар реттеу қабатын қолданып, ортаңғы реңктерді жұмсақ көтеріңіз.",
             xp: 20
           }
         ]
@@ -284,7 +316,9 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
               { en: "Start with the post (1080×1080). Choose a color scheme, font pair, and imagery style. Save these choices as your design system.", ru: "Начните с поста (1080×1080). Выберите цветовую схему, пару шрифтов и стиль изображений. Сохраните эти выборы как вашу систему дизайна.", kk: "Жазбадан бастаңыз (1080×1080). Түс схемасын, қаріп жұбын және кескін стилін таңдаңыз. Бұл таңдауларды дизайн жүйеңіз ретінде сақтаңыз." },
               { en: "Duplicate key design elements (colors, fonts, logos) into the story template (1080×1920). Adjust the layout for the vertical format while keeping the same visual identity.", ru: "Скопируйте ключевые элементы дизайна (цвета, шрифты, логотипы) в шаблон сторис (1080×1920). Адаптируйте макет под вертикальный формат, сохраняя визуальную идентичность.", kk: "Негізгі дизайн элементтерін (түстер, қаріптер, логотиптер) сторис шаблонына (1080×1920) көшіріңіз. Визуалды бірегейлікті сақтай отырып, тік формат үшін макетті реттеңіз." }
             ],
-            answer: "Use identical colors, fonts, and imagery style across both formats. Start with the post design, then adapt it to story dimensions while keeping the same visual DNA."
+            answer: "Use identical colors, fonts, and imagery style across both formats. Start with the post design, then adapt it to story dimensions while keeping the same visual DNA.",
+            answerRu: "Используйте одинаковые цвета, шрифты и стиль изображений в обоих форматах. Начните с дизайна поста, затем адаптируйте его к размерам сторис, сохраняя ту же визуальную ДНК.",
+            answerKk: "Екі форматта да бірдей түстерді, қаріптерді және кескін стилін қолданыңыз. Жазба дизайнынан бастаңыз, содан кейін бірдей визуалды ДНК-ны сақтай отырып, оны сторис өлшемдеріне бейімдеңіз."
           }
         ],
         practiceProblems: [
@@ -294,6 +328,8 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "Каковы размеры в пикселях стандартного квадратного поста в Instagram?",
             questionKk: "Стандартты Instagram шаршы жазбасының пиксельдік өлшемдері қандай?",
             answer: "1080 × 1080 pixels",
+            answerRu: "1080 × 1080 пикселей",
+            answerKk: "1080 × 1080 пиксель",
             hint: "Instagram squares are equal width and height, over 1000 pixels.",
             hintRu: "Квадраты Instagram имеют одинаковую ширину и высоту, больше 1000 пикселей.",
             hintKk: "Instagram шаршылары бірдей ен мен биіктікке ие, 1000 пиксельден жоғары.",
@@ -305,6 +341,8 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "Вы создаёте плакат в Canva, но текст плохо читается на загруженном фоновом изображении. Назовите два способа это исправить.",
             questionKk: "Canva-да постер жасап жатырсыз, бірақ мәтін лас фондық кескін үстінде оқуға қиын. Мұны түзетудің екі тәсілін атаңыз.",
             answer: "1) Add a semi-transparent overlay (dark or light rectangle) behind the text. 2) Apply a blur effect to the background area behind the text.",
+            answerRu: "1) Добавьте полупрозрачный оверлей (тёмный или светлый прямоугольник) позади текста. 2) Примените эффект размытия к области фона за текстом.",
+            answerKk: "1) Мәтіннің артына жартылай мөлдір қабат (қараңғы немесе ашық төртбұрыш) қосыңыз. 2) Мәтін артындағы фон аймағына бұлдырату әсерін қолданыңыз.",
             hint: "Think about ways to increase contrast between text and background.",
             hintRu: "Подумайте о способах увеличения контраста между текстом и фоном.",
             hintKk: "Мәтін мен фон арасындағы контрастты арттыру жолдарын ойлаңыз.",
@@ -316,6 +354,8 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "Сравните Canva, Figma и Photopea. Для каждого инструмента назовите его главное преимущество и одну задачу, где другой инструмент был бы лучше.",
             questionKk: "Canva, Figma және Photopea салыстырыңыз. Әр құрал үшін оның негізгі күшті жағын және басқа құрал жақсырақ болатын бір тапсырманы атаңыз.",
             answer: "Canva: strength is quick templates for social media; weak at detailed photo retouching (use Photopea). Figma: strength is collaborative UI/UX design; weak at photo editing (use Photopea). Photopea: strength is advanced pixel editing like Photoshop; weak at quick template-based layouts (use Canva).",
+            answerRu: "Canva: сильная сторона — быстрые шаблоны для соцсетей; слаба в детальной ретуши фото (используйте Photopea). Figma: сильная сторона — совместный дизайн UI/UX; слаба в редактировании фото (используйте Photopea). Photopea: сильная сторона — продвинутое пиксельное редактирование как в Photoshop; слаба в быстрых шаблонных макетах (используйте Canva).",
+            answerKk: "Canva: күшті жағы — әлеуметтік желілерге арналған жылдам шаблондар; фотосуретті егжей-тегжейлі ретуштауға әлсіз (Photopea қолданыңыз). Figma: күшті жағы — бірлескен UI/UX дизайны; фотосуретті өңдеуге әлсіз (Photopea қолданыңыз). Photopea: күшті жағы — Photoshop сияқты жетілдірілген пиксельдік өңдеу; жылдам шаблондық макеттер жасауға әлсіз (Canva қолданыңыз).",
             xp: 20
           }
         ]
@@ -350,7 +390,9 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
               { en: "Main title should be 2-3× body size: 16px × 2.5 = 40px for the main headline.", ru: "Главный заголовок должен быть в 2-3 раза больше основного текста: 16px × 2,5 = 40px.", kk: "Басты тақырып негізгі мәтіннен 2-3 есе үлкен болуы керек: 16px × 2,5 = 40px." },
               { en: "Section headings should be 1.25-1.5× body size: 16px × 1.5 = 24px for subheadings.", ru: "Подзаголовки разделов — 1,25-1,5× от основного текста: 16px × 1,5 = 24px.", kk: "Бөлім тақырыптары негізгі мәтіннен 1,25-1,5 есе: 16px × 1,5 = 24px." }
             ],
-            answer: "Main title: ~40px (2.5× body), section headings: ~24px (1.5× body), body text: 16px."
+            answer: "Main title: ~40px (2.5× body), section headings: ~24px (1.5× body), body text: 16px.",
+            answerRu: "Главный заголовок: ~40px (2.5× от основного текста), подзаголовки разделов: ~24px (1.5×), основной текст: 16px.",
+            answerKk: "Басты тақырып: ~40px (негізгі мәтіннен 2.5×), бөлім тақырыптары: ~24px (1.5×), негізгі мәтін: 16px."
           }
         ],
         practiceProblems: [
@@ -360,6 +402,8 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "В чём разница между шрифтом с засечками и без засечек?",
             questionKk: "Serif және sans-serif қаріптерінің айырмашылығы неде?",
             answer: "Serif fonts have small decorative strokes (serifs) at the ends of letters; sans-serif fonts do not have these strokes and look cleaner.",
+            answerRu: "У шрифтов с засечками на концах букв есть небольшие декоративные штрихи (засечки); у шрифтов без засечек этих штрихов нет, и они выглядят чище.",
+            answerKk: "Serif қаріптерінде әріптердің ұштарында кішкентай әрлеу штрихтары (засечкалар) болады; sans-serif қаріптерінде бұл штрихтар жоқ және олар анағұрлым таза көрінеді.",
             hint: "'Sans' means 'without' in French.",
             hintRu: "'Sans' означает 'без' на французском.",
             hintKk: "'Sans' француз тілінде 'без' (жоқ) дегенді білдіреді.",
@@ -371,6 +415,8 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "Если ваш основной текст 18px, каков идеальный диапазон межстрочного интервала в пикселях?",
             questionKk: "Негізгі мәтініңіз 18px болса, пиксельдегі жол биіктігінің идеалды ауқымы қандай?",
             answer: "25.2px to 28.8px (18 × 1.4 = 25.2, 18 × 1.6 = 28.8)",
+            answerRu: "От 25.2px до 28.8px (18 × 1.4 = 25.2, 18 × 1.6 = 28.8)",
+            answerKk: "25.2px-тан 28.8px-ке дейін (18 × 1.4 = 25.2, 18 × 1.6 = 28.8)",
             hint: "Multiply font size by the recommended line-height multiplier range (1.4-1.6).",
             hintRu: "Умножьте размер шрифта на рекомендуемый множитель (1,4-1,6).",
             hintKk: "Қаріп өлшемін ұсынылған көбейткіш ауқымына (1,4-1,6) көбейтіңіз.",
@@ -382,6 +428,8 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "Вы подбираете шрифты для сайта технологического стартапа. Предложите пару шрифтов для заголовка и текста и объясните, почему они сочетаются.",
             questionKk: "Технологиялық стартап вебсайты үшін қаріптерді жұптап жатырсыз. Тақырып пен мәтін қаріп жұбын ұсыныңыз және олардың неліктен үйлесетінін түсіндіріңіз.",
             answer: "Heading: Poppins (geometric sans-serif, bold, modern). Body: Inter (humanist sans-serif, highly readable). They work because both are sans-serif (consistent modern feel) but have different personalities — Poppins is geometric and attention-grabbing while Inter is neutral and easy to read in long paragraphs.",
+            answerRu: "Заголовки: Poppins (геометрический гротеск, жирный, современный). Основной текст: Inter (гуманистический гротеск, высокая читаемость). Они сочетаются, потому что оба без засечек (единый современный стиль), но с разными характерами: Poppins геометричный и привлекающий внимание, а Inter нейтральный и легко читается в длинных абзацах.",
+            answerKk: "Тақырып: Poppins (геометриялық sans-serif, қалың, заманауи). Мәтін: Inter (гуманистік sans-serif, өте жақсы оқылады). Олар үйлеседі, себебі екеуі де sans-serif (тұтас заманауи сезім), бірақ сипаттары әртүрлі — Poppins геометриялық әрі назар аударарлық, ал Inter бейтарап және ұзақ абзацтарда оқуға оңай.",
             xp: 20
           }
         ]
@@ -410,7 +458,9 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
               { en: "Apply the formula: Total frames = Duration × FPS = 2 × 12 = 24 frames.", ru: "Примените формулу: Общее количество кадров = Длительность × FPS = 2 × 12 = 24 кадра.", kk: "Формуланы қолданыңыз: Жалпы кадрлар = Ұзақтық × FPS = 2 × 12 = 24 кадр." },
               { en: "Each frame shows the spinner rotated 360°÷24 = 15° from the previous frame, creating smooth motion.", ru: "Каждый кадр показывает спиннер, повёрнутый на 360°÷24 = 15° от предыдущего кадра, создавая плавное движение.", kk: "Әр кадр спиннерді алдыңғы кадрдан 360°÷24 = 15° бұрылған күйде көрсетеді, тегіс қозғалыс жасайды." }
             ],
-            answer: "24 frames, each rotated 15° from the previous one."
+            answer: "24 frames, each rotated 15° from the previous one.",
+            answerRu: "24 кадра, каждый повёрнут на 15° относительно предыдущего.",
+            answerKk: "24 кадр, әрқайсысы алдыңғысынан 15° бұрылған."
           }
         ],
         practiceProblems: [
@@ -420,6 +470,8 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "Сколько кадров в 1-секундной анимации при 12 FPS?",
             questionKk: "12 FPS жиілікте 1 секундтық анимацияда қанша кадр бар?",
             answer: "12 frames",
+            answerRu: "12 кадров",
+            answerKk: "12 кадр",
             hint: "FPS literally means frames per second.",
             hintRu: "FPS буквально означает кадры в секунду.",
             hintKk: "FPS сөзбе-сөз секундына кадрлар дегенді білдіреді.",
@@ -431,6 +483,8 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "Анимация прыгающего мяча должна выглядеть естественно. Мяч должен двигаться с постоянной скоростью или замедляться наверху и ускоряться внизу? Почему?",
             questionKk: "Секіретін доп анимациясы табиғи көрінуі керек. Доп тұрақты жылдамдықпен қозғалуы керек пе, әлде жоғарыда баяулап, төменде жылдамдауы керек пе? Неліктен?",
             answer: "It should slow down at the top and speed up at the bottom. This mimics real gravity — the ball decelerates going up and accelerates coming down (ease-out on rise, ease-in on fall).",
+            answerRu: "Он должен замедляться наверху и ускоряться внизу. Это имитирует реальную гравитацию — мяч замедляется при подъёме и ускоряется при падении (ease-out на подъёме, ease-in на падении).",
+            answerKk: "Доп жоғарыда баяулап, төменде жылдамдауы керек. Бұл нақты ауырлық күшін еліктейді — доп жоғары көтерілгенде баяулайды, төмен түскенде жылдамдайды (көтерілуде ease-out, түсуде ease-in).",
             hint: "Think about how gravity affects real objects.",
             hintRu: "Подумайте, как гравитация влияет на реальные объекты.",
             hintKk: "Ауырлық күші нақты заттарға қалай әсер ететінін ойлаңыз.",
@@ -442,6 +496,8 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "У вас 3-секундная анимация при 24 FPS, но файл слишком большой. Предложите два способа уменьшить размер без потери плавности.",
             questionKk: "Сізде 24 FPS жиілікте 3 секундтық анимация бар, бірақ файл өлшемі тым үлкен. Анимация тегіс көрінуін сақтай отырып, файл өлшемін азайтудың екі жолын ұсыныңыз.",
             answer: "1) Reduce color palette — fewer unique colors means smaller file sizes per frame. 2) Use motion tweening instead of frame-by-frame — define keyframes and let software interpolate between them, reducing total stored frames.",
+            answerRu: "1) Сократите палитру цветов — меньше уникальных цветов означает меньший размер файла на каждый кадр. 2) Используйте твининг движения вместо покадровой анимации — задайте ключевые кадры и позвольте программе интерполировать между ними, уменьшая общее число сохраняемых кадров.",
+            answerKk: "1) Түс палитрасын қысқартыңыз — бірегей түстер неғұрлым аз болса, әр кадрдың файл өлшемі соғұрлым кіші болады. 2) Кадрлап анимациялау орнына қозғалыс твинингін қолданыңыз — негізгі кадрларды анықтап, олардың арасын бағдарламаға интерполяциялатыңыз, сөйтіп сақталатын жалпы кадр санын азайтыңыз.",
             xp: 20
           }
         ]
@@ -476,7 +532,9 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
               { en: "Apply visual hierarchy: make the button larger and use a contrasting color that stands out from the background.", ru: "Примените визуальную иерархию: сделайте кнопку крупнее и используйте контрастный цвет, выделяющийся на фоне.", kk: "Визуалды иерархияны қолданыңыз: түймені үлкенірек жасаңыз және фоннан ерекшеленетін контрастты түс қолданыңыз." },
               { en: "Position the button at a rule-of-thirds intersection point and use leading lines (like arrows or the direction people in images are looking) to point toward it.", ru: "Разместите кнопку на пересечении линий по правилу третей и используйте направляющие линии (стрелки или направление взгляда людей на изображениях), указывающие на неё.", kk: "Түймені үштен бір ережесінің қиылысу нүктесіне орналастырыңыз және оған бағыттайтын бағыттаушы сызықтарды (жебелер немесе кескіндердегі адамдардың қарау бағыты) қолданыңыз." }
             ],
-            answer: "Increase the button's size and color contrast, place it at a thirds-grid intersection, and use leading lines to direct attention to it."
+            answer: "Increase the button's size and color contrast, place it at a thirds-grid intersection, and use leading lines to direct attention to it.",
+            answerRu: "Увеличьте размер кнопки и цветовой контраст, разместите её на пересечении линий сетки третей и используйте направляющие линии, чтобы направить к ней внимание.",
+            answerKk: "Түйменің өлшемін және түс контрастын арттырыңыз, оны үштен бір торының қиылысу нүктесіне орналастырыңыз және назарды соған бағыттау үшін бағыттаушы сызықтарды қолданыңыз."
           }
         ],
         practiceProblems: [
@@ -486,6 +544,8 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "Сколько точек пересечения создаёт сетка по правилу третей?",
             questionKk: "Үштен бір ережесі торы қанша қиылысу нүктесін жасайды?",
             answer: "4 intersection points",
+            answerRu: "4 точки пересечения",
+            answerKk: "4 қиылысу нүктесі",
             hint: "A 3×3 grid has 2 vertical and 2 horizontal lines.",
             hintRu: "Сетка 3×3 имеет 2 вертикальных и 2 горизонтальных линии.",
             hintKk: "3×3 тор 2 тік және 2 көлденең сызықтан тұрады.",
@@ -497,6 +557,8 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "На плакате маленький ярко-красный круг находится рядом с большим приглушённо-серым прямоугольником. Какой элемент имеет больший визуальный вес и почему?",
             questionKk: "Постерде кішкентай ашық-қызыл шеңбер үлкен өңсіз-сұр тіктөртбұрыштың қасында тұр. Қай элементтің визуалды салмағы көбірек және неліктен?",
             answer: "It depends on the context, but the red circle likely draws more attention despite its smaller size because bright, saturated colors and high contrast have more visual weight than size alone.",
+            answerRu: "Зависит от контекста, но красный круг, скорее всего, привлечёт больше внимания, несмотря на меньший размер, потому что яркие насыщенные цвета и высокий контраст имеют больший визуальный вес, чем сам по себе размер.",
+            answerKk: "Контекстке байланысты, бірақ ашық-қызыл шеңбер өлшемі кіші болса да көбірек назар аударады, себебі жарқын, қанық түстер мен жоғары контраст өлшемнен гөрі көбірек визуалды салмаққа ие.",
             hint: "Color and contrast can outweigh size in visual hierarchy.",
             hintRu: "Цвет и контраст могут превышать размер в визуальной иерархии.",
             hintKk: "Визуалды иерархияда түс пен контраст өлшемнен басым болуы мүмкін.",
@@ -508,6 +570,8 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "Вам дан дизайн с пятью одинаковыми элементами, разбросанными случайно по странице. Переделайте макет, используя минимум три принципа композиции для создания чёткой фокусной точки.",
             questionKk: "Сізге бетте кездейсоқ шашылған бес бірдей өлшемді элементпен дизайн берілді. Анық фокус нүктесін жасау үшін кемінде үш композиция принципін қолданып макетті қайта жасаңыз.",
             answer: "1) Make one element larger (size hierarchy) to serve as the focal point. 2) Place the focal element at a rule-of-thirds intersection. 3) Arrange the other four elements in a line or curve that leads the eye toward the focal element (leading lines). 4) Optionally, give the focal element a distinct color for added contrast.",
+            answerRu: "1) Сделайте один элемент крупнее (иерархия размера), чтобы он стал фокусной точкой. 2) Разместите фокусный элемент на пересечении линий по правилу третей. 3) Расположите остальные четыре элемента по линии или кривой, ведущей взгляд к фокусному элементу (направляющие линии). 4) По желанию выделите фокусный элемент отдельным цветом для дополнительного контраста.",
+            answerKk: "1) Фокус нүктесі болу үшін бір элементті үлкенірек етіңіз (өлшем иерархиясы). 2) Фокус элементті үштен бір ережесінің қиылысу нүктесіне орналастырыңыз. 3) Қалған төрт элементті көзді фокус элементке бағыттайтын сызық немесе қисық бойымен орналастырыңыз (бағыттаушы сызықтар). 4) Қосымша контраст үшін фокус элементке ерекше түс беруге болады.",
             xp: 20
           }
         ]
@@ -536,7 +600,9 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
               { en: "Choose a relatable image: the 'distracted boyfriend' meme template or a 'this is fine' scene. The image should show someone ignoring something obvious.", ru: "Выберите узнаваемое изображение: шаблон мема «отвлечённый парень» или сцена «всё нормально». Изображение должно показывать кого-то, кто игнорирует очевидное.", kk: "Танымал кескінді таңдаңыз: «назарын бұрған жігіт» мем шаблоны немесе «бәрі жақсы» сахнасы. Кескін біреудің анық нәрсені елемейтінін көрсетуі керек." },
               { en: "Place top text as setup: 'My homework due tomorrow.' Bottom text as punchline: 'Me watching my 47th YouTube video.' Use Impact font, white with black outline, centered.", ru: "Верхний текст — завязка: «Моя домашка на завтра.» Нижний текст — развязка: «Я смотрю 47-е видео на YouTube.» Шрифт Impact, белый с чёрным контуром, по центру.", kk: "Жоғарғы мәтін дайындық: «Менің ертеңге тапсырмам.» Төменгі мәтін панчлайн: «Мен 47-ші YouTube бейнемді көріп отырмын.» Impact қаріпі, ақ қара контурмен, ортаға тураланған." }
             ],
-            answer: "Use a 'distracted boyfriend' template. Top text: 'My homework due tomorrow.' Bottom text: 'Me watching my 47th YouTube video.' White Impact font with black outline."
+            answer: "Use a 'distracted boyfriend' template. Top text: 'My homework due tomorrow.' Bottom text: 'Me watching my 47th YouTube video.' White Impact font with black outline.",
+            answerRu: "Используйте шаблон «отвлечённый парень». Верхний текст: «Моя домашка на завтра.» Нижний текст: «Я смотрю 47-е видео на YouTube.» Белый шрифт Impact с чёрным контуром.",
+            answerKk: "«Назарын бұрған жігіт» шаблонын қолданыңыз. Жоғарғы мәтін: «Менің ертеңге тапсырмам.» Төменгі мәтін: «Мен 47-ші YouTube бейнемді көріп отырмын.» Қара контурлы ақ Impact қаріпі."
           }
         ],
         practiceProblems: [
@@ -546,6 +612,8 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "Какой шрифт традиционно используется в мемах, и какое сочетание цвета и контура?",
             questionKk: "Мемдерде дәстүрлі түрде қандай қаріп қолданылады және қандай түс/контур комбинациясы?",
             answer: "Impact font, white text with black outline.",
+            answerRu: "Шрифт Impact, белый текст с чёрным контуром.",
+            answerKk: "Impact қаріпі, қара контурлы ақ мәтін.",
             hint: "Think about the bold, all-caps text you see on most classic memes.",
             hintRu: "Подумайте о жирном тексте заглавными буквами, который вы видите на большинстве классических мемов.",
             hintKk: "Көптеген классикалық мемдерде көретін қалың, бас әріптегі мәтінді ойлаңыз.",
@@ -557,6 +625,8 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "Почему структура «завязка-развязка» в мемах работает лучше, чем если поместить всю шутку в текст?",
             questionKk: "Неліктен мемдердегі «дайындық-панчлайн» құрылымы бүкіл әзілді мәтінге қоюдан жақсырақ жұмыс істейді?",
             answer: "The image provides instant visual context (setup) without reading, and the text delivers a surprise twist (punchline). This creates a quick 1-2 punch that is funnier because the brain processes the image before reading the text.",
+            answerRu: "Изображение мгновенно задаёт визуальный контекст (завязку) без чтения, а текст преподносит неожиданный поворот (развязку). Это создаёт быстрый «удар 1-2», который оказывается смешнее, потому что мозг обрабатывает изображение раньше, чем читает текст.",
+            answerKk: "Кескін оқусыз-ақ лезде визуалды контекст (дайындық) береді, ал мәтін тосын бұрылыс (панчлайн) жеткізеді. Бұл жылдам 1-2 соққы эффектісін тудырады әрі күлкілірек болады, себебі ми мәтінді оқығанша кескінді өңдеп үлгереді.",
             hint: "Think about how humor relies on surprise and timing.",
             hintRu: "Подумайте, как юмор зависит от неожиданности и тайминга.",
             hintKk: "Юмор тосынсоққа және уақытқа қалай тәуелді екенін ойлаңыз.",
@@ -568,6 +638,8 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "Вы хотите создать оригинальный формат мема (без использования существующего шаблона). Опишите концепцию изображения, стратегию размещения текста и объясните, почему он будет распространяться.",
             questionKk: "Түпнұсқа мем форматын жасағыңыз келеді (бар шаблонды пайдаланбай). Кескін концепциясын, мәтін орналастыру стратегиясын сипаттаңыз және оның неліктен бөлісілетінін түсіндіріңіз.",
             answer: "Example: Photo of two identical doors, one labeled 'Easy way' (looking pristine) and one labeled 'My way' (looking chaotic). Text above: the relatable situation. This works because: 1) It is a universal template that can apply to many situations. 2) The visual metaphor is instantly understandable. 3) People can project their own experiences onto it, making it shareable.",
+            answerRu: "Пример: фото двух одинаковых дверей, одна с надписью «Лёгкий путь» (выглядит безупречно), другая с надписью «Мой путь» (выглядит хаотично). Текст сверху: узнаваемая ситуация. Это работает, потому что: 1) это универсальный шаблон, применимый ко многим ситуациям. 2) Визуальная метафора понятна мгновенно. 3) Люди могут проецировать на неё свой опыт, что делает её распространяемой.",
+            answerKk: "Мысалы: екі бірдей есіктің фотосуреті, біреуінде «Оңай жол» деген жазу (мінсіз күйде), екіншісінде «Менің жолым» деген жазу (берекесіз күйде). Үстіндегі мәтін: таныс жағдай. Бұл жұмыс істейді, себебі: 1) көптеген жағдайға қолдануға болатын әмбебап шаблон. 2) Визуалды метафора лезде түсінікті. 3) Адамдар өз тәжірибесін оған проекциялай алады, бұл оны бөлісуге ыңғайлы етеді.",
             xp: 20
           }
         ]
@@ -596,7 +668,9 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
               { en: "Select works that show variety — pick pieces from different categories (digital art, photo editing, typography, animation) to demonstrate range.", ru: "Выберите работы, показывающие разнообразие — возьмите работы из разных категорий (цифровое искусство, фоторедактирование, типографика, анимация) для демонстрации диапазона.", kk: "Әртүрлілік көрсететін жұмыстарды таңдаңыз — ауқымды көрсету үшін әртүрлі санаттардағы (сандық өнер, фотоөңдеу, типографика, анимация) жұмыстарды алыңыз." },
               { en: "From each category, choose 1-2 pieces where the quality is highest and you can articulate what you learned. Aim for 6-8 total pieces.", ru: "Из каждой категории выберите 1-2 работы с наивысшим качеством, где вы можете сформулировать, что узнали. Стремитесь к 6-8 работам.", kk: "Әр санаттан сапасы ең жоғары және не үйренгеніңізді айта алатын 1-2 жұмыс таңдаңыз. Барлығы 6-8 жұмысқа бағыттаңыз." }
             ],
-            answer: "Choose 6-8 pieces showing category variety, prioritizing quality and your ability to explain the creative process and lessons learned."
+            answer: "Choose 6-8 pieces showing category variety, prioritizing quality and your ability to explain the creative process and lessons learned.",
+            answerRu: "Выберите 6-8 работ, показывающих разнообразие категорий, отдавая приоритет качеству и вашей способности объяснить творческий процесс и полученные уроки.",
+            answerKk: "Санаттардың әртүрлілігін көрсететін 6-8 жұмыс таңдаңыз, сапаға және шығармашылық үдеріс пен үйренген сабақтарды түсіндіре алуыңызға басымдық беріңіз."
           }
         ],
         practiceProblems: [
@@ -606,6 +680,8 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "Сколько работ идеально для портфолио начинающего?",
             questionKk: "Жаңадан бастаушының сандық портфолиосы үшін қанша жұмыс идеалды?",
             answer: "5-8 pieces",
+            answerRu: "5-8 работ",
+            answerKk: "5-8 жұмыс",
             hint: "Quality over quantity — not too few, not too many.",
             hintRu: "Качество важнее количества — не слишком мало, не слишком много.",
             hintKk: "Сапа санға қарағанда маңызды — тым аз да, тым көп те емес.",
@@ -617,6 +693,8 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "Назовите три бесплатные платформы для размещения цифрового портфолио и опишите одно преимущество каждой.",
             questionKk: "Сандық портфолионы орналастыруға болатын үш тегін платформаны атаңыз және әрқайсысының бір артықшылығын сипаттаңыз.",
             answer: "Google Sites: easy drag-and-drop, integrates with Google Drive. Notion: flexible layout with databases and toggles, good for process documentation. Behance: built-in creative community that can discover your work.",
+            answerRu: "Google Sites: простое перетаскивание, интеграция с Google Drive. Notion: гибкий макет с базами данных и переключателями, хорошо подходит для документации процесса. Behance: встроенное творческое сообщество, которое может открыть для себя ваши работы.",
+            answerKk: "Google Sites: оңай сүйреп апару, Google Drive-пен интеграцияланады. Notion: дерекқорлар мен ауыстырғыштары бар икемді макет, үдеріс құжаттамасына жақсы. Behance: сіздің жұмыстарыңызды таба алатын кіріктірілген шығармашылық қауымдастық.",
             hint: "Think about platforms you already use that allow public pages.",
             hintRu: "Подумайте о платформах, которые вы уже используете и которые позволяют создавать публичные страницы.",
             hintKk: "Жария беттер жасауға мүмкіндік беретін, сіз қазірдің өзінде қолданатын платформаларды ойлаңыз.",
@@ -628,6 +706,8 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "Спроектируйте структуру страницы портфолио для одного проекта. Включите все разделы, их назначение и примерный макет.",
             questionKk: "Бір жобаны көрсететін портфолио бетінің құрылымын жобалаңыз. Барлық бөлімдерді, олардың мақсатын және шамамен макетті қосыңыз.",
             answer: "Hero section: large project image spanning full width. Below: project title + one-line summary. Left column: 2-3 process images or before/after shots. Right column: description (challenge, solution, tools), skills demonstrated, and lesson learned. Footer: navigation to previous/next project. This structure tells the story of the project from result to process.",
+            answerRu: "Hero-секция: большое изображение проекта на всю ширину. Ниже: название проекта + однострочное резюме. Левая колонка: 2-3 изображения процесса или снимки до/после. Правая колонка: описание (задача, решение, инструменты), продемонстрированные навыки и полученный урок. Футер: навигация к предыдущему/следующему проекту. Эта структура рассказывает историю проекта от результата к процессу.",
+            answerKk: "Hero бөлімі: толық енге созылатын жобаның үлкен кескіні. Төменде: жоба тақырыбы + бір жолдық түйін. Сол жақ баған: 2-3 үдеріс кескіні немесе дейін/кейін суреттері. Оң жақ баған: сипаттама (міндет, шешім, құралдар), көрсетілген дағдылар және үйренілген сабақ. Футер: алдыңғы/келесі жобаға навигация. Бұл құрылым жобаның тарихын нәтижеден үдеріске қарай баяндайды.",
             xp: 20
           }
         ]
@@ -665,7 +745,9 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
               { en: "Random text placement violates Alignment (elements not organized along consistent lines) and Proximity (related items not grouped together).", ru: "Случайное размещение текста нарушает Выравнивание (элементы не организованы по единым линиям) и Близость (связанные элементы не сгруппированы).", kk: "Кездейсоқ мәтін орналасуы Туралауды (элементтер бірыңғай сызықтар бойынша ұйымдастырылмаған) және Жақындықты (байланысты элементтер топтастырылмаған) бұзады." },
               { en: "Three different fonts violates Repetition (no consistent typographic system). If the fonts are too similar, it also violates Contrast (not distinct enough to seem intentional).", ru: "Три разных шрифта нарушают Повторение (нет единой типографической системы). Если шрифты слишком похожи, это также нарушает Контраст.", kk: "Үш түрлі қаріп Қайталауды бұзады (бірыңғай типографиялық жүйе жоқ). Қаріптер тым ұқсас болса, бұл Контрастты да бұзады." }
             ],
-            answer: "Alignment, Proximity, and Repetition are all violated. Fix by aligning text to a grid, grouping related info, and using only 2 fonts consistently."
+            answer: "Alignment, Proximity, and Repetition are all violated. Fix by aligning text to a grid, grouping related info, and using only 2 fonts consistently.",
+            answerRu: "Нарушены Выравнивание, Близость и Повторение. Исправьте это, выровняв текст по сетке, сгруппировав связанную информацию и последовательно используя только 2 шрифта.",
+            answerKk: "Туралау, Жақындық және Қайталау бұзылған. Мәтінді тор бойынша туралап, байланысты ақпаратты топтастырып және тек 2 қаріпті тұрақты қолданып түзетіңіз."
           }
         ],
         practiceProblems: [
@@ -675,6 +757,8 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "Что означает аббревиатура CRAP в графическом дизайне?",
             questionKk: "Графикалық дизайндағы CRAP аббревиатурасы нені білдіреді?",
             answer: "Contrast, Repetition, Alignment, Proximity",
+            answerRu: "Контраст, Повторение, Выравнивание, Близость",
+            answerKk: "Контраст, Қайталау, Туралау, Жақындық",
             hint: "Four principles, each starting with C, R, A, P.",
             hintRu: "Четыре принципа, каждый начинается на C, R, A, P.",
             hintKk: "Төрт принцип, әрқайсысы C, R, A, P әріптерінен басталады.",
@@ -686,6 +770,8 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "У вас визитка с именем, должностью, телефоном, email и логотипом компании. Как применить принцип Близости?",
             questionKk: "Сізде адамның аты, лауазымы, телефоны, электрондық поштасы және компания логотипі бар визит карта бар. Жақындық принципін қалай қолданасыз?",
             answer: "Group name and title together (identity cluster). Group phone and email together (contact cluster). Place the logo with some breathing room as its own element. The spacing between clusters should be larger than spacing within clusters.",
+            answerRu: "Сгруппируйте имя и должность вместе (кластер идентичности). Сгруппируйте телефон и email вместе (кластер контактов). Разместите логотип с небольшим свободным пространством как отдельный элемент. Расстояние между кластерами должно быть больше, чем внутри кластеров.",
+            answerKk: "Аты мен лауазымын бірге топтастырыңыз (сәйкестендіру кластері). Телефон мен электрондық поштаны бірге топтастырыңыз (байланыс кластері). Логотипті жеке элемент ретінде аздаған бос кеңістікпен орналастырыңыз. Кластерлер арасындағы аралық кластер ішіндегі аралықтан үлкенірек болуы керек.",
             hint: "Related information should be visually close; unrelated info should have more space between them.",
             hintRu: "Связанная информация должна быть визуально близко; между несвязанной должно быть больше пространства.",
             hintKk: "Байланысты ақпарат визуалды жақын болуы керек; байланыссыз ақпарат арасында көбірек кеңістік болуы керек.",
@@ -697,6 +783,8 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "Переделайте меню ресторана, используя все четыре принципа CRAP. Опишите конкретные решения для каждого принципа.",
             questionKk: "Барлық төрт CRAP принципін қолданып мейрамхана мәзірін қайта жасаңыз. Әр принцип үшін нақты шешімдерді сипаттаңыз.",
             answer: "Contrast: bold large font for dish names, lighter small font for descriptions, accent color for prices. Repetition: same layout pattern for every dish entry, consistent spacing and font sizes. Alignment: left-align all dish names and descriptions, right-align all prices. Proximity: group each dish with its description and price; add extra spacing between categories (appetizers, mains, desserts).",
+            answerRu: "Контраст: жирный крупный шрифт для названий блюд, более светлый мелкий — для описаний, акцентный цвет для цен. Повторение: одинаковый шаблон макета для каждой позиции меню, единые интервалы и размеры шрифтов. Выравнивание: все названия и описания блюд — по левому краю, все цены — по правому. Близость: каждое блюдо группируется с его описанием и ценой; между категориями (закуски, основные блюда, десерты) добавляется дополнительный отступ.",
+            answerKk: "Контраст: тағам атауларына қалың ірі қаріп, сипаттамаларға ашық ұсақ қаріп, бағаларға акцент түс. Қайталау: әр тағам жазбасына бірдей макет үлгісі, бірыңғай аралықтар мен қаріп өлшемдері. Туралау: барлық тағам атаулары мен сипаттамаларын сол жаққа, барлық бағаларды оң жаққа туралау. Жақындық: әр тағамды сипаттамасымен және бағасымен топтастыру; санаттар арасына (тіскебасарлар, негізгі тағамдар, десерттер) қосымша аралық қосу.",
             xp: 20
           }
         ]
@@ -725,7 +813,9 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
               { en: "Brainstorm associations: 'Bright' suggests light, lightbulb, sun, spark. 'Mind' suggests brain, head, thought bubble. Combine: a lightbulb with a brain pattern inside.", ru: "Мозговой штурм ассоциаций: 'Bright' вызывает свет, лампочку, солнце, искру. 'Mind' — мозг, голову, облако мысли. Комбинация: лампочка с узором мозга внутри.", kk: "Ассоциацияларды ойлап табу: 'Bright' жарық, шам, күн, ұшқынды шақырады. 'Mind' — ми, бас, ой бұлты. Біріктіру: ішінде ми өрнегі бар шам." },
               { en: "Test the 5 rules: Simple (lightbulb silhouette is recognizable at 16px), Memorable (brain-in-bulb is unique), Timeless (no trendy gradients), Versatile (works as single-color icon), Appropriate (light + brain fits education).", ru: "Проверьте 5 правил: Простой (силуэт лампочки узнаваем при 16px), Запоминающийся (мозг-в-лампочке уникален), Вневременной (без модных градиентов), Универсальный (работает как одноцветная иконка), Уместный (свет + мозг подходит для образования).", kk: "5 ережені тексеріңіз: Қарапайым (шам силуэті 16px-де танылады), Есте қаларлық (шамдағы ми бірегей), Мәңгілік (трендті градиенттер жоқ), Әмбебап (бір түсті белгіше ретінде жұмыс істейді), Орынды (жарық + ми білімге сәйкес)." }
             ],
-            answer: "A minimalist lightbulb silhouette with subtle brain-fold lines inside, paired with 'BrightMind' in a clean sans-serif font. Works at all sizes and in single color."
+            answer: "A minimalist lightbulb silhouette with subtle brain-fold lines inside, paired with 'BrightMind' in a clean sans-serif font. Works at all sizes and in single color.",
+            answerRu: "Минималистичный силуэт лампочки с тонкими линиями извилин мозга внутри в сочетании с надписью 'BrightMind' чистым шрифтом без засечек. Работает во всех размерах и в одноцветном варианте.",
+            answerKk: "Ішінде ми қатпарларының нәзік сызықтары бар минималистік шам силуэті және таза sans-serif қаріппен жазылған 'BrightMind' жазуы. Барлық өлшемде және бір түсті нұсқада жұмыс істейді."
           }
         ],
         practiceProblems: [
@@ -735,6 +825,8 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "Какие три основных типа логотипов?",
             questionKk: "Логотиптердің үш негізгі түрі қандай?",
             answer: "Wordmark (text-based), Symbol (icon-based), and Combination mark (text + icon).",
+            answerRu: "Словесный (на основе текста), символьный (на основе иконки) и комбинированный (текст + иконка).",
+            answerKk: "Сөздік (мәтінге негізделген), символдық (белгішеге негізделген) және құрама (мәтін + белгіше).",
             hint: "Think of Google, Apple, and Adidas as examples of each type.",
             hintRu: "Подумайте о Google, Apple и Adidas как примерах каждого типа.",
             hintKk: "Әр түрдің мысалы ретінде Google, Apple және Adidas туралы ойлаңыз.",
@@ -746,6 +838,8 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "Логотип использует детальную иллюстрацию с 8 цветами и тонкими линиями. Какие из 5 правил логотипа это нарушает?",
             questionKk: "Логотип 8 түсті және жіңішке сызықтары бар егжей-тегжейлі иллюстрацияны қолданады. 5 логотип ережесінің қайсысын бұзуы мүмкін?",
             answer: "Simple (too detailed to work at small sizes), Versatile (8 colors won't work in black-and-white, thin lines disappear at small sizes).",
+            answerRu: "Простой (слишком детальный, чтобы работать в малых размерах), Универсальный (8 цветов не работают в чёрно-белом варианте, тонкие линии исчезают в малых размерах).",
+            answerKk: "Қарапайым (кіші өлшемдерде жұмыс істеу үшін тым егжей-тегжейлі), Әмбебап (8 түсті ақ-қара нұсқада қолдану мүмкін емес, жіңішке сызықтар кіші өлшемдерде жоғалады).",
             hint: "Imagine shrinking the logo to 16×16 pixels — what would be lost?",
             hintRu: "Представьте, что уменьшаете логотип до 16×16 пикселей — что потеряется?",
             hintKk: "Логотипті 16×16 пиксельге кішірейтуді елестетіңіз — не жоғалады?",
@@ -757,6 +851,8 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "Сравните логотипы Nike, Starbucks и Coca-Cola. Для каждого определите тип и объясните, почему он оставался эффективным десятилетиями.",
             questionKk: "Nike, Starbucks және Coca-Cola логотиптерін салыстырыңыз. Әрқайсысы үшін логотип түрін анықтаңыз және ондаған жылдар бойы неліктен тиімді болып қалғанын түсіндіріңіз.",
             answer: "Nike: Symbol (swoosh) — extremely simple, works at any size, conveys motion. Starbucks: Symbol (siren) — distinctive, detailed but with clear silhouette, evolved to become simpler over time. Coca-Cola: Wordmark — unique hand-lettered script is instantly recognizable, timeless cursive style transcends trends. All three succeed because they prioritize memorability and simplicity at their core.",
+            answerRu: "Nike: символьный (свуш) — крайне простой, работает в любом размере, передаёт движение. Starbucks: символьный (сирена) — узнаваемый, детальный, но с чётким силуэтом, со временем становился проще. Coca-Cola: словесный — уникальный рукописный шрифт узнаётся мгновенно, вневременной курсивный стиль неподвластен трендам. Все три успешны, потому что в их основе лежат запоминаемость и простота.",
+            answerKk: "Nike: символдық (свуш) — өте қарапайым, кез келген өлшемде жұмыс істейді, қозғалысты жеткізеді. Starbucks: символдық (сирена) — ерекше, егжей-тегжейлі, бірақ айқын силуэтті, уақыт өте келе қарапайымдай түсті. Coca-Cola: сөздік — қолмен жазылған бірегей шрипт лезде танылады, мәңгілік курсив стилі трендтерден жоғары тұр. Үшеуі де өз негізіне есте қаларлықтық пен қарапайымдылықты қоюының арқасында табысты.",
             xp: 20
           }
         ]
@@ -785,7 +881,9 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
               { en: "Top 40%: 'SPRING JAM 2026' in large bold text with a vibrant background image or illustration of musicians. This is the first thing people see from across the hallway.", ru: "Верхние 40%: 'SPRING JAM 2026' крупным жирным текстом с ярким фоновым изображением или иллюстрацией музыкантов. Это первое, что видят люди из коридора.", kk: "Жоғарғы 40%: 'SPRING JAM 2026' жарқын фондық кескінмен немесе музыканттар иллюстрациясымен үлкен қалың мәтінмен. Бұл адамдардың дәліздің арғы жағынан көретін бірінші нәрсесі." },
               { en: "Middle 30%: visual element (photo or graphic of the band/performers). Bottom 30%: 'March 15 | 7:00 PM | School Auditorium' in medium text, plus ticket info and any logos in smaller text.", ru: "Средние 30%: визуальный элемент (фото или графика группы/исполнителей). Нижние 30%: 'Март 15 | 19:00 | Актовый зал' средним текстом, информация о билетах и логотипы мелким текстом.", kk: "Ортаңғы 30%: визуалды элемент (топтың/орындаушылардың фотосуреті немесе графикасы). Төменгі 30%: 'Наурыз 15 | 19:00 | Актовый зал' орташа мәтінмен, билет ақпараты мен логотиптер кіші мәтінмен." }
             ],
-            answer: "Large bold event title at top, eye-catching visual in the center, date/time/location details at the bottom. Use high contrast and limit to 2-3 colors."
+            answer: "Large bold event title at top, eye-catching visual in the center, date/time/location details at the bottom. Use high contrast and limit to 2-3 colors.",
+            answerRu: "Крупный жирный заголовок мероприятия сверху, привлекающий внимание визуал в центре, детали даты/времени/места внизу. Используйте высокий контраст и ограничьтесь 2-3 цветами.",
+            answerKk: "Жоғарыда іс-шараның ірі қалың тақырыбы, ортасында назар аудартарлық визуал, төменде күні/уақыты/орны туралы мәліметтер. Жоғары контраст қолданып, 2-3 түспен шектеліңіз."
           }
         ],
         practiceProblems: [
@@ -795,6 +893,8 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "В чём ключевое различие между постером и листовкой с точки зрения дистанции просмотра?",
             questionKk: "Көру қашықтығы бойынша постер мен парақшаның негізгі айырмашылығы неде?",
             answer: "A poster is viewed from a distance (needs bold, minimal text), while a flyer is held and read up close (can include more detailed text).",
+            answerRu: "Постер рассматривают издалека (нужен крупный текст по минимуму), а листовку держат в руках и читают вблизи (в ней может быть более подробный текст).",
+            answerKk: "Постер алыстан қаралады (қалың, аз мәтін қажет), ал парақша қолда ұсталып жақыннан оқылады (егжей-тегжейлірек мәтін бола алады).",
             hint: "Think about where each is typically displayed — wall vs. hand.",
             hintRu: "Подумайте, где обычно размещается каждый — стена или рука.",
             hintKk: "Әрқайсысы әдетте қайда орналастырылатынын ойлаңыз — қабырғада немесе қолда.",
@@ -806,6 +906,8 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "На постере дата мероприятия мелким текстом внизу, а декоративное изображение занимает 80% пространства. Что не так с этим макетом?",
             questionKk: "Постерде іс-шара күні төменде кішкентай мәтінмен, ал сәндік кескін кеңістіктің 80%-ын алады. Бұл макетте не дұрыс емес?",
             answer: "The visual hierarchy is inverted — the date (critical information) is too small and buried. The decorative image takes too much space without conveying necessary information. Essential info like the event name and date should be prominently sized.",
+            answerRu: "Визуальная иерархия перевёрнута — дата (важная информация) слишком мелкая и спрятана. Декоративное изображение занимает слишком много места, не передавая нужной информации. Важные сведения, такие как название события и дата, должны быть заметного размера.",
+            answerKk: "Визуалды иерархия төңкерілген — күн (маңызды ақпарат) тым кішкентай және көзден тасада. Сәндік кескін қажетті ақпаратты жеткізбестен тым көп орын алады. Іс-шара атауы мен күні сияқты маңызды ақпарат көрнекті өлшемде болуы керек.",
             hint: "Ask: what does the viewer NEED to know, and can they see it at a glance?",
             hintRu: "Спросите: что зритель ДОЛЖЕН узнать, и видит ли он это с первого взгляда?",
             hintKk: "Сұраңыз: көрерменге нені білу КЕРЕК және оны бір қарағанда көре ала ма?",
@@ -817,6 +919,8 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "Вам нужно создать постер и подходящую листовку для одного мероприятия. Как адаптировать дизайн между двумя форматами, сохраняя единообразие бренда?",
             questionKk: "Бір іс-шараға постер мен сәйкес парақша жасауыңыз керек. Бренд бірізділігін сақтай отырып, дизайнды екі формат арасында қалай бейімдейсіз?",
             answer: "Keep the same color palette, fonts, and key visual element (logo or hero image) for brand consistency. For the poster: enlarge the headline and visual, minimize text to essentials. For the flyer: reduce the hero image size, add detailed schedule, speaker bios, ticket links, and map. Both share the same visual DNA but serve different information depths.",
+            answerRu: "Сохраняйте одну и ту же цветовую палитру, шрифты и ключевой визуальный элемент (логотип или главное изображение) для единообразия бренда. Для постера: увеличьте заголовок и визуал, сократив текст до essentials. Для листовки: уменьшите главное изображение, добавьте подробное расписание, биографии спикеров, ссылки на билеты и карту. Оба имеют общую визуальную ДНК, но подают разную глубину информации.",
+            answerKk: "Бренд бірізділігі үшін бірдей түс палитрасын, қаріптерді және негізгі визуалды элементті (логотип немесе басты кескін) сақтаңыз. Постер үшін: тақырып пен визуалды ұлғайтып, мәтінді ең қажеттісіне дейін қысқартыңыз. Парақша үшін: басты кескіннің өлшемін кішірейтіп, егжей-тегжейлі кесте, спикерлердің өмірбаяны, билет сілтемелері және карта қосыңыз. Екеуі де бірдей визуалды ДНК-ны сақтайды, бірақ ақпараттың әртүрлі тереңдігін ұсынады.",
             xp: 20
           }
         ]
@@ -845,7 +949,9 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
               { en: "Decrease kerning between W and A to bring them closer — these letters have diagonal strokes that create a visual gap.", ru: "Уменьшите кернинг между W и A, чтобы сблизить их — у этих букв диагональные штрихи, создающие визуальный зазор.", kk: "W мен A арасындағы кернингті азайтыңыз — бұл әріптердің диагональ штрихтары визуалды бос орын жасайды." },
               { en: "Slightly increase kerning between A and V to balance the overall word. The goal is optically even spacing — not mathematically equal, but visually balanced.", ru: "Немного увеличьте кернинг между A и V для баланса всего слова. Цель — оптически равномерный интервал, не математически равный, а визуально сбалансированный.", kk: "Бүкіл сөзді теңестіру үшін A мен V арасындағы кернингті аздап арттырыңыз. Мақсат — оптикалық тегіс аралық, математикалық тең емес, визуалды теңдестірілген." }
             ],
-            answer: "Tighten W-A kerning and loosen A-V kerning to achieve optically even spacing across the entire word."
+            answer: "Tighten W-A kerning and loosen A-V kerning to achieve optically even spacing across the entire word.",
+            answerRu: "Уплотните кернинг W-A и ослабьте кернинг A-V, чтобы добиться оптически равномерного интервала по всему слову.",
+            answerKk: "Бүкіл сөз бойынша оптикалық тегіс аралыққа қол жеткізу үшін W-A кернингін тығыздап, A-V кернингін босаңдатыңыз."
           }
         ],
         practiceProblems: [
@@ -855,6 +961,8 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "В чём разница между кернингом и трекингом?",
             questionKk: "Кернинг пен трекингтің айырмашылығы неде?",
             answer: "Kerning adjusts space between specific letter pairs; tracking adjusts space uniformly across all letters in a word or line.",
+            answerRu: "Кернинг настраивает расстояние между определёнными парами букв; трекинг равномерно настраивает расстояние между всеми буквами в слове или строке.",
+            answerKk: "Кернинг нақты әріп жұптары арасындағы аралықты реттейді; трекинг сөздегі немесе жолдағы барлық әріптер бойынша аралықты бірыңғай реттейді.",
             hint: "One is selective, the other is uniform.",
             hintRu: "Одно — выборочное, другое — равномерное.",
             hintKk: "Біреуі таңдамалы, екіншісі бірыңғай.",
@@ -866,6 +974,8 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "Вы хотите подобрать шрифт для текста к шрифту заголовка. Заголовок — Playfair Display (с засечками). Предложите шрифт для текста и объясните логику сочетания.",
             questionKk: "Тақырып қаріпіне мәтін қаріпін жұптағыңыз келеді. Тақырып — Playfair Display (serif). Мәтін қаріпін ұсыныңыз және жұптау логикасын түсіндіріңіз.",
             answer: "Source Sans Pro or Lato (sans-serif). The pairing works because Playfair Display is a high-contrast serif with elegant character, while Source Sans Pro is a neutral sans-serif that doesn't compete for attention. The contrast between serif heading and sans-serif body creates clear hierarchy.",
+            answerRu: "Source Sans Pro или Lato (без засечек). Это сочетание работает, потому что Playfair Display — контрастный шрифт с засечками с элегантным характером, а Source Sans Pro — нейтральный шрифт без засечек, который не конкурирует за внимание. Контраст между заголовком с засечками и текстом без засечек создаёт чёткую иерархию.",
+            answerKk: "Source Sans Pro немесе Lato (sans-serif). Бұл жұптау жұмыс істейді, себебі Playfair Display — элегантты мінезді жоғары контрастты serif, ал Source Sans Pro — назарға таласпайтын бейтарап sans-serif. Serif тақырып пен sans-serif мәтін арасындағы контраст анық иерархия жасайды.",
             hint: "Pair fonts from different categories (serif + sans-serif) with contrasting personalities.",
             hintRu: "Сочетайте шрифты из разных категорий (с засечками + без засечек) с контрастными характерами.",
             hintKk: "Контрастты мінездері бар әртүрлі санаттардағы қаріптерді жұптаңыз (serif + sans-serif).",
@@ -877,6 +987,8 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "Сайт клиента использует 5 разных шрифтов на 4 страницах. Клиент говорит, что это выглядит 'креативно и разнообразно'. Объясните, почему это проблема, и предложите решение.",
             questionKk: "Клиенттің вебсайты 4 бетте 5 түрлі қаріп қолданады. Клиент бұл 'шығармашыл және алуан түрлі' көрінеді дейді. Бұл неліктен мәселе екенін түсіндіріңіз және шешім ұсыныңыз.",
             answer: "Problem: 5 fonts creates visual chaos and destroys brand consistency. Each font competes for attention, making the design feel unprofessional. No clear hierarchy exists. Solution: reduce to 2-3 fonts maximum — one for headings (bold, distinctive), one for body (readable, neutral), and optionally one for accents (e.g., buttons or captions). Apply consistently across all pages using a type scale.",
+            answerRu: "Проблема: 5 шрифтов создают визуальный хаос и разрушают единообразие бренда. Каждый шрифт борется за внимание, из-за чего дизайн выглядит непрофессионально. Чёткая иерархия отсутствует. Решение: сократить максимум до 2-3 шрифтов — один для заголовков (жирный, выразительный), один для текста (читаемый, нейтральный) и, при необходимости, один для акцентов (например, кнопок или подписей). Последовательно применяйте их на всех страницах с использованием типографической шкалы.",
+            answerKk: "Мәселе: 5 қаріп визуалды хаос тудырады және бренд бірізділігін бұзады. Әр қаріп назарға таласып, дизайнды кәсіби емес етіп көрсетеді. Анық иерархия жоқ. Шешім: ең көбі 2-3 қаріпке дейін қысқарту — біреуі тақырыптарға (қалың, ерекше), біреуі мәтінге (оқымды, бейтарап) және қажет болса біреуі акценттерге (мысалы, түймелер немесе жазбалар). Типографикалық шкала арқылы барлық бетте тұрақты қолданыңыз.",
             xp: 20
           }
         ]
@@ -905,7 +1017,9 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
               { en: "Add a semi-transparent dark gradient overlay at the top or bottom where the text will go. This creates contrast without hiding the photo entirely.", ru: "Добавьте полупрозрачный тёмный градиент сверху или снизу, где будет текст. Это создаёт контраст, не скрывая фото полностью.", kk: "Мәтін орналасатын жоғарғы немесе төменгі жаққа жартылай мөлдір қараңғы градиент қосыңыз. Бұл фотоны толық жасырмай контраст жасайды." },
               { en: "Alternatively, crop or reposition the photo so the text sits over a less busy area with more negative space (like a patch of sky).", ru: "Альтернативно, обрежьте или переместите фото, чтобы текст располагался над менее загруженной областью с большим пустым пространством (например, участок неба).", kk: "Балама ретінде, мәтін көбірек негативті кеңістігі бар (мысалы, аспан бөлігі) аз тығыз аймақ үстінде орналасу үшін фотоны қиып немесе қайта орналастырыңыз." }
             ],
-            answer: "Apply a gradient overlay for text readability, or reposition the photo to place text over a less busy area with natural negative space."
+            answer: "Apply a gradient overlay for text readability, or reposition the photo to place text over a less busy area with natural negative space.",
+            answerRu: "Наложите градиент для читаемости текста или переместите фото так, чтобы текст располагался над менее загруженной областью с естественным негативным пространством.",
+            answerKk: "Мәтіннің оқылуы үшін градиент қабат қолданыңыз немесе мәтін табиғи негативті кеңістігі бар аз тығыз аймақ үстінде орналасу үшін фотоны қайта орналастырыңыз."
           }
         ],
         practiceProblems: [

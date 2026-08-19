@@ -38,7 +38,9 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
               { en: "Identify the trigger and thought: The trigger is the cancellation. A possible thought is 'They don't care about me' or 'Maybe something came up.'", ru: "Определите триггер и мысль: Триггер — отмена планов. Возможная мысль: «Ему всё равно» или «Может, что-то случилось».", kk: "Триггер мен ойды анықтаңыз: Триггер — жоспардың бұзылуы. Мүмкін ой: «Оған бәрібір» немесе «Бірдеңе болған шығар»." },
               { en: "Name the feeling and choose behavior: The feeling is likely disappointment or sadness. Best behavior: calmly ask if everything is okay rather than reacting angrily.", ru: "Назовите чувство и выберите поведение: Чувство — вероятно, разочарование или грусть. Лучшее поведение: спокойно спросить, всё ли хорошо.", kk: "Сезімді атаңыз және мінез-құлықты таңдаңыз: Сезім — көңілсіздік немесе қайғы. Ең жақсы мінез-құлық: бәрі жақсы ма деп сабырмен сұрау." }
             ],
-            answer: "Trigger: cancelled plans → Thought: they don't care / something came up → Feeling: disappointment → Best behavior: ask calmly what happened."
+            answer: "Trigger: cancelled plans → Thought: they don't care / something came up → Feeling: disappointment → Best behavior: ask calmly what happened.",
+            answerRu: "Триггер: отмена планов → Мысль: ему всё равно / что-то случилось → Чувство: разочарование → Лучшее поведение: спокойно спросить, что случилось.",
+            answerKk: "Триггер: жоспардың бұзылуы → Ой: оған бәрібір / бірдеңе болған шығар → Сезім: көңілсіздік → Ең жақсы мінез-құлық: не болғанын сабырмен сұрау."
           }
         ],
         practiceProblems: [
@@ -48,6 +50,8 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
             questionRu: "Назовите шесть базовых эмоций, выделенных Полом Экманом.",
             questionKk: "Пол Экман анықтаған алты негізгі эмоцияны атаңыз.",
             answer: "Happiness, sadness, anger, fear, surprise, disgust.",
+            answerRu: "Радость, грусть, гнев, страх, удивление, отвращение.",
+            answerKk: "Қуаныш, қайғы, ашу, қорқыныш, таңдану, жиіркену.",
             hint: "Think of the characters from the movie 'Inside Out'.",
             hintRu: "Вспомните персонажей мультфильма «Головоломка».",
             hintKk: "«Inside Out» мультфильміндегі кейіпкерлерді еске түсіріңіз.",
@@ -59,6 +63,8 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
             questionRu: "Вы получили оценку ниже ожидаемой. Определите эмоцию, оцените её по шкале 1-5 и предложите одну здоровую стратегию.",
             questionKk: "Күткеннен төмен баға алдыңыз. Эмоцияны анықтаңыз, 1-5 шкаласы бойынша бағалаңыз және бір сау стратегия ұсыныңыз.",
             answer: "Emotion: disappointment or frustration, intensity 3-4. Healthy strategy: talk to the teacher about how to improve next time.",
+            answerRu: "Эмоция: разочарование или досада, интенсивность 3-4. Здоровая стратегия: поговорить с учителем о том, как улучшить результат в следующий раз.",
+            answerKk: "Эмоция: көңілсіздік немесе ашуланшақтық, қарқындылығы 3-4. Сау стратегия: келесі жолы нәтижені қалай жақсартуға болатынын мұғаліммен талқылау.",
             hint: "Consider how your body feels — tense shoulders or a lump in your throat are clues.",
             hintRu: "Обратите внимание на тело — напряжённые плечи или ком в горле — это подсказки.",
             hintKk: "Денеңізге назар аударыңыз — қысылған иықтар немесе тамақтағы кому — бұл белгілер.",
@@ -70,6 +76,8 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
             questionRu: "Опишите ситуацию, где два разных человека испытывают разные эмоции от одного триггера. Объясните почему, используя цикл эмоций.",
             questionKk: "Бір триггерден екі адамның әртүрлі эмоцияларды сезінетін жағдайды сипаттаңыз. Эмоция циклін қолданып түсіндіріңіз.",
             answer: "Example: A surprise party — one person feels happiness (thought: 'they care about me'), another feels fear (thought: 'I hate unexpected situations'). The difference lies in the thought step of the cycle.",
+            answerRu: "Пример: вечеринка-сюрприз — один человек испытывает радость (мысль: «обо мне заботятся»), другой — страх (мысль: «я ненавижу неожиданности»). Разница — в шаге «мысль» цикла эмоций.",
+            answerKk: "Мысал: тосынсый кеш — бір адам қуаныш сезінеді (ой: «олар мені қадірлейді»), екіншісі қорқыныш сезінеді (ой: «мен тосын жағдайларды жек көремін»). Айырмашылық эмоция циклінің «ой» қадамында.",
             hint: "The key difference is in the 'thought' step — different interpretations lead to different feelings.",
             hintRu: "Ключевое различие — в шаге «мысль»: разные интерпретации ведут к разным чувствам.",
             hintKk: "Негізгі айырмашылық «ой» қадамында — әртүрлі түсіндірмелер әртүрлі сезімдерге әкеледі.",
@@ -107,7 +115,9 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
               { en: "Use cognitive empathy: Think about their perspective — they probably studied hard and feel like their effort was wasted. They may worry about their parents' reaction.", ru: "Используйте когнитивную эмпатию: Подумайте об их перспективе — они, вероятно, много учились и чувствуют, что усилия пропали зря.", kk: "Когнитивті эмпатияны қолданыңыз: Олардың көзқарасын ойлаңыз — олар көп оқып, күш-жігерін босқа кеткендей сезінуі мүмкін." },
               { en: "Use affective empathy: Let yourself feel their disappointment. Then say something like 'I can see you are upset — I would feel the same way. Want to study together next time?'", ru: "Используйте аффективную эмпатию: Позвольте себе почувствовать их разочарование. Скажите: «Я вижу, что тебе грустно — я бы чувствовал то же. Давай в следующий раз вместе готовиться?»", kk: "Аффективті эмпатияны қолданыңыз: Олардың көңілсіздігін сезіңіз. «Сенің ренжігеніңді көріп тұрмын — мен де солай сезінер едім. Келесі жолы бірге дайындаламыз ба?» деңіз." }
             ],
-            answer: "Cognitive empathy: understand they feel their effort was wasted. Affective empathy: share their disappointment and offer support by suggesting studying together."
+            answer: "Cognitive empathy: understand they feel their effort was wasted. Affective empathy: share their disappointment and offer support by suggesting studying together.",
+            answerRu: "Когнитивная эмпатия: понять, что они чувствуют, будто их усилия пропали зря. Аффективная эмпатия: разделить их разочарование и предложить поддержку, предложив готовиться вместе.",
+            answerKk: "Когнитивті эмпатия: олар күш-жігері босқа кетті деп сезінетінін түсіну. Аффективті эмпатия: олардың көңілсіздігін бөлісіп, бірге дайындалуды ұсынып қолдау көрсету."
           }
         ],
         practiceProblems: [
@@ -117,6 +127,8 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
             questionRu: "В чём разница между когнитивной и аффективной эмпатией?",
             questionKk: "Когнитивті эмпатия мен аффективті эмпатияның айырмашылығы неде?",
             answer: "Cognitive empathy is understanding what someone thinks; affective empathy is feeling what someone feels.",
+            answerRu: "Когнитивная эмпатия — понимание того, что человек думает; аффективная эмпатия — ощущение того, что он чувствует.",
+            answerKk: "Когнитивті эмпатия — адамның не ойлайтынын түсіну; аффективті эмпатия — оның не сезетінін сезіну.",
             hint: "One is about thinking, the other is about feeling.",
             hintRu: "Одна связана с мышлением, другая — с чувствами.",
             hintKk: "Біреуі ойлаумен, екіншісі сезіммен байланысты.",
@@ -128,6 +140,8 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
             questionRu: "Новый ученик приходит в ваш класс посреди года и сидит один за обедом. Опишите, как бы вы использовали оба типа эмпатии.",
             questionKk: "Жаңа оқушы жыл ортасында сыныпқа келіп, түскі асқа жалғыз отырады. Эмпатияның екі түрін қалай қолданатыныңызды сипаттаңыз.",
             answer: "Cognitive: they probably feel nervous and lonely in an unfamiliar environment. Affective: remember how you felt on your first day somewhere new. Action: invite them to sit with you and introduce them to friends.",
+            answerRu: "Когнитивная: они, вероятно, нервничают и чувствуют себя одиноко в незнакомой обстановке. Аффективная: вспомните, как вы себя чувствовали в первый день в новом месте. Действие: пригласите их сесть с вами и познакомьте с друзьями.",
+            answerKk: "Когнитивті: олар бейтаныс ортада алаңдап, жалғызсырауы мүмкін. Аффективті: жаңа жердегі алғашқы күніңізде не сезгеніңізді еске түсіріңіз. Әрекет: оларды өзіңізбен бірге отыруға шақырып, достарыңызбен таныстырыңыз.",
             hint: "Think about how you would feel if you were the new student.",
             hintRu: "Подумайте, что бы вы чувствовали, будь вы новым учеником.",
             hintKk: "Жаңа оқушы болсаңыз не сезінетініңізді ойлаңыз.",
@@ -139,6 +153,8 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
             questionRu: "Объясните, почему у кого-то может быть сильная когнитивная, но слабая аффективная эмпатия. Приведите пример и обсудите, является ли это проблемой.",
             questionKk: "Біреудің когнитивті эмпатиясы күшті, бірақ аффективті эмпатиясы әлсіз болуының себебін түсіндіріңіз. Мысал келтіріп, бұл мәселе ме екенін талқылаңыз.",
             answer: "Example: a doctor who understands a patient's pain intellectually but has learned to not absorb it emotionally to function professionally. This is not necessarily a problem — it can be healthy in some roles — but in personal relationships, lack of affective empathy can make others feel unsupported.",
+            answerRu: "Пример: врач, который интеллектуально понимает боль пациента, но научился не принимать её эмоционально, чтобы профессионально выполнять свою работу. Это не обязательно проблема — в некоторых ролях это может быть полезно, — но в личных отношениях нехватка аффективной эмпатии может заставлять других чувствовать себя без поддержки.",
+            answerKk: "Мысал: науқастың ауырсынуын интеллектуалды түрде түсінетін, бірақ кәсіби жұмыс істеу үшін оны эмоционалды қабылдамауды үйренген дәрігер. Бұл міндетті түрде мәселе емес — кейбір рөлдерде пайдалы болуы мүмкін, — бірақ жеке қарым-қатынастарда аффективті эмпатияның жетіспеушілігі басқаларды қолдаусыз сезіндіруі мүмкін.",
             hint: "Think about professions where emotional distance might actually be helpful.",
             hintRu: "Подумайте о профессиях, где эмоциональная дистанция может быть полезна.",
             hintKk: "Эмоциялық қашықтық пайдалы болуы мүмкін мамандықтарды ойлаңыз.",
@@ -176,7 +192,9 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
               { en: "Analyze using the Trust Equation: Honesty was broken (they did not keep the secret), which damages overall trust. Reliability may also be questioned.", ru: "Анализ по Уравнению доверия: Честность была нарушена (секрет не сохранён), что подрывает общее доверие. Надёжность тоже под вопросом.", kk: "Сенім теңдеуі бойынша талдау: Адалдық бұзылды (құпия сақталмады), бұл жалпы сенімге нұқсан келтіреді. Сенімділік те күмән тудырады." },
               { en: "Respond constructively: Have an honest conversation — explain how it made you feel, listen to their side, and set a clear boundary about secrets going forward.", ru: "Ответьте конструктивно: Проведите честный разговор — объясните свои чувства, выслушайте их сторону и установите границу о секретах.", kk: "Конструктивті жауап беріңіз: Адал әңгіме жүргізіңіз — сезімдеріңізді түсіндіріңіз, олардың жағын тыңдаңыз және құпиялар туралы нақты шекара қойыңыз." }
             ],
-            answer: "The honesty component of trust was broken. Best response: have an honest conversation about feelings and set boundaries, rather than ending the friendship immediately."
+            answer: "The honesty component of trust was broken. Best response: have an honest conversation about feelings and set boundaries, rather than ending the friendship immediately.",
+            answerRu: "Компонент честности доверия был нарушен. Лучшая реакция: провести честный разговор о чувствах и установить границы, а не сразу прекращать дружбу.",
+            answerKk: "Сенімнің адалдық құрамдас бөлігі бұзылды. Ең жақсы жауап: достықты бірден үзбей, сезімдер туралы адал әңгіме жүргізіп, шекаралар қою."
           }
         ],
         practiceProblems: [
@@ -186,6 +204,8 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
             questionRu: "Назовите три компонента Уравнения доверия.",
             questionKk: "Сенім теңдеуінің үш компонентін атаңыз.",
             answer: "Reliability, Honesty, and Vulnerability.",
+            answerRu: "Надёжность, честность и уязвимость.",
+            answerKk: "Сенімділік, адалдық және осалдық.",
             hint: "Think about what makes you trust someone — can you count on them, are they honest, and do they open up to you?",
             hintRu: "Подумайте, что заставляет вас доверять — можно ли на них положиться, честны ли они, открываются ли они?",
             hintKk: "Біреуге не үшін сенетініңізді ойлаңыз — оларға сене аласыз ба, адал ма, ашыла ма?",
@@ -197,6 +217,8 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
             questionRu: "Ваш друг переживает трудности дома и отдалился в школе. Используя подход поддержания дружбы, что вы должны сделать?",
             questionKk: "Досыңыз үйде қиын кезеңді бастан кешіріп, мектепте алыстап кетті. Достықты ұстау тәсілін қолданып, не істеуіңіз керек?",
             answer: "Focus on 'Support in hard times': reach out gently, let them know you are there without pressuring them, and check in regularly even if they don't respond immediately.",
+            answerRu: "Сосредоточьтесь на «Поддержке в трудные времена»: мягко проявите инициативу, дайте понять, что вы рядом, не давя на них, и регулярно интересуйтесь их делами, даже если они не отвечают сразу.",
+            answerKk: "«Қиын кездегі қолдауға» назар аударыңыз: жұмсақ байланысыңыз, қысым жасамай жанында екеніңізді білдіріңіз және олар бірден жауап бермесе де үнемі хал-жағдайын сұрап тұрыңыз.",
             hint: "Which part of the Friendship Maintenance formula is most relevant right now?",
             hintRu: "Какая часть формулы поддержания дружбы сейчас наиболее актуальна?",
             hintKk: "Достықты ұстау формуласының қай бөлігі қазір ең өзекті?",
@@ -208,6 +230,8 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
             questionRu: "Два ваших друга в конфликте, и оба хотят, чтобы вы выбрали сторону. Разработайте план, используя навыки дружбы.",
             questionKk: "Екі досыңыз дауласып жатыр және екеуі де сіздің жақ таңдауыңызды қалайды. Достық дағдыларын қолданып жоспар жасаңыз.",
             answer: "Plan: (1) Refuse to pick sides — explain you value both friendships. (2) Listen to each friend separately using active listening. (3) Encourage them to talk directly to each other. (4) Offer to mediate if both agree. (5) Maintain regular contact with both throughout.",
+            answerRu: "План: (1) Откажитесь выбирать сторону — объясните, что цените обе дружбы. (2) Выслушайте каждого друга отдельно, используя активное слушание. (3) Поощряйте их говорить напрямую друг с другом. (4) Предложите посредничество, если оба согласны. (5) Всё это время поддерживайте регулярный контакт с обоими.",
+            answerKk: "Жоспар: (1) Жақ таңдаудан бас тартыңыз — екі достықты да бағалайтыныңызды түсіндіріңіз. (2) Белсенді тыңдауды қолданып, әр досыңызды жеке тыңдаңыз. (3) Оларды бір-бірімен тікелей сөйлесуге ынталандырыңыз. (4) Екеуі келіссе, делдал болуды ұсыныңыз. (5) Осы уақыт аралығында екеуімен де тұрақты байланыста болыңыз.",
             hint: "Picking a side usually makes things worse. Think about how you can help them communicate with each other.",
             hintRu: "Выбор стороны обычно ухудшает ситуацию. Подумайте, как помочь им общаться друг с другом.",
             hintKk: "Жақ таңдау әдетте жағдайды нашарлатады. Оларға бір-бірімен сөйлесуге қалай көмектесуге болатынын ойлаңыз.",
@@ -245,7 +269,9 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
               { en: "Stop and Think: Pause, take a deep breath. Notice your body signs (clenched fists, hot face). Think: 'Reacting angrily will make this worse and give them more attention.'", ru: "Стой и Думай: Сделайте паузу, глубоко вдохните. Заметьте сигналы тела (сжатые кулаки, горящее лицо). Подумайте: «Злая реакция только ухудшит ситуацию».", kk: "Тоқта және Ойлан: Кідіріңіз, терең тыныс алыңыз. Дене белгілерін байқаңыз (жұдырық, ыстық бет). Ойлаңыз: «Ашулану жағдайды нашарлатады»." },
               { en: "Options and Proceed: Options include (a) calmly say 'That was hurtful,' (b) talk to the teacher after class, (c) ignore and discuss later privately. Choose the option that protects your dignity without escalating conflict.", ru: "Варианты и Действуй: Варианты: (а) спокойно сказать «Это обидно», (б) поговорить с учителем после урока, (в) проигнорировать и обсудить позже. Выберите вариант, защищающий достоинство без эскалации.", kk: "Нұсқалар және Әрекет ет: Нұсқалар: (а) сабырмен «Бұл ренжітті» деу, (б) сабақтан кейін мұғаліммен сөйлесу, (в) елемей, кейін талқылау. Қайшылықты ушықтырмай абыройыңызды қорғайтын нұсқаны таңдаңыз." }
             ],
-            answer: "STOP: Pause and breathe → Think about consequences → Options: speak calmly, tell teacher, or address privately later → Proceed with the option that avoids escalation."
+            answer: "STOP: Pause and breathe → Think about consequences → Options: speak calmly, tell teacher, or address privately later → Proceed with the option that avoids escalation.",
+            answerRu: "СТОП: Сделайте паузу и подышите → Подумайте о последствиях → Варианты: спокойно высказаться, сказать учителю или обсудить позже наедине → Действуйте по варианту, который не допускает эскалации.",
+            answerKk: "СТОП: Кідіріп, тыныс алыңыз → Салдары туралы ойлаңыз → Нұсқалар: сабырмен айту, мұғалімге хабарлау немесе кейін жеке талқылау → Ушықудан аулақтататын нұсқамен әрекет етіңіз."
           }
         ],
         practiceProblems: [
@@ -255,6 +281,8 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
             questionRu: "Что означают четыре буквы в технике СТОП?",
             questionKk: "СТОП техникасындағы төрт әріп нені білдіреді?",
             answer: "Stop, Think, Options, Proceed.",
+            answerRu: "Стой, Думай, Варианты, Действуй.",
+            answerKk: "Тоқта, Ойлан, Нұсқалар, Әрекет ет.",
             hint: "It is an acronym that guides you through managing anger step by step.",
             hintRu: "Это аббревиатура, которая пошагово помогает управлять гневом.",
             hintKk: "Бұл ашуды қадаммен басқаруға көмектесетін аббревиатура.",
@@ -266,6 +294,8 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
             questionRu: "Младший брат или сестра сломал(а) ваши любимые наушники. Вы на уровне «Раздражение». Что сделать, чтобы не дойти до «Гнева»?",
             questionKk: "Кіші бауырыңыз сүйікті құлаққаптарыңызды сындырды. Сіз «Ренжу» деңгейіндесіз. «Ашуға» жетпес үшін не істеу керек?",
             answer: "Intervene early: leave the room to cool down, take deep breaths, remind yourself it was probably an accident, then calmly explain to your sibling why you are upset and how to be more careful.",
+            answerRu: "Вмешайтесь рано: выйдите из комнаты, чтобы остыть, сделайте глубокие вдохи, напомните себе, что это, вероятно, была случайность, затем спокойно объясните брату или сестре, почему вы расстроены и как быть осторожнее.",
+            answerKk: "Ерте араласыңыз: сабырға келу үшін бөлмеден шығыңыз, терең тыныс алыңыз, бұл кездейсоқ болған шығар деп өзіңізге еске салыңыз, содан кейін бауырыңызға неге ренжігеніңізді және қалай абай болу керектігін сабырмен түсіндіріңіз.",
             hint: "The best time to use the STOP technique is before anger reaches the highest level.",
             hintRu: "Лучшее время для техники СТОП — до того, как гнев достигнет максимума.",
             hintKk: "СТОП техникасын қолданудың ең жақсы уақыты — ашу ең жоғары деңгейге жеткенге дейін.",
@@ -277,6 +307,8 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
             questionRu: "Сравните технику СТОП с простым «счётом до десяти». Что эффективнее и почему? Используйте модель эскалации гнева.",
             questionKk: "СТОП техникасын «онға дейін санау» әдісімен салыстырыңыз. Қайсысы тиімдірек және неліктен? Ашу эскалациясы моделін қолданыңыз.",
             answer: "STOP is more effective because counting to ten only addresses the 'Stop' step — it pauses you but does not guide thinking about consequences (Think), generating alternatives (Options), or choosing an action (Proceed). The STOP technique intervenes at every stage of the escalation ladder by providing a structured decision-making process.",
+            answerRu: "СТОП эффективнее, потому что счёт до десяти охватывает только шаг «Стой» — он даёт паузу, но не направляет думать о последствиях (Думай), искать альтернативы (Варианты) и выбирать действие (Действуй). Техника СТОП вмешивается на каждой ступени лестницы эскалации, предоставляя структурированный процесс принятия решений.",
+            answerKk: "СТОП тиімдірек, өйткені онға дейін санау тек «Тоқта» қадамын ғана қамтиды — ол кідіртеді, бірақ салдары туралы ойлауға (Ойлан), баламалар табуға (Нұсқалар) немесе әрекет таңдауға (Әрекет ет) бағыттамайды. СТОП техникасы эскалация баспалдағының әр сатысында құрылымдалған шешім қабылдау процесін ұсынып араласады.",
             hint: "Think about what happens after you finish counting to ten — do you have a plan?",
             hintRu: "Подумайте, что происходит после счёта до десяти — есть ли у вас план?",
             hintKk: "Онға дейін санағаннан кейін не болатынын ойлаңыз — жоспарыңыз бар ма?",
@@ -314,7 +346,9 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
               { en: "Apply James's formula: Dana's achievement improved (C→B), but her expectation is to match the top student (A+). The gap between achievement and expectation is large, so self-esteem feels low.", ru: "Применяем формулу Джеймса: Достижения Даны улучшились (C→B), но ожидание — догнать лучшего ученика (A+). Большой разрыв снижает самооценку.", kk: "Джеймс формуласын қолданыңыз: Дананың жетістігі жақсарды (C→B), бірақ күтуі — үздік оқушыға жету (A+). Үлкен алшақтық өзін-өзі бағалауды төмендетеді." },
               { en: "Solution: Adjust expectations to be self-referential — compare to her own past performance, not others. Her self-esteem rises because her achievement (B) now exceeds her adjusted expectation (better than C).", ru: "Решение: Скорректировать ожидания на себя — сравнивать с собственным прогрессом, а не с другими. Самооценка растёт, потому что достижение (B) превышает скорректированное ожидание.", kk: "Шешім: Күтулерді өзіне бағыттау — басқалармен емес, өз прогресімен салыстыру. Жетістік (B) түзетілген күтуден (C-ден жақсы) асып түсетіндіктен, өзін-өзі бағалау көтеріледі." }
             ],
-            answer: "By adjusting expectations to focus on personal progress (C→B improvement) instead of comparing to others, Dana's self-esteem improves because her achievements exceed her self-referential expectations."
+            answer: "By adjusting expectations to focus on personal progress (C→B improvement) instead of comparing to others, Dana's self-esteem improves because her achievements exceed her self-referential expectations.",
+            answerRu: "Скорректировав ожидания так, чтобы фокусироваться на личном прогрессе (улучшение с C до B), а не на сравнении с другими, Дана повышает самооценку, потому что её достижения превышают её самооориентированные ожидания.",
+            answerKk: "Күтулерді басқалармен салыстыруға емес, жеке прогреске (C→B жақсаруы) бағыттап түзету арқылы Дана өзін-өзі бағалауын жақсартады, өйткені оның жетістіктері өзіне бағытталған күтулерден асып түседі."
           }
         ],
         practiceProblems: [
@@ -324,6 +358,8 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
             questionRu: "Согласно Уильяму Джеймсу, какие два фактора определяют самооценку?",
             questionKk: "Уильям Джеймс бойынша, өзін-өзі бағалауды қандай екі фактор анықтайды?",
             answer: "Achievements and Expectations. Self-esteem = Achievements ÷ Expectations.",
+            answerRu: "Достижения и ожидания. Самооценка = Достижения ÷ Ожидания.",
+            answerKk: "Жетістіктер мен күтулер. Өзін-өзі бағалау = Жетістіктер ÷ Күтулер.",
             hint: "It is a ratio — one thing divided by another.",
             hintRu: "Это соотношение — одно делится на другое.",
             hintKk: "Бұл қатынас — бір нәрсе екіншіге бөлінеді.",
@@ -335,6 +371,8 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
             questionRu: "Перепишите три негативных утверждения в позитивные: «Я ужасен в математике», «Никто меня не любит», «Я всегда терплю неудачу».",
             questionKk: "Үш теріс мәлімдемені позитивке қайта жазыңыз: «Мен математикадан нашармын», «Мені ешкім ұнатпайды», «Мен әрқашан сәтсіздікке ұшыраймын».",
             answer: "'I'm still learning math and improving,' 'I have people who care about me and I can build new connections,' 'I learn from setbacks and keep trying.'",
+            answerRu: "«Я ещё учусь математике и становлюсь лучше», «У меня есть люди, которым я не безразличен, и я могу строить новые связи», «Я учусь на неудачах и продолжаю пробовать».",
+            answerKk: "«Мен математиканы әлі үйреніп жатырмын және жақсарып келемін», «Мені қадірлейтін адамдар бар және мен жаңа байланыстар орната аламын», «Мен сәтсіздіктерден үйреніп, әрекеттенуді жалғастырамын».",
             hint: "Add 'yet' or 'still learning' to transform fixed statements into growth statements.",
             hintRu: "Добавьте «пока» или «ещё учусь», чтобы превратить фиксированные утверждения в утверждения роста.",
             hintKk: "Тіркелген мәлімдемелерді өсу мәлімдемелеріне айналдыру үшін «әлі» немесе «үйреніп жатырмын» қосыңыз.",
@@ -346,6 +384,8 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
             questionRu: "У ученика высокие достижения, но низкая самооценка. Используя формулу Джеймса, объясните, как это возможно, и предложите две стратегии.",
             questionKk: "Оқушының жетістіктері жоғары, бірақ өзін-өзі бағалауы төмен. Джеймс формуласын қолданып, бұл қалай мүмкін екенін түсіндіріңіз және екі стратегия ұсыныңыз.",
             answer: "If expectations are extremely high (e.g., perfectionism), even high achievements produce a low ratio. Strategies: (1) Set realistic, incremental goals instead of perfection. (2) Practice self-compassion — celebrate what you have achieved before raising the bar.",
+            answerRu: "Если ожидания чрезвычайно высоки (например, перфекционизм), даже высокие достижения дают низкое соотношение. Стратегии: (1) Ставьте реалистичные, постепенные цели вместо идеала. (2) Практикуйте самосострадание — отмечайте достигнутое, прежде чем поднимать планку.",
+            answerKk: "Күтулер өте жоғары болса (мысалы, перфекционизм), тіпті жоғары жетістіктердің өзі төмен қатынас береді. Стратегиялар: (1) Мінсіздіктің орнына шынайы, кезеңді мақсаттар қойыңыз. (2) Өзіңізге мейірімді болуды жаттықтырыңыз — белгіні көтермес бұрын жеткен жетістігіңізді бағалаңыз.",
             hint: "What happens to the ratio when the denominator (expectations) is very, very large?",
             hintRu: "Что происходит с соотношением, когда знаменатель (ожидания) очень велик?",
             hintKk: "Бөлгіш (күтулер) өте үлкен болғанда қатынасқа не болады?",
@@ -383,7 +423,9 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
               { en: "Notice and Assess: You see verbal bullying (mocking accent). Assess safety — the group is not physically threatening, so you can intervene.", ru: "Заметьте и оцените: Вы видите вербальный буллинг (насмешка над акцентом). Оцените безопасность — группа не угрожает физически, можно вмешаться.", kk: "Байқаңыз және бағалаңыз: Вербалды буллинг көресіз (акцентті мазақтау). Қауіпсіздікті бағалаңыз — топ физикалық қауіп төндірмейді, араласуға болады." },
               { en: "Act: Walk up to the victim and start a normal conversation ('Hey, did you finish the homework?') to distract the bullies. Later, privately ask the victim if they are okay and suggest reporting to a teacher together.", ru: "Действуйте: Подойдите к жертве и начните обычный разговор («Привет, ты сделал домашку?»), чтобы отвлечь обидчиков. Потом спросите жертву, всё ли хорошо, и предложите вместе обратиться к учителю.", kk: "Әрекет етіңіз: Құрбанға барып, қалыпты әңгіме бастаңыз («Сәлем, үй тапсырмасын аяқтадың ба?»). Кейін құрбаннан жағдайын сұрап, мұғалімге бірге хабарлауды ұсыныңыз." }
             ],
-            answer: "Notice the verbal bullying → Assess it is safe to act → Act by distracting with conversation, then privately support the victim and report together."
+            answer: "Notice the verbal bullying → Assess it is safe to act → Act by distracting with conversation, then privately support the victim and report together.",
+            answerRu: "Заметить вербальный буллинг → Оценить, что действовать безопасно → Действовать: отвлечь разговором, затем поддержать жертву наедине и вместе сообщить о случившемся.",
+            answerKk: "Вербалды буллингті байқаңыз → Әрекет етудің қауіпсіз екенін бағалаңыз → Әңгімемен назарын аудартып әрекет етіңіз, содан кейін құрбанға жеке қолдау көрсетіп, бірге хабарлаңыз."
           }
         ],
         practiceProblems: [
@@ -393,6 +435,8 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
             questionRu: "Назовите четыре типа буллинга.",
             questionKk: "Буллингтің төрт түрін атаңыз.",
             answer: "Physical, Verbal, Social (exclusion/rumors), and Cyber.",
+            answerRu: "Физический, вербальный, социальный (изоляция/слухи) и кибер.",
+            answerKk: "Физикалық, вербалды, әлеуметтік (шеттету/қауесет) және кибер.",
             hint: "Think about bullying that involves bodies, words, social groups, and technology.",
             hintRu: "Подумайте о буллинге через тело, слова, социальные группы и технологии.",
             hintKk: "Дене, сөз, әлеуметтік топтар және технология арқылы буллингті ойлаңыз.",
@@ -404,6 +448,8 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
             questionRu: "Ученик подвергается кибербуллингу через анонимные сообщения в соцсетях. Объясните, почему это особенно вредно, и предложите два действия.",
             questionKk: "Оқушы әлеуметтік желілердегі анонимді хабарламалар арқылы кибербуллингке ұшырайды. Бұл неліктен ерекше зиянды екенін түсіндіріңіз және екі іс-әрекет ұсыныңыз.",
             answer: "Cyberbullying is especially harmful because it follows the victim everywhere (24/7 access), the anonymity emboldens bullies, and the audience is potentially unlimited. Actions: (1) Save screenshots as evidence. (2) Report to a trusted adult and the platform.",
+            answerRu: "Кибербуллинг особенно вреден, потому что он следует за жертвой повсюду (доступ 24/7), анонимность придаёт обидчикам смелости, а аудитория потенциально неограничена. Действия: (1) Сохранить скриншоты как доказательство. (2) Сообщить доверенному взрослому и администрации платформы.",
+            answerKk: "Кибербуллинг ерекше зиянды, өйткені ол құрбанға әр жерде ілеседі (24/7 қолжетімділік), анонимділік обидчиктерге батылдылық береді және аудитория әлеуетті шексіз. Іс-әрекеттер: (1) Скриншоттарды дәлел ретінде сақтаңыз. (2) Сенімді ересек адамға және платформа әкімшілігіне хабарлаңыз.",
             hint: "Think about what makes online bullying different from in-person bullying.",
             hintRu: "Подумайте, чем онлайн-буллинг отличается от буллинга лицом к лицу.",
             hintKk: "Онлайн буллингтің жеке буллингтен несімен ерекшеленетінін ойлаңыз.",
@@ -415,6 +461,8 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
             questionRu: "Разработайте школьную программу против буллинга на основе Модели Заступника. Включите минимум три инициативы для разных типов буллинга.",
             questionKk: "Қорғаушы моделін қолданып, мектеп деңгейіндегі буллингке қарсы бағдарлама жасаңыз. Буллингтің әртүрлі түрлеріне арналған кемінде үш бастама қосыңыз.",
             answer: "Program: (1) Upstander training workshops for all students — teaches safe intervention for physical and verbal bullying. (2) Anonymous reporting app — addresses cyberbullying by giving targets a safe way to report. (3) Inclusion campaigns and buddy systems — combats social bullying by ensuring no student is isolated. Each initiative creates a culture where bystanders become upstanders.",
+            answerRu: "Программа: (1) Тренинги заступников для всех учеников — учат безопасному вмешательству при физическом и вербальном буллинге. (2) Анонимное приложение для жалоб — решает проблему кибербуллинга, давая жертвам безопасный способ сообщить. (3) Кампании вовлечения и система напарников — борются с социальным буллингом, чтобы ни один ученик не был изолирован. Каждая инициатива создаёт культуру, где наблюдатели становятся заступниками.",
+            answerKk: "Бағдарлама: (1) Барлық оқушыларға арналған қорғаушылар тренингтері — физикалық және вербалды буллинг кезінде қауіпсіз араласуды үйретеді. (2) Анонимді хабарлау қосымшасы — құрбандарға хабарлаудың қауіпсіз жолын бере отырып, кибербуллинг мәселесін шешеді. (3) Инклюзия науқандары мен серіктестік жүйесі — бірде-бір оқушының оқшауланбауын қамтамасыз етіп, әлеуметтік буллингпен күреседі. Әр бастама бақылаушылардың қорғаушыға айналу мәдениетін қалыптастырады.",
             hint: "Match each initiative to a specific type of bullying: physical/verbal, cyber, and social.",
             hintRu: "Сопоставьте каждую инициативу с типом буллинга: физический/вербальный, кибер, социальный.",
             hintKk: "Әр бастаманы буллинг түрімен сәйкестендіріңіз: физикалық/вербалды, кибер, әлеуметтік.",
@@ -452,7 +500,9 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
               { en: "Write three entries: (1) 'I am grateful for my friend who noticed I was feeling down.' (2) 'I am grateful for the warm meal my mom made.' (3) 'I am grateful that I finished my homework on time today.'", ru: "Напишите три записи: (1) «Благодарен другу, который заметил моё настроение.» (2) «Благодарен за тёплый ужин от мамы.» (3) «Благодарен, что сегодня закончил домашнее задание вовремя.»", kk: "Үш жазба жазыңыз: (1) «Көңіл-күйімді байқаған досыма ризамын.» (2) «Анамның жылы тамағы үшін ризамын.» (3) «Бүгін үй тапсырмасын уақытында аяқтағаныма ризамын.»" },
               { en: "Explain the science: Gratitude journaling shifts focus from what is going wrong to what is going right. Emmons's research shows this rewires the brain to notice more positive things over time, reducing depressive symptoms.", ru: "Объясните науку: Дневник благодарности переключает внимание с плохого на хорошее. Исследования Эммонса показывают, что это перестраивает мозг замечать больше позитивного.", kk: "Ғылымды түсіндіріңіз: Ризашылық күнделігі назарды жаманнан жақсыға ауыстырады. Эммонстың зерттеулері бұл миды уақыт өте позитивті нәрселерді байқауға қайта бағдарлайтынын көрсетеді." }
             ],
-            answer: "Three entries focusing on people, basic needs, and personal accomplishments. This works because it trains the brain to scan for positives instead of negatives, improving mood over time."
+            answer: "Three entries focusing on people, basic needs, and personal accomplishments. This works because it trains the brain to scan for positives instead of negatives, improving mood over time.",
+            answerRu: "Три записи, сфокусированные на людях, базовых потребностях и личных достижениях. Это работает, потому что тренирует мозг искать позитивное вместо негативного, со временем улучшая настроение.",
+            answerKk: "Адамдарға, негізгі қажеттіліктерге және жеке жетістіктерге бағытталған үш жазба. Бұл жұмыс істейді, өйткені миды негативтің орнына позитивті іздеуге жаттықтырып, уақыт өте көңіл-күйді жақсартады."
           }
         ],
         practiceProblems: [
@@ -462,6 +512,8 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
             questionRu: "Сколько вещей нужно записывать в дневник благодарности ежедневно по стандартной практике?",
             questionKk: "Стандартты тәжірибе бойынша ризашылық күнделігіне күнде неше нәрсе жазу керек?",
             answer: "Three things you are grateful for each day.",
+            answerRu: "Три вещи, за которые вы благодарны каждый день.",
+            answerKk: "Әр күні риза болған үш нәрсе.",
             hint: "It is a small number that makes the habit easy to maintain.",
             hintRu: "Это небольшое число, которое делает привычку легко поддерживаемой.",
             hintKk: "Бұл әдетті оңай ұстауға мүмкіндік беретін шағын сан.",
@@ -473,6 +525,8 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
             questionRu: "Напишите короткое письмо благодарности (2-3 предложения) человеку, положительно повлиявшему на вашу жизнь. Затем объясните одну психологическую пользу.",
             questionKk: "Өміріңізге оң әсер еткен біреуге қысқа ризашылық хат жазыңыз (2-3 сөйлем). Содан кейін бір психологиялық пайдасын түсіндіріңіз.",
             answer: "Example: 'Dear Grandma, thank you for always listening when I need to talk. Your stories about your childhood help me see problems from a bigger perspective.' Benefit: Writing gratitude letters increases positive emotions and strengthens social bonds.",
+            answerRu: "Пример: «Дорогая бабушка, спасибо, что всегда слушаешь, когда мне нужно поговорить. Твои истории о детстве помогают мне видеть проблемы в более широкой перспективе.» Польза: написание писем благодарности усиливает позитивные эмоции и укрепляет социальные связи.",
+            answerKk: "Мысал: «Қымбатты әже, сөйлескім келгенде әрқашан тыңдайтыныңыз үшін рахмет. Сіздің балалық шағыңыз туралы әңгімелеріңіз мәселелерге кеңірек қарауға көмектеседі.» Пайдасы: ризашылық хаттарын жазу оң эмоцияларды арттырып, әлеуметтік байланыстарды нығайтады.",
             hint: "Think of someone who has helped you recently or has been consistently supportive.",
             hintRu: "Подумайте о том, кто недавно помог вам или постоянно поддерживает.",
             hintKk: "Жақында көмектескен немесе тұрақты қолдау көрсететін адамды ойлаңыз.",
@@ -484,6 +538,8 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
             questionRu: "Скептик говорит: «Дневники благодарности — просто фальшивый позитив, игнорирующий реальные проблемы.» Используя исследования Эммонса, опровергните это.",
             questionKk: "Скептик: «Ризашылық күнделіктері жалған позитив — шынайы мәселелерді елемейді.» Эммонстың зерттеулерін қолданып, бұл сынды теріске шығарыңыз.",
             answer: "Emmons's research shows gratitude does not deny problems — it broadens perspective so people see both challenges AND good things. Participants who kept gratitude journals actually dealt with problems more effectively because they had better emotional resources. Gratitude improves resilience, not avoidance.",
+            answerRu: "Исследования Эммонса показывают, что благодарность не отрицает проблемы — она расширяет перспективу, так что люди видят и трудности, и хорошее. Участники, которые вели дневники благодарности, на самом деле справлялись с проблемами эффективнее, потому что у них было больше эмоциональных ресурсов. Благодарность развивает устойчивость, а не избегание.",
+            answerKk: "Эммонстың зерттеулері ризашылық мәселелерді жоққа шығармайтынын көрсетеді — ол көзқарасты кеңейтіп, адамдар қиындықтарды да, жақсы нәрселерді де көреді. Ризашылық күнделігін жүргізген қатысушылар мәселелермен шын мәнінде тиімдірек күресті, өйткені олардың эмоциялық ресурстары мол болды. Ризашылық қашып-құтылуды емес, төзімділікті жақсартады.",
             hint: "Does gratitude replace problem-solving, or does it give you more emotional energy to solve problems?",
             hintRu: "Благодарность заменяет решение проблем или даёт больше эмоциональной энергии для этого?",
             hintKk: "Ризашылық мәселелерді шешуді алмастыра ма, әлде оларды шешуге көбірек эмоциялық энергия бере ме?",
@@ -521,7 +577,9 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
               { en: "Identify the emotion and situation: You feel frustrated (emotion) when your sibling borrows things without asking (situation) because it feels disrespectful of your belongings (reason).", ru: "Определите эмоцию и ситуацию: Вы чувствуете раздражение (эмоция), когда брат/сестра берёт вещи без спроса (ситуация), потому что это неуважение к вашим вещам (причина).", kk: "Эмоция мен жағдайды анықтаңыз: Бауырыңыз сұрамай заттарыңызды алғанда (жағдай) ренжисіз (эмоция), себебі бұл заттарыңызға құрметсіздік (себеп)." },
               { en: "Form the I-statement: 'I feel frustrated when my things are borrowed without asking because I want my belongings to be respected. Could you please ask me first?'", ru: "Сформируйте Я-высказывание: «Я чувствую раздражение, когда мои вещи берут без спроса, потому что хочу уважения к моим вещам. Можешь спрашивать?»", kk: "Мен-мәлімдемесін құрыңыз: «Заттарымды сұрамай алғанда ренжимін, себебі заттарыма құрмет күтемін. Алдымен сұрай аласың ба?»" }
             ],
-            answer: "'I feel frustrated when my things are borrowed without asking because I want my belongings to be respected. Could you please ask me first?' This avoids blame and opens dialogue."
+            answer: "'I feel frustrated when my things are borrowed without asking because I want my belongings to be respected. Could you please ask me first?' This avoids blame and opens dialogue.",
+            answerRu: "«Я злюсь, когда мои вещи берут без спроса, потому что хочу, чтобы к моим вещам относились с уважением. Пожалуйста, спрашивай меня сначала». Это позволяет избежать обвинений и открывает диалог.",
+            answerKk: "«Заттарымды сұрамай алғанда ренжимін, себебі заттарыма құрмет көрсетілгенін қалаймын. Алдымен менен сұрай аласың ба?» Бұл кінәлаудан аулақтатып, диалог ашады."
           }
         ],
         practiceProblems: [
@@ -531,6 +589,8 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
             questionRu: "Заполните шаблон Я-высказывания: «Я чувствую ___, когда ___, потому что ___».",
             questionKk: "Мен-мәлімдеме үлгісін толтырыңыз: «Мен ___ сезінемін, ___ кезде, себебі ___».",
             answer: "Example: 'I feel worried when you come home late because I care about your safety.' Any valid I-statement is acceptable.",
+            answerRu: "Пример: «Я волнуюсь, когда ты приходишь домой поздно, потому что забочусь о твоей безопасности.» Подойдёт любое правильное Я-высказывание.",
+            answerKk: "Мысал: «Үйге кеш келгенде алаңдаймын, себебі сенің қауіпсіздігіңе қамқорлық жасаймын.» Кез келген дұрыс Мен-мәлімдемесі қабылданады.",
             hint: "Start with an emotion, then describe the situation, then explain why it matters to you.",
             hintRu: "Начните с эмоции, затем опишите ситуацию, затем объясните, почему это важно.",
             hintKk: "Эмоциядан бастаңыз, содан кейін жағдайды сипаттаңыз, содан кейін оның маңыздылығын түсіндіріңіз.",
@@ -542,6 +602,8 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
             questionRu: "Используя коэффициент Готтмана, проанализируйте: за неделю у пары было 3 ссоры и 10 позитивных взаимодействий. Здоровая ли это зона?",
             questionKk: "Готтман коэффициентін қолданып талдаңыз: бір аптада жұптың 3 дауы және 10 оң әрекеті болды. Бұл сау аймақта ма?",
             answer: "Ratio is 10:3, which is approximately 3.3:1. This is below the healthy minimum of 5:1, so the relationship needs more positive interactions to stay healthy.",
+            answerRu: "Соотношение 10:3, то есть примерно 3,3:1. Это ниже здорового минимума 5:1, поэтому отношениям нужно больше позитивных взаимодействий, чтобы оставаться здоровыми.",
+            answerKk: "Қатынас 10:3, яғни шамамен 3,3:1. Бұл сау минимум 5:1-ден төмен, сондықтан қарым-қатынасты сау ұстау үшін оң әрекеттер көбірек болуы керек.",
             hint: "Divide the positive interactions by the negative ones and compare to 5:1.",
             hintRu: "Разделите позитивные взаимодействия на негативные и сравните с 5:1.",
             hintKk: "Оң әрекеттерді теріске бөліп, 5:1 мен салыстырыңыз.",
@@ -553,6 +615,8 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
             questionRu: "В некоторых культурах «Я»-высказывания считаются слишком индивидуалистичными. Как адаптировать этот подход для коллективистской культуры, избегая обвинений?",
             questionKk: "Кейбір мәдениеттер «Мен» мәлімдемелерін тым жеке санайды. Кінәлаудан аулақ бола отырып, бұл тәсілді коллективистік мәдениетке қалай бейімдейсіз?",
             answer: "Adapt by using 'We' statements: 'We might feel better if we discussed borrowing things first' or 'Our relationship is important, so I want us to communicate better about this.' This preserves the anti-blame benefit while respecting the collectivist emphasis on group harmony.",
+            answerRu: "Адаптируйте, используя «Мы»-высказывания: «Нам было бы лучше, если бы мы сначала обсуждали, когда берём вещи друг друга» или «Наши отношения важны, поэтому я хочу, чтобы мы лучше общались об этом». Это сохраняет преимущество без обвинений, уважая коллективистский акцент на групповой гармонии.",
+            answerKk: "«Біз» мәлімдемелерін қолданып бейімдеңіз: «Заттарды алмас бұрын талқыласақ, өзімізді жақсы сезінер едік» немесе «Біздің қарым-қатынасымыз маңызды, сондықтан осы туралы жақсырақ сөйлескенімізді қалаймын». Бұл кінәламау артықшылығын сақтай отырып, топтық үйлесімге коллективистік баса назар аударуды құрметтейді.",
             hint: "Think about replacing 'I' with 'We' or 'Our relationship' to emphasize shared goals.",
             hintRu: "Замените «Я» на «Мы» или «Наши отношения» для акцента на общих целях.",
             hintKk: "«Мен» дегенді «Біз» немесе «Біздің қарым-қатынасымыз» деп ауыстырып, ортақ мақсаттарға баса назар аударыңыз.",
@@ -590,7 +654,9 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
               { en: "Identify the visible element: Food is a visible part of culture (above the waterline). Laughing at it disrespects the surface-level expression of a much deeper identity.", ru: "Определите видимый элемент: Еда — видимая часть культуры (над ватерлинией). Смех над ней неуважает поверхностное выражение гораздо более глубокой идентичности.", kk: "Көрінетін элементті анықтаңыз: Тамақ — мәдениеттің көрінетін бөлігі (су сызығынан жоғары). Оған күлу әлдеқайда терең сәйкестіктің бет көрінісін құрметтемеу." },
               { en: "Explain what is beneath: The food connects to family traditions, values about health and community, and the student's sense of home and belonging. Laughing at food means laughing at their identity and heritage.", ru: "Объясните скрытое: Еда связана с семейными традициями, ценностями здоровья и общности, чувством дома. Смех над едой — это смех над их идентичностью.", kk: "Астындағыны түсіндіріңіз: Тамақ отбасы дәстүрлеріне, денсаулық пен қоғамдастық құндылықтарына және үй сезіміне байланысты. Тамаққа күлу — олардың бірегейлігіне күлу." }
             ],
-            answer: "Food (visible, 10%) connects to deep values of family, tradition, and belonging (hidden, 90%). Laughing at food disrespects the entire cultural identity beneath the surface."
+            answer: "Food (visible, 10%) connects to deep values of family, tradition, and belonging (hidden, 90%). Laughing at food disrespects the entire cultural identity beneath the surface.",
+            answerRu: "Еда (видимое, 10%) связана с глубинными ценностями семьи, традиций и принадлежности (скрытое, 90%). Смех над едой проявляет неуважение ко всей культурной идентичности, скрытой под поверхностью.",
+            answerKk: "Тамақ (көрінетін, 10%) отбасы, дәстүр және өз орнына тиесілілік терең құндылықтарына байланысты (жасырын, 90%). Тамаққа күлу — бет астындағы бүкіл мәдени бірегейлікті құрметтемеу."
           }
         ],
         practiceProblems: [
@@ -600,6 +666,8 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
             questionRu: "В модели Культурного айсберга какой процент культурных различий виден и какой скрыт?",
             questionKk: "Мәдени айсберг моделінде мәдени айырмашылықтардың қанша пайызы көрінеді және қанша пайызы жасырын?",
             answer: "About 10% is visible (language, food, dress) and 90% is hidden (values, beliefs, norms).",
+            answerRu: "Около 10% видимо (язык, еда, одежда), а 90% скрыто (ценности, убеждения, нормы).",
+            answerKk: "Шамамен 10%-ы көрінеді (тіл, тамақ, киім), ал 90%-ы жасырын (құндылықтар, сенімдер, нормалар).",
             hint: "Think of an iceberg — how much is above water versus below?",
             hintRu: "Подумайте об айсберге — сколько над водой и сколько под водой?",
             hintKk: "Айсбергті ойлаңыз — судың үстінде қаншасы, астында қаншасы?",
@@ -611,6 +679,8 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
             questionRu: "Приведите два примера «видимых» и два примера «скрытых» культурных элементов из модели Айсберга.",
             questionKk: "Айсберг моделінен «көрінетін» мәдени элементтердің екі мысалын және «жасырын» элементтердің екі мысалын келтіріңіз.",
             answer: "Visible: traditional clothing, spoken language. Hidden: attitudes toward authority, concepts of personal space.",
+            answerRu: "Видимое: традиционная одежда, разговорный язык. Скрытое: отношение к авторитету, представления о личном пространстве.",
+            answerKk: "Көрінетін: дәстүрлі киім, сөйлеу тілі. Жасырын: билікке деген көзқарас, жеке кеңістік туралы түсінік.",
             hint: "Visible means you can see or hear it. Hidden means you can only discover it through deeper interaction.",
             hintRu: "Видимое можно увидеть или услышать. Скрытое обнаруживается только через глубокое общение.",
             hintKk: "Көрінетінді көруге немесе естуге болады. Жасырынды тек терең қарым-қатынас арқылы ашуға болады.",
@@ -622,6 +692,8 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
             questionRu: "Два ученика из разных культур спорят о личном пространстве — один стоит близко, другой чувствует дискомфорт. Проанализируйте по модели Айсберга и предложите решение.",
             questionKk: "Екі оқушы жеке кеңістік туралы дауласады — біреуі жақын тұрады, екіншісі ыңғайсыз сезінеді. Айсберг моделі бойынша талдаңыз және шешім ұсыныңыз.",
             answer: "Personal space is a hidden cultural element (below the waterline). In some cultures, close proximity shows warmth and trust; in others, it feels invasive. Resolution: Both students learn about each other's cultural norms through perspective-taking (Pause, Ask, Listen, Learn), then agree on a comfortable middle ground.",
+            answerRu: "Личное пространство — скрытый культурный элемент (под ватерлинией). В одних культурах близкое расстояние показывает теплоту и доверие; в других — ощущается как вторжение. Решение: оба ученика узнают культурные нормы друг друга через принятие перспективы (Пауза, Спросить, Выслушать, Узнать), затем находят комфортную золотую середину.",
+            answerKk: "Жеке кеңістік — жасырын мәдени элемент (су сызығынан төмен). Кейбір мәдениеттерде жақын тұру жылылық пен сенімді білдіреді; басқаларында ол баса-көктеу сияқты сезіледі. Шешім: екі оқушы көзқарасты қабылдау арқылы (Тоқта, Сұра, Тыңда, Үйрен) бір-бірінің мәдени нормаларын үйренеді, содан кейін ыңғайлы ортақ шешімге келеді.",
             hint: "Is personal space a visible or hidden cultural element? What deeper value does each student's preference reflect?",
             hintRu: "Личное пространство — видимый или скрытый культурный элемент? Какую глубинную ценность отражает предпочтение каждого?",
             hintKk: "Жеке кеңістік көрінетін немесе жасырын мәдени элемент пе? Әр оқушының қалауы қандай терең құндылықты көрсетеді?",
@@ -659,7 +731,9 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
               { en: "Engage your senses: See — desk, pen, clock, window, door. Touch — the smoothness of the desk, your shirt fabric, the chair seat, the pen in your hand. Hear — the clock ticking, someone coughing, the air conditioner.", ru: "Задействуйте чувства: Вижу — парту, ручку, часы, окно, дверь. Касаюсь — гладкой парты, ткани рубашки, стула, ручки. Слышу — тиканье часов, чей-то кашель, кондиционер.", kk: "Сезімдеріңізді қосыңыз: Көремін — үстел, қалам, сағат, терезе, есік. Ұстаймын — тегіс үстел, көйлек матасы, орындық, қалам. Естимін — сағат тықылы, біреудің жөтелі, кондиционер." },
               { en: "Continue: Smell — two things like the room's air freshener and your eraser. Taste — one thing like the mint gum you chewed earlier. This grounds you in the present and interrupts the panic spiral.", ru: "Продолжите: Запах — освежитель воздуха и ластик. Вкус — мятная жвачка. Это заземляет вас и прерывает спираль паники.", kk: "Жалғастырыңыз: Иіс — бөлменің хош иісі мен өшіргіш. Дәм — жалбыз сағыз. Бұл сізді қазіргіге бекітеді және дүрлігу спиралін тоқтатады." }
             ],
-            answer: "By systematically engaging all five senses (5 see, 4 touch, 3 hear, 2 smell, 1 taste), you anchor your mind to the present moment and break the panic cycle."
+            answer: "By systematically engaging all five senses (5 see, 4 touch, 3 hear, 2 smell, 1 taste), you anchor your mind to the present moment and break the panic cycle.",
+            answerRu: "Систематически задействуя все пять чувств (5 вижу, 4 касаюсь, 3 слышу, 2 ощущаю запах, 1 ощущаю вкус), вы закрепляете разум в настоящем моменте и прерываете цикл паники.",
+            answerKk: "Бес сезімнің барлығын жүйелі түрде қоса отырып (5 көремін, 4 ұстаймын, 3 естимін, 2 иіс сеземін, 1 дәм сеземін), ойыңызды қазіргі сәтке бекітіп, дүрлігу циклін үзесіз."
           }
         ],
         practiceProblems: [
@@ -669,6 +743,8 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
             questionRu: "Перечислите пять чувств техники 5-4-3-2-1 и количество элементов для каждого.",
             questionKk: "5-4-3-2-1 техникасында қолданылатын бес сезімді және әрқайсысы үшін неше элемент анықтайтыныңызды атаңыз.",
             answer: "See (5 items), Touch (4 items), Hear (3 items), Smell (2 items), Taste (1 item).",
+            answerRu: "Зрение (5 элементов), осязание (4 элемента), слух (3 элемента), обоняние (2 элемента), вкус (1 элемент).",
+            answerKk: "Көру (5 элемент), ұстау (4 элемент), есту (3 элемент), иіс сезу (2 элемент), дәм сезу (1 элемент).",
             hint: "The numbers count down from 5 to 1, each matching a different sense.",
             hintRu: "Числа уменьшаются от 5 до 1, каждое соответствует чувству.",
             hintKk: "Сандар 5-тен 1-ге дейін кемиді, әрқайсысы әр сезімге сәйкес.",
@@ -680,6 +756,8 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
             questionRu: "Объясните разницу между осознанностью и релаксацией. Это одно и то же? Почему?",
             questionKk: "Саналылық пен релаксацияның айырмашылығын түсіндіріңіз. Бұл бір нәрсе ме? Неліктен?",
             answer: "They are not the same. Relaxation aims to feel calm. Mindfulness aims to observe the present moment without judgment — you might notice stress, pain, or discomfort and simply observe it without trying to change it. Mindfulness often leads to relaxation, but that is a side effect, not the goal.",
+            answerRu: "Это не одно и то же. Релаксация направлена на то, чтобы почувствовать спокойствие. Осознанность направлена на наблюдение настоящего момента без осуждения — вы можете заметить стресс, боль или дискомфорт и просто наблюдать их, не пытаясь изменить. Осознанность часто ведёт к релаксации, но это побочный эффект, а не цель.",
+            answerKk: "Бұл бір нәрсе емес. Релаксацияның мақсаты — тыныштық сезіну. Саналылықтың мақсаты — қазіргі сәтті бағалаусыз бақылау: стресс, ауырсыну немесе ыңғайсыздықты байқап, оны өзгертуге тырыспай, жай ғана бақылай аласыз. Саналылық көбіне релаксацияға әкеледі, бірақ бұл жанама әсер, мақсат емес.",
             hint: "Can you practice mindfulness while feeling uncomfortable? Can you relax while being mindless?",
             hintRu: "Можно ли практиковать осознанность, чувствуя дискомфорт? Можно ли расслабляться неосознанно?",
             hintKk: "Ыңғайсыздық сезіне отырып саналылықты практикалай аласыз ба? Санасыз релаксация жасауға бола ма?",
@@ -691,6 +769,8 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
             questionRu: "Разработайте 5-минутную ежедневную практику осознанности для стрессового ученика, сочетающую дыхание и заземление. Объясните каждый компонент.",
             questionKk: "Стресстегі оқушы үшін тыныс алу мен жерге тұру техникаларын біріктіретін 5 минуттық күнделікті саналылық тәртібін жасаңыз. Әр компонентті түсіндіріңіз.",
             answer: "Routine: (1) 1 minute box breathing (4-4-4) — activates parasympathetic nervous system. (2) 2 minutes 5-4-3-2-1 grounding — anchors to present moment. (3) 1 minute body scan (notice sensations from head to toes without judging) — builds body awareness. (4) 1 minute gratitude thought (think of one good thing) — ends on a positive note. Each component targets a different aspect: calm body, present mind, body awareness, positive framing.",
+            answerRu: "Практика: (1) 1 минута дыхания по квадрату (4-4-4) — активирует парасимпатическую нервную систему. (2) 2 минуты заземления 5-4-3-2-1 — закрепляет в настоящем моменте. (3) 1 минута сканирования тела (замечайте ощущения от головы до пальцев ног без осуждения) — развивает осознание тела. (4) 1 минута мысли благодарности (подумайте об одном хорошем) — завершает на позитивной ноте. Каждый компонент нацелен на свой аспект: спокойное тело, присутствующий ум, осознание тела, позитивный настрой.",
+            answerKk: "Тәртіп: (1) 1 минут шаршылы тыныс алу (4-4-4) — парасимпатикалық жүйке жүйесін белсендіреді. (2) 2 минут 5-4-3-2-1 жерге тұру — қазіргі сәтке бекітеді. (3) 1 минут денені сканерлеу (бастан аяқ ұшына дейінгі сезімдерді бағалаусыз байқау) — дене хабардарлығын дамытады. (4) 1 минут ризашылық ойы (бір жақсы нәрсені ойлау) — позитивті нотпен аяқтайды. Әр компонент әртүрлі аспектіге бағытталған: тыныш дене, қазіргі ой, дене хабардарлығы, позитивті бағдар.",
             hint: "Think about combining breathing, sensory awareness, and positive thinking into a short sequence.",
             hintRu: "Подумайте о сочетании дыхания, сенсорного осознания и позитивного мышления в короткой последовательности.",
             hintKk: "Тыныс алу, сенсорлық хабардарлық және позитивті ойлауды қысқа ретке біріктіру туралы ойлаңыз.",
@@ -737,7 +817,9 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
               { en: "Identify the quadrant: Amir's interrupting habit is in his Blind Spot — known to others but not to himself. He genuinely believes he listens well.", ru: "Определите квадрант: Привычка Амира перебивать — в его Слепой зоне: другие видят, а он нет. Он искренне верит, что хорошо слушает.", kk: "Квадрантты анықтаңыз: Амірдің сөз бөлу әдеті оның Соқыр аймағында — басқалар көреді, бірақ ол көрмейді." },
               { en: "Solution: Amir needs feedback to move this trait from Blind to Open. He could ask friends to signal when he interrupts, then use the Self-Reflection Loop to observe and adjust his behavior.", ru: "Решение: Амиру нужна обратная связь, чтобы перевести эту черту из Слепой зоны в Открытую. Он может попросить друзей сигнализировать, когда перебивает.", kk: "Шешім: Амір бұл қасиетті Соқыр аймақтан Ашық аймаққа ауыстыру үшін кері байланыс қажет. Достарынан сөз бөлгенде белгі беруді сұрай алады." }
             ],
-            answer: "The interrupting habit is in Amir's Blind Spot (known to others, not to self). He needs feedback to make it an Open trait, then use self-reflection to change the behavior."
+            answer: "The interrupting habit is in Amir's Blind Spot (known to others, not to self). He needs feedback to make it an Open trait, then use self-reflection to change the behavior.",
+            answerRu: "Привычка перебивать находится в Слепой зоне Амира (известна другим, но не ему самому). Ему нужна обратная связь, чтобы сделать её Открытой чертой, а затем использовать саморефлексию, чтобы изменить поведение.",
+            answerKk: "Сөз бөлу әдеті Амірдің Соқыр аймағында (басқаларға белгілі, өзіне белгісіз). Оны Ашық қасиетке айналдыру үшін оған кері байланыс қажет, содан кейін мінез-құлықты өзгерту үшін өзін-өзі бақылауды қолданады."
           }
         ],
         practiceProblems: [
@@ -747,6 +829,8 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
             questionRu: "Назовите четыре квадранта Окна Джохари.",
             questionKk: "Джохари терезесінің төрт квадрантын атаңыз.",
             answer: "Open (known to self and others), Blind (known to others only), Hidden (known to self only), Unknown (known to neither).",
+            answerRu: "Открытое (известно себе и другим), Слепое (известно только другим), Скрытое (известно только себе), Неизвестное (не известно никому).",
+            answerKk: "Ашық (өзіне де, басқаларға да белгілі), Соқыр (тек басқаларға белгілі), Жасырын (тек өзіне белгілі), Белгісіз (ешкімге белгісіз).",
             hint: "Think about combinations of 'known to self' and 'known to others' as yes/no.",
             hintRu: "Подумайте о комбинациях «известно себе» и «известно другим» как да/нет.",
             hintKk: "«Өзіне белгілі» және «басқаларға белгілі» комбинацияларын иә/жоқ ретінде ойлаңыз.",
@@ -758,6 +842,8 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
             questionRu: "Приведите по одному личному примеру для каждого квадранта Окна Джохари: Открытый, Слепой, Скрытый, Неизвестный.",
             questionKk: "Джохари терезесінің әр квадрантына бір жеке мысал келтіріңіз: Ашық, Соқыр, Жасырын, Белгісіз.",
             answer: "Example: Open — I know I am friendly and others agree. Blind — I might fidget when nervous without realizing it. Hidden — I am worried about my grades but have not told anyone. Unknown — talents or reactions I have not yet discovered.",
+            answerRu: "Пример: Открытое — я знаю, что я дружелюбный, и другие с этим согласны. Слепое — я могу ёрзать, когда нервничаю, не замечая этого. Скрытое — я переживаю за оценки, но никому об этом не говорил. Неизвестное — таланты или реакции, которые я ещё не открыл.",
+            answerKk: "Мысал: Ашық — менің ақкөңіл екенімді білемін және басқалар да келіседі. Соқыр — алаңдаған кезде өзім байқамай орындықта қозғала беруім мүмкін. Жасырын — бағаларым үшін уайымдаймын, бірақ ешкімге айтқан жоқпын. Белгісіз — әлі ашылмаған таланттар немесе реакциялар.",
             hint: "Start with something obvious everyone knows about you, then think about what you hide.",
             hintRu: "Начните с очевидного, что все знают, затем подумайте о скрытом.",
             hintKk: "Барлығы білетін айқын нәрседен бастаңыз, содан кейін жасырын нәрсені ойлаңыз.",
@@ -769,6 +855,8 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
             questionRu: "Как активный поиск обратной связи может уменьшить вашу Слепую зону? Каковы риски и преимущества?",
             questionKk: "Басқалардан белсенді кері байланыс іздеу Джохари терезесіндегі Соқыр аймағыңызды қалай азайтады? Тәуекелдер мен пайдалар қандай?",
             answer: "Benefits: reduces blind spots, improves relationships, accelerates personal growth, builds trust. Risks: receiving harsh feedback can hurt self-esteem, some feedback may be biased or inaccurate. Mitigation: ask trusted people, be specific about what feedback you want, and process it with the Self-Reflection Loop rather than reacting immediately.",
+            answerRu: "Преимущества: уменьшает слепые зоны, улучшает отношения, ускоряет личностный рост, укрепляет доверие. Риски: жёсткая обратная связь может задеть самооценку, часть отзывов может быть предвзятой или неточной. Смягчение: спрашивайте доверенных людей, уточняйте, какую именно обратную связь хотите, и обдумывайте её через Петлю саморефлексии, а не реагируйте сразу.",
+            answerKk: "Пайдалары: соқыр аймақтарды азайтады, қарым-қатынасты жақсартады, жеке өсуді жылдамдатады, сенім орнатады. Тәуекелдер: қатаң кері байланыс өзін-өзі бағалауға нұқсан келтіруі мүмкін, кейбір пікірлер бейтарап болмауы немесе дәл болмауы мүмкін. Жұмсарту: сенімді адамдардан сұраңыз, қандай кері байланыс қажет екенін нақтылаңыз және бірден реакция жасамай, оны Өзін-өзі бақылау циклі арқылы талдаңыз.",
             hint: "Think about both why feedback is valuable and why it can be uncomfortable.",
             hintRu: "Подумайте, почему обратная связь ценна и почему она может быть некомфортна.",
             hintKk: "Кері байланыстың неліктен құнды және неліктен ыңғайсыз болуы мүмкін екенін ойлаңыз.",
@@ -806,7 +894,9 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
               { en: "Identify the automatic thought: 'I'm not good enough' or 'I'll never make the team.' Notice the emotion: disappointment, shame, or frustration.", ru: "Определите автоматическую мысль: «Я недостаточно хорош» или «Я никогда не попаду в команду.» Заметьте эмоцию: разочарование, стыд или расстройство.", kk: "Автоматты ойды анықтаңыз: «Мен жеткіліксізбін» немесе «Мен ешқашан команданаға кірмеймін.» Эмоцияны байқаңыз: көңілсіздік, ұят немесе ренжу." },
               { en: "Reappraise: 'Not making the team this year shows me what I need to work on. I can practice specific skills and try again next season. Many professional athletes faced early rejection.' This shifts the emotion from helplessness to determination.", ru: "Переоцените: «Непопадание в команду показывает, над чем работать. Я могу тренировать навыки и попробовать снова. Многие профессиональные спортсмены сталкивались с ранним отказом.»", kk: "Қайта бағалаңыз: «Командаға кірмеу маған не үстінде жұмыс істеу керектігін көрсетеді. Дағдыларды жаттықтырып, қайта сынай аламын. Көптеген кәсіби спортшылар ерте бас тартуға тап болған.»" }
             ],
-            answer: "Reappraise from 'I'm not good enough' to 'This shows me what to improve — I can practice and try again.' This shifts emotion from helplessness to determination."
+            answer: "Reappraise from 'I'm not good enough' to 'This shows me what to improve — I can practice and try again.' This shifts emotion from helplessness to determination.",
+            answerRu: "Переосмыслите с «Я недостаточно хорош» на «Это показывает мне, что улучшать — я могу тренироваться и попробовать снова». Это переводит эмоцию от беспомощности к решимости.",
+            answerKk: "«Мен жеткіліксізбін» деген ойды «Бұл маған нені жақсарту керектігін көрсетеді — жаттығып, қайта тырыса аламын» деп қайта бағалаңыз. Бұл эмоцияны дәрменсіздіктен табандылыққа ауыстырады."
           }
         ],
         practiceProblems: [
@@ -816,6 +906,8 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
             questionRu: "Что такое когнитивная переоценка простыми словами?",
             questionKk: "Когнитивті қайта бағалау қарапайым сөзбен не?",
             answer: "Changing how you think about a situation to change how you feel about it.",
+            answerRu: "Изменение того, как вы думаете о ситуации, чтобы изменить то, что вы о ней чувствуете.",
+            answerKk: "Жағдай туралы сезіміңізді өзгерту үшін ол туралы ойыңызды өзгерту.",
             hint: "It is about changing your thoughts, not the situation itself.",
             hintRu: "Речь о смене мыслей, а не самой ситуации.",
             hintKk: "Бұл жағдайдың өзін емес, ойларыңызды өзгерту туралы.",
@@ -827,6 +919,8 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
             questionRu: "Переоцените эту мысль: «Моя презентация была катастрофой — все думают, что я глупый.»",
             questionKk: "Бұл ойды қайта бағалаңыз: «Презентациям апат болды — барлығы мені ақымақ деп ойлайды.»",
             answer: "Reappraisal: 'My presentation didn't go as planned, but most people were probably focused on their own. I can learn from the specific parts that went wrong and prepare better next time. One bad presentation doesn't define my intelligence.'",
+            answerRu: "Переоценка: «Моя презентация прошла не по плану, но большинство людей, вероятно, были сосредоточены на своём. Я могу сделать выводы из конкретных моментов, которые пошли не так, и лучше подготовиться в следующий раз. Одна плохая презентация не определяет мой интеллект.»",
+            answerKk: "Қайта бағалау: «Презентациям жоспар бойынша өтпеді, бірақ көпшілік өз ішімен айналысқан болуы мүмкін. Сәтсіз шыққан нақты бөліктерден үйреніп, келесі жолы жақсырақ дайындала аламын. Бір нашар презентация менің зияткерлігімді анықтамайды.»",
             hint: "Challenge the words 'disaster,' 'everyone,' and 'stupid' — are they really accurate?",
             hintRu: "Поставьте под сомнение слова «катастрофа», «все» и «глупый» — точны ли они?",
             hintKk: "«Апат», «барлығы» және «ақымақ» сөздеріне күмән келтіріңіз — олар дәл ме?",
@@ -838,6 +932,8 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
             questionRu: "Используя модель Гросса, определите, на каком из пяти этапов можно было вмешаться для предотвращения экзаменационной тревоги, и опишите стратегию для каждого.",
             questionKk: "Гросс моделін қолданып, емтихан алаңдаушылығын болдырмау үшін бес кезеңнің қайсысында араласуға болатынын анықтаңыз және әр кезең үшін стратегия сипаттаңыз.",
             answer: "(1) Situation Selection: Start studying early to avoid last-minute cramming. (2) Situation Modification: Study in a quiet library instead of a noisy room. (3) Attention Deployment: Focus on one topic at a time rather than worrying about everything. (4) Cognitive Reappraisal: Reframe 'I'll fail' as 'I've prepared and will do my best.' (5) Response Modulation: Use deep breathing right before the exam to calm physical symptoms.",
+            answerRu: "(1) Выбор ситуации: Начните готовиться заранее, чтобы избежать зубрёжки в последний момент. (2) Модификация ситуации: Готовьтесь в тихой библиотеке вместо шумной комнаты. (3) Распределение внимания: Сосредоточьтесь на одной теме за раз, а не переживайте обо всём сразу. (4) Когнитивная переоценка: Переформулируйте «Я провалюсь» в «Я подготовился и сделаю всё возможное». (5) Модуляция реакции: Используйте глубокое дыхание прямо перед экзаменом, чтобы успокоить физические симптомы.",
+            answerKk: "(1) Жағдай таңдау: Соңғы сәтте жаттап алуға жол бермес үшін ертерек оқи бастаңыз. (2) Жағдайды өзгерту: Шулы бөлменің орнына тыныш кітапханада оқыңыз. (3) Назарды бағыттау: Бәріне бірдей уайымдамай, бір уақытта бір тақырыпқа шоғырланыңыз. (4) Когнитивті қайта бағалау: «Құлап қаламын» деген ойды «Дайындалдым және барымды саламын» деп өзгертіңіз. (5) Жауап модуляциясы: Дене белгілерін тыныштандыру үшін емтихан алдында терең тыныс алуды қолданыңыз.",
             hint: "Work through the five stages in order — each one happens earlier or later in the emotional process.",
             hintRu: "Пройдите пять этапов по порядку — каждый происходит раньше или позже в эмоциональном процессе.",
             hintKk: "Бес кезеңді ретімен қарастырыңыз — әрқайсысы эмоциялық процесте ертерек немесе кешірек болады.",
@@ -875,7 +971,9 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
               { en: "Say No and Give a reason: 'I can't skip class — I have a quiz today and my grades matter to me. I don't want to risk getting in trouble.'", ru: "Скажите нет и дайте причину: «Не могу прогулять — сегодня контрольная и оценки важны. Не хочу рисковать.»", kk: "Жоқ деңіз және себеп айтыңыз: «Сабақты тастай алмаймын — бүгін бақылау жұмысы бар және бағалар маңызды. Қиындыққа тап болғым келмейді.»" },
               { en: "Suggest alternative: 'Let's go to the mall after school or this weekend instead.' Walk away if they keep pushing: 'I've made up my mind — see you later!'", ru: "Предложите альтернативу: «Давайте пойдём в ТЦ после школы или на выходных.» Уйдите, если давят: «Я решил — увидимся позже!»", kk: "Баламасын ұсыныңыз: «Сабақтан кейін немесе демалыс күні бара қоялық.» Қысымды жалғастырса: «Мен шештім — кейін кездесеміз!»" }
             ],
-            answer: "Say No: 'I can't skip class.' Reason: 'I have a quiz.' Alternative: 'Let's go after school.' Walk away if pressured. This maintains self-respect and offers a compromise."
+            answer: "Say No: 'I can't skip class.' Reason: 'I have a quiz.' Alternative: 'Let's go after school.' Walk away if pressured. This maintains self-respect and offers a compromise.",
+            answerRu: "Скажите Нет: «Я не могу прогулять урок.» Причина: «У меня контрольная.» Альтернатива: «Давайте пойдём после школы.» Уйдите, если продолжают давить. Это сохраняет самоуважение и предлагает компромисс.",
+            answerKk: "Жоқ деңіз: «Сабақты тастай алмаймын.» Себеп: «Бақылау жұмысым бар.» Балама: «Сабақтан кейін барайық.» Қысым жалғасса — кетіңіз. Бұл өзін-өзі құрметтеуді сақтап, ымыра ұсынады."
           }
         ],
         practiceProblems: [
@@ -885,6 +983,8 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
             questionRu: "Каковы четыре шага модели навыков отказа?",
             questionKk: "Бас тарту дағдылары моделінің төрт қадамы қандай?",
             answer: "Say No clearly, Give a reason, Suggest an alternative, Walk away if needed.",
+            answerRu: "Чётко сказать Нет, Дать причину, Предложить альтернативу, Уйти при необходимости.",
+            answerKk: "Анық жоқ деңіз, Себеп айтыңыз, Балама ұсыныңыз, Қажет болса кетіңіз.",
             hint: "Think of it as a conversation flow: refuse, explain, redirect, exit.",
             hintRu: "Представьте как поток разговора: отказать, объяснить, перенаправить, уйти.",
             hintKk: "Оны әңгіме ағыны ретінде елестетіңіз: бас тарту, түсіндіру, бағыттау, кету.",
@@ -896,6 +996,8 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
             questionRu: "Опишите разницу между прямым и косвенным давлением сверстников. Приведите по одному примеру.",
             questionKk: "Тікелей және жанама құрдастар қысымының айырмашылығын сипаттаңыз. Әрқайсысына бір мысал келтіріңіз.",
             answer: "Direct: a friend says 'Come on, just try one cigarette.' Indirect: everyone at the party is drinking and you feel you should too, even though nobody asked you to. Direct is an explicit request; indirect is an unspoken expectation.",
+            answerRu: "Прямое: друг говорит «Давай, попробуй всего одну сигарету.» Косвенное: все на вечеринке пьют, и вы чувствуете, что тоже должны, хотя никто вас не просил. Прямое — это явная просьба; косвенное — невысказанное ожидание.",
+            answerKk: "Тікелей: досыңыз «Кәне, бір темекіні ғана тартып көрші» дейді. Жанама: кештегілердің бәрі ішіп жатыр және ешкім сұрамаса да сіз де солай істеуіңіз керектей сезінесіз. Тікелей — ашық өтініш; жанама — айтылмаған үміт.",
             hint: "One involves words spoken to you; the other involves feeling pressure from the environment.",
             hintRu: "Одно связано с прямыми словами; другое — с давлением окружения.",
             hintKk: "Біреуі тікелей сөздерді қамтиды; екіншісі — ортаның қысымын сезіну.",
@@ -907,6 +1009,8 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
             questionRu: "Почему косвенному давлению часто труднее противостоять, чем прямому? Предложите две стратегии для косвенного давления.",
             questionKk: "Жанама құрдастар қысымына неліктен тікелейге қарағанда қарсы тұру қиынырақ? Жанама қысымға арналған екі стратегия ұсыныңыз.",
             answer: "Indirect pressure is harder because there is no specific person to say 'no' to — it comes from the environment and social norms. Strategies: (1) Pre-commitment: decide in advance what you will and won't do before entering the situation. (2) Find an accountability partner — a friend who shares your values and will support your decisions in group settings.",
+            answerRu: "Косвенному давлению труднее противостоять, потому что нет конкретного человека, которому можно сказать «нет» — оно исходит от окружения и социальных норм. Стратегии: (1) Предварительное обязательство: заранее решите, что вы будете и не будете делать, прежде чем окажетесь в ситуации. (2) Найдите партнёра по ответственности — друга, который разделяет ваши ценности и поддержит ваши решения в группе.",
+            answerKk: "Жанама қысымға қарсы тұру қиынырақ, өйткені «жоқ» дейтін нақты адам жоқ — ол орта мен әлеуметтік нормалардан туады. Стратегиялар: (1) Алдын ала міндеттеме: жағдайға тап болмас бұрын не істейтініңізді және не істемейтініңізді алдын ала шешіп алыңыз. (2) Жауапкершілік серіктесін табыңыз — құндылықтарыңызды бөлісетін және топтағы шешімдеріңізді қолдайтын дос.",
             hint: "Think about why it's easier to refuse a person than to refuse an atmosphere.",
             hintRu: "Подумайте, почему легче отказать человеку, чем атмосфере.",
             hintKk: "Адамға бас тартудан гөрі атмосфераға бас тартудың неге қиынырақ екенін ойлаңыз.",
@@ -944,7 +1048,9 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
               { en: "What do I want: Fair workload so nobody does more. Identify what they want: to use their strengths so the project quality is higher.", ru: "Что хочу я: Справедливая нагрузка, чтобы никто не делал больше. Чего хотят они: использовать свои сильные стороны для высокого качества.", kk: "Мен не қалаймын: Ешкім көп істемейтін әділ жүктеме. Олар не қалайды: сапа үшін күшті жақтарын пайдалану." },
               { en: "Navigate: Combine both — assign tasks based on strengths BUT ensure the total hours are roughly equal. Track time spent so fairness is measurable.", ru: "Решение: Объедините — распределите по сильным сторонам, НО следите за равным объёмом часов. Отслеживайте время для справедливости.", kk: "Шарлау: Екеуін біріктіріңіз — тапсырмаларды күшті жақтар бойынша бөліңіз, БІРАҚ жалпы сағаттар шамамен тең болсын." }
             ],
-            answer: "Using WIN: Both wants are valid — fairness AND quality. Solution: assign tasks by strength while tracking hours to ensure equal workload. This is the Collaborating style."
+            answer: "Using WIN: Both wants are valid — fairness AND quality. Solution: assign tasks by strength while tracking hours to ensure equal workload. This is the Collaborating style.",
+            answerRu: "Используя WIN: Оба желания важны — справедливость И качество. Решение: распределяйте задачи по сильным сторонам, отслеживая часы, чтобы нагрузка была равной. Это стиль Сотрудничества.",
+            answerKk: "WIN әдісін қолдану: Екі қалау да негізді — әділдік ЖӘНЕ сапа. Шешім: тең жүктемені қамтамасыз ету үшін сағаттарды бақылай отырып, тапсырмаларды күшті жақтар бойынша бөлу. Бұл — Ынтымақтасу стилі."
           }
         ],
         practiceProblems: [
@@ -954,6 +1060,8 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
             questionRu: "Назовите пять стилей конфликта по модели Томаса-Килманна.",
             questionKk: "Томас-Килманн моделі бойынша бес жанжал стилін атаңыз.",
             answer: "Competing, Accommodating, Avoiding, Compromising, and Collaborating.",
+            answerRu: "Соревнование, Приспособление, Избегание, Компромисс и Сотрудничество.",
+            answerKk: "Бәсекелесу, Бейімделу, Қашу, Ымыраға келу және Ынтымақтасу.",
             hint: "Think of how assertive and how cooperative each style is.",
             hintRu: "Подумайте, насколько настойчив и насколько кооперативен каждый стиль.",
             hintKk: "Әр стильдің қаншалықты батыл және қаншалықты ынтымақтас екенін ойлаңыз.",

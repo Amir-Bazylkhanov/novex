@@ -18,6 +18,7 @@ import {
   directionById,
   pickGradeContent,
   pickLangField,
+  pickLangFieldOptional,
   planetBySlug,
   type AcademySection,
 } from '../../constants/academy/catalog.ts';
@@ -122,7 +123,7 @@ const PracticeProblemCard: React.FC<{ problem: PracticeProblem; index: number }>
   const reducedMotion = useReducedMotion();
   const [open, setOpen] = useState(false);
 
-  const hint = pickLangField(language, problem.hint ?? '', problem.hintRu ?? '', problem.hintKk);
+  const hint = pickLangFieldOptional(language, problem.hint ?? '', problem.hintRu, problem.hintKk);
 
   return (
     <motion.article
@@ -173,7 +174,9 @@ const PracticeProblemCard: React.FC<{ problem: PracticeProblem; index: number }>
           <p className="font-mono text-[11px] font-medium uppercase tracking-widest text-teal-dark">
             {loc(language, ANSWER_LABEL)}
           </p>
-          <p className="mt-1 text-sm leading-relaxed text-ink">{problem.answer}</p>
+          <p className="mt-1 text-sm leading-relaxed text-ink">
+            {pickLangFieldOptional(language, problem.answer, problem.answerRu, problem.answerKk)}
+          </p>
         </div>
       )}
     </motion.article>
@@ -401,7 +404,7 @@ const AcademyLessonPage: React.FC = () => {
                         {loc(language, ANSWER_LABEL)}
                       </p>
                       <p className="mt-1 text-sm font-semibold leading-relaxed text-ink">
-                        {example.answer}
+                        {pickLangFieldOptional(language, example.answer, example.answerRu, example.answerKk)}
                       </p>
                     </div>
                   </motion.article>

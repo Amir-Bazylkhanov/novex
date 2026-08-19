@@ -38,7 +38,9 @@ export const CAREER_FULL: Record<string, LessonContent> = {
               { en: "Identify the pattern: both activities involve exploring how things work through observation and hands-on testing, pointing to a scientific mindset.", ru: "Определите закономерность: оба занятия связаны с изучением того, как всё устроено, через наблюдение и практические тесты, что указывает на научный склад ума.", kk: "Заңдылықты анықтаңыз: екі іс-әрекет те заттардың қалай жұмыс істейтінін бақылау мен практикалық тесттер арқылы зерттеуді қамтиды, бұл ғылыми ойлауды көрсетеді." },
               { en: "Match to career fields: her interests align with science and research careers such as chemist, biologist, food scientist, or lab technician.", ru: "Сопоставьте с карьерными областями: её интересы соответствуют научным и исследовательским карьерам — химик, биолог, пищевой технолог или лаборант.", kk: "Мансап салаларымен сәйкестендіріңіз: оның қызығушылықтары химик, биолог, тағам ғалымы немесе зертханашы сияқты ғылым және зерттеу мансаптарына сәйкес келеді." }
             ],
-            answer: "Aisha's interests in documentaries and experiments signal a passion for science. She could explore careers in chemistry, biology, food science, or laboratory research."
+            answer: "Aisha's interests in documentaries and experiments signal a passion for science. She could explore careers in chemistry, biology, food science, or laboratory research.",
+            answerRu: "Интерес Аиши к документальным фильмам и экспериментам говорит об увлечении наукой. Она могла бы исследовать карьеры в химии, биологии, пищевой науке или лабораторных исследованиях.",
+            answerKk: "Айшаның деректі фильмдер мен тәжірибелерге қызығушылығы ғылымға деген құмарлықты көрсетеді. Ол химия, биология, тағамтану немесе зертхана зерттеулері саласындағы мансаптарды зерттей алады."
           }
         ],
         practiceProblems: [
@@ -48,6 +50,8 @@ export const CAREER_FULL: Record<string, LessonContent> = {
             questionRu: "Перечислите три занятия, которые вам нравятся в свободное время, и определите одну карьерную область для каждого.",
             questionKk: "Бос уақытыңызда ұнайтын үш іс-әрекетті атаңыз және әрқайсысына бір мансап саласын анықтаңыз.",
             answer: "Example: Reading (journalism), cooking (culinary arts), gaming (software development). Any valid pairing is acceptable.",
+            answerRu: "Пример: чтение (журналистика), кулинария (кулинарное искусство), игры (разработка программного обеспечения). Любая обоснованная пара принимается.",
+            answerKk: "Мысалы: кітап оқу (журналистика), тамақ пісіру (аспаздық өнер), ойын ойнау (бағдарламалық жасақтама әзірлеу). Кез келген негізді жұп қабылданады.",
             hint: "Think about what you do after school and on weekends.",
             hintRu: "Подумайте, чем вы занимаетесь после школы и на выходных.",
             hintKk: "Мектептен кейін және демалыс күндері не істейтініңізді ойлаңыз.",
@@ -59,6 +63,8 @@ export const CAREER_FULL: Record<string, LessonContent> = {
             questionRu: "Ваш друг любит и рисование, и математику. Предложите две карьеры, сочетающие художественные и аналитические интересы, и объясните, почему каждая подходит.",
             questionKk: "Сіздің досыңыз сурет салуды да, математиканы да жақсы көреді. Көркемдік және аналитикалық қызығушылықтарды біріктіретін екі мансапты ұсыныңыз және әрқайсысының неге сәйкес келетінін түсіндіріңіз.",
             answer: "Architect (uses math for structural calculations and art for design) and UX Designer (uses data analysis and visual design to create user interfaces).",
+            answerRu: "Архитектор (использует математику для конструктивных расчётов и искусство для дизайна) и UX-дизайнер (использует анализ данных и визуальный дизайн для создания пользовательских интерфейсов).",
+            answerKk: "Сәулетші (құрылымдық есептеулер үшін математиканы және дизайн үшін өнерді пайдаланады) және UX-дизайнер (пайдаланушы интерфейстерін жасау үшін деректерді талдау мен визуалды дизайнды пайдаланады).",
             hint: "Think of jobs where you need to create something visual but also use numbers or logic.",
             hintRu: "Подумайте о работах, где нужно создавать визуальное, но также использовать числа или логику.",
             hintKk: "Визуалды нәрсе жасау керек, бірақ сандарды немесе логиканы да пайдалану керек жұмыстарды ойлаңыз.",
@@ -70,6 +76,8 @@ export const CAREER_FULL: Record<string, LessonContent> = {
             questionRu: "Создайте личную Карту интересов: выберите пять интересов, свяжите каждый с двумя возможными карьерами и объясните, какая карьера вас больше всего привлекает и почему.",
             questionKk: "Жеке Қызығушылық картасын жасаңыз: бес қызығушылық таңдаңыз, әрқайсысын екі мүмкін мансаппен байланыстырыңыз және қай мансап сізді көбірек қызықтыратынын және неліктен екенін түсіндіріңіз.",
             answer: "Example map: Music (music producer, sound engineer), Animals (veterinarian, marine biologist), Technology (programmer, data analyst), Writing (journalist, copywriter), Sports (physical therapist, coach). Most exciting choice should include personal reasoning.",
+            answerRu: "Пример карты: музыка (музыкальный продюсер, звукорежиссёр), животные (ветеринар, морской биолог), технологии (программист, аналитик данных), писательство (журналист, копирайтер), спорт (физиотерапевт, тренер). Самый вдохновляющий выбор должен включать личное обоснование.",
+            answerKk: "Карта мысалы: музыка (музыка продюсері, дыбыс режиссері), жануарлар (ветеринар, теңіз биологы), технология (бағдарламашы, деректер талдаушысы), жазу (журналист, копирайтер), спорт (физиотерапевт, жаттықтырушы). Ең қызықты таңдау жеке дәлелдемені қамтуы керек.",
             hint: "Draw a web diagram with your interest in the center and careers branching out from each one.",
             hintRu: "Нарисуйте диаграмму-паутину с интересом в центре и карьерами, ответвляющимися от каждого.",
             hintKk: "Ортасында қызығушылығыңыз және әрқайсысынан мансаптар тармақталатын торлы диаграмма салыңыз.",
@@ -107,7 +115,9 @@ export const CAREER_FULL: Record<string, LessonContent> = {
               { en: "Categorize: Explaining homework = soft skill (communication); organizing projects = soft skill (leadership); solving math quickly = hard skill (mathematical reasoning).", ru: "Классифицируйте: Объяснение домашних заданий = мягкий навык (коммуникация); организация проектов = мягкий навык (лидерство); быстрое решение математики = твёрдый навык (математическое мышление).", kk: "Жіктеңіз: Үй тапсырмасын түсіндіру = жұмсақ дағды (қарым-қатынас); жобаларды ұйымдастыру = жұмсақ дағды (көшбасшылық); математиканы тез шешу = қатаң дағды (математикалық ойлау)." },
               { en: "Suggest direction: his blend of communication, leadership, and math points toward careers like project manager, data analyst, or teacher — roles where explaining and organizing meet analytical thinking.", ru: "Предложите направление: сочетание коммуникации, лидерства и математики указывает на карьеры проектного менеджера, аналитика данных или учителя.", kk: "Бағытты ұсыныңыз: қарым-қатынас, көшбасшылық және математика үйлесімі жоба менеджері, деректер талдаушысы немесе мұғалім сияқты мансаптарға бағытталады." }
             ],
-            answer: "Explaining = soft skill (communication), organizing = soft skill (leadership), math = hard skill. Career directions: project manager, data analyst, or teacher."
+            answer: "Explaining = soft skill (communication), organizing = soft skill (leadership), math = hard skill. Career directions: project manager, data analyst, or teacher.",
+            answerRu: "Объяснение = мягкий навык (коммуникация), организация = мягкий навык (лидерство), математика = твёрдый навык. Карьерные направления: проектный менеджер, аналитик данных или учитель.",
+            answerKk: "Түсіндіру = жұмсақ дағды (қарым-қатынас), ұйымдастыру = жұмсақ дағды (көшбасшылық), математика = қатаң дағды. Мансап бағыттары: жоба менеджері, деректер талдаушысы немесе мұғалім."
           }
         ],
         practiceProblems: [
@@ -117,6 +127,8 @@ export const CAREER_FULL: Record<string, LessonContent> = {
             questionRu: "Назовите два твёрдых навыка и два мягких навыка, которыми вы обладаете.",
             questionKk: "Сізде бар екі қатаң дағды мен екі жұмсақ дағдыны атаңыз.",
             answer: "Example: Hard — typing, cooking; Soft — teamwork, time management. Any valid skills are acceptable.",
+            answerRu: "Пример: твёрдые — печать, кулинария; мягкие — командная работа, управление временем. Любые обоснованные навыки принимаются.",
+            answerKk: "Мысалы: қатаң — теріп жазу, тамақ пісіру; жұмсақ — командалық жұмыс, уақытты басқару. Кез келген негізді дағды қабылданады.",
             hint: "Hard skills are things you learned to do; soft skills are how you work with others.",
             hintRu: "Твёрдые навыки — то, чему вы научились; мягкие навыки — как вы работаете с другими.",
             hintKk: "Қатаң дағдылар — үйренген нәрселеріңіз; жұмсақ дағдылар — басқалармен қалай жұмыс істейтініңіз.",
@@ -128,6 +140,8 @@ export const CAREER_FULL: Record<string, LessonContent> = {
             questionRu: "В вакансии требуется «отличная коммуникация, владение Excel и решение проблем». Определите каждое требование как твёрдый или мягкий навык.",
             questionKk: "Жұмыс хабарландыруында «күшті қарым-қатынас, Excel меңгеру және мәселелерді шешу» талап етіледі. Әр талапты қатаң немесе жұмсақ дағды ретінде анықтаңыз.",
             answer: "Communication = soft skill, Excel proficiency = hard skill, problem-solving = soft skill.",
+            answerRu: "Коммуникация = мягкий навык, владение Excel = твёрдый навык, решение проблем = мягкий навык.",
+            answerKk: "Қарым-қатынас = жұмсақ дағды, Excel меңгеру = қатаң дағды, мәселелерді шешу = жұмсақ дағды.",
             hint: "Can you learn it from a textbook or course? That is usually a hard skill.",
             hintRu: "Можно ли этому научиться из учебника или курса? Обычно это твёрдый навык.",
             hintKk: "Мұны оқулықтан немесе курстан үйренуге бола ма? Бұл әдетте қатаң дағды.",
@@ -139,6 +153,8 @@ export const CAREER_FULL: Record<string, LessonContent> = {
             questionRu: "Создайте полный инвентарь навыков: перечислите минимум 5 твёрдых и 5 мягких навыков, оцените каждый от 1 до 5 и определите три навыка для улучшения в этом году с планом для каждого.",
             questionKk: "Толық дағдылар тізімін жасаңыз: кемінде 5 қатаң және 5 жұмсақ дағдыны тізімдеңіз, әрқайсысын 1-ден 5-ке дейін бағалаңыз және биыл жақсартқыңыз келетін үш дағдыны жоспарымен бірге анықтаңыз.",
             answer: "Should include 10+ skills with ratings and 3 improvement plans. Example improvement: 'Public speaking (rated 2) — join debate club and practice presenting once a week.'",
+            answerRu: "Должно включать 10+ навыков с оценками и 3 плана улучшения. Пример улучшения: «Публичные выступления (оценка 2) — вступить в дебатный клуб и практиковать презентации раз в неделю».",
+            answerKk: "Бағаларымен бірге 10+ дағды және 3 жақсарту жоспары болуы керек. Жақсарту мысалы: «Көпшілік алдында сөйлеу (бағасы 2) — пікірталас клубына қосылып, аптасына бір рет презентация жасауды жаттықтыру».",
             hint: "Think about school subjects, after-school activities, and how you interact with friends and family.",
             hintRu: "Подумайте о школьных предметах, внеклассных занятиях и о том, как вы общаетесь с друзьями и семьёй.",
             hintKk: "Мектеп пәндері, сыныптан тыс іс-шаралар және достарыңыз бен отбасыңызбен қалай қарым-қатынас жасайтыныңызды ойлаңыз.",
@@ -176,7 +192,9 @@ export const CAREER_FULL: Record<string, LessonContent> = {
               { en: "Identify overlapping clusters: STEM (computers/technology) and Healthcare (helping sick people) overlap in the field of health technology.", ru: "Определите пересекающиеся кластеры: STEM (компьютеры) и Здравоохранение (помощь больным) пересекаются в области медицинских технологий.", kk: "Қиылысатын кластерлерді анықтаңыз: STEM (компьютерлер) және Денсаулық сақтау (науқастарға көмектесу) денсаулық технологиялары саласында қиылысады." },
               { en: "Suggest specific careers: health informatics specialist, medical software developer, biomedical engineer, or telemedicine technician.", ru: "Предложите конкретные карьеры: специалист по медицинской информатике, разработчик медицинского ПО, биомедицинский инженер или специалист по телемедицине.", kk: "Нақты мансаптарды ұсыныңыз: медициналық информатика маманы, медициналық бағдарламалық жасақтама жасаушы, биомедициналық инженер немесе телемедицина технигі." }
             ],
-            answer: "Dana's interests overlap between STEM and Healthcare. She could explore health informatics, medical software development, biomedical engineering, or telemedicine."
+            answer: "Dana's interests overlap between STEM and Healthcare. She could explore health informatics, medical software development, biomedical engineering, or telemedicine.",
+            answerRu: "Интересы Даны пересекаются в кластерах STEM и здравоохранение. Она могла бы исследовать медицинскую информатику, разработку медицинского ПО, биомедицинскую инженерию или телемедицину.",
+            answerKk: "Дананың қызығушылықтары STEM және денсаулық сақтау кластерлерінде қиылысады. Ол медициналық информатиканы, медициналық бағдарламалық жасақтаманы әзірлеуді, биомедициналық инженерияны немесе телемедицинаны зерттей алады."
           }
         ],
         practiceProblems: [
@@ -186,6 +204,8 @@ export const CAREER_FULL: Record<string, LessonContent> = {
             questionRu: "Назовите по одной карьере из каждого кластера: STEM, Творческие профессии и Здравоохранение.",
             questionKk: "Әр кластерден бір мансап атаңыз: STEM, Шығармашылық өнер және Денсаулық сақтау.",
             answer: "Example: STEM — software engineer; Creative Arts — graphic designer; Healthcare — nurse. Any valid careers are acceptable.",
+            answerRu: "Пример: STEM — инженер-программист; творческие профессии — графический дизайнер; здравоохранение — медсестра. Любые обоснованные карьеры принимаются.",
+            answerKk: "Мысалы: STEM — бағдарламалық жасақтама инженері; шығармашылық өнер — графикалық дизайнер; денсаулық сақтау — медбике. Кез келген негізді мансап қабылданады.",
             hint: "STEM involves science or technology, Creative Arts involves making or performing, Healthcare involves helping patients.",
             hintRu: "STEM связан с наукой или технологиями, творческие — с созданием или исполнением, здравоохранение — с помощью пациентам.",
             hintKk: "STEM ғылым немесе технологиямен байланысты, шығармашылық — жасау немесе орындаумен, денсаулық сақтау — пациенттерге көмектесумен.",
@@ -197,6 +217,8 @@ export const CAREER_FULL: Record<string, LessonContent> = {
             questionRu: "Объясните разницу между карьерами белых воротничков, синих воротничков и новых воротничков с одним примером каждого.",
             questionKk: "Ақ жағалы, көк жағалы және жаңа жағалы мансаптар арасындағы айырмашылықты әрқайсысына бір мысалмен түсіндіріңіз.",
             answer: "White collar: lawyer (office-based professional work); Blue collar: electrician (skilled manual labor); New collar: cybersecurity analyst (tech skills, may not need a 4-year degree).",
+            answerRu: "Белые воротнички: юрист (офисная профессиональная работа); синие воротнички: электрик (квалифицированный ручной труд); новые воротнички: аналитик кибербезопасности (технические навыки, диплом о 4-летнем образовании может не требоваться).",
+            answerKk: "Ақ жағалы: заңгер (кеңседегі кәсіби жұмыс); көк жағалы: электрик (білікті қол еңбегі); жаңа жағалы: киберқауіпсіздік талдаушысы (техникалық дағдылар, 4 жылдық диплом қажет болмауы мүмкін).",
             hint: "Think about where each type of worker typically works and what training they need.",
             hintRu: "Подумайте, где обычно работает каждый тип работника и какое обучение ему нужно.",
             hintKk: "Әр жұмысшы түрі әдетте қайда жұмыс істейтінін және қандай оқу қажет екенін ойлаңыз.",
@@ -208,6 +230,8 @@ export const CAREER_FULL: Record<string, LessonContent> = {
             questionRu: "Выберите интересующий вас кластер. Исследуйте и перечислите пять конкретных карьер в нём, указав необходимое образование и среднюю зарплату для каждой. Какая привлекает вас больше всего и почему?",
             questionKk: "Қызықтыратын мансап кластерін таңдаңыз. Зерттеп, ондағы бес нақты мансапты тізімдеңіз, әрқайсысына қажетті білім мен орташа жалақы ауқымын көрсетіңіз. Қайсысы сізді көбірек қызықтырады және неліктен?",
             answer: "Should include 5 careers with education and salary info. Example for STEM: Software Engineer (BS, $80-130K), Data Scientist (MS, $90-150K), etc.",
+            answerRu: "Должно включать 5 карьер с информацией об образовании и зарплате. Пример для STEM: инженер-программист (бакалавриат, $80-130K), специалист по данным (магистратура, $90-150K) и т. д.",
+            answerKk: "Білімі мен жалақысы туралы ақпараты бар 5 мансап болуы керек. STEM мысалы: бағдарламалық жасақтама инженері (бакалавр, $80-130K), деректер ғалымы (магистр, $90-150K) және т. б.",
             hint: "Use career websites like the Bureau of Labor Statistics or local job portals for accurate information.",
             hintRu: "Используйте карьерные сайты, такие как Бюро трудовой статистики или местные порталы вакансий.",
             hintKk: "Еңбек статистикасы бюросы немесе жергілікті жұмыс порталдары сияқты мансап сайттарын пайдаланыңыз.",
@@ -239,7 +263,9 @@ export const CAREER_FULL: Record<string, LessonContent> = {
               { en: "Extract skills from the hobby: cooking develops time management (managing multiple dishes), creativity (experimenting with recipes), attention to detail (measuring ingredients), and chemistry understanding (how heat changes food).", ru: "Извлеките навыки из хобби: приготовление пищи развивает тайм-менеджмент, креативность, внимание к деталям и понимание химии.", kk: "Хоббиден дағдыларды алыңыз: тамақ пісіру уақытты басқаруды, шығармашылықты, егжей-тегжейге назар аударуды және химияны түсінуді дамытады." },
               { en: "Map skills to careers: Chef or restaurant owner (direct path), food scientist (chemistry + creativity), event planner (time management + creativity), or nutritionist (food knowledge + helping others).", ru: "Сопоставьте навыки с карьерами: шеф-повар или ресторатор (прямой путь), пищевой технолог, организатор мероприятий или диетолог.", kk: "Дағдыларды мансаптармен сәйкестендіріңіз: аспазшы немесе мейрамхана иесі (тікелей жол), тағам ғалымы, іс-шаралар ұйымдастырушысы немесе диетолог." }
             ],
-            answer: "Cooking develops time management, creativity, attention to detail, and chemistry. Careers: chef, food scientist, event planner, or nutritionist."
+            answer: "Cooking develops time management, creativity, attention to detail, and chemistry. Careers: chef, food scientist, event planner, or nutritionist.",
+            answerRu: "Кулинария развивает тайм-менеджмент, креативность, внимание к деталям и понимание химии. Карьеры: шеф-повар, пищевой технолог, организатор мероприятий или диетолог.",
+            answerKk: "Тамақ пісіру уақытты басқаруды, шығармашылықты, егжей-тегжейге назар аударуды және химияны түсінуді дамытады. Мансаптар: аспазшы, тағам ғалымы, іс-шаралар ұйымдастырушысы немесе диетолог."
           }
         ],
         practiceProblems: [
@@ -249,6 +275,8 @@ export const CAREER_FULL: Record<string, LessonContent> = {
             questionRu: "Выберите одно из своих хобби и назовите два навыка, которые оно развивает.",
             questionKk: "Хоббилеріңіздің бірін таңдаңыз және ол дамытатын екі дағдыны атаңыз.",
             answer: "Example: Playing soccer develops teamwork and physical endurance. Any valid hobby-skill pairing is accepted.",
+            answerRu: "Пример: игра в футбол развивает командную работу и физическую выносливость. Любая обоснованная пара хобби-навык принимается.",
+            answerKk: "Мысалы: футбол ойнау командалық жұмысты және физикалық төзімділікті дамытады. Кез келген негізді хобби-дағды жұбы қабылданады.",
             hint: "Think about what you have to do well to enjoy your hobby.",
             hintRu: "Подумайте, что нужно делать хорошо, чтобы наслаждаться хобби.",
             hintKk: "Хоббиіңізден ләззат алу үшін нені жақсы істеу керек екенін ойлаңыз.",
@@ -260,6 +288,8 @@ export const CAREER_FULL: Record<string, LessonContent> = {
             questionRu: "Одноклассник говорит, что «видеоигры — пустая трата времени и не могут быть карьерой». Приведите три примера карьер, связанных с играми, и навыки, которые развивают игры.",
             questionKk: "Сыныптасыңыз «бейне ойындар уақытты бос өткізу және ешқашан мансап бола алмайды» дейді. Ойынға байланысты үш мансап мысалын және ойын дамытатын дағдыларды келтіріңіз.",
             answer: "Game designer (creativity, programming), esports commentator (communication, game knowledge), QA tester (attention to detail, patience). Gaming develops problem-solving, strategic thinking, and hand-eye coordination.",
+            answerRu: "Геймдизайнер (креативность, программирование), киберспортивный комментатор (коммуникация, знание игр), QA-тестировщик (внимание к деталям, терпение). Игры развивают решение проблем, стратегическое мышление и координацию рук и глаз.",
+            answerKk: "Ойын дизайнері (шығармашылық, бағдарламалау), киберспорт комментаторы (қарым-қатынас, ойын туралы білім), QA-тестілеуші (егжей-тегжейге назар аудару, шыдамдылық). Ойын ойнау мәселелерді шешуді, стратегиялық ойлауды және қол-көз үйлесімділігін дамытады.",
             hint: "Think about who makes games, who plays them professionally, and who writes about them.",
             hintRu: "Подумайте, кто создаёт игры, кто играет профессионально и кто пишет о них.",
             hintKk: "Ойындарды кім жасайтынын, кім кәсіби ойнайтынын және кім олар туралы жазатынын ойлаңыз.",
@@ -271,6 +301,8 @@ export const CAREER_FULL: Record<string, LessonContent> = {
             questionRu: "Выберите три очень разных хобби (например, садоводство, фотография, шахматы). Для каждого перечислите скрытые переносимые навыки и сопоставьте их с двумя неочевидными карьерными путями.",
             questionKk: "Үш мүлдем басқа хобби таңдаңыз (мысалы, бақташылық, фотография, шахмат). Әрқайсысы үшін жасырын ауыстырылатын дағдыларды тізімдеңіз және оларды кемінде екі күтпеген мансап жолымен сәйкестендіріңіз.",
             answer: "Example: Gardening (patience, biology knowledge) → Pharmaceutical research, urban planning; Photography (composition, lighting) → UX design, forensic analysis; Chess (strategy, pattern recognition) → Financial analyst, military strategist.",
+            answerRu: "Пример: садоводство (терпение, знание биологии) → фармацевтические исследования, городское планирование; фотография (композиция, освещение) → UX-дизайн, криминалистический анализ; шахматы (стратегия, распознавание образов) → финансовый аналитик, военный стратег.",
+            answerKk: "Мысалы: бақша күту (шыдамдылық, биология білімі) → фармацевтикалық зерттеулер, қала құрылысын жоспарлау; фотография (композиция, жарықтандыру) → UX-дизайн, криминалистикалық талдау; шахмат (стратегия, заңдылықтарды тану) → қаржы талдаушысы, әскери стратег.",
             hint: "Focus on the underlying skills, not the hobby itself — then think of completely different fields that use those same skills.",
             hintRu: "Сосредоточьтесь на базовых навыках, а не на хобби — затем подумайте о совершенно других областях, использующих те же навыки.",
             hintKk: "Хоббидің өзіне емес, негізгі дағдыларға назар аударыңыз — содан кейін сол дағдыларды пайдаланатын мүлдем басқа салаларды ойлаңыз.",
@@ -302,7 +334,9 @@ export const CAREER_FULL: Record<string, LessonContent> = {
               { en: "Match her strengths to roles: talking to people = strong communication; solving problems = analytical thinking. These combine in social service roles.", ru: "Сопоставьте её сильные стороны с ролями: общение с людьми = коммуникация; решение проблем = аналитическое мышление. Это сочетается в социальных ролях.", kk: "Оның күшті жақтарын рөлдермен сәйкестендіріңіз: адамдармен сөйлесу = қарым-қатынас; мәселелерді шешу = аналитикалық ойлау. Бұлар әлеуметтік қызмет рөлдерінде біріктіріледі." },
               { en: "Suggest careers: school counselor, social worker, community mediator, or family therapist — all involve daily person-to-person problem-solving.", ru: "Предложите карьеры: школьный консультант, социальный работник, медиатор или семейный терапевт — все они предполагают ежедневное решение проблем с людьми.", kk: "Мансаптарды ұсыныңыз: мектеп кеңесшісі, әлеуметтік қызметкер, медиатор немесе отбасы терапевті — барлығы күнделікті адамдармен мәселелерді шешуді қамтиды." }
             ],
-            answer: "Zarina should explore school counselor, social worker, community mediator, or family therapist careers, which combine daily communication with problem-solving."
+            answer: "Zarina should explore school counselor, social worker, community mediator, or family therapist careers, which combine daily communication with problem-solving.",
+            answerRu: "Зарине стоит рассмотреть карьеры школьного консультанта, социального работника, общественного медиатора или семейного терапевта — все они сочетают ежедневное общение с решением проблем.",
+            answerKk: "Зарина мектеп кеңесшісі, әлеуметтік қызметкер, қоғамдастық медиаторы немесе отбасы терапевті мансаптарын зерттеуі керек — олардың барлығы күнделікті қарым-қатынасты мәселелерді шешумен ұштастырады."
           }
         ],
         practiceProblems: [
@@ -312,6 +346,8 @@ export const CAREER_FULL: Record<string, LessonContent> = {
             questionRu: "Назовите трёх помощников сообщества, с которыми вы регулярно взаимодействуете, и опишите, что делает каждый.",
             questionKk: "Үнемі қарым-қатынас жасайтын үш қоғамдастық көмекшісін атаңыз және әрқайсысының не істейтінін сипаттаңыз.",
             answer: "Example: Teacher (educates students), doctor (treats illnesses), bus driver (provides transportation). Any valid community helpers are acceptable.",
+            answerRu: "Пример: учитель (обучает учеников), врач (лечит болезни), водитель автобуса (обеспечивает транспорт). Любые обоснованные помощники сообщества принимаются.",
+            answerKk: "Мысалы: мұғалім (оқушыларды оқытады), дәрігер (ауруларды емдейді), автобус жүргізушісі (тасымалды қамтамасыз етеді). Кез келген негізді қоғамдастық көмекшісі қабылданады.",
             hint: "Think about the adults you see when you go to school, visit a doctor, or go shopping.",
             hintRu: "Подумайте о взрослых, которых вы видите в школе, у врача или в магазине.",
             hintKk: "Мектепке, дәрігерге немесе дүкенге барғанда көретін ересектерді ойлаңыз.",
@@ -323,6 +359,8 @@ export const CAREER_FULL: Record<string, LessonContent> = {
             questionRu: "Выберите проблему сообщества (например, бездомные животные, мусор, одиночество пожилых). Опишите, какая карьера помощника сообщества решает эту проблему и как.",
             questionKk: "Қоғамдастық мәселесін таңдаңыз (мысалы, қаңғыбас жануарлар, қоқыс, қарттардың жалғыздығы). Қоғамдастық көмекшісінің қандай мансабы бұл мәселені шешетінін және қалай шешетінін сипаттаңыз.",
             answer: "Example: Loneliness among elderly → Social worker visits elderly, connects them with community centers and support groups, and coordinates volunteers to provide companionship.",
+            answerRu: "Пример: одиночество пожилых → социальный работник навещает пожилых людей, связывает их с общественными центрами и группами поддержки, а также координирует волонтёров для общения.",
+            answerKk: "Мысалы: қарттардың жалғыздығы → әлеуметтік қызметкер қарттарды аралайды, оларды қоғамдастық орталықтарымен және қолдау топтарымен байланыстырады, сондай-ақ әңгімелесу үшін еріктілерді үйлестіреді.",
             hint: "Think about who would be responsible for fixing this problem in your city.",
             hintRu: "Подумайте, кто был бы ответственен за решение этой проблемы в вашем городе.",
             hintKk: "Қалаңызда бұл мәселені шешуге кім жауапты болатынын ойлаңыз.",
@@ -334,6 +372,8 @@ export const CAREER_FULL: Record<string, LessonContent> = {
             questionRu: "Представьте, что вы создаёте новую роль помощника сообщества, которой ещё не существует. Какую потребность она удовлетворяет, какие навыки нужны и как выглядит типичный день?",
             questionKk: "Әлі жоқ жаңа қоғамдастық көмекші рөлін жасап жатқаныңызды елестетіңіз. Ол қандай қажеттілікті қанағаттандырады, адамға қандай дағдылар қажет және типтік күн қалай көрінеді?",
             answer: "Example: 'Digital Literacy Coach' — helps elderly and underserved community members learn technology. Needs patience, tech skills, and communication. Typical day: morning group class, afternoon home visits, evening online Q&A session.",
+            answerRu: "Пример: «Тренер по цифровой грамотности» — помогает пожилым и малообеспеченным членам сообщества осваивать технологии. Требуются терпение, технические навыки и коммуникабельность. Типичный день: утром групповые занятия, днём визиты на дом, вечером онлайн-сессия вопросов и ответов.",
+            answerKk: "Мысалы: «Сандық сауаттылық жаттықтырушысы» — қарттарға және көмекке мұқтаж қоғамдастық мүшелеріне технологияны үйренуге көмектеседі. Шыдамдылық, техникалық дағдылар және қарым-қатынас қажет. Типтік күн: таңертең топтық сабақ, түстен кейін үйлерге бару, кеште онлайн сұрақ-жауап сессиясы.",
             hint: "Think about a problem in your community that nobody seems responsible for solving.",
             hintRu: "Подумайте о проблеме в вашем сообществе, за решение которой никто не отвечает.",
             hintKk: "Қоғамдастығыңыздағы ешкім шешуге жауапты болмайтын мәселені ойлаңыз.",
@@ -365,7 +405,9 @@ export const CAREER_FULL: Record<string, LessonContent> = {
               { en: "Prepare: research what veterinarians do, dress appropriately, bring a notebook, and prepare 5-10 questions about daily tasks, challenges, education needed, and what they enjoy most.", ru: "Подготовка: изучите, что делают ветеринары, оденьтесь соответственно, возьмите блокнот и подготовьте 5-10 вопросов о задачах, трудностях, образовании и что нравится больше всего.", kk: "Дайындық: ветеринарлардың не істейтінін зерттеңіз, тиісті киініңіз, дәптер алыңыз және күнделікті тапсырмалар, қиындықтар, білім және не ұнайтыны туралы 5-10 сұрақ дайындаңыз." },
               { en: "Key questions to ask: 'What does a typical day look like?', 'What education did you need?', 'What is the hardest part of your job?', 'What advice would you give to someone interested in this career?'", ru: "Ключевые вопросы: «Как выглядит обычный день?», «Какое образование нужно?», «Что самое сложное в работе?», «Какой совет дадите заинтересованному в этой карьере?»", kk: "Негізгі сұрақтар: «Типтік күн қалай көрінеді?», «Қандай білім қажет болды?», «Жұмыстың ең қиын бөлігі не?», «Осы мансапқа қызығушыларға қандай кеңес берер едіңіз?»" }
             ],
-            answer: "Nursultan should research the profession, dress appropriately, bring a notebook, and prepare questions about daily routines, education, challenges, and career advice."
+            answer: "Nursultan should research the profession, dress appropriately, bring a notebook, and prepare questions about daily routines, education, challenges, and career advice.",
+            answerRu: "Нурсултану стоит изучить профессию, одеться соответствующе, взять блокнот и подготовить вопросы о повседневных обязанностях, образовании, трудностях и карьерных советах.",
+            answerKk: "Нұрсұлтан мамандықты зерттеп, сәйкес киініп, дәптер алып, күнделікті міндеттер, білім, қиындықтар және мансап кеңестері туралы сұрақтар дайындауы керек."
           }
         ],
         practiceProblems: [
@@ -375,6 +417,8 @@ export const CAREER_FULL: Record<string, LessonContent> = {
             questionRu: "Напишите три вопроса, которые вы бы задали профессионалу во время дня наблюдения за работой.",
             questionKk: "Жұмысты бақылау күнінде маманға қоятын үш сұрақ жазыңыз.",
             answer: "Example: 'What do you like most about your job?', 'How did you choose this career?', 'What skills are most important?' Any thoughtful questions are acceptable.",
+            answerRu: "Пример: «Что вам больше всего нравится в вашей работе?», «Как вы выбрали эту карьеру?», «Какие навыки наиболее важны?» Любые продуманные вопросы принимаются.",
+            answerKk: "Мысалы: «Жұмысыңызда сізге ең көп ұнайтыны не?», «Бұл мансапты қалай таңдадыңыз?», «Қандай дағдылар ең маңызды?» Кез келген ойластырылған сұрақ қабылданады.",
             hint: "Think about what you would want to know before choosing a career.",
             hintRu: "Подумайте, что бы вы хотели узнать перед выбором карьеры.",
             hintKk: "Мансап таңдамас бұрын не білгіңіз келетінін ойлаңыз.",
@@ -386,6 +430,8 @@ export const CAREER_FULL: Record<string, LessonContent> = {
             questionRu: "Вы провели день, наблюдая за программистом. Она провела 2 часа на совещаниях, 4 часа за кодированием и 2 часа за проверкой чужого кода. Напишите размышление о том, что удивило, и интересна ли вам эта карьера.",
             questionKk: "Сіз бағдарламашының жұмысын бір күн бақыладыңыз. Ол 2 сағат жиналыстарда, 4 сағат код жазуда және 2 сағат басқалардың кодын тексеруде өткізді. Не таңқалдырғаны және бұл мансап сізді қызықтыра ма деп ойлаңыз.",
             answer: "Should include a genuine reflection. Example: 'I was surprised that meetings took so much time — I expected mostly coding. I still find it interesting because the coding portion was creative problem-solving.'",
+            answerRu: "Должно включать искреннее размышление. Пример: «Я удивился, что совещания занимают так много времени — я ожидал в основном программирования. Мне всё равно интересно, потому что работа с кодом — это творческое решение проблем».",
+            answerKk: "Шынайы ой-толғау болуы керек. Мысалы: «Жиналыстардың сонша көп уақыт алатынына таңғалдым — негізінен код жазу болады деп күттім. Маған әлі де қызық, өйткені код жазу бөлігі шығармашылық түрде мәселелерді шешу болды».",
             hint: "Think about the difference between what you expected and what you observed.",
             hintRu: "Подумайте о разнице между тем, что вы ожидали, и тем, что наблюдали.",
             hintKk: "Сіз күткен нәрсе мен байқағаныңыздың арасындағы айырмашылықты ойлаңыз.",
@@ -397,6 +443,8 @@ export const CAREER_FULL: Record<string, LessonContent> = {
             questionRu: "Спланируйте полный опыт наблюдения: выберите карьеру, найдите способ связаться с профессионалом, перечислите 8 вопросов и опишите, как будете размышлять об опыте после.",
             questionKk: "Толық бақылау тәжірибесін жоспарлаңыз: мансап таңдаңыз, маманмен байланысу жолын табыңыз, 8 дайындалған сұрақты тізімдеңіз және тәжірибеден кейін қалай ойланатыныңызды сипаттаңыз.",
             answer: "Should include career choice, contact strategy (e.g., ask school counselor, email local business), 8 thoughtful questions, and a reflection plan (e.g., journal entry comparing expectations vs reality).",
+            answerRu: "Должно включать выбор карьеры, стратегию контакта (например, спросить школьного консультанта, написать письмо местной компании), 8 продуманных вопросов и план размышлений (например, запись в дневнике с сравнением ожиданий и реальности).",
+            answerKk: "Мансап таңдауы, байланыс стратегиясы (мысалы, мектеп кеңесшісінен сұрау, жергілікті кәсіпорынға электрондық хат жіберу), 8 ойластырылған сұрақ және ой-толғау жоспары (мысалы, күтілім мен шындықты салыстыратын күнделік жазбасы) болуы керек.",
             hint: "Start with a career you are curious about, then think about who in your community does that job.",
             hintRu: "Начните с интересующей вас карьеры, затем подумайте, кто в вашем сообществе работает в этой области.",
             hintKk: "Қызықтыратын мансаптан бастаңыз, содан кейін қоғамдастығыңызда кім осы жұмысты істейтінін ойлаңыз.",
@@ -428,7 +476,9 @@ export const CAREER_FULL: Record<string, LessonContent> = {
               { en: "Match interests to opportunities: working with children + math skills = tutoring younger students in math at a local community center or after-school program.", ru: "Сопоставьте интересы с возможностями: работа с детьми + математика = репетиторство по математике для младших учеников в общественном центре.", kk: "Қызығушылықтарды мүмкіндіктермен сәйкестендіріңіз: балалармен жұмыс + математика = жергілікті қоғамдастық орталығында кіші оқушыларға математикадан репетиторлық." },
               { en: "Skills she would develop: patience, teaching ability, communication with children, leadership, and time management — all valuable for careers in education, pediatrics, or child psychology.", ru: "Навыки, которые она разовьёт: терпение, способность обучать, общение с детьми, лидерство и тайм-менеджмент — ценные для карьеры в образовании или педиатрии.", kk: "Ол дамытатын дағдылар: шыдамдылық, оқыту қабілеті, балалармен қарым-қатынас, көшбасшылық және уақытты басқару — білім, педиатрия немесе бала психологиясындағы мансаптар үшін құнды." }
             ],
-            answer: "Madina should tutor younger students in math at a community center. She would develop patience, teaching skills, communication, leadership, and time management."
+            answer: "Madina should tutor younger students in math at a community center. She would develop patience, teaching skills, communication, leadership, and time management.",
+            answerRu: "Мадине стоит стать репетитором по математике для младших учеников в общественном центре. Она разовьёт терпение, навыки преподавания, коммуникацию, лидерство и тайм-менеджмент.",
+            answerKk: "Мадина қоғамдастық орталығында кіші оқушыларға математикадан репетиторлық жасауы керек. Ол шыдамдылықты, оқыту дағдыларын, қарым-қатынасты, көшбасшылықты және уақытты басқаруды дамытады."
           }
         ],
         practiceProblems: [
@@ -438,6 +488,8 @@ export const CAREER_FULL: Record<string, LessonContent> = {
             questionRu: "Назовите два места в вашем сообществе, где можно волонтёрить, и опишите, что бы вы делали в каждом.",
             questionKk: "Қоғамдастығыңызда еріктілік жасауға болатын екі орынды атаңыз және әрқайсысында не істейтіңізді сипаттаңыз.",
             answer: "Example: Animal shelter (feeding and walking dogs), local library (shelving books and reading to children). Any valid options are acceptable.",
+            answerRu: "Пример: приют для животных (кормить и выгуливать собак), местная библиотека (расставлять книги и читать детям). Любые обоснованные варианты принимаются.",
+            answerKk: "Мысалы: жануарлар панасы (иттерді тамақтандыру және серуендету), жергілікті кітапхана (кітаптарды сөрелерге қою және балаларға оқып беру). Кез келген негізді нұсқа қабылданады.",
             hint: "Think about organizations near your home or school that help people or animals.",
             hintRu: "Подумайте об организациях рядом с домом или школой, которые помогают людям или животным.",
             hintKk: "Үйіңіздің немесе мектебіңіздің жанындағы адамдарға немесе жануарларға көмектесетін ұйымдарды ойлаңыз.",
@@ -449,6 +501,8 @@ export const CAREER_FULL: Record<string, LessonContent> = {
             questionRu: "Вы три выходных волонтёрили в продовольственном банке. Опишите три навыка, которые вы развили, и как каждый может помочь в будущей карьере.",
             questionKk: "Сіз тағам банкінде үш демалыс күні еріктілік жасадыңыз. Дамытқан үш нақты дағдыны және әрқайсысы болашақ мансапта қалай көмектесетінін сипаттаңыз.",
             answer: "Example: Organization (sorted food items → useful in logistics), teamwork (worked with other volunteers → essential in any workplace), empathy (understood food insecurity → valuable in social work or public health).",
+            answerRu: "Пример: организованность (сортировка продуктов → полезна в логистике), командная работа (работа с другими волонтёрами → необходима в любом рабочем месте), эмпатия (понимание продовольственной незащищённости → ценна в социальной работе или общественном здравоохранении).",
+            answerKk: "Мысалы: ұйымдастыру (азық-түліктерді сұрыптау → логистикада пайдалы), командалық жұмыс (басқа еріктілермен жұмыс істеу → кез келген жұмыс орнында қажет), эмпатия (азық-түлік тапшылығын түсіну → әлеуметтік жұмыста немесе қоғамдық денсаулық сақтауда құнды).",
             hint: "Think about what tasks you performed and what abilities those tasks required.",
             hintRu: "Подумайте, какие задачи вы выполняли и какие способности они требовали.",
             hintKk: "Қандай тапсырмалар орындағаныңызды және сол тапсырмалар қандай қабілеттерді қажет еткенін ойлаңыз.",
@@ -460,6 +514,8 @@ export const CAREER_FULL: Record<string, LessonContent> = {
             questionRu: "Разработайте волонтёрский проект, которым вы могли бы руководить в школе или сообществе. Включите проблему, задачи, количество волонтёров, сроки и навыки, которые получат участники.",
             questionKk: "Мектебіңізде немесе қоғамдастығыңызда басшылық ете алатын еріктілік жобасын жасаңыз. Мәселені, тапсырмаларды, қажетті еріктілерді, уақыт кестесін және қатысушылар алатын дағдыларды қосыңыз.",
             answer: "Should include a clear problem, specific tasks, volunteer count, 2-4 week timeline, and skills gained. Example: 'School Garden Project' — addresses lack of fresh food; tasks include planning, planting, watering schedule; needs 10 volunteers; 4-week timeline; develops responsibility, biology knowledge, and teamwork.",
+            answerRu: "Должно включать чёткую проблему, конкретные задачи, количество волонтёров, сроки 2-4 недели и приобретённые навыки. Пример: «Школьный садовый проект» — решает проблему нехватки свежих продуктов; задачи включают планирование, посадку, график полива; нужно 10 волонтёров; сроки 4 недели; развивает ответственность, знания биологии и командную работу.",
+            answerKk: "Нақты мәселе, арнайы тапсырмалар, еріктілер саны, 2-4 апталық уақыт кестесі және алынатын дағдылар болуы керек. Мысалы: «Мектеп бақшасы жобасы» — жаңа піскен азық-түліктің жетіспеушілігін шешеді; тапсырмаларға жоспарлау, отырғызу, суару кестесі кіреді; 10 ерікті қажет; 4 апталық уақыт кестесі; жауапкершілікті, биология білімін және командалық жұмысты дамытады.",
             hint: "Start with a problem you care about in your school or neighborhood, then plan backward from the solution.",
             hintRu: "Начните с проблемы, которая вас волнует, затем планируйте от решения к действиям.",
             hintKk: "Мектебіңіздегі немесе ауданыңыздағы сізді мазалайтын мәселеден бастаңыз, содан кейін шешімнен кері жоспарлаңыз.",
@@ -497,7 +553,9 @@ export const CAREER_FULL: Record<string, LessonContent> = {
               { en: "Apply active listening: each person explains their reasoning without interruption. The text person values completeness; the image person values engagement.", ru: "Примените активное слушание: каждый объясняет свою позицию без перебивания. Сторонник текста ценит полноту; сторонник изображений ценит вовлечённость.", kk: "Белсенді тыңдауды қолданыңыз: әрқайсысы бөлінбей өз ұстанымын түсіндіреді. Мәтін жақтаушы толықтықты; сурет жақтаушы тартымдылықты бағалайды." },
               { en: "Find a compromise: use a balanced design with key points as text and supporting visuals — this combines both strengths and creates a better outcome than either approach alone.", ru: "Найдите компромисс: используйте сбалансированный дизайн с ключевыми тезисами и визуальными материалами — это объединяет оба подхода.", kk: "Ымыраға келіңіз: негізгі тезистер мен визуалды материалдарды біріктіретін теңдестірілген дизайн қолданыңыз — бұл екі тәсілді де біріктіреді." }
             ],
-            answer: "Use active listening to understand each viewpoint, then compromise with a balanced design using key text points and supporting visuals."
+            answer: "Use active listening to understand each viewpoint, then compromise with a balanced design using key text points and supporting visuals.",
+            answerRu: "Используйте активное слушание, чтобы понять каждую точку зрения, затем найдите компромисс со сбалансированным дизайном, сочетающим ключевые текстовые тезисы и вспомогательные визуальные материалы.",
+            answerKk: "Әр көзқарасты түсіну үшін белсенді тыңдауды қолданыңыз, содан кейін негізгі мәтіндік тезистер мен қосалқы визуалдарды пайдаланатын теңдестірілген дизайн арқылы ымыраға келіңіз."
           }
         ],
         practiceProblems: [
@@ -507,6 +565,8 @@ export const CAREER_FULL: Record<string, LessonContent> = {
             questionRu: "Назовите три важных навыка командной работы и приведите пример использования каждого.",
             questionKk: "Үш маңызды командалық жұмыс дағдысын атаңыз және әрқайсысын қашан қолданғаныңыздың мысалын келтіріңіз.",
             answer: "Example: Communication (explaining ideas in group projects), listening (hearing a friend's concerns), reliability (completing your assigned part on time).",
+            answerRu: "Пример: коммуникация (объяснение идей в групповых проектах), слушание (выслушать переживания друга), надёжность (своевременное выполнение своей части работы).",
+            answerKk: "Мысалы: қарым-қатынас (топтық жобаларда идеяларды түсіндіру), тыңдау (достың алаңдаушылығын тыңдау), сенімділік (өзіңе тағайындалған бөлікті уақытылы орындау).",
             hint: "Think about group projects at school and what made them work well or poorly.",
             hintRu: "Подумайте о групповых проектах в школе и что делало их успешными или неуспешными.",
             hintKk: "Мектептегі топтық жобаларды және оларды не жақсы немесе нашар еткенін ойлаңыз.",
@@ -518,6 +578,8 @@ export const CAREER_FULL: Record<string, LessonContent> = {
             questionRu: "Вы руководите группой из четырёх одноклассников в научном проекте. Один участник не выполняет свою часть работы. Опишите, как бы вы справились с этой ситуацией, используя навыки командной работы.",
             questionKk: "Сіз ғылыми жобада төрт сыныптасыңыздың тобын басқарасыз. Бір мүше жұмыстың өз үлесін орындамайды. Командалық жұмыс дағдыларын пайдаланып бұл жағдайды қалай шешетіңізді сипаттаңыз.",
             answer: "Have a private conversation to understand why they are not contributing (maybe they are confused or overwhelmed). Offer help, reassign tasks if needed, and set clear deadlines with check-ins.",
+            answerRu: "Проведите личный разговор, чтобы понять, почему человек не вносит вклад (возможно, он запутался или перегружен). Предложите помощь, при необходимости перераспределите задачи и установите чёткие сроки с промежуточными проверками.",
+            answerKk: "Оның неге үлес қоспайтынын түсіну үшін жеке әңгімелесіңіз (мүмкін ол тапсырманы түсінбеген немесе тым жүктелген). Көмек ұсыныңыз, қажет болса тапсырмаларды қайта бөліңіз және аралық тексерістері бар нақты мерзімдер белгілеңіз.",
             hint: "Start by understanding the reason before jumping to solutions.",
             hintRu: "Начните с понимания причины, прежде чем переходить к решениям.",
             hintKk: "Шешімдерге секірмес бұрын себебін түсінуден бастаңыз.",
@@ -529,6 +591,8 @@ export const CAREER_FULL: Record<string, LessonContent> = {
             questionRu: "Создайте командный устав для школьного проекта: роли, правила коммуникации, шаги разрешения конфликтов, расписание встреч и меры ответственности. Объясните важность каждого элемента.",
             questionKk: "Мектеп жобасы үшін команда жарғысын жасаңыз: рөлдер, қарым-қатынас ережелері, дау-жанжалдарды шешу қадамдары, жиналыс кестесі және есеп беру шаралары. Әр элементтің маңыздылығын түсіндіріңіз.",
             answer: "Should include all five elements with explanations. Example: Roles (ensures everyone knows their responsibilities), communication (weekly group chat check-ins prevent misunderstandings), conflict resolution (vote or ask teacher to mediate), meetings (Wednesdays after school), accountability (shared document tracking progress).",
+            answerRu: "Должно включать все пять элементов с объяснениями. Пример: роли (каждый знает свои обязанности), коммуникация (еженедельные отметки в групповом чате предотвращают недопонимание), разрешение конфликтов (голосование или привлечение учителя в качестве посредника), встречи (по средам после уроков), ответственность (общий документ для отслеживания прогресса).",
+            answerKk: "Барлық бес элемент түсіндірмелерімен бірге болуы керек. Мысалы: рөлдер (әркім өз жауапкершілігін біледі), қарым-қатынас (апта сайынғы топтық чат тексерістері түсініспеушіліктердің алдын алады), дау-жанжалдарды шешу (дауыс беру немесе мұғалімнен делдал болуды сұрау), жиналыстар (сәрсенбі күндері сабақтан кейін), есеп беру (ортақ құжат барысты бақылайды).",
             hint: "Think about what has gone wrong in past group projects and build rules to prevent those problems.",
             hintRu: "Подумайте, что шло не так в прошлых групповых проектах, и создайте правила для предотвращения этих проблем.",
             hintKk: "Бұрынғы топтық жобаларда не дұрыс болмағанын ойлаңыз және сол мәселелерді болдырмау үшін ережелер жасаңыз.",
@@ -566,7 +630,9 @@ export const CAREER_FULL: Record<string, LessonContent> = {
               { en: "Make it specific: ask Arman what 'success' means to him. If he says 'having a good career in technology,' we can now create specific goals.", ru: "Сделайте конкретным: спросите Армана, что значит «успех». Если он скажет «хорошая карьера в технологиях», можно создать конкретные цели.", kk: "Нақтылаңыз: Арманнан «табыс» оған не білдіретінін сұраңыз. Егер «технологиядағы жақсы мансап» десе, нақты мақсаттар жасай аламыз." },
               { en: "Create SMART goals: Short-term — 'Complete a free online Python course by June' (specific, measurable, time-bound). Medium-term — 'Build three coding projects for my portfolio by end of Grade 10.' Long-term — 'Earn a computer science degree and get a junior developer job by age 22.'", ru: "Создайте SMART-цели: Краткосрочная — «Пройти бесплатный курс Python до июня». Среднесрочная — «Создать три проекта для портфолио к концу 10 класса». Долгосрочная — «Получить степень в IT и работу разработчика к 22 годам».", kk: "SMART мақсаттарын жасаңыз: Қысқа мерзімді — «Маусымға дейін тегін Python курсын аяқтау». Орта мерзімді — «10 сыныптың соңына дейін портфолио үшін үш жоба жасау». Ұзақ мерзімді — «22 жасқа дейін IT дәрежесін алу және жасаушы болу»." }
             ],
-            answer: "Short-term: Complete a Python course by June. Medium-term: Build three portfolio projects by end of Grade 10. Long-term: Earn a CS degree and get a developer job by age 22."
+            answer: "Short-term: Complete a Python course by June. Medium-term: Build three portfolio projects by end of Grade 10. Long-term: Earn a CS degree and get a developer job by age 22.",
+            answerRu: "Краткосрочная: пройти курс Python до июня. Среднесрочная: создать три проекта для портфолио к концу 10 класса. Долгосрочная: получить степень по информатике и устроиться разработчиком к 22 годам.",
+            answerKk: "Қысқа мерзімді: маусымға дейін Python курсын аяқтау. Орта мерзімді: 10 сыныптың соңына дейін портфолиоға үш жоба жасау. Ұзақ мерзімді: информатика дәрежесін алып, 22 жасқа дейін әзірлеуші болып жұмысқа орналасу."
           }
         ],
         practiceProblems: [
@@ -576,6 +642,8 @@ export const CAREER_FULL: Record<string, LessonContent> = {
             questionRu: "Напишите одну SMART-цель, которую хотите достичь в этом семестре. Проверьте, что она соответствует всем пяти критериям SMART.",
             questionKk: "Осы семестрде қол жеткізгіңіз келетін бір SMART мақсатты жазыңыз. Оның барлық бес SMART критерийіне сәйкестігін тексеріңіз.",
             answer: "Example: 'Read two career-related books by the end of this semester' — Specific (two books), Measurable (count), Achievable (two books in months), Relevant (career exploration), Time-bound (end of semester).",
+            answerRu: "Пример: «Прочитать две книги о карьере до конца этого семестра» — конкретная (две книги), измеримая (количество), достижимая (две книги за несколько месяцев), актуальная (исследование карьеры), ограниченная по времени (конец семестра).",
+            answerKk: "Мысалы: «Осы семестрдің соңына дейін мансапқа қатысты екі кітап оқу» — нақты (екі кітап), өлшенетін (саны), қол жеткізілетін (бірнеше айда екі кітап), өзекті (мансапты зерттеу), уақытпен шектелген (семестр соңы).",
             hint: "Start with what you want to accomplish, then add details about how much, by when, and why it matters.",
             hintRu: "Начните с того, чего хотите достичь, затем добавьте детали — сколько, когда и почему это важно.",
             hintKk: "Нені орындағыңыз келетінен бастаңыз, содан кейін қанша, қашан және неліктен маңызды екенін қосыңыз.",
@@ -587,6 +655,8 @@ export const CAREER_FULL: Record<string, LessonContent> = {
             questionRu: "Одноклассник говорит: «Хочу когда-нибудь быть богатым». Превратите это расплывчатое желание в три SMART-цели для разных временных рамок.",
             questionKk: "Сыныптасыңыз: «Бір күні бай болғым келеді» дейді. Бұл анық емес тілекті қаржылық табысқа апаратын үш SMART мақсатқа айналдырыңыз.",
             answer: "Short-term: Save 10% of any money received each month for 6 months. Medium-term: Learn about investing by completing a financial literacy course by end of next year. Long-term: Start a side business generating $500/month revenue within 5 years.",
+            answerRu: "Краткосрочная: откладывать 10% любых полученных денег каждый месяц в течение 6 месяцев. Среднесрочная: до конца следующего года пройти курс финансовой грамотности, чтобы узнать об инвестициях. Долгосрочная: в течение 5 лет запустить побочный бизнес с доходом $500/месяц.",
+            answerKk: "Қысқа мерзімді: 6 ай бойы ай сайын түскен кез келген ақшаның 10%-ын жинау. Орта мерзімді: келесі жылдың соңына дейін қаржылық сауаттылық курсын аяқтап, инвестициялау туралы үйрену. Ұзақ мерзімді: 5 жыл ішінде айына $500 табыс әкелетін қосымша кәсіп бастау.",
             hint: "Think about what skills and habits actually lead to financial success, not just the end result.",
             hintRu: "Подумайте, какие навыки и привычки ведут к финансовому успеху, а не только о результате.",
             hintKk: "Тек нәтижені емес, қаржылық табысқа нақты қандай дағдылар мен әдеттер апаратынын ойлаңыз.",
@@ -598,6 +668,8 @@ export const CAREER_FULL: Record<string, LessonContent> = {
             questionRu: "Создайте полный 5-летний план целей с минимум двумя целями для каждого временного периода, шагами действий, потенциальными препятствиями и стратегиями их преодоления.",
             questionKk: "Әр уақыт аралығы үшін кемінде екі мақсаты, әр мақсат үшін іс-қимыл қадамдары, ықтимал кедергілер және оларды жеңу стратегиялары бар толық 5 жылдық мақсат жоспарын жасаңыз.",
             answer: "Should include 6+ SMART goals across three timeframes, each with 2-3 action steps, at least one obstacle, and a strategy. Example obstacle: 'Might lose motivation' → Strategy: 'Find an accountability partner and review goals monthly.'",
+            answerRu: "Должно включать 6+ SMART-целей в трёх временных рамках, каждая с 2-3 шагами действий, минимум одним препятствием и стратегией. Пример препятствия: «Могу потерять мотивацию» → стратегия: «найти партнёра по ответственности и ежемесячно пересматривать цели».",
+            answerKk: "Үш уақыт аралығында 6+ SMART мақсат болуы керек, әрқайсысында 2-3 іс-қимыл қадамы, кемінде бір кедергі және стратегия. Кедергі мысалы: «Мотивациямды жоғалтуым мүмкін» → стратегия: «жауапкершілік серіктесін тауып, ай сайын мақсаттарды қайта қарау».",
             hint: "Work backward from your dream career — what do you need to accomplish at each stage to get there?",
             hintRu: "Работайте от мечты назад — что нужно достичь на каждом этапе, чтобы дойти до цели?",
             hintKk: "Арман мансабыңыздан кері жұмыс жасаңыз — оған жету үшін әр кезеңде не орындау керек?",
@@ -629,7 +701,9 @@ export const CAREER_FULL: Record<string, LessonContent> = {
               { en: "Structure the entry: Date, event name, who she spoke with, and key takeaways from each conversation (e.g., the doctor said medical school takes 8 years, the programmer works remotely, the journalist travels often).", ru: "Структурируйте запись: дата, название мероприятия, с кем говорила, ключевые выводы (например, врач сказал, что медобразование длится 8 лет, программист работает удалённо, журналист часто путешествует).", kk: "Жазбаны құрылымдаңыз: күні, іс-шара атауы, кіммен сөйлескені, негізгі тұжырымдар (мысалы, дәрігер мед білім 8 жыл дегенін, бағдарламашы қашықтан жұмыс істейтінін, журналист жиі сапарлайтынын айтты)." },
               { en: "Add reflection and next steps: 'I was most interested in journalism because I love writing and traveling. Next step: research journalism programs and try writing an article for the school newspaper.'", ru: "Добавьте рефлексию и следующие шаги: «Больше всего заинтересовала журналистика, потому что люблю писать и путешествовать. Следующий шаг: изучить программы журналистики и написать статью для школьной газеты».", kk: "Рефлексия мен келесі қадамдарды қосыңыз: «Журналистика маған ең қызықты болды, өйткені жазуды және саяхаттауды жақсы көремін. Келесі қадам: журналистика бағдарламаларын зерттеу және мектеп газетіне мақала жазып көру»." }
             ],
-            answer: "Kamila should record the date, event, conversations, key learnings, her feelings, and next steps. She should note which career excited her most and why."
+            answer: "Kamila should record the date, event, conversations, key learnings, her feelings, and next steps. She should note which career excited her most and why.",
+            answerRu: "Камиле стоит записать дату, мероприятие, разговоры, ключевые выводы, свои чувства и следующие шаги. Ей стоит отметить, какая карьера заинтересовала её больше всего и почему.",
+            answerKk: "Камила күнін, іс-шараны, әңгімелерді, негізгі тұжырымдарды, сезімдерін және келесі қадамдарды жазып алуы керек. Ол қай мансап оны қаттырақ қызықтырғанын және неліктен екенін атап өтуі керек."
           }
         ],
         practiceProblems: [
@@ -639,6 +713,8 @@ export const CAREER_FULL: Record<string, LessonContent> = {
             questionRu: "Напишите запись в карьерный дневник о чём-то связанном с карьерой, что вы узнали или пережили на этой неделе.",
             questionKk: "Осы аптада мансапқа байланысты үйренген немесе бастан кешірген нәрсеңіз туралы мансап күнделігіне жазба жазыңыз.",
             answer: "Should follow the template: date, experience, what was learned, feelings, and next steps. Any genuine reflection is acceptable.",
+            answerRu: "Должно следовать шаблону: дата, опыт, что узнал, чувства и следующие шаги. Любое искреннее размышление принимается.",
+            answerKk: "Үлгіге сәйкес болуы керек: күні, тәжірибе, не үйренгені, сезімдері және келесі қадамдар. Кез келген шынайы ой-толғау қабылданады.",
             hint: "Use the journal template: Date, What happened, What I learned, How I felt, What I will do next.",
             hintRu: "Используйте шаблон: Дата, Что произошло, Что я узнал, Что я чувствую, Что буду делать дальше.",
             hintKk: "Үлгіні пайдаланыңыз: Күні, Не болды, Не үйрендім, Қалай сезіндім, Ары қарай не істеймін.",
@@ -650,6 +726,8 @@ export const CAREER_FULL: Record<string, LessonContent> = {
             questionRu: "Проанализируйте три записи и определите закономерность: Запись 1: «Понравилась научная ярмарка». Запись 2: «Понравился урок в лаборатории». Запись 3: «Увлёкся домашним заданием по химии». Какое карьерное направление предполагают эти записи?",
             questionKk: "Үш жазбаны талдаңыз және заңдылықты анықтаңыз: Жазба 1: «Ғылым жәрмеңкесі ұнады». Жазба 2: «Зертхана сабағы ұнады». Жазба 3: «Химия үй тапсырмасы қызықтырды». Бұл жазбалар қандай мансап бағытын ұсынады?",
             answer: "The pattern shows consistent excitement about science, especially hands-on experiments and chemistry. This suggests careers in chemistry, pharmaceuticals, chemical engineering, or laboratory research.",
+            answerRu: "Закономерность показывает устойчивый интерес к науке, особенно к практическим экспериментам и химии. Это указывает на карьеры в химии, фармацевтике, химической инженерии или лабораторных исследованиях.",
+            answerKk: "Заңдылық ғылымға, әсіресе практикалық тәжірибелер мен химияға деген тұрақты қызығушылықты көрсетеді. Бұл химия, фармацевтика, химиялық инженерия немесе зертхана зерттеулері саласындағы мансаптарды меңзейді.",
             hint: "Look for the common theme across all three entries.",
             hintRu: "Ищите общую тему во всех трёх записях.",
             hintKk: "Барлық үш жазбадағы ортақ тақырыпты іздеңіз.",
@@ -661,6 +739,8 @@ export const CAREER_FULL: Record<string, LessonContent> = {
             questionRu: "Создайте шаблон карьерного дневника с пятью разделами, напишите примерную запись по шаблону и объясните, как ежемесячный обзор записей помогает принимать лучшие карьерные решения.",
             questionKk: "Бес бөлімі бар мансап күнделігі үлгісін жасаңыз, үлгіңіз бойынша үлгі жазба жазыңыз және жазбаларды ай сайын қарау уақыт өте жақсы мансап шешімдеріне қалай көмектесетінін түсіндіріңіз.",
             answer: "Template should have 5 distinct sections (e.g., Experience, Skills Used, Emotions, Insights, Action Items). Sample entry should demonstrate all sections. Monthly review explanation should cover pattern recognition, tracking interests over time, and evidence-based decision making.",
+            answerRu: "Шаблон должен содержать 5 отдельных разделов (например, опыт, использованные навыки, эмоции, выводы, задачи к действию). Примерная запись должна демонстрировать все разделы. Объяснение ежемесячного обзора должно охватывать распознавание закономерностей, отслеживание интересов во времени и принятие решений на основе доказательств.",
+            answerKk: "Үлгіде 5 бөлек бөлім болуы керек (мысалы, тәжірибе, пайдаланылған дағдылар, эмоциялар, тұжырымдар, іс-қимыл тапсырмалары). Үлгі жазба барлық бөлімдерді көрсетуі керек. Ай сайынғы шолу түсіндірмесі заңдылықтарды тануды, қызығушылықтарды уақыт өте бақылауды және дәлелдерге негізделген шешім қабылдауды қамтуы керек.",
             hint: "Think about what information would be most helpful to your future self when making career choices.",
             hintRu: "Подумайте, какая информация будет наиболее полезна вашему будущему «я» при выборе карьеры.",
             hintKk: "Мансап таңдау кезінде болашақ өзіңізге қандай ақпарат ең пайдалы болатынын ойлаңыз.",
@@ -707,7 +787,9 @@ export const CAREER_FULL: Record<string, LessonContent> = {
               { en: "Identify matching clusters: Biology + helping people aligns with the Health Science cluster and the Human Services cluster.", ru: "Определите подходящие кластеры: Биология + помощь людям соответствует кластерам Медицина и Социальные услуги.", kk: "Сәйкес кластерлерді анықтаңыз: Биология + адамдарға көмек Денсаулық сақтау ғылымы және Адам қызметтері кластерлеріне сәйкес келеді." },
               { en: "Find pathways: (1) Health Science → Therapeutic Services → Physical Therapist, (2) Health Science → Diagnostic Services → Lab Technician, (3) Human Services → Counseling → Genetic Counselor.", ru: "Найдите пути: (1) Медицина → Терапия → Физиотерапевт, (2) Медицина → Диагностика → Лаборант, (3) Социальные услуги → Консультирование → Генетический консультант.", kk: "Жолдарды табыңыз: (1) Денсаулық ғылымы → Терапия → Физиотерапевт, (2) Денсаулық ғылымы → Диагностика → Зертханашы, (3) Адам қызметтері → Кеңес беру → Генетикалық кеңесші." }
             ],
-            answer: "Health Science and Human Services clusters match Daulet. Pathways: Therapeutic Services (Physical Therapist), Diagnostic Services (Lab Technician), Counseling (Genetic Counselor)."
+            answer: "Health Science and Human Services clusters match Daulet. Pathways: Therapeutic Services (Physical Therapist), Diagnostic Services (Lab Technician), Counseling (Genetic Counselor).",
+            answerRu: "Даулету соответствуют кластеры здравоохранения и социальных услуг. Пути: терапевтические услуги (физиотерапевт), диагностические услуги (лаборант), консультирование (генетический консультант).",
+            answerKk: "Дәулетке денсаулық сақтау ғылымы және адам қызметтері кластерлері сәйкес келеді. Жолдар: терапевтік қызметтер (физиотерапевт), диагностикалық қызметтер (зертханашы), кеңес беру (генетикалық кеңесші)."
           }
         ],
         practiceProblems: [
@@ -717,6 +799,8 @@ export const CAREER_FULL: Record<string, LessonContent> = {
             questionRu: "Назовите четыре из 16 национальных карьерных кластеров и приведите по одному примеру профессии из каждого.",
             questionKk: "16 ұлттық мансап кластерінің төртеуін атаңыз және әрқайсысынан бір мамандық мысалын келтіріңіз.",
             answer: "Example: Information Technology (web developer), Health Science (nurse), Arts (musician), Business (accountant). Any valid clusters and jobs are acceptable.",
+            answerRu: "Пример: информационные технологии (веб-разработчик), здравоохранение (медсестра), искусство (музыкант), бизнес (бухгалтер). Любые обоснованные кластеры и профессии принимаются.",
+            answerKk: "Мысалы: ақпараттық технологиялар (веб-әзірлеуші), денсаулық сақтау ғылымы (медбике), өнер (музыкант), бизнес (бухгалтер). Кез келген негізді кластерлер мен мамандықтар қабылданады.",
             hint: "Think of broad categories like health, technology, arts, and business.",
             hintRu: "Подумайте о широких категориях: здоровье, технологии, искусство и бизнес.",
             hintKk: "Денсаулық, технология, өнер және бизнес сияқты кең санаттарды ойлаңыз.",
@@ -728,6 +812,8 @@ export const CAREER_FULL: Record<string, LessonContent> = {
             questionRu: "Ученик владеет математикой, коммуникацией и решением проблем. Определите два кластера, ценящие все три навыка, и предложите по одной конкретной профессии.",
             questionKk: "Оқушы математика, қарым-қатынас және мәселелерді шешуде шебер. Барлық үш дағдыны бағалайтын екі мансап кластерін анықтаңыз және әрқайсысынан бір нақты мамандық ұсыныңыз.",
             answer: "Finance cluster → Financial Advisor (uses math to solve client problems, requires communication). STEM cluster → Data Analyst (applies math to business problems, presents findings to teams).",
+            answerRu: "Кластер финансов → финансовый консультант (использует математику для решения проблем клиентов, требуется коммуникация). Кластер STEM → аналитик данных (применяет математику к бизнес-проблемам, представляет выводы командам).",
+            answerKk: "Қаржы кластері → қаржы кеңесшісі (клиенттердің мәселелерін шешу үшін математиканы пайдаланады, қарым-қатынас қажет). STEM кластері → деректер талдаушысы (математиканы бизнес мәселелеріне қолданады, тұжырымдарын командаларға таныстырады).",
             hint: "Think about fields where explaining numbers and solving problems for others is important.",
             hintRu: "Подумайте об областях, где важно объяснять числа и решать проблемы для других.",
             hintKk: "Сандарды түсіндіру және басқалар үшін мәселелерді шешу маңызды салаларды ойлаңыз.",
@@ -739,6 +825,8 @@ export const CAREER_FULL: Record<string, LessonContent> = {
             questionRu: "Выберите карьерный кластер и постройте три полных пути от кластера до конкретной профессии. Для каждой укажите образование, ключевые навыки и перспективы роста.",
             questionKk: "Мансап кластерін таңдаңыз және кластерден нақты мамандыққа дейін үш толық жолды құрыңыз. Әрқайсысы үшін қажетті білімді, негізгі дағдыларды және өсу болжамын тізімдеңіз.",
             answer: "Example: Information Technology cluster → (1) Programming Pathway → Software Engineer (BS in CS, coding + teamwork, strong growth), (2) Network Systems → Cybersecurity Analyst (BS + certs, analytical skills, very high growth), (3) Web Development → UX Designer (BS/bootcamp, design + empathy, growing demand).",
+            answerRu: "Пример: кластер информационных технологий → (1) путь программирования → инженер-программист (бакалавриат по информатике, программирование + командная работа, высокий рост), (2) сетевые системы → аналитик кибербезопасности (бакалавриат + сертификаты, аналитические навыки, очень высокий рост), (3) веб-разработка → UX-дизайнер (бакалавриат/буткемп, дизайн + эмпатия, растущий спрос).",
+            answerKk: "Мысалы: ақпараттық технологиялар кластері → (1) бағдарламалау жолы → бағдарламалық жасақтама инженері (информатика бакалавры, кодтау + командалық жұмыс, күшті өсім), (2) желілік жүйелер → киберқауіпсіздік талдаушысы (бакалавр + сертификаттар, аналитикалық дағдылар, өте жоғары өсім), (3) веб-әзірлеу → UX-дизайнер (бакалавр/буткемп, дизайн + эмпатия, өсіп келе жатқан сұраныс).",
             hint: "Pick a cluster you are interested in, then think of three very different jobs within it.",
             hintRu: "Выберите интересный кластер, затем подумайте о трёх очень разных профессиях в нём.",
             hintKk: "Қызықтыратын кластерді таңдаңыз, содан кейін ондағы үш мүлдем басқа мамандықты ойлаңыз.",
@@ -770,7 +858,9 @@ export const CAREER_FULL: Record<string, LessonContent> = {
               { en: "Compare pathways: University — 4 years, higher cost but broader education including theory, algorithms, and networking opportunities. Bootcamp — 3-6 months, lower cost, focused on practical coding skills.", ru: "Сравните пути: Университет — 4 года, выше стоимость, но широкое образование с теорией, алгоритмами и связями. Буткемп — 3-6 месяцев, ниже стоимость, фокус на практических навыках.", kk: "Жолдарды салыстырыңыз: Университет — 4 жыл, жоғары шығын, бірақ теория, алгоритмдер және байланыстарды қамтитын кең білім. Буткемп — 3-6 ай, төмен шығын, практикалық дағдыларға бағытталған." },
               { en: "Career outcomes: Both can lead to web developer jobs. University graduates may have more options for senior or research roles later. Bootcamp graduates enter the workforce faster but may need to self-study theory over time.", ru: "Карьерные результаты: Оба ведут к работе веб-разработчика. Выпускники университетов имеют больше возможностей для старших ролей. Выпускники буткемпов быстрее выходят на рынок.", kk: "Мансап нәтижелері: Екеуі де веб-әзірлеуші жұмыстарына апарады. Университет түлектерінің жоғары рөлдер үшін көбірек мүмкіндіктері болуы мүмкін. Буткемп түлектері жұмыс күшіне тезірек кіреді." }
             ],
-            answer: "University: 4 years, higher cost, broader education, more senior role options. Bootcamp: 3-6 months, lower cost, practical focus, faster job entry. Both are valid paths to web development."
+            answer: "University: 4 years, higher cost, broader education, more senior role options. Bootcamp: 3-6 months, lower cost, practical focus, faster job entry. Both are valid paths to web development.",
+            answerRu: "Университет: 4 года, выше стоимость, более широкое образование, больше вариантов старших должностей. Буткемп: 3-6 месяцев, ниже стоимость, практический фокус, более быстрый вход в профессию. Оба пути действительны для веб-разработки.",
+            answerKk: "Университет: 4 жыл, жоғары шығын, кеңірек білім, жоғары рөлдер үшін көбірек мүмкіндік. Буткемп: 3-6 ай, төмен шығын, практикалық бағыт, жұмысқа тезірек кіру. Екеуі де веб-әзірлеуге апаратын жарамды жолдар."
           }
         ],
         practiceProblems: [
@@ -780,6 +870,8 @@ export const CAREER_FULL: Record<string, LessonContent> = {
             questionRu: "Перечислите три различных образовательных пути и назовите одну карьеру, к которой каждый путь может привести.",
             questionKk: "Үш түрлі білім беру жолын тізімдеңіз және әр жол апаратын бір мансапты атаңыз.",
             answer: "Example: University → Doctor, Trade school → Electrician, Bootcamp → Web developer. Any valid pairings accepted.",
+            answerRu: "Пример: университет → врач, профессиональное училище → электрик, буткемп → веб-разработчик. Любые обоснованные пары принимаются.",
+            answerKk: "Мысалы: университет → дәрігер, кәсіби училище → электрик, буткемп → веб-әзірлеуші. Кез келген негізді жұп қабылданады.",
             hint: "Think about the different ways people prepare for their careers besides a four-year university.",
             hintRu: "Подумайте о разных способах подготовки к карьере, помимо четырёхлетнего университета.",
             hintKk: "Адамдардың төрт жылдық университеттен басқа мансапқа дайындалу жолдарын ойлаңыз.",
@@ -791,6 +883,8 @@ export const CAREER_FULL: Record<string, LessonContent> = {
             questionRu: "Друг говорит: «Чтобы получить хорошую работу, нужно идти в университет». Согласны или нет? Подтвердите тремя примерами высокооплачиваемых карьер без четырёхлетнего диплома.",
             questionKk: "Досыңыз: «Жақсы жұмыс алу үшін университетке бару керек» дейді. Келісесіз бе? Төрт жылдық дипломды қажет етпейтін үш жоғары жалақылы мансап мысалымен растаңыз.",
             answer: "Disagree. Examples: Commercial pilot (flight school + certifications, $80-150K), Cybersecurity specialist (certifications + experience, $70-120K), Electrician (apprenticeship, $50-100K). Many paths lead to good careers.",
+            answerRu: "Не согласен. Примеры: коммерческий пилот (лётная школа + сертификаты, $80-150K), специалист по кибербезопасности (сертификаты + опыт, $70-120K), электрик (ученичество, $50-100K). Многие пути ведут к хорошей карьере.",
+            answerKk: "Келіспеймін. Мысалдар: коммерциялық ұшқыш (ұшу мектебі + сертификаттар, $80-150K), киберқауіпсіздік маманы (сертификаттар + тәжірибе, $70-120K), электрик (тағылымдама, $50-100K). Жақсы мансапқа апаратын жолдар көп.",
             hint: "Think about skilled trades, tech certifications, and aviation careers.",
             hintRu: "Подумайте о ремёслах, технологических сертификациях и авиационных карьерах.",
             hintKk: "Кәсіби шеберліктер, технологиялық сертификаттар және авиация мансаптарын ойлаңыз.",
@@ -802,6 +896,8 @@ export const CAREER_FULL: Record<string, LessonContent> = {
             questionRu: "Выберите интересующую карьеру и исследуйте все возможные образовательные пути. Создайте сравнительную таблицу с колонками: путь, продолжительность, стоимость, плюсы и минусы.",
             questionKk: "Қызықтыратын мансапты таңдаңыз және оған жетудің барлық мүмкін білім беру жолдарын зерттеңіз. Жол атауы, ұзақтығы, болжамды құны, артықшылықтары мен кемшіліктері бағандары бар салыстыру кестесін жасаңыз.",
             answer: "Should include at least 3 pathways with all columns filled. Example for Software Engineer: (1) University CS degree — 4yr, $40-200K, pro: deep theory, con: time/cost; (2) Bootcamp — 6mo, $5-20K, pro: fast, con: limited theory; (3) Self-taught + portfolio — variable, free-$1K, pro: flexible, con: harder to prove skills.",
+            answerRu: "Должно включать минимум 3 пути со всеми заполненными колонками. Пример для инженера-программиста: (1) университетская степень по информатике — 4 года, $40-200K, плюс: глубокая теория, минус: время/стоимость; (2) буткемп — 6 мес., $5-20K, плюс: быстро, минус: ограниченная теория; (3) самообучение + портфолио — варьируется, бесплатно-$1K, плюс: гибко, минус: сложнее доказать навыки.",
+            answerKk: "Барлық бағандары толтырылған кемінде 3 жол болуы керек. Бағдарламалық жасақтама инженері мысалы: (1) университеттегі информатика дәрежесі — 4 жыл, $40-200K, артықшылығы: терең теория, кемшілігі: уақыт/шығын; (2) буткемп — 6 ай, $5-20K, артықшылығы: жылдам, кемшілігі: теория шектеулі; (3) өздігінен оқу + портфолио — әртүрлі, тегін-$1K, артықшылығы: икемді, кемшілігі: дағдыларды дәлелдеу қиынырақ.",
             hint: "Research your chosen career online and look for professionals who reached it through different routes.",
             hintRu: "Исследуйте выбранную карьеру онлайн и найдите профессионалов, пришедших к ней разными путями.",
             hintKk: "Таңдаған мансабыңызды онлайн зерттеңіз және оған әртүрлі жолдармен жеткен мамандарды табыңыз.",
@@ -833,7 +929,9 @@ export const CAREER_FULL: Record<string, LessonContent> = {
               { en: "Reach out professionally: send a polite email or LinkedIn message explaining she is a student exploring marketing careers and would appreciate 15-20 minutes of their time to ask a few questions.", ru: "Обратитесь профессионально: отправьте вежливое письмо, объяснив, что она ученица, исследующая маркетинг, и была бы признательна за 15-20 минут времени.", kk: "Кәсіби түрде хабарласыңыз: маркетингті зерттейтін оқушы екенін түсіндіретін және 15-20 минут уақытын бағалайтын сыпайы электрондық хат жіберіңіз." },
               { en: "Prepare questions: 'How did you get into marketing?', 'What does a typical day look like?', 'What skills are most important?', 'What do you wish you knew before starting?', 'What advice would you give a student interested in this field?'", ru: "Подготовьте вопросы: «Как вы попали в маркетинг?», «Как выглядит обычный день?», «Какие навыки самые важные?», «Что бы вы хотели знать раньше?», «Какой совет дадите заинтересованному ученику?»", kk: "Сұрақтарды дайындаңыз: «Маркетингке қалай келдіңіз?», «Типтік күн қалай көрінеді?», «Қандай дағдылар ең маңызды?», «Бастамас бұрын нені білгіңіз келер еді?», «Осы салаға қызығушылық танытқан оқушыға қандай кеңес берер едіңіз?»" }
             ],
-            answer: "Saule should send a professional email requesting 15-20 minutes and prepare questions about career path, daily work, key skills, early-career advice, and tips for students."
+            answer: "Saule should send a professional email requesting 15-20 minutes and prepare questions about career path, daily work, key skills, early-career advice, and tips for students.",
+            answerRu: "Сауле стоит отправить профессиональное письмо с просьбой о 15-20 минутах и подготовить вопросы о карьерном пути, повседневной работе, ключевых навыках, советах на старте карьеры и рекомендациях для учеников.",
+            answerKk: "Сәуле 15-20 минут сұрайтын кәсіби электрондық хат жіберіп, мансап жолы, күнделікті жұмыс, негізгі дағдылар, мансаптың бастапқы кезеңіне арналған кеңестер және оқушыларға арналған ұсыныстар туралы сұрақтар дайындауы керек."
           }
         ],
         practiceProblems: [
@@ -843,6 +941,8 @@ export const CAREER_FULL: Record<string, LessonContent> = {
             questionRu: "Напишите короткое письмо (3-4 предложения) с просьбой об информационном интервью с профессионалом в интересующей вас карьере.",
             questionKk: "Қызықтыратын мансаптағы маманнан ақпараттық сұхбат сұрайтын қысқа хат (3-4 сөйлем) жазыңыз.",
             answer: "Should include: self-introduction as a student, mention of their career, request for 15-20 minutes, and a polite closing. Example: 'Dear Dr. Kim, I am a 9th-grade student interested in veterinary medicine. I would love to learn about your career path. Would you have 15 minutes to chat? Thank you for your time.'",
+            answerRu: "Должно включать: представление себя как ученика, упоминание карьеры собеседника, просьбу о 15-20 минутах и вежливое завершение. Пример: «Уважаемый доктор Ким, я ученица 9 класса и интересуюсь ветеринарией. Я хотела бы узнать о вашем карьерном пути. Найдёте ли вы 15 минут для разговора? Спасибо за ваше время».",
+            answerKk: "Қамтуы керек: оқушы ретінде өзін таныстыру, собеседниктің мансабын атап өту, 15-20 минут сұрау және сыпайы аяқтау. Мысалы: «Құрметті Ким мырза, мен ветеринарияға қызығатын 9-сынып оқушысымын. Сіздің мансап жолыңыз туралы білгім келеді. Сөйлесуге 15 минутыңыз бола ма? Уақытыңызға рақмет».",
             hint: "Be polite, brief, explain who you are, and ask for a specific amount of their time.",
             hintRu: "Будьте вежливы, кратки, объясните, кто вы, и попросите конкретное количество времени.",
             hintKk: "Сыпайы, қысқа болыңыз, кім екеніңізді түсіндіріңіз және нақты уақыт сұраңыз.",
@@ -854,6 +954,8 @@ export const CAREER_FULL: Record<string, LessonContent> = {
             questionRu: "Вы завершили информационное интервью с архитектором. Напишите пять вдумчивых пунктов для благодарственного письма.",
             questionKk: "Сәулетшімен ақпараттық сұхбатты аяқтадыңыз. Алғыс хатына қосатын бес ойлы нүктені жазыңыз.",
             answer: "Example: (1) Thank them for their time, (2) Mention a specific insight that was valuable, (3) Reference something personal they shared, (4) State how it influenced your career thinking, (5) Offer to stay in touch.",
+            answerRu: "Пример: (1) поблагодарить за время, (2) упомянуть конкретный ценный вывод, (3) сослаться на что-то личное, чем поделился собеседник, (4) сказать, как это повлияло на ваше карьерное мышление, (5) предложить оставаться на связи.",
+            answerKk: "Мысалы: (1) уақыттарына рақмет айту, (2) құнды болған нақты тұжырымды атап өту, (3) собеседниктің бөліскен жеке нәрсесіне сілтеме жасау, (4) оның мансап туралы ойлауыңызға қалай әсер еткенін айту, (5) байланыста болуды ұсыну.",
             hint: "Reference specific things they said to show you were actively listening.",
             hintRu: "Упомяните конкретные вещи, которые они сказали, чтобы показать, что вы внимательно слушали.",
             hintKk: "Белсенді тыңдағаныңызды көрсету үшін олар айтқан нақты нәрселерді атаңыз.",
@@ -865,6 +967,8 @@ export const CAREER_FULL: Record<string, LessonContent> = {
             questionRu: "Спланируйте три информационных интервью с профессионалами в разных, но связанных областях. Для каждого напишите сообщение, 6 уникальных вопросов и объясните, что надеетесь узнать нового.",
             questionKk: "Әртүрлі, бірақ байланысты салалардағы мамандармен үш ақпараттық сұхбат жоспарлаңыз. Әрқайсысы үшін хат жазыңыз, 6 бірегей сұрақ тізімдеңіз және басқа екі сұхбаттан қандай басқа нәрсе үйренуді үміттенетіңізді түсіндіріңіз.",
             answer: "Should include 3 distinct professionals, 3 outreach messages, 18 questions total (6 unique each), and clear differentiation of learning goals. Example: Doctor (clinical perspective), Hospital Administrator (management perspective), Medical Researcher (research perspective).",
+            answerRu: "Должно включать 3 разных профессионалов, 3 сообщения для контакта, всего 18 вопросов (по 6 уникальных для каждого) и чёткое разграничение целей обучения. Пример: врач (клинический взгляд), администратор больницы (управленческий взгляд), медицинский исследователь (исследовательский взгляд).",
+            answerKk: "3 түрлі маман, 3 хабарласу хаты, барлығы 18 сұрақ (әрқайсысына 6 бірегей) және оқу мақсаттарының анық ажыратылуы болуы керек. Мысалы: дәрігер (клиникалық көзқарас), аурухана әкімшісі (басқару көзқарасы), медицина зерттеушісі (зерттеу көзқарасы).",
             hint: "Choose professionals who see the same industry from very different angles.",
             hintRu: "Выберите профессионалов, которые видят одну отрасль с разных сторон.",
             hintKk: "Бір саланы мүлдем басқа қырынан көретін мамандарды таңдаңыз.",
@@ -896,7 +1000,9 @@ export const CAREER_FULL: Record<string, LessonContent> = {
               { en: "Build the spike: join the robotics club as his primary activity (engineering + teamwork), and aim to take a leadership role by next year.", ru: "Постройте «пик»: вступите в кружок робототехники как основное занятие (инженерия + командная работа), стремитесь к лидерской роли к следующему году.", kk: "«Шыңды» құрыңыз: робототехника клубына негізгі іс-шара ретінде қосылыңыз (инженерия + командалық жұмыс) және келесі жылға дейін көшбасшылық рөлге ұмтылыңыз." },
               { en: "Add supporting activities: join the math competition team (analytical skills), volunteer to help build playground equipment at a community center (hands-on), and start a personal blog documenting engineering projects (communication + portfolio).", ru: "Добавьте дополнительные: вступите в команду по математическим олимпиадам, волонтёрьте на строительстве площадки (практика) и ведите блог о инженерных проектах (коммуникация + портфолио).", kk: "Қосымша іс-шараларды қосыңыз: математика олимпиадасы командасына қосылыңыз, ойын алаңын салуға еріктілік жасаңыз (практика) және инженерлік жобаларды құжаттайтын блог бастаңыз (қарым-қатынас + портфолио)." }
             ],
-            answer: "Primary spike: Robotics club with leadership goal. Supporting: math competitions, community building volunteer work, and an engineering blog. This creates a focused profile aligned with engineering."
+            answer: "Primary spike: Robotics club with leadership goal. Supporting: math competitions, community building volunteer work, and an engineering blog. This creates a focused profile aligned with engineering.",
+            answerRu: "Главный «пик»: кружок робототехники с целью лидерства. Дополнительные: математические олимпиады, волонтёрская работа на строительстве общественных объектов и блог об инженерии. Это создаёт сфокусированный профиль, соответствующий инженерии.",
+            answerKk: "Негізгі «шың»: көшбасшылық мақсаты бар робототехника клубы. Қосымша: математика олимпиадалары, қоғамдастық құрылысына еріктілік және инженерлік блог. Бұл инженерияға сәйкес шоғырландырылған профиль жасайды."
           }
         ],
         practiceProblems: [
@@ -906,6 +1012,8 @@ export const CAREER_FULL: Record<string, LessonContent> = {
             questionRu: "Назовите два внеклассных занятия, которые могут поддержать карьерный интерес к медицине.",
             questionKk: "Медицинаға мансап қызығушылығын қолдай алатын екі сыныптан тыс іс-шараны атаңыз.",
             answer: "Example: Science Olympiad (biology knowledge), Hospital volunteering (clinical exposure). Any activities that develop relevant skills or show interest in healthcare are acceptable.",
+            answerRu: "Пример: научная олимпиада (знания биологии), волонтёрство в больнице (знакомство с клинической практикой). Любые занятия, развивающие соответствующие навыки или показывающие интерес к здравоохранению, принимаются.",
+            answerKk: "Мысалы: ғылым олимпиадасы (биология білімі), ауруханада еріктілік (клиникалық тәжірибемен танысу). Тиісті дағдыларды дамытатын немесе денсаулық сақтауға қызығушылықты көрсететін кез келген іс-шара қабылданады.",
             hint: "Think about activities that involve science, helping people, or learning about health.",
             hintRu: "Подумайте о занятиях, связанных с наукой, помощью людям или здоровьем.",
             hintKk: "Ғылым, адамдарға көмек немесе денсаулық туралы білу іс-шараларын ойлаңыз.",
@@ -917,6 +1025,8 @@ export const CAREER_FULL: Record<string, LessonContent> = {
             questionRu: "Сравните два профиля студентов для поступления на бизнес-программу. Студент А: президент 1 клуба, основал малый бизнес, 200+ часов волонтёрства. Студент Б: член 8 клубов, 50 часов в 10 организациях. Чей профиль сильнее и почему?",
             questionKk: "Бизнес бағдарламасына түсу үшін екі студент профилін салыстырыңыз. А студент: 1 клуб президенті, шағын бизнес бастаған, бір ұйымда 200+ еріктілік сағат. Б студент: 8 клуб мүшесі, 10 ұйымда 50 еріктілік сағат. Кімнің профилі күштірек және неліктен?",
             answer: "Student A has a stronger profile. Deep involvement shows leadership, commitment, and genuine passion for business. Student B's wide but shallow involvement suggests lack of focus and may appear like 'resume padding.'",
+            answerRu: "Профиль студента А сильнее. Глубокое участие показывает лидерство, преданность и искреннее увлечение бизнесом. Широкое, но поверхностное участие студента Б говорит об отсутствии фокуса и может выглядеть как «раздувание резюме».",
+            answerKk: "А студенттің профилі күштірек. Терең қатысу көшбасшылықты, адалдықты және бизнеске деген шынайы құмарлықты көрсетеді. Б студенттің кең, бірақ үстірт қатысуы назардың жоқтығын білдіреді және «түйінді ісіндіру» сияқты көрінуі мүмкін.",
             hint: "Think about what admissions officers value more: depth of commitment or number of activities.",
             hintRu: "Подумайте, что ценят приёмные комиссии: глубину участия или количество занятий.",
             hintKk: "Қабылдау комиссиялары нені көбірек бағалайтынын ойлаңыз: қатысу тереңдігін немесе іс-шаралар санын.",
@@ -928,6 +1038,8 @@ export const CAREER_FULL: Record<string, LessonContent> = {
             questionRu: "Создайте 4-летний план внеклассной деятельности (9-12 классы) для вашего карьерного интереса. Включите занятия на каждый год, рост лидерства, связь с карьерой и часы в неделю.",
             questionKk: "Мансап қызығушылығыңыз үшін 4 жылдық (9-12 сынып) сыныптан тыс жоспар жасаңыз. Әр жылға іс-шараларды, көшбасшылық өсуді, мансап мақсаттарымен байланысты және аптасына уақыт міндеттемесін қосыңыз.",
             answer: "Should show progression over 4 years with increasing leadership. Example for CS: Grade 9 — join coding club (member, 3hr/wk); Grade 10 — start hackathon team + coding club (vice president, 5hr/wk); Grade 11 — lead hackathon team + start tech blog + intern (president, 8hr/wk); Grade 12 — mentor younger students + major project (10hr/wk).",
+            answerRu: "Должно показывать прогресс за 4 года с растущим лидерством. Пример для информатики: 9 класс — вступление в клуб программирования (участник, 3 ч/нед); 10 класс — создание команды хакатонов + клуб программирования (вице-президент, 5 ч/нед); 11 класс — руководство командой хакатонов + запуск технического блога + стажировка (президент, 8 ч/нед); 12 класс — наставничество младших учеников + крупный проект (10 ч/нед).",
+            answerKk: "4 жыл бойы өсіп келе жатқан көшбасшылықпен ілгерілеуді көрсетуі керек. Информатика мысалы: 9 сынып — кодтау клубына қосылу (мүше, 3 сағ/апта); 10 сынып — хакатон командасын құру + кодтау клубы (вице-президент, 5 сағ/апта); 11 сынып — хакатон командасын басқару + техникалық блог бастау + тағылымдама (президент, 8 сағ/апта); 12 сынып — кіші оқушыларға тәлімгерлік + ірі жоба (10 сағ/апта).",
             hint: "Start as a member in Grade 9, then increase your responsibility each year toward leadership and initiative.",
             hintRu: "Начните участником в 9 классе, затем увеличивайте ответственность каждый год к лидерству и инициативе.",
             hintKk: "9 сыныпта мүше ретінде бастаңыз, содан кейін жыл сайын көшбасшылық пен бастамаға қарай жауапкершілігіңізді арттырыңыз.",
@@ -965,7 +1077,9 @@ export const CAREER_FULL: Record<string, LessonContent> = {
               { en: "Transform activities into action-verb bullet points: Volunteering → 'Assisted 20+ visitors weekly with book searches and library navigation at City Public Library.' Volleyball → 'Competed in 15+ inter-school matches as a starting player, developing teamwork and discipline.'", ru: "Превратите занятия в пункты с глаголами действия: Волонтёрство → «Помогала 20+ посетителям еженедельно в поиске книг». Волейбол → «Участвовала в 15+ межшкольных матчах, развивая командную работу».", kk: "Іс-шараларды іс-қимыл етістікті нүктелерге айналдырыңыз: Еріктілік → «Қала кітапханасында аптасына 20+ келушіге кітап іздеуге көмектесті.» Волейбол → «15+ мектепаралық матчта негізгі ойыншы ретінде жарысты»." },
               { en: "Add academics: 'Maintained an A average in mathematics and science courses.' Skills section: 'Microsoft Office, Kazakh/Russian/English (trilingual), event organization, customer service.'", ru: "Добавьте учёбу: «Средний балл А по математике и естествознанию». Навыки: «Microsoft Office, казахский/русский/английский (три языка), организация мероприятий».", kk: "Оқуды қосыңыз: «Математика және жаратылыстану пәндерінен А орташа бағасын сақтады.» Дағдылар: «Microsoft Office, қазақ/орыс/ағылшын (үш тіл), іс-шараларды ұйымдастыру»." }
             ],
-            answer: "Volunteer: 'Assisted 20+ visitors weekly at City Library.' Sports: 'Competed in 15+ matches as starting player.' Academic: 'Maintained A average in math and science.' Skills: Office, trilingual, organization."
+            answer: "Volunteer: 'Assisted 20+ visitors weekly at City Library.' Sports: 'Competed in 15+ matches as starting player.' Academic: 'Maintained A average in math and science.' Skills: Office, trilingual, organization.",
+            answerRu: "Волонтёрство: «Еженедельно помогала 20+ посетителям в городской библиотеке». Спорт: «Участвовала в 15+ матчах как игрок стартового состава». Учёба: «Поддерживала средний балл А по математике и естествознанию». Навыки: Office, владение тремя языками, организованность.",
+            answerKk: "Еріктілік: «Қалалық кітапханада аптасына 20+ келушіге көмектесті.» Спорт: «Негізгі құрам ойыншысы ретінде 15+ матчта жарысты.» Оқу: «Математика мен жаратылыстанудан А орташа бағасын сақтады.» Дағдылар: Office, үш тіл, ұйымдастырушылық."
           }
         ],
         practiceProblems: [
@@ -975,6 +1089,8 @@ export const CAREER_FULL: Record<string, LessonContent> = {
             questionRu: "Перепишите этот слабый пункт резюме, используя формулу «Глагол действия + Задача + Результат»: «Помогал на школьном мероприятии».",
             questionKk: "Осы әлсіз түйіндеме нүктесін «Іс-қимыл етістігі + Тапсырма + Нәтиже» формуласын пайдаланып қайта жазыңыз: «Мектеп іс-шарасында көмектесті».",
             answer: "Example: 'Coordinated logistics for a school fundraiser with 200+ attendees, helping raise $1,000 for classroom supplies.' Any version with a specific action verb, task, and measurable result is acceptable.",
+            answerRu: "Пример: «Координировала логистику школьного благотворительного мероприятия с 200+ участниками, помогшего собрать $1,000 на школьные принадлежности». Любая версия с конкретным глаголом действия, задачей и измеримым результатом принимается.",
+            answerKk: "Мысалы: «200+ қатысушысы бар мектеп қайырымдылық іс-шарасының логистикасын үйлестіріп, сынып құрал-жабдықтарына $1,000 жинауға көмектесті.» Нақты іс-қимыл етістігі, тапсырма және өлшенетін нәтиже бар кез келген нұсқа қабылданады.",
             hint: "Add what specific event, what you did, and what was the outcome.",
             hintRu: "Добавьте, какое мероприятие, что вы делали и каков был результат.",
             hintKk: "Қандай нақты іс-шара, не істегеніңіз және нәтижесі не болғанын қосыңыз.",
@@ -986,6 +1102,8 @@ export const CAREER_FULL: Record<string, LessonContent> = {
             questionRu: "Вы подаёте заявку на летний научный лагерь, требующий резюме. Перечислите шесть разделов и напишите один пункт для каждого на основе реального или воображаемого опыта.",
             questionKk: "Түйіндеме талап ететін жазғы ғылыми лагерьге өтінім беріп жатырсыз. Алты бөлімді тізімдеңіз және нақты немесе елестетілген тәжірибеңіз негізінде әрқайсысына бір нүкте жазыңыз.",
             answer: "Should include Contact Info, Education, Experience/Volunteering, Skills, Activities, Awards with one strong bullet each. Bullet points should use action verbs and include specific details.",
+            answerRu: "Должно включать контактную информацию, образование, опыт/волонтёрство, навыки, занятия и награды — по одному сильному пункту в каждом. Пункты должны начинаться с глагола действия и содержать конкретные детали.",
+            answerKk: "Контакт ақпараты, білім, тәжірибе/еріктілік, дағдылар, іс-шаралар, марапаттар болуы керек, әрқайсысында бір күшті тармақтан. Тармақтар іс-қимыл етістігімен басталып, нақты мәліметтерді қамтуы тиіс.",
             hint: "Follow the resume sections formula and make sure each bullet point starts with an action verb.",
             hintRu: "Следуйте формуле разделов резюме и начинайте каждый пункт с глагола действия.",
             hintKk: "Түйіндеме бөлімдері формуласын ұстаныңыз және әр нүктені іс-қимыл етістігімен бастаңыз.",
@@ -997,6 +1115,8 @@ export const CAREER_FULL: Record<string, LessonContent> = {
             questionRu: "Создайте полное одностраничное резюме для себя (или вымышленного ученика), подающего заявку на летнюю стажировку в технологической компании. Все стандартные разделы, минимум 3 пункта в ключевых, адаптированное под IT.",
             questionKk: "Технология компаниясындағы жазғы тағылымдамаға өтінім беретін өзіңіз (немесе ойдан шығарылған оқушы) үшін толық бір беттік түйіндеме жасаңыз. Барлық стандартты бөлімдерді IT саласына бейімделген түрде, негізгі бөлімдерде кемінде 3 нүкте қосыңыз.",
             answer: "Should be a complete, properly formatted resume with Contact, Education (GPA, relevant coursework), Technical Skills (programming languages, tools), Projects (with descriptions), Activities (leadership roles), and Awards. Should be clearly tailored to tech.",
+            answerRu: "Должно быть полное, правильно оформленное резюме с контактами, образованием (средний балл, соответствующие курсы), техническими навыками (языки программирования, инструменты), проектами (с описаниями), занятиями (лидерские роли) и наградами. Должно быть явно адаптировано под IT.",
+            answerKk: "Толық, дұрыс ресімделген түйіндеме болуы керек: байланыс деректері, білім (орташа балл, тиісті курстар), техникалық дағдылар (бағдарламалау тілдері, құралдар), жобалар (сипаттамаларымен), іс-шаралар (көшбасшылық рөлдер) және марапаттар. IT саласына анық бейімделген болуы керек.",
             hint: "Think about what a tech company would want to see — coding skills, projects, analytical thinking, and relevant coursework.",
             hintRu: "Подумайте, что хочет видеть технологическая компания — навыки кодирования, проекты, аналитическое мышление.",
             hintKk: "Технология компаниясы нені көргісі келетінін ойлаңыз — кодтау дағдылары, жобалар, аналитикалық ойлау.",
@@ -1028,7 +1148,9 @@ export const CAREER_FULL: Record<string, LessonContent> = {
               { en: "Identify related organizations: local environmental nonprofits, parks department, wildlife centers, community garden projects, or university research labs that accept student volunteers.", ru: "Определите связанные организации: экологические НКО, управление парков, центры дикой природы, общественные сады или университетские лаборатории, принимающие волонтёров.", kk: "Байланысты ұйымдарды анықтаңыз: жергілікті экологиялық коммерциялық емес ұйымдар, саябақтар бөлімі, жабайы табиғат орталықтары, қоғамдастық бақ жобалары немесе оқушы еріктілерін қабылдайтын университет зерттеу зертханалары." },
               { en: "Maximize the experience: volunteer consistently (weekly, not once), ask to help with data collection or field work (not just administrative tasks), and keep a log of species observed or data collected to discuss in college applications.", ru: "Максимизируйте опыт: волонтёрьте регулярно, просите помогать со сбором данных (не только офисные задачи) и ведите журнал наблюдений для обсуждения в заявках в колледж.", kk: "Тәжірибені арттырыңыз: жүйелі еріктілік жасаңыз (бір рет емес, аптасына), деректер жинауға немесе далалық жұмысқа көмектесуді сұраңыз және колледж өтініштерінде талқылау үшін бақылаулар журналын жүргізіңіз." }
             ],
-            answer: "Bekzat should find environmental nonprofits or parks, volunteer weekly, request meaningful tasks like data collection, and document his experience for college applications."
+            answer: "Bekzat should find environmental nonprofits or parks, volunteer weekly, request meaningful tasks like data collection, and document his experience for college applications.",
+            answerRu: "Бекзату стоит найти экологические некоммерческие организации или парки, волонтёрить еженедельно, просить значимые задачи, такие как сбор данных, и документировать свой опыт для заявок в колледж.",
+            answerKk: "Бекзат экологиялық коммерциялық емес ұйымдарды немесе саябақтарды тауып, апта сайын еріктілік жасап, деректер жинау сияқты маңызды тапсырмалар сұрап, тәжірибесін колледж өтініштері үшін құжаттауы керек."
           }
         ],
         practiceProblems: [
@@ -1038,6 +1160,8 @@ export const CAREER_FULL: Record<string, LessonContent> = {
             questionRu: "Назовите интересующую карьеру и предложите одну волонтёрскую возможность, напрямую связанную с ней.",
             questionKk: "Қызықтыратын мансапты атаңыз және оған тікелей байланысты бір еріктілік мүмкіндігін ұсыныңыз.",
             answer: "Example: Interested in veterinary medicine → Volunteer at an animal shelter. Any career with a logically connected volunteer opportunity is acceptable.",
+            answerRu: "Пример: интересует ветеринария → волонтёрство в приюте для животных. Любая карьера с логически связанной волонтёрской возможностью принимается.",
+            answerKk: "Мысалы: ветеринарияға қызығады → жануарлар панасында еріктілік. Логикалық түрде байланысты еріктілік мүмкіндігі бар кез келген мансап қабылданады.",
             hint: "Think about organizations in your community that work in the same field as your career interest.",
             hintRu: "Подумайте об организациях в вашем сообществе, работающих в той же области, что и ваш карьерный интерес.",
             hintKk: "Қоғамдастығыңыздағы мансап қызығушылығыңызбен бір салада жұмыс істейтін ұйымдарды ойлаңыз.",
@@ -1049,6 +1173,8 @@ export const CAREER_FULL: Record<string, LessonContent> = {
             questionRu: "Сравните два варианта волонтёрства для ученика, интересующегося журналистикой: (А) Сортировка книг в библиотеке, (Б) Написание статей для местной газеты. Какой более стратегический и почему?",
             questionKk: "Журналистикаға қызығушы оқушы үшін екі еріктілік нұсқасын салыстырыңыз: (А) Кітапханада кітаптарды сұрыптау, (Б) Қоғамдастық газетіне мақала жазу. Қайсысы стратегиялық және неліктен?",
             answer: "Option B is more strategic. Writing for a community newsletter directly develops journalism skills (writing, interviewing, editing, deadlines) and creates a portfolio of published work. Option A is helpful but does not develop journalism-specific skills.",
+            answerRu: "Вариант Б более стратегический. Написание статей для местного информационного бюллетеня напрямую развивает журналистские навыки (письмо, интервьюирование, редактирование, соблюдение сроков) и создаёт портфолио опубликованных работ. Вариант А полезен, но не развивает специфические навыки журналистики.",
+            answerKk: "Б нұсқасы стратегиялық тұрғыдан тиімдірек. Қоғамдастық жаңалықтар бюллетеніне мақала жазу журналистика дағдыларын (жазу, сұхбат алу, редакциялау, мерзімдерді сақтау) тікелей дамытады және жарияланған жұмыстар портфолиосын жасайды. А нұсқасы пайдалы, бірақ журналистикаға тән дағдыларды дамытпайды.",
             hint: "Which option builds skills and creates evidence that you can show to colleges or employers?",
             hintRu: "Какой вариант развивает навыки и создаёт доказательства для колледжей или работодателей?",
             hintKk: "Қай нұсқа дағдыларды дамытады және колледждерге немесе жұмыс берушілерге көрсете алатын дәлелдер жасайды?",
@@ -1060,6 +1186,8 @@ export const CAREER_FULL: Record<string, LessonContent> = {
             questionRu: "Создайте годовой стратегический план волонтёрства для вашего карьерного интереса. Включите ежемесячные цели, организации, навыки по кварталам и способ документирования опыта для поступления.",
             questionKk: "Мансап қызығушылығыңызды қолдайтын бір жылдық стратегиялық еріктілік жоспарын жасаңыз. Ай сайынғы мақсаттарды, байланысатын ұйымдарды, тоқсан сайын дамытуды мақсат ететін дағдыларды және тәжірибені колледж өтініштері үшін қалай құжаттайтыныңызды қосыңыз.",
             answer: "Should include 12-month timeline, at least 2 organizations, quarterly skill targets, and documentation method (journal, portfolio, or activity log). Example: Q1 — start at animal shelter, learn animal care; Q2 — add veterinary clinic, learn medical terminology; Q3 — take on training role at shelter; Q4 — compile experience into college essay.",
+            answerRu: "Должно включать 12-месячный график, минимум 2 организации, поквартальные цели по навыкам и способ документирования (дневник, портфолио или журнал активности). Пример: Q1 — начать в приюте для животных, научиться уходу за ними; Q2 — добавиться в ветеринарную клинику, выучить медицинскую терминологию; Q3 — взять на себя обучающую роль в приюте; Q4 — собрать опыт в эссе для колледжа.",
+            answerKk: "12 айлық уақыт кестесі, кемінде 2 ұйым, тоқсан сайынғы дағды мақсаттары және құжаттау әдісі (күнделік, портфолио немесе белсенділік журналы) болуы керек. Мысалы: 1-тоқсан — жануарлар панасында бастау, жануарларға күтім жасауды үйрену; 2-тоқсан — ветеринарлық клиниканы қосу, медициналық терминологияны үйрену; 3-тоқсан — панасында оқыту рөлін өз мойнына алу; 4-тоқсан — тәжірибені колледж эссесіне жинақтау.",
             hint: "Plan quarterly with increasing responsibility and skills, and think about how to tell this story in applications.",
             hintRu: "Планируйте по кварталам с ростом ответственности и навыков, и подумайте, как рассказать эту историю в заявках.",
             hintKk: "Жауапкершілік пен дағдылар өсуімен тоқсандық жоспарлаңыз және бұл тарихты өтініштерде қалай айтатыныңызды ойлаңыз.",

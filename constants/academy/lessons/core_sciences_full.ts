@@ -56,7 +56,9 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
               { en: "Recall: a number is rational if it equals a/b for integers a, b with b ≠ 0.", ru: "Вспомним: число рационально, если его можно записать как a/b, где a и b — целые, b ≠ 0.", kk: "Естелік: сан рационал, егер оны a, b бүтін, b ≠ 0 болғанда a/b түрінде жазуға болса." },
               { en: "Write −7 as −7/1. Both numerator and denominator are integers, denominator ≠ 0.", ru: "Запишем −7 как −7/1. Числитель и знаменатель — целые, знаменатель ≠ 0.", kk: "−7 санын −7/1 түрінде жазамыз. Алым мен бөлім бүтін, бөлім ≠ 0." }
             ],
-            answer: "Yes — every integer is rational (here, −7 = −7/1)."
+            answer: "Yes — every integer is rational (here, −7 = −7/1).",
+            answerRu: "Да — каждое целое число рационально (здесь −7 = −7/1).",
+            answerKk: "Иә — әрбір бүтін сан рационал (мұнда −7 = −7/1)."
           }
         ],
         practiceProblems: [
@@ -66,6 +68,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Является ли 0.5 рациональным?",
             questionKk: "0.5 рационал сан ба?",
             answer: "Yes (0.5 = 1/2)",
+            answerRu: "Да (0.5 = 1/2)",
+            answerKk: "Иә (0.5 = 1/2)",
             hint: "Try writing it as a fraction.",
             hintRu: "Попробуйте записать в виде дроби.",
             hintKk: "Бөлшек түрінде жазып көріңіз.",
@@ -77,6 +81,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Запишите 0.75 как несократимую дробь.",
             questionKk: "0.75 санын қысқартылмайтын бөлшек түрінде жазыңыз.",
             answer: "3/4",
+            answerRu: "3/4",
+            answerKk: "3/4",
             hint: "0.75 = 75/100, then simplify by dividing top and bottom by 25.",
             hintRu: "0.75 = 75/100, затем сократите, разделив числитель и знаменатель на 25.",
             hintKk: "0.75 = 75/100, содан кейін алым мен бөлімді 25-ке бөліп қысқартыңыз.",
@@ -88,6 +94,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Какое из чисел иррациональное: √16, √2, 22/7, 0.333…?",
             questionKk: "Мыналардың қайсысы иррационал: √16, √2, 22/7, 0.333…?",
             answer: "√2",
+            answerRu: "√2",
+            answerKk: "√2",
             hint: "√16 = 4 (rational), 22/7 is a fraction, 0.333… repeats — only √2 has no exact fraction form.",
             hintRu: "√16 = 4 (рациональное), 22/7 — дробь, 0.333… периодическое — только √2 нельзя записать дробью.",
             hintKk: "√16 = 4 (рационал), 22/7 — бөлшек, 0.333… периодты — тек √2 дәл бөлшек түрінде жазылмайды.",
@@ -134,7 +142,9 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
               { en: "Both numbers are negative — same signs → product is positive.", ru: "Оба числа отрицательны — одинаковые знаки → произведение положительно.", kk: "Екі сан да теріс — таңбалары бірдей → көбейтінді оң." },
               { en: "Multiply magnitudes: 4 × 6 = 24.", ru: "Умножаем модули: 4 × 6 = 24.", kk: "Модульдерді көбейтеміз: 4 × 6 = 24." }
             ],
-            answer: "24"
+            answer: "24",
+            answerRu: "24",
+            answerKk: "24"
           },
           {
             question: "Compute: −8 + 3",
@@ -144,7 +154,9 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
               { en: "Start at −8 on the number line, move 3 units to the right.", ru: "Начинаем с −8 на числовой прямой, смещаемся на 3 единицы вправо.", kk: "Сандық түзудегі −8-ден бастап оңға 3 бірлікке жылжимыз." },
               { en: "Landing position: −5.", ru: "Получаем: −5.", kk: "Нәтиже: −5." }
             ],
-            answer: "−5"
+            answer: "−5",
+            answerRu: "−5",
+            answerKk: "−5"
           }
         ],
         practiceProblems: [
@@ -154,6 +166,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Вычислите: −5 + 2",
             questionKk: "Есептеңіз: −5 + 2",
             answer: "−3",
+            answerRu: "−3",
+            answerKk: "−3",
             hint: "Move 2 units right from −5.",
             hintRu: "Сместитесь на 2 единицы вправо от −5.",
             hintKk: "−5-тен оңға 2 бірлікке жылжыңыз.",
@@ -165,6 +179,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Вычислите: (−7) × 3",
             questionKk: "Есептеңіз: (−7) × 3",
             answer: "−21",
+            answerRu: "−21",
+            answerKk: "−21",
             hint: "Different signs → negative. Multiply 7 × 3.",
             hintRu: "Разные знаки → отрицательно. Умножьте 7 × 3.",
             hintKk: "Әртүрлі таңбалар → теріс. 7 × 3-ті есептеңіз.",
@@ -176,6 +192,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Вычислите: (−12) ÷ (−4) + (−3) × 2",
             questionKk: "Есептеңіз: (−12) ÷ (−4) + (−3) × 2",
             answer: "−3",
+            answerRu: "−3",
+            answerKk: "−3",
             hint: "Do division and multiplication first: 3 + (−6) = −3.",
             hintRu: "Сначала деление и умножение: 3 + (−6) = −3.",
             hintKk: "Алдымен бөлу мен көбейту: 3 + (−6) = −3.",
@@ -223,7 +241,9 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
               { en: "Rewrite: 1/2 = 3/6, 1/3 = 2/6.", ru: "Приводим: 1/2 = 3/6, 1/3 = 2/6.", kk: "Қайта жазамыз: 1/2 = 3/6, 1/3 = 2/6." },
               { en: "Add numerators: 3/6 + 2/6 = 5/6.", ru: "Складываем числители: 3/6 + 2/6 = 5/6.", kk: "Алымдарды қосамыз: 3/6 + 2/6 = 5/6." }
             ],
-            answer: "5/6"
+            answer: "5/6",
+            answerRu: "5/6",
+            answerKk: "5/6"
           },
           {
             question: "Compute: 2/3 ÷ 4/5",
@@ -234,7 +254,9 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
               { en: "Multiply straight across: (2 × 5)/(3 × 4) = 10/12.", ru: "Умножаем: (2 × 5)/(3 × 4) = 10/12.", kk: "Тікелей көбейтеміз: (2 × 5)/(3 × 4) = 10/12." },
               { en: "Simplify by dividing top and bottom by 2: 5/6.", ru: "Сокращаем, деля числитель и знаменатель на 2: 5/6.", kk: "Алым мен бөлімді 2-ге бөліп қысқартамыз: 5/6." }
             ],
-            answer: "5/6"
+            answer: "5/6",
+            answerRu: "5/6",
+            answerKk: "5/6"
           }
         ],
         practiceProblems: [
@@ -244,6 +266,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Вычислите: 1/2 + 1/4",
             questionKk: "Есептеңіз: 1/2 + 1/4",
             answer: "3/4",
+            answerRu: "3/4",
+            answerKk: "3/4",
             hint: "Common denominator is 4. Rewrite 1/2 as 2/4.",
             hintRu: "Общий знаменатель 4. Замените 1/2 на 2/4.",
             hintKk: "Ортақ бөлім — 4. 1/2 санын 2/4 түрінде жазыңыз.",
@@ -255,6 +279,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Вычислите: 2/5 × 3/8 (сократите ответ)",
             questionKk: "Есептеңіз: 2/5 × 3/8 (қысқартылған бөлшек түрінде)",
             answer: "3/20",
+            answerRu: "3/20",
+            answerKk: "3/20",
             hint: "Multiply across: 6/40, then divide top and bottom by 2.",
             hintRu: "Перемножьте: 6/40, затем сократите на 2.",
             hintKk: "Көбейтіңіз: 6/40, содан кейін 2-ге қысқартыңыз.",
@@ -266,6 +292,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Вычислите: 3/4 ÷ 1/2 − 1/8 (сократите ответ)",
             questionKk: "Есептеңіз: 3/4 ÷ 1/2 − 1/8 (қысқартылған бөлшек)",
             answer: "11/8",
+            answerRu: "11/8",
+            answerKk: "11/8",
             hint: "Do division first: 3/4 × 2/1 = 6/4 = 3/2. Then 3/2 − 1/8 with common denominator 8: 12/8 − 1/8.",
             hintRu: "Сначала деление: 3/4 × 2/1 = 6/4 = 3/2. Затем 3/2 − 1/8 при общем знаменателе 8: 12/8 − 1/8.",
             hintKk: "Алдымен бөлу: 3/4 × 2/1 = 6/4 = 3/2. Содан кейін 3/2 − 1/8, ортақ бөлім — 8: 12/8 − 1/8.",
@@ -304,7 +332,9 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
               { en: "Parentheses first: 6 ÷ 3 = 2, then multiplication: 4 × 2 = 8", ru: "Сначала скобки: 6 ÷ 3 = 2, затем умножение: 4 × 2 = 8", kk: "Алдымен жақша: 6 ÷ 3 = 2, содан кейін көбейту: 4 × 2 = 8" },
               { en: "Left to right: 3 + 8 − 2 = 9", ru: "Слева направо: 3 + 8 − 2 = 9", kk: "Солдан оңға: 3 + 8 − 2 = 9" }
             ],
-            answer: "9"
+            answer: "9",
+            answerRu: "9",
+            answerKk: "9"
           }
         ],
         practiceProblems: [
@@ -314,6 +344,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Вычислите: 5 + 3 × 2",
             questionKk: "Есептеңіз: 5 + 3 × 2",
             answer: "11",
+            answerRu: "11",
+            answerKk: "11",
             hint: "Multiply before adding",
             hintRu: "Сначала умножьте, потом сложите",
             hintKk: "Алдымен көбейтіңіз, содан кейін қосыңыз",
@@ -325,6 +357,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Вычислите: (8 + 2) × 3 − 4²",
             questionKk: "Есептеңіз: (8 + 2) × 3 − 4²",
             answer: "14",
+            answerRu: "14",
+            answerKk: "14",
             hint: "Parentheses first, then exponent, then multiply, then subtract",
             hintRu: "Сначала скобки, затем степень, затем умножение, затем вычитание",
             hintKk: "Алдымен жақша, содан кейін дәреже, содан кейін көбейту, содан кейін азайту",
@@ -336,6 +370,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Вычислите: 2 × (3 + 5)² ÷ 4 − 10",
             questionKk: "Есептеңіз: 2 × (3 + 5)² ÷ 4 − 10",
             answer: "22",
+            answerRu: "22",
+            answerKk: "22",
             hint: "Parentheses: 8, exponent: 64, then multiply/divide left to right, then subtract",
             hintRu: "Скобки: 8, степень: 64, затем умножение/деление слева направо, затем вычитание",
             hintKk: "Жақша: 8, дәреже: 64, содан кейін көбейту/бөлу солдан оңға, содан кейін азайту",
@@ -374,7 +410,9 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
               { en: "Find common denominator: LCD of 3 and 4 is 12. Rewrite: 8/12 + 3/12", ru: "Найдите общий знаменатель: НОК 3 и 4 = 12. Перепишем: 8/12 + 3/12", kk: "Ортақ бөлім табыңыз: 3 пен 4-тің ЕКЕ = 12. Қайта жазамыз: 8/12 + 3/12" },
               { en: "Add numerators: 8 + 3 = 11, so the answer is 11/12", ru: "Сложите числители: 8 + 3 = 11, ответ 11/12", kk: "Алымдарды қосыңыз: 8 + 3 = 11, жауабы 11/12" }
             ],
-            answer: "11/12"
+            answer: "11/12",
+            answerRu: "11/12",
+            answerKk: "11/12"
           }
         ],
         practiceProblems: [
@@ -384,6 +422,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Переведите 3/4 в десятичную дробь",
             questionKk: "3/4 бөлшегін ондық санға айналдырыңыз",
             answer: "0.75",
+            answerRu: "0.75",
+            answerKk: "0.75",
             hint: "Divide 3 by 4",
             hintRu: "Разделите 3 на 4",
             hintKk: "3-ті 4-ке бөліңіз",
@@ -395,6 +435,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Вычтите: 5/6 − 1/4",
             questionKk: "Азайтыңыз: 5/6 − 1/4",
             answer: "7/12",
+            answerRu: "7/12",
+            answerKk: "7/12",
             hint: "LCD of 6 and 4 is 12",
             hintRu: "НОК 6 и 4 равно 12",
             hintKk: "6 мен 4-тің ЕКЕ = 12",
@@ -406,6 +448,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Вычислите: 2/3 × 3/5 + 1/2",
             questionKk: "Есептеңіз: 2/3 × 3/5 + 1/2",
             answer: "9/10",
+            answerRu: "9/10",
+            answerKk: "9/10",
             hint: "Multiply first (2/5), then add 1/2 with common denominator 10",
             hintRu: "Сначала умножьте (2/5), затем прибавьте 1/2 с общим знаменателем 10",
             hintKk: "Алдымен көбейтіңіз (2/5), содан кейін ортақ бөлімі 10 арқылы 1/2 қосыңыз",
@@ -438,7 +482,9 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
               { en: "Cross-multiply: 4 × 12 = 8 × x → 48 = 8x", ru: "Перекрёстное умножение: 4 × 12 = 8 × x → 48 = 8x", kk: "Айқас көбейту: 4 × 12 = 8 × x → 48 = 8x" },
               { en: "Divide both sides by 8: x = 48 ÷ 8 = 6", ru: "Разделите обе стороны на 8: x = 48 ÷ 8 = 6", kk: "Екі жағын 8-ге бөліңіз: x = 48 ÷ 8 = 6" }
             ],
-            answer: "x = 6"
+            answer: "x = 6",
+            answerRu: "x = 6",
+            answerKk: "x = 6"
           }
         ],
         practiceProblems: [
@@ -448,6 +494,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Упростите отношение 12:8",
             questionKk: "12:8 қатынасын жеңілдетіңіз",
             answer: "3:2",
+            answerRu: "3:2",
+            answerKk: "3:2",
             hint: "Divide both numbers by their GCD (4)",
             hintRu: "Разделите оба числа на их НОД (4)",
             hintKk: "Екі санды ЕҮОБ-на (4) бөліңіз",
@@ -459,6 +507,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Решите: 5/x = 15/27",
             questionKk: "Шешіңіз: 5/x = 15/27",
             answer: "x = 9",
+            answerRu: "x = 9",
+            answerKk: "x = 9",
             hint: "Cross-multiply: 5 × 27 = 15 × x",
             hintRu: "Перекрёстное умножение: 5 × 27 = 15 × x",
             hintKk: "Айқас көбейту: 5 × 27 = 15 × x",
@@ -470,6 +520,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "В рецепте мука и сахар в соотношении 5:2. Если вы используете 750 г муки, сколько сахара нужно?",
             questionKk: "Рецептте ұн мен қант 5:2 қатынасында. Егер 750 г ұн пайдалансаңыз, қанша қант керек?",
             answer: "300g",
+            answerRu: "300 г",
+            answerKk: "300 г",
             hint: "Set up proportion: 5/2 = 750/x and solve",
             hintRu: "Составьте пропорцию: 5/2 = 750/x и решите",
             hintKk: "Пропорция құрыңыз: 5/2 = 750/x және шешіңіз",
@@ -508,7 +560,9 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
               { en: "Sum of angles in a triangle = 180°. So third angle = 180° − 50° − 60°", ru: "Сумма углов треугольника = 180°. Третий угол = 180° − 50° − 60°", kk: "Үшбұрыш бұрыштарының қосындысы = 180°. Үшінші бұрыш = 180° − 50° − 60°" },
               { en: "Third angle = 180° − 110° = 70°", ru: "Третий угол = 180° − 110° = 70°", kk: "Үшінші бұрыш = 180° − 110° = 70°" }
             ],
-            answer: "70°"
+            answer: "70°",
+            answerRu: "70°",
+            answerKk: "70°"
           }
         ],
         practiceProblems: [
@@ -518,6 +572,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Чему равна сумма углов четырёхугольника?",
             questionKk: "Төртбұрыш бұрыштарының қосындысы қанша градус?",
             answer: "360°",
+            answerRu: "360°",
+            answerKk: "360°",
             hint: "Think of a rectangle — all four corners are 90°",
             hintRu: "Подумайте о прямоугольнике — все четыре угла по 90°",
             hintKk: "Тіктөртбұрышты ойлаңыз — төрт бұрышы 90°",
@@ -529,6 +585,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "У треугольника два равных угла по 65°. Чему равен третий угол?",
             questionKk: "Үшбұрыштың екі тең бұрышы 65°-тан. Үшінші бұрыш қандай?",
             answer: "50°",
+            answerRu: "50°",
+            answerKk: "50°",
             hint: "Subtract both known angles from 180°",
             hintRu: "Вычтите оба известных угла из 180°",
             hintKk: "Екі белгілі бұрышты 180°-тан азайтыңыз",
@@ -540,6 +598,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Три угла четырёхугольника: 90°, 85° и 110°. Найдите четвёртый угол.",
             questionKk: "Төртбұрыштың үш бұрышы: 90°, 85° және 110°. Төртінші бұрышты табыңыз.",
             answer: "75°",
+            answerRu: "75°",
+            answerKk: "75°",
             hint: "360° − (90° + 85° + 110°)",
             hintRu: "360° − (90° + 85° + 110°)",
             hintKk: "360° − (90° + 85° + 110°)",
@@ -578,7 +638,9 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
               { en: "Area = l × w = 8 × 5 = 40 cm²", ru: "Площадь = l × w = 8 × 5 = 40 см²", kk: "Аудан = l × w = 8 × 5 = 40 см²" },
               { en: "Perimeter = 2(l + w) = 2(8 + 5) = 2 × 13 = 26 cm", ru: "Периметр = 2(l + w) = 2(8 + 5) = 2 × 13 = 26 см", kk: "Периметр = 2(l + w) = 2(8 + 5) = 2 × 13 = 26 см" }
             ],
-            answer: "Area = 40 cm², Perimeter = 26 cm"
+            answer: "Area = 40 cm², Perimeter = 26 cm",
+            answerRu: "Площадь = 40 см², периметр = 26 см",
+            answerKk: "Аудан = 40 см², периметр = 26 см"
           }
         ],
         practiceProblems: [
@@ -588,6 +650,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Найдите периметр квадрата со стороной 7 см.",
             questionKk: "Қабырғасы 7 см шаршының периметрін табыңыз.",
             answer: "28 cm",
+            answerRu: "28 см",
+            answerKk: "28 см",
             hint: "A square has 4 equal sides",
             hintRu: "У квадрата 4 равные стороны",
             hintKk: "Шаршының 4 тең қабырғасы бар",
@@ -599,6 +663,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Найдите площадь треугольника с основанием 10 см и высотой 6 см.",
             questionKk: "Табаны 10 см, биіктігі 6 см үшбұрыштың ауданын табыңыз.",
             answer: "30 cm²",
+            answerRu: "30 см²",
+            answerKk: "30 см²",
             hint: "Use A = ½ × base × height",
             hintRu: "Используйте A = ½ × основание × высота",
             hintKk: "A = ½ × табан × биіктік формуласын қолданыңыз",
@@ -610,6 +676,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Периметр прямоугольника 36 см, длина 11 см. Найдите площадь.",
             questionKk: "Тіктөртбұрыштың периметрі 36 см, ұзындығы 11 см. Ауданын табыңыз.",
             answer: "77 cm²",
+            answerRu: "77 см²",
+            answerKk: "77 см²",
             hint: "First find width from perimeter: w = (P/2) − l, then area = l × w",
             hintRu: "Сначала найдите ширину: w = (P/2) − l, затем площадь = l × w",
             hintKk: "Алдымен енді табыңыз: w = (P/2) − l, содан кейін аудан = l × w",
@@ -642,7 +710,9 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
               { en: "Substitute x = 3: 2(3)² − 3(3) + 1 = 2(9) − 9 + 1", ru: "Подставим x = 3: 2(3)² − 3(3) + 1 = 2(9) − 9 + 1", kk: "x = 3 қоямыз: 2(3)² − 3(3) + 1 = 2(9) − 9 + 1" },
               { en: "Simplify: 18 − 9 + 1 = 10", ru: "Упростим: 18 − 9 + 1 = 10", kk: "Жеңілдетеміз: 18 − 9 + 1 = 10" }
             ],
-            answer: "10"
+            answer: "10",
+            answerRu: "10",
+            answerKk: "10"
           }
         ],
         practiceProblems: [
@@ -652,6 +722,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Вычислите 5x при x = 6",
             questionKk: "x = 6 болғанда 5x есептеңіз",
             answer: "30",
+            answerRu: "30",
+            answerKk: "30",
             hint: "Multiply 5 by 6",
             hintRu: "Умножьте 5 на 6",
             hintKk: "5-ті 6-ға көбейтіңіз",
@@ -663,6 +735,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Вычислите 4x − 7 при x = 5",
             questionKk: "x = 5 болғанда 4x − 7 есептеңіз",
             answer: "13",
+            answerRu: "13",
+            answerKk: "13",
             hint: "First multiply 4 × 5, then subtract 7",
             hintRu: "Сначала умножьте 4 × 5, затем вычтите 7",
             hintKk: "Алдымен 4 × 5 көбейтіңіз, содан кейін 7 азайтыңыз",
@@ -674,6 +748,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Вычислите (x + 2)(x − 3) при x = 7",
             questionKk: "x = 7 болғанда (x + 2)(x − 3) есептеңіз",
             answer: "36",
+            answerRu: "36",
+            answerKk: "36",
             hint: "Substitute first: (7+2)(7−3) = 9 × 4",
             hintRu: "Сначала подставьте: (7+2)(7−3) = 9 × 4",
             hintKk: "Алдымен қойыңыз: (7+2)(7−3) = 9 × 4",
@@ -706,7 +782,9 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
               { en: "Distribute: 6x + 12 − 5x", ru: "Раскроем скобки: 6x + 12 − 5x", kk: "Жақшаны ашамыз: 6x + 12 − 5x" },
               { en: "Combine like terms: (6x − 5x) + 12 = x + 12", ru: "Объединим подобные: (6x − 5x) + 12 = x + 12", kk: "Ұқсас мүшелерді біріктіреміз: (6x − 5x) + 12 = x + 12" }
             ],
-            answer: "x + 12"
+            answer: "x + 12",
+            answerRu: "x + 12",
+            answerKk: "x + 12"
           }
         ],
         practiceProblems: [
@@ -716,6 +794,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Упростите: 4x + 3x",
             questionKk: "Жеңілдетіңіз: 4x + 3x",
             answer: "7x",
+            answerRu: "7x",
+            answerKk: "7x",
             hint: "These are like terms — add the coefficients",
             hintRu: "Это подобные члены — сложите коэффициенты",
             hintKk: "Бұлар ұқсас мүшелер — коэффициенттерді қосыңыз",
@@ -727,6 +807,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Раскройте и упростите: 2(3x − 1) + 4x",
             questionKk: "Жайып жеңілдетіңіз: 2(3x − 1) + 4x",
             answer: "10x − 2",
+            answerRu: "10x − 2",
+            answerKk: "10x − 2",
             hint: "Distribute 2 first, then combine like terms",
             hintRu: "Сначала раскройте скобки, затем объедините подобные",
             hintKk: "Алдымен 2-ні үлестіріңіз, содан кейін ұқсас мүшелерді біріктіріңіз",
@@ -738,6 +820,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Упростите: 5(x + 3) − 2(2x − 4)",
             questionKk: "Жеңілдетіңіз: 5(x + 3) − 2(2x − 4)",
             answer: "x + 23",
+            answerRu: "x + 23",
+            answerKk: "x + 23",
             hint: "Distribute both: 5x + 15 − 4x + 8",
             hintRu: "Раскройте оба: 5x + 15 − 4x + 8",
             hintKk: "Екеуін де жайыңыз: 5x + 15 − 4x + 8",
@@ -770,7 +854,9 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
               { en: "Use d = v × t: d = 60 × 2.5", ru: "Используем d = v × t: d = 60 × 2,5", kk: "d = v × t қолданамыз: d = 60 × 2,5" },
               { en: "d = 150 km", ru: "d = 150 км", kk: "d = 150 км" }
             ],
-            answer: "150 km"
+            answer: "150 km",
+            answerRu: "150 км",
+            answerKk: "150 км"
           }
         ],
         practiceProblems: [
@@ -780,6 +866,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Велосипедист едет со скоростью 15 км/ч 3 часа. Какое расстояние он проехал?",
             questionKk: "Велосипедші 15 км/сағ жылдамдықпен 3 сағат жүреді. Қанша қашықтық жүрді?",
             answer: "45 km",
+            answerRu: "45 км",
+            answerKk: "45 км",
             hint: "d = v × t",
             hintRu: "d = v × t",
             hintKk: "d = v × t",
@@ -791,6 +879,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Поезд проезжает 240 км за 4 часа. Какова средняя скорость?",
             questionKk: "Пойыз 240 км-ді 4 сағатта жүреді. Орташа жылдамдығы қандай?",
             answer: "60 km/h",
+            answerRu: "60 км/ч",
+            answerKk: "60 км/сағ",
             hint: "v = d/t",
             hintRu: "v = d/t",
             hintKk: "v = d/t",
@@ -802,6 +892,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Бегун пробежал 5 км со скоростью 10 км/ч, затем 3 км со скоростью 6 км/ч. Какова средняя скорость?",
             questionKk: "Жүгіруші 5 км-ді 10 км/сағ, содан кейін 3 км-ді 6 км/сағ жүрді. Орташа жылдамдығы қандай?",
             answer: "8 km/h",
+            answerRu: "8 км/ч",
+            answerKk: "8 км/сағ",
             hint: "Total distance = 8 km; total time = 0.5 + 0.5 = 1 hour",
             hintRu: "Общее расстояние = 8 км; общее время = 0,5 + 0,5 = 1 час",
             hintKk: "Жалпы қашықтық = 8 км; жалпы уақыт = 0,5 + 0,5 = 1 сағат",
@@ -834,7 +926,9 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
               { en: "At 90°C water is liquid because it is above 0°C (melting point) and below 100°C (boiling point).", ru: "При 90°C вода жидкая, так как выше 0°C (точка плавления) и ниже 100°C (точка кипения).", kk: "90°C-та су сұйық, себебі 0°C-тан (балқу нүктесі) жоғары және 100°C-тан (қайнау нүктесі) төмен." },
               { en: "At 100°C it begins to boil — changing from liquid to gas (steam).", ru: "При 100°C начинается кипение — переход из жидкости в газ (пар).", kk: "100°C-та қайнай бастайды — сұйықтан газға (буға) ауысады." }
             ],
-            answer: "Liquid at 90°C; boils (becomes gas/steam) at 100°C"
+            answer: "Liquid at 90°C; boils (becomes gas/steam) at 100°C",
+            answerRu: "Жидкость при 90°C; кипит (переходит в газ/пар) при 100°C",
+            answerKk: "90°C-та сұйық; 100°C-та қайнайды (газға/буға айналады)"
           }
         ],
         practiceProblems: [
@@ -844,6 +938,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Назовите три основных агрегатных состояния вещества.",
             questionKk: "Заттың үш негізгі агрегаттық күйін атаңыз.",
             answer: "Solid, liquid, gas",
+            answerRu: "Твёрдое, жидкое, газообразное",
+            answerKk: "Қатты, сұйық, газ",
             hint: "Think about ice, water, and steam",
             hintRu: "Подумайте о льде, воде и паре",
             hintKk: "Мұз, су және бу туралы ойлаңыз",
@@ -855,6 +951,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Как называется процесс, когда твёрдое вещество превращается в газ, минуя жидкость?",
             questionKk: "Қатты зат сұйыққа айналмай тікелей газға ауысу процесі қалай аталады?",
             answer: "Sublimation",
+            answerRu: "Сублимация (возгонка)",
+            answerKk: "Сублимация",
             hint: "Think of dry ice (solid CO₂) producing visible fog",
             hintRu: "Подумайте о сухом льде (твёрдый CO₂), который образует видимый туман",
             hintKk: "Құрғақ мұзды (қатты CO₂) ойлаңыз — ол көрінетін тұман шығарады",
@@ -866,6 +964,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Объясните, почему температура остаётся постоянной во время фазового перехода, хотя тепло продолжает поступать.",
             questionKk: "Жылу қосылып жатса да, фазалық ауысу кезінде температура неге тұрақты қалатынын түсіндіріңіз.",
             answer: "The added energy is used to break intermolecular bonds (latent heat) rather than to increase kinetic energy, so temperature does not rise until the phase change is complete.",
+            answerRu: "Добавляемая энергия расходуется на разрыв межмолекулярных связей (скрытая теплота), а не на увеличение кинетической энергии, поэтому температура не повышается, пока фазовый переход не завершится.",
+            answerKk: "Қосылған энергия кинетикалық энергияны арттыруға емес, молекулааралық байланыстарды үзуге (жасырын жылу) жұмсалады, сондықтан фазалық ауысу аяқталғанша температура көтерілмейді.",
             hint: "The energy goes into changing the arrangement of particles, not their speed",
             hintRu: "Энергия идёт на изменение расположения частиц, а не их скорости",
             hintKk: "Энергия бөлшектердің жылдамдығына емес, орналасуын өзгертуге жұмсалады",
@@ -898,7 +998,9 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
               { en: "Cell wall and chloroplasts are structures found only in plant cells, not animal cells.", ru: "Клеточная стенка и хлоропласты — структуры, присущие только растительным клеткам.", kk: "Жасуша қабырғасы мен хлоропластар тек өсімдік жасушаларында кездеседі." },
               { en: "Therefore, this is a plant cell.", ru: "Следовательно, это растительная клетка.", kk: "Демек, бұл өсімдік жасушасы." }
             ],
-            answer: "Plant cell"
+            answer: "Plant cell",
+            answerRu: "Растительная клетка",
+            answerKk: "Өсімдік жасушасы"
           }
         ],
         practiceProblems: [
@@ -908,6 +1010,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Какой органоид — «электростанция» клетки?",
             questionKk: "Жасушаның «энергия станциясы» қай органоид?",
             answer: "Mitochondria",
+            answerRu: "Митохондрии",
+            answerKk: "Митохондриялар",
             hint: "It produces ATP — the energy currency of the cell",
             hintRu: "Он производит АТФ — энергетическую валюту клетки",
             hintKk: "Ол АТФ — жасушаның энергия валютасын өндіреді",
@@ -919,6 +1023,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Назовите две структуры, которые есть в растительных клетках, но нет в животных.",
             questionKk: "Өсімдік жасушаларында бар, бірақ жануар жасушаларында жоқ екі құрылымды атаңыз.",
             answer: "Cell wall and chloroplasts (also acceptable: large central vacuole)",
+            answerRu: "Клеточная стенка и хлоропласты (также допустимо: большая центральная вакуоль)",
+            answerKk: "Жасуша қабырғасы мен хлоропластар (үлкен орталық вакуоль де жарайды)",
             hint: "Think about what plants need to do that animals don't — stand rigid and photosynthesize",
             hintRu: "Подумайте, что растения делают, а животные нет — стоят прямо и фотосинтезируют",
             hintKk: "Өсімдіктер не істейді, жануарлар не істемейді — тік тұрады және фотосинтез жасайды",
@@ -930,6 +1036,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Расположите от простого к сложному: орган, клетка, ткань, система органов, организм.",
             questionKk: "Қарапайымнан күрделіге қарай орналастырыңыз: ағза, жасуша, тін, ағза жүйесі, организм.",
             answer: "Cell → Tissue → Organ → Organ System → Organism",
+            answerRu: "Клетка → ткань → орган → система органов → организм",
+            answerKk: "Жасуша → тін → ағза → ағзалар жүйесі → организм",
             hint: "Cells group into tissues, tissues into organs, organs into systems",
             hintRu: "Клетки образуют ткани, ткани — органы, органы — системы",
             hintKk: "Жасушалар тіндерге, тіндер ағзаларға, ағзалар жүйелерге біріктіріледі",
@@ -975,7 +1083,9 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
               { en: "Subtract 7 from both sides: 3x = 15", ru: "Вычтем 7 из обеих сторон: 3x = 15", kk: "Екі жағынан 7 азайтамыз: 3x = 15" },
               { en: "Divide both sides by 3: x = 5", ru: "Разделим обе стороны на 3: x = 5", kk: "Екі жағын 3-ке бөлеміз: x = 5" }
             ],
-            answer: "x = 5"
+            answer: "x = 5",
+            answerRu: "x = 5",
+            answerKk: "x = 5"
           }
         ],
         practiceProblems: [
@@ -985,6 +1095,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Решите: x + 9 = 14",
             questionKk: "Шешіңіз: x + 9 = 14",
             answer: "x = 5",
+            answerRu: "x = 5",
+            answerKk: "x = 5",
             hint: "Subtract 9 from both sides",
             hintRu: "Вычтите 9 из обеих сторон",
             hintKk: "Екі жағынан 9 азайтыңыз",
@@ -996,6 +1108,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Решите: 5x − 3 = 2x + 12",
             questionKk: "Шешіңіз: 5x − 3 = 2x + 12",
             answer: "x = 5",
+            answerRu: "x = 5",
+            answerKk: "x = 5",
             hint: "Move x terms to one side: 3x = 15",
             hintRu: "Перенесите x на одну сторону: 3x = 15",
             hintKk: "x мүшелерін бір жаққа жинаңыз: 3x = 15",
@@ -1007,6 +1121,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Решите: 2(x + 4) − 3 = 3(x − 1)",
             questionKk: "Шешіңіз: 2(x + 4) − 3 = 3(x − 1)",
             answer: "x = 8",
+            answerRu: "x = 8",
+            answerKk: "x = 8",
             hint: "Expand both sides: 2x + 8 − 3 = 3x − 3 → 2x + 5 = 3x − 3",
             hintRu: "Раскройте обе стороны: 2x + 8 − 3 = 3x − 3",
             hintKk: "Екі жағын жайыңыз: 2x + 8 − 3 = 3x − 3",
@@ -1039,7 +1155,9 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
               { en: "Subtract 5: −2x > 6", ru: "Вычтем 5: −2x > 6", kk: "5 азайтамыз: −2x > 6" },
               { en: "Divide by −2 and flip the sign: x < −3", ru: "Разделим на −2 и сменим знак: x < −3", kk: "−2-ге бөліп белгіні аударамыз: x < −3" }
             ],
-            answer: "x < −3"
+            answer: "x < −3",
+            answerRu: "x < −3",
+            answerKk: "x < −3"
           }
         ],
         practiceProblems: [
@@ -1049,6 +1167,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Решите: x + 4 > 10",
             questionKk: "Шешіңіз: x + 4 > 10",
             answer: "x > 6",
+            answerRu: "x > 6",
+            answerKk: "x > 6",
             hint: "Subtract 4 from both sides",
             hintRu: "Вычтите 4 из обеих сторон",
             hintKk: "Екі жағынан 4 азайтыңыз",
@@ -1060,6 +1180,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Решите: 3x − 2 ≤ 13",
             questionKk: "Шешіңіз: 3x − 2 ≤ 13",
             answer: "x ≤ 5",
+            answerRu: "x ≤ 5",
+            answerKk: "x ≤ 5",
             hint: "Add 2, then divide by 3",
             hintRu: "Прибавьте 2, затем разделите на 3",
             hintKk: "2 қосыңыз, содан кейін 3-ке бөліңіз",
@@ -1071,6 +1193,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Решите: −4x + 1 ≥ 2x − 11",
             questionKk: "Шешіңіз: −4x + 1 ≥ 2x − 11",
             answer: "x ≤ 2",
+            answerRu: "x ≤ 2",
+            answerKk: "x ≤ 2",
             hint: "Move x terms to one side: −6x ≥ −12, then divide by −6 and flip",
             hintRu: "Перенесите x: −6x ≥ −12, разделите на −6 и смените знак",
             hintKk: "x мүшелерін жинаңыз: −6x ≥ −12, −6-ға бөліп белгіні аударыңыз",
@@ -1109,7 +1233,9 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
               { en: "Add both equations: (x + y) + (2x − y) = 10 + 5 → 3x = 15 → x = 5", ru: "Сложим оба уравнения: (x + y) + (2x − y) = 15 → 3x = 15 → x = 5", kk: "Екі теңдеуді қосамыз: (x + y) + (2x − y) = 15 → 3x = 15 → x = 5" },
               { en: "Substitute x = 5 into first equation: 5 + y = 10 → y = 5", ru: "Подставим x = 5 в первое: 5 + y = 10 → y = 5", kk: "x = 5-ті біріншіге қоямыз: 5 + y = 10 → y = 5" }
             ],
-            answer: "x = 5, y = 5"
+            answer: "x = 5, y = 5",
+            answerRu: "x = 5, y = 5",
+            answerKk: "x = 5, y = 5"
           }
         ],
         practiceProblems: [
@@ -1119,6 +1245,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Решите: x + y = 7, x − y = 3",
             questionKk: "Шешіңіз: x + y = 7, x − y = 3",
             answer: "x = 5, y = 2",
+            answerRu: "x = 5, y = 2",
+            answerKk: "x = 5, y = 2",
             hint: "Add the two equations to eliminate y",
             hintRu: "Сложите два уравнения, чтобы исключить y",
             hintKk: "y-ді жою үшін екі теңдеуді қосыңыз",
@@ -1130,6 +1258,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Решите: 2x + 3y = 12, x − y = 1",
             questionKk: "Шешіңіз: 2x + 3y = 12, x − y = 1",
             answer: "x = 3, y = 2",
+            answerRu: "x = 3, y = 2",
+            answerKk: "x = 3, y = 2",
             hint: "From the second equation: x = y + 1, substitute into the first",
             hintRu: "Из второго уравнения: x = y + 1, подставьте в первое",
             hintKk: "Екінші теңдеуден: x = y + 1, біріншіге қойыңыз",
@@ -1141,6 +1271,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Решите: 3x + 2y = 16, 5x − 2y = 8",
             questionKk: "Шешіңіз: 3x + 2y = 16, 5x − 2y = 8",
             answer: "x = 3, y = 3.5",
+            answerRu: "x = 3, y = 3.5",
+            answerKk: "x = 3, y = 3.5",
             hint: "Add the equations: 8x = 24",
             hintRu: "Сложите уравнения: 8x = 24",
             hintKk: "Теңдеулерді қосыңыз: 8x = 24",
@@ -1181,7 +1313,9 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
               { en: "d = √[(4−1)² + (6−2)²] = √[9 + 16] = √25", ru: "d = √[(4−1)² + (6−2)²] = √[9 + 16] = √25", kk: "d = √[(4−1)² + (6−2)²] = √[9 + 16] = √25" },
               { en: "d = 5", ru: "d = 5", kk: "d = 5" }
             ],
-            answer: "5 units"
+            answer: "5 units",
+            answerRu: "5 единиц",
+            answerKk: "5 бірлік"
           }
         ],
         practiceProblems: [
@@ -1191,6 +1325,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Найдите середину отрезка (2, 4) и (6, 8).",
             questionKk: "(2, 4) мен (6, 8) кесіндісінің орта нүктесін табыңыз.",
             answer: "(4, 6)",
+            answerRu: "(4, 6)",
+            answerKk: "(4, 6)",
             hint: "Average the x-coordinates and the y-coordinates",
             hintRu: "Усредните x-координаты и y-координаты",
             hintKk: "x-координаталарын және y-координаталарын орташалаңыз",
@@ -1202,6 +1338,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Найдите расстояние между (−1, 3) и (5, −1).",
             questionKk: "(−1, 3) мен (5, −1) арасындағы қашықтықты табыңыз.",
             answer: "√52 ≈ 7.21",
+            answerRu: "√52 ≈ 7.21",
+            answerKk: "√52 ≈ 7.21",
             hint: "d = √[(5−(−1))² + (−1−3)²] = √[36 + 16]",
             hintRu: "d = √[(5−(−1))² + (−1−3)²] = √[36 + 16]",
             hintKk: "d = √[(5−(−1))² + (−1−3)²] = √[36 + 16]",
@@ -1213,6 +1351,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Середина отрезка AB — (3, 5). Если A = (1, 2), найдите B.",
             questionKk: "AB кесіндісінің ортасы (3, 5). Егер A = (1, 2) болса, B-ны табыңыз.",
             answer: "B = (5, 8)",
+            answerRu: "B = (5, 8)",
+            answerKk: "B = (5, 8)",
             hint: "If midpoint = ((x₁+x₂)/2, (y₁+y₂)/2), then x₂ = 2×3 − 1 = 5",
             hintRu: "Если середина = ((x₁+x₂)/2, (y₁+y₂)/2), то x₂ = 2×3 − 1 = 5",
             hintKk: "Егер орта = ((x₁+x₂)/2, (y₁+y₂)/2) болса, x₂ = 2×3 − 1 = 5",
@@ -1245,7 +1385,9 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
               { en: "Apply a² + b² = c²: 6² + 8² = 36 + 64 = 100", ru: "Применим a² + b² = c²: 36 + 64 = 100", kk: "a² + b² = c² қолданамыз: 36 + 64 = 100" },
               { en: "c = √100 = 10", ru: "c = √100 = 10", kk: "c = √100 = 10" }
             ],
-            answer: "10"
+            answer: "10",
+            answerRu: "10",
+            answerKk: "10"
           }
         ],
         practiceProblems: [
@@ -1255,6 +1397,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Катеты прямоугольного треугольника 3 и 4. Найдите гипотенузу.",
             questionKk: "Тікбұрышты үшбұрыштың катеттері 3 және 4. Гипотенузаны табыңыз.",
             answer: "5",
+            answerRu: "5",
+            answerKk: "5",
             hint: "3² + 4² = 9 + 16 = 25",
             hintRu: "3² + 4² = 9 + 16 = 25",
             hintKk: "3² + 4² = 9 + 16 = 25",
@@ -1266,6 +1410,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Гипотенуза 13, один катет 5. Найдите второй катет.",
             questionKk: "Гипотенуза 13, бір катет 5. Екінші катетті табыңыз.",
             answer: "12",
+            answerRu: "12",
+            answerKk: "12",
             hint: "b² = c² − a² = 169 − 25 = 144",
             hintRu: "b² = c² − a² = 169 − 25 = 144",
             hintKk: "b² = c² − a² = 169 − 25 = 144",
@@ -1277,6 +1423,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Является ли треугольник со сторонами 7, 24, 25 прямоугольным?",
             questionKk: "Қабырғалары 7, 24, 25 болатын үшбұрыш тікбұрышты ма?",
             answer: "Yes, because 7² + 24² = 49 + 576 = 625 = 25²",
+            answerRu: "Да, так как 7² + 24² = 49 + 576 = 625 = 25²",
+            answerKk: "Иә, себебі 7² + 24² = 49 + 576 = 625 = 25²",
             hint: "Check if a² + b² = c² where c is the longest side",
             hintRu: "Проверьте a² + b² = c², где c — наибольшая сторона",
             hintKk: "a² + b² = c² тексеріңіз, мұнда c — ең ұзын қабырға",
@@ -1309,7 +1457,9 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
               { en: "F = ma, so a = F/m = 50/10", ru: "F = ma, значит a = F/m = 50/10", kk: "F = ma, демек a = F/m = 50/10" },
               { en: "a = 5 m/s²", ru: "a = 5 м/с²", kk: "a = 5 м/с²" }
             ],
-            answer: "5 m/s²"
+            answer: "5 m/s²",
+            answerRu: "5 м/с²",
+            answerKk: "5 м/с²"
           }
         ],
         practiceProblems: [
@@ -1319,6 +1469,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Как ещё называется первый закон Ньютона?",
             questionKk: "Ньютонның бірінші заңы тағы қалай аталады?",
             answer: "The law of inertia",
+            answerRu: "Закон инерции",
+            answerKk: "Инерция заңы",
             hint: "It describes the tendency of objects to resist changes in motion",
             hintRu: "Он описывает склонность тел сопротивляться изменениям движения",
             hintKk: "Ол нысандардың қозғалыс өзгерістеріне қарсылық көрсету бейімділігін сипаттайды",
@@ -1330,6 +1482,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Какая сила нужна для ускорения объекта массой 5 кг с ускорением 3 м/с²?",
             questionKk: "5 кг нысанды 3 м/с² үдеумен жылжыту үшін қандай күш керек?",
             answer: "15 N",
+            answerRu: "15 Н",
+            answerKk: "15 Н",
             hint: "F = m × a = 5 × 3",
             hintRu: "F = m × a = 5 × 3",
             hintKk: "F = m × a = 5 × 3",
@@ -1341,6 +1495,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Автомобиль массой 2000 кг разгоняется с места до 20 м/с за 10 секунд. Какова равнодействующая сила?",
             questionKk: "2000 кг автокөлік тыныштықтан 10 секундта 20 м/с-ке дейін үдейді. Қорытқы күш қандай?",
             answer: "4000 N",
+            answerRu: "4000 Н",
+            answerKk: "4000 Н",
             hint: "First find a = Δv/t = 20/10 = 2 m/s², then F = ma",
             hintRu: "Сначала найдите a = Δv/t = 20/10 = 2 м/с², затем F = ma",
             hintKk: "Алдымен a = Δv/t = 20/10 = 2 м/с² табыңыз, содан кейін F = ma",
@@ -1373,7 +1529,9 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
               { en: "KE = ½mv² = ½ × 3 × 4² = ½ × 3 × 16", ru: "KE = ½mv² = ½ × 3 × 4² = ½ × 3 × 16", kk: "KE = ½mv² = ½ × 3 × 4² = ½ × 3 × 16" },
               { en: "KE = 24 J", ru: "KE = 24 Дж", kk: "KE = 24 Дж" }
             ],
-            answer: "24 J"
+            answer: "24 J",
+            answerRu: "24 Дж",
+            answerKk: "24 Дж"
           }
         ],
         practiceProblems: [
@@ -1383,6 +1541,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Какая работа совершается при толкании ящика силой 20 Н на 5 м?",
             questionKk: "Жәшікті 20 Н күшпен 5 м итергенде қанша жұмыс жасалады?",
             answer: "100 J",
+            answerRu: "100 Дж",
+            answerKk: "100 Дж",
             hint: "W = F × d",
             hintRu: "W = F × d",
             hintKk: "W = F × d",
@@ -1394,6 +1554,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Объект массой 2 кг на высоте 10 м. Какова его потенциальная энергия? (g = 10 м/с²)",
             questionKk: "2 кг нысан 10 м биіктікте. Оның потенциалдық энергиясы қандай? (g = 10 м/с²)",
             answer: "200 J",
+            answerRu: "200 Дж",
+            answerKk: "200 Дж",
             hint: "PE = mgh = 2 × 10 × 10",
             hintRu: "PE = mgh = 2 × 10 × 10",
             hintKk: "PE = mgh = 2 × 10 × 10",
@@ -1405,6 +1567,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Мяч 1 кг падает с 20 м. Какова его скорость перед ударом о землю? (g = 10 м/с²)",
             questionKk: "1 кг доп 20 м биіктіктен түседі. Жерге тиер алдындағы жылдамдығы қандай? (g = 10 м/с²)",
             answer: "20 m/s",
+            answerRu: "20 м/с",
+            answerKk: "20 м/с",
             hint: "PE converts to KE: mgh = ½mv² → v = √(2gh) = √(2×10×20)",
             hintRu: "PE переходит в KE: mgh = ½mv² → v = √(2gh)",
             hintKk: "PE KE-ге айналады: mgh = ½mv² → v = √(2gh)",
@@ -1437,7 +1601,9 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
               { en: "Protons = atomic number = 6; electrons = protons = 6 (neutral atom)", ru: "Протоны = атомный номер = 6; электроны = протоны = 6 (нейтральный атом)", kk: "Протондар = атомдық нөмір = 6; электрондар = протондар = 6 (бейтарап атом)" },
               { en: "Neutrons = mass number − protons = 12 − 6 = 6", ru: "Нейтроны = массовое число − протоны = 12 − 6 = 6", kk: "Нейтрондар = массалық сан − протондар = 12 − 6 = 6" }
             ],
-            answer: "6 protons, 6 neutrons, 6 electrons"
+            answer: "6 protons, 6 neutrons, 6 electrons",
+            answerRu: "6 протонов, 6 нейтронов, 6 электронов",
+            answerKk: "6 протон, 6 нейтрон, 6 электрон"
           }
         ],
         practiceProblems: [
@@ -1447,6 +1613,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Из каких трёх субатомных частиц состоит атом?",
             questionKk: "Атом қандай үш субатомдық бөлшектен тұрады?",
             answer: "Protons, neutrons, and electrons",
+            answerRu: "Протоны, нейтроны и электроны",
+            answerKk: "Протондар, нейтрондар және электрондар",
             hint: "Two are in the nucleus, one orbits outside",
             hintRu: "Два в ядре, один вращается снаружи",
             hintKk: "Екеуі ядрода, бірі сыртында айналады",
@@ -1458,6 +1626,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "У кислорода атомный номер 8 и массовое число 16. Сколько нейтронов?",
             questionKk: "Оттегінің атомдық нөмірі 8, массалық саны 16. Қанша нейтроны бар?",
             answer: "8 neutrons",
+            answerRu: "8 нейтронов",
+            answerKk: "8 нейтрон",
             hint: "Neutrons = mass number − atomic number",
             hintRu: "Нейтроны = массовое число − атомный номер",
             hintKk: "Нейтрондар = массалық сан − атомдық нөмір",
@@ -1469,6 +1639,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Изотоп углерода имеет массовое число 14. Чем он отличается от углерода-12?",
             questionKk: "Көміртектің изотопының массалық саны 14. Ол көміртек-12-ден қалай ерекшеленеді?",
             answer: "Carbon-14 has 8 neutrons (instead of 6), but the same 6 protons. Isotopes differ in neutron count.",
+            answerRu: "У углерода-14 восемь нейтронов (вместо 6), но те же 6 протонов. Изотопы различаются числом нейтронов.",
+            answerKk: "Көміртек-14-те 8 нейтрон бар (6 орнына), бірақ протондар саны бұрынғыдай 6. Изотоптар нейтрон санымен ерекшеленеді.",
             hint: "Same number of protons, different number of neutrons",
             hintRu: "Одинаковое число протонов, разное число нейтронов",
             hintKk: "Протондар саны бірдей, нейтрондар саны әртүрлі",
@@ -1501,7 +1673,9 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
               { en: "Count atoms: Left has 2H, 2O. Right has 2H, 1O. Oxygen is unbalanced.", ru: "Считаем атомы: слева 2H, 2O. Справа 2H, 1O. Кислород не уравнен.", kk: "Атомдарды санаймыз: сол жақта 2H, 2O. Оң жақта 2H, 1O. Оттегі теңестірілмеген." },
               { en: "Put 2 before H₂O: 2H₂ + O₂ → 2H₂O. Now: 4H, 2O on each side. Balanced!", ru: "Поставим 2 перед H₂O: 2H₂ + O₂ → 2H₂O. Теперь: 4H, 2O с каждой стороны.", kk: "H₂O алдына 2 қоямыз: 2H₂ + O₂ → 2H₂O. Енді: әр жақта 4H, 2O. Теңестірілді!" }
             ],
-            answer: "2H₂ + O₂ → 2H₂O"
+            answer: "2H₂ + O₂ → 2H₂O",
+            answerRu: "2H₂ + O₂ → 2H₂O",
+            answerKk: "2H₂ + O₂ → 2H₂O"
           }
         ],
         practiceProblems: [
@@ -1511,6 +1685,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Назовите два признака того, что произошла химическая реакция.",
             questionKk: "Химиялық реакция болғанының екі белгісін атаңыз.",
             answer: "Any two of: color change, gas bubbles, precipitate, temperature change, light/smell",
+            answerRu: "Любые два из: изменение цвета, пузырьки газа, осадок, изменение температуры, свет/запах",
+            answerKk: "Кез келген екеуі: түс өзгеруі, газ көпіршіктері, тұнба, температура өзгеруі, жарық/иіс",
             hint: "Think about what you can observe when vinegar and baking soda mix",
             hintRu: "Подумайте, что наблюдается при смешивании уксуса и соды",
             hintKk: "Сірке мен сода араласқанда не байқалатынын ойлаңыз",
@@ -1522,6 +1698,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Уравняйте: Fe + O₂ → Fe₂O₃",
             questionKk: "Теңестіріңіз: Fe + O₂ → Fe₂O₃",
             answer: "4Fe + 3O₂ → 2Fe₂O₃",
+            answerRu: "4Fe + 3O₂ → 2Fe₂O₃",
+            answerKk: "4Fe + 3O₂ → 2Fe₂O₃",
             hint: "You need 4 Fe on the left and 6 O atoms on each side",
             hintRu: "Нужно 4 Fe слева и по 6 атомов O с каждой стороны",
             hintKk: "Сол жақта 4 Fe және әр жақта 6 O атомы керек",
@@ -1533,6 +1711,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Уравняйте: C₃H₈ + O₂ → CO₂ + H₂O",
             questionKk: "Теңестіріңіз: C₃H₈ + O₂ → CO₂ + H₂O",
             answer: "C₃H₈ + 5O₂ → 3CO₂ + 4H₂O",
+            answerRu: "C₃H₈ + 5O₂ → 3CO₂ + 4H₂O",
+            answerKk: "C₃H₈ + 5O₂ → 3CO₂ + 4H₂O",
             hint: "Balance C first (3), then H (8→4H₂O), then count O on the right (6+4=10→5O₂)",
             hintRu: "Сначала C (3), затем H (8→4H₂O), потом O справа (6+4=10→5O₂)",
             hintKk: "Алдымен C (3), содан кейін H (8→4H₂O), содан кейін оң жақтағы O (6+4=10→5O₂)",
@@ -1565,7 +1745,9 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
               { en: "Mitosis produces identical copies, so chromosome number is preserved.", ru: "Митоз создаёт идентичные копии, число хромосом сохраняется.", kk: "Митоз бірдей көшірмелер жасайды, хромосома саны сақталады." },
               { en: "Each daughter cell has 46 chromosomes, same as the parent.", ru: "Каждая дочерняя клетка имеет 46 хромосом, как и родительская.", kk: "Әр жаңа жасушада ата-аналық жасушадағыдай 46 хромосома болады." }
             ],
-            answer: "46 chromosomes"
+            answer: "46 chromosomes",
+            answerRu: "46 хромосом",
+            answerKk: "46 хромосома"
           }
         ],
         practiceProblems: [
@@ -1575,6 +1757,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Сколько дочерних клеток образует митоз?",
             questionKk: "Митоз қанша жаңа жасуша шығарады?",
             answer: "2",
+            answerRu: "2",
+            answerKk: "2",
             hint: "Mitosis splits one cell into two identical copies",
             hintRu: "Митоз делит одну клетку на две идентичные копии",
             hintKk: "Митоз бір жасушаны екі бірдей көшірмеге бөледі",
@@ -1586,6 +1770,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Клетка с 20 хромосомами проходит мейоз. Сколько хромосом в каждой результирующей клетке?",
             questionKk: "20 хромосомалы жасуша мейоздан өтеді. Нәтижелі жасушаларда қанша хромосома болады?",
             answer: "10",
+            answerRu: "10",
+            answerKk: "10",
             hint: "Meiosis halves the chromosome number",
             hintRu: "Мейоз уменьшает число хромосом вдвое",
             hintKk: "Мейоз хромосома санын екіге бөледі",
@@ -1597,6 +1783,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Объясните, почему мейоз необходим для полового размножения, а митоз недостаточен.",
             questionKk: "Мейоздың жыныстық көбею үшін неге қажет екенін және митоздың неге жеткіліксіз екенін түсіндіріңіз.",
             answer: "Meiosis halves the chromosome number so that when two gametes fuse at fertilization, the normal diploid number is restored. If gametes were made by mitosis, chromosome number would double each generation.",
+            answerRu: "Мейоз вдвое уменьшает число хромосом, чтобы при слиянии двух гамет во время оплодотворения восстанавливалось нормальное диплоидное число. Если бы гаметы образовывались путём митоза, число хромосом удваивалось бы в каждом поколении.",
+            answerKk: "Мейоз хромосома санын екі есе азайтады, сөйтіп ұрықтану кезінде екі гамета қосылғанда қалыпты диплоидты сан қалпына келеді. Егер гаметалар митоз арқылы түзілсе, хромосома саны әр ұрпақта екі еселенер еді.",
             hint: "Think about what happens when egg and sperm fuse",
             hintRu: "Подумайте, что произойдёт при слиянии яйцеклетки и сперматозоида",
             hintKk: "Жұмыртқажасуша мен сперматозоид қосылғанда не болатынын ойлаңыз",
@@ -1650,7 +1838,9 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
               { en: "Factor: (x − 2)(x − 3) = 0", ru: "Разложим: (x − 2)(x − 3) = 0", kk: "Жіктейміз: (x − 2)(x − 3) = 0" },
               { en: "Set each factor to zero: x = 2 or x = 3", ru: "Приравняем каждый множитель к нулю: x = 2 или x = 3", kk: "Әр көбейткішті нөлге теңестіреміз: x = 2 немесе x = 3" }
             ],
-            answer: "x = 2 or x = 3"
+            answer: "x = 2 or x = 3",
+            answerRu: "x = 2 или x = 3",
+            answerKk: "x = 2 немесе x = 3"
           }
         ],
         practiceProblems: [
@@ -1660,6 +1850,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Решите: x² − 9 = 0",
             questionKk: "Шешіңіз: x² − 9 = 0",
             answer: "x = 3 or x = −3",
+            answerRu: "x = 3 или x = −3",
+            answerKk: "x = 3 немесе x = −3",
             hint: "This is a difference of squares: (x−3)(x+3) = 0",
             hintRu: "Это разность квадратов: (x−3)(x+3) = 0",
             hintKk: "Бұл квадраттар айырмасы: (x−3)(x+3) = 0",
@@ -1671,6 +1863,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Решите по формуле: 2x² + 3x − 2 = 0",
             questionKk: "Формула арқылы шешіңіз: 2x² + 3x − 2 = 0",
             answer: "x = 0.5 or x = −2",
+            answerRu: "x = 0.5 или x = −2",
+            answerKk: "x = 0.5 немесе x = −2",
             hint: "a=2, b=3, c=−2. D = 9+16 = 25",
             hintRu: "a=2, b=3, c=−2. D = 9+16 = 25",
             hintKk: "a=2, b=3, c=−2. D = 9+16 = 25",
@@ -1682,6 +1876,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "При каких значениях k уравнение x² + kx + 9 = 0 имеет ровно одно решение?",
             questionKk: "x² + kx + 9 = 0 теңдеуінің дәл бір шешімі болу үшін k қандай мәндерде?",
             answer: "k = 6 or k = −6",
+            answerRu: "k = 6 или k = −6",
+            answerKk: "k = 6 немесе k = −6",
             hint: "One solution means D = 0: k² − 36 = 0",
             hintRu: "Одно решение значит D = 0: k² − 36 = 0",
             hintKk: "Бір шешім D = 0 дегенді білдіреді: k² − 36 = 0",
@@ -1720,7 +1916,9 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
               { en: "Apply (a+b)² = a² + 2ab + b² where a=2x, b=3", ru: "Применим (a+b)² = a² + 2ab + b² где a=2x, b=3", kk: "(a+b)² = a² + 2ab + b² қолданамыз, мұнда a=2x, b=3" },
               { en: "(2x)² + 2(2x)(3) + 3² = 4x² + 12x + 9", ru: "(2x)² + 2(2x)(3) + 3² = 4x² + 12x + 9", kk: "(2x)² + 2(2x)(3) + 3² = 4x² + 12x + 9" }
             ],
-            answer: "4x² + 12x + 9"
+            answer: "4x² + 12x + 9",
+            answerRu: "4x² + 12x + 9",
+            answerKk: "4x² + 12x + 9"
           }
         ],
         practiceProblems: [
@@ -1730,6 +1928,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Какова степень 5x³ − 2x + 7?",
             questionKk: "5x³ − 2x + 7 көпмүшесінің дәрежесі қандай?",
             answer: "3",
+            answerRu: "3",
+            answerKk: "3",
             hint: "The degree is the highest power of x",
             hintRu: "Степень — наибольший показатель x",
             hintKk: "Дәреже — x-тің ең жоғары дәреже көрсеткіші",
@@ -1741,6 +1941,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Факторизуйте: x² − 16",
             questionKk: "Жіктеңіз: x² − 16",
             answer: "(x + 4)(x − 4)",
+            answerRu: "(x + 4)(x − 4)",
+            answerKk: "(x + 4)(x − 4)",
             hint: "Difference of squares: a² − b² = (a+b)(a−b)",
             hintRu: "Разность квадратов: a² − b² = (a+b)(a−b)",
             hintKk: "Квадраттар айырмасы: a² − b² = (a+b)(a−b)",
@@ -1752,6 +1954,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Полностью разложите: 2x³ − 8x",
             questionKk: "Толық жіктеңіз: 2x³ − 8x",
             answer: "2x(x + 2)(x − 2)",
+            answerRu: "2x(x + 2)(x − 2)",
+            answerKk: "2x(x + 2)(x − 2)",
             hint: "First factor out 2x, then apply difference of squares",
             hintRu: "Сначала вынесите 2x, затем примените разность квадратов",
             hintKk: "Алдымен 2x шығарыңыз, содан кейін квадраттар айырмасын қолданыңыз",
@@ -1790,7 +1994,9 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
               { en: "Compare with y = mx + b: m = −2 (slope), b = 5 (y-intercept)", ru: "Сравним с y = mx + b: m = −2 (наклон), b = 5 (пересечение)", kk: "y = mx + b-мен салыстырамыз: m = −2 (еңіс), b = 5 (y-ке қиылысу)" },
               { en: "The line falls 2 units for every 1 unit right, and crosses the y-axis at (0, 5).", ru: "Прямая спускается на 2 единицы при движении вправо на 1 и пересекает ось y в (0, 5).", kk: "Түзу оңға 1 бірлік жылжығанда 2 бірлік төмендейді және y осін (0, 5)-те қиады." }
             ],
-            answer: "Slope = −2, y-intercept = 5"
+            answer: "Slope = −2, y-intercept = 5",
+            answerRu: "Наклон = −2, пересечение с осью y = 5",
+            answerKk: "Еңіс = −2, y осімен қиылысу = 5"
           }
         ],
         practiceProblems: [
@@ -1800,6 +2006,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Если f(x) = 3x + 1, найдите f(4).",
             questionKk: "Егер f(x) = 3x + 1 болса, f(4) табыңыз.",
             answer: "13",
+            answerRu: "13",
+            answerKk: "13",
             hint: "Substitute x = 4: 3(4) + 1",
             hintRu: "Подставьте x = 4: 3(4) + 1",
             hintKk: "x = 4 қойыңыз: 3(4) + 1",
@@ -1811,6 +2019,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Найдите наклон прямой, проходящей через (1, 3) и (4, 9).",
             questionKk: "(1, 3) мен (4, 9) арқылы өтетін түзудің еңісін табыңыз.",
             answer: "2",
+            answerRu: "2",
+            answerKk: "2",
             hint: "m = (9−3)/(4−1) = 6/3",
             hintRu: "m = (9−3)/(4−1) = 6/3",
             hintKk: "m = (9−3)/(4−1) = 6/3",
@@ -1822,6 +2032,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Напишите уравнение прямой с наклоном 3, проходящей через (2, 7).",
             questionKk: "Еңісі 3 болатын және (2, 7) нүктесі арқылы өтетін түзу теңдеуін жазыңыз.",
             answer: "y = 3x + 1",
+            answerRu: "y = 3x + 1",
+            answerKk: "y = 3x + 1",
             hint: "Use point-slope: y − 7 = 3(x − 2), then simplify",
             hintRu: "Используйте y − 7 = 3(x − 2), затем упростите",
             hintKk: "y − 7 = 3(x − 2) қолданыңыз, содан кейін жеңілдетіңіз",
@@ -1854,7 +2066,9 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
               { en: "C = 2πr = 2 × (22/7) × 7 = 44 cm", ru: "C = 2πr = 2 × (22/7) × 7 = 44 см", kk: "C = 2πr = 2 × (22/7) × 7 = 44 см" },
               { en: "A = πr² = (22/7) × 49 = 154 cm²", ru: "A = πr² = (22/7) × 49 = 154 см²", kk: "A = πr² = (22/7) × 49 = 154 см²" }
             ],
-            answer: "C = 44 cm, A = 154 cm²"
+            answer: "C = 44 cm, A = 154 cm²",
+            answerRu: "C = 44 см, A = 154 см²",
+            answerKk: "C = 44 см, A = 154 см²"
           }
         ],
         practiceProblems: [
@@ -1864,6 +2078,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Найдите длину окружности с диаметром 10 см. (π ≈ 3,14)",
             questionKk: "Диаметрі 10 см шеңбер ұзындығын табыңыз. (π ≈ 3,14)",
             answer: "31.4 cm",
+            answerRu: "31.4 см",
+            answerKk: "31.4 см",
             hint: "C = πd or C = 2πr where r = 5",
             hintRu: "C = πd или C = 2πr где r = 5",
             hintKk: "C = πd немесе C = 2πr мұнда r = 5",
@@ -1875,6 +2091,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Площадь круга 50,24 см². Найдите радиус. (π ≈ 3,14)",
             questionKk: "Дөңгелектің ауданы 50,24 см². Радиусын табыңыз. (π ≈ 3,14)",
             answer: "4 cm",
+            answerRu: "4 см",
+            answerKk: "4 см",
             hint: "r² = A/π = 50.24/3.14 = 16",
             hintRu: "r² = A/π = 50,24/3,14 = 16",
             hintKk: "r² = A/π = 50,24/3,14 = 16",
@@ -1886,6 +2104,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Радиус круглого сада 10 м. Вокруг построена дорожка шириной 2 м. Найдите площадь дорожки.",
             questionKk: "Дөңгелек бақтың радиусы 10 м. Айналасына 2 м ені жол салынған. Жолдың ауданын табыңыз.",
             answer: "138.16 m²",
+            answerRu: "138.16 м²",
+            answerKk: "138.16 м²",
             hint: "Path area = π(R²) − π(r²) = π(12² − 10²) = π × 44",
             hintRu: "Площадь = π(R²) − π(r²) = π(144 − 100) = π × 44",
             hintKk: "Аудан = π(R²) − π(r²) = π(144 − 100) = π × 44",
@@ -1924,7 +2144,9 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
               { en: "sin 30° = opposite/hypotenuse → 0.5 = opposite/10", ru: "sin 30° = противолежащий/гипотенуза → 0,5 = противолежащий/10", kk: "sin 30° = қарсы/гипотенуза → 0,5 = қарсы/10" },
               { en: "opposite = 10 × 0.5 = 5", ru: "противолежащий = 10 × 0,5 = 5", kk: "қарсы = 10 × 0,5 = 5" }
             ],
-            answer: "5"
+            answer: "5",
+            answerRu: "5",
+            answerKk: "5"
           }
         ],
         practiceProblems: [
@@ -1934,6 +2156,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Чему равен sin 90°?",
             questionKk: "sin 90° неге тең?",
             answer: "1",
+            answerRu: "1",
+            answerKk: "1",
             hint: "At 90° the opposite side equals the hypotenuse",
             hintRu: "При 90° противолежащая сторона равна гипотенузе",
             hintKk: "90°-та қарсы қабырға гипотенузаға тең",
@@ -1945,6 +2169,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "В прямоугольном треугольнике противолежащий катет 5, прилежащий 12. Найдите tan θ.",
             questionKk: "Тікбұрышты үшбұрышта қарсы қабырға 5, іргелес 12. tan θ табыңыз.",
             answer: "5/12 ≈ 0.417",
+            answerRu: "5/12 ≈ 0.417",
+            answerKk: "5/12 ≈ 0.417",
             hint: "tan θ = opposite/adjacent",
             hintRu: "tan θ = противолежащий/прилежащий",
             hintKk: "tan θ = қарсы/іргелес",
@@ -1956,6 +2182,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Лестница длиной 13 м прислонена к стене на высоте 12 м. Найдите угол между лестницей и землёй.",
             questionKk: "13 м баспалдақ қабырғаға 12 м биіктікте тіреліп тұр. Баспалдақтың жермен жасайтын бұрышын табыңыз.",
             answer: "≈ 67.4°",
+            answerRu: "≈ 67.4°",
+            answerKk: "≈ 67.4°",
             hint: "sin θ = 12/13 → θ = arcsin(12/13)",
             hintRu: "sin θ = 12/13 → θ = arcsin(12/13)",
             hintKk: "sin θ = 12/13 → θ = arcsin(12/13)",
@@ -1988,7 +2216,9 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
               { en: "u = 0, a = 2, t = 8. Use s = ut + ½at² = 0 + ½(2)(64)", ru: "u = 0, a = 2, t = 8. s = ut + ½at² = 0 + ½(2)(64)", kk: "u = 0, a = 2, t = 8. s = ut + ½at² = 0 + ½(2)(64)" },
               { en: "s = 64 m", ru: "s = 64 м", kk: "s = 64 м" }
             ],
-            answer: "64 m"
+            answer: "64 m",
+            answerRu: "64 м",
+            answerKk: "64 м"
           }
         ],
         practiceProblems: [
@@ -1998,6 +2228,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Автомобиль разгоняется с 0 до 20 м/с за 5 секунд. Каково ускорение?",
             questionKk: "Автокөлік 0-ден 20 м/с-ке 5 секундта үдейді. Үдеуі қандай?",
             answer: "4 m/s²",
+            answerRu: "4 м/с²",
+            answerKk: "4 м/с²",
             hint: "a = (v − u)/t = 20/5",
             hintRu: "a = (v − u)/t = 20/5",
             hintKk: "a = (v − u)/t = 20/5",
@@ -2009,6 +2241,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Объект падает из состояния покоя. Какой путь он пройдёт за 3 секунды? (g = 10 м/с²)",
             questionKk: "Нысан тыныштықтан түседі. 3 секундта қанша қашықтыққа түседі? (g = 10 м/с²)",
             answer: "45 m",
+            answerRu: "45 м",
+            answerKk: "45 м",
             hint: "s = ½gt² = ½ × 10 × 9",
             hintRu: "s = ½gt² = ½ × 10 × 9",
             hintKk: "s = ½gt² = ½ × 10 × 9",
@@ -2020,6 +2254,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Мяч брошен вверх со скоростью 30 м/с. На какую высоту он поднимется? (g = 10 м/с²)",
             questionKk: "Доп 30 м/с жылдамдықпен жоғары лақтырылды. Қандай биіктікке көтеріледі? (g = 10 м/с²)",
             answer: "45 m",
+            answerRu: "45 м",
+            answerKk: "45 м",
             hint: "At max height v = 0. Use v² = u² − 2gs → s = u²/(2g)",
             hintRu: "На максимальной высоте v = 0. v² = u² − 2gs → s = u²/(2g)",
             hintKk: "Максимал биіктікте v = 0. v² = u² − 2gs → s = u²/(2g)",
@@ -2052,7 +2288,9 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
               { en: "I = V/R = 12/4 = 3 A", ru: "I = V/R = 12/4 = 3 А", kk: "I = V/R = 12/4 = 3 А" },
               { en: "P = VI = 12 × 3 = 36 W", ru: "P = VI = 12 × 3 = 36 Вт", kk: "P = VI = 12 × 3 = 36 Вт" }
             ],
-            answer: "I = 3 A, P = 36 W"
+            answer: "I = 3 A, P = 36 W",
+            answerRu: "I = 3 А, P = 36 Вт",
+            answerKk: "I = 3 А, P = 36 Вт"
           }
         ],
         practiceProblems: [
@@ -2062,6 +2300,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Батарея 6В даёт ток 2 А. Каково сопротивление?",
             questionKk: "6В батарея 2 А ток береді. Кедергі қандай?",
             answer: "3 Ω",
+            answerRu: "3 Ом",
+            answerKk: "3 Ом",
             hint: "R = V/I",
             hintRu: "R = V/I",
             hintKk: "R = V/I",
@@ -2073,6 +2313,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Устройство потребляет 60 Вт при 120 В. Какой ток оно потребляет?",
             questionKk: "Құрылғы 120В-та 60 Вт қуат пайдаланады. Қанша ток жұмсайды?",
             answer: "0.5 A",
+            answerRu: "0.5 А",
+            answerKk: "0.5 А",
             hint: "I = P/V = 60/120",
             hintRu: "I = P/V = 60/120",
             hintKk: "I = P/V = 60/120",
@@ -2084,6 +2326,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Два резистора (6 Ом и 3 Ом) параллельно подключены к 12В батарее. Найдите общий ток.",
             questionKk: "Екі кедергі (6Ω және 3Ω) 12В батареяға параллель қосылған. Жалпы токты табыңыз.",
             answer: "6 A",
+            answerRu: "6 А",
+            answerKk: "6 А",
             hint: "1/R_total = 1/6 + 1/3 = 1/2, so R = 2Ω. I = 12/2 = 6",
             hintRu: "1/R = 1/6 + 1/3 = 1/2, R = 2Ω. I = 12/2 = 6",
             hintKk: "1/R = 1/6 + 1/3 = 1/2, R = 2Ω. I = 12/2 = 6",
@@ -2116,7 +2360,9 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
               { en: "n = m/M = 44/44", ru: "n = m/M = 44/44", kk: "n = m/M = 44/44" },
               { en: "n = 1 mol", ru: "n = 1 моль", kk: "n = 1 моль" }
             ],
-            answer: "1 mol"
+            answer: "1 mol",
+            answerRu: "1 моль",
+            answerKk: "1 моль"
           }
         ],
         practiceProblems: [
@@ -2126,6 +2372,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Сколько молей в 18 г воды (H₂O)? (M = 18 г/моль)",
             questionKk: "18 г суда (H₂O) қанша моль бар? (M = 18 г/моль)",
             answer: "1 mol",
+            answerRu: "1 моль",
+            answerKk: "1 моль",
             hint: "n = m/M = 18/18",
             hintRu: "n = m/M = 18/18",
             hintKk: "n = m/M = 18/18",
@@ -2137,6 +2385,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Какая масса NaCl содержит 0,5 моль? (M = 58,5 г/моль)",
             questionKk: "0,5 моль NaCl-дің массасы қандай? (M = 58,5 г/моль)",
             answer: "29.25 g",
+            answerRu: "29.25 г",
+            answerKk: "29.25 г",
             hint: "m = n × M = 0.5 × 58.5",
             hintRu: "m = n × M = 0,5 × 58,5",
             hintKk: "m = n × M = 0,5 × 58,5",
@@ -2148,6 +2398,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "В реакции 2H₂ + O₂ → 2H₂O, сколько граммов воды получится из 4 г H₂?",
             questionKk: "2H₂ + O₂ → 2H₂O реакциясында 4 г H₂-ден қанша грамм су түзіледі?",
             answer: "36 g",
+            answerRu: "36 г",
+            answerKk: "36 г",
             hint: "4g H₂ = 2 mol. Ratio is 2:2, so 2 mol H₂O. Mass = 2 × 18 = 36 g",
             hintRu: "4г H₂ = 2 моль. Соотношение 2:2, значит 2 моль H₂O. m = 2 × 18 = 36 г",
             hintKk: "4г H₂ = 2 моль. Қатынас 2:2, демек 2 моль H₂O. m = 2 × 18 = 36 г",
@@ -2186,7 +2438,9 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
               { en: "pH = −log[H⁺] = −log(0.001) = −log(10⁻³)", ru: "pH = −log[H⁺] = −log(0,001) = −log(10⁻³)", kk: "pH = −log[H⁺] = −log(0,001) = −log(10⁻³)" },
               { en: "pH = 3 (acidic)", ru: "pH = 3 (кислая среда)", kk: "pH = 3 (қышқыл орта)" }
             ],
-            answer: "pH = 3"
+            answer: "pH = 3",
+            answerRu: "pH = 3",
+            answerKk: "pH = 3"
           }
         ],
         practiceProblems: [
@@ -2196,6 +2450,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Раствор с pH 9 — кислый, щелочной или нейтральный?",
             questionKk: "pH 9 ерітіндісі қышқыл, негіздік пе, бейтарап па?",
             answer: "Basic (alkaline)",
+            answerRu: "Щелочной (основный)",
+            answerKk: "Негіздік (сілтілік)",
             hint: "pH > 7 means basic",
             hintRu: "pH > 7 означает щелочную среду",
             hintKk: "pH > 7 негіздік ортаны білдіреді",
@@ -2207,6 +2463,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Напишите реакцию нейтрализации: HCl + NaOH → ?",
             questionKk: "Бейтараптандыру реакциясын жазыңыз: HCl + NaOH → ?",
             answer: "HCl + NaOH → NaCl + H₂O",
+            answerRu: "HCl + NaOH → NaCl + H₂O",
+            answerKk: "HCl + NaOH → NaCl + H₂O",
             hint: "Acid + base → salt + water",
             hintRu: "Кислота + основание → соль + вода",
             hintKk: "Қышқыл + негіз → тұз + су",
@@ -2218,6 +2476,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Если pH = 5, какова концентрация ионов водорода [H⁺]?",
             questionKk: "Егер pH = 5 болса, сутегі иондарының концентрациясы [H⁺] қандай?",
             answer: "10⁻⁵ M = 0.00001 M",
+            answerRu: "10⁻⁵ M = 0.00001 M",
+            answerKk: "10⁻⁵ M = 0.00001 M",
             hint: "[H⁺] = 10^(−pH) = 10⁻⁵",
             hintRu: "[H⁺] = 10^(−pH) = 10⁻⁵",
             hintKk: "[H⁺] = 10^(−pH) = 10⁻⁵",
@@ -2250,7 +2510,9 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
               { en: "Apply base pairing: A→T, T→A, C→G, G→C, G→C, A→T", ru: "Применим правила: A→T, T→A, C→G, G→C, G→C, A→T", kk: "Ережелерді қолданамыз: A→T, T→A, C→G, G→C, G→C, A→T" },
               { en: "Complementary strand: TAGCCT", ru: "Комплементарная цепь: TAGCCT", kk: "Комплементарлы тізбек: TAGCCT" }
             ],
-            answer: "TAGCCT"
+            answer: "TAGCCT",
+            answerRu: "TAGCCT",
+            answerKk: "TAGCCT"
           }
         ],
         practiceProblems: [
@@ -2260,6 +2522,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Какое основание спаривается с аденином (A) в ДНК?",
             questionKk: "ДНҚ-да аденинмен (A) қандай негіз жұптасады?",
             answer: "Thymine (T)",
+            answerRu: "Тимин (T)",
+            answerKk: "Тимин (T)",
             hint: "A always pairs with T in DNA",
             hintRu: "A всегда спаривается с T в ДНК",
             hintKk: "ДНҚ-да A әрқашан T-мен жұптасады",
@@ -2271,6 +2535,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Два гетерозиготных родителя (Bb × Bb). Какова вероятность гомозиготного рецессивного (bb) ребёнка?",
             questionKk: "Екі гетерозиготты ата-ана (Bb × Bb). Гомозиготты рецессивті (bb) бала ықтималдығы қандай?",
             answer: "25% (1/4)",
+            answerRu: "25% (1/4)",
+            answerKk: "25% (1/4)",
             hint: "Use a Punnett square: BB, Bb, Bb, bb",
             hintRu: "Используйте решётку Пеннета: BB, Bb, Bb, bb",
             hintKk: "Пеннет торын қолданыңыз: BB, Bb, Bb, bb",
@@ -2282,6 +2548,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Если в образце ДНК 30% аденина, каков процент цитозина?",
             questionKk: "Егер ДНҚ үлгісінде 30% аденин болса, цитозин қанша пайыз?",
             answer: "20%",
+            answerRu: "20%",
+            answerKk: "20%",
             hint: "A = T = 30%, so C + G = 40%. Since C = G, each is 20%",
             hintRu: "A = T = 30%, значит C + G = 40%. Поскольку C = G, каждый = 20%",
             hintKk: "A = T = 30%, демек C + G = 40%. C = G болғандықтан, әрқайсысы = 20%",
@@ -2327,7 +2595,9 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
               { en: "A = P(1 + r)ᵗ = 1000(1.05)³", ru: "A = P(1 + r)ᵗ = 1000(1,05)³", kk: "A = P(1 + r)ᵗ = 1000(1,05)³" },
               { en: "A = 1000 × 1.157625 ≈ $1157.63", ru: "A = 1000 × 1,157625 ≈ $1157,63", kk: "A = 1000 × 1,157625 ≈ $1157,63" }
             ],
-            answer: "≈ $1157.63"
+            answer: "≈ $1157.63",
+            answerRu: "≈ $1157.63",
+            answerKk: "≈ $1157.63"
           }
         ],
         practiceProblems: [
@@ -2337,6 +2607,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Вычислите: 2³",
             questionKk: "Есептеңіз: 2³",
             answer: "8",
+            answerRu: "8",
+            answerKk: "8",
             hint: "2 × 2 × 2",
             hintRu: "2 × 2 × 2",
             hintKk: "2 × 2 × 2",
@@ -2348,6 +2620,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Популяция 500 бактерий удваивается каждый час. Сколько через 4 часа?",
             questionKk: "500 бактерия популяциясы сағат сайын екі есе артады. 4 сағаттан кейін қанша болады?",
             answer: "8000",
+            answerRu: "8000",
+            answerKk: "8000",
             hint: "N = 500 × 2⁴ = 500 × 16",
             hintRu: "N = 500 × 2⁴ = 500 × 16",
             hintKk: "N = 500 × 2⁴ = 500 × 16",
@@ -2359,6 +2633,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Период полураспада 5 лет. Начальная масса 200 г. Сколько останется через 15 лет?",
             questionKk: "Жартылай ыдырау кезеңі 5 жыл. Бастапқы массасы 200 г. 15 жылдан кейін қанша қалады?",
             answer: "25 g",
+            answerRu: "25 г",
+            answerKk: "25 г",
             hint: "15 years = 3 half-lives. 200 × (½)³ = 200/8",
             hintRu: "15 лет = 3 периода. 200 × (½)³ = 200/8",
             hintKk: "15 жыл = 3 кезең. 200 × (½)³ = 200/8",
@@ -2397,7 +2673,9 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
               { en: "Convert to exponential form: 2⁵ = x", ru: "Переведём в экспоненциальную форму: 2⁵ = x", kk: "Экспоненциалдық түрге ауыстырамыз: 2⁵ = x" },
               { en: "x = 32", ru: "x = 32", kk: "x = 32" }
             ],
-            answer: "x = 32"
+            answer: "x = 32",
+            answerRu: "x = 32",
+            answerKk: "x = 32"
           }
         ],
         practiceProblems: [
@@ -2407,6 +2685,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Чему равен log₁₀(1000)?",
             questionKk: "log₁₀(1000) неге тең?",
             answer: "3",
+            answerRu: "3",
+            answerKk: "3",
             hint: "10³ = 1000",
             hintRu: "10³ = 1000",
             hintKk: "10³ = 1000",
@@ -2418,6 +2698,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Упростите: log₂(8) + log₂(4)",
             questionKk: "Жеңілдетіңіз: log₂(8) + log₂(4)",
             answer: "5",
+            answerRu: "5",
+            answerKk: "5",
             hint: "log₂(8) = 3, log₂(4) = 2; or use log(8×4) = log₂(32) = 5",
             hintRu: "log₂(8) = 3, log₂(4) = 2; или log(8×4) = log₂(32) = 5",
             hintKk: "log₂(8) = 3, log₂(4) = 2; немесе log(8×4) = log₂(32) = 5",
@@ -2429,6 +2711,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Решите: 3ˣ = 81",
             questionKk: "Шешіңіз: 3ˣ = 81",
             answer: "x = 4",
+            answerRu: "x = 4",
+            answerKk: "x = 4",
             hint: "Take log base 3 of both sides, or recognize 3⁴ = 81",
             hintRu: "Возьмите логарифм по основанию 3 или вспомните, что 3⁴ = 81",
             hintKk: "Екі жағынан 3 негізді логарифм алыңыз немесе 3⁴ = 81 екенін еске алыңыз",
@@ -2467,7 +2751,9 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
               { en: "d = 4, a₁ = 3. a₁₀ = 3 + 9(4) = 39", ru: "d = 4, a₁ = 3. a₁₀ = 3 + 9(4) = 39", kk: "d = 4, a₁ = 3. a₁₀ = 3 + 9(4) = 39" },
               { en: "S₁₀ = 10(3 + 39)/2 = 10 × 21 = 210", ru: "S₁₀ = 10(3 + 39)/2 = 10 × 21 = 210", kk: "S₁₀ = 10(3 + 39)/2 = 10 × 21 = 210" }
             ],
-            answer: "a₁₀ = 39, S₁₀ = 210"
+            answer: "a₁₀ = 39, S₁₀ = 210",
+            answerRu: "a₁₀ = 39, S₁₀ = 210",
+            answerKk: "a₁₀ = 39, S₁₀ = 210"
           }
         ],
         practiceProblems: [
@@ -2477,6 +2763,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Найдите 5-й член: 2, 5, 8, 11, ...",
             questionKk: "5-ші мүшені табыңыз: 2, 5, 8, 11, ...",
             answer: "14",
+            answerRu: "14",
+            answerKk: "14",
             hint: "d = 3, a₅ = 2 + 4(3)",
             hintRu: "d = 3, a₅ = 2 + 4(3)",
             hintKk: "d = 3, a₅ = 2 + 4(3)",
@@ -2488,6 +2776,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Найдите 6-й член: 3, 6, 12, 24, ...",
             questionKk: "6-шы мүшені табыңыз: 3, 6, 12, 24, ...",
             answer: "96",
+            answerRu: "96",
+            answerKk: "96",
             hint: "r = 2, a₆ = 3 × 2⁵ = 3 × 32",
             hintRu: "r = 2, a₆ = 3 × 2⁵ = 3 × 32",
             hintKk: "r = 2, a₆ = 3 × 2⁵ = 3 × 32",
@@ -2499,6 +2789,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Найдите сумму первых 8 членов: 1, 2, 4, 8, ...",
             questionKk: "Алғашқы 8 мүшенің қосындысын табыңыз: 1, 2, 4, 8, ...",
             answer: "255",
+            answerRu: "255",
+            answerKk: "255",
             hint: "S₈ = 1(1 − 2⁸)/(1 − 2) = (1 − 256)/(−1) = 255",
             hintRu: "S₈ = 1(1 − 2⁸)/(1 − 2) = (1 − 256)/(−1) = 255",
             hintKk: "S₈ = 1(1 − 2⁸)/(1 − 2) = (1 − 256)/(−1) = 255",
@@ -2537,7 +2829,9 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
               { en: "Compare with (x−h)² + (y−k)² = r²: h = 3, k = −2", ru: "Сравним с (x−h)² + (y−k)² = r²: h = 3, k = −2", kk: "(x−h)² + (y−k)² = r²-мен салыстырамыз: h = 3, k = −2" },
               { en: "Center = (3, −2), radius = √25 = 5", ru: "Центр = (3, −2), радиус = √25 = 5", kk: "Орталық = (3, −2), радиус = √25 = 5" }
             ],
-            answer: "Center (3, −2), radius 5"
+            answer: "Center (3, −2), radius 5",
+            answerRu: "Центр (3, −2), радиус 5",
+            answerKk: "Орталығы (3, −2), радиусы 5"
           }
         ],
         practiceProblems: [
@@ -2547,6 +2841,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Каков радиус окружности x² + y² = 49?",
             questionKk: "x² + y² = 49 шеңберінің радиусы қандай?",
             answer: "7",
+            answerRu: "7",
+            answerKk: "7",
             hint: "r² = 49, so r = 7",
             hintRu: "r² = 49, значит r = 7",
             hintKk: "r² = 49, демек r = 7",
@@ -2558,6 +2854,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Найдите вершину параболы y = x² − 6x + 5.",
             questionKk: "y = x² − 6x + 5 параболасының төбесін табыңыз.",
             answer: "(3, −4)",
+            answerRu: "(3, −4)",
+            answerKk: "(3, −4)",
             hint: "x = −b/(2a) = 6/2 = 3, then y = 9 − 18 + 5 = −4",
             hintRu: "x = −b/(2a) = 6/2 = 3, затем y = 9 − 18 + 5 = −4",
             hintKk: "x = −b/(2a) = 6/2 = 3, содан кейін y = 9 − 18 + 5 = −4",
@@ -2569,6 +2867,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Напишите уравнение окружности с центром (−1, 4), проходящей через (2, 8).",
             questionKk: "Орталығы (−1, 4) және (2, 8) нүктесі арқылы өтетін шеңбер теңдеуін жазыңыз.",
             answer: "(x+1)² + (y−4)² = 25",
+            answerRu: "(x+1)² + (y−4)² = 25",
+            answerKk: "(x+1)² + (y−4)² = 25",
             hint: "r² = (2−(−1))² + (8−4)² = 9 + 16 = 25",
             hintRu: "r² = (2−(−1))² + (8−4)² = 9 + 16 = 25",
             hintKk: "r² = (2−(−1))² + (8−4)² = 9 + 16 = 25",
@@ -2607,7 +2907,9 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
               { en: "Total marbles = 3 + 5 + 2 = 10. Favorable (blue) = 5.", ru: "Всего шариков = 10. Благоприятных (синих) = 5.", kk: "Барлық шар = 10. Қолайлы (көк) = 5." },
               { en: "P(blue) = 5/10 = 1/2 = 0.5", ru: "P(синий) = 5/10 = 1/2 = 0,5", kk: "P(көк) = 5/10 = 1/2 = 0,5" }
             ],
-            answer: "1/2 or 50%"
+            answer: "1/2 or 50%",
+            answerRu: "1/2 или 50%",
+            answerKk: "1/2 немесе 50%"
           }
         ],
         practiceProblems: [
@@ -2617,6 +2919,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Какова вероятность выбросить 6 на честном кубике?",
             questionKk: "Адал сүйекшеден 6 түсу ықтималдығы қандай?",
             answer: "1/6",
+            answerRu: "1/6",
+            answerKk: "1/6",
             hint: "1 favorable outcome out of 6 possible",
             hintRu: "1 благоприятный исход из 6 возможных",
             hintKk: "6 мүмкін нәтижеден 1 қолайлы",
@@ -2628,6 +2932,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Найдите среднее: 4, 7, 9, 3, 12",
             questionKk: "Орташасын табыңыз: 4, 7, 9, 3, 12",
             answer: "7",
+            answerRu: "7",
+            answerKk: "7",
             hint: "Sum = 35, count = 5. Mean = 35/5",
             hintRu: "Сумма = 35, количество = 5. Среднее = 35/5",
             hintKk: "Қосынды = 35, саны = 5. Орташа = 35/5",
@@ -2639,6 +2945,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Брошены два кубика. Какова вероятность, что сумма равна 7?",
             questionKk: "Екі сүйекше лақтырылды. Қосындысы 7 болу ықтималдығы қандай?",
             answer: "6/36 = 1/6",
+            answerRu: "6/36 = 1/6",
+            answerKk: "6/36 = 1/6",
             hint: "Pairs summing to 7: (1,6),(2,5),(3,4),(4,3),(5,2),(6,1) = 6 outcomes out of 36",
             hintRu: "Пары с суммой 7: (1,6),(2,5),(3,4),(4,3),(5,2),(6,1) = 6 из 36",
             hintKk: "Қосындысы 7 болатын жұптар: (1,6),(2,5),(3,4),(4,3),(5,2),(6,1) = 36-дан 6",
@@ -2677,7 +2985,9 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
               { en: "v = f × λ = 500 × 0.6", ru: "v = f × λ = 500 × 0,6", kk: "v = f × λ = 500 × 0,6" },
               { en: "v = 300 m/s", ru: "v = 300 м/с", kk: "v = 300 м/с" }
             ],
-            answer: "300 m/s"
+            answer: "300 m/s",
+            answerRu: "300 м/с",
+            answerKk: "300 м/с"
           }
         ],
         practiceProblems: [
@@ -2687,6 +2997,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Скорость волны 340 м/с, частота 170 Гц. Какова длина волны?",
             questionKk: "Толқын жылдамдығы 340 м/с, жиілігі 170 Гц. Толқын ұзындығы қандай?",
             answer: "2 m",
+            answerRu: "2 м",
+            answerKk: "2 м",
             hint: "λ = v/f = 340/170",
             hintRu: "λ = v/f = 340/170",
             hintKk: "λ = v/f = 340/170",
@@ -2698,6 +3010,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Свет переходит из воздуха (n=1) в стекло (n=1,5) под углом 30°. Найдите угол преломления.",
             questionKk: "Жарық ауадан (n=1) шыныға (n=1,5) 30° бұрышпен кіреді. Сыну бұрышын табыңыз.",
             answer: "≈ 19.5°",
+            answerRu: "≈ 19.5°",
+            answerKk: "≈ 19.5°",
             hint: "sin θ₂ = (n₁/n₂) sin θ₁ = (1/1.5) × 0.5 = 0.333",
             hintRu: "sin θ₂ = (n₁/n₂) sin θ₁ = (1/1,5) × 0,5 = 0,333",
             hintKk: "sin θ₂ = (n₁/n₂) sin θ₁ = (1/1,5) × 0,5 = 0,333",
@@ -2709,6 +3023,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Звуковая волна (340 м/с) с длиной 0,85 м входит в воду (1500 м/с). Какова новая длина волны?",
             questionKk: "Дыбыс толқыны (340 м/с) 0,85 м толқын ұзындығымен суға (1500 м/с) кіреді. Жаңа толқын ұзындығы қандай?",
             answer: "3.75 m",
+            answerRu: "3.75 м",
+            answerKk: "3.75 м",
             hint: "Frequency stays the same: f = 340/0.85 = 400 Hz. New λ = 1500/400",
             hintRu: "Частота не меняется: f = 340/0,85 = 400 Гц. Новая λ = 1500/400",
             hintKk: "Жиілік өзгермейді: f = 340/0,85 = 400 Гц. Жаңа λ = 1500/400",
@@ -2741,7 +3057,9 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
               { en: "Q = mcΔT = 2 × 4200 × 30", ru: "Q = mcΔT = 2 × 4200 × 30", kk: "Q = mcΔT = 2 × 4200 × 30" },
               { en: "Q = 252,000 J = 252 kJ", ru: "Q = 252 000 Дж = 252 кДж", kk: "Q = 252 000 Дж = 252 кДж" }
             ],
-            answer: "252 kJ"
+            answer: "252 kJ",
+            answerRu: "252 кДж",
+            answerKk: "252 кДж"
           }
         ],
         practiceProblems: [
@@ -2751,6 +3069,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Тепло течёт от холодного к горячему или наоборот?",
             questionKk: "Жылу суықтан ыстыққа ма, ыстықтан суыққа ма табиғи түрде ағады?",
             answer: "From hot to cold",
+            answerRu: "От горячего к холодному",
+            answerKk: "Ыстықтан суыққа",
             hint: "Think about what happens when you put ice in warm water",
             hintRu: "Подумайте, что происходит, когда кладёте лёд в тёплую воду",
             hintKk: "Жылы суға мұз салғанда не болатынын ойлаңыз",
@@ -2762,6 +3082,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Сколько тепла для нагрева 0,5 кг алюминия на 20°C? (c = 900 Дж/кг°C)",
             questionKk: "0,5 кг алюминийді 20°C-қа қыздыру үшін қанша жылу керек? (c = 900 Дж/кг°C)",
             answer: "9000 J",
+            answerRu: "9000 Дж",
+            answerKk: "9000 Дж",
             hint: "Q = mcΔT = 0.5 × 900 × 20",
             hintRu: "Q = mcΔT = 0,5 × 900 × 20",
             hintKk: "Q = mcΔT = 0,5 × 900 × 20",
@@ -2773,6 +3095,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "50 г металла при 100°C помещены в 200 г воды при 20°C. Конечная температура 25°C. Найдите удельную теплоёмкость металла.",
             questionKk: "100°C-тағы 50 г металл 20°C-тағы 200 г суға салынды. Соңғы температура 25°C. Металдың меншікті жылу сыйымдылығын табыңыз.",
             answer: "≈ 1120 J/kg°C",
+            answerRu: "≈ 1120 Дж/кг°C",
+            answerKk: "≈ 1120 Дж/кг°C",
             hint: "Heat lost by metal = heat gained by water: 0.05×c×75 = 0.2×4200×5",
             hintRu: "Теплота металла = теплота воды: 0,05×c×75 = 0,2×4200×5",
             hintKk: "Металдың жылуы = судың жылуы: 0,05×c×75 = 0,2×4200×5",
@@ -2805,7 +3129,9 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
               { en: "Use CₙH₂ₙ₊₂ with n = 3: C₃H₂(₃)₊₂", ru: "Используем CₙH₂ₙ₊₂ при n = 3: C₃H₂(₃)₊₂", kk: "n = 3 кезінде CₙH₂ₙ₊₂ қолданамыз: C₃H₂(₃)₊₂" },
               { en: "C₃H₈ (propane)", ru: "C₃H₈ (пропан)", kk: "C₃H₈ (пропан)" }
             ],
-            answer: "C₃H₈"
+            answer: "C₃H₈",
+            answerRu: "C₃H₈",
+            answerKk: "C₃H₈"
           }
         ],
         practiceProblems: [
@@ -2815,6 +3141,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Сколько связей может образовать атом углерода?",
             questionKk: "Көміртегі атомы қанша байланыс түзе алады?",
             answer: "4",
+            answerRu: "4",
+            answerKk: "4",
             hint: "Carbon has 4 valence electrons",
             hintRu: "У углерода 4 валентных электрона",
             hintKk: "Көміртегінің 4 валенттік электроны бар",
@@ -2826,6 +3154,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Какова формула алкена с 4 атомами углерода?",
             questionKk: "4 көміртегі атомы бар алкеннің формуласы қандай?",
             answer: "C₄H₈",
+            answerRu: "C₄H₈",
+            answerKk: "C₄H₈",
             hint: "Alkenes: CₙH₂ₙ with n = 4",
             hintRu: "Алкены: CₙH₂ₙ при n = 4",
             hintKk: "Алкендер: CₙH₂ₙ, n = 4 кезінде",
@@ -2837,6 +3167,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Этанол (C₂H₅OH) и диметиловый эфир (CH₃OCH₃) имеют одну формулу C₂H₆O. Как называется это явление?",
             questionKk: "Этанол (C₂H₅OH) мен диметил эфирінің (CH₃OCH₃) молекулалық формуласы бірдей C₂H₆O. Бұл құбылыс қалай аталады?",
             answer: "Isomerism — same molecular formula but different structural arrangement",
+            answerRu: "Изомерия — одинаковая молекулярная формула, но разное структурное строение",
+            answerKk: "Изомерия — молекулалық формуласы бірдей, бірақ құрылысы әртүрлі",
             hint: "Same formula, different structure = different compounds",
             hintRu: "Одна формула, разная структура = разные вещества",
             hintKk: "Бір формула, әр құрылым = әр қосылыс",
@@ -2869,7 +3201,9 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
               { en: "Primary consumers get 10%: 10,000 × 0.10 = 1,000 kJ", ru: "Первичные консументы: 10 000 × 0,10 = 1 000 кДж", kk: "Бірінші ретті тұтынушылар: 10 000 × 0,10 = 1 000 кДж" },
               { en: "Secondary consumers get 10% of that: 1,000 × 0.10 = 100 kJ", ru: "Вторичные: 1 000 × 0,10 = 100 кДж", kk: "Екінші ретті: 1 000 × 0,10 = 100 кДж" }
             ],
-            answer: "100 kJ"
+            answer: "100 kJ",
+            answerRu: "100 кДж",
+            answerKk: "100 кДж"
           }
         ],
         practiceProblems: [
@@ -2879,6 +3213,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "В чём разница между пищевой цепью и пищевой сетью?",
             questionKk: "Тағам тізбегі мен тағам торының айырмашылығы қандай?",
             answer: "A food chain is a single linear path; a food web is multiple interconnected food chains in an ecosystem.",
+            answerRu: "Пищевая цепь — это один линейный путь; пищевая сеть — это множество взаимосвязанных пищевых цепей в экосистеме.",
+            answerKk: "Тағам тізбегі — бір сызықтық жол; ал тағам торы — экожүйедегі өзара байланысты бірнеше тағам тізбегі.",
             hint: "One is simple and linear, the other is complex and branching",
             hintRu: "Одна простая и линейная, другая сложная и разветвлённая",
             hintKk: "Бірі қарапайым және сызықтық, екіншісі күрделі және тармақталған",
@@ -2890,6 +3226,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Назовите два абиотических фактора экосистемы.",
             questionKk: "Экожүйенің екі абиотикалық факторын атаңыз.",
             answer: "Any two: temperature, water, sunlight, soil, wind, minerals",
+            answerRu: "Любые два: температура, вода, солнечный свет, почва, ветер, минералы",
+            answerKk: "Кез келген екеуі: температура, су, күн сәулесі, топырақ, жел, минералдар",
             hint: "These are non-living things that affect organisms",
             hintRu: "Это неживые факторы, влияющие на организмы",
             hintKk: "Бұлар организмдерге әсер ететін жансыз факторлар",
@@ -2901,6 +3239,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Луг производит 20 000 кДж и имеет 4 трофических уровня. Сколько энергии дойдёт до верхнего хищника?",
             questionKk: "Шалғын 20 000 кДж өндіреді және 4 трофикалық деңгейі бар. Ең жоғарғы жыртқышқа қанша энергия жетеді?",
             answer: "20 kJ",
+            answerRu: "20 кДж",
+            answerKk: "20 кДж",
             hint: "20,000 × 0.1 × 0.1 × 0.1 = 20",
             hintRu: "20 000 × 0,1 × 0,1 × 0,1 = 20",
             hintKk: "20 000 × 0,1 × 0,1 × 0,1 = 20",
@@ -2933,7 +3273,9 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
               { en: "Green beetles have a survival advantage (less predation), so they reproduce more.", ru: "Зелёные жуки имеют преимущество выживания (меньше хищничество), размножаются больше.", kk: "Жасыл қоңыздардың аман қалу артықшылығы бар (аз жеу), сондықтан көбірек көбейеді." },
               { en: "Over generations, natural selection increases the proportion of green beetles.", ru: "С поколениями естественный отбор увеличивает долю зелёных жуков.", kk: "Ұрпақтар бойы табиғи сұрыптау жасыл қоңыздардың үлесін арттырады." }
             ],
-            answer: "The green beetle population increases as they have better survival and reproduction due to natural selection."
+            answer: "The green beetle population increases as they have better survival and reproduction due to natural selection.",
+            answerRu: "Популяция зелёных жуков возрастает, поскольку благодаря естественному отбору они лучше выживают и размножаются.",
+            answerKk: "Табиғи сұрыптау арқасында жасыл қоңыздар жақсырақ аман қалып, көбірек көбейетіндіктен, олардың популяциясы артады."
           }
         ],
         practiceProblems: [
@@ -2943,6 +3285,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Кто предложил теорию естественного отбора?",
             questionKk: "Табиғи сұрыптау теориясын кім ұсынды?",
             answer: "Charles Darwin",
+            answerRu: "Чарльз Дарвин",
+            answerKk: "Чарльз Дарвин",
             hint: "He traveled on the HMS Beagle and studied finches in the Galapagos",
             hintRu: "Он путешествовал на «Бигле» и изучал вьюрков на Галапагосах",
             hintKk: "Ол HMS Beagle кемесімен саяхаттап, Галапагостағы торғайларды зерттеді",
@@ -2954,6 +3298,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Что такое гомологичные структуры? Приведите пример.",
             questionKk: "Гомологиялық құрылымдар дегеніміз не? Мысал келтіріңіз.",
             answer: "Structures with a common evolutionary origin but different functions. Example: human arm, whale flipper, bat wing — all have similar bone structure.",
+            answerRu: "Структуры с общим эволюционным происхождением, но разными функциями. Пример: рука человека, ласт кита, крыло летучей мыши — у всех схожее строение костей.",
+            answerKk: "Эволюциялық шығу тегі ортақ, бірақ қызметі әртүрлі құрылымдар. Мысалы: адамның қолы, киттің жүзбеқанаты, жарқанаттың қанаты — бәрінің сүйек құрылысы ұқсас.",
             hint: "Think about forelimbs in different mammals",
             hintRu: "Подумайте о передних конечностях разных млекопитающих",
             hintKk: "Әр түрлі сүтқоректілердің алдыңғы аяқтарын ойлаңыз",
@@ -2965,6 +3311,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Объясните, как устойчивость бактерий к антибиотикам — пример естественного отбора.",
             questionKk: "Бактериялардың антибиотикке төзімділігі табиғи сұрыптаудың мысалы екенін түсіндіріңіз.",
             answer: "Random mutations create some resistant bacteria. Antibiotics kill non-resistant ones, so resistant bacteria survive and reproduce, passing on the resistance gene. Over generations, the population becomes mostly resistant.",
+            answerRu: "Случайные мутации приводят к появлению устойчивых бактерий. Антибиотики убивают неустойчивых, поэтому устойчивые бактерии выживают и размножаются, передавая ген устойчивости. С поколениями популяция становится в основном устойчивой.",
+            answerKk: "Кездейсоқ мутациялар төзімді бактериялардың пайда болуына әкеледі. Антибиотиктер төзімсіздерін жояды, сондықтан төзімді бактериялар аман қалып, көбейіп, төзімділік генін ұрпаққа береді. Ұрпақтар бойы популяцияның көпшілігі төзімді болып кетеді.",
             hint: "Non-resistant bacteria die; resistant ones survive and pass on their genes",
             hintRu: "Нестойкие бактерии погибают; стойкие выживают и передают гены",
             hintKk: "Төзімсіз бактериялар өледі; төзімділер аман қалып, гендерін береді",

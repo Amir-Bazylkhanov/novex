@@ -50,6 +50,8 @@ export interface LessonContent {
         kk: string;
       }>;
       answer: string;
+      answerRu?: string;
+      answerKk?: string;
     }>;
     practiceProblems: Array<{
       difficulty: 'easy' | 'medium' | 'hard';
@@ -57,6 +59,8 @@ export interface LessonContent {
       questionRu: string;
       questionKk: string;
       answer: string;
+      answerRu?: string;
+      answerKk?: string;
       hint?: string;
       hintRu?: string;
       hintKk?: string;

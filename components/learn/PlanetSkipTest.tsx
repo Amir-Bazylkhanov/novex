@@ -3,7 +3,11 @@ import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { CheckCircle2, X, XCircle } from 'lucide-react';
 import { loc, type Lang, type Localized } from '../../utils/i18n.ts';
 import { useLanguage } from '../../context/LanguageContext.tsx';
-import { pickLangField, type AcademySection } from '../../constants/academy/catalog.ts';
+import {
+  pickLangField,
+  pickLangFieldOptional,
+  type AcademySection,
+} from '../../constants/academy/catalog.ts';
 import { shuffleOptions } from '../../services/practiceService.ts';
 
 /* --- content --- */
@@ -88,7 +92,12 @@ const problemCandidates = (section: AcademySection, language: Lang): Candidate[]
   const seen = new Set<string>();
   const out: Candidate[] = [];
   for (const problem of section.practiceProblems) {
-    const answer = problem.answer.trim();
+    const answer = pickLangFieldOptional(
+      language,
+      problem.answer,
+      problem.answerRu,
+      problem.answerKk,
+    ).trim();
     const key = answer.toLowerCase();
     if (answer.length === 0 || answer.length > MAX_OPTION_LEN || seen.has(key)) continue;
     seen.add(key);

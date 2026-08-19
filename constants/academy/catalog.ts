@@ -193,3 +193,20 @@ export const pickLangField = (lang: Lang, en: string, ru: string, kk?: string): 
   if (lang === 'ru') return ru;
   return kk && kk.trim().length > 0 ? kk : ru;
 };
+
+/**
+ * Like pickLangField, but for optional localized variants (answerRu/answerKk,
+ * hintRu/hintKk): ru falls back to en, kk falls back to ru then en.
+ */
+export const pickLangFieldOptional = (
+  lang: Lang,
+  en: string,
+  ru?: string,
+  kk?: string,
+): string => {
+  const present = (value?: string): value is string => !!value && value.trim().length > 0;
+  if (lang === 'en') return en;
+  if (lang === 'ru') return present(ru) ? ru : en;
+  if (present(kk)) return kk;
+  return present(ru) ? ru : en;
+};

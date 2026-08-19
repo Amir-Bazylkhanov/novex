@@ -38,7 +38,9 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
               { en: "Order by difficulty: Math (hardest) first, then science, then English.", ru: "Порядок по сложности: математика (самая сложная) первой, потом наука, потом английский.", kk: "Қиындығы бойынша: математика (ең қиын) бірінші, содан кейін жаратылыстану, содан кейін ағылшын." },
               { en: "Schedule: 4:00–4:40 Math, 4:40–4:45 break, 4:45–5:00 Science, 5:00–5:05 break, 5:05–5:25 English. Done by 5:25 PM.", ru: "Расписание: 16:00–16:40 математика, 16:40–16:45 перерыв, 16:45–17:00 наука, 17:00–17:05 перерыв, 17:05–17:25 английский. Готово к 17:25.", kk: "Кесте: 16:00–16:40 математика, 16:40–16:45 үзіліс, 16:45–17:00 жаратылыстану, 17:00–17:05 үзіліс, 17:05–17:25 ағылшын. 17:25-ке дейін аяқталады." }
             ],
-            answer: "Math 4:00–4:40, break, Science 4:45–5:00, break, English 5:05–5:25. Finish by 5:25 PM."
+            answer: "Math 4:00–4:40, break, Science 4:45–5:00, break, English 5:05–5:25. Finish by 5:25 PM.",
+            answerRu: "Математика 4:00–4:40, перерыв, наука 4:45–5:00, перерыв, английский 5:05–5:25. Закончить к 5:25 PM.",
+            answerKk: "Математика 4:00–4:40, үзіліс, жаратылыстану 4:45–5:00, үзіліс, ағылшын 5:05–5:25. 5:25 PM-ға дейін аяқталады."
           }
         ],
         practiceProblems: [
@@ -48,6 +50,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "Какие три элемента хорошего режима домашних заданий?",
             questionKk: "Жақсы үй тапсырмасы тәртібінің үш элементі қандай?",
             answer: "Fixed time, fixed place, and a task list before starting.",
+            answerRu: "Фиксированное время, фиксированное место и список задач перед началом.",
+            answerKk: "Тұрақты уақыт, тұрақты орын және бастар алдында тапсырмалар тізімі.",
             hint: "Think about when, where, and what.",
             hintRu: "Подумайте о когда, где и что.",
             hintKk: "Қашан, қайда және не екенін ойлаңыз.",
@@ -59,6 +63,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "Сегодня у вас 3 предмета: история (лёгкий, 15 мин), химия (сложный, 35 мин) и литература (средний, 25 мин). В каком порядке их выполнять и почему?",
             questionKk: "Бүгін 3 пәніңіз бар: тарих (жеңіл, 15 мин), химия (қиын, 35 мин) және әдебиет (орташа, 25 мин). Оларды қай ретпен орындау керек және неліктен?",
             answer: "Chemistry first (hardest, needs most energy), then literature (medium), then history (easiest). This uses your peak energy for the toughest task.",
+            answerRu: "Сначала химия (самая сложная, требует больше всего энергии), затем литература (средняя), затем история (самая лёгкая). Так ваша пиковая энергия уходит на самую трудную задачу.",
+            answerKk: "Алдымен химия (ең қиын, ең көп энергия қажет), содан кейін әдебиет (орташа), содан кейін тарих (ең жеңіл). Сөйтіп ең қиын тапсырманы энергияңыз ең жоғары кезде орындайсыз.",
             hint: "Which subject needs the most brainpower?",
             hintRu: "Какой предмет требует больше всего умственных усилий?",
             hintKk: "Қай пән ең көп ой жұмысын қажет етеді?",
@@ -70,6 +76,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "Разработайте недельный режим для ученика, у которого футбол Пн/Ср/Пт с 16:00 до 17:30, а Вт/Чт — свободные. Среднее время на уроки — 90 минут в день.",
             questionKk: "Дс/Ср/Жм 16:00–17:30 футбол жаттығуы бар және Сс/Бс түстен кейін бос оқушыға апталық үй тапсырмасы тәртібін жасаңыз. Күніне орташа 90 минут үй тапсырмасы.",
             answer: "Tue/Thu: start homework at 4 PM (fresh energy, finish by 5:30). Mon/Wed/Fri: start at 6 PM after practice and a snack, finish by 7:30 PM. Weekend: review and catch up on any missed work.",
+            answerRu: "Вт/Чт: начинать домашние задания в 4 PM (свежая энергия, закончить к 5:30). Пн/Ср/Пт: начинать в 6 PM после тренировки и перекуса, закончить к 7:30 PM. Выходные: повторение и наверстывание пропущенного.",
+            answerKk: "Сс/Бс: үй тапсырмасын 4 PM-да бастау (жаңа энергия, 5:30-ға дейін аяқтау). Дс/Ср/Жм: жаттығу мен тағамнан кейін 6 PM-да бастау, 7:30 PM-ға дейін аяқтау. Демалыс күндері: қайталау және өткізіп алғанды толықтыру.",
             hint: "Adjust the start time around soccer practice and remember to allow time for rest after exercise.",
             hintRu: "Скорректируйте время начала с учётом тренировки и отдыха после неё.",
             hintKk: "Бастау уақытын футбол жаттығуына қарай реттеңіз және жаттығудан кейін демалуға уақыт қалдырыңыз.",
@@ -101,7 +109,9 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
               { en: "Remove everything not related to math: other textbooks, art supplies, and snacks go to a shelf or drawer.", ru: "Уберите всё, не связанное с математикой: другие учебники, арт-принадлежности и перекусы — на полку или в ящик.", kk: "Математикаға қатысы жоқ нәрсені алыңыз: басқа оқулықтар, сурет құралдары мен тағамды сөреге немесе жәшікке қойыңыз." },
               { en: "Put her phone in another room and keep only the math textbook, notebook, calculator, and one pen on the desk.", ru: "Положите телефон в другую комнату и оставьте только учебник по математике, тетрадь, калькулятор и одну ручку.", kk: "Телефонды басқа бөлмеге қойыңыз, үстелде тек математика оқулығын, дәптерді, калькуляторды және бір қаламды қалдырыңыз." }
             ],
-            answer: "Keep only math textbook, notebook, calculator, and one pen. Remove all other items and put phone in another room."
+            answer: "Keep only math textbook, notebook, calculator, and one pen. Remove all other items and put phone in another room.",
+            answerRu: "Оставьте только учебник по математике, тетрадь, калькулятор и одну ручку. Уберите все остальные предметы и положите телефон в другую комнату.",
+            answerKk: "Тек математика оқулығын, дәптерді, калькуляторды және бір қаламды қалдырыңыз. Басқа заттардың бәрін алып тастап, телефонды басқа бөлмеге қойыңыз."
           }
         ],
         practiceProblems: [
@@ -111,6 +121,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "Назовите две вещи, которые нужно убрать со стола перед учёбой.",
             questionKk: "Оқу алдында үстелден алып тастау керек екі затты атаңыз.",
             answer: "Phone and unrelated textbooks (or any other distracting items like snacks, toys, etc.).",
+            answerRu: "Телефон и ненужные учебники (или любые другие отвлекающие предметы: перекусы, игрушки и т. д.).",
+            answerKk: "Телефон және қатысы жоқ оқулықтар (немесе тағам, ойыншық сияқты кез келген алаңдататын заттар).",
             hint: "What pulls your attention away from studying?",
             hintRu: "Что отвлекает ваше внимание от учёбы?",
             hintKk: "Не сіздің зейініңізді оқудан алаңдатады?",
@@ -122,6 +134,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "Ваш друг учится на диване с включённым телевизором и говорит, что может делать несколько дел одновременно. Объясните, почему отдельное рабочее место эффективнее.",
             questionKk: "Досыңыз теледидар қосулы диванда оқиды және бірнеше іс жасай алатынын айтады. Неліктен арнайы жұмыс орны тиімдірек екенін түсіндіріңіз.",
             answer: "Research shows the brain cannot truly multitask — it switches between tasks, losing time and accuracy each switch. A dedicated workspace with no TV trains the brain to associate that space with focus, making studying faster and more effective.",
+            answerRu: "Исследования показывают, что мозг не способен на настоящую многозадачность — он переключается между задачами, теряя время и точность при каждом переключении. Специальное рабочее место без телевизора приучает мозг ассоциировать это пространство с концентрацией, делая учёбу быстрее и эффективнее.",
+            answerKk: "Зерттеулер ми шынымен көп тапсырма орындай алмайтынын көрсетеді — ол тапсырмалар арасында ауысады, әр ауысуда уақыт пен дәлдікті жоғалтады. Теледидарсыз арнайы жұмыс орны миды ол кеңістікті зейін қоюмен байланыстыруға үйретеді, оқуды жылдам әрі тиімді етеді.",
             hint: "Does the brain really do two things at once, or does it switch?",
             hintRu: "Мозг действительно делает два дела одновременно или переключается?",
             hintKk: "Ми шынымен екі нәрсені бірден жасай ма, әлде ауысады ма?",
@@ -133,6 +147,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "Вы делите комнату с братом/сестрой, который смотрит видео, пока вам нужно учиться. Найдите решение, подходящее обоим без конфликта.",
             questionKk: "Сіз бейне көретін бауырыңызбен бір бөлмені бөлісесіз, ал сіз оқуыңыз керек. Екеуіңізге де жанжалсыз жарайтын шешім табыңыз.",
             answer: "Options: agree on quiet study hours (e.g., 4–6 PM), sibling uses headphones during study time, use a room divider or study at the kitchen table, or alternate — one studies while the other takes a break. Communication and compromise are key.",
+            answerRu: "Варианты: договориться о тихих часах для учёбы (например, 4–6 PM), брат/сестра использует наушники во время учёбы, использовать перегородку или учиться за кухонным столом, или чередовать — один учится, пока другой отдыхает. Общение и компромисс — ключ к решению.",
+            answerKk: "Нұсқалар: тыныш оқу сағаттары туралы келісу (мысалы, 4–6 PM), бауырыңыз оқу уақытында құлақаспап қолданады, бөлме пердесін пайдалану немесе ас үй үстелінде оқу, не кезектесу — біреуі оқиды, екіншісі демалады. Қарым-қатынас пен ымыраға келу — басты кілт.",
             hint: "Think about time-sharing, headphones, or finding an alternative study spot.",
             hintRu: "Подумайте о распределении времени, наушниках или альтернативном месте для учёбы.",
             hintKk: "Уақытты бөлісу, құлақаспап немесе балама оқу орны туралы ойлаңыз.",
@@ -170,7 +186,9 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
               { en: "Identify the key concept and its definition: Photosynthesis = plants make food from sunlight.", ru: "Определите ключевое понятие: фотосинтез = растения создают пищу из солнечного света.", kk: "Негізгі ұғымды анықтаңыз: фотосинтез = өсімдіктер күн сәулесінен тағам жасайды." },
               { en: "Write in own words with structure: 'Photosynthesis — sunlight + water + CO₂ → glucose + O₂. Location: chloroplasts.'", ru: "Запишите своими словами: «Фотосинтез — свет + вода + CO₂ → глюкоза + O₂. Место: хлоропласты.»", kk: "Өз сөзіңізбен жазыңыз: «Фотосинтез — жарық + су + CO₂ → глюкоза + O₂. Орны: хлоропласттар.»" }
             ],
-            answer: "Photosynthesis — sunlight + water + CO₂ → glucose + O₂. Location: chloroplasts."
+            answer: "Photosynthesis — sunlight + water + CO₂ → glucose + O₂. Location: chloroplasts.",
+            answerRu: "Фотосинтез — солнечный свет + вода + CO₂ → глюкоза + O₂. Место: хлоропласты.",
+            answerKk: "Фотосинтез — күн сәулесі + су + CO₂ → глюкоза + O₂. Орны: хлоропласттар."
           }
         ],
         practiceProblems: [
@@ -180,6 +198,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "Почему нужно записывать конспекты своими словами, а не копировать учителя дословно?",
             questionKk: "Неліктен жазбаларды мұғалімді сөзбе-сөз көшірудің орнына өз сөзіңізбен жазу керек?",
             answer: "Writing in your own words forces your brain to process and understand the information, which improves memory and comprehension.",
+            answerRu: "Запись своими словами заставляет мозг обрабатывать и понимать информацию, что улучшает память и понимание.",
+            answerKk: "Өз сөзіңізбен жазу миыңызды ақпаратты өңдеуге және түсінуге мәжбүрлейді, бұл есте сақтау мен түсінуді жақсартады.",
             hint: "Think about what your brain does when you rephrase something.",
             hintRu: "Подумайте, что делает мозг, когда вы перефразируете.",
             hintKk: "Бір нәрсені қайта тұжырымдағанда миыңыз не істейтінін ойлаңыз.",
@@ -191,6 +211,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "Друг показывает свои заметки — три страницы сплошного текста без заголовков и маркеров. Предложите два конкретных улучшения.",
             questionKk: "Досыңыз жазбаларын көрсетеді — тақырыпсыз және таңбасыз үш бет тұтас мәтін. Екі нақты жақсарту ұсыныңыз.",
             answer: "1) Add headings for each topic or subtopic to break the text into sections. 2) Use bullet points for key facts so they stand out during review.",
+            answerRu: "1) Добавьте заголовки для каждой темы или подтемы, чтобы разбить текст на разделы. 2) Используйте маркированные списки для ключевых фактов, чтобы они выделялись при повторении.",
+            answerKk: "1) Мәтінді бөлімдерге бөлу үшін әр тақырыпқа немесе тақырыпшаға тақырып қосыңыз. 2) Қайталау кезінде ерекшеленуі үшін негізгі фактілерге таңбалы тізімдер қолданыңыз.",
             hint: "What makes notes easy to scan quickly before a test?",
             hintRu: "Что делает заметки удобными для быстрого просмотра перед тестом?",
             hintKk: "Тесттің алдында жазбаларды тез қарауды не жеңілдетеді?",
@@ -202,6 +224,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "На быстрой лекции по истории вы не успеваете всё записать. Разработайте стратегию для захвата самой важной информации без отставания.",
             questionKk: "Жылдам тарих лекциясында бәрін жазып үлгермейсіз. Артта қалмай ең маңызды ақпаратты алу стратегиясын жасаңыз.",
             answer: "Use abbreviations and symbols (→ for leads to, w/ for with, etc.), write only key terms and dates, leave gaps to fill in later, and review notes within 24 hours to complete missing parts while memory is fresh.",
+            answerRu: "Используйте сокращения и символы (→ — «ведёт к», w/ — «с» и т. д.), записывайте только ключевые термины и даты, оставляйте пробелы, чтобы заполнить позже, и повторите конспект в течение 24 часов, чтобы дополнить пропущенное, пока память свежа.",
+            answerKk: "Қысқартулар мен белгілерді пайдаланыңыз (→ «әкеледі», w/ «бірге» дегенді білдіреді және т.б.), тек негізгі терминдер мен даталарды жазыңыз, кейін толтыру үшін бос орын қалдырыңыз және жадыңыз жаңа кезде 24 сағат ішінде жазбаларды қарап, жетіспейтін тұстарын толықтырыңыз.",
             hint: "You do not need to write full sentences — what shortcuts can you use?",
             hintRu: "Полные предложения не нужны — какие сокращения можно использовать?",
             hintKk: "Толық сөйлемдер жазу міндет емес — қандай қысқартулар қолдануға болады?",
@@ -233,7 +257,9 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
               { en: "Day 1: Make all 20 cards. Study them all, then separate into 'know' and 'don't know' piles. Focus on the 'don't know' pile.", ru: "День 1: Сделайте все 20 карточек. Изучите все, разделите на «знаю» и «не знаю». Сосредоточьтесь на «не знаю».", kk: "1-күн: 20 карточканы жасаңыз. Бәрін оқыңыз, «білемін» және «білмеймін» деп бөліңіз. «Білмеймін» тобына зейін қойыңыз." },
               { en: "Days 2–3: Review all cards shuffled. Move mastered cards out. By test day, you should cycle through the full deck with few errors.", ru: "Дни 2–3: Повторяйте все карточки в перемешанном виде. Отложите выученные. К тесту вы должны пройти всю колоду с малым числом ошибок.", kk: "2–3 күн: Барлық карточкаларды араластырып қайталаңыз. Жаттағандарын бөлек қойыңыз. Тест күніне дейін аз қатемен бүкіл жинақты аяқтауыңыз керек." }
             ],
-            answer: "Make cards on Day 1, sort into know/don't-know piles, focus on weak cards, and review shuffled deck daily until the test."
+            answer: "Make cards on Day 1, sort into know/don't-know piles, focus on weak cards, and review shuffled deck daily until the test.",
+            answerRu: "Сделайте карточки в День 1, разделите на стопки «знаю»/«не знаю», сосредоточьтесь на слабых карточках и повторяйте перемешанную колоду ежедневно до теста.",
+            answerKk: "1-күні карточкаларды жасаңыз, «білемін»/«білмеймін» топтарына бөліңіз, әлсіз карточкаларға зейін қойыңыз және тестке дейін щодана араластырылған жинақты қайталаңыз."
           }
         ],
         practiceProblems: [
@@ -243,6 +269,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "Почему нужно перемешивать карточки каждый раз при повторении?",
             questionKk: "Неліктен карточкаларды әр оқу кезінде араластыру керек?",
             answer: "Shuffling prevents you from memorizing the order of cards instead of the actual content.",
+            answerRu: "Перемешивание не даёт запомнить порядок карточек вместо их реального содержания.",
+            answerKk: "Араластыру карточкалардың ретін нақты мазмұнының орнына жаттап алудың алдын алады.",
             hint: "What happens if you always see Card 1 before Card 2?",
             hintRu: "Что произойдёт, если вы всегда видите карточку 1 перед карточкой 2?",
             hintKk: "Әрқашан 1-карточканы 2-карточкадан бұрын көрсеңіз не болады?",
@@ -254,6 +282,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "У вас 50 карточек, но только 15 минут на учёбу. Как определить приоритетные карточки?",
             questionKk: "Сізде 50 карточка бар, бірақ оқуға тек 15 минут. Қай карточкаларды қарауды қалай басымдыққа қоясыз?",
             answer: "Focus on the cards you got wrong last time (your weak spots). Quickly flip through the ones you know to confirm, then spend most time on the difficult cards.",
+            answerRu: "Сосредоточьтесь на карточках, в которых ошиблись в прошлый раз (ваши слабые места). Быстро просмотрите те, что знаете, для подтверждения, а затем уделите большую часть времени сложным карточкам.",
+            answerKk: "Алдыңғы жолы қате жауап берген карточкаларға (әлсіз тұстарыңызға) зейін қойыңыз. Білетіндеріңізді растау үшін жылдам қарап шығыңыз, содан кейін көп уақытты қиын карточкаларға жұмсаңыз.",
             hint: "Which cards need the most attention — the ones you know or the ones you struggle with?",
             hintRu: "Какие карточки требуют больше внимания — те, которые вы знаете, или те, с которыми трудности?",
             hintKk: "Қай карточкаларға көбірек назар аудару керек — білетіндеріңізге ме, қиындық тудыратындарға ма?",
@@ -265,6 +295,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "Сравните карточки с перечитыванием учебника. Что эффективнее для теста и почему? Приведите две причины.",
             questionKk: "Карточкаларды оқулықты қайта оқумен салыстырыңыз. Тест үшін қайсысы тиімдірек және неліктен? Екі себеп келтіріңіз.",
             answer: "Flashcards are more effective: 1) They use active recall (retrieving answers strengthens memory more than passive re-reading). 2) They let you identify weak spots — you can sort cards into known and unknown piles, while re-reading treats all material equally.",
+            answerRu: "Карточки эффективнее: 1) Они используют активное припоминание (извлечение ответов укрепляет память сильнее, чем пассивное перечитывание). 2) Они позволяют выявить слабые места — карточки можно разделить на известные и неизвестные стопки, тогда как перечитывание воспринимает весь материал одинаково.",
+            answerKk: "Карточкалар тиімдірек: 1) Олар белсенді еске түсіруді пайдаланады (жауаптарды естен алу жадыны пассивті қайта оқудан гөрі көбірек нығайтады). 2) Олар әлсіз тұстарды анықтауға мүмкіндік береді — карточкаларды білетін және білмейтін топтарға бөлуге болады, ал қайта оқу барлық материалды бірдей қарастырады.",
             hint: "Think about what your brain does during each method — retrieving vs. recognizing.",
             hintRu: "Подумайте, что мозг делает при каждом методе — извлечение vs. узнавание.",
             hintKk: "Әр әдіс кезінде ми не істейтінін ойлаңыз — еске түсіру мен тану.",
@@ -296,7 +328,9 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
               { en: "Preview: Spend 2 minutes scanning all headings, bold terms, and diagrams to get the big picture of the chapter.", ru: "Предварительный просмотр: потратьте 2 минуты на заголовки, выделенные термины и диаграммы для общей картины.", kk: "Алдын ала қарау: тарауды жалпы түсіну үшін тақырыптарды, қалың терминдерді және диаграммаларды 2 минут қараңыз." },
               { en: "Read each section actively: after each paragraph, pause and write one sentence summarizing the main point.", ru: "Читайте каждый раздел активно: после каждого абзаца остановитесь и запишите одно предложение с главной мыслью.", kk: "Әр бөлімді белсенді оқыңыз: әр абзацтан кейін тоқтап, негізгі ойды бір сөйлеммен жазыңыз." }
             ],
-            answer: "Preview headings and visuals (2 min), then read section by section, pausing after each paragraph to write a one-sentence summary."
+            answer: "Preview headings and visuals (2 min), then read section by section, pausing after each paragraph to write a one-sentence summary.",
+            answerRu: "Просмотрите заголовки и иллюстрации (2 мин), затем читайте раздел за разделом, останавливаясь после каждого абзаца, чтобы записать резюме одним предложением.",
+            answerKk: "Тақырыптар мен көрнекіліктерді алдын ала қараңыз (2 мин), содан кейін әр бөлімді оқыңыз, әр абзацтан кейін тоқтап, негізгі ойды бір сөйлеммен жазыңыз."
           }
         ],
         practiceProblems: [
@@ -306,6 +340,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "Что нужно сделать перед чтением главы учебника?",
             questionKk: "Оқулық тарауын оқу алдында не істеу керек?",
             answer: "Scan the headings, bold words, and any images or diagrams to preview the content.",
+            answerRu: "Просмотрите заголовки, выделенные слова, а также изображения или диаграммы для предварительного обзора содержания.",
+            answerKk: "Мазмұнды алдын ала қарау үшін тақырыптарды, қалың сөздерді және кескіндер мен диаграммаларды қарап шығыңыз.",
             hint: "Do not start reading from the first word — what can you look at first?",
             hintRu: "Не начинайте читать с первого слова — что можно посмотреть сначала?",
             hintKk: "Бірінші сөзден бастамаңыз — алдымен нені қарауға болады?",
@@ -317,6 +353,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "После прочтения абзаца о круговороте воды напишите резюме одним предложением, не подглядывая в текст.",
             questionKk: "Су айналымы туралы абзацты оқығаннан кейін мәтінге қарамай бір сөйлемді қорытынды жазыңыз.",
             answer: "Example: 'Water evaporates from oceans, forms clouds, falls as rain, and flows back to oceans in a continuous cycle.' Any accurate one-sentence summary is acceptable.",
+            answerRu: "Пример: «Вода испаряется из океанов, образует облака, выпадает дождём и возвращается в океаны в непрерывном цикле.» Подходит любое точное резюме одним предложением.",
+            answerKk: "Мысал: «Су мұхиттардан буланып, бұлт түзеді, жаңбыр болып жауады және үздіксіз айналыммен қайта мұхиттарға құяды.» Кез келген дәл бір сөйлемді қорытынды жарайды.",
             hint: "What is the main idea of the paragraph in the simplest terms?",
             hintRu: "Какова главная идея абзаца самыми простыми словами?",
             hintKk: "Абзацтың негізгі идеясы ең қарапайым сөздермен қандай?",
@@ -328,6 +366,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "Глава по истории кажется скучной, и вы теряете концентрацию после двух абзацев. Разработайте стратегию чтения для всей главы.",
             questionKk: "Тарих тарауы қызықсыз және екі абзацтан кейін зейініңіз бөлінеді. Бүкіл тарауға белсенді оқу стратегиясын жасаңыз.",
             answer: "1) Turn headings into questions before reading (e.g., 'Causes of WWI' becomes 'What caused WWI?'). 2) Read to answer your questions — this creates purpose. 3) Take a 2-minute break every 2 pages. 4) After each section, tell yourself what you learned out loud. This transforms passive reading into an active quest for answers.",
+            answerRu: "1) Превратите заголовки в вопросы перед чтением (например, «Причины Первой мировой» становится «Что стало причиной Первой мировой?»). 2) Читайте, чтобы ответить на свои вопросы — это создаёт цель. 3) Делайте 2-минутный перерыв каждые 2 страницы. 4) После каждого раздела проговаривайте вслух, что узнали. Это превращает пассивное чтение в активный поиск ответов.",
+            answerKk: "1) Оқу алдында тақырыптарды сұраққа айналдырыңыз (мысалы, «Бірінші дүниежүзілік соғыстың себептері» → «Бірінші дүниежүзілік соғысқа не себеп болды?»). 2) Сұрақтарыңызға жауап беру үшін оқыңыз — бұл мақсат береді. 3) Әр 2 бет сайын 2 минуттық үзіліс жасаңыз. 4) Әр бөлімнен кейін не үйренгеніңізді дауыстап айтыңыз. Бұл пассивті оқуды белсенді жауап іздеуге айналдырады.",
             hint: "Try turning each heading into a question you want to answer.",
             hintRu: "Попробуйте превратить каждый заголовок в вопрос.",
             hintKk: "Әр тақырыпты жауап бергіңіз келетін сұраққа айналдырып көріңіз.",
@@ -359,7 +399,9 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
               { en: "Rank by urgency: 1) Science project (due tomorrow — highest priority), 2) Math worksheet (also due), 3) Buy gift (can be done on the way to practice), 4) Basketball (fixed time).", ru: "Ранжируйте по срочности: 1) Научный проект (сдавать завтра), 2) Рабочий лист по математике, 3) Купить подарок (по пути на тренировку), 4) Баскетбол (фиксированное время).", kk: "Шұғылдығы бойынша: 1) Жаратылыстану жобасы (ертең тапсыру), 2) Математика парағы, 3) Сыйлық сатып алу (жаттығуға бара жатып), 4) Баскетбол (тұрақты уақыт)." },
               { en: "Plan: After school do science project first, then math. Buy gift at 4:30 on the way to practice. Basketball at 5.", ru: "План: после школы — научный проект, потом математика. Купить подарок в 16:30 по пути на тренировку. Баскетбол в 17:00.", kk: "Жоспар: мектептен кейін жаратылыстану жобасын, содан кейін математиканы орында. 16:30-да жаттығуға бара жатып сыйлық ал. 17:00-де баскетбол." }
             ],
-            answer: "1) Science project (highest priority), 2) Math worksheet, 3) Buy gift at 4:30 on the way to basketball, 4) Basketball at 5 PM."
+            answer: "1) Science project (highest priority), 2) Math worksheet, 3) Buy gift at 4:30 on the way to basketball, 4) Basketball at 5 PM.",
+            answerRu: "1) Научный проект (наивысший приоритет), 2) Рабочий лист по математике, 3) Купить подарок в 4:30 по пути на баскетбол, 4) Баскетбол в 5 PM.",
+            answerKk: "1) Жаратылыстану жобасы (ең жоғары басымдық), 2) Математика жұмыс парағы, 3) 4:30-да баскетболға бара жатып сыйлық сатып алу, 4) Баскетбол 5 PM-да."
           }
         ],
         practiceProblems: [
@@ -369,6 +411,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "Когда лучше писать список задач на завтра — утром или вечером? Почему?",
             questionKk: "Ертеңгі тапсырмалар тізімін қашан жазу жақсы — таңертең бе, кеште ме? Неліктен?",
             answer: "Evening is better because you can plan when your mind is clear about what happened today, and you wake up already knowing what to do.",
+            answerRu: "Вечер лучше, потому что вы планируете, когда в голове свежо всё произошедшее за день, и просыпаетесь уже зная, что делать.",
+            answerKk: "Кеш жақсырақ, өйткені күні бойы болған оқиғалар есіңізде жаңа тұрғанда жоспарлайсыз және не істеу керектігін біліп оянасыз.",
             hint: "When do you have the freshest memory of what needs to be done?",
             hintRu: "Когда у вас самая свежая память о том, что нужно сделать?",
             hintKk: "Не істеу керектігі туралы есіңіз қашан ең жаңа болады?",
@@ -380,6 +424,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "Вы написали список задач, но постоянно его игнорируете и делаете то, что проще. Как исправить это поведение?",
             questionKk: "Тапсырмалар тізімін жаздыңыз, бірақ оны елемей, жеңілін жасайсыз. Бұл мінез-құлықты қалай түзетуге болады?",
             answer: "Number tasks by priority and commit to doing #1 first. Set a rule: you cannot start task #2 until #1 is complete. This builds discipline and prevents cherry-picking easy tasks.",
+            answerRu: "Пронумеруйте задачи по приоритету и обязуйтесь сделать №1 первой. Установите правило: нельзя начинать задачу №2, пока не завершена №1. Это воспитывает дисциплину и мешает выбирать только лёгкие задачи.",
+            answerKk: "Тапсырмаларды басымдығы бойынша нөмірлеп, №1-ді бірінші орындауға уәде беріңіз. Ереже қойыңыз: №1 аяқталмайынша №2-ні бастауға болмайды. Бұл тәртіп қалыптастырып, тек жеңіл тапсырмаларды таңдап алудың алдын алады.",
             hint: "What if you made a rule about which task to do first?",
             hintRu: "Что если установить правило, какую задачу делать первой?",
             hintKk: "Қай тапсырманы бірінші орындау керек деген ереже қойсаңыз ше?",
@@ -391,6 +437,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "Создайте шаблон вечернего планирования, который ученик сможет использовать каждый вечер за 5 минут. Включите категории и формат.",
             questionKk: "Оқушы әр кеште 5 минутта пайдалана алатын толық кешкі жоспарлау шаблонын жасаңыз. Санаттар мен пішімді қосыңыз.",
             answer: "Template: Date at top. Three columns: 1) Homework (list subjects + estimated time), 2) Activities (practice, clubs, fixed-time events), 3) Personal (chores, errands). Below: number all items by priority. Star the top 3 must-do items. At the bottom: note what time to start homework based on activities.",
+            answerRu: "Шаблон: дата сверху. Три колонки: 1) Домашние задания (предметы + примерное время), 2) Активности (тренировки, кружки, события с фиксированным временем), 3) Личное (домашние дела, поручения). Ниже: пронумеруйте все пункты по приоритету. Отметьте звёздочкой 3 главных обязательных пункта. Внизу: запишите время начала домашних заданий с учётом активностей.",
+            answerKk: "Шаблон: жоғарыда күні. Үш баған: 1) Үй тапсырмасы (пәндер + шамалы уақыт), 2) Іс-шаралар (жаттығулар, үйірмелер, уақыты бекітілген оқиғалар), 3) Жеке (үй шаруалары, тапсырмалар). Төменде: барлық тармақтарды басымдығы бойынша нөмірлеңіз. Ең маңызды 3 тармақты жұлдызшамен белгілеңіз. Ең төменде: іс-шараларға қарай үй тапсырмасын бастау уақытын жазыңыз.",
             hint: "Think about the main categories of a student's day: school, activities, personal.",
             hintRu: "Подумайте об основных категориях дня ученика: школа, активности, личное.",
             hintKk: "Оқушы күнінің негізгі санаттарын ойлаңыз: мектеп, іс-шаралар, жеке.",
@@ -428,7 +476,9 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
               { en: "Break it into small steps: Day 1 — read 30 pages, Day 2 — read 30 more, Day 3 — outline the report, Day 4 — write draft, Day 5 — revise.", ru: "Разбейте на шаги: День 1 — прочитать 30 страниц, День 2 — ещё 30, День 3 — составить план, День 4 — написать черновик, День 5 — отредактировать.", kk: "Кіші қадамдарға бөліңіз: 1-күн — 30 бет оқу, 2-күн — тағы 30, 3-күн — жоспар жасау, 4-күн — жоба жазу, 5-күн — түзету." },
               { en: "Use the 2-minute rule: tell yourself 'I will just open the book and read one page.' Once you start, momentum keeps you going.", ru: "Используйте правило 2 минут: скажите себе «Я просто открою книгу и прочитаю одну страницу.» Начав, импульс понесёт вас дальше.", kk: "2 минут ережесін қолданыңыз: «Кітапты ашып бір бет оқиын» деп айтыңыз. Бастағаннан кейін серпін сізді алға апарады." }
             ],
-            answer: "Break the report into 5 daily mini-tasks and use the 2-minute rule to start each session. Small steps + starting is the cure for procrastination."
+            answer: "Break the report into 5 daily mini-tasks and use the 2-minute rule to start each session. Small steps + starting is the cure for procrastination.",
+            answerRu: "Разбейте доклад на 5 ежедневных мини-задач и используйте правило 2 минут, чтобы начать каждую сессию. Маленькие шаги + старт — лекарство от прокрастинации.",
+            answerKk: "Баяндаманы күн сайынғы 5 мини-тапсырмаға бөліп, әр сессияны бастау үшін 2 минут ережесін қолданыңыз. Кіші қадамдар + бастау — кейінге қалдырудың емі."
           }
         ],
         practiceProblems: [
@@ -438,6 +488,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "Что такое правило 2 минут для борьбы с прокрастинацией?",
             questionKk: "Кейінге қалдырумен күресудің 2 минут ережесі дегеніміз не?",
             answer: "Commit to working on the task for just 2 minutes. Once you start, you usually continue because the hardest part is beginning.",
+            answerRu: "Пообещайте поработать над задачей всего 2 минуты. Начав, вы обычно продолжаете, потому что самое сложное — начать.",
+            answerKk: "Тапсырмамен тек 2 минут жұмыс істеуге уәде беріңіз. Бастағаннан кейін әдетте жалғастырасыз, өйткені ең қиыны — бастау.",
             hint: "It is about lowering the barrier to getting started.",
             hintRu: "Это о снижении барьера для начала работы.",
             hintKk: "Бұл бастау кедергісін азайту туралы.",
@@ -449,6 +501,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "Одноклассник говорит: «Я лучше работаю под давлением, поэтому всегда жду последнего вечера.» Это правда? Объясните.",
             questionKk: "Сыныптасыңыз: «Қысым астында жақсырақ жұмыс істеймін, сондықтан әрқашан соңғы кешке дейін күтемін» дейді. Бұл дұрыс па? Түсіндіріңіз.",
             answer: "Research shows this is usually false. Last-minute work is faster but lower quality. The pressure creates stress, not better thinking. Work done over multiple days allows revision and deeper understanding.",
+            answerRu: "Исследования показывают, что обычно это неправда. Работа в последний момент выполняется быстрее, но с более низким качеством. Давление создаёт стресс, а не лучшее мышление. Работа, растянутая на несколько дней, позволяет вносить правки и понимать глубже.",
+            answerKk: "Зерттеулер бұл әдетте дұрыс емес екенін көрсетеді. Соңғы сәттегі жұмыс жылдам, бірақ сапасы төмен. Қысым жақсырақ ойлауды емес, стресс тудырады. Бірнеше күнге бөлінген жұмыс түзетуге және тереңірек түсінуге мүмкіндік береді.",
             hint: "Compare the quality of rushed work vs. work done over several days.",
             hintRu: "Сравните качество срочной работы и работы, выполненной за несколько дней.",
             hintKk: "Асығыс жұмыс пен бірнеше күнде жасалған жұмыстың сапасын салыстырыңыз.",
@@ -460,6 +514,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "Определите три конкретные причины вашей прокрастинации и создайте план борьбы для каждой.",
             questionKk: "Кейінге қалдырудың үш нақты себебін анықтаңыз және әрқайсысы үшін жеке жоспар жасаңыз.",
             answer: "Example: 1) Task feels too big → break into 15-minute chunks. 2) Task is boring → reward yourself after completing it. 3) Do not know where to start → ask the teacher for clarification or start with the easiest part first. Each plan should address the root cause.",
+            answerRu: "Пример: 1) Задача кажется слишком большой → разбейте на 15-минутные части. 2) Задача скучная → наградите себя после выполнения. 3) Не знаете, с чего начать → попросите учителя разъяснить или начните с самой лёгкой части. Каждый план должен устранять коренную причину.",
+            answerKk: "Мысал: 1) Тапсырма тым үлкен көрінеді → 15 минуттық бөліктерге бөліңіз. 2) Тапсырма қызықсыз → орындағаннан кейін өзіңізді марапаттаңыз. 3) Қайдан бастарды білмейсіз → мұғалімнен түсіндіруді сұраңыз немесе ең жеңіл бөлігінен бастаңыз. Әр жоспар түпкі себепті жоюы керек.",
             hint: "Think: is it because the task is big, boring, confusing, or something else?",
             hintRu: "Подумайте: задача слишком большая, скучная, непонятная или что-то другое?",
             hintKk: "Ойланыңыз: тапсырма тым үлкен бе, қызықсыз ба, түсініксіз бе, әлде басқа ма?",
@@ -491,7 +547,9 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
               { en: "Divide: Mon — Chapter 1, Tue — Chapter 2, Wed — Chapter 3, Thu — Chapter 4 + review weak areas.", ru: "Разделите: Пн — Глава 1, Вт — Глава 2, Ср — Глава 3, Чт — Глава 4 + повторение слабых мест.", kk: "Бөліңіз: Дс — 1-тарау, Сс — 2-тарау, Ср — 3-тарау, Бс — 4-тарау + әлсіз жерлерді қайталау." },
               { en: "Thursday evening: light review of all 4 chapters using flashcards, then go to bed early for a rested brain on Friday.", ru: "Четверг вечером: лёгкое повторение всех 4 глав по карточкам, затем ранний отход ко сну для свежей головы в пятницу.", kk: "Бейсенбі кешінде: карточкалармен 4 тарауды жеңіл қайталау, содан кейін жұмаға серпінді ми үшін ерте ұйықтау." }
             ],
-            answer: "Study one chapter per day (Mon–Thu), review all on Thursday evening, and sleep well before the Friday test."
+            answer: "Study one chapter per day (Mon–Thu), review all on Thursday evening, and sleep well before the Friday test.",
+            answerRu: "Учите по одной главе в день (Пн–Чт), повторите всё в четверг вечером и хорошо выспитесь перед пятничным тестом.",
+            answerKk: "Күніне бір тарау оқыңыз (Дс–Бс), бейсенбі кешінде бәрін қайталаңыз және жұмадағы тест алдында жақсы ұйықтаңыз."
           }
         ],
         practiceProblems: [
@@ -501,6 +559,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "Почему учить понемногу каждый день лучше, чем зубрить накануне?",
             questionKk: "Неліктен күн сайын аздап оқу алдыңғы түні зубрежкадан жақсы?",
             answer: "Spreading study over days gives your brain time to process and consolidate information during sleep, leading to stronger long-term memory.",
+            answerRu: "Распределение учёбы по дням даёт мозгу время обработать и закрепить информацию во сне, что ведёт к более сильной долговременной памяти.",
+            answerKk: "Оқуды күндерге бөлу миға ақпаратты ұйқы кезінде өңдеуге және бекітуге уақыт береді, бұл ұзақ мерзімді жадыны нығайтады.",
             hint: "Think about what happens to your memory while you sleep.",
             hintRu: "Подумайте, что происходит с памятью, пока вы спите.",
             hintKk: "Ұйықтағанда есіңізге не болатынын ойлаңыз.",
@@ -512,6 +572,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "Вы учились 3 часа, но всё ещё чувствуете себя неподготовленным. Что может быть не так и как исправить?",
             questionKk: "3 сағат оқыдыңыз, бірақ әлі дайын емессіз. Не қате болуы мүмкін және қалай түзетуге болады?",
             answer: "You might be passively re-reading instead of actively testing yourself. Fix: close the book and try to recall key points, use flashcards, or explain concepts out loud. Active recall is more effective than passive review.",
+            answerRu: "Возможно, вы пассивно перечитываете вместо активной самопроверки. Исправление: закройте книгу и попробуйте вспомнить ключевые пункты, используйте карточки или объясняйте концепции вслух. Активное припоминание эффективнее пассивного повторения.",
+            answerKk: "Мүмкін сіз өзіңізді белсенді тексерудің орнына пассивті қайта оқып жатырсыз. Түзету: кітапты жауып, негізгі ойларды еске түсіруге тырысыңыз, карточкалар қолданыңыз немесе ұғымдарды дауыстап түсіндіріңіз. Белсенді еске түсіру пассивті қайталаудан тиімдірек.",
             hint: "Are you testing yourself or just reading the same pages again?",
             hintRu: "Вы проверяете себя или просто перечитываете?",
             hintKk: "Өзіңізді тексеріп жатырсыз ба, әлде жай қайта оқып жатырсыз ба?",
@@ -523,6 +585,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "Разработайте 5-дневный план подготовки для ученика, у которого в один день тесты по математике, науке и английскому.",
             questionKk: "Бір күнде математика, жаратылыстану және ағылшын тесттері бар оқушы үшін 5 күндік дайындық жоспарын жасаңыз.",
             answer: "Day 1: Math (hardest topics). Day 2: Science (hardest topics). Day 3: English (hardest topics). Day 4: Rotate — 30 min each subject, focus on weak areas. Day 5 (night before): Light review of all three using flashcards, then early bed. Key: never spend more than 45 min on one subject in a sitting.",
+            answerRu: "День 1: математика (самые сложные темы). День 2: наука (самые сложные темы). День 3: английский (самые сложные темы). День 4: чередование — по 30 мин на предмет, фокус на слабых местах. День 5 (накануне): лёгкое повторение всех трёх по карточкам, затем ранний отход ко сну. Ключевое: не сидите над одним предметом дольше 45 мин за раз.",
+            answerKk: "1-күн: математика (ең қиын тақырыптар). 2-күн: жаратылыстану (ең қиын тақырыптар). 3-күн: ағылшын (ең қиын тақырыптар). 4-күн: кезектестіру — әр пәнге 30 мин, әлсіз жерлерге зейін. 5-күн (алдыңғы түні): үшеуін де карточкалармен жеңіл қайталау, содан кейін ерте ұйықтау. Бастысы: бір пәнге бір отырғанда 45 минуттан артық жұмсамаңыз.",
             hint: "Rotate between subjects and focus on weak areas, not just the easy parts.",
             hintRu: "Чередуйте предметы и фокусируйтесь на слабых местах.",
             hintKk: "Пәндерді кезектестіріңіз және әлсіз жерлерге зейін қойыңыз.",
@@ -554,7 +618,9 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
               { en: "Both study 2 hours, but Student A gets more sleep (assuming 7 AM wake). Student A gets ~8 hours of sleep, Student B gets ~6 hours.", ru: "Оба учатся 2 часа, но ученик А больше спит (при подъёме в 7:00). А спит ~8 часов, Б спит ~6 часов.", kk: "Екеуі де 2 сағат оқиды, бірақ А оқушы көбірек ұйықтайды (7:00-де тұрса). А ~8 сағат, Б ~6 сағат ұйықтайды." },
               { en: "Student A will remember more because their brain has more sleep time to consolidate the material, and they studied during a less fatigued state.", ru: "Ученик А запомнит больше, так как его мозг имеет больше времени сна для закрепления материала, и он учился в менее утомлённом состоянии.", kk: "А оқушы көбірек есте сақтайды, өйткені миында материалды бекітуге көбірек ұйқы уақыты бар және аз шаршаған кезде оқыды." }
             ],
-            answer: "Student A will remember more — they get more sleep for memory consolidation and study when less tired."
+            answer: "Student A will remember more — they get more sleep for memory consolidation and study when less tired.",
+            answerRu: "Ученик А запомнит больше — он получает больше сна для закрепления памяти и учится в менее утомлённом состоянии.",
+            answerKk: "А оқушы көбірек есте сақтайды — оның миы жадыны бекітуге көбірек ұйқы алады және ол азырақ шаршаған кезде оқыды."
           }
         ],
         practiceProblems: [
@@ -564,6 +630,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "Сколько часов сна нужно ученикам каждую ночь?",
             questionKk: "Оқушылар әр түні қанша сағат ұйықтауы керек?",
             answer: "8 to 9 hours of sleep per night for optimal learning and memory.",
+            answerRu: "8–9 часов сна каждую ночь для оптимального обучения и памяти.",
+            answerKk: "Оптималды оқу мен жады үшін әр түні 8–9 сағат ұйқы.",
             hint: "It is more than most students actually get!",
             hintRu: "Это больше, чем большинство учеников на самом деле спят!",
             hintKk: "Бұл көптеген оқушылардың шындығында ұйықтайтынынан көп!",
@@ -575,6 +643,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "Почему учёба перед сном эффективнее, чем учёба утром с последующими повседневными делами?",
             questionKk: "Неліктен ұйықтар алдында оқу таңертең оқып, содан кейін күнделікті іс жасаудан тиімдірек?",
             answer: "When you study before bed, your brain immediately begins consolidating those memories during sleep without interference from other activities. Morning study is followed by many new experiences that can interfere with memory formation.",
+            answerRu: "Когда вы учитесь перед сном, мозг сразу начинает закреплять эти воспоминания во сне без помех от других занятий. После утренней учёбы следует множество новых впечатлений, которые могут мешать формированию памяти.",
+            answerKk: "Ұйықтар алдында оқығанда, ми басқа әрекеттердің кедергісінсіз ұйқы кезінде сол естеліктерді бірден бекіте бастайды. Таңертеңгі оқудан кейін жадының қалыптасуына кедергі келтіруі мүмкін көптеген жаңа әсерлер болады.",
             hint: "What happens between studying and sleeping in each scenario?",
             hintRu: "Что происходит между учёбой и сном в каждом сценарии?",
             hintKk: "Әр сценарийде оқу мен ұйқы арасында не болады?",
@@ -586,6 +656,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "Ученик говорит: «Мне хватает 5 часов сна — я натренировался.» Используя знания о сне и обучении, объясните, почему это убеждение ошибочно.",
             questionKk: "Оқушы: «Маған 5 сағат ұйқы жеткілікті — мен өзімді үйреттім» дейді. Ұйқы мен оқу туралы білімді пайдаланып, бұл сенімнің неліктен қате екенін түсіндіріңіз.",
             answer: "Research shows very few people can function well on less than 7 hours. Sleep-deprived people often do not realize their performance is impaired — they feel fine but test scores, reaction time, and creativity are measurably worse. During sleep, the brain moves information from short-term to long-term memory. Less sleep means less consolidation and weaker recall on exams.",
+            answerRu: "Исследования показывают, что очень немногие люди могут нормально функционировать менее чем с 7 часами сна. Недосыпающие часто не осознают, что их работоспособность снижена — они чувствуют себя нормально, но результаты тестов, время реакции и креативность измеримо хуже. Во время мозг переводит информацию из кратковременной памяти в долговременную. Меньше сна — меньше закрепления и более слабое воспроизведение на экзаменах.",
+            answerKk: "Зерттеулер 7 сағаттан аз ұйқымен өте аз адамның ғана жақсы жұмыс істей алатынын көрсетеді. Ұйқысы қанбағандар өнімділігінің төмендегенін жиі байқамайды — өздерін жақсы сезінеді, бірақ тест нәтижелері, реакция уақыты және шығармашылық өлшенетіндей нашарлайды. Ұйқы кезінде ми ақпаратты қысқа мерзімді жадтан ұзақ мерзімді жадқа көшіреді. Аз ұйқы — аз бекіту және емтиханда әлсіз еске түсіру деген сөз.",
             hint: "Can you truly 'train' yourself to need less sleep, or do you just get used to feeling tired?",
             hintRu: "Можно ли действительно «натренироваться» меньше спать, или вы просто привыкаете к усталости?",
             hintKk: "Аз ұйықтауға шынымен «үйрену» мүмкін бе, әлде сіз жай шаршауға үйреніп кетесіз бе?",
@@ -617,7 +689,9 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
               { en: "Look back: I understood fractions well but am confused about evaporation vs. condensation. I need to re-read those notes. Novel chapters were clear.", ru: "Оглянемся: дроби понял хорошо, но путаю испарение и конденсацию — нужно перечитать записи. Главы романа понятны.", kk: "Артқа қарау: бөлшектерді жақсы түсіндім, бірақ буланумен конденсацияны шатастырамын — жазбаларды қайта оқу керек. Роман тараулары түсінікті." },
               { en: "Look ahead: Monday — review water cycle for Tuesday quiz. Wednesday–Thursday — outline and draft English essay. Friday morning — final check on essay.", ru: "Заглянем вперёд: Понедельник — повторить круговорот воды. Среда–четверг — план и черновик сочинения. Пятница утром — финальная проверка.", kk: "Алдағыға қарау: Дүйсенбі — сейсенбі тестіне су айналымын қайталау. Сәрсенбі–бейсенбі — эссе жоспары мен жобасы. Жұма таңертең — соңғы тексеру." }
             ],
-            answer: "Look back: fractions OK, need to review evaporation vs. condensation. Look ahead: Monday review science, Wed–Thu draft essay, Friday finalize. Gap identified: water cycle confusion."
+            answer: "Look back: fractions OK, need to review evaporation vs. condensation. Look ahead: Monday review science, Wed–Thu draft essay, Friday finalize. Gap identified: water cycle confusion.",
+            answerRu: "Взгляд назад: дроби в порядке, нужно повторить испарение и конденсацию. Взгляд вперёд: в понедельник повторить науку, ср–чт черновик эссе, в пятницу закончить. Выявленный пробел: путаница с круговоротом воды.",
+            answerKk: "Артқа қарау: бөлшектер жақсы, булану мен конденсацияны қайталау керек. Алға қарау: дүйсенбіде жаратылыстануды қайталау, сәрсенбі–бейсенбі эссе жобасы, жұмада аяқтау. Анықталған олқылық: су айналымын шатастыру."
           }
         ],
         practiceProblems: [
@@ -627,6 +701,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "Назовите три части еженедельного обзора.",
             questionKk: "Апталық шолудың үш бөлігін атаңыз.",
             answer: "1) Look back at what you learned, 2) Look ahead at upcoming assignments and tests, 3) Identify gaps or topics you are confused about.",
+            answerRu: "1) Оглядка на то, что вы изучили, 2) Взгляд на предстоящие задания и тесты, 3) Определение пробелов или непонятных тем.",
+            answerKk: "1) Не үйренгеніңізге артқа қарау, 2) Алдағы тапсырмалар мен тесттерге алға қарау, 3) Олқылықтарды немесе түсініксіз тақырыптарды анықтау.",
             hint: "Past, future, and problems.",
             hintRu: "Прошлое, будущее и проблемы.",
             hintKk: "Өткен, болашақ және мәселелер.",
@@ -638,6 +714,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "Во время обзора вы понимаете, что отстаёте по двум предметам и на следующей неделе три теста. Как расставить приоритеты?",
             questionKk: "Апталық шолу кезінде екі пәннен артта қалғаныңызды және келесі аптада үш тестіңіз бар екенін түсінесіз. Қалай басымдық қоясыз?",
             answer: "Prioritize by date: study for the earliest test first. For the subjects you are behind in, identify the specific topics you missed and spend 20 minutes on each. Ask teachers for help on the most confusing topics rather than trying to figure everything out alone.",
+            answerRu: "Расставляйте приоритеты по дате: сначала готовьтесь к ближайшему тесту. Для предметов, по которым отстаёте, определите конкретные пропущенные темы и потратьте по 20 минут на каждую. Просите учителей помочь с самыми запутанными темами, вместо того чтобы разбираться во всём самостоятельно.",
+            answerKk: "Күн бойынша басымдық қойыңыз: алдымен ең жақын тестке дайындалыңыз. Артта қалған пәндер бойынша өткізіп алған нақты тақырыптарды анықтап, әрқайсысына 20 минут жұмсаңыз. Бәрін өз бетіңізше түсінуге тырыспай, ең шатастыратын тақырыптар бойынша мұғалімдерден көмек сұраңыз.",
             hint: "Which test comes first? Which gaps are most critical?",
             hintRu: "Какой тест первый? Какие пробелы самые критичные?",
             hintKk: "Қай тест бірінші? Қай олқылықтар ең маңызды?",
@@ -649,6 +727,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "Создайте шаблон еженедельного обзора с конкретными вопросами для каждого воскресенья. Включите минимум 6 вопросов об учёбе, расписании и рефлексии.",
             questionKk: "Әр жексенбіде өзіңізге қоятын нақты сұрақтары бар апталық шолу шаблонын жасаңыз. Оқу, кесте және өзін-өзі бағалау бойынша кемінде 6 сұрақ қосыңыз.",
             answer: "Template: 1) What did I learn well this week? 2) What topics confused me? 3) What assignments and tests are due next week? 4) Did I follow my homework routine every day? 5) What could I do differently next week? 6) Am I getting enough sleep? 7) Do I need to ask a teacher for help on anything?",
+            answerRu: "Шаблон: 1) Что я хорошо усвоил на этой неделе? 2) Какие темы меня запутали? 3) Какие задания и тесты на следующей неделе? 4) Соблюдал ли я режим домашних заданий каждый день? 5) Что я мог бы сделать иначе на следующей неделе? 6) Достаточно ли я сплю? 7) Нужно ли мне попросить учителя о помощи в чём-то?",
+            answerKk: "Шаблон: 1) Осы аптада нені жақсы үйрендім? 2) Қай тақырыптар мені шатастырды? 3) Келесі аптада қандай тапсырмалар мен тесттер бар? 4) Үй тапсырмасы тәртібін күн сайын сақтадым ба? 5) Келесі аптада нені басқаша істей аламын? 6) Ұйқым жеткілікті ме? 7) Бірдеңе бойынша мұғалімнен көмек сұрауым керек пе?",
             hint: "Cover three areas: what you learned, what is coming, and how you are doing overall.",
             hintRu: "Охватите три области: что изучили, что впереди и как дела в целом.",
             hintKk: "Үш саланы қамтыңыз: не үйрендіңіз, алда не бар және жалпы жағдайыңыз.",
@@ -695,7 +775,9 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
               { en: "Identify wasters: 1 hour of social media and 2 hours of gaming = 3 hours of low-value time. Homework is split across the evening, reducing focus.", ru: "Определите пожирателей: 1 час соцсетей и 2 часа игр = 3 часа малоценного времени. Уроки разбиты по вечеру, что снижает фокус.", kk: "Уақыт жұтқыштарды анықтаңыз: 1 сағат әлеуметтік медиа және 2 сағат ойын = 3 сағат аз құнды уақыт. Тапсырма кеш бойы бөлінген, зейінді азайтады." },
               { en: "Improved schedule: 3:30–3:45 snack, 3:45–5:45 homework (all at once), 5:45–6:00 break, 6:00–7:00 dinner, 7:00–9:00 free time (gaming/social). Work first, then enjoy free time guilt-free.", ru: "Улучшенное расписание: 15:30–15:45 перекус, 15:45–17:45 уроки (все сразу), 17:45–18:00 перерыв, 18:00–19:00 ужин, 19:00–21:00 свободное время. Сначала работа, потом отдых без вины.", kk: "Жақсартылған кесте: 15:30–15:45 тамақ, 15:45–17:45 тапсырма (бәрін бірден), 17:45–18:00 үзіліс, 18:00–19:00 кешкі ас, 19:00–21:00 бос уақыт. Алдымен жұмыс, содан кейін тегін демалыс." }
             ],
-            answer: "Do all homework first (3:45–5:45) in one focused block, then enjoy gaming and social media afterward without guilt. This saves time lost to context-switching."
+            answer: "Do all homework first (3:45–5:45) in one focused block, then enjoy gaming and social media afterward without guilt. This saves time lost to context-switching.",
+            answerRu: "Сначала сделайте все домашние задания (3:45–5:45) одним сфокусированным блоком, а затем без чувства вины наслаждайтесь играми и соцсетями. Это экономит время, теряемое на переключение между задачами.",
+            answerKk: "Алдымен барлық үй тапсырмасын (3:45–5:45) бір фокусталған блокта орындаңыз, содан кейін ойындар мен әлеуметтік медианы кінәсез демалып көріңіз. Бұл контекст ауыстырудан жоғалатын уақытты үнемдейді."
           }
         ],
         practiceProblems: [
@@ -705,6 +787,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "Если вы спите 8 часов, в школе 7 часов и 1 час на кружки, сколько часов остаётся на учёбу и свободное время?",
             questionKk: "8 сағат ұйықтасаңыз, мектепте 7 сағат, 1 сағат іс-шара болса, оқу мен бос уақытқа қанша сағат қалады?",
             answer: "24 − 8 − 7 − 1 = 8 hours available for homework, meals, commuting, and free time.",
+            answerRu: "24 − 8 − 7 − 1 = 8 часов остаётся на домашние задания, еду, дорогу и свободное время.",
+            answerKk: "24 − 8 − 7 − 1 = 8 сағат үй тапсырмасына, тамаққа, жолға және бос уақытқа қалады.",
             hint: "Subtract from 24 hours.",
             hintRu: "Вычтите из 24 часов.",
             hintKk: "24 сағаттан алып тастаңыз.",
@@ -716,6 +800,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "Отследите, как вы проводите время с 15:00 до 21:00 сегодня. Определите главного пожирателя времени и предложите конкретное изменение.",
             questionKk: "Бүгін 15:00-ден 21:00-ге дейін уақытыңызды қалай өткізетініңізді бақылаңыз. Ең үлкен уақыт жұтқышты анықтап, нақты өзгеріс ұсыныңыз.",
             answer: "Example: 'I spent 90 minutes on TikTok. I will set a 30-minute timer and use the saved 60 minutes for studying.' Any honest tracking with a concrete improvement is acceptable.",
+            answerRu: "Пример: «Я провёл 90 минут в TikTok. Я поставлю таймер на 30 минут и использую сэкономленные 60 минут для учёбы.» Подходит любое честное отслеживание с конкретным улучшением.",
+            answerKk: "Мысал: «TikTok-та 90 минут өткіздім. 30 минуттық таймер қойып, үнемделген 60 минутты оқуға жұмсаймын.» Нақты жақсартуы бар кез келген шынайы бақылау жарайды.",
             hint: "Be honest — no one is grading your time log.",
             hintRu: "Будьте честны — никто не оценивает ваш журнал.",
             hintKk: "Шынайы болыңыз — сіздің уақыт журналыңызды ешкім бағаламайды.",
@@ -727,6 +813,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "Ученик утверждает, что у него «нет времени» учиться, но проводит 3 часа в день в телефоне. Составьте реалистичное недельное расписание с 2 часами учёбы, 1 часом телефона и остальными делами.",
             questionKk: "Оқушы оқуға «уақыт жоқ» дейді, бірақ күніне 3 сағат телефонда. 2 сағат оқу, 1 сағат телефон және басқа іс-шараларды қамтитын шынайы апталық кесте жасаңыз.",
             answer: "Sample weekday: 7–8 AM wake and school prep, 8–3 PM school, 3:30–5:30 PM homework (2 hrs), 5:30–6:30 PM dinner, 6:30–7:30 PM phone time (1 hr), 7:30–9 PM activities/hobbies, 9–10 PM relax and bed prep, 10 PM sleep. The student gains 2 study hours by cutting phone from 3 to 1 hour.",
+            answerRu: "Пример буднего дня: 7–8 AM подъём и сборы в школу, 8–3 PM школа, 3:30–5:30 PM домашние задания (2 ч), 5:30–6:30 PM ужин, 6:30–7:30 PM телефон (1 ч), 7:30–9 PM занятия/хобби, 9–10 PM отдых и подготовка ко сну, 10 PM сон. Ученик получает 2 часа учёбы, сократив телефон с 3 до 1 часа.",
+            answerKk: "Жұмыс күнінің үлгісі: 7–8 AM тұру және мектепке дайындалу, 8–3 PM мектеп, 3:30–5:30 PM үй тапсырмасы (2 сағ), 5:30–6:30 PM кешкі ас, 6:30–7:30 PM телефон уақыты (1 сағ), 7:30–9 PM іс-шаралар/хобби, 9–10 PM демалыс және ұйқыға дайындық, 10 PM ұйқы. Оқушы телефонды 3 сағаттан 1 сағатқа қысқартып, 2 сағат оқу уақытын алады.",
             hint: "Where does the phone time go if you reduce it from 3 hours to 1?",
             hintRu: "Куда уходит время от сокращения телефона с 3 до 1 часа?",
             hintKk: "Телефон уақытын 3 сағаттан 1-ге азайтсаңыз, бос уақыт қайда кетеді?",
@@ -758,7 +846,9 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
               { en: "Calculate: 4 Pomodoros × 25 min = 100 min of work, plus 3 short breaks (15 min) + 1 long break (15 min) = 130 min total ≈ 2 hours 10 min.", ru: "Расчёт: 4 Помодоро × 25 мин = 100 мин работы, плюс 3 коротких перерыва (15 мин) + 1 длинный (15 мин) = 130 мин ≈ 2 часа 10 мин.", kk: "Есептеу: 4 Помодоро × 25 мин = 100 мин жұмыс, қосымша 3 қысқа үзіліс (15 мин) + 1 ұзын (15 мин) = 130 мин ≈ 2 сағат 10 мин." },
               { en: "Session: Pom 1 (25 min) → break (5) → Pom 2 (25) → break (5) → Pom 3 (25) → break (5) → Pom 4 (25) → long break (15). Total: 2 hours 10 minutes.", ru: "Сессия: Пом 1 (25 мин) → перерыв (5) → Пом 2 (25) → перерыв (5) → Пом 3 (25) → перерыв (5) → Пом 4 (25) → длинный перерыв (15). Итого: 2 часа 10 минут.", kk: "Сессия: Пом 1 (25 мин) → үзіліс (5) → Пом 2 (25) → үзіліс (5) → Пом 3 (25) → үзіліс (5) → Пом 4 (25) → ұзақ үзіліс (15). Барлығы: 2 сағат 10 минут." }
             ],
-            answer: "4 Pomodoros with 3 short breaks and 1 long break. Total session: about 2 hours 10 minutes for 100 minutes of focused work."
+            answer: "4 Pomodoros with 3 short breaks and 1 long break. Total session: about 2 hours 10 minutes for 100 minutes of focused work.",
+            answerRu: "4 Помодоро с 3 короткими перерывами и 1 длинным. Вся сессия: около 2 часов 10 минут при 100 минутах сфокусированной работы.",
+            answerKk: "3 қысқа және 1 ұзақ үзілісі бар 4 Помодоро. Барлық сессия: шамамен 2 сағат 10 минут — 100 минут фокусталған жұмыс."
           }
         ],
         practiceProblems: [
@@ -768,6 +858,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "Какова длительность одного цикла Помодоро (работа + перерыв)?",
             questionKk: "Бір Помодоро циклінің ұзақтығы қанша (жұмыс + үзіліс)?",
             answer: "30 minutes total: 25 minutes of focused work plus a 5-minute break.",
+            answerRu: "Всего 30 минут: 25 минут сфокусированной работы плюс 5 минут перерыва.",
+            answerKk: "Барлығы 30 минут: 25 минут фокусталған жұмыс және 5 минуттық үзіліс.",
             hint: "Add the work time and the break time.",
             hintRu: "Сложите время работы и отдыха.",
             hintKk: "Жұмыс уақыты мен үзіліс уақытын қосыңыз.",
@@ -779,6 +871,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "Во время Помодоро вам приходит сообщение от друга. Что делать?",
             questionKk: "Помодоро кезінде достан хабарлама келеді. Не істеу керек?",
             answer: "Write down 'reply to friend' on a notepad and continue working. Respond during your 5-minute break. The key rule of Pomodoro is: never interrupt a work sprint.",
+            answerRu: "Запишите «ответить другу» в блокнот и продолжайте работать. Ответьте во время 5-минутного перерыва. Главное правило Помодоро: никогда не прерывайте рабочий спринт.",
+            answerKk: "«Досқа жауап беру» деп блокнотқа жазып қойыңыз да, жұмысты жалғастырыңыз. 5 минуттық үзіліс кезінде жауап беріңіз. Помодородың басты ережесі: жұмыс спринтін ешқашан үзбеу.",
             hint: "Should you interrupt your focus or handle it later?",
             hintRu: "Стоит ли прерывать концентрацию или заняться этим позже?",
             hintKk: "Зейініңізді үзу керек пе, әлде кейінірек жасау керек пе?",
@@ -790,6 +884,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "Вы пробуете Помодоро, но 25 минут слишком мало — вы только входите в фокус, когда звонит таймер. Стоит ли менять время? Создайте свою версию.",
             questionKk: "Помодоро техникасын қолданасыз, бірақ 25 минут тым аз — таймер сырылғанда тереңге ену басталады. Уақытты өзгерту керек пе? Өзіңіздің нұсқаңызды жасаңыз.",
             answer: "Yes, adjust! If 25 minutes is too short, try 45–50 minute work blocks with 10-minute breaks. The Pomodoro is a framework, not a rigid rule. The key principles to keep: use a timer, take regular breaks, and work in focused sprints. Some people use 90-minute blocks matching the body's natural ultradian rhythm.",
+            answerRu: "Да, корректируйте! Если 25 минут слишком мало, попробуйте рабочие блоки по 45–50 минут с 10-минутными перерывами. Помодоро — это каркас, а не жёсткое правило. Ключевые принципы, которые стоит сохранить: использовать таймер, делать регулярные перерывы и работать сфокусированными спринтами. Некоторые используют 90-минутные блоки, соответствующие естественному ультрадианному ритму организма.",
+            answerKk: "Иә, реттеңіз! Егер 25 минут тым қысқа болса, 10 минуттық үзілістері бар 45–50 минуттық жұмыс блоктарын қолданып көріңіз. Помодоро — қатаң ереже емес, негіздеме. Сақталатын басты қағидалар: таймер қолдану, тұрақты үзіліс жасау және фокусталған спринттермен жұмыс істеу. Кейбіреулер ағзаның табиғи ультрадиандық ырғағына сәйкес 90 минуттық блоктарды пайдаланады.",
             hint: "The Pomodoro Technique is flexible — what timer length matches your natural focus span?",
             hintRu: "Техника Помодоро гибкая — какая длительность подходит вашему естественному фокусу?",
             hintKk: "Помодоро техникасы икемді — қандай таймер ұзақтығы табиғи зейініңізге сәйкес?",
@@ -821,7 +917,9 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
               { en: "Enter each deadline on its due date. Also add prep reminders: 'Start studying math' on Wednesday, 'Start science project' on Saturday, 'Start English essay' next Monday.", ru: "Внесите каждый дедлайн на дату сдачи. Добавьте напоминания: «Начать учить математику» в среду, «Начать научный проект» в субботу, «Начать сочинение» в понедельник.", kk: "Әр мерзімді тапсыру күніне жазыңыз. Дайындық еске салғыштарын қосыңыз: сәрсенбіде «Математиканы оқуды бастау», сенбіде «Жаратылыстану жобасын бастау», дүйсенбіде «Эссені бастау»." },
               { en: "Color-code: math in blue, science in green, English in red. Now you can see at a glance which weeks are busy.", ru: "Цветовое кодирование: математика — синий, наука — зелёный, английский — красный. Теперь видно загруженные недели.", kk: "Түс кодтау: математика — көк, жаратылыстану — жасыл, ағылшын — қызыл. Енді бос емес апталарды бірден көресіз." }
             ],
-            answer: "Write deadlines on due dates, add start-preparation reminders earlier in the week, and color-code by subject."
+            answer: "Write deadlines on due dates, add start-preparation reminders earlier in the week, and color-code by subject.",
+            answerRu: "Запишите дедлайны на даты сдачи, добавьте напоминания о начале подготовки раньше в течение недели и используйте цветовое кодирование по предметам.",
+            answerKk: "Мерзімдерді тапсыру күндеріне жазыңыз, апта ішінде дайындықты бастау туралы еске салғыштар қосыңыз және пәндер бойынша түспен кодтаңыз."
           }
         ],
         practiceProblems: [
@@ -831,6 +929,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "Почему дедлайн нужно записывать сразу, как узнали, а не потом?",
             questionKk: "Неліктен мерзімді кейінірек емес, естіген сәтте бірден жазу керек?",
             answer: "If you wait, you might forget. Writing it immediately guarantees you will not miss it.",
+            answerRu: "Если подождать, можно забыть. Немедленная запись гарантирует, что вы ничего не пропустите.",
+            answerKk: "Күтсеңіз, ұмытып қалуыңыз мүмкін. Бірден жазып алу оны жіберіп алмайтыныңызға кепілдік береді.",
             hint: "What happens if you say 'I will remember it' but forget?",
             hintRu: "Что будет, если вы скажете «Я запомню» и забудете?",
             hintKk: "«Есімде сақтаймын» деп ұмытып қалсаңыз не болады?",
@@ -842,6 +942,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "Цифровой календарь или бумажный ежедневник — что лучше для ученика? Назовите одно преимущество каждого.",
             questionKk: "Цифрлық күнтізбе немесе қағаз жоспарлағыш — оқушыға қайсысы жақсы? Әрқайсысының бір артықшылығын атаңыз.",
             answer: "Digital: can set automatic reminders and sync across devices. Paper: writing by hand improves memory and has no phone distractions. Either works if used consistently.",
+            answerRu: "Цифровой: можно ставить автоматические напоминания и синхронизировать между устройствами. Бумажный: письмо от руки улучшает память и не отвлекает на телефон. Подойдёт любой, если пользоваться им постоянно.",
+            answerKk: "Цифрлық: автоматты еске салғыштар қоюға және құрылғылар арасында синхрондауға болады. Қағаз: қолмен жазу жадыны жақсартады және телефонға алаңдатпайды. Тұрақты пайдалансаңыз, екеуі де жарайды.",
             hint: "Think about reminders vs. memory benefits.",
             hintRu: "Подумайте о напоминаниях vs. пользе для памяти.",
             hintKk: "Еске салғыштар мен есте сақтау пайдасын ойлаңыз.",
@@ -853,6 +955,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "Разработайте систему цветового кодирования для ученика с 6 предметами, кружками и личными делами. Объясните логику выбора цветов.",
             questionKk: "6 пән, қосымша іс-шаралар және жеке тапсырмалар бар оқушы үшін түс кодтау жүйесін жасаңыз. Түс таңдаудың логикасын түсіндіріңіз.",
             answer: "Example: Math (blue — logical/cool), Science (green — nature), English (red — important/attention), History (brown — earth/past), Art (purple — creative), Foreign Language (orange — warm/cultural), Extracurriculars (yellow — energy), Personal (gray — neutral). Logic: use distinct colors that are easy to tell apart, and associate colors with the subject's feel.",
+            answerRu: "Пример: математика (синий — логика/холод), наука (зелёный — природа), английский (красный — важное/внимание), история (коричневый — земля/прошлое), рисование (фиолетовый — творчество), иностранный язык (оранжевый — тепло/культура), кружки (жёлтый — энергия), личное (серый — нейтральное). Логика: использовать хорошо различимые цвета и связывать цвета с ощущением предмета.",
+            answerKk: "Мысал: математика (көк — логика/салқын), жаратылыстану (жасыл — табиғат), ағылшын (қызыл — маңызды/назар), тарих (қоңыр — жер/өткен), сурет (күлгін — шығармашылық), шет тілі (қызғылт сары — жылу/мәдениет), қосымша іс-шаралар (сары — энергия), жеке (сұр — бейтарап). Логика: бір-бірінен оңай ажыратылатын түстерді пайдаланып, түстерді пәннің сипатымен байланыстыру.",
             hint: "Choose colors that look very different from each other so you can scan quickly.",
             hintRu: "Выбирайте цвета, хорошо отличающиеся друг от друга для быстрого сканирования.",
             hintKk: "Тез қарау үшін бір-бірінен жақсы ерекшеленетін түстерді таңдаңыз.",
@@ -884,7 +988,9 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
               { en: "A tasks (must do today): study for tomorrow's quiz. B tasks (should do soon): start the project, buy art supplies. C tasks (can wait): clean room, reply to friend.", ru: "A (сделать сегодня): подготовка к тесту. B (скоро): начать проект, купить материалы. C (может подождать): уборка, ответ другу.", kk: "A (бүгін орындау): тестке дайындалу. B (жақында): жобаны бастау, материал сатып алу. C (күте алады): бөлмені жинау, досқа жауап." },
               { en: "Do A first (study), then B if time remains. Reply to friend during a break (takes 2 minutes). Clean room on the weekend.", ru: "Сначала A (учёба), потом B при наличии времени. Ответ другу — на перерыве (2 минуты). Уборка — на выходных.", kk: "Алдымен A (оқу), уақыт қалса B. Досқа жауап — үзілісте (2 минут). Бөлмені жинау — демалыс күні." }
             ],
-            answer: "A: Study for quiz. B: Start project, buy art supplies. C: Clean room, reply to friend. Do all A tasks first."
+            answer: "A: Study for quiz. B: Start project, buy art supplies. C: Clean room, reply to friend. Do all A tasks first.",
+            answerRu: "A: подготовиться к тесту. B: начать проект, купить материалы для рисования. C: убрать комнату, ответить другу. Сначала выполните все задачи A.",
+            answerKk: "A: тестке дайындалу. B: жобаны бастау, сурет материалдарын сатып алу. C: бөлмені жинау, досқа жауап беру. Алдымен барлық A тапсырмаларын орындаңыз."
           }
         ],
         practiceProblems: [
@@ -894,6 +1000,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "Что означает «приоритет A» в методе ABC?",
             questionKk: "ABC әдісінде «A басымдығы» нені білдіреді?",
             answer: "A priority means it must be done today — it is urgent and important.",
+            answerRu: "Приоритет A означает, что задачу нужно сделать сегодня — она срочная и важная.",
+            answerKk: "A басымдығы тапсырманы бүгін орындау керек дегенді білдіреді — ол шұғыл әрі маңызды.",
             hint: "Think of A as 'absolutely must do.'",
             hintRu: "Подумайте об A как «абсолютно необходимо сделать».",
             hintKk: "A-ны «міндетті түрде орындау» деп ойлаңыз.",
@@ -905,6 +1013,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "У вас две задачи приоритета A, но время только на одну. Как решить, какую делать первой?",
             questionKk: "Екі A-басымдықты тапсырма бар, бірақ біреуіне ғана уақыт жетеді. Қайсысын бірінші орындауды қалай шешесіз?",
             answer: "Choose by consequence: which task has a worse outcome if not done? If a quiz is worth 20% of your grade and the other task can be partially done, prioritize the quiz. Also consider which deadline is earlier.",
+            answerRu: "Выбирайте по последствиям: у какой задачи будет хуже результат, если её не сделать? Если тест составляет 20% оценки, а другую задачу можно выполнить частично, отдайте приоритет тесту. Также учитывайте, какой дедлайн раньше.",
+            answerKk: "Зардабы бойынша таңдаңыз: орындалмаса, қай тапсырманың нәтижесі нашарырақ? Егер тест бағаның 20%-ын құраса және екінші тапсырманы ішінара орындауға болса, тестке басымдық беріңіз. Қай мерзімнің жақынырақ екенін де ескеріңіз.",
             hint: "Which one has bigger consequences if you skip it?",
             hintRu: "Какая задача имеет более серьёзные последствия при пропуске?",
             hintKk: "Қай тапсырманы жіберіп алсаңыз ауырлау зардаптар болады?",
@@ -916,6 +1026,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "Сегодня 8 задач. Присвойте каждой приоритет ABC и составьте расписание: домашнее задание (на завтра), продукты (мама просила), турнир по видеоиграм (сегодня 19:00), стоматолог в 16:00, уборка, подготовка к пятничному тесту, позвонить бабушке (у неё день рождения), вернуть книгу в библиотеку (срок сегодня).",
             questionKk: "Бүгін 8 тапсырма. Әрқайсысына ABC басымдығын қойып, кесте жасаңыз: үй тапсырмасы (ертеңге), азық-түлік (анам сұрады), видеоойын турнирі (бүгін 19:00), 16:00-де тіс дәрігері, бөлмені жинау, жұмалық тестке дайындық, әжеге қоңырау (бүгін туған күні), кітапхана кітабын қайтару (мерзімі бүгін).",
             answer: "A: Homework (due tomorrow), return library book (due today), call grandma (birthday today), dentist at 4 PM (fixed appointment). B: Study for Friday test (important but not urgent today), grocery shopping (mom asked). C: Clean room (can wait), video game tournament (fun but lowest priority). Schedule: morning — homework + library book, 12 PM call grandma, 4 PM dentist, evening — study for Friday test, buy groceries.",
+            answerRu: "A: домашнее задание (сдача завтра), вернуть библиотечную книгу (срок сегодня), позвонить бабушке (день рождения сегодня), стоматолог в 4 PM (фиксированная запись). B: подготовка к пятничному тесту (важно, но сегодня не срочно), продукты (мама просила). C: убрать комнату (может подождать), турнир по видеоиграм (весело, но самый низкий приоритет). Расписание: утром — домашнее задание + библиотечная книга, в 12 PM позвонить бабушке, в 4 PM стоматолог, вечером — подготовка к пятничному тесту, покупка продуктов.",
+            answerKk: "A: үй тапсырмасы (ертең тапсыру), кітапхана кітабын қайтару (мерзімі бүгін), әжеге қоңырау шалу (бүгін туған күні), 4 PM-да тіс дәрігері (бекітілген қабылдау). B: жұмалық тестке дайындық (маңызды, бірақ бүгін шұғыл емес), азық-түлік сатып алу (анам сұрады). C: бөлмені жинау (күте алады), видеоойын турнирі (қызық, бірақ ең төмен басымдық). Кесте: таңертең — үй тапсырмасы + кітапхана кітабы, 12 PM әжеге қоңырау, 4 PM тіс дәрігері, кеште — жұмалық тестке дайындық, азық-түлік сатып алу.",
             hint: "Fixed-time events and deadlines automatically become A priorities.",
             hintRu: "Мероприятия с фиксированным временем и дедлайны автоматически становятся приоритетом A.",
             hintKk: "Тұрақты уақытты іс-шаралар мен мерзімдер автоматты түрде A басымдығы болады.",
@@ -947,7 +1059,9 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
               { en: "Right column (during class): '• Cell membrane — controls entry/exit. • Nucleus — has DNA, controls activities. • Mitochondria — produce energy.'", ru: "Правая колонка (на уроке): «• Мембрана — контролирует вход/выход. • Ядро — содержит ДНК, управляет. • Митохондрии — производят энергию.»", kk: "Оң жақ баған (сабақта): «• Мембрана — кіру/шығуды бақылайды. • Ядро — ДНҚ бар, басқарады. • Митохондриялар — энергия өндіреді.»" },
               { en: "Left column (after class): 'What does the cell membrane do? Where is DNA found? What produces energy in a cell?' Bottom summary: 'Three key cell parts: membrane (gatekeeper), nucleus (command center), mitochondria (power plant).'", ru: "Левая колонка (после урока): «Что делает мембрана? Где находится ДНК? Что производит энергию?» Резюме: «Три части клетки: мембрана (страж), ядро (центр управления), митохондрии (электростанция).»", kk: "Сол жақ баған (сабақтан кейін): «Мембрана не істейді? ДНҚ қайда? Энергияны не өндіреді?» Қорытынды: «Жасушаның үш бөлігі: мембрана (қақпашы), ядро (басқару орталығы), митохондриялар (электр станциясы).»" }
             ],
-            answer: "Notes column: bullet-pointed facts. Cue column: questions from those facts. Summary: one-sentence overview connecting all three cell parts."
+            answer: "Notes column: bullet-pointed facts. Cue column: questions from those facts. Summary: one-sentence overview connecting all three cell parts.",
+            answerRu: "Колонка заметок: факты маркированным списком. Колонка подсказок: вопросы по этим фактам. Резюме: обзор одним предложением, связывающий все три части клетки.",
+            answerKk: "Жазба бағаны: таңбалы тізімдегі фактілер. Сұрақ бағаны: сол фактілер бойынша сұрақтар. Қорытынды: жасушаның үш бөлігін байланыстыратын бір сөйлемді шолу."
           }
         ],
         practiceProblems: [
@@ -957,6 +1071,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "Какие три раздела на странице конспекта Корнелла?",
             questionKk: "Корнелл жазба бетінің үш бөлімі қандай?",
             answer: "Left column for cue questions, right column for notes, and bottom section for a summary.",
+            answerRu: "Левая колонка для вопросов-подсказок, правая колонка для заметок и нижняя часть для резюме.",
+            answerKk: "Сол жақ баған — сұрақтар үшін, оң жақ баған — жазбалар үшін, төменгі бөлік — қорытынды үшін.",
             hint: "Think about left, right, and bottom of the page.",
             hintRu: "Подумайте о левой, правой и нижней частях страницы.",
             hintKk: "Беттің сол, оң және төменгі бөліктерін ойлаңыз.",
@@ -968,6 +1084,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "Как использовать конспекты Корнелла для подготовки к тесту? Опишите процесс самопроверки.",
             questionKk: "Тестке дайындалу үшін Корнелл жазбаларын қалай қолданасыз? Өзін-өзі тексеру процесін сипаттаңыз.",
             answer: "Cover the right column (notes) with a sheet of paper. Read each question in the left column and try to answer it from memory. Uncover to check. Mark questions you got wrong and review those again.",
+            answerRu: "Закройте правую колонку (заметки) листом бумаги. Прочитайте каждый вопрос в левой колонке и попробуйте ответить по памяти. Откройте и проверьте. Отметьте вопросы, в которых ошиблись, и повторите их снова.",
+            answerKk: "Оң жақ бағанды (жазбаларды) қағаз парағымен жабыңыз. Сол жақ бағандағы әр сұрақты оқып, жадыдан жауап беруге тырысыңыз. Ашып тексеріңіз. Қате жауап берген сұрақтарды белгілеп, оларды қайта қарап шығыңыз.",
             hint: "Which column do you cover — the questions or the answers?",
             hintRu: "Какую колонку закрывать — вопросы или ответы?",
             hintKk: "Қай бағанды жабасыз — сұрақтарды ма, жауаптарды ма?",
@@ -979,6 +1097,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "Сравните конспекты Корнелла с обычным конспектированием. Объясните два конкретных преимущества системы Корнелла для обучения.",
             questionKk: "Корнелл жазбаларын кәдімгі жазба жасаумен салыстырыңыз. Корнелл жүйесінің оқу үшін екі нақты артықшылығын түсіндіріңіз.",
             answer: "1) Built-in review tool: the cue column creates a ready-made self-quiz, turning notes into an active study tool rather than a passive record. 2) Forces summarization: the bottom summary requires you to distill the main idea, which deepens understanding. Regular notes lack both these features.",
+            answerRu: "1) Встроенный инструмент повторения: колонка подсказок создаёт готовую самопроверку, превращая заметки в активный инструмент учёбы, а не пассивную запись. 2) Заставляет резюмировать: нижнее резюме требует выделить главную мысль, что углубляет понимание. Обычные конспекты лишены обеих этих особенностей.",
+            answerKk: "1) Кіріктірілген қайталау құралы: сұрақ бағаны дайын өзін-өзі тексеруді құрайды, жазбаларды пассивті жазба емес, белсенді оқу құралына айналдырады. 2) Қорытындылауға мәжбүрлейді: төменгі қорытынды негізгі ойды түйіндіруді талап етеді, бұл түсінуді тереңдетеді. Кәдімгі жазбаларда осы екі мүмкіндік те жоқ.",
             hint: "What can you do with Cornell Notes that you cannot do with plain notes?",
             hintRu: "Что можно делать с конспектами Корнелла, но нельзя с обычными записями?",
             hintKk: "Корнелл жазбаларымен не істей аласыз, бірақ кәдімгі жазбалармен істей алмайсыз?",
@@ -1010,7 +1130,9 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
               { en: "Turn heading into a question: 'What were the causes of World War I?' Now read with purpose — you are searching for answers.", ru: "Превратите заголовок в вопрос: «Каковы были причины Первой мировой войны?» Читайте целенаправленно — ищите ответы.", kk: "Тақырыпты сұраққа айналдырыңыз: «Бірінші дүниежүзілік соғыстың себептері қандай болды?» Мақсатты оқыңыз — жауаптарды іздеңіз." },
               { en: "After reading, close the book and answer: 'The four main causes were alliances, imperialism, militarism, and nationalism (MAIN).' Check your answer against the text.", ru: "После чтения закройте книгу и ответьте: «Четыре основные причины: союзы, империализм, милитаризм и национализм.» Проверьте по тексту.", kk: "Оқығаннан кейін кітапты жабып жауап беріңіз: «Төрт негізгі себеп: одақтар, империализм, милитаризм және ұлтшылдық.» Мәтінмен тексеріңіз." }
             ],
-            answer: "Question: 'What caused WWI?' Read to find answers, then close the book and recall: alliances, imperialism, militarism, nationalism."
+            answer: "Question: 'What caused WWI?' Read to find answers, then close the book and recall: alliances, imperialism, militarism, nationalism.",
+            answerRu: "Вопрос: «Что стало причиной Первой мировой войны?» Читайте, чтобы найти ответы, затем закройте книгу и вспомните: союзы, империализм, милитаризм, национализм.",
+            answerKk: "Сұрақ: «Бірінші дүниежүзілік соғысқа не себеп болды?» Жауаптарын табу үшін оқыңыз, содан кейін кітапты жауып еске түсіріңіз: одақтар, империализм, милитаризм, ұлтшылдық."
           }
         ],
         practiceProblems: [
@@ -1020,6 +1142,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "Превратите заголовок в вопрос: «Строение атома».",
             questionKk: "Мына тақырыпты сұраққа айналдырыңыз: «Атомның құрылысы».",
             answer: "'What is the structure of an atom?' or 'What parts make up an atom?'",
+            answerRu: "«Каково строение атома?» или «Из каких частей состоит атом?»",
+            answerKk: "«Атомның құрылысы қандай?» немесе «Атомды қандай бөліктер құрайды?»",
             hint: "Start with 'What,' 'How,' or 'Why.'",
             hintRu: "Начните с «Что», «Как» или «Почему».",
             hintKk: "«Не», «Қалай» немесе «Неліктен» деп бастаңыз.",
@@ -1031,6 +1155,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "Ваш друг выделяет почти каждое предложение в учебнике жёлтым. Почему это неэффективно и что делать вместо этого?",
             questionKk: "Досыңыз оқулықтағы әр сөйлемді сары түспен белгілейді. Бұл неліктен тиімсіз және оның орнына не істеу керек?",
             answer: "Highlighting everything is the same as highlighting nothing — it does not distinguish important from unimportant. Instead, highlight only key terms and short phrases (roughly 10-15% of the text). This forces the brain to decide what matters.",
+            answerRu: "Выделить всё — то же самое, что не выделить ничего: это не отличает важное от неважного. Вместо этого выделяйте только ключевые термины и короткие фразы (примерно 10-15% текста). Это заставляет мозг решать, что действительно важно.",
+            answerKk: "Бәрін белгілеу — ештеңені белгілемеумен бірдей: маңыздыны маңызды емес еместен ажыратпайды. Оның орнына тек негізгі терминдер мен қысқа сөз тіркестерін белгілеңіз (мәтіннің шамамен 10-15%-ы). Бұл миды не маңызды екенін шешуге мәжбүрлейді.",
             hint: "If everything is highlighted, does anything stand out?",
             hintRu: "Если всё выделено, что-нибудь выделяется?",
             hintKk: "Бәрі белгіленсе, бірдеңе ерекшелене ме?",
@@ -1042,6 +1168,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "Разработайте полный рабочий лист активного чтения для любой главы учебника. Включите минимум 4 раздела с инструкциями.",
             questionKk: "Кез келген оқулық тарауы үшін толық белсенді оқу жұмыс парағын жасаңыз. Нұсқаулықтары бар кемінде 4 бөлімді қосыңыз.",
             answer: "Worksheet: 1) Pre-Reading: write the chapter title as a question, list what you already know. 2) During Reading: for each section, write the heading-question and 2-3 key points. 3) Post-Reading: close the book and write a 3-sentence summary. 4) Self-Check: list 3 things you learned and 1 thing you are still confused about. 5) Review: come back tomorrow and try to answer your heading-questions from memory.",
+            answerRu: "Рабочий лист: 1) Перед чтением: запишите название главы как вопрос, перечислите, что уже знаете. 2) Во время чтения: для каждого раздела запишите вопрос-заголовок и 2-3 ключевых пункта. 3) После чтения: закройте книгу и напишите резюме из 3 предложений. 4) Самопроверка: перечислите 3 вещи, которые узнали, и 1 вещь, которая всё ещё непонятна. 5) Повторение: вернитесь завтра и попробуйте ответить на вопросы-заголовки по памяти.",
+            answerKk: "Жұмыс парағы: 1) Оқу алдында: тарау атауын сұрақ түрінде жазыңыз, не білетініңізді тізіңіз. 2) Оқу кезінде: әр бөлімге тақырып-сұрақ және 2-3 негізгі ой жазыңыз. 3) Оқудан кейін: кітапты жауып, 3 сөйлемді қорытынды жазыңыз. 4) Өзін-өзі тексеру: үйренген 3 нәрсені және әлі түсініксіз 1 нәрсені тізіңіз. 5) Қайталау: ертең қайта оралып, тақырып-сұрақтарға жадыдан жауап беруге тырысыңыз.",
             hint: "Include before, during, and after reading sections.",
             hintRu: "Включите секции до, во время и после чтения.",
             hintKk: "Оқу алдындағы, кезіндегі және кейінгі бөлімдерді қосыңыз.",
@@ -1079,7 +1207,9 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
               { en: "Take the first letter of each planet: M, V, E, M, J, S, U, N.", ru: "Возьмите первые буквы: М, В, З, М, Ю, С, У, Н.", kk: "Әр планетаның бірінші әрпін алыңыз: М, Ш, Ж, М, Ю, С, У, Н." },
               { en: "Create a sentence: 'My Very Excited Mother Just Served Us Nachos.' The sillier the sentence, the easier to remember.", ru: "Создайте предложение: «Мой Весёлый Зонтик Мчался Южным Светлым Утром Напрямик.» Чем смешнее, тем легче запомнить.", kk: "Сөйлем жасаңыз: «Менің Шынайы Жүрегім Маңайда Жүріп Сағынды Ұзақ Нұрды.» Неғұрлым күлкілі болса, соғұрлым оңай есте қалады." }
             ],
-            answer: "'My Very Excited Mother Just Served Us Nachos' — M(ercury), V(enus), E(arth), M(ars), J(upiter), S(aturn), U(ranus), N(eptune)."
+            answer: "'My Very Excited Mother Just Served Us Nachos' — M(ercury), V(enus), E(arth), M(ars), J(upiter), S(aturn), U(ranus), N(eptune).",
+            answerRu: "«Мой Весёлый Зонтик Мчался Южным Светлым Утром Напрямик» — М(еркурий), В(енера), З(емля), М(арс), Ю(питер), С(атурн), У(ран), Н(ептун).",
+            answerKk: "«Менің Шынайы Жүрегім Маңайда Жүріп Сағынды Ұзақ Нұрды» — М(еркурий), Ш(олпан), Ж(ер), М(арс), Ю(питер), С(атурн), У(ран), Н(ептун)."
           }
         ],
         practiceProblems: [
@@ -1089,6 +1219,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "Создайте мнемонику для Великих озёр: Гурон, Онтарио, Мичиган, Эри, Верхнее.",
             questionKk: "Ұлы көлдер үшін мнемоника жасаңыз: Гурон, Онтарио, Мичиган, Эри, Жоғарғы.",
             answer: "HOMES: Huron, Ontario, Michigan, Erie, Superior. The acronym spells a common word, making it easy to remember.",
+            answerRu: "HOMES: Huron, Ontario, Michigan, Erie, Superior. Аббревиатура складывается в обычное слово, поэтому её легко запомнить.",
+            answerKk: "HOMES: Huron, Ontario, Michigan, Erie, Superior. Аббревиатура жиі кездесетін сөзді құрайды, сондықтан оны есте сақтау оңай.",
             hint: "Try using the first letters to spell a word.",
             hintRu: "Попробуйте составить слово из первых букв.",
             hintKk: "Бірінші әріптерден сөз құрастырып көріңіз.",
@@ -1100,6 +1232,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "Используйте метод локусов для запоминания списка из 5 продуктов: молоко, хлеб, яблоки, курица, рис. Опишите мысленные образы.",
             questionKk: "5 азық-түлікті жаттау үшін орын әдісін қолданыңыз: сүт, нан, алма, тауық, күріш. Ойдағы бейнелерді сипаттаңыз.",
             answer: "Front door: a giant milk carton blocks the entrance. Hallway: bread loaves line the floor like stepping stones. Kitchen: apples are raining from the ceiling. Living room: a live chicken sits on the couch watching TV. Bedroom: the bed is filled with rice instead of blankets. The more absurd, the more memorable.",
+            answerRu: "Входная дверь: гигантский пакет молока загораживает вход. Коридор: батоны хлеба лежат на полу, как камни для перешагивания. Кухня: с потолка сыплются яблоки. Гостиная: живая курица сидит на диване и смотрит телевизор. Спальня: кровать засыпана рисом вместо одеял. Чем абсурднее, тем лучше запомнится.",
+            answerKk: "Кіреберіс есік: алып сүт қорабы кірер жолды бөгеп тұр. Дәліз: нан бөліктері еденде секіріп өтетін тастардай тізілген. Ас үй: төбеден алма жауып тұр. Қонақ бөлме: тірі тауық диванда отырып теледидар көріп тұр. Жатын бөлме: төсек көрпенің орнына күрішке толтырылған. Неғұрлым абсурд болса, соғұрлым есте қалады.",
             hint: "Walk through your house and place each item in a different room with a crazy image.",
             hintRu: "Пройдите по дому и поместите каждый продукт в отдельную комнату с безумным образом.",
             hintKk: "Үйіңізден өтіп, әр затты ерекше бейнемен бөлек бөлмеге орналастырыңыз.",
@@ -1111,6 +1245,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "Нужно запомнить первые 10 элементов: Водород, Гелий, Литий, Бериллий, Бор, Углерод, Азот, Кислород, Фтор, Неон. Создайте и акроним, и дворец памяти.",
             questionKk: "Алғашқы 10 элементті жаттау керек: Сутек, Гелий, Литий, Бериллий, Бор, Көміртек, Азот, Оттек, Фтор, Неон. Аббревиатура мен ес сарайын жасаңыз.",
             answer: "Acronym: 'Happy Henry Likes Beer But Could Not Obtain Four Nuts' (H, He, Li, Be, B, C, N, O, F, Ne). Memory palace: Front gate — a hydrogen balloon floats. Mailbox — filled with helium balloons. Door — a lithium battery taped to it. Hallway — berries (beryllium) on floor. Kitchen — boring (boron) empty room. Dining room — carbon charcoal on table. Bathroom — nitrogen fog everywhere. Bedroom — oxygen mask on pillow. Closet — fluorescent (fluorine) lights. Garage — neon signs flashing.",
+            answerRu: "Акроним: 'Happy Henry Likes Beer But Could Not Obtain Four Nuts' (H, He, Li, Be, B, C, N, O, F, Ne). Дворец памяти: входные ворота — парит водородный шарик. Почтовый ящик — наполнен гелиевыми шариками. Дверь — к ней приклеен литиевый аккумулятор. Коридор — ягоды (бериллий) на полу. Кухня — скучная (бор) пустая комната. Столовая — уголь (углерод) на столе. Ванная — везде азотный туман. Спальня — кислородная маска на подушке. Шкаф — люминесцентные (фтор) лампы. Гараж — мигающие неоновые вывески.",
+            answerKk: "Аббревиатура: 'Happy Henry Likes Beer But Could Not Obtain Four Nuts' (H, He, Li, Be, B, C, N, O, F, Ne). Ес сарайы: қақпа — сутек шары ұшып тұр. Пошта жәшігі — гелий шарларына толған. Есік — литий батареясы жапсырылған. Дәліз — еденде жидектер (бериллий). Ас үй — зеріктіретін (бор) бос бөлме. Ас бөлмесі — үстелде көміртек көмірі. Жуынатын бөлме — бәрі жерде азот тұманы. Жатын бөлме — жастықта оттегі маскасы. Шкаф — флуоресцентті (фтор) шамдар. Гараж — неон белгілер жыпылықтайды.",
             hint: "For the acronym, use the first letter of each element. For the memory palace, create vivid images in 10 locations.",
             hintRu: "Для акронима используйте первые буквы. Для дворца памяти создайте яркие образы в 10 местах.",
             hintKk: "Аббревиатура үшін бірінші әріптерді қолданыңыз. Ес сарайы үшін 10 орында жарқын бейнелер жасаңыз.",
@@ -1142,7 +1278,9 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
               { en: "Assign one topic to each person to become the 'expert' on. Each person studies their topic deeply before the meeting.", ru: "Назначьте каждому по теме. Каждый глубоко изучает свою тему перед встречей.", kk: "Әр адамға бір тақырып тағайындаңыз. Әркім кездесу алдында өз тақырыбын терең оқиды." },
               { en: "During the meeting: each expert teaches their topic for 15 minutes. Others ask questions. After all 4 presentations, quiz each other on all topics.", ru: "На встрече: каждый эксперт объясняет свою тему 15 минут. Остальные задают вопросы. После всех 4 презентаций — взаимный опрос.", kk: "Кездесу кезінде: әр сарапшы 15 минут тақырыбын түсіндіреді. Басқалар сұрақ қояды. 4 презентациядан кейін бір-бірін барлық тақырыптар бойынша тексереді." }
             ],
-            answer: "Each person becomes an expert on 1 topic, teaches it to the group (15 min each), then the group quizzes each other. Total: about 1.5 hours for full coverage."
+            answer: "Each person becomes an expert on 1 topic, teaches it to the group (15 min each), then the group quizzes each other. Total: about 1.5 hours for full coverage.",
+            answerRu: "Каждый становится экспертом по одной теме и объясняет её группе (по 15 минут), затем группа опрашивает друг друга. Итого: около 1,5 часов для полного охвата.",
+            answerKk: "Әр адам бір тақырыптың сарапшысы болып, оны топқа түсіндіреді (әрқайсысы 15 минут), содан кейін топ бір-бірін тексереді. Барлығы: толық қамту үшін шамамен 1,5 сағат."
           }
         ],
         practiceProblems: [
@@ -1152,6 +1290,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "Каков идеальный размер учебной группы и почему?",
             questionKk: "Оқу тобының идеалды көлемі қанша және неліктен?",
             answer: "3–4 people. Too few (2) limits perspectives, too many (5+) leads to distraction and unequal participation.",
+            answerRu: "3–4 человека. Слишком мало (2) ограничивает точки зрения, слишком много (5+) ведёт к отвлечениям и неравному участию.",
+            answerKk: "3–4 адам. Тым аз (2) көзқарастарды шектейді, тым көп (5+) алаңдауға және теңсіз қатысуға әкеледі.",
             hint: "Think about what happens when a group gets too big.",
             hintRu: "Подумайте, что происходит, когда группа становится слишком большой.",
             hintKk: "Топ тым үлкен болғанда не болатынын ойлаңыз.",
@@ -1163,6 +1303,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "Ваша учебная группа постоянно отвлекается и болтает на посторонние темы. Предложите два правила для поддержания фокуса.",
             questionKk: "Оқу тобыңыз тақырыптан ауытқып, бөгде нәрселер туралы сөйлеседі. Топты фокуста ұстау үшін екі ереже ұсыныңыз.",
             answer: "1) Write an agenda with specific topics and time limits before meeting. 2) Use a 'parking lot' — write off-topic ideas on a separate paper to discuss after study time is done.",
+            answerRu: "1) Составьте повестку с конкретными темами и лимитами времени до встречи. 2) Используйте «парковку» — записывайте посторонние идеи на отдельном листе, чтобы обсудить их после окончания учёбы.",
+            answerKk: "1) Кездесу алдында нақты тақырыптар мен уақыт шектеулері бар жоспар жазыңыз. 2) «Тұрақ» әдісін қолданыңыз — тақырыптан тыс идеяларды бөлек қағазға жазып, оқу уақыты біткеннен кейін талқылаңыз.",
             hint: "What keeps meetings on track in the adult world?",
             hintRu: "Что удерживает встречи в рамках в мире взрослых?",
             hintKk: "Ересектер әлемінде кездесулерді жоспарда не ұстайды?",
@@ -1174,6 +1316,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "Объясните, почему объяснение концепции другим эффективнее простого чтения. Свяжите с работой памяти.",
             questionKk: "Тұжырымдаманы біреуге түсіндіру неліктен жай оқудан тиімдірек екенін түсіндіріңіз. Мұны естің жұмысымен байланыстырыңыз.",
             answer: "Teaching requires you to: 1) Retrieve information from memory (active recall), 2) Organize it logically so others understand, 3) Identify and fill your own knowledge gaps when you cannot explain something. Reading is passive — your brain recognizes words but may not deeply process them. Teaching forces deep processing across multiple brain areas (language, logic, memory), creating stronger neural connections.",
+            answerRu: "Объяснение требует: 1) извлечь информацию из памяти (активное припоминание), 2) логически организовать её, чтобы другие поняли, 3) выявить и заполнить собственные пробелы в знаниях, когда вы не можете что-то объяснить. Чтение пассивно — мозг распознаёт слова, но может не обрабатывать их глубоко. Объяснение заставляет мозг глубоко обрабатывать информацию в нескольких областях (язык, логика, память), создавая более прочные нейронные связи.",
+            answerKk: "Түсіндіру мынаны талап етеді: 1) ақпаратты жадыдан еске түсіру (белсенді еске түсіру), 2) басқалар түсінуі үшін оны логикалық түрде ұйымдастыру, 3) бір нәрсені түсіндіре алмағанда өз біліміңіздегі олқылықтарды анықтап, толтыру. Оқу — пассивті: ми сөздерді таниды, бірақ оларды терең өңдемеуі мүмкін. Түсіндіру мидың бірнеше аймағында (тіл, логика, жады) терең өңдеуге мәжбүрлеп, күштірек нейрондық байланыстар түзеді.",
             hint: "What does your brain have to do differently when teaching vs. reading?",
             hintRu: "Что мозг делает по-другому при объяснении по сравнению с чтением?",
             hintKk: "Оқу мен түсіндіру кезінде миыңыз не басқаша жасайды?",
@@ -1205,7 +1349,9 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
               { en: "Create folders: School (with sub-folders for each subject), Personal, and Archive. Move each file to the correct folder.", ru: "Создайте папки: Школа (с подпапками по предметам), Личное и Архив. Переместите файлы в правильные папки.", kk: "Қалталар жасаңыз: Мектеп (әр пән үшін ішкі қалталармен), Жеке және Мұрағат. Файлдарды дұрыс қалталарға жылжытыңыз." },
               { en: "Rename files clearly: 'doc1' → 'Math_Homework_Ch3_Oct10', 'final final v2' → 'English_Essay_Final_Oct15'. Delete duplicates and truly unneeded files.", ru: "Переименуйте: «doc1» → «Математика_ДЗ_Гл3_10Окт», «final final v2» → «Англ_Сочинение_Финал_15Окт». Удалите дубликаты.", kk: "Атауларын өзгертіңіз: «doc1» → «Математика_ҮТ_Тар3_10Қаз», «final final v2» → «Ағылш_Эссе_Соңғы_15Қаз». Көшірмелерді жойыңыз." }
             ],
-            answer: "Create subject folders, rename files with Subject_Type_Topic_Date format, delete duplicates, and keep desktop clean."
+            answer: "Create subject folders, rename files with Subject_Type_Topic_Date format, delete duplicates, and keep desktop clean.",
+            answerRu: "Создайте папки по предметам, переименуйте файлы в формате Предмет_Тип_Тема_Дата, удалите дубликаты и поддерживайте рабочий стол чистым.",
+            answerKk: "Пәндер бойынша қалталар жасаңыз, файлдарды Пән_Түрі_Тақырып_Күн пішімінде қайта атаңыз, көшірмелерді жойыңыз және жұмыс үстелін таза ұстаңыз."
           }
         ],
         practiceProblems: [
@@ -1215,6 +1361,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "Какое имя файла лучше: «homework» или «Biology_Lab_Report_Oct20»? Почему?",
             questionKk: "Қай файл атауы жақсы: «homework» немесе «Biology_Lab_Report_Oct20»? Неліктен?",
             answer: "'Biology_Lab_Report_Oct20' is better because it tells you the subject, type of work, and date — you can find it instantly. 'homework' tells you nothing specific.",
+            answerRu: "«Biology_Lab_Report_Oct20» лучше, потому что указывает предмет, тип работы и дату — файл можно найти мгновенно. «homework» не говорит ничего конкретного.",
+            answerKk: "«Biology_Lab_Report_Oct20» жақсырақ, өйткені ол пәннің, жұмыс түрінің және күннің атын көрсетеді — файлды бірден табуға болады. «homework» ешқандай нақты ақпарат бермейді.",
             hint: "Which name helps you find the file three months later?",
             hintRu: "Какое имя поможет найти файл через три месяца?",
             hintKk: "Қай атау файлды үш айдан кейін табуға көмектеседі?",
@@ -1226,6 +1374,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "Разработайте структуру папок для ученика с 5 предметами. Включите минимум 2 уровня подпапок.",
             questionKk: "5 пәні бар оқушы үшін қалта құрылымын жасаңыз. Кемінде 2 деңгейлі ішкі қалталарды қосыңыз.",
             answer: "School/ → Math/ (Notes/, Homework/, Tests/), Science/ (Notes/, Labs/, Projects/), English/ (Notes/, Essays/, Reading/), History/ (Notes/, Assignments/), Art/ (Projects/, References/). Also: Archive/ for completed semesters and Personal/ for non-school files.",
+            answerRu: "School/ → Math/ (Notes/, Homework/, Tests/), Science/ (Notes/, Labs/, Projects/), English/ (Notes/, Essays/, Reading/), History/ (Notes/, Assignments/), Art/ (Projects/, References/). Плюс: Archive/ для завершённых семестров и Personal/ для внешкольных файлов.",
+            answerKk: "School/ → Math/ (Notes/, Homework/, Tests/), Science/ (Notes/, Labs/, Projects/), English/ (Notes/, Essays/, Reading/), History/ (Notes/, Assignments/), Art/ (Projects/, References/). Қосымша: аяқталған семестрлерге арналған Archive/ және мектепке қатысы жоқ файлдарға арналған Personal/.",
             hint: "Think of each subject as a main folder with sub-folders for different types of work.",
             hintRu: "Представьте каждый предмет как основную папку с подпапками для разных типов работ.",
             hintKk: "Әр пәнді әртүрлі жұмыс түрлері үшін ішкі қалталары бар негізгі қалта ретінде елестетіңіз.",
@@ -1237,6 +1387,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "Ученик потерял финальное сочинение из-за сбоя компьютера и отсутствия резервной копии. Создайте полную стратегию резервного копирования.",
             questionKk: "Оқушы компьютер бұзылып, сақтық көшірме болмағандықтан соңғы эссесін жоғалтты. Деректерді жоғалтудан қорғайтын толық сақтық көшірме стратегиясын жасаңыз.",
             answer: "3-2-1 rule: 3 copies of important files, on 2 different media, with 1 off-site. Practical: 1) Save to computer (local), 2) Auto-sync to cloud (Google Drive/OneDrive), 3) USB backup weekly. Also: turn on auto-save in all apps, and name versions clearly (v1, v2) instead of overwriting.",
+            answerRu: "Правило 3-2-1: 3 копии важных файлов, на 2 разных носителях, 1 вне дома. Практически: 1) сохранение на компьютере (локально), 2) автосинхронизация с облаком (Google Drive/OneDrive), 3) еженедельная резервная копия на USB. Также: включите автосохранение во всех приложениях и давайте версиям понятные имена (v1, v2) вместо перезаписи.",
+            answerKk: "3-2-1 ережесі: маңызды файлдардың 3 көшірмесі, 2 түрлі тасымалдағышта, 1 сыртта. Практикалық: 1) компьютерге сақтау (локальды), 2) бұлтқа автосинхрондау (Google Drive/OneDrive), 3) апта сайын USB сақтық көшірмесі. Қосымша: барлық қосымшада автосақтауды қосыңыз және нұсқаларға қайта жазудың орнына түсінікті атау беріңіз (v1, v2).",
             hint: "What if your computer breaks, gets stolen, or a file gets corrupted?",
             hintRu: "Что если компьютер сломается, украдут или файл повредится?",
             hintKk: "Компьютер бұзылса, ұрланса немесе файл зақымдалса не болады?",
@@ -1268,7 +1420,9 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
               { en: "Make it specific: What subject? How much more? By when? → 'Study math for 30 minutes every weekday after school.'", ru: "Сделайте конкретным: Какой предмет? Насколько больше? К какому сроку? → «Учить математику 30 минут каждый будний день после школы.»", kk: "Нақтылаңыз: Қай пән? Қаншаға көбірек? Қашанға дейін? → «Мектептен кейін әр жұмыс күні 30 минут математика оқу.»" },
               { en: "Add a measurable outcome: 'Raise my math test scores from 70% to 85% by December.' Now you can track progress.", ru: "Добавьте измеримый результат: «Поднять оценки по математике с 70% до 85% к декабрю.» Теперь можно отслеживать прогресс.", kk: "Өлшенетін нәтиже қосыңыз: «Желтоқсанға дейін математика тест бағасын 70%-дан 85%-ға көтеру.» Енді прогресті бақылай аласыз." }
             ],
-            answer: "'Study math for 30 minutes every weekday and raise test scores from 70% to 85% by December.' This is specific, measurable, and has a deadline."
+            answer: "'Study math for 30 minutes every weekday and raise test scores from 70% to 85% by December.' This is specific, measurable, and has a deadline.",
+            answerRu: "«Учить математику 30 минут каждый будний день и поднять результаты теста с 70% до 85% к декабрю.» Это конкретно, измеримо и имеет дедлайн.",
+            answerKk: "«Әр жұмыс күні 30 минут математика оқып, желтоқсанға дейін тест бағасын 70%-дан 85%-ға көтеру.» Бұл нақты, өлшенетін және мерзімі бар."
           }
         ],
         practiceProblems: [
@@ -1278,6 +1432,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "Почему «получить лучшие оценки» — слабая цель?",
             questionKk: "Неліктен «жақсы баға алу» әлсіз мақсат?",
             answer: "It is vague — it does not specify which subject, how much better, or by when. You cannot measure if you have achieved it.",
+            answerRu: "Она расплывчата — не указывает, какой предмет, насколько лучше и к какому сроку. Невозможно измерить, достигли вы её или нет.",
+            answerKk: "Ол анық емес — қай пән, қаншалықты жақсы және қашанға дейін екенін көрсетпейді. Оған жеткеніңізді өлшеу мүмкін емес.",
             hint: "Can you measure 'better'? Better than what?",
             hintRu: "Можно ли измерить «лучше»? Лучше чего?",
             hintKk: "«Жақсырақ» деп өлшей аласыз ба? Неден жақсырақ?",
@@ -1289,6 +1445,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "Превратите расплывчатую цель в конкретную: «Хочу читать больше книг в этом году».",
             questionKk: "Бұл анық емес мақсатты нақтыға айналдырыңыз: «Биыл көбірек кітап оқығым келеді».",
             answer: "Example: 'I will read 1 book per month (12 books total) by reading 20 pages every night before bed.' This specifies quantity, frequency, and method.",
+            answerRu: "Пример: «Я буду читать 1 книгу в месяц (12 книг за год), читая 20 страниц каждый вечер перед сном.» Здесь указаны количество, частота и способ.",
+            answerKk: "Мысал: «Күн сайын ұйықтар алдында 20 бет оқып, айына 1 кітап (жылына 12 кітап) оқимын.» Мұнда мөлшер, жиілік және тәсіл нақты көрсетілген.",
             hint: "How many books? How often? When will you read?",
             hintRu: "Сколько книг? Как часто? Когда будете читать?",
             hintKk: "Қанша кітап? Қаншалықты жиі? Қашан оқисыз?",
@@ -1300,6 +1458,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "Поставьте три академические цели на семестр: для сильного предмета, слабого и личного навыка. Каждая должна быть конкретной, измеримой и с дедлайном.",
             questionKk: "Осы семестрге үш академиялық мақсат қойыңыз: күшті пән, әлсіз пән және жеке дағды үшін. Әрқайсысы нақты, өлшенетін және мерзімді болуы керек.",
             answer: "Example: Strongest (Math): Maintain A average and complete all bonus problems by semester end. Weakest (English): Raise grade from C+ to B by writing one extra practice essay per week. Personal: Improve time management by using a planner every day for 60 consecutive days. Each has a clear target and deadline.",
+            answerRu: "Пример: Сильный (математика): поддерживать средний балл A и выполнить все бонусные задачи к концу семестра. Слабый (английский): поднять оценку с C+ до B за счёт одного дополнительного тренировочного эссе в неделю. Личный: улучшить тайм-менеджмент, пользуясь ежедневником каждый день 60 дней подряд. У каждой цели есть чёткий ориентир и дедлайн.",
+            answerKk: "Мысал: Күшті пән (математика): семестр соңына дейін A орташа бағасын ұстап, барлық бонустық есептерді орындау. Әлсіз пән (ағылшын): аптасына бір қосымша жаттығу эссесін жазып, бағаны C+-дан B-ға көтеру. Жеке: 60 күн қатарынан күн сайын жоспарлағыш қолданып, уақытты басқаруды жақсарту. Әрқайсысының нақты мақсаты мен мерзімі бар.",
             hint: "Use the format: 'I will [specific action] to achieve [measurable result] by [deadline].'",
             hintRu: "Формат: «Я буду [конкретное действие] для достижения [измеримого результата] к [дедлайну].»",
             hintKk: "Пішім: «Мен [нақты әрекет] жасаймын, [өлшенетін нәтижеге] [мерзімге] дейін жету үшін.»",
@@ -2012,6 +2172,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "Переведите в SMART: «Хочу читать больше книг в этом году.»",
             questionKk: "Бұл анық емес мақсатты SMART-қа айналдырыңыз: «Биыл көбірек кітап оқығым келеді.»",
             answer: "Example: 'I will read 1 book per month (12 books total) by reading 20 pages every night before bed.' This specifies quantity, frequency, and method.",
+            answerRu: "Пример: «Я буду читать 1 книгу в месяц (12 книг за год), читая 20 страниц каждый вечер перед сном.» Здесь указаны количество, частота и способ.",
+            answerKk: "Мысал: «Күн сайын ұйықтар алдында 20 бет оқып, айына 1 кітап (жылына 12 кітап) оқимын.» Мұнда мөлшер, жиілік және тәсіл нақты көрсетілген.",
             hint: "How many books? How often? When will you read?",
             hintRu: "Сколько книг? Как часто? Когда будете читать?",
             hintKk: "Қанша кітап? Қаншалықты жиі? Қашан оқисыз?",
@@ -2023,6 +2185,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
             questionRu: "Поставьте три академические цели на семестр: для сильного предмета, слабого и личного навыка. Каждая должна соответствовать SMART с метриками и дедлайнами.",
             questionKk: "Осы семестрге үш академиялық мақсат қойыңыз: күшті пән, әлсіз пән және жеке дағды үшін. Әрқайсысы метрикалары мен мерзімдері бар SMART форматында болуы керек.",
             answer: "Example: Strongest (Math): Maintain A average and complete all bonus problems by semester end. Weakest (English): Raise grade from C+ to B by writing one extra practice essay per week. Personal: Improve time management by using a planner every day for 60 consecutive days. Each has a clear target and deadline.",
+            answerRu: "Пример: Сильный (математика): поддерживать средний балл A и выполнить все бонусные задачи к концу семестра. Слабый (английский): поднять оценку с C+ до B за счёт одного дополнительного тренировочного эссе в неделю. Личный: улучшить тайм-менеджмент, пользуясь ежедневником каждый день 60 дней подряд. У каждой цели есть чёткий ориентир и дедлайн.",
+            answerKk: "Мысал: Күшті пән (математика): семестр соңына дейін A орташа бағасын ұстап, барлық бонустық есептерді орындау. Әлсіз пән (ағылшын): аптасына бір қосымша жаттығу эссесін жазып, бағаны C+-дан B-ға көтеру. Жеке: 60 күн қатарынан күн сайын жоспарлағыш қолданып, уақытты басқаруды жақсарту. Әрқайсысының нақты мақсаты мен мерзімі бар.",
             hint: "Use the format: 'I will [specific action] to achieve [measurable result] by [deadline].'",
             hintRu: "Формат: «Я буду [конкретное действие] для достижения [измеримого результата] к [дедлайну].»",
             hintKk: "Пішім: «Мен [нақты әрекет] жасаймын, [өлшенетін нәтижеге] [мерзімге] дейін жету үшін.»",

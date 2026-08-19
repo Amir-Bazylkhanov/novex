@@ -38,7 +38,9 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
               { en: "Calculate time per question: 90 ÷ 60 = 1.5 minutes per question.", ru: "Рассчитайте время на вопрос: 90 ÷ 60 = 1,5 минуты на вопрос.", kk: "Сұраққа уақытты есептеңіз: 90 ÷ 60 = 1,5 минут." },
               { en: "Since there is no penalty, if stuck for more than 1.5 minutes, make your best guess, mark it, and move on — return later if time allows.", ru: "Поскольку штрафа нет, если вы застряли более чем на 1,5 минуты, сделайте лучшую догадку, отметьте вопрос и двигайтесь дальше — вернитесь позже, если останется время.", kk: "Айыппұл болмағандықтан, 1,5 минуттан артық тұрып қалсаңыз, ең жақсы болжамыңызды жасап, белгілеп, әрі қарай жүріңіз — уақыт қалса қайтып оралыңыз." }
             ],
-            answer: "1.5 minutes per question. If stuck, guess and move on since there is no penalty."
+            answer: "1.5 minutes per question. If stuck, guess and move on since there is no penalty.",
+            answerRu: "1,5 минуты на вопрос. Если застряли, угадайте и идите дальше, так как штрафа нет.",
+            answerKk: "Әр сұраққа 1,5 минут. Тұрып қалсаңыз, айыппұл жоқ болғандықтан, болжап, әрі қарай жүріңіз."
           }
         ],
         practiceProblems: [
@@ -48,6 +50,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Тест содержит 40 вопросов и длится 60 минут. Сколько минут на вопрос у вас есть?",
             questionKk: "Тестте 40 сұрақ бар және 60 минутқа созылады. Әр сұраққа қанша минут бар?",
             answer: "1.5 minutes per question",
+            answerRu: "1,5 минуты на вопрос",
+            answerKk: "Әр сұраққа 1,5 минут",
             hint: "Divide total time by total questions.",
             hintRu: "Разделите общее время на количество вопросов.",
             hintKk: "Жалпы уақытты сұрақтар санына бөліңіз.",
@@ -59,6 +63,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Вы ответили правильно на 45 из 50 вопросов. Каждый правильный ответ стоит 2 балла, каждый неправильный теряет 0,5 балла. Каков ваш результат?",
             questionKk: "Сіз 50 сұрақтың 45-іне дұрыс жауап бердіңіз. Әр дұрыс жауап 2 ұпай, әр қате жауап 0,5 ұпай жоғалтады. Нәтижеңіз қандай?",
             answer: "87.5 points (45×2 − 5×0.5 = 90 − 2.5 = 87.5)",
+            answerRu: "87,5 балла (45×2 − 5×0,5 = 90 − 2,5 = 87,5)",
+            answerKk: "87,5 ұпай (45×2 − 5×0,5 = 90 − 2,5 = 87,5)",
             hint: "Calculate correct points first, then subtract the penalty for wrong answers.",
             hintRu: "Сначала рассчитайте баллы за правильные ответы, затем вычтите штраф за неправильные.",
             hintKk: "Алдымен дұрыс жауаптардың ұпайын есептеңіз, содан кейін қате жауаптардың айыппұлын алып тастаңыз.",
@@ -70,6 +76,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Тест содержит 80 вопросов за 100 минут. Вы потратили первые 20 минут на 10 сложных вопросов. Сколько времени на вопрос осталось для оставшихся 70? Хорошая ли это стратегия?",
             questionKk: "Тестте 100 минутта 80 сұрақ бар. Алғашқы 20 минутты 10 қиын сұраққа жұмсадыңыз. Қалған 70 сұраққа қанша уақыт қалды? Бұл жақсы стратегия ма?",
             answer: "80 ÷ 100 = 1.15 min/question remaining. No — spending 2 min each on hard questions first leaves only ~1.14 min for the rest, below the original 1.25 average. Skip hard questions and return later.",
+            answerRu: "80 ÷ 100 = 1,15 мин/вопрос осталось. Нет — если тратить по 2 мин на сложные вопросы сначала, на остальные останется лишь ~1,14 мин, что ниже исходного среднего 1,25. Пропустите сложные вопросы и вернитесь к ним позже.",
+            answerKk: "80 ÷ 100 = 1,15 мин/сұрақ қалды. Жоқ — қиын сұрақтардың әрқайсысына алдымен 2 минуттан жұмасаңыз, қалғандарына тек ~1,14 мин қалады, бұл бастапқы 1,25 орташа мәнінен төмен. Қиын сұрақтарды өткізіп жіберіп, кейін қайтып оралыңыз.",
             hint: "Compare the leftover pace to the original pace of 100÷80.",
             hintRu: "Сравните оставшийся темп с первоначальным темпом 100÷80.",
             hintKk: "Қалған қарқынды 100÷80 бастапқы қарқынмен салыстырыңыз.",
@@ -107,7 +115,9 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
               { en: "Identify the evidence: the fox's fur matches the seasonal environment color (brown earth in summer, white snow in winter).", ru: "Определите доказательство: мех песца совпадает с цветом сезонной среды (коричневая земля летом, белый снег зимой).", kk: "Дәлелді анықтаңыз: түлкінің жүні маусымдық орта түсіне сәйкес келеді (жазда қоңыр жер, қыста ақ қар)." },
               { en: "Apply background knowledge: animals that blend with their surroundings are using camouflage to hide from predators or sneak up on prey.", ru: "Примените фоновые знания: животные, сливающиеся с окружением, используют камуфляж для защиты от хищников или подкрадывания к добыче.", kk: "Негізгі білімді қолданыңыз: қоршаған ортамен сіңіп кететін жануарлар жыртқыштардан жасырыну немесе жемтікке жақындау үшін камуфляж қолданады." }
             ],
-            answer: "The fox changes fur color for camouflage — to blend with seasonal surroundings and avoid predators or catch prey."
+            answer: "The fox changes fur color for camouflage — to blend with seasonal surroundings and avoid predators or catch prey.",
+            answerRu: "Песец меняет цвет меха для камуфляжа — чтобы сливаться с сезонным окружением и избегать хищников или ловить добычу.",
+            answerKk: "Арктикалық түлкі жүнінің түсін камуфляж үшін өзгертеді — маусымдық ортаға сіңісіп, жыртқыштардан жасырыну немесе жемтігін аулау үшін."
           }
         ],
         practiceProblems: [
@@ -117,6 +127,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Какова главная мысль текста, описывающего, как пчёлы опыляют цветы, производят мёд и поддерживают рост урожая?",
             questionKk: "Аралардың гүлдерді тозаңдандыруын, бал шығаруын және егін өсуіне көмегін сипаттайтын мәтіннің негізгі ойы қандай?",
             answer: "Bees play a vital role in agriculture and the ecosystem.",
+            answerRu: "Пчёлы играют важнейшую роль в сельском хозяйстве и экосистеме.",
+            answerKk: "Аралар ауыл шаруашылығы мен экожүйеде өте маңызды рөл атқарады.",
             hint: "Look for the common thread connecting all three details.",
             hintRu: "Найдите общую нить, связывающую все три детали.",
             hintKk: "Үш мәліметті байланыстыратын ортақ жіпті табыңыз.",
@@ -128,6 +140,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "В тексте сказано: 'Несмотря на сильный дождь, концерт на открытом воздухе продолжился, и фанаты громко аплодировали.' Что можно сказать о фанатах?",
             questionKk: "Мәтінде: 'Қатты жаңбырға қарамастан, ашық аспан астындағы концерт жалғасты және жанкүйерлер қатты қошеметтеді' делінген. Жанкүйерлер туралы не тұжырымдауға болады?",
             answer: "The fans were very dedicated and passionate about the performer, since they stayed and cheered despite bad weather.",
+            answerRu: "Фанаты были очень преданы исполнителю, раз остались и громко аплодировали, несмотря на плохую погоду.",
+            answerKk: "Жанкүйерлер орындаушыға өте адал әрі ықыласты болды, өйткені олар нашар ауа-райына қарамастан қалып, қошемет көрсетті.",
             hint: "Think about what the fans' behavior in bad weather tells you about their feelings.",
             hintRu: "Подумайте, что поведение фанатов в плохую погоду говорит об их чувствах.",
             hintKk: "Нашар ауа-райындағы жанкүйерлердің мінез-құлқы олардың сезімдері туралы не айтатынын ойлаңыз.",
@@ -139,6 +153,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Прочитайте два утверждения: (1) 'Город А активно инвестировал в общественный транспорт 10 лет.' (2) 'В городе А на 40% меньше пробок, чем в городах аналогичного размера.' Какова связь между утверждениями?",
             questionKk: "Екі мәлімдемені оқыңыз: (1) 'А қаласы 10 жыл бойы қоғамдық көлікке көп қаржы салды.' (2) 'А қаласында ұқсас қалалардан 40% аз кептеліс бар.' Осы мәлімдемелер арасындағы байланыс қандай?",
             answer: "Cause and effect — the investment in public transit (cause) likely led to reduced traffic congestion (effect) as more people chose public transport over cars.",
+            answerRu: "Причина и следствие — инвестиции в общественный транспорт (причина), вероятно, привели к уменьшению пробок (следствие), поскольку больше людей стали выбирать общественный транспорт вместо автомобиля.",
+            answerKk: "Себеп пен салдар — қоғамдық көлікке салынған инвестиция (себеп) кептелістің азаюына (салдар) әкелген болуы мүмкін, өйткені көбірек адам жеке көлік орнына қоғамдық көлікті таңдады.",
             hint: "Ask yourself: could one statement explain the other?",
             hintRu: "Спросите себя: может ли одно утверждение объяснить другое?",
             hintKk: "Өзіңізден сұраңыз: бір мәлімдеме екіншісін түсіндіре ала ма?",
@@ -176,7 +192,9 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
               { en: "Use context clues: the teacher 'stayed after school every day to help struggling students' — this shows kindness and selflessness.", ru: "Используйте контекст: учитель 'оставался после школы каждый день, чтобы помочь отстающим ученикам' — это показывает доброту и бескорыстие.", kk: "Контекст белгілерін қолданыңыз: мұғалім 'күнде мектептен кейін қиналған оқушыларға көмектесу үшін қалды' — бұл мейірімділік пен өзімшілсіздікті көрсетеді." },
               { en: "Use word parts: 'bene-' means good or well (like 'benefit'), '-volent' relates to wishing (like 'voluntary'). Together: well-wishing, kind.", ru: "Используйте части слова: 'bene-' означает хороший (как 'benefit'), '-volent' связано с желанием (как 'voluntary'). Вместе: доброжелательный.", kk: "Сөз бөліктерін қолданыңыз: 'bene-' жақсы дегенді білдіреді ('benefit' сияқты), '-volent' тілек білдіруге байланысты ('voluntary' сияқты). Бірге: мейірімді." }
             ],
-            answer: "Benevolent means kind, generous, and well-meaning."
+            answer: "Benevolent means kind, generous, and well-meaning.",
+            answerRu: "Benevolent означает добрый, щедрый и благожелательный.",
+            answerKk: "Benevolent — мейірімді, жомарт және ниеті жақсы дегенді білдіреді."
           }
         ],
         practiceProblems: [
@@ -186,6 +204,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Что означает приставка 'un-' в словах 'unhappy', 'unkind' и 'unusual'?",
             questionKk: "'Unhappy', 'unkind' және 'unusual' сөздеріндегі 'un-' префиксі нені білдіреді?",
             answer: "'Un-' means 'not' — it reverses the meaning of the word (unhappy = not happy).",
+            answerRu: "'Un-' означает 'не' — приставка переворачивает значение слова (unhappy = несчастливый).",
+            answerKk: "'Un-' — 'емес' дегенді білдіреді: ол сөздің мағынасын керісіне өзгертеді (unhappy = бақытты емес).",
             hint: "Compare each word with and without 'un-'.",
             hintRu: "Сравните каждое слово с приставкой 'un-' и без неё.",
             hintKk: "Әр сөзді 'un-' бар және жоқ нұсқасымен салыстырыңыз.",
@@ -197,6 +217,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "В предложении 'Засушливая пустыня получает менее 25 см осадков в год,' что означает 'arid'? Какая контекстная подсказка помогает?",
             questionKk: "'Құрғақ шөл жылына 25 см-ден аз жауын-шашын алады' сөйлемінде 'arid' нені білдіреді? Қандай контекст белгісі көмектеседі?",
             answer: "Arid means very dry. The context clue is 'less than 25 cm of rain per year' combined with 'desert,' which both indicate dryness.",
+            answerRu: "Arid означает очень сухой. Контекстная подсказка — 'менее 25 см осадков в год' в сочетании со словом 'пустыня': оба указывают на сухость.",
+            answerKk: "Arid — өте құрғақ дегенді білдіреді. Контекст белгісі — 'жылына 25 см-ден аз жауын-шашын' тіркесінің 'шөл' сөзімен бірге келуі: екеуі де құрғақтықты білдіреді.",
             hint: "What kind of place gets very little rain?",
             hintRu: "Какое место получает очень мало дождей?",
             hintKk: "Қандай жер өте аз жаңбыр алады?",
@@ -208,6 +230,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Разберите слово 'autobiography' на части и объясните его значение. Затем назовите два других слова с корнем 'graph'.",
             questionKk: "'Autobiography' сөзін бөліктерге бөліп мағынасын түсіндіріңіз. Содан кейін 'graph' түбірі бар екі басқа сөз айтыңыз.",
             answer: "Auto (self) + bio (life) + graph (write) = a self-written life story. Other words: biography (life writing by someone else), geography (earth writing/mapping).",
+            answerRu: "Auto (сам) + bio (жизнь) + graph (писать) = история жизни, написанная самим собой. Другие слова: biography (описание жизни другим человеком), geography (описание/карта Земли).",
+            answerKk: "Auto (өзі) + bio (өмір) + graph (жазу) = өз жазған өмірбаяны. Басқа сөздер: biography (өмірді біреудің жазуы), geography (жерді сипаттау/картасын жасау).",
             hint: "Think about what 'auto' means (self), 'bio' means (life), and 'graph' means (write).",
             hintRu: "Подумайте, что означает 'auto' (сам), 'bio' (жизнь) и 'graph' (писать).",
             hintKk: "'Auto' (өзі), 'bio' (өмір) және 'graph' (жазу) нені білдіретінін ойлаңыз.",
@@ -245,7 +269,9 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
               { en: "Identify the formula: Distance = Speed × Time.", ru: "Определите формулу: Расстояние = Скорость × Время.", kk: "Формуланы анықтаңыз: Қашықтық = Жылдамдық × Уақыт." },
               { en: "Substitute values: Distance = 80 × 2.5 = 200 km.", ru: "Подставьте значения: Расстояние = 80 × 2,5 = 200 км.", kk: "Мәндерді қойыңыз: Қашықтық = 80 × 2,5 = 200 км." }
             ],
-            answer: "200 km"
+            answer: "200 km",
+            answerRu: "200 км",
+            answerKk: "200 км"
           }
         ],
         practiceProblems: [
@@ -255,6 +281,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Книга стоит 12 долларов. Вы покупаете 3 экземпляра. Сколько вы потратите?",
             questionKk: "Кітап 12 доллар тұрады. Сіз 3 дана сатып аласыз. Барлығы қанша жұмсайсыз?",
             answer: "$36 (12 × 3 = 36)",
+            answerRu: "$36 (12 × 3 = 36)",
+            answerKk: "$36 (12 × 3 = 36)",
             hint: "Multiply the price by the number of copies.",
             hintRu: "Умножьте цену на количество экземпляров.",
             hintKk: "Бағаны дана санына көбейтіңіз.",
@@ -266,6 +294,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Два велосипедиста стартуют из одной точки в противоположных направлениях. Один едет со скоростью 15 км/ч, другой — 20 км/ч. Какое расстояние между ними через 3 часа?",
             questionKk: "Екі велосипедші бір нүктеден қарама-қарсы бағытта жүреді. Бірі 15 км/сағ, екіншісі 20 км/сағ жылдамдықпен жүреді. 3 сағаттан кейін олардың арасы қандай?",
             answer: "105 km ((15 + 20) × 3 = 105)",
+            answerRu: "105 км ((15 + 20) × 3 = 105)",
+            answerKk: "105 км ((15 + 20) × 3 = 105)",
             hint: "When moving in opposite directions, add their speeds together.",
             hintRu: "При движении в противоположных направлениях сложите их скорости.",
             hintKk: "Қарама-қарсы бағытта қозғалғанда жылдамдықтарын қосыңыз.",
@@ -277,6 +307,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Магазин продаёт рубашки по 25 долларов и предлагает акцию «купи 3, получи 1 бесплатно». Сколько вы заплатите за 7 рубашек?",
             questionKk: "Дүкен көйлектерді 25 доллардан сатады және '3 сатып ал, 1 тегін ал' акциясын ұсынады. 7 көйлекке қанша төлейсіз?",
             answer: "$150. For every 4 shirts you pay for 3. 7 shirts = 1 group of 4 (pay for 3) + 3 more = 6 paid × $25 = $150.",
+            answerRu: "$150. За каждые 4 рубашки вы платите за 3. 7 рубашек = 1 группа из 4 (платите за 3) + ещё 3 = 6 оплаченных × $25 = $150.",
+            answerKk: "$150. Әр 4 көйлек үшін 3-еуіне төлейсіз. 7 көйлек = 4 көйлектен 1 топ (3-еуіне төлейсіз) + тағы 3 = 6 төленген × $25 = $150.",
             hint: "Figure out how many free shirts you get with 7 total.",
             hintRu: "Определите, сколько бесплатных рубашек вы получите при покупке 7.",
             hintKk: "7 көйлекпен қанша тегін көйлек алатыныңызды анықтаңыз.",
@@ -314,7 +346,9 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
               { en: "Calculate average: (200 + 350 + 300 + 450) ÷ 4 = 1300 ÷ 4 = 325.", ru: "Рассчитайте среднее: (200 + 350 + 300 + 450) ÷ 4 = 1300 ÷ 4 = 325.", kk: "Орташаны есептеңіз: (200 + 350 + 300 + 450) ÷ 4 = 1300 ÷ 4 = 325." },
               { en: "Find biggest increase: Jan→Feb = +150, Feb→Mar = −50, Mar→Apr = +150. Jan→Feb and Mar→Apr are tied at +150.", ru: "Найдите наибольший рост: Янв→Фев = +150, Фев→Мар = −50, Мар→Апр = +150. Янв→Фев и Мар→Апр одинаковы (+150).", kk: "Ең үлкен өсімді табыңыз: Қаңт→Ақп = +150, Ақп→Нау = −50, Нау→Сәу = +150. Қаңт→Ақп және Нау→Сәу тең (+150)." }
             ],
-            answer: "Average = 325 units. Biggest increase = +150, occurring Jan→Feb and Mar→Apr."
+            answer: "Average = 325 units. Biggest increase = +150, occurring Jan→Feb and Mar→Apr.",
+            answerRu: "Среднее = 325 единиц. Наибольший рост = +150, в Янв→Фев и Мар→Апр.",
+            answerKk: "Орташа = 325 бірлік. Ең үлкен өсім = +150, Қаңт→Ақп және Нау→Сәу айларында."
           }
         ],
         practiceProblems: [
@@ -324,6 +358,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Найдите среднее значение этих баллов: 85, 90, 78, 92, 80.",
             questionKk: "Мына баллдардың орташасын табыңыз: 85, 90, 78, 92, 80.",
             answer: "85 (sum = 425, divided by 5 = 85)",
+            answerRu: "85 (сумма = 425, разделить на 5 = 85)",
+            answerKk: "85 (қосынды = 425, 5-ке бөлу = 85)",
             hint: "Add all scores together, then divide by 5.",
             hintRu: "Сложите все баллы, затем разделите на 5.",
             hintKk: "Барлық баллдарды қосыңыз, содан кейін 5-ке бөліңіз.",
@@ -335,6 +371,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Круговая диаграмма показывает членство в кружках: Спорт 40%, Музыка 25%, Искусство 20%, Наука 15%. Если в кружках 200 учеников, сколько в Спорте и на сколько Музыка больше Науки?",
             questionKk: "Дөңгелек диаграмма үйірме мүшелігін көрсетеді: Спорт 40%, Музыка 25%, Өнер 20%, Ғылым 15%. Үйірмелерде 200 оқушы болса, Спортта қанша және Музыка Ғылымнан қаншаға көп?",
             answer: "Sports = 80 (40% of 200). Music − Science = 50 − 30 = 20 more students in Music.",
+            answerRu: "Спорт = 80 (40% от 200). Музыка − Наука = 50 − 30 = в Музыке на 20 учеников больше.",
+            answerKk: "Спорт = 80 (200-дің 40%-ы). Музыка − Ғылым = 50 − 30 = Музыкада 20 оқушы көп.",
             hint: "Convert each percentage to a number by multiplying by 200 and dividing by 100.",
             hintRu: "Переведите каждый процент в число, умножив на 200 и разделив на 100.",
             hintKk: "Әр пайызды санға айналдырыңыз: 200-ге көбейтіп, 100-ге бөліңіз.",
@@ -346,6 +384,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Линейный график показывает температуру за 5 дней: Пн=18°C, Вт=22°C, Ср=20°C, Чт=25°C, Пт=15°C. Каков размах и между какими днями было наибольшее падение?",
             questionKk: "Сызықтық график 5 күн температурасын көрсетеді: Дс=18°C, Сс=22°C, Ср=20°C, Бс=25°C, Жм=15°C. Ауқым қандай және қай екі күн арасында ең үлкен төмендеу болды?",
             answer: "Range = 25 − 15 = 10°C. Biggest drop = Thu→Fri (25 − 15 = 10°C drop).",
+            answerRu: "Размах = 25 − 15 = 10°C. Наибольшее падение = Чт→Пт (падение на 25 − 15 = 10°C).",
+            answerKk: "Ауқым = 25 − 15 = 10°C. Ең үлкен төмендеу = Бс→Жм (25 − 15 = 10°C төмендеу).",
             hint: "Range = highest value minus lowest value. Check each day-to-day change.",
             hintRu: "Размах = наибольшее значение минус наименьшее. Проверьте изменение между каждыми днями.",
             hintKk: "Ауқым = ең жоғары мән минус ең төменгі. Әр күндік өзгерісті тексеріңіз.",
@@ -383,7 +423,9 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
               { en: "Identify the subject: 'group' is the subject (singular), not 'students' (which is part of the prepositional phrase 'of students').", ru: "Определите подлежащее: 'group' — подлежащее (единственное число), а не 'students' (часть предложного оборота 'of students').", kk: "Бастауышты анықтаңыз: 'group' — бастауыш (жекеше), 'students' емес (ол 'of students' предложды тіркесінің бөлігі)." },
               { en: "Apply subject-verb agreement: singular subject 'group' requires singular verb 'is'. Answer is (B).", ru: "Примените согласование: единственное подлежащее 'group' требует глагол 'is'. Ответ — (B).", kk: "Бастауыш-баяндауыш сәйкестігін қолданыңыз: жекеше бастауыш 'group' жекеше 'is' етістігін талап етеді. Жауап — (B)." }
             ],
-            answer: "(B) 'The group of students is ready.' — 'group' is singular."
+            answer: "(B) 'The group of students is ready.' — 'group' is singular.",
+            answerRu: "(B) 'The group of students is ready.' — 'group' в единственном числе.",
+            answerKk: "(B) 'The group of students is ready.' — 'group' жекеше түрде."
           }
         ],
         practiceProblems: [
@@ -393,6 +435,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Выберите правильный глагол: 'She (run/runs) every morning.'",
             questionKk: "Дұрыс етістікті таңдаңыз: 'She (run/runs) every morning.'",
             answer: "'runs' — singular subject 'She' requires singular verb 'runs'.",
+            answerRu: "'runs' — подлежащее 'She' в единственном числе требует глагол 'runs' в единственном числе.",
+            answerKk: "'runs' — жекеше 'She' бастауышы жекеше 'runs' етістігін талап етеді.",
             hint: "'She' is a singular subject. What form of the verb matches?",
             hintRu: "'She' — единственное число. Какая форма глагола подходит?",
             hintKk: "'She' — жекеше. Қай етістік формасы сәйкес?",
@@ -404,6 +448,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Исправьте предложение: 'Me and him went to the store yesterday and buyed some groceries.'",
             questionKk: "Осы сөйлемді түзетіңіз: 'Me and him went to the store yesterday and buyed some groceries.'",
             answer: "'He and I went to the store yesterday and bought some groceries.' (subject pronouns + correct past tense of 'buy')",
+            answerRu: "'He and I went to the store yesterday and bought some groceries.' (местоимения в именительном падеже + правильное прошедшее время глагола 'buy')",
+            answerKk: "'He and I went to the store yesterday and bought some groceries.' (бастауыш есімдіктері + 'buy' етістігінің дұрыс өткен шағы)",
             hint: "Fix the pronoun case (subject position) and the irregular past tense.",
             hintRu: "Исправьте падеж местоимений (позиция подлежащего) и неправильное прошедшее время.",
             hintKk: "Есімдіктің септігін (бастауыш орны) және дұрыс емес өткен шақты түзетіңіз.",
@@ -415,6 +461,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Поставьте запятые: 'After finishing her homework Sarah who is an excellent student went to the library to study for the math science and history exams.'",
             questionKk: "Үтірлерді қойыңыз: 'After finishing her homework Sarah who is an excellent student went to the library to study for the math science and history exams.'",
             answer: "'After finishing her homework, Sarah, who is an excellent student, went to the library to study for the math, science, and history exams.' (introductory phrase + appositive clause + list commas)",
+            answerRu: "'After finishing her homework, Sarah, who is an excellent student, went to the library to study for the math, science, and history exams.' (вводная фраза + вводное придаточное + запятые при перечислении)",
+            answerKk: "'After finishing her homework, Sarah, who is an excellent student, went to the library to study for the math, science, and history exams.' (кіріспе сөз тіркесі + қосымша сөйлемше + тізім үтірлері)",
             hint: "Look for an introductory phrase, a non-essential clause, and a list of three items.",
             hintRu: "Ищите вводную фразу, вводное придаточное предложение и список из трёх элементов.",
             hintKk: "Кіріспе сөз тіркесін, қосымша сөйлемшені және үш элементтен тұратын тізімді іздеңіз.",
@@ -446,7 +494,9 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
               { en: "Weight by difficulty: easy ~1 min each (20 min), medium ~2 min each (30 min), hard ~2 min each (10 min) = 60 min total.", ru: "Взвешивайте по сложности: лёгкие ~1 мин (20 мин), средние ~2 мин (30 мин), сложные ~2 мин (10 мин) = 60 мин.", kk: "Қиындық бойынша бөліңіз: оңай ~1 мин (20 мин), орташа ~2 мин (30 мин), қиын ~2 мин (10 мин) = 60 мин." },
               { en: "Apply two-pass: First pass — complete Section A and attempt all of B (~50 min). Second pass — tackle C and review flagged B questions (~10 min).", ru: "Два прохода: первый — раздел A и весь B (~50 мин). Второй — раздел C и проверка отмеченных вопросов B (~10 мин).", kk: "Екі өту: бірінші — A бөлімі мен B-нің барлығы (~50 мин). Екінші — C бөлімі мен белгіленген B сұрақтарын тексеру (~10 мин)." }
             ],
-            answer: "Section A: ~20 min, Section B: ~30 min, Section C: ~10 min. Do easy questions first."
+            answer: "Section A: ~20 min, Section B: ~30 min, Section C: ~10 min. Do easy questions first.",
+            answerRu: "Раздел A: ~20 мин, Раздел B: ~30 мин, Раздел C: ~10 мин. Сначала отвечайте на лёгкие вопросы.",
+            answerKk: "A бөлімі: ~20 мин, B бөлімі: ~30 мин, C бөлімі: ~10 мин. Алдымен оңай сұрақтарды орындаңыз."
           }
         ],
         practiceProblems: [
@@ -456,6 +506,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "У вас 45 минут на 30 вопросов. Сколько минут на вопрос?",
             questionKk: "30 сұраққа 45 минутыңыз бар. Әр сұраққа қанша минут бар?",
             answer: "1.5 minutes per question (45 ÷ 30 = 1.5)",
+            answerRu: "1,5 минуты на вопрос (45 ÷ 30 = 1,5)",
+            answerKk: "Әр сұраққа 1,5 минут (45 ÷ 30 = 1,5)",
             hint: "Divide total time by total questions.",
             hintRu: "Разделите общее время на количество вопросов.",
             hintKk: "Жалпы уақытты сұрақтар санына бөліңіз.",
@@ -467,6 +519,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "В 90-минутном тесте вы потратили 35 минут на первый раздел из 25 вопросов. Осталось 35 вопросов. Каков ваш новый темп и отстаёте ли вы?",
             questionKk: "90 минуттық тестте бірінші бөлімнің 25 сұрағына 35 минут жұмсадыңыз. 35 сұрақ қалды. Жаңа қарқыныңыз қандай және кешіктіңіз бе?",
             answer: "Original pace: 90÷60 = 1.5 min/q. New pace: 55÷35 ≈ 1.57 min/q — slightly behind but manageable if you use the two-pass strategy.",
+            answerRu: "Исходный темп: 90÷60 = 1,5 мин/вопрос. Новый темп: 55÷35 ≈ 1,57 мин/вопрос — небольшое отставание, но выполнимо при стратегии двух проходов.",
+            answerKk: "Бастапқы қарқын: 90÷60 = 1,5 мин/сұрақ. Жаңа қарқын: 55÷35 ≈ 1,57 мин/сұрақ — сәл кешігуде, бірақ екі өту стратегиясын қолдансаңыз, басқаруға болады.",
             hint: "Calculate your remaining time and divide by remaining questions.",
             hintRu: "Рассчитайте оставшееся время и разделите на оставшиеся вопросы.",
             hintKk: "Қалған уақытты есептеп, қалған сұрақтарға бөліңіз.",
@@ -478,6 +532,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Тест состоит из 4 разделов по 25 баллов (100 всего) за 120 минут. Раздел 1: 10 лёгких, Раздел 2: 8 средних, Раздел 3: 5 сложных, Раздел 4: 1 эссе. Составьте план распределения времени.",
             questionKk: "Тестте 120 минутта әрқайсысы 25 ұпай 4 бөлім (барлығы 100) бар. 1-бөлім: 10 оңай, 2-бөлім: 8 орташа, 3-бөлім: 5 қиын, 4-бөлім: 1 эссе. Уақыт бөлу жоспарын жасаңыз.",
             answer: "Section 1: ~20 min (2 min/q), Section 2: ~30 min (3.75 min/q), Section 3: ~30 min (6 min/q), Section 4: ~35 min for the essay, 5 min review. Allocate more time to harder/higher-value sections.",
+            answerRu: "Раздел 1: ~20 мин (2 мин/вопрос), Раздел 2: ~30 мин (3,75 мин/вопрос), Раздел 3: ~30 мин (6 мин/вопрос), Раздел 4: ~35 мин на эссе, 5 мин на проверку. Выделяйте больше времени на более сложные и более ценные разделы.",
+            answerKk: "1-бөлім: ~20 мин (2 мин/сұрақ), 2-бөлім: ~30 мин (3,75 мин/сұрақ), 3-бөлім: ~30 мин (6 мин/сұрақ), 4-бөлім: эссеге ~35 мин, тексеруге 5 мин. Қиынырақ/құндырақ бөлімдерге көбірек уақыт бөліңіз.",
             hint: "Each section is worth the same points, but harder sections need more time per question.",
             hintRu: "Каждый раздел стоит одинаково, но сложные разделы требуют больше времени на вопрос.",
             hintKk: "Әр бөлім бірдей ұпай береді, бірақ қиын бөлімдер сұраққа көбірек уақыт қажет.",
@@ -509,7 +565,9 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
               { en: "Calculate probability: 4 choices − 2 eliminated = 2 remaining. Probability = 1/2 = 50%.", ru: "Рассчитайте вероятность: 4 варианта − 2 исключены = 2 осталось. Вероятность = 1/2 = 50%.", kk: "Ықтималдықты есептеңіз: 4 нұсқа − 2 жойылды = 2 қалды. Ықтималдық = 1/2 = 50%." },
               { en: "Decision: 50% is much better than random guessing (25%). Always guess when you can eliminate at least one option.", ru: "Решение: 50% гораздо лучше случайного угадывания (25%). Всегда угадывайте, если можете исключить хотя бы один вариант.", kk: "Шешім: 50% кездейсоқ болжаудан (25%) әлдеқайда жақсы. Кем дегенде бір нұсқаны жоя алсаңыз, әрқашан болжаңыз." }
             ],
-            answer: "50% chance — yes, always guess after eliminating options."
+            answer: "50% chance — yes, always guess after eliminating options.",
+            answerRu: "Шанс 50% — да, всегда угадывайте после исключения вариантов.",
+            answerKk: "50% ықтималдық — иә, нұсқаларды жойғаннан кейін әрқашан болжаңыз."
           }
         ],
         practiceProblems: [
@@ -519,6 +577,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Вопрос имеет 5 вариантов ответа без штрафа за угадывание. Какова вероятность случайного угадывания?",
             questionKk: "Сұрақтың 5 жауап нұсқасы бар, болжау үшін айыппұл жоқ. Кездейсоқ дұрыс болжау ықтималдығы қандай?",
             answer: "1/5 = 20%",
+            answerRu: "1/5 = 20%",
+            answerKk: "1/5 = 20%",
             hint: "Divide 1 by the number of choices.",
             hintRu: "Разделите 1 на количество вариантов.",
             hintKk: "1-ді нұсқалар санына бөліңіз.",
@@ -530,6 +590,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Какой ответ скорее всего НЕПРАВИЛЬНЫЙ и почему? (A) 'Растения всегда нуждаются в солнечном свете.' (B) 'Большинство растений нуждаются в свете для фотосинтеза.' (C) 'Солнечный свет — один из факторов роста растений.'",
             questionKk: "Қай жауап ҚАТЕ болуы ықтимал және неліктен? (A) 'Өсімдіктер әрқашан күн сәулесін қажет етеді.' (B) 'Көптеген өсімдіктер фотосинтез үшін күн сәулесін қажет етеді.' (C) 'Күн сәулесі өсімдік өсуінің бір факторы.'",
             answer: "(A) is likely incorrect because of the extreme word 'always' — some plants grow without direct sunlight (e.g., mushrooms, deep-sea organisms).",
+            answerRu: "(A), вероятно, неверен из-за крайнего слова 'always' — некоторые растения растут без прямого солнечного света (например, грибы, глубоководные организмы).",
+            answerKk: "(A) 'always' шеткі сөзіне байланысты қате болуы ықтимал — кейбір өсімдіктер тіке күн сәулесінсіз өседі (мысалы, саңырауқұлақтар, терең теңіз организмдері).",
             hint: "Look for extreme words like 'always,' 'never,' or 'all.'",
             hintRu: "Ищите крайние слова вроде 'всегда', 'никогда' или 'все'.",
             hintKk: "'Әрқашан', 'ешқашан' немесе 'барлық' сияқты шеткі сөздерді іздеңіз.",
@@ -541,6 +603,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "В тесте из 50 вопросов с 4 вариантами и штрафом -0.25 за ошибку вы можете исключить 1 вариант в 10 вопросах и 2 варианта в 5 вопросах. Стоит ли угадывать? Рассчитайте ожидаемую выгоду/потерю.",
             questionKk: "50 сұрақты тестте 4 нұсқа және қате үшін -0.25 айыппұл бар. 10 сұрақта 1, 5 сұрақта 2 нұсқаны жоя аласыз. Болжау керек пе? Күтілетін пайда/шығынды есептеңіз.",
             answer: "Eliminate 1 (3 choices left): Expected = 10 × (1/3 × 1 + 2/3 × −0.25) = 10 × 0.167 = +1.67. Eliminate 2 (2 left): Expected = 5 × (1/2 × 1 + 1/2 × −0.25) = 5 × 0.375 = +1.875. Total expected gain: +3.54 points. Yes, guess on all of them.",
+            answerRu: "Исключить 1 (осталось 3 варианта): Ожидание = 10 × (1/3 × 1 + 2/3 × −0,25) = 10 × 0,167 = +1,67. Исключить 2 (осталось 2): Ожидание = 5 × (1/2 × 1 + 1/2 × −0,25) = 5 × 0,375 = +1,875. Общая ожидаемая выгода: +3,54 балла. Да, угадывайте во всех.",
+            answerKk: "1-ін жою (3 нұсқа қалды): Күтілетін мән = 10 × (1/3 × 1 + 2/3 × −0,25) = 10 × 0,167 = +1,67. 2-ін жою (2 нұсқа қалды): Күтілетін мән = 5 × (1/2 × 1 + 1/2 × −0,25) = 5 × 0,375 = +1,875. Жалпы күтілетін пайда: +3,54 ұпай. Иә, барлығында болжаңыз.",
             hint: "Expected value = probability of correct × points gained + probability of wrong × penalty.",
             hintRu: "Ожидаемое значение = вероятность правильного × баллы + вероятность ошибки × штраф.",
             hintKk: "Күтілетін мән = дұрыс ықтималдығы × ұпай + қате ықтималдығы × айыппұл.",
@@ -578,7 +642,9 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
               { en: "Combine the three choppy sentences into one strong topic sentence that states the main idea clearly.", ru: "Объедините три рубленых предложения в одно сильное тематическое предложение, чётко излагающее главную мысль.", kk: "Үш қысқа сөйлемді басты ойды анық білдіретін бір күшті тақырыптық сөйлемге біріктіріңіз." },
               { en: "Add specificity: name types of pollution to give the reader a preview of what the paragraph will cover.", ru: "Добавьте конкретику: назовите виды загрязнения, чтобы дать читателю представление о содержании абзаца.", kk: "Нақтылық қосыңыз: абзац нені қамтитынын алдын ала көрсету үшін ластану түрлерін атаңыз." }
             ],
-            answer: "'Pollution, including air, water, and soil contamination, poses one of the most serious threats to our environment and public health.'"
+            answer: "'Pollution, including air, water, and soil contamination, poses one of the most serious threats to our environment and public health.'",
+            answerRu: "'Загрязнение, включая загрязнение воздуха, воды и почвы, представляет одну из самых серьёзных угроз для окружающей среды и здоровья людей.'",
+            answerKk: "'Ауаның, судың және топырақтың ластануын қамтитын ластану қоршаған орта мен қоғам денсаулығына төнетін ең қауіпті қатерлердің бірі.'"
           }
         ],
         practiceProblems: [
@@ -588,6 +654,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Напишите вступительное предложение для абзаца о пользе чтения книг.",
             questionKk: "Кітап оқудың пайдасы туралы абзацқа тақырыптық сөйлем жазыңыз.",
             answer: "Example: 'Reading books regularly improves vocabulary, stimulates imagination, and builds critical thinking skills.'",
+            answerRu: "Пример: 'Регулярное чтение книг расширяет словарный запас, стимулирует воображение и развивает навыки критического мышления.'",
+            answerKk: "Мысал: 'Кітапты тұрақты оқу сөздік қорды кеңейтеді, қиялды ынталандырады және сыни ойлау дағдыларын қалыптастырады.'",
             hint: "Mention the topic (reading) and preview 2-3 specific benefits.",
             hintRu: "Упомяните тему (чтение) и обозначьте 2-3 конкретные пользы.",
             hintKk: "Тақырыпты (оқу) атап, 2-3 нақты пайдасын көрсетіңіз.",
@@ -599,6 +667,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Соедините два предложения с помощью переходного слова: 'Упражнения улучшают физическое здоровье.' 'Упражнения укрепляют ментальное здоровье и снижают стресс.'",
             questionKk: "Екі сөйлемді сәйкес байланыстырғыш сөзбен қосыңыз: 'Жаттығу дене денсаулығын жақсартады.' 'Жаттығу психикалық саулықты күшейтеді және стрессті азайтады.'",
             answer: "'Exercise improves physical health. Furthermore, it boosts mental well-being and reduces stress.' (or 'In addition,' / 'Moreover,')",
+            answerRu: "'Упражнения улучшают физическое здоровье. Кроме того, они укрепляют психическое благополучие и снижают стресс.' (или 'In addition,' / 'Moreover,')",
+            answerKk: "'Жаттығу дене денсаулығын жақсартады. Сонымен қатар, ол психикалық саулықты күшейтеді және стрессті азайтады.' (немесе 'In addition,' / 'Moreover,')",
             hint: "The second sentence adds information to the first — use an addition transition.",
             hintRu: "Второе предложение дополняет первое — используйте связку добавления.",
             hintKk: "Екінші сөйлем біріншіні толықтырады — қосу байланыстырғышын қолданыңыз.",
@@ -610,6 +680,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Напишите полный абзац из 4 предложений о том, почему ученики должны учить второй язык. Включите тематическое предложение, два подтверждающих довода с переходами и заключение.",
             questionKk: "Оқушылардың неліктен екінші тілді үйренуі керектігі туралы 4 сөйлемді толық абзац жазыңыз. Тақырыптық сөйлем, байланыстырғыштары бар екі қосымша дәлел және қорытынды сөйлем қосыңыз.",
             answer: "Example: 'Learning a second language opens doors to new cultures and career opportunities. First, bilingual individuals can communicate with a wider range of people, deepening cross-cultural understanding. Moreover, studies show that speaking two languages improves cognitive skills like memory and problem-solving. Therefore, every student should embrace the challenge of learning a new language.'",
+            answerRu: "Пример: 'Изучение второго языка открывает двери к новым культурам и карьерным возможностям. Во-первых, двуязычные люди могут общаться с более широким кругом людей, углубляя межкультурное понимание. Кроме того, исследования показывают, что владение двумя языками улучшает когнитивные навыки, такие как память и решение задач. Поэтому каждый ученик должен принять вызов изучения нового языка.'",
+            answerKk: "Мысал: 'Екінші тілді үйрену жаңа мәдениеттер мен мансап мүмкіндіктеріне жол ашады. Біріншіден, қос тілді адамдар көбірек адаммен тілдесе алып, мәдениетаралық түсіністікті тереңдетеді. Сонымен қатар, зерттеулер екі тілде сөйлеу жад пен есеп шығару сияқты когнитивті дағдыларды жақсартатынын көрсетеді. Сондықтан әр оқушы жаңа тіл үйрену сынағын қабылдауы керек.'",
             hint: "Follow the structure: Topic → Detail 1 (First,...) → Detail 2 (Moreover,...) → Conclusion (Therefore,...).",
             hintRu: "Следуйте структуре: Тема → Довод 1 (Во-первых,...) → Довод 2 (Кроме того,...) → Заключение (Поэтому,...).",
             hintKk: "Құрылымды ұстаныңыз: Тақырып → Дәлел 1 (Біріншіден,...) → Дәлел 2 (Сонымен қатар,...) → Қорытынды (Сондықтан,...).",
@@ -647,7 +719,9 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
               { en: "Calculate improvement: (78 − 65) ÷ 65 × 100% = 13 ÷ 65 × 100% = 20% improvement.", ru: "Рассчитайте прогресс: (78 − 65) ÷ 65 × 100% = 13 ÷ 65 × 100% = 20% улучшение.", kk: "Прогресті есептеңіз: (78 − 65) ÷ 65 × 100% = 13 ÷ 65 × 100% = 20% жақсару." },
               { en: "Analyze errors: 10 of 22 errors (45%) are careless, meaning your content knowledge is stronger than your score shows. Focus on checking work carefully to gain easy points.", ru: "Анализ ошибок: 10 из 22 (45%) по невнимательности — ваши знания лучше, чем показывает оценка. Сосредоточьтесь на внимательной проверке работы.", kk: "Қателерді талдау: 22 қатенің 10-ы (45%) абайсыздық — біліміңіз ұпайдан жоғары. Жұмысты мұқият тексеруге назар аударыңыз." }
             ],
-            answer: "20% improvement. Nearly half of remaining errors are careless — focusing on careful checking could raise your score to ~88%."
+            answer: "20% improvement. Nearly half of remaining errors are careless — focusing on careful checking could raise your score to ~88%.",
+            answerRu: "Прогресс 20%. Почти половина оставшихся ошибок — по невнимательности: сосредоточившись на внимательной проверке, вы могли бы поднять результат до ~88%.",
+            answerKk: "20% жақсару. Қалған қателердің жартысына жуығы абайсыздық: мұқият тексеруге назар аударсаңыз, ұпайыңызды ~88%-ға дейін көтере аласыз."
           }
         ],
         practiceProblems: [
@@ -657,6 +731,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Вы ответили правильно на 35 из 50 вопросов пробного теста. Каков ваш процент?",
             questionKk: "Сынақ тестінде 50 сұрақтың 35-іне дұрыс жауап бердіңіз. Пайызыңыз қандай?",
             answer: "70% (35 ÷ 50 × 100 = 70%)",
+            answerRu: "70% (35 ÷ 50 × 100 = 70%)",
+            answerKk: "70% (35 ÷ 50 × 100 = 70%)",
             hint: "Divide correct answers by total questions and multiply by 100.",
             hintRu: "Разделите правильные ответы на общее количество и умножьте на 100.",
             hintKk: "Дұрыс жауаптарды жалпы санға бөліп, 100-ге көбейтіңіз.",
@@ -668,6 +744,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "На пробном тесте 1 вы набрали 60%, на тесте 2 — 72%. Каков ваш прогресс? Если вы хотите набрать 85% на тесте 3, сколько ещё процентных пунктов вам нужно?",
             questionKk: "1-сынақ тестінде 60%, 2-сінде 72% жинадыңыз. Прогрессіңіз қандай? 3-тестте 85% жеткіңіз келсе, тағы қанша пайыздық пункт қажет?",
             answer: "Improvement rate: (72−60)÷60×100 = 20%. Need 85−72 = 13 more percentage points to reach the goal.",
+            answerRu: "Прогресс: (72−60)÷60×100 = 20%. Для достижения цели нужно ещё 85−72 = 13 процентных пунктов.",
+            answerKk: "Прогресс қарқыны: (72−60)÷60×100 = 20%. Мақсатқа жету үшін тағы 85−72 = 13 пайыздық пункт қажет.",
             hint: "Use the improvement formula, then subtract current score from target.",
             hintRu: "Используйте формулу прогресса, затем вычтите текущий балл из целевого.",
             hintKk: "Прогресс формуласын қолданыңыз, содан кейін ағымдағы баллды мақсаттан алып тастаңыз.",
@@ -679,6 +757,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "После пробного теста вы классифицируете 20 ошибок: 8 пробелов в знаниях, 6 по невнимательности, 4 из-за нехватки времени, 2 из-за неправильного прочтения. Составьте план подготовки.",
             questionKk: "Сынақ тестінен кейін 20 қатеңізді жіктедіңіз: 8 білім олқылығы, 6 абайсыздық, 4 уақыт тапшылығы, 2 дұрыс оқымау. Осы категорияларды басымдық бойынша оқу жоспарын жасаңыз.",
             answer: "Priority 1: Content gaps (8 errors, 40%) — study weak topics. Priority 2: Careless errors (6, 30%) — practice checking work and reading carefully. Priority 3: Time pressure (4, 20%) — do timed drills. Priority 4: Misread questions (2, 10%) — practice underlining key words. This could recover up to 20 points.",
+            answerRu: "Приоритет 1: Пробелы в знаниях (8 ошибок, 40%) — изучите слабые темы. Приоритет 2: Ошибки по невнимательности (6, 30%) — тренируйте проверку работы и внимательное чтение. Приоритет 3: Нехватка времени (4, 20%) — делайте упражнения на время. Приоритет 4: Неправильно прочитанные вопросы (2, 10%) — тренируйтесь подчёркивать ключевые слова. Это может вернуть до 20 баллов.",
+            answerKk: "1-басымдық: Білім олқылықтары (8 қате, 40%) — әлсіз тақырыптарды оқыңыз. 2-басымдық: Абайсыздық қателер (6, 30%) — жұмысты тексеру мен мұқият оқуды жаттықтырыңыз. 3-басымдық: Уақыт тапшылығы (4, 20%) — уақытпен шектелген жаттығулар жасаңыз. 4-басымдық: Дұрыс оқылмаған сұрақтар (2, 10%) — негізгі сөздердің астын сызып алуды жаттықтырыңыз. Бұл 20 ұпайға дейін қалпына келтіруі мүмкін.",
             hint: "Start with the largest error category — it has the most points to recover.",
             hintRu: "Начните с самой большой категории ошибок — там больше всего баллов для восстановления.",
             hintKk: "Ең үлкен қате категориясынан бастаңыз — онда қалпына келтіруге ең көп ұпай бар.",
@@ -726,7 +806,9 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
               { en: "Add both equations to eliminate y: (2x + y) + (x − y) = 10 + 2 → 3x = 12 → x = 4.", ru: "Сложите оба уравнения для исключения y: (2x + y) + (x − y) = 10 + 2 → 3x = 12 → x = 4.", kk: "y-ті жою үшін екі теңдеуді қосыңыз: (2x + y) + (x − y) = 10 + 2 → 3x = 12 → x = 4." },
               { en: "Substitute x = 4 into x − y = 2: 4 − y = 2 → y = 2.", ru: "Подставьте x = 4 в x − y = 2: 4 − y = 2 → y = 2.", kk: "x = 4-ті x − y = 2 теңдеуіне қойыңыз: 4 − y = 2 → y = 2." }
             ],
-            answer: "x = 4, y = 2"
+            answer: "x = 4, y = 2",
+            answerRu: "x = 4, y = 2",
+            answerKk: "x = 4, y = 2"
           }
         ],
         practiceProblems: [
@@ -736,6 +818,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Найдите x: 3x + 7 = 22",
             questionKk: "x-ті табыңыз: 3x + 7 = 22",
             answer: "x = 5 (3x = 15, x = 5)",
+            answerRu: "x = 5 (3x = 15, x = 5)",
+            answerKk: "x = 5 (3x = 15, x = 5)",
             hint: "Subtract 7 from both sides, then divide by 3.",
             hintRu: "Вычтите 7 из обеих сторон, затем разделите на 3.",
             hintKk: "Екі жағынан 7-ні алып тастаңыз, содан кейін 3-ке бөліңіз.",
@@ -747,6 +831,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Тариф стоит 30 долларов в месяц плюс 0,10 за сообщение. Напишите уравнение стоимости C через количество сообщений t и найдите стоимость при 200 сообщениях.",
             questionKk: "Телефон тарифі айына 30 доллар плюс хабарламаға 0,10 доллар. Жалпы құн C-ні хабарламалар t арқылы теңдеу жазыңыз және 200 хабарлама үшін құнды табыңыз.",
             answer: "C = 30 + 0.10t. For 200 texts: C = 30 + 0.10(200) = 30 + 20 = $50.",
+            answerRu: "C = 30 + 0,10t. Для 200 сообщений: C = 30 + 0,10(200) = 30 + 20 = $50.",
+            answerKk: "C = 30 + 0,10t. 200 хабарлама үшін: C = 30 + 0,10(200) = 30 + 20 = $50.",
             hint: "The monthly fee is the y-intercept, and the per-text charge is the slope.",
             hintRu: "Ежемесячная плата — пересечение с осью y, плата за сообщение — наклон.",
             hintKk: "Айлық төлем — y-өсімен қиылысу, хабарлама құны — көлбеулік.",
@@ -758,6 +844,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Решите систему: 3x + 2y = 16 и 5x − 2y = 24. Затем проверьте ответ подстановкой.",
             questionKk: "Жүйені шешіңіз: 3x + 2y = 16 және 5x − 2y = 24. Содан кейін жауабыңызды қойып тексеріңіз.",
             answer: "Add equations: 8x = 40, x = 5. Then 3(5) + 2y = 16 → 2y = 1 → y = 0.5. Check: 5(5) − 2(0.5) = 25 − 1 = 24 ✓",
+            answerRu: "Сложите уравнения: 8x = 40, x = 5. Затем 3(5) + 2y = 16 → 2y = 1 → y = 0,5. Проверка: 5(5) − 2(0,5) = 25 − 1 = 24 ✓",
+            answerKk: "Теңдеулерді қосыңыз: 8x = 40, x = 5. Содан кейін 3(5) + 2y = 16 → 2y = 1 → y = 0,5. Тексеру: 5(5) − 2(0,5) = 25 − 1 = 24 ✓",
             hint: "The y terms have opposite signs — adding eliminates y directly.",
             hintRu: "Члены с y имеют противоположные знаки — сложение напрямую устраняет y.",
             hintKk: "y мүшелерінің қарама-қарсы таңбалары бар — қосу y-ді тікелей жояды.",
@@ -795,7 +883,9 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
               { en: "Calculate discount: 40 × 0.25 = $10 off. Sale price = 40 − 10 = $30.", ru: "Рассчитайте скидку: 40 × 0,25 = 10 долларов. Цена со скидкой = 40 − 10 = 30 долларов.", kk: "Жеңілдікті есептеңіз: 40 × 0,25 = 10 доллар. Жеңілдік бағасы = 40 − 10 = 30 доллар." },
               { en: "Add tax: 30 × 0.10 = $3 tax. Final price = 30 + 3 = $33.", ru: "Добавьте налог: 30 × 0,10 = 3 доллара. Итого = 30 + 3 = 33 доллара.", kk: "Салықты қосыңыз: 30 × 0,10 = 3 доллар. Соңғы баға = 30 + 3 = 33 доллар." }
             ],
-            answer: "$33"
+            answer: "$33",
+            answerRu: "$33",
+            answerKk: "$33"
           }
         ],
         practiceProblems: [
@@ -805,6 +895,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Чему равно 15% от 200?",
             questionKk: "200-дің 15%-ы қанша?",
             answer: "30 (200 × 0.15 = 30)",
+            answerRu: "30 (200 × 0,15 = 30)",
+            answerKk: "30 (200 × 0,15 = 30)",
             hint: "Convert the percentage to a decimal and multiply.",
             hintRu: "Переведите процент в десятичную дробь и умножьте.",
             hintKk: "Пайызды ондық бөлшекке аударып, көбейтіңіз.",
@@ -816,6 +908,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Рецепт на 4 человека требует 3 стакана муки. Сколько стаканов нужно на 10 человек?",
             questionKk: "4 адамға арналған рецепт 3 стақан ұн қажет етеді. 10 адамға қанша стақан қажет?",
             answer: "7.5 cups (3/4 = x/10 → x = 30/4 = 7.5)",
+            answerRu: "7,5 стакана (3/4 = x/10 → x = 30/4 = 7,5)",
+            answerKk: "7,5 стақан (3/4 = x/10 → x = 30/4 = 7,5)",
             hint: "Set up a proportion: cups/people = cups/people.",
             hintRu: "Составьте пропорцию: стаканы/люди = стаканы/люди.",
             hintKk: "Пропорция құрыңыз: стақан/адам = стақан/адам.",
@@ -827,6 +921,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Магазин повышает цены на 20%, затем делает скидку 20%. Итоговая цена равна начальной? Покажите на примере 100 долларов.",
             questionKk: "Дүкен бағаларды 20% көтеріп, содан кейін 20% жеңілдік жасайды. Соңғы баға бастапқымен бірдей ме? 100 доллар мысалымен көрсетіңіз.",
             answer: "No. $100 + 20% = $120. Then $120 − 20% = $120 × 0.80 = $96. Final price is $96, which is $4 less than original. A percentage increase followed by the same percentage decrease always results in a net loss.",
+            answerRu: "Нет. $100 + 20% = $120. Затем $120 − 20% = $120 × 0,80 = $96. Итоговая цена — $96, что на $4 меньше исходной. Процентное увеличение с последующим таким же процентным уменьшением всегда даёт чистую потерю.",
+            answerKk: "Жоқ. $100 + 20% = $120. Содан кейін $120 − 20% = $120 × 0,80 = $96. Соңғы баға — $96, бұл бастапқыдан $4-ке аз. Пайыздық өсімнен кейін дәл сондай пайыздық төмендеу әрқашан таза шығынға әкеледі.",
             hint: "The 20% decrease is applied to the higher number, not the original.",
             hintRu: "20% снижение применяется к большему числу, а не к исходному.",
             hintKk: "20% төмендеу бастапқыға емес, жоғарырақ санға қолданылады.",
@@ -858,7 +954,9 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
               { en: "Eliminate too narrow: (A) only covers mental health — one of three points. (C) is about parks, not gardens — off topic.", ru: "Исключите слишком узкие: (A) охватывает только психическое здоровье — один из трёх пунктов. (C) о парках, а не о садах.", kk: "Тым тарларды жойыңыз: (A) тек психикалық денсаулықты қамтиды — үш тармақтың бірі. (C) бақтар емес, парктар туралы." },
               { en: "Choose the broadest accurate answer: (B) covers all three benefits mentioned and correctly focuses on urban gardens.", ru: "Выберите самый широкий точный ответ: (B) охватывает все три упомянутые преимущества и правильно фокусируется на городских садах.", kk: "(B) аталған барлық үш пайданы қамтиды және қалалық бақтарға дұрыс бағытталған — ең кең дәл жауап." }
             ],
-            answer: "(B) Urban gardens provide multiple benefits to city communities."
+            answer: "(B) Urban gardens provide multiple benefits to city communities.",
+            answerRu: "(B) Городские сады приносят множество преимуществ городским сообществам.",
+            answerKk: "(B) Қалалық бақтар қала қауымдастықтарына көптеген пайда әкеледі."
           }
         ],
         practiceProblems: [
@@ -868,6 +966,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Текст описывает, как переработка экономит энергию, уменьшает отходы и сохраняет природные ресурсы. Какова главная мысль?",
             questionKk: "Мәтін қайта өңдеудің энергияны үнемдейтінін, қоқыс қалдықтарын азайтатынын және табиғи ресурстарды сақтайтынын сипаттайды. Негізгі ой қандай?",
             answer: "Recycling provides important environmental benefits through energy savings, waste reduction, and resource conservation.",
+            answerRu: "Переработка приносит важную экологическую пользу за счёт экономии энергии, сокращения отходов и сохранения ресурсов.",
+            answerKk: "Қайта өңдеу энергияны үнемдеу, қалдықтарды азайту және ресурстарды сақтау арқылы маңызды экологиялық пайда әкеледі.",
             hint: "Find the common theme that connects all three details.",
             hintRu: "Найдите общую тему, объединяющую все три детали.",
             hintKk: "Үш мәліметті байланыстыратын ортақ тақырыпты табыңыз.",
@@ -879,6 +979,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Какова вероятная главная мысль? (A) 'Кофе содержит кофеин.' (B) 'Кофе формировал мировую торговлю, культуру и повседневные привычки веками.' (C) 'Бразилия производит больше всего кофе.'",
             questionKk: "Мәтіннің негізгі ойы қайсы болуы ықтимал? (A) 'Кофе кофеин құрамды.' (B) 'Кофе ғасырлар бойы әлемдік сауданы, мәдениетті және күнделікті тәртіпті қалыптастырды.' (C) 'Бразилия ең көп кофе өндіреді.'",
             answer: "(B) — it is the broadest statement that could encompass the others as supporting details.",
+            answerRu: "(B) — это самое широкое утверждение, которое может включать остальные как подтверждающие детали.",
+            answerKk: "(B) — басқаларын қосымша мәліметтер ретінде қамти алатын ең кең тұжырым.",
             hint: "The main idea should be broad enough to include the other statements as details.",
             hintRu: "Главная мысль должна быть достаточно широкой, чтобы включить другие утверждения как детали.",
             hintKk: "Негізгі ой басқа мәлімдемелерді мәліметтер ретінде қамтитындай кең болуы тиіс.",
@@ -890,6 +992,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Текст утверждает, что стандартизированное тестирование имеет преимущества, но и значительные ограничения. Автор заключает, что тесты должны быть одним из многих инструментов оценки. Какова главная мысль и тон автора?",
             questionKk: "Мәтін стандартталған тестілеудің пайдасы бар, бірақ елеулі шектеулері де бар деп дәлелдейді. Автор тесттер көптеген бағалау құралдарының бірі болуы керек деп қорытындылайды. Негізгі ой қандай және автордың үні қолдаушы, сыни ма, теңгерілген бе?",
             answer: "Main idea: Standardized tests have value but should not be the sole measure of student ability. The tone is balanced — the author acknowledges both positives and negatives before recommending a middle-ground approach.",
+            answerRu: "Главная мысль: стандартизированные тесты имеют ценность, но не должны быть единственным мерилом способностей ученика. Тон сбалансированный — автор признаёт и плюсы, и минусы, прежде чем рекомендовать компромиссный подход.",
+            answerKk: "Негізгі ой: стандартталған тесттердің құндылығы бар, бірақ олар оқушы қабілетінің жалғыз өлшемі болмауы тиіс. Үні теңгерілген — автор орта жолды ұсынбас бұрын артықшылықтарын да, кемшіліктерін де мойындайды.",
             hint: "Look at the conclusion for the author's final position, and notice how they present both sides.",
             hintRu: "Посмотрите на заключение для итоговой позиции автора и обратите внимание на представление обеих сторон.",
             hintKk: "Автордың соңғы ұстанымы үшін қорытындыға қараңыз және екі жақтың қалай ұсынылғанына назар аударыңыз.",
@@ -921,7 +1025,9 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
               { en: "Match evidence to claim: your answer says 'both benefits and risks.' Only (B) mentions both — 'fosters connections' (benefit) and 'raises concerns' (risks).", ru: "Сопоставьте доказательство с утверждением: ваш ответ говорит о 'плюсах и рисках.' Только (B) упоминает оба — 'укрепляет связи' (плюс) и 'вызывает проблемы' (риск).", kk: "Дәлелді тұжырыммен сәйкестендіріңіз: жауабыңыз 'пайда да, тәуекел де' дейді. Тек (B) екеуін де атайды — 'байланыстарды нығайтады' (пайда) және 'мәселелерді туғызады' (тәуекел)." },
               { en: "Eliminate weak options: (A) only shows benefits, (C) is a fact with no opinion. (B) is the best evidence.", ru: "Исключите слабые: (A) показывает только плюсы, (C) — факт без мнения. (B) — лучшее доказательство.", kk: "Әлсіз нұсқаларды жойыңыз: (A) тек пайданы көрсетеді, (C) пікірсіз факт. (B) ең жақсы дәлел." }
             ],
-            answer: "(B) — it directly shows the author expressing both benefits and concerns."
+            answer: "(B) — it directly shows the author expressing both benefits and concerns.",
+            answerRu: "(B) — оно прямо показывает, что автор говорит и о плюсах, и о проблемах.",
+            answerKk: "(B) — автордың пайдасы мен алаңдаушылығын бірге білдіретінін тікелей көрсетеді."
           }
         ],
         practiceProblems: [
@@ -931,6 +1037,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Если ваше утверждение: 'автор поддерживает возобновляемую энергию,' какое доказательство сильнее: (A) 'Солнечные панели существуют.' (B) 'Возобновляемая энергия — лучший путь к устойчивому будущему.' (C) 'Цены на энергию различаются.'",
             questionKk: "Егер сіздің тұжырымыңыз: 'автор жаңартылатын энергияны қолдайды,' қай дәлел күштірек: (A) 'Күн панельдері бар.' (B) 'Жаңартылатын энергия тұрақты болашаққа ең жақсы жол.' (C) 'Энергия бағалары өзгереді.'",
             answer: "(B) — it directly shows the author's positive opinion ('best path') about renewable energy.",
+            answerRu: "(B) — оно прямо показывает позитивное мнение автора ('лучший путь') о возобновляемой энергии.",
+            answerKk: "(B) — автордың жаңартылатын энергия туралы оң пікірін ('ең жақсы жол') тікелей көрсетеді.",
             hint: "Look for the quote that shows the author's opinion, not just a fact.",
             hintRu: "Ищите цитату с мнением автора, а не просто факт.",
             hintKk: "Тек фактті емес, автордың пікірін көрсететін дәйексөзді іздеңіз.",
@@ -942,6 +1050,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Вы ответили, что 'учёный скептически отнёсся к результатам.' Выберите лучшее доказательство: (A) 'Эксперимент проводился в лаборатории.' (B) 'Доктор Ли отметил, что нужны дополнительные испытания.' (C) 'Результаты показали улучшение на 30%.'",
             questionKk: "Сіз 'ғалым нәтижелерге күмәнді қарады' деп жауап бердіңіз. Ең жақсы дәлелді таңдаңыз: (A) 'Тәжірибе зертханада жүргізілді.' (B) 'Доктор Ли қорытынды жасамас бұрын қосымша сынақтар қажет деп атап өтті.' (C) 'Нәтижелер 30% жақсаруды көрсетті.'",
             answer: "(B) — Dr. Lee's call for 'further trials before drawing conclusions' shows skepticism and caution about accepting the results.",
+            answerRu: "(B) — призыв доктора Ли к 'дальнейшим испытаниям перед выводами' показывает скептицизм и осторожность в принятии результатов.",
+            answerKk: "(B) — доктор Лидің 'қорытынды жасамас бұрын қосымша сынақтар қажет' деген сөзі нәтижелерді қабылдаудағы күмән мен сақтықты көрсетеді.",
             hint: "Skepticism means the scientist is not fully convinced — look for caution or doubt.",
             hintRu: "Скептицизм означает, что учёный не полностью убеждён — ищите осторожность или сомнение.",
             hintKk: "Күмән ғалымның толық сенбегенін білдіреді — сақтық немесе күмәнді іздеңіз.",
@@ -953,6 +1063,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Парный вопрос: В1 спрашивает 'Что рекомендует автор?' Вы выбрали 'Короткие учебные дни.' В2 просит доказательство. Варианты: (A) Строки 12-14: 'Ученики Финляндии преуспевают с коротким школьным днём.' (B) Строки 20-22: 'Исследования показывают неоднозначные результаты.' (C) Строки 30-32: 'Школьный совет проголосовал за новое расписание.' Какой лучший и почему (B) может подорвать ответ на В1?",
             questionKk: "Жұптық сұрақ: С1 'Автор не ұсынады?' Сіз 'Қысқа оқу күндері' таңдадыңыз. С2 дәлел сұрайды. Нұсқалар: (A) 12-14 жолдар: 'Финляндия оқушылары қысқа сабақтармен өркендейді.' (B) 20-22 жолдар: 'Зерттеулер аралас нәтижелер көрсетеді.' (C) 30-32 жолдар: 'Мектеп кеңесі жаңа кестеге дауыс берді.' Қайсысы ең жақсы және неліктен (B) С1 жауабыңызды әлсіретуі мүмкін?",
             answer: "(A) is the best evidence — it directly supports shorter school days with a positive example. (B) actually weakens the Q1 answer because 'mixed results' suggests the evidence is not clearly in favor of shorter days, which could mean your Q1 answer needs reconsideration.",
+            answerRu: "(A) — лучшее доказательство: оно напрямую поддерживает короткие учебные дни положительным примером. (B) фактически ослабляет ответ на В1, потому что 'неоднозначные результаты' говорят, что доказательства явно не в пользу коротких дней, и ответ на В1, возможно, нужно пересмотреть.",
+            answerKk: "(A) ең жақсы дәлел — ол қысқа оқу күндерін оң мысалмен тікелей қолдайды. (B) шынында С1 жауабын әлсіретеді, өйткені 'аралас нәтижелер' дәлелдердің қысқа күндерді анық жақтамайтынын білдіреді, яғни С1 жауабыңызды қайта қарау қажет болуы мүмкін.",
             hint: "Best evidence directly supports the claim. Watch for evidence that contradicts your answer.",
             hintRu: "Лучшее доказательство напрямую поддерживает утверждение. Следите за доказательствами, противоречащими ответу.",
             hintKk: "Ең жақсы дәлел тұжырымды тікелей қолдайды. Жауабыңызға қайшы дәлелдерге назар аударыңыз.",
@@ -990,7 +1102,9 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
               { en: "Identify the pattern: 'reading' (gerund), 'to swim' (infinitive), 'hiking' (gerund). The forms are inconsistent.", ru: "Определите шаблон: 'reading' (герундий), 'to swim' (инфинитив), 'hiking' (герундий). Формы несовместимы.", kk: "Үлгіні анықтаңыз: 'reading' (герундий), 'to swim' (инфинитив), 'hiking' (герундий). Формалар сәйкес емес." },
               { en: "Make all items match: 'She enjoys reading, swimming, and hiking.' (all gerunds)", ru: "Сделайте все элементы одинаковыми: 'She enjoys reading, swimming, and hiking.' (все герундии)", kk: "Барлық элементтерді сәйкестендіріңіз: 'She enjoys reading, swimming, and hiking.' (барлығы герундий)" }
             ],
-            answer: "'She enjoys reading, swimming, and hiking.'"
+            answer: "'She enjoys reading, swimming, and hiking.'",
+            answerRu: "'She enjoys reading, swimming, and hiking.'",
+            answerKk: "'She enjoys reading, swimming, and hiking.'"
           }
         ],
         practiceProblems: [
@@ -1000,6 +1114,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Выберите правильное местоимение: 'Every student should bring (their/his or her) textbook to class.'",
             questionKk: "Дұрыс есімдікті таңдаңыз: 'Every student should bring (their/his or her) textbook to class.'",
             answer: "Both are acceptable in modern usage. 'Their' is widely accepted as a singular pronoun. Traditional grammar prefers 'his or her.'",
+            answerRu: "Оба варианта допустимы в современном употреблении. 'Their' широко принимается как местоимение единственного числа. Традиционная грамматика предпочитает 'his or her.'",
+            answerKk: "Қазіргі қолданыста екеуі де жарамды. 'Their' жекеше есімдік ретінде кеңінен қабылданған. Дәстүрлі грамматика 'his or her'-ді жөн көреді.",
             hint: "'Every student' is singular — the pronoun must agree.",
             hintRu: "'Every student' — единственное число — местоимение должно согласовываться.",
             hintKk: "'Every student' — жекеше — есімдік сәйкес болуы тиіс.",
@@ -1011,6 +1127,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Исправьте висячий модификатор: 'Walking through the park, the flowers were beautiful.'",
             questionKk: "Ілулі анықтауышты түзетіңіз: 'Walking through the park, the flowers were beautiful.'",
             answer: "'Walking through the park, I noticed the beautiful flowers.' (The modifier must be followed by the person performing the action.)",
+            answerRu: "'Walking through the park, I noticed the beautiful flowers.' (После модификатора должен идти тот, кто выполняет действие.)",
+            answerKk: "'Walking through the park, I noticed the beautiful flowers.' (Анықтауыштан кейін әрекетті орындаушы адам тұруы керек.)",
             hint: "Who was walking? The flowers were not walking — add the correct subject.",
             hintRu: "Кто шёл? Цветы не шли — добавьте правильное подлежащее.",
             hintKk: "Кім жүрді? Гүлдер жүрмеді — дұрыс бастауышты қосыңыз.",
@@ -1022,6 +1140,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Найдите и исправьте ВСЕ ошибки: 'The team of researchers have published their findings, which shows that exercise help improving memory and reduces stress.'",
             questionKk: "БАРЛЫҚ қателерді тауып, түзетіңіз: 'The team of researchers have published their findings, which shows that exercise help improving memory and reduces stress.'",
             answer: "'The team of researchers has published its findings, which show that exercise helps improve memory and reduces stress.' Fixes: have→has (team is singular), their→its (matches team), shows→show (which refers to findings, plural), help→helps (exercise is singular), improving→improve (helps + base form).",
+            answerRu: "'The team of researchers has published its findings, which show that exercise helps improve memory and reduces stress.' Исправления: have→has (team — единственное число), their→its (согласуется с team), shows→show (which относится к findings, множественное число), help→helps (exercise — единственное число), improving→improve (helps + базовая форма).",
+            answerKk: "'The team of researchers has published its findings, which show that exercise helps improve memory and reduces stress.' Түзетулер: have→has (team жекеше), their→its (team-ге сәйкес), shows→show (which findings-ке сілтейді, көпше), help→helps (exercise жекеше), improving→improve (helps + негізгі форма).",
             hint: "Check subject-verb agreement for 'team,' pronoun reference for 'their,' and verb forms throughout.",
             hintRu: "Проверьте согласование 'team,' ссылку 'their' и формы глаголов.",
             hintKk: "'Team' сәйкестігін, 'their' сілтемесін және барлық етістік формаларын тексеріңіз.",
@@ -1059,7 +1179,9 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
               { en: "Predict answer type: the blank asks for a closing time, so expect a time format.", ru: "Предскажите тип ответа: пропуск спрашивает время закрытия, ожидайте формат времени.", kk: "Жауап түрін болжаңыз: бос орын жабылу уақытын сұрайды, уақыт форматын күтіңіз." },
               { en: "Convert spoken time to written: 'half past eight in the evening' = 8:30 PM.", ru: "Переведите устное время в письменное: 'половина девятого вечера' = 8:30 PM.", kk: "Айтылған уақытты жазбаша аударыңыз: 'кешкі сегіздің жартысы' = 8:30 PM." }
             ],
-            answer: "8:30 PM (or 20:30)"
+            answer: "8:30 PM (or 20:30)",
+            answerRu: "8:30 PM (или 20:30)",
+            answerKk: "8:30 PM (немесе 20:30)"
           }
         ],
         practiceProblems: [
@@ -1069,6 +1191,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "В аудировании IELTS запись слышите только раз. Что нужно сделать до начала записи?",
             questionKk: "IELTS тыңдауда жазбаны тек бір рет естисіз. Жазба басталмас бұрын не істеу керек?",
             answer: "Read the questions ahead of time, underline key words, and predict what type of answer is needed (number, name, date, etc.).",
+            answerRu: "Заранее прочитайте вопросы, подчеркните ключевые слова и предугадайте тип ответа (число, имя, дата и т.д.).",
+            answerKk: "Сұрақтарды алдын ала оқып, негізгі сөздердің астын сызыңыз және қажет жауап түрін болжаңыз (сан, есім, күн және т.б.).",
             hint: "Think about how you can prepare before the audio plays.",
             hintRu: "Подумайте, как подготовиться до воспроизведения аудио.",
             hintKk: "Аудио ойнатылмас бұрын қалай дайындалу керектігін ойлаңыз.",
@@ -1080,6 +1204,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Вопрос спрашивает 'тип жилья.' Вы слышите: 'Вместо обычного отеля мы организовали проживание в гостевом доме у пляжа.' Каков ответ и какой ловушки избегать?",
             questionKk: "Сұрақ 'тұру түрі' сұрайды. Сіз естисіз: 'Кәдімгі қонақүйдің орнына жағажай жанындағы қонақ үйде тұруды ұйымдастырдық.' Жауап қандай және қандай тұзақтан аулақ болу керек?",
             answer: "'Guest house.' The trap is writing 'hotel' — the speaker mentions it but says 'instead of,' meaning it was changed.",
+            answerRu: "'Guest house.' Ловушка — написать 'hotel': спикер упоминает его, но говорит 'вместо', значит, ответ был изменён.",
+            answerKk: "'Guest house.' Тұзақ — 'hotel' деп жазу: сөйлеуші оны атайды, бірақ 'орнына' дейді, яғни жауап өзгертілген.",
             hint: "Listen for words that signal a change: 'instead of,' 'actually,' 'but.'",
             hintRu: "Слушайте слова, сигнализирующие об изменении: 'вместо,' 'на самом деле,' 'но.'",
             hintKk: "Өзгерісті білдіретін сөздерді тыңдаңыз: 'орнына,' 'шын мәнінде,' 'бірақ.'",
@@ -1091,6 +1217,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Вам нужно подписать карту. Говорящий: 'Парковка прямо за главным зданием. Если идти на восток от парковки мимо теннисных кортов, бассейн будет слева.' Какое здание к востоку от кортов?",
             questionKk: "Картаны белгілеу керек. Сөйлеуші: 'Автотұрақ бас ғимараттың тікелей артында. Автотұрақтан шығысқа қарай теннис корттарынан өтсеңіз, сол жағыңызда бассейн болады.' Теннис корттарынан шығысқа қай ғимарат?",
             answer: "The swimming pool is east of the tennis courts (past the courts on the way east, on the left).",
+            answerRu: "Бассейн находится к востоку от теннисных кортов (после кортов по пути на восток, слева).",
+            answerKk: "Бассейн теннис корттарынан шығысқа қарай орналасқан (шығысқа жолда корттардан өткен соң, сол жақта).",
             hint: "Trace the path: start at car park → walk east → pass tennis courts → what is next?",
             hintRu: "Проследите путь: начало у парковки → идёте на восток → проходите корты → что дальше?",
             hintKk: "Жолды бақылаңыз: автотұрақтан бастаңыз → шығысқа жүріңіз → корттардан өтіңіз → кезекті не?",
@@ -1122,7 +1250,9 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
               { en: "Compare: the question says '1990' (specific year), but the passage says 'early 1990s' (a range: 1990-1993 approximately).", ru: "Сравните: вопрос указывает '1990' (конкретный год), текст говорит 'начало 1990-х' (диапазон: примерно 1990-1993).", kk: "Салыстырыңыз: сұрақ '1990' (нақты жыл) дейді, мәтін '1990-шы жылдардың басы' (ауқым: шамамен 1990-1993)." },
               { en: "The passage does not confirm the exact year 1990 — it could be 1991, 1992, or 1993. This is Not Given.", ru: "Текст не подтверждает точный 1990 год — это может быть 1991, 1992 или 1993. Ответ: Not Given.", kk: "Мәтін нақты 1990 жылды растамайды — бұл 1991, 1992 немесе 1993 болуы мүмкін. Жауап: Not Given." }
             ],
-            answer: "Not Given — the passage says 'early 1990s' but does not specify exactly 1990."
+            answer: "Not Given — the passage says 'early 1990s' but does not specify exactly 1990.",
+            answerRu: "Not Given — в тексте сказано 'начало 1990-х', но точный 1990 год не указан.",
+            answerKk: "Not Given — мәтінде '1990-шы жылдардың басы' делінген, бірақ нақты 1990 жылы көрсетілмеген."
           }
         ],
         practiceProblems: [
@@ -1132,6 +1262,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "В чём разница между беглым просмотром и сканированием текста?",
             questionKk: "Мәтінді жылдам қарап шығу мен сканерлеудің айырмашылығы неде?",
             answer: "Skimming = reading quickly for the overall main idea (look at first/last sentences). Scanning = searching for a specific piece of information (a name, date, or number).",
+            answerRu: "Skimming = быстрое чтение ради общей главной мысли (смотрите на первое и последнее предложения). Scanning = поиск конкретной информации (имени, даты или числа).",
+            answerKk: "Skimming = жалпы негізгі ойды түсіну үшін жылдам оқу (бірінші/соңғы сөйлемдерге қараңыз). Scanning = нақты ақпаратты іздеу (есім, күн немесе сан).",
             hint: "One is about the big picture, the other is about finding details.",
             hintRu: "Одно о общей картине, другое о поиске деталей.",
             hintKk: "Бірі жалпы сурет туралы, екіншісі мәліметтерді табу туралы.",
@@ -1143,6 +1275,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Текст: 'Морское загрязнение имеет разрушительные последствия для экосистем.' Вариант заголовка: 'Вредные последствия загрязнения моря.' Совпадают ли они? Почему?",
             questionKk: "Мәтін: 'Теңіз ластануы мұхит экожүйелеріне жойқын салдар тигізеді.' Тақырып нұсқасы: 'Теңіз ластануының зиянды салдары.' Бұлар сәйкес пе? Неліктен?",
             answer: "Yes — 'marine pollution' = 'sea contamination' (synonym), 'devastating consequences' = 'harmful effects' (paraphrase), 'ocean ecosystems' is implied. IELTS uses paraphrasing extensively.",
+            answerRu: "Да — 'marine pollution' = 'sea contamination' (синонимы), 'devastating consequences' = 'harmful effects' (перефраз), 'ocean ecosystems' подразумевается. IELTS активно использует перефразирование.",
+            answerKk: "Иә — 'marine pollution' = 'sea contamination' (синоним), 'devastating consequences' = 'harmful effects' (парафраза), 'ocean ecosystems' меңзеліп тұр. IELTS парафразаны кеңінен қолданады.",
             hint: "Look for synonyms: marine = sea, devastating = harmful, consequences = effects.",
             hintRu: "Ищите синонимы: marine = sea, devastating = harmful, consequences = effects.",
             hintKk: "Синонимдерді іздеңіз: marine = sea, devastating = harmful, consequences = effects.",
@@ -1154,6 +1288,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Осталось 20 минут и 15 вопросов к третьему тексту IELTS. 7 — подбор заголовков, 5 — завершение предложений, 3 — множественный выбор. В каком порядке решать и почему?",
             questionKk: "IELTS оқу 3-мәтініне 20 минут және 15 сұрақ қалды. 7 — тақырыптарды сәйкестендіру, 5 — сөйлемді аяқтау, 3 — көп таңдаулы. Қандай ретпен шешу керек және неліктен?",
             answer: "1st: Multiple choice (3 questions, quick if you skim well). 2nd: Sentence completion (5 questions, answers are in passage order). 3rd: Matching headings (7 questions, most time-consuming). This order maximizes questions answered if time runs out.",
+            answerRu: "1-е: Множественный выбор (3 вопроса — быстро, если хорошо владеете беглым просмотром). 2-е: Завершение предложений (5 вопросов, ответы идут по порядку текста). 3-е: Подбор заголовков (7 вопросов, самые затратные по времени). Этот порядок максимизирует число отвеченных вопросов, если время закончится.",
+            answerKk: "1-ші: Көп таңдаулы (3 сұрақ, мәтінді жақсы шолсаңыз, жылдам). 2-ші: Сөйлемді аяқтау (5 сұрақ, жауаптар мәтін ретімен орналасқан). 3-ші: Тақырыптарды сәйкестендіру (7 сұрақ, ең көп уақыт алады). Бұл рет уақыт таусылған жағдайда жауап берілген сұрақтар санын барынша арттырады.",
             hint: "Start with the question types that are fastest to answer to maximize completed questions.",
             hintRu: "Начните с самых быстрых типов вопросов для максимального количества ответов.",
             hintKk: "Аяқталған сұрақтарды барынша арттыру үшін ең жылдам жауап берілетін сұрақ түрлерінен бастаңыз.",
@@ -1191,7 +1327,9 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
               { en: "Add all sections: 24 + 22 + 20 + 23 = 89.", ru: "Сложите все разделы: 24 + 22 + 20 + 23 = 89.", kk: "Барлық бөлімдерді қосыңыз: 24 + 22 + 20 + 23 = 89." },
               { en: "Compare to requirement: 89 < 90. The student does not meet the minimum. Speaking (20) is the weakest section to focus on.", ru: "Сравните с требованием: 89 < 90. Студент не проходит. Говорение (20) — самый слабый раздел для улучшения.", kk: "Талаппен салыстырыңыз: 89 < 90. Студент талапты қанағаттандырмайды. Сөйлеу (20) — жақсартуға назар аударатын ең әлсіз бөлім." }
             ],
-            answer: "Total: 89. Does not meet 90+ requirement. Should focus on improving Speaking."
+            answer: "Total: 89. Does not meet 90+ requirement. Should focus on improving Speaking.",
+            answerRu: "Итого: 89. Не соответствует требованию 90+. Стоит сосредоточиться на улучшении Говорения.",
+            answerKk: "Жалпы: 89. 90+ талабына сай емес. Сөйлеу бөлімін жақсартуға назар аудару керек."
           }
         ],
         practiceProblems: [
@@ -1201,6 +1339,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Сколько разделов в TOEFL iBT и каков максимальный балл?",
             questionKk: "TOEFL iBT-де қанша бөлім бар және максималды ұпай қандай?",
             answer: "4 sections (Reading, Listening, Speaking, Writing), maximum total score is 120 (30 per section).",
+            answerRu: "4 раздела (Чтение, Аудирование, Говорение, Письмо), максимальный общий балл — 120 (по 30 за раздел).",
+            answerKk: "4 бөлім (Оқу, Тыңдау, Сөйлеу, Жазу), максималды жалпы ұпай — 120 (әр бөлімге 30).",
             hint: "Each of the four sections has a maximum of 30 points.",
             hintRu: "Каждый из четырёх разделов имеет максимум 30 баллов.",
             hintKk: "Төрт бөлімнің әрқайсысының максимумы 30 ұпай.",
@@ -1212,6 +1352,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Назовите два ключевых отличия TOEFL от IELTS по формату и варианту языка.",
             questionKk: "TOEFL мен IELTS арасындағы формат және тіл нұсқасы бойынша екі негізгі айырмашылықты атаңыз.",
             answer: "1) TOEFL is fully computer-based while IELTS has a paper option and face-to-face speaking. 2) TOEFL uses American English while IELTS uses British English (though both accept either accent).",
+            answerRu: "1) TOEFL полностью компьютерный, тогда как у IELTS есть бумажный вариант и личное собеседование. 2) TOEFL использует американский английский, а IELTS — британский (хотя оба принимают любой акцент).",
+            answerKk: "1) TOEFL толығымен компьютерлік, ал IELTS-те қағаз нұсқасы және бетпе-бет сөйлеу бар. 2) TOEFL американдық ағылшын тілін қолданады, ал IELTS британдық ағылшын тілін қолданады (дегенмен екеуі де кез келген акцентті қабылдайды).",
             hint: "Think about how you take each test and what English variant each uses.",
             hintRu: "Подумайте, как сдаётся каждый тест и какой вариант английского используется.",
             hintKk: "Әр тестті қалай тапсыратыныңызды және қандай ағылшын нұсқасы қолданылатынын ойлаңыз.",
@@ -1223,6 +1365,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Студенту нужен TOEFL 100 с минимумом 22 в каждом разделе. Баллы: Чтение: 28, Аудирование: 25, Говорение: 19, Письмо: 24. Проходит ли? Какова стратегия?",
             questionKk: "Студентке TOEFL 100 қажет, әр бөлімде кемінде 22. Ұпайлар: Оқу: 28, Тыңдау: 25, Сөйлеу: 19, Жазу: 24. Талапты қанағаттандыра ма? Стратегиясы қандай?",
             answer: "Total: 96 (below 100) and Speaking: 19 (below 22 minimum). They fail on both criteria. Strategy: Focus heavily on Speaking (+3 points minimum needed), and gain 4+ more points across other sections. Speaking practice with templates and recording themselves is the priority.",
+            answerRu: "Итого: 96 (ниже 100) и Говорение: 19 (ниже минимума 22). Не проходит по обоим критериям. Стратегия: усиленно работать над Говорением (нужно минимум +3 балла) и набрать ещё 4+ балла в других разделах. Приоритет — практика говорения по шаблонам с записью собственного голоса.",
+            answerKk: "Жалпы: 96 (100-ден төмен) және Сөйлеу: 19 (минимум 22-ден төмен). Екі критерий бойынша да өтпейді. Стратегия: Сөйлеуге қатты назар аудару (кемінде +3 ұпай қажет) және басқа бөлімдерден тағы 4+ ұпай жинау. Үлгілермен және өз дауысын жазып алу арқылы сөйлеу жаттығуы — бірінші кезекте.",
             hint: "Check both the total and each section minimum separately.",
             hintRu: "Проверьте отдельно общий балл и минимум по каждому разделу.",
             hintKk: "Жалпы ұпай мен әр бөлімнің минимумын бөлек тексеріңіз.",
@@ -1254,7 +1398,9 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
               { en: "Identify the trend: as temperature increases by 20°C, solubility increases (+29, +45, +60) — the rate of increase is accelerating.", ru: "Определите тенденцию: с ростом температуры на 20°C растворимость растёт (+29, +45, +60) — скорость увеличения ускоряется.", kk: "Трендті анықтаңыз: температура 20°C-ға артқан сайын ерігіштік артады (+29, +45, +60) — арту жылдамдығы жеделдейді." },
               { en: "Extrapolate: the increase is growing (~+15 per step). Next increase ≈ +75. Predicted solubility at 100°C ≈ 170 + 75 = 245g.", ru: "Экстраполируйте: рост увеличивается (~+15 за шаг). Следующий рост ≈ +75. Прогноз при 100°C ≈ 170 + 75 = 245г.", kk: "Экстраполяция жасаңыз: артуы өседі (қадамға ~+15). Келесі арту ≈ +75. 100°C-дегі болжам ≈ 170 + 75 = 245г." }
             ],
-            answer: "Trend: solubility increases as temperature rises, at an accelerating rate. Predicted at 100°C: approximately 245g."
+            answer: "Trend: solubility increases as temperature rises, at an accelerating rate. Predicted at 100°C: approximately 245g.",
+            answerRu: "Тенденция: растворимость растёт с температурой, причём всё быстрее. Прогноз при 100°C: примерно 245 г.",
+            answerKk: "Тренд: ерігіштік температурамен бірге артады, әрі арту жылдамдығы жеделдейді. 100°C-дегі болжам: шамамен 245 г."
           }
         ],
         practiceProblems: [
@@ -1264,6 +1410,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Требует ли раздел науки ACT запоминания научных фактов перед тестом?",
             questionKk: "ACT ғылым бөлімі тест алдында ғылыми фактілерді жаттауды талап ете ме?",
             answer: "No. The ACT Science section tests your ability to interpret data from graphs, tables, and experiments. All information needed is provided in the passages.",
+            answerRu: "Нет. Раздел науки ACT проверяет умение интерпретировать данные из графиков, таблиц и экспериментов. Вся необходимая информация дана в текстах.",
+            answerKk: "Жоқ. ACT ғылым бөлімі графиктер, кестелер және тәжірибелерден деректерді түсіндіру қабілетін тексереді. Қажетті ақпараттың барлығы мәтіндерде берілген.",
             hint: "Think about what 'data interpretation' means — does it require prior knowledge?",
             hintRu: "Подумайте, что значит 'интерпретация данных' — требуются ли предварительные знания?",
             hintKk: "'Деректерді түсіндіру' нені білдіреді — алдын ала білім қажет пе?",
@@ -1275,6 +1423,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Эксперимент проверил рост растений с 3 удобрениями. A: 15см, B: 22см, C: 18см, Контроль (без удобрения): 10см. Какое удобрение эффективнее и как вы знаете, что удобрения работают?",
             questionKk: "Тәжірибе 3 тыңайтқышпен өсімдік өсуін тексерді. A: 15см, B: 22см, C: 18см, Бақылау (тыңайтқышсыз): 10см. Қай тыңайтқыш тиімдірек және тыңайтқыштардың жұмыс істегенін қалай білесіз?",
             answer: "Fertilizer B was most effective (22cm). We know they worked because all fertilizer groups grew more than the control group (10cm), which had no fertilizer.",
+            answerRu: "Удобрение B было самым эффективным (22 см). Мы знаем, что удобрения сработали, потому что все группы с удобрениями выросли больше контрольной группы (10 см), которая была без удобрений.",
+            answerKk: "B тыңайтқышы ең тиімді болды (22 см). Тыңайтқыштардың жұмыс істегенін білеміз, өйткені тыңайтқыш салынған барлық топтар тыңайтқышсыз бақылау тобынан (10 см) көбірек өсті.",
             hint: "Compare each result to the control group to determine effectiveness.",
             hintRu: "Сравните каждый результат с контрольной группой для определения эффективности.",
             hintKk: "Тиімділікті анықтау үшін әр нәтижені бақылау тобымен салыстырыңыз.",
@@ -1286,6 +1436,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Два учёных спорят. Учёный 1 считает главной причиной потепления выбросы CO2. Учёный 2 — солнечные циклы. График показывает рост CO2 с 1950-х, а солнечная активность стабильна с 1980-х, но температура продолжает расти. Кого лучше поддерживают данные?",
             questionKk: "Екі ғалым келіспейді. 1-ғалым жылынудың негізгі себебін CO2 шығарындылары дейді. 2-ғалым — күн циклдері. График CO2-нің 1950-ден бері тұрақты өскенін, ал күн белсенділігінің 1980-ден бері тұрақты екенін көрсетеді, бірақ температура артуда. Деректер қай ғалымды жақсырақ қолдайды?",
             answer: "Scientist 1. Since 1980, solar output has been flat but temperatures continue rising alongside CO2 increases. If solar cycles were the main driver (Scientist 2), temperatures should have leveled off when solar output did. The correlation between CO2 and temperature, even when solar output is stable, supports CO2 as the primary cause.",
+            answerRu: "Учёный 1. С 1980 года солнечная активность стабильна, но температуры продолжают расти вместе с ростом CO2. Если бы солнечные циклы были главной причиной (Учёный 2), температуры стабилизировались бы вместе с солнечной активностью. Корреляция CO2 и температуры даже при стабильной солнечной активности подтверждает CO2 как основную причину.",
+            answerKk: "1-ғалым. 1980 жылдан бері күн белсенділігі тұрақты, бірақ температура CO2 өсімімен бірге артып келеді. Егер күн циклдері негізгі фактор болса (2-ғалым), температура күн белсенділігі тұрақталғанда бірге тұрақталар еді. Күн белсенділігі тұрақты болса да CO2 мен температура арасындағы байланыс CO2-ні негізгі себеп ретінде қолдайды.",
             hint: "Look at what changed and what stayed the same after 1980, and which factor matches the temperature trend.",
             hintRu: "Посмотрите, что изменилось и что осталось прежним после 1980, и какой фактор совпадает с трендом температуры.",
             hintKk: "1980-ден кейін не өзгергенін және не тұрақты қалғанын қараңыз және қай фактор температура трендіне сәйкес келеді.",
@@ -1323,7 +1475,9 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
               { en: "Choose your position: Agree that schools should require uniforms.", ru: "Выберите позицию: Согласны, что школы должны требовать форму.", kk: "Позицияңызды таңдаңыз: Мектептер форма талап етуі керек деп келісесіз." },
               { en: "Add 2-3 reasons: reduces bullying, saves families money, creates focus on learning.", ru: "Добавьте 2-3 причины: уменьшает буллинг, экономит деньги семей, создаёт фокус на учёбе.", kk: "2-3 себеп қосыңыз: буллингті азайтады, отбасыларға ақша үнемдейді, оқуға назар аударады." }
             ],
-            answer: "'Schools should require uniforms because they reduce bullying based on clothing, save families money on school wardrobes, and help students focus on learning rather than fashion.'"
+            answer: "'Schools should require uniforms because they reduce bullying based on clothing, save families money on school wardrobes, and help students focus on learning rather than fashion.'",
+            answerRu: "'Школы должны требовать форму, потому что она уменьшает буллинг из-за одежды, экономит семьям деньги на школьном гардеробе и помогает ученикам сосредоточиться на учёбе, а не на моде.'",
+            answerKk: "'Мектептер форма киюді міндеттеуі керек, өйткені ол киімге байланысты буллингті азайтады, отбасылардың мектеп киіміне жұмсайтын ақшасын үнемдейді және оқушыларға сәннен гөрі оқуға назар аударуға көмектеседі.'"
           }
         ],
         practiceProblems: [
@@ -1333,6 +1487,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Каковы три части эссе из пяти абзацев?",
             questionKk: "Бес абзацтық эссенің үш бөлігі қандай?",
             answer: "Introduction (with thesis), Body paragraphs (3 paragraphs with arguments and evidence), and Conclusion (restates thesis and summarizes).",
+            answerRu: "Введение (с тезисом), основная часть (3 абзаца с аргументами и доказательствами) и заключение (повторяет тезис и подводит итог).",
+            answerKk: "Кіріспе (тезиспен), негізгі бөлік (аргументтері мен дәлелдері бар 3 абзац) және қорытынды (тезисті қайталап, түйіндейді).",
             hint: "Think about the beginning, middle, and end of an essay.",
             hintRu: "Подумайте о начале, середине и конце эссе.",
             hintKk: "Эссенің басы, ортасы және соңын ойлаңыз.",
@@ -1344,6 +1500,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Напишите тезис: 'Технология полезна или вредна для образования?'",
             questionKk: "'Технология білім беру үшін пайдалы ма, зиянды ма?' тақырыбына тезис жазыңыз.",
             answer: "Example: 'While technology presents some distractions, it is overwhelmingly beneficial for education because it provides access to vast resources, enables personalized learning, and prepares students for a digital workforce.'",
+            answerRu: "Пример: 'Хотя технологии создают некоторые отвлекающие факторы, они приносят огромную пользу образованию, поскольку предоставляют доступ к обширным ресурсам, делают возможным персонализированное обучение и готовят учеников к цифровой экономике.'",
+            answerKk: "Мысал: 'Технология алаңдататын факторлар тудырғанымен, білім беруге зор пайда әкеледі, өйткені ол кең ресурстарға қол жеткізеді, жекелендірілген оқытуға мүмкіндік береді және оқушыларды цифрлық жұмыс күшіне дайындайды.'",
             hint: "State your position clearly and give 2-3 reasons in one sentence.",
             hintRu: "Чётко изложите позицию и приведите 2-3 причины в одном предложении.",
             hintKk: "Позицияңызды анық білдіріп, бір сөйлемде 2-3 себеп беріңіз.",
@@ -1355,6 +1513,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "У вас 30 минут на эссе 'Нужно ли снизить возраст голосования до 16 лет?' Составьте полный план с тезисом, тремя темами абзацев, одним доказательством на абзац и стратегией заключения.",
             questionKk: "30 минутыңыз бар: 'Дауыс беру жасын 16-ға дейін төмендету керек пе?' Тезис, үш абзац тақырыбы, абзацқа бір дәлел және қорытынды стратегиясымен толық жоспар жасаңыз.",
             answer: "Thesis: 'The voting age should be lowered to 16 because teens are affected by political decisions, civic engagement improves with early participation, and many 16-year-olds are already contributing members of society.' Body 1: Teens affected by education/climate policy (evidence: school funding decisions). Body 2: Early voting builds lifelong habits (evidence: studies from Austria/Scotland where 16-year-olds can vote). Body 3: 16-year-olds can work and pay taxes (evidence: taxation without representation argument). Conclusion: Restate thesis, call to action for democratic inclusion.",
+            answerRu: "Тезис: 'Возраст голосования нужно снизить до 16, потому что подростки затронуты политическими решениями, гражданская вовлечённость растёт с ранним участием, и многие 16-летние уже вносят вклад в общество.' Абзац 1: Подростки затронуты политикой в образовании и климате (доказательство: решения о финансировании школ). Абзац 2: Раннее голосование формирует привычку на всю жизнь (доказательство: исследования из Австрии/Шотландии, где 16-летние могут голосовать). Абзац 3: 16-летние могут работать и платить налоги (доказательство: аргумент 'налоги без представительства'). Заключение: повторить тезис, призвать к демократическому включению.",
+            answerKk: "Тезис: 'Дауыс беру жасын 16-ға дейін төмендету керек, өйткені жасөспірімдерге саяси шешімдер әсер етеді, азаматтық белсенділік ерте қатысумен артады және көптеген 16 жастағылар қоғамға үлес қосып жүрген мүшелер.' 1-абзац: Жасөспірімдерге білім/климат саясаты әсер етеді (дәлел: мектепті қаржыландыру шешімдері). 2-абзац: Ерте дауыс беру өмір бойғы әдет қалыптастырады (дәлел: 16 жастағылар дауыс бере алатын Австрия/Шотландия зерттеулері). 3-абзац: 16 жастағылар жұмыс істеп, салық төлей алады (дәлел: өкілдіксіз салық салу аргументі). Қорытынды: тезисті қайталау, демократиялық қамтуға шақыру.",
             hint: "Spend 5 minutes planning before writing. Each body paragraph needs a clear topic and one supporting fact.",
             hintRu: "Потратьте 5 минут на планирование. Каждый абзац — чёткая тема и один подтверждающий факт.",
             hintKk: "Жазбас бұрын 5 минут жоспарлауға жұмсаңыз. Әр абзацқа анық тақырып және бір қосымша факт қажет.",
