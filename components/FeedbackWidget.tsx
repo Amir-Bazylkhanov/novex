@@ -123,7 +123,7 @@ const TYPE_ICONS: Record<FeedbackType, React.ComponentType<{ className?: string 
 };
 const TYPE_ORDER: FeedbackType[] = ['bug', 'idea', 'review'];
 
-const FeedbackWidget: React.FC = () => {
+const FeedbackWidget: React.FC<{ hideFab?: boolean }> = ({ hideFab = false }) => {
   const { language } = useLanguage();
   const reduceMotion = useReducedMotion();
   const [open, setOpen] = useState(false);
@@ -156,6 +156,13 @@ const FeedbackWidget: React.FC = () => {
     setScreenshotError('');
     setDragOver(false);
   };
+
+  // External surfaces (e.g. the landing footer) open the dialog via a custom event.
+  useEffect(() => {
+    const onOpenFeedback = () => setOpen(true);
+    window.addEventListener('novex:open-feedback', onOpenFeedback);
+    return () => window.removeEventListener('novex:open-feedback', onOpenFeedback);
+  }, []);
 
   // Escape closes the dialog; timers are cleaned up on unmount.
   useEffect(() => {
@@ -279,14 +286,16 @@ const FeedbackWidget: React.FC = () => {
 
   return (
     <>
-      <button
-        type="button"
-        aria-label={loc(language, ARIA_OPEN)}
-        onClick={() => setOpen(true)}
-        className={`${FOCUS_RING} fixed bottom-5 left-5 z-50 flex h-12 w-12 items-center justify-center rounded-full border border-line/50 bg-white text-teal shadow-[0_8px_24px_rgba(17,26,42,0.12)] transition-colors hover:bg-mist/25`}
-      >
-        <MessageSquareWarning className="h-5 w-5" aria-hidden="true" />
-      </button>
+      {!hideFab && (
+        <button
+          type="button"
+          aria-label={loc(language, ARIA_OPEN)}
+          onClick={() => setOpen(true)}
+          className={`${FOCUS_RING} fixed bottom-5 left-5 z-50 flex h-12 w-12 items-center justify-center rounded-full border border-line/50 bg-white text-teal shadow-[0_8px_24px_rgba(17,26,42,0.12)] transition-colors hover:bg-mist/25`}
+        >
+          <MessageSquareWarning className="h-5 w-5" aria-hidden="true" />
+        </button>
+      )}
 
       <AnimatePresence>
         {open && (

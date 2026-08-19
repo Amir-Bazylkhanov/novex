@@ -72,7 +72,9 @@ const Shell: React.FC = () => {
       {!bareRoute && <Footer />}
       {/* Tutor chat rides along on the app surfaces, not the marketing page. */}
       {!bareRoute && pathname !== '/' && <TutorChat />}
-      {!bareRoute && pathname !== '/' && <FeedbackWidget />}
+      {/* Feedback modal is available everywhere (landing included); the landing
+          hides the floating button — its footer opens the modal via an event. */}
+      {!bareRoute && <FeedbackWidget hideFab={pathname === '/'} />}
     </>
   );
 };

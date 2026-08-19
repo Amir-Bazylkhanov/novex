@@ -158,14 +158,14 @@ const EXAMS_HEADING: Localized = {
   en: 'Exams and scores',
 };
 const EXAMS_DESC: Localized = {
-  ru: 'Текущие или целевые баллы — необязательно. Наставник и Куратор учтут их в рекомендациях.',
-  kk: 'Ағымдағы немесе мақсатты баллдар — міндетті емес. Тәлімгер мен Куратор оларды ұсыныстарда ескереді.',
-  en: 'Current or target scores — optional. The Tutor and the Curator will factor them into recommendations.',
+  ru: 'Текущие баллы — необязательно. Наставник и Куратор учтут их в рекомендациях.',
+  kk: 'Ағымдағы баллдар — міндетті емес. Тәлімгер мен Куратор оларды ұсыныстарда ескереді.',
+  en: 'Current scores — optional. The Tutor and the Curator will factor them into recommendations.',
 };
 const ENT_SCORE_LABEL: Localized = {
-  ru: 'Балл ЕНТ (цель или текущий)',
-  kk: 'ҰБТ баллы (мақсат немесе ағымдағы)',
-  en: 'UNT score (target or current)',
+  ru: 'Текущий балл ЕНТ',
+  kk: 'Қазіргі ҰБТ балы',
+  en: 'Current UNT score',
 };
 const SAT_SCORE_LABEL: Localized = { ru: 'SAT', kk: 'SAT', en: 'SAT' };
 const IELTS_SCORE_LABEL: Localized = { ru: 'IELTS', kk: 'IELTS', en: 'IELTS' };
@@ -198,19 +198,19 @@ const MODEL_DESC: Localized = {
 };
 const MODEL_SELECT_LABEL: Localized = { ru: 'Модель', kk: 'Модель', en: 'Model' };
 const MODEL_DEFAULT_OPTION: Localized = {
-  ru: 'По умолчанию (Sonnet 5)',
-  kk: 'Әдепкі (Sonnet 5)',
-  en: 'Default (Sonnet 5)',
+  ru: 'По умолчанию (Sonnet 5 · 3 ⚙)',
+  kk: 'Әдепкі (Sonnet 5 · 3 ⚙)',
+  en: 'Default (Sonnet 5 · 3 ⚙)',
 };
 
 // Brand names stay identical in all three languages, so labels are plain strings.
 // Listed most expensive first.
 const MODEL_OPTIONS: Array<{ id: TutorModel; label: string }> = [
-  { id: 'claude-opus-5', label: 'Opus 5' },
-  { id: 'gpt-5.6-sol', label: 'ChatGPT 5.6 Sol' },
-  { id: 'claude-sonnet-5', label: 'Sonnet 5' },
-  { id: 'gpt-5.6-terra', label: 'ChatGPT 5.6 Terra' },
-  { id: 'gpt-5.6-luna', label: 'ChatGPT 5.6 Luna' },
+  { id: 'claude-opus-5', label: 'Opus 5 · 5 ⚙' },
+  { id: 'gpt-5.6-sol', label: 'ChatGPT 5.6 Sol · 4 ⚙' },
+  { id: 'claude-sonnet-5', label: 'Sonnet 5 · 3 ⚙' },
+  { id: 'gpt-5.6-terra', label: 'ChatGPT 5.6 Terra · 2 ⚙' },
+  { id: 'gpt-5.6-luna', label: 'ChatGPT 5.6 Luna · 1 ⚙' },
 ];
 
 const SAVE_BTN: Localized = { ru: 'Сохранить', kk: 'Сақтау', en: 'Save' };
@@ -578,7 +578,7 @@ const ProfilePage: React.FC = () => {
 
   return (
     <main className="min-h-screen bg-canvas font-sans text-ink">
-      <div className="mx-auto w-full max-w-5xl px-5 py-12 sm:px-6 md:py-16 lg:px-8">
+      <div className="mx-auto w-full max-w-7xl px-5 py-12 sm:px-6 md:py-16 lg:px-8">
         <header aria-labelledby="profile-heading">
           <h1
             id="profile-heading"
@@ -605,8 +605,9 @@ const ProfilePage: React.FC = () => {
           </div>
         </header>
 
-        <div className="mt-8 space-y-6 lg:grid lg:grid-cols-2 lg:items-start lg:gap-6 lg:space-y-0">
-          <form onSubmit={handleSubmit} noValidate className="space-y-6 lg:contents lg:space-y-0">
+        <div className="mt-8">
+          <form onSubmit={handleSubmit} noValidate>
+            <div className="space-y-6 lg:grid lg:grid-cols-2 lg:items-start lg:gap-6 lg:space-y-0">
           {/* Account */}
           <section aria-labelledby="account-heading" className={`${CARD} lg:col-span-2`}>
             <h2
@@ -710,6 +711,8 @@ const ProfilePage: React.FC = () => {
             </div>
           </section>
 
+          {/* Left column */}
+          <div className="flex flex-col gap-6">
           {/* Learning profile */}
           <section aria-labelledby="learning-heading" className={CARD}>
             <div className="flex items-start gap-4">
@@ -871,6 +874,10 @@ const ProfilePage: React.FC = () => {
             </div>
           </section>
 
+          </div>
+
+          {/* Right column */}
+          <div className="flex flex-col gap-6">
           {/* Exams and scores */}
           <section aria-labelledby="exams-heading" className={CARD}>
             <div className="flex items-start gap-3">
@@ -1000,40 +1007,6 @@ const ProfilePage: React.FC = () => {
             </div>
           </section>
 
-          {error && (
-            <div
-              role="alert"
-              className="rounded-xl border border-coral/40 bg-coral/10 px-4 py-3 text-sm font-medium text-coral lg:col-span-2"
-            >
-              {error}
-            </div>
-          )}
-
-          <div className="flex flex-wrap items-center gap-3 lg:col-span-2">
-            <button
-              type="submit"
-              disabled={!dirty || saving || examErrors}
-              className={`${FOCUS_RING} inline-flex items-center gap-2 rounded-xl bg-teal px-6 py-3 text-sm font-semibold text-white shadow-[0_4px_14px_rgba(33,159,162,0.25)] transition-colors hover:bg-teal-dark disabled:cursor-not-allowed disabled:border disabled:border-line disabled:bg-white disabled:text-slateink disabled:shadow-none`}
-            >
-              {saving ? (
-                <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" />
-              ) : (
-                <Save className="h-4 w-4" aria-hidden="true" />
-              )}
-              {saving ? loc(language, SAVING) : loc(language, SAVE_BTN)}
-            </button>
-            {saved && !dirty && (
-              <span
-                role="status"
-                className="inline-flex items-center gap-1.5 rounded-full bg-teal/10 px-3 py-1.5 text-sm font-semibold text-teal-dark"
-              >
-                <Check className="h-4 w-4" aria-hidden="true" />
-                {loc(language, SAVED)}
-              </span>
-            )}
-          </div>
-          </form>
-
         {/* My class — students only */}
         {profile.role === 'student' && (
           <section aria-labelledby="class-heading" className={CARD}>
@@ -1132,6 +1105,42 @@ const ProfilePage: React.FC = () => {
             )}
           </section>
         )}
+          </div>
+
+          {error && (
+            <div
+              role="alert"
+              className="rounded-xl border border-coral/40 bg-coral/10 px-4 py-3 text-sm font-medium text-coral lg:col-span-2"
+            >
+              {error}
+            </div>
+          )}
+
+          <div className="flex flex-wrap items-center gap-3 lg:col-span-2">
+            <button
+              type="submit"
+              disabled={!dirty || saving || examErrors}
+              className={`${FOCUS_RING} inline-flex items-center gap-2 rounded-xl bg-teal px-6 py-3 text-sm font-semibold text-white shadow-[0_4px_14px_rgba(33,159,162,0.25)] transition-colors hover:bg-teal-dark disabled:cursor-not-allowed disabled:border disabled:border-line disabled:bg-white disabled:text-slateink disabled:shadow-none`}
+            >
+              {saving ? (
+                <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" />
+              ) : (
+                <Save className="h-4 w-4" aria-hidden="true" />
+              )}
+              {saving ? loc(language, SAVING) : loc(language, SAVE_BTN)}
+            </button>
+            {saved && !dirty && (
+              <span
+                role="status"
+                className="inline-flex items-center gap-1.5 rounded-full bg-teal/10 px-3 py-1.5 text-sm font-semibold text-teal-dark"
+              >
+                <Check className="h-4 w-4" aria-hidden="true" />
+                {loc(language, SAVED)}
+              </span>
+            )}
+          </div>
+            </div>
+          </form>
         </div>
 
         <div className="mt-10 border-t border-line/50 pt-6">

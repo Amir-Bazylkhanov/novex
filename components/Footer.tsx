@@ -16,38 +16,15 @@ const MISSION: Localized = {
   en: 'An AI platform that equalises access to quality education — regardless of school or region.',
 };
 
-const COLUMNS: Array<{ title: Localized; links: Array<{ href: string; label: Localized }> }> = [
-  {
-    title: { ru: 'Продукт', kk: 'Өнім', en: 'Product' },
-    links: [
-      { href: '#features', label: { ru: 'Возможности', kk: 'Мүмкіндіктер', en: 'Features' } },
-      { href: '#subjects', label: { ru: 'Предметы', kk: 'Пәндер', en: 'Subjects' } },
-      { href: '#dashboard', label: { ru: 'Кабинет ученика', kk: 'Оқушы кабинеті', en: 'Student dashboard' } },
-      { href: '/pricing', label: { ru: 'Тарифы', kk: 'Тарифтер', en: 'Pricing' } },
-    ],
-  },
-  {
-    title: { ru: 'Для школ', kk: 'Мектептерге', en: 'For schools' },
-    links: [
-      { href: '#for-schools', label: { ru: 'Панель учителя', kk: 'Мұғалім панелі', en: 'Teacher panel' } },
-      { href: '#pricing', label: { ru: 'Бесплатно для школ', kk: 'Мектептерге тегін', en: 'Free for schools' } },
-      { href: '#impact', label: { ru: 'Социальный эффект', kk: 'Әлеуметтік әсер', en: 'Social impact' } },
-    ],
-  },
-  {
-    title: { ru: 'Поддержка', kk: 'Қолдау', en: 'Support' },
-    links: [
-      { href: '/faq', label: { ru: 'Частые вопросы', kk: 'Жиі қойылатын сұрақтар', en: 'FAQ' } },
-      { href: '#how-it-works', label: { ru: 'Как это работает', kk: 'Қалай жұмыс істейді', en: 'How it works' } },
-      { href: 'mailto:amirbazylkhanov@gmail.com', label: { ru: 'Связаться с нами', kk: 'Бізбен байланысу', en: 'Contact us' } },
-    ],
-  },
+const LINKS: Array<{ to: string; label: Localized }> = [
+  { to: '/pricing', label: { ru: 'Тарифы', kk: 'Тарифтер', en: 'Pricing' } },
+  { to: '/faq', label: { ru: 'Частые вопросы', kk: 'Жиі қойылатын сұрақтар', en: 'FAQ' } },
 ];
 
-const CONTACT: Localized = {
-  ru: 'Вопросы и подключение школ:',
-  kk: 'Сұрақтар және мектептерді қосу:',
-  en: 'Questions and school onboarding:',
+const CONTACT_US: Localized = {
+  ru: 'Связаться с нами',
+  kk: 'Бізбен байланысу',
+  en: 'Contact us',
 };
 
 const HACKATHON: Localized = {
@@ -65,7 +42,7 @@ const Footer: React.FC = () => {
   return (
     <footer className="bg-ink text-canvas">
       <div className="mx-auto max-w-7xl px-5 py-16 sm:px-6 lg:px-8">
-        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
+        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr]">
           <div>
             <div className="flex items-center gap-2">
               <svg aria-hidden="true" viewBox="0 0 32 32" className="h-8 w-8" fill="none">
@@ -91,53 +68,33 @@ const Footer: React.FC = () => {
             </div>
           </div>
 
-          {COLUMNS.map((col) => (
-            <nav key={col.title.en} aria-label={loc(language, col.title)}>
-              <h3 className="font-display text-sm font-bold uppercase tracking-wide text-canvas/60">
-                {loc(language, col.title)}
-              </h3>
-              <ul className="mt-4 space-y-2.5">
-                {col.links.map((link) => (
-                  <li key={link.href + link.label.en}>
-                    {link.href.startsWith('/') ? (
-                      <Link
-                        to={link.href}
-                        className={`${FOCUS_RING} rounded text-sm text-canvas/80 transition-colors hover:text-teal-light`}
-                      >
-                        {loc(language, link.label)}
-                      </Link>
-                    ) : (
-                      <a
-                        href={link.href}
-                        className={`${FOCUS_RING} rounded text-sm text-canvas/80 transition-colors hover:text-teal-light`}
-                      >
-                        {loc(language, link.label)}
-                      </a>
-                    )}
-                  </li>
-                ))}
-              </ul>
-            </nav>
-          ))}
+          <nav aria-label="Footer" className="md:justify-self-end lg:mt-14">
+            <ul className="flex flex-col gap-2.5">
+              {LINKS.map((link) => (
+                <li key={link.to}>
+                  <Link
+                    to={link.to}
+                    className={`${FOCUS_RING} rounded text-sm text-canvas/80 transition-colors hover:text-teal-light`}
+                  >
+                    {loc(language, link.label)}
+                  </Link>
+                </li>
+              ))}
+              <li>
+                <button
+                  type="button"
+                  onClick={() => window.dispatchEvent(new CustomEvent('novex:open-feedback'))}
+                  className={`${FOCUS_RING} rounded text-sm text-canvas/80 transition-colors hover:text-teal-light`}
+                >
+                  {loc(language, CONTACT_US)}
+                </button>
+              </li>
+            </ul>
+          </nav>
         </div>
 
-        <div className="mt-12 flex flex-col gap-4 border-t border-canvas/15 pt-6 md:flex-row md:items-center md:justify-between">
-          <div className="flex flex-col gap-2 text-sm text-canvas/70 sm:flex-row sm:items-center sm:gap-4">
-            <span>© 2026 Novex</span>
-            <span className="hidden sm:inline" aria-hidden="true">
-              ·
-            </span>
-            <span>
-              {loc(language, CONTACT)}{' '}
-              <a
-                href="mailto:amirbazylkhanov@gmail.com"
-                className={`${FOCUS_RING} rounded text-teal-light transition-colors hover:text-canvas`}
-              >
-                amirbazylkhanov@gmail.com
-              </a>
-            </span>
-          </div>
-
+        <div className="mt-12 border-t border-canvas/15 pt-6">
+          <p className="text-sm text-canvas/70">© 2026 Novex</p>
         </div>
 
         <p className="mt-6 text-xs text-canvas/50">{loc(language, HACKATHON)}</p>
