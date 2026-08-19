@@ -4,28 +4,28 @@ import { Check } from 'lucide-react';
 import { loc, type Localized } from '../../utils/i18n.ts';
 import { useLanguage } from '../../context/LanguageContext.tsx';
 import { RobotAvatar, CircuitTrace, GearDecor } from '../robots/RobotAvatars.tsx';
-import type { RobotId } from '../robots/RobotAvatars.tsx';
+import type { MentorRobotId } from '../robots/RobotAvatars.tsx';
 
 const EYEBROW: Localized = {
-  ru: 'Команда Novex',
-  kk: 'Novex командасы',
-  en: 'The Novex team',
+  ru: 'Направления Novex',
+  kk: 'Novex бағыттары',
+  en: 'Novex directions',
 };
 
 const TITLE: Localized = {
-  ru: 'Три робота, которые учат по-разному',
-  kk: 'Әртүрлі тәсілмен оқытатын үш робот',
-  en: 'Three robots that teach differently',
+  ru: 'Три направления — один путь',
+  kk: 'Үш бағыт — бір жол',
+  en: 'Three directions — one path',
 };
 
 const SUBTITLE: Localized = {
-  ru: 'Три ИИ-помощника делят один путь ученика: диагностика, обучение, план до цели. Каждый отвечает за свой этап и передаёт эстафету следующему.',
-  kk: 'Үш ИИ-көмекші бір оқушының жолын бөліседі: диагностика, оқыту, мақсатқа дейінгі жоспар. Әрқайсысы өз кезеңіне жауапты және эстафетаны келесісіне табыстайды.',
-  en: 'Three AI helpers share one student’s journey: diagnostics, tutoring, and the roadmap to the goal. Each owns its stage and hands off to the next.',
+  ru: 'Три направления обучения покрывают весь путь ученика: школьную программу, навыки для жизни и компетенции будущего. Каждое ведёт свой робот-наставник.',
+  kk: 'Үш оқу бағыты оқушының бүкіл жолын қамтиды: мектеп бағдарламасы, өмірлік дағдылар және болашақ құзыреттер. Әр бағытты жеке робот-тәлімгер жетекшилейді.',
+  en: 'Three learning directions cover the whole student journey: the school curriculum, life skills, and future-ready competencies. Each is led by its own mentor robot.',
 };
 
 interface RobotCardData {
-  id: RobotId;
+  id: MentorRobotId;
   code: string;
   /* accent classes built only from the locked Tailwind tokens */
   text: string;
@@ -40,106 +40,98 @@ interface RobotCardData {
 
 const CARDS: RobotCardData[] = [
   {
-    id: 'nov1',
-    code: 'NOV-01',
+    id: 'nov4',
+    code: 'NOV-04',
     text: 'text-teal-dark',
     border: 'border-teal-dark/40',
     hoverBorder: 'hover:border-teal-dark/60',
     bg: 'bg-teal-dark',
-    tag: { ru: 'Диагностика', kk: 'Диагностика', en: 'Diagnostics' },
-    name: { ru: 'Диагност', kk: 'Диагност', en: 'Diagnostician' },
+    tag: { ru: 'Академик', kk: 'Академик', en: 'Academic' },
+    name: { ru: 'Академическая база', kk: 'Академиялық негіз', en: 'Academic Foundation' },
     job: {
-      ru: 'Проводит стартовый тест и строит карту знаний ученика.',
-      kk: 'Бастапқы тест өткізіп, оқушының білім картасын құрады.',
-      en: 'Runs the placement test and builds the student’s knowledge map.',
+      ru: 'Школа и подготовка к вузу — математика, физика, языки, экзамены.',
+      kk: 'Мектеп пәндері мен жоғары оқу орнына дайындық — математика, физика, тілдер, емтихандар.',
+      en: 'School subjects and university prep — math, physics, languages, exams.',
     },
     bullets: [
       {
-        ru: 'Определяет уровень по каждой теме',
-        kk: 'Әр тақырып бойынша деңгейді анықтайды',
-        en: 'Estimates the level for every topic',
+        ru: '4 планеты: точные науки, AP/IB, экзамены, исследования',
+        kk: '4 планета: нақты ғылымдар, AP/IB, емтихандар, зерттеулер',
+        en: '4 planets: exact sciences, AP/IB, exams, research',
       },
       {
-        ru: 'Находит слабые места до старта',
-        kk: 'Әлсіз тұстарды алдын ала табады',
-        en: 'Finds weak spots before learning starts',
+        ru: 'Уроки с теорией, примерами и практикой',
+        kk: 'Теория, мысалдар және тәжірибесі бар сабақтар',
+        en: 'Lessons with theory, examples, and practice',
       },
       {
-        ru: 'Подсказывает, с чего начать',
-        kk: 'Неден бастау керегін ұсынады',
-        en: 'Suggests where to begin',
+        ru: 'Диагностика и уровни по каждой теме',
+        kk: 'Әр тақырып бойынша диагностика мен деңгейлер',
+        en: 'Diagnostics and levels for every topic',
       },
     ],
   },
   {
-    id: 'nov2',
-    code: 'NOV-02',
+    id: 'nov5',
+    code: 'NOV-05',
     text: 'text-teal',
     border: 'border-teal/40',
     hoverBorder: 'hover:border-teal/60',
     bg: 'bg-teal',
-    tag: {
-      ru: 'Обучение и обратная связь',
-      kk: 'Оқыту мен кері байланыс',
-      en: 'Tutoring & feedback',
-    },
-    name: { ru: 'Наставник', kk: 'Тәлімгер', en: 'Tutor' },
+    tag: { ru: 'Практик', kk: 'Практик', en: 'Practitioner' },
+    name: { ru: 'Жизненные навыки', kk: 'Өмірлік дағдылар', en: 'Life Skills' },
     job: {
-      ru: 'Объясняет ошибки шаг за шагом и подстраивает сложность заданий.',
-      kk: 'Қателерді қадамдап түсіндіріп, тапсырмалардың күрделілігін бейімдейді.',
-      en: 'Explains mistakes step by step and adapts task difficulty live.',
+      ru: 'Навыки для реальной жизни: от денег до общения.',
+      kk: 'Нақты өмірге қажетті дағдылар: қаржыдан қарым-қатынасқа дейін.',
+      en: 'Skills for real life: from money to communication.',
     },
     bullets: [
       {
-        ru: 'Разбор решения на трёх языках',
-        kk: 'Шешімді үш тілде талдайды',
-        en: 'Step-by-step review in three languages',
+        ru: 'Финансовая грамотность и коммуникация',
+        kk: 'Қаржылық сауаттылық пен коммуникация',
+        en: 'Financial literacy and communication',
       },
       {
-        ru: 'Отвечает на вопросы в чате 24/7',
-        kk: 'Чаттағы сұрақтарға 24/7 жауап береді',
-        en: 'Answers chat questions 24/7',
+        ru: 'Психология и продуктивность',
+        kk: 'Психология мен өнімділік',
+        en: 'Psychology and productivity',
       },
       {
-        ru: 'Сложность растёт вместе с учеником',
-        kk: 'Күрделілік оқушымен бірге өседі',
-        en: 'Difficulty grows with the student',
+        ru: 'Тесты уровня после каждого урока',
+        kk: 'Әр сабақтан кейінгі деңгей тесттері',
+        en: 'Level tests after every lesson',
       },
     ],
   },
   {
-    id: 'nov3',
-    code: 'NOV-03',
+    id: 'nov6',
+    code: 'NOV-06',
     text: 'text-coral',
     border: 'border-coral/40',
     hoverBorder: 'hover:border-coral/60',
     bg: 'bg-coral',
-    tag: {
-      ru: 'План и контроль',
-      kk: 'Жоспар мен бақылау',
-      en: 'Roadmap & tracking',
-    },
-    name: { ru: 'Куратор', kk: 'Куратор', en: 'Curator' },
+    tag: { ru: 'Кибер', kk: 'Кибер', en: 'Cyber' },
+    name: { ru: 'Навыки будущего', kk: 'Болашақ дағдылары', en: 'Future Skills' },
     job: {
-      ru: 'Строит план подготовки к ЕНТ и следит за дедлайнами.',
-      kk: 'ҰБТ-ға дайындық жоспарын құрып, мерзімдерді қадағалайды.',
-      en: 'Builds the prep roadmap to the UNT and tracks every deadline.',
+      ru: 'Код, ИИ и самопознание — то, что нужно завтра.',
+      kk: 'Код, ЖИ және өзін тану — ертең қажет болатындар.',
+      en: 'Code, AI, and self-discovery — what tomorrow demands.',
     },
     bullets: [
       {
-        ru: 'Личный роадмап до даты экзамена',
-        kk: 'Емтихан күніне дейінгі жеке жоспар',
-        en: 'A personal roadmap up to exam day',
+        ru: 'Программирование и предпринимательство',
+        kk: 'Бағдарламалау мен кәсіпкерлік',
+        en: 'Programming and entrepreneurship',
       },
       {
-        ru: 'Напоминания о сроках и повторении',
-        kk: 'Мерзім мен қайталау туралы еске салғыштар',
-        en: 'Deadline and revision reminders',
+        ru: 'Креативность и карьера',
+        kk: 'Креативтілік пен мансап',
+        en: 'Creativity and career',
       },
       {
-        ru: 'Отчёт об успехах для учителя',
-        kk: 'Мұғалімге арналған үлгерім есебі',
-        en: 'Progress reports for the teacher',
+        ru: 'Профориентация от NOV-01',
+        kk: 'NOV-01-ден кәсіби бағдар',
+        en: 'Career guidance from NOV-01',
       },
     ],
   },

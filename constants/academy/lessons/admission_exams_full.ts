@@ -1561,7 +1561,9 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
               { en: "Factor the quadratic: (x − 2)(x − 3) = 0.", ru: "Разложите квадратное уравнение: (x − 2)(x − 3) = 0.", kk: "Квадрат теңдеуді жіктеңіз: (x − 2)(x − 3) = 0." },
               { en: "Set each factor to zero: x = 2 or x = 3.", ru: "Приравняйте каждый множитель к нулю: x = 2 или x = 3.", kk: "Әр көбейткішті нөлге теңестіріңіз: x = 2 немесе x = 3." }
             ],
-            answer: "x = 2 or x = 3"
+            answer: "x = 2 or x = 3",
+            answerRu: "x = 2 или x = 3",
+            answerKk: "x = 2 немесе x = 3"
           }
         ],
         practiceProblems: [
@@ -1571,6 +1573,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Разложите x² − 9.",
             questionKk: "x² − 9 жіктеңіз.",
             answer: "(x + 3)(x − 3)",
+            answerRu: "(x + 3)(x − 3)",
+            answerKk: "(x + 3)(x − 3)",
             hint: "This is a difference of squares: a² − b² = (a+b)(a−b).",
             hintRu: "Это разность квадратов: a² − b² = (a+b)(a−b).",
             hintKk: "Бұл квадраттар айырмасы: a² − b² = (a+b)(a−b).",
@@ -1582,6 +1586,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Решите 2x² + 3x − 5 = 0 с помощью формулы дискриминанта.",
             questionKk: "2x² + 3x − 5 = 0 теңдеуін квадрат формуламен шешіңіз.",
             answer: "x = 1 or x = −2.5",
+            answerRu: "x = 1 или x = −2,5",
+            answerKk: "x = 1 немесе x = −2,5",
             hint: "Identify a=2, b=3, c=−5 and plug into the quadratic formula.",
             hintRu: "Определите a=2, b=3, c=−5 и подставьте в формулу дискриминанта.",
             hintKk: "a=2, b=3, c=−5 анықтап, квадрат формулаға қойыңыз.",
@@ -1593,6 +1599,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Уравнение x² + kx + 9 = 0 имеет ровно одно решение. Найдите все возможные значения k.",
             questionKk: "x² + kx + 9 = 0 теңдеуінің тек бір шешімі бар. k-нің барлық мүмкін мәндерін табыңыз.",
             answer: "k = 6 or k = −6",
+            answerRu: "k = 6 или k = −6",
+            answerKk: "k = 6 немесе k = −6",
             hint: "For exactly one solution, the discriminant b² − 4ac must equal zero.",
             hintRu: "Для одного решения дискриминант b² − 4ac должен равняться нулю.",
             hintKk: "Бір ғана шешім үшін дискриминант b² − 4ac нөлге тең болуы керек.",
@@ -1624,7 +1632,9 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
               { en: "Hypotenuse = √(6² + 8²) = √(36 + 64) = √100 = 10.", ru: "Гипотенуза = √(6² + 8²) = √(36 + 64) = √100 = 10.", kk: "Гипотенуза = √(6² + 8²) = √(36 + 64) = √100 = 10." },
               { en: "sin θ = opposite / hypotenuse = 6 / 10 = 0.6.", ru: "sin θ = противолежащий / гипотенуза = 6 / 10 = 0,6.", kk: "sin θ = қарсы жақ / гипотенуза = 6 / 10 = 0,6." }
             ],
-            answer: "Hypotenuse = 10, sin θ = 0.6"
+            answer: "Hypotenuse = 10, sin θ = 0.6",
+            answerRu: "Гипотенуза = 10, sin θ = 0,6",
+            answerKk: "Гипотенуза = 10, sin θ = 0,6"
           }
         ],
         practiceProblems: [
@@ -1634,6 +1644,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Найдите площадь треугольника с основанием 10 и высотой 7.",
             questionKk: "Табаны 10, биіктігі 7 үшбұрыштың ауданын табыңыз.",
             answer: "35 square units (A = ½ × 10 × 7 = 35)",
+            answerRu: "35 квадратных единиц (A = ½ × 10 × 7 = 35)",
+            answerKk: "35 шаршы бірлік (A = ½ × 10 × 7 = 35)",
             hint: "Area of a triangle = ½ × base × height.",
             hintRu: "Площадь треугольника = ½ × основание × высота.",
             hintKk: "Үшбұрыш ауданы = ½ × табан × биіктік.",
@@ -1645,6 +1657,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "В треугольнике 45-45-90 гипотенуза равна 10√2. Какова длина каждого катета?",
             questionKk: "45-45-90 үшбұрышта гипотенуза 10√2. Әр катеттің ұзындығы қандай?",
             answer: "Each leg = 10",
+            answerRu: "Каждый катет = 10",
+            answerKk: "Әр катет = 10",
             hint: "In a 45-45-90 triangle, each leg = hypotenuse / √2.",
             hintRu: "В треугольнике 45-45-90 каждый катет = гипотенуза / √2.",
             hintKk: "45-45-90 үшбұрышта әр катет = гипотенуза / √2.",
@@ -1656,6 +1670,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Окружность имеет центральный угол 60° и радиус 12. Найдите длину дуги и площадь сектора.",
             questionKk: "Шеңбердің центрлік бұрышы 60° және радиусы 12. Доға ұзындығы мен сектор ауданын табыңыз.",
             answer: "Arc length = 4π ≈ 12.57; Sector area = 24π ≈ 75.40",
+            answerRu: "Длина дуги = 4π ≈ 12,57; Площадь сектора = 24π ≈ 75,40",
+            answerKk: "Доға ұзындығы = 4π ≈ 12,57; Сектор ауданы = 24π ≈ 75,40",
             hint: "Arc length = (θ/360) × 2πr; Sector area = (θ/360) × πr².",
             hintRu: "Длина дуги = (θ/360) × 2πr; Площадь сектора = (θ/360) × πr².",
             hintKk: "Доға ұзындығы = (θ/360) × 2πr; Сектор ауданы = (θ/360) × πr².",
@@ -1687,7 +1703,9 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
               { en: "Identify the claim: urban gardens improve community health.", ru: "Определите утверждение: городские сады улучшают здоровье сообщества.", kk: "Мәлімдемені анықтаңыз: қалалық бақтар қоғам денсаулығын жақсартады." },
               { en: "The sentence provides quantitative evidence (30% lower stress) supporting the main claim.", ru: "Предложение предоставляет количественное доказательство (на 30% ниже стресс), подтверждающее основное утверждение.", kk: "Сөйлем негізгі мәлімдемені қолдайтын сандық дәлел береді (стресс 30%-ға төмен)." }
             ],
-            answer: "It serves as supporting evidence for the passage's main argument that urban gardens improve health."
+            answer: "It serves as supporting evidence for the passage's main argument that urban gardens improve health.",
+            answerRu: "Оно служит подтверждающим доказательством главного утверждения текста о том, что городские сады улучшают здоровье.",
+            answerKk: "Ол қалалық бақтар денсаулықты жақсартады деген мәтіннің негізгі мәлімдемесін растайтын дәлел ретінде қызмет етеді."
           }
         ],
         practiceProblems: [
@@ -1697,6 +1715,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Что нужно определить в первую очередь при чтении текста SAT?",
             questionKk: "SAT мәтінін оқығанда алдымен нені анықтау керек?",
             answer: "The main idea — what the passage is about and what point the author is making.",
+            answerRu: "Основная мысль — о чём текст и какую мысль высказывает автор.",
+            answerKk: "Негізгі ой — мәтін не туралы және автор қандай ойды айтады.",
             hint: "Think about the big picture: topic + author's argument.",
             hintRu: "Подумайте о общей картине: тема + аргумент автора.",
             hintKk: "Жалпы суретті ойлаңыз: тақырып + автордың аргументі.",
@@ -1708,6 +1728,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Текст гласит: 'Сокращение опылителей угрожает продовольственной безопасности.' Что лучше укрепит утверждение? (A) Пчёлы — интересные насекомые. (B) 75% продовольственных культур зависят от животного опыления. (C) Некоторые цветы очень красивы.",
             questionKk: "Мәтінде: 'Тозаңдатқыштардың азаюы жаһандық азық-түлік қауіпсіздігіне қатер төндіреді.' Қайсысы мәлімдемені жақсы нығайтады? (A) Аралар қызықты жәндіктер. (B) Тамақ дақылдарының 75%-ы жануарлар тозаңдатуына тәуелді. (C) Кейбір гүлдер өте әдемі.",
             answer: "B — it provides a specific statistic directly linking pollinators to food production.",
+            answerRu: "B — он приводит конкретную статистику, напрямую связывающую опылителей с производством продовольствия.",
+            answerKk: "B — ол тозаңдатқыштарды азық-түлік өндірісімен тікелей байланыстыратын нақты статистика келтіреді.",
             hint: "Look for the answer that provides direct, relevant evidence for the claim.",
             hintRu: "Ищите ответ, дающий прямое, релевантное доказательство.",
             hintKk: "Мәлімдемеге тікелей, сәйкес дәлел беретін жауапты іздеңіз.",
@@ -1719,6 +1741,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Автор пишет о возобновляемой энергии. Параграф 2 обсуждает преимущества солнечной энергии; параграф 3 — её ограничения. Как бы вы описали общий подход автора?",
             questionKk: "Автор жаңартылатын энергия туралы жазады. 2-абзац күн энергиясының артықшылықтарын; 3-абзац оның шектеулерін талқылайды. Автордың жалпы тәсілін қалай сипаттар едіңіз?",
             answer: "The author takes a balanced, analytical approach — presenting both advantages and disadvantages to give a nuanced view.",
+            answerRu: "Автор использует сбалансированный, аналитический подход — представляя и преимущества, и недостатки, чтобы дать взвешенную картину.",
+            answerKk: "Автор теңдестірілген, аналитикалық көзқарасты қолданады — толымды пікір қалыптастыру үшін артықшылықтары мен кемшіліктерін бірге көрсетеді.",
             hint: "When an author presents both sides, the tone is usually balanced or analytical, not one-sided.",
             hintRu: "Когда автор представляет обе стороны, тон обычно сбалансированный или аналитический.",
             hintKk: "Автор екі жағын да көрсеткенде, үні әдетте теңдестірілген немесе аналитикалық.",
@@ -1750,7 +1774,9 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
               { en: "Identify the subject: 'group' (singular), not 'students'.", ru: "Определите подлежащее: 'group' (единственное число), а не 'students'.", kk: "Бастауышты анықтаңыз: 'group' (жекеше), 'students' емес." },
               { en: "Correct to: 'The group of students was excited about the trip.'", ru: "Исправьте: 'The group of students was excited about the trip.'", kk: "Түзетіңіз: 'The group of students was excited about the trip.'" }
             ],
-            answer: "'The group of students was excited about the trip.' — 'group' is singular and requires 'was'."
+            answer: "'The group of students was excited about the trip.' — 'group' is singular and requires 'was'.",
+            answerRu: "'The group of students was excited about the trip.' — слово 'group' стоит в единственном числе и требует 'was'.",
+            answerKk: "'The group of students was excited about the trip.' — 'group' сөзі жекеше түрде және 'was' етістігін талап етеді."
           }
         ],
         practiceProblems: [
@@ -1760,6 +1786,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Выберите правильный глагол: 'Each of the answers (is/are) correct.'",
             questionKk: "Дұрыс етістікті таңдаңыз: 'Each of the answers (is/are) correct.'",
             answer: "'is' — 'Each' is singular and takes a singular verb.",
+            answerRu: "'is' — 'Each' стоит в единственном числе и требует глагол в единственном числе.",
+            answerKk: "'is' — 'Each' жекеше түрде тұр және жекеше етістікті талап етеді.",
             hint: "The subject is 'Each' (singular), not 'answers'.",
             hintRu: "Подлежащее — 'Each' (единственное число), а не 'answers'.",
             hintKk: "Бастауыш — 'Each' (жекеше), 'answers' емес.",
@@ -1771,6 +1799,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Сделайте предложение более кратким: 'Due to the fact that it was raining, the game was postponed to a later date.'",
             questionKk: "Сөйлемді қысқартыңыз: 'Due to the fact that it was raining, the game was postponed to a later date.'",
             answer: "'Because it was raining, the game was postponed.'",
+            answerRu: "'Because it was raining, the game was postponed.'",
+            answerKk: "'Because it was raining, the game was postponed.'",
             hint: "'Due to the fact that' = 'Because'; 'postponed to a later date' = 'postponed'.",
             hintRu: "'Due to the fact that' = 'Because'; 'postponed to a later date' = 'postponed'.",
             hintKk: "'Due to the fact that' = 'Because'; 'postponed to a later date' = 'postponed'.",
@@ -1782,6 +1812,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Выберите лучший переход: 'Солнечная энергия становится доступнее. ____, многие домовладельцы переходят на солнечные панели.' (A) Nevertheless (B) Consequently (C) Meanwhile (D) Furthermore",
             questionKk: "Ең жақсы ауысуды таңдаңыз: 'Күн энергиясы қолжетімді бола бастады. ____, көптеген үй иелері күн панельдеріне ауысуда.' (A) Nevertheless (B) Consequently (C) Meanwhile (D) Furthermore",
             answer: "B — Consequently. The second sentence is a result of the first, so a cause-effect transition is needed.",
+            answerRu: "B — Consequently. Второе предложение является результатом первого, поэтому нужен переход причина-следствие.",
+            answerKk: "B — Consequently. Екінші сөйлем біріншісінің нәтижесі болғандықтан, себеп-салдар ауысуы қажет.",
             hint: "Ask: Is the second sentence a result, contrast, addition, or simultaneous event?",
             hintRu: "Спросите: второе предложение — результат, контраст, дополнение или одновременное событие?",
             hintKk: "Сұраңыз: екінші сөйлем нәтиже, қарама-қайшылық, қосымша немесе бір мезгілдегі оқиға ма?",
@@ -1813,7 +1845,9 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
               { en: "First leg: 60 × 2.5 = 150 miles. Second leg: 45 × 1 = 45 miles.", ru: "Первый участок: 60 × 2,5 = 150 миль. Второй: 45 × 1 = 45 миль.", kk: "Бірінші бөлік: 60 × 2,5 = 150 миль. Екіншісі: 45 × 1 = 45 миль." },
               { en: "Total distance = 150 + 45 = 195 miles.", ru: "Общее расстояние = 150 + 45 = 195 миль.", kk: "Жалпы қашықтық = 150 + 45 = 195 миль." }
             ],
-            answer: "195 miles"
+            answer: "195 miles",
+            answerRu: "195 миль",
+            answerKk: "195 миля"
           }
         ],
         practiceProblems: [
@@ -1823,6 +1857,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Если поезд едет со скоростью 80 км/ч в течение 3 часов, какое расстояние он проедет?",
             questionKk: "Пойыз 3 сағат бойы 80 км/сағ жылдамдықпен жүрсе, қанша қашықтықты жүреді?",
             answer: "240 km",
+            answerRu: "240 км",
+            answerKk: "240 км",
             hint: "Distance = Rate × Time.",
             hintRu: "Расстояние = Скорость × Время.",
             hintKk: "Қашықтық = Жылдамдық × Уақыт.",
@@ -1834,6 +1870,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Два велосипедиста стартуют из одной точки в противоположных направлениях. Один едет 15 миль/ч, другой 20 миль/ч. Как далеко они друг от друга через 2 часа?",
             questionKk: "Екі велосипедші бір нүктеден қарама-қарсы бағытта жүреді. Бірі 15 миль/сағ, екіншісі 20 миль/сағ. 2 сағаттан кейін олар бір-бірінен қаншалықты алыс?",
             answer: "70 miles (combined rate of 35 mph × 2 hours)",
+            answerRu: "70 миль (суммарная скорость 35 миль/ч × 2 часа)",
+            answerKk: "70 миля (жиынтық жылдамдық 35 миль/сағ × 2 сағат)",
             hint: "When moving in opposite directions, add the speeds to find the separation rate.",
             hintRu: "При движении в противоположных направлениях сложите скорости.",
             hintKk: "Қарама-қарсы бағытта жүргенде жылдамдықтарды қосыңыз.",
@@ -1845,6 +1883,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Тест ACT Math: 60 вопросов за 60 минут. Вы тратите 30 секунд на каждый из первых 40 вопросов. Сколько минут осталось на последние 20 вопросов и сколько секунд на каждый?",
             questionKk: "ACT Math тесті: 60 минутта 60 сұрақ. Алғашқы 40 сұраққа 30 секундтан жұмсайсыз. Соңғы 20 сұраққа қанша минут қалады және әр сұраққа қанша секунд?",
             answer: "40 minutes remain (60 − 20 = 40). That gives 40 × 60 / 20 = 120 seconds (2 minutes) per question.",
+            answerRu: "Остаётся 40 минут (60 − 20 = 40). Это даёт 40 × 60 / 20 = 120 секунд (2 минуты) на вопрос.",
+            answerKk: "40 минут қалады (60 − 20 = 40). Бұл әр сұраққа 40 × 60 / 20 = 120 секунд (2 минут) береді.",
             hint: "First 40 questions take 40 × 30 = 1200 seconds = 20 minutes.",
             hintRu: "Первые 40 вопросов занимают 40 × 30 = 1200 секунд = 20 минут.",
             hintKk: "Алғашқы 40 сұрақ 40 × 30 = 1200 секунд = 20 минут алады.",
@@ -1876,7 +1916,9 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
               { en: "Start with your strongest passage type (Science) to build confidence and secure easy points.", ru: "Начните с сильнейшего типа (Наука), чтобы укрепить уверенность и набрать лёгкие баллы.", kk: "Сенімділік арттыру үшін ең күшті түрден (Ғылым) бастаңыз." },
               { en: "Save your weakest passage for last — if you run out of time, you lose the fewest potential points.", ru: "Оставьте слабейший текст на конец — если не хватит времени, потеряете меньше баллов.", kk: "Ең әлсіз мәтінді соңына қалдырыңыз — уақыт жетпесе, аз ұпай жоғалтасыз." }
             ],
-            answer: "Start with your strongest passage type and end with your weakest to maximize your score."
+            answer: "Start with your strongest passage type and end with your weakest to maximize your score.",
+            answerRu: "Начинайте с самого сильного типа текста и заканчивайте самым слабым, чтобы максимизировать балл.",
+            answerKk: "Ұпайды барынша арттыру үшін ең күшті мәтін түрінен бастап, ең әлсізімен аяқтаңыз."
           }
         ],
         practiceProblems: [
@@ -1886,6 +1928,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Сколько минут на текст у вас есть в разделе ACT Reading?",
             questionKk: "ACT Reading бөлімінде әр мәтінге қанша минутыңыз бар?",
             answer: "About 8 minutes and 45 seconds (35 ÷ 4 = 8.75 minutes).",
+            answerRu: "Около 8 минут 45 секунд (35 ÷ 4 = 8,75 минуты).",
+            answerKk: "Шамамен 8 минут 45 секунд (35 ÷ 4 = 8,75 минут).",
             hint: "Divide total time (35 minutes) by number of passages (4).",
             hintRu: "Разделите общее время (35 минут) на количество текстов (4).",
             hintKk: "Жалпы уақытты (35 минут) мәтіндер санына (4) бөліңіз.",
@@ -1897,6 +1941,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Текст по естественным наукам обсуждает влияние закисления океана на коралловые рифы. Вопрос: 'Согласно тексту, какова основная причина обесцвечивания кораллов?' Как подойти к ответу?",
             questionKk: "Жаратылыстану мәтіні мұхит қышқылдануының маржан рифтеріне әсерін талқылайды. Сұрақ: 'Мәтін бойынша маржан ағартуының негізгі себебі қандай?' Қалай жауап беру керек?",
             answer: "Scan the passage for keywords like 'bleaching' and 'cause.' The answer must come directly from the passage, not your outside knowledge.",
+            answerRu: "Просканируйте текст на ключевые слова вроде 'bleaching' и 'cause'. Ответ должен исходить непосредственно из текста, а не из внешних знаний.",
+            answerKk: "Мәтіннен 'bleaching' пен 'cause' сияқты негізгі сөздерді іздеңіз. Жауап тікелей мәтіннен алынуы керек, сыртқы біліміңізден емес.",
             hint: "ACT Reading answers must be supported by evidence in the passage — never rely on what you know from elsewhere.",
             hintRu: "Ответы ACT Reading должны подтверждаться текстом — не опирайтесь на знания извне.",
             hintKk: "ACT Reading жауаптары мәтіндегі дәлелдермен расталуы керек — сыртқы білімге сенбеңіз.",
@@ -1908,6 +1954,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Вы закончили 3 текста за 27 минут на ACT Reading. Осталось 8 минут на последний текст с 10 вопросами. Опишите стратегию для максимизации баллов.",
             questionKk: "ACT Reading-те 3 мәтінді 27 минутта аяқтадыңыз. Соңғы мәтін мен 10 сұраққа 8 минут қалды. Ұпайды барынша арттыру стратегиясын сипаттаңыз.",
             answer: "Spend 2-3 minutes skimming the passage for main ideas and paragraph topics. Then spend 5-6 minutes answering questions, tackling detail questions first (they point you to specific lines) and saving inference questions for last. Answer every question — there is no penalty for guessing on the ACT.",
+            answerRu: "Потратьте 2-3 минуты на беглый просмотр текста ради основных идей и тем абзацев. Затем потратьте 5-6 минут на ответы, сначала занимаясь вопросами на детали (они указывают на конкретные строки), а вопросы на выводы оставьте напоследок. Отвечайте на каждый вопрос — за угадывание на ACT штрафа нет.",
+            answerKk: "Мәтінді негізгі идеялары мен абзац тақырыптары үшін 2-3 минут жылдам қараңыз. Содан кейін сұрақтарға жауап беруге 5-6 минут жұмсаңыз, алдымен нақты жолдарға сілтейтін детальды сұрақтармен айналысып, қорытынды жасау сұрақтарын соңына қалдырыңыз. Әр сұраққа жауап беріңіз — ACT-та болжау үшін айыппұл жоқ.",
             hint: "With limited time, skim for structure, answer line-reference questions first, guess on any remaining questions.",
             hintRu: "При ограниченном времени бегло просмотрите структуру, отвечайте сначала на вопросы со ссылками на строки, угадывайте оставшиеся.",
             hintKk: "Уақыт шектеулі болғанда құрылымды жылдам қараңыз, алдымен жол сілтемесі бар сұрақтарға жауап беріңіз, қалғандарын болжаңыз.",
@@ -1939,7 +1987,9 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
               { en: "Identify the overall trend: car sales increased steadily over the period.", ru: "Определите общую тенденцию: продажи автомобилей стабильно росли за период.", kk: "Жалпы тенденцияны анықтаңыз: автокөлік сатылымы тұрақты өсті." },
               { en: "Write: 'Overall, car sales showed a consistent upward trend, more than doubling from 200 units in 2010 to 500 units in 2020.'", ru: "Напишите: 'В целом, продажи автомобилей демонстрировали стабильный рост, более чем удвоившись с 200 в 2010 до 500 в 2020.'", kk: "Жазыңыз: 'Жалпы, автокөлік сатылымы тұрақты өсу үрдісін көрсетті, 2010 жылғы 200-ден 2020 жылғы 500-ге дейін екі еседен астам артты.'" }
             ],
-            answer: "'Overall, car sales showed a consistent upward trend, more than doubling from 200 units in 2010 to 500 units in 2020.'"
+            answer: "'Overall, car sales showed a consistent upward trend, more than doubling from 200 units in 2010 to 500 units in 2020.'",
+            answerRu: "'В целом, продажи автомобилей демонстрировали стабильный рост, более чем удвоившись с 200 единиц в 2010 году до 500 единиц в 2020 году.'",
+            answerKk: "'Жалпы, автокөлік сатылымы тұрақты өсу үрдісін көрсетті, 2010 жылғы 200 бірліктен 2020 жылғы 500 бірлікке дейін екі еседен астам артты.'"
           }
         ],
         practiceProblems: [
@@ -1949,6 +1999,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Каков минимальный объём слов для IELTS Writing Task 1?",
             questionKk: "IELTS Writing Task 1 үшін ең аз сөз саны қанша?",
             answer: "150 words",
+            answerRu: "150 слов",
+            answerKk: "150 сөз",
             hint: "This is shorter than Task 2, which requires 250 words.",
             hintRu: "Это меньше, чем Task 2, для которого нужно 250 слов.",
             hintKk: "Бұл 250 сөз талап ететін Task 2-ден қысқа.",
@@ -1960,6 +2012,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Линейный график показывает интернет-пользователей: 2000 = 400 млн, 2010 = 2 млрд, 2020 = 4,5 млрд. Напишите одно предложение, описывающее тенденцию.",
             questionKk: "Сызықтық график интернет пайдаланушыларды көрсетеді: 2000 = 400 млн, 2010 = 2 млрд, 2020 = 4,5 млрд. Тенденцияны сипаттайтын бір сөйлем жазыңыз.",
             answer: "The number of internet users experienced dramatic growth, surging from 400 million in 2000 to 4.5 billion in 2020.",
+            answerRu: "Число интернет-пользователей резко выросло, увеличившись с 400 миллионов в 2000 году до 4,5 миллиарда в 2020 году.",
+            answerKk: "Интернет пайдаланушылар саны күрт өсті, 2000 жылғы 400 миллионнан 2020 жылғы 4,5 миллиардқа дейін артты.",
             hint: "Use strong trend vocabulary: 'surged,' 'experienced dramatic growth,' 'rose sharply.'",
             hintRu: "Используйте сильную лексику тенденций: 'резко вырос', 'продемонстрировал значительный рост'.",
             hintKk: "Күшті тренд сөздерін қолданыңыз: 'күрт өсті', 'айтарлықтай өсу көрсетті'.",
@@ -1971,6 +2025,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Круговая диаграмма показывает расходы домохозяйств: Жильё 35%, Еда 25%, Транспорт 15%, Образование 10%, Прочее 15%. Напишите полный обзорный абзац (2-3 предложения) для IELTS Task 1.",
             questionKk: "Дөңгелек диаграмма үй шаруашылығы шығындарын көрсетеді: Тұрғын үй 35%, Тамақ 25%, Көлік 15%, Білім 10%, Басқа 15%. IELTS Task 1 үшін толық шолу абзацын (2-3 сөйлем) жазыңыз.",
             answer: "Overall, housing and food together accounted for the majority of household expenditure at 60%. In contrast, education represented the smallest share at just 10%, while transport and other expenses each comprised 15% of total spending.",
+            answerRu: "В целом, жильё и еда вместе составили большую часть расходов домохозяйств — 60%. В противоположность этому, образование составило наименьшую долю — всего 10%, тогда как транспорт и прочие расходы составили по 15% от общих затрат.",
+            answerKk: "Жалпы, тұрғын үй мен тамақ бірге үй шаруашылығы шығындарының көп бөлігін — 60% құрады. Керісінше, білім ең аз үлесті — небәрі 10% алды, ал көлік пен басқа шығындар жалпы шығынның әрқайсысы 15%-ын құрады.",
             hint: "Group large and small categories, mention the biggest and smallest, and use comparison language.",
             hintRu: "Сгруппируйте большие и малые категории, упомяните наибольшую и наименьшую, используйте язык сравнения.",
             hintKk: "Үлкен және кіші санаттарды топтаңыз, ең үлкен мен ең кішіні атаңыз, салыстыру тілін қолданыңыз.",
@@ -2002,7 +2058,9 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
               { en: "Decide your position: partially agree — free education has benefits but also drawbacks.", ru: "Определите позицию: частично согласен — бесплатное образование имеет плюсы, но и минусы.", kk: "Позицияңызды анықтаңыз: ішінара келісесіз — тегін білім беру артықшылықтары мен кемшіліктері бар." },
               { en: "Write a clear thesis: 'While free university education would increase access for disadvantaged students, I believe a partially subsidized model is more sustainable as it balances equity with educational quality.'", ru: "Напишите чёткий тезис: 'Хотя бесплатное образование расширит доступ для малообеспеченных, частично субсидируемая модель более устойчива, сочетая равенство с качеством.'", kk: "Анық тезис жазыңыз: 'Тегін университет білімі аз қамтылған студенттер үшін мүмкіндікті кеңейтсе де, ішінара субсидияланатын модель теңдік пен сапаны теңестіретіндіктен тұрақтырақ деп санаймын.'" }
             ],
-            answer: "'While free university education would increase access for disadvantaged students, I believe a partially subsidized model is more sustainable as it balances equity with educational quality.'"
+            answer: "'While free university education would increase access for disadvantaged students, I believe a partially subsidized model is more sustainable as it balances equity with educational quality.'",
+            answerRu: "'Хотя бесплатное университетское образование расширило бы доступ для малообеспеченных студентов, я считаю, что частично субсидируемая модель более устойчива, поскольку она сочетает равенство с качеством образования.'",
+            answerKk: "'Тегін университет білімі аз қамтылған студенттер үшін мүмкіндікті кеңейткенімен, ішінара субсидияланатын модель теңдік пен білім сапасын теңестіретіндіктен тұрақтырақ деп санаймын.'"
           }
         ],
         practiceProblems: [
@@ -2012,6 +2070,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Каков минимальный объём слов для эссе IELTS Task 2 и сколько времени рекомендуется?",
             questionKk: "IELTS Task 2 эссесі кемінде қанша сөз болуы керек және қанша уақыт ұсынылады?",
             answer: "At least 250 words in 40 minutes.",
+            answerRu: "Минимум 250 слов за 40 минут.",
+            answerKk: "40 минутта кемінде 250 сөз.",
             hint: "Task 2 is longer than Task 1 (150 words, 20 minutes).",
             hintRu: "Task 2 длиннее Task 1 (150 слов, 20 минут).",
             hintKk: "Task 2 Task 1-ден ұзынырақ (150 сөз, 20 минут).",
@@ -2023,6 +2083,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Классифицируйте этот вопрос IELTS Task 2: 'Многие считают, что у социальных сетей больше недостатков, чем преимуществ. Обсудите обе точки зрения и дайте своё мнение.'",
             questionKk: "Бұл IELTS Task 2 сұрағын жіктеңіз: 'Көптеген адамдар әлеуметтік желілердің артықшылықтардан гөрі кемшіліктері көп деп санайды. Екі көзқарасты талқылаңыз және өз пікіріңізді білдіріңіз.'",
             answer: "This is a 'Discussion + Opinion' essay. You must present both sides (advantages and disadvantages of social media) and then clearly state your own opinion.",
+            answerRu: "Это эссе типа 'Дискуссия + Мнение'. Нужно представить обе стороны (преимущества и недостатки социальных сетей), а затем чётко изложить своё мнение.",
+            answerKk: "Бұл 'Талқылау + Пікір' типті эссе. Екі жақты (әлеуметтік желілердің артықшылықтары мен кемшіліктерін) көрсетіп, содан кейін өз пікіріңізді анық білдіру керек.",
             hint: "'Discuss both views and give your opinion' = discussion + opinion essay type.",
             hintRu: "'Обсудите обе точки зрения и дайте мнение' = тип эссе дискуссия + мнение.",
             hintKk: "'Екі көзқарасты талқылаңыз және пікіріңізді білдіріңіз' = талқылау + пікір эссе түрі.",
@@ -2034,6 +2096,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Напишите полный вводный абзац (3-4 предложения): 'Во многих странах доля пожилых людей растёт. Это положительное или отрицательное явление?'",
             questionKk: "Толық кіріспе абзацын жазыңыз (3-4 сөйлем): 'Көптеген елдерде егде адамдардың үлесі артуда. Бұл оң немесе теріс даму ма?'",
             answer: "In many nations around the world, the elderly population is growing at an unprecedented rate due to advances in healthcare and declining birth rates. While some argue this trend places a strain on healthcare systems and pension funds, others see it as a sign of societal progress. In my view, although an aging population presents economic challenges, it is ultimately a positive development that reflects improved quality of life.",
+            answerRu: "Во многих странах мира численность пожилого населения растёт беспрецедентными темпами из-за развития здравоохранения и снижения рождаемости. Одни утверждают, что эта тенденция создаёт нагрузку на системы здравоохранения и пенсионные фонды, другие видят в ней признак прогресса общества. На мой взгляд, хотя старение населения создаёт экономические трудности, в конечном счёте это положительное явление, отражающее рост качества жизни.",
+            answerKk: "Әлемнің көптеген елдерінде денсаулық сақтаудың дамуы мен туу деңгейінің төмендеуіне байланысты егде жастағы халық санының өсуі бұрын-соңды болмаған қарқынмен жүріп жатыр. Кейбіреулер бұл тенденция денсаулық сақтау жүйелері мен зейнетақы қорларына салмақ түсіреді десе, басқалары оны қоғам прогресінің белгісі деп санайды. Менің ойымша, қартаю проблемасы экономикалық қиындықтар тудырғанымен, ол түбінде өмір сапасының артуын көрсететін оң даму болып табылады.",
             hint: "Start by paraphrasing the question, add context, then state your thesis clearly.",
             hintRu: "Начните с перефразирования вопроса, добавьте контекст, затем чётко сформулируйте тезис.",
             hintKk: "Сұрақты қайта тұжырымдаудан бастаңыз, контекст қосыңыз, содан кейін тезисті анық айтыңыз.",
@@ -2065,7 +2129,9 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
               { en: "Point + Example: 'Yes, I really enjoy reading, especially historical novels. For instance, I recently finished a book about the Silk Road.'", ru: "Тезис + Пример: 'Да, я очень люблю читать, особенно исторические романы. Недавно закончил книгу о Шёлковом пути.'", kk: "Тезис + Мысал: 'Иә, оқуды өте ұнатамын, әсіресе тарихи романдар. Мысалы, жақында Жібек жолы туралы кітап оқып бітірдім.'" },
               { en: "Explain + Link: 'It taught me so much about trade and culture between Central Asia and China, which connects to my interest in history.'", ru: "Объяснение + Связь: 'Она многому научила меня о торговле и культуре между Центральной Азией и Китаем, что связано с моим интересом к истории.'", kk: "Түсіндіру + Байланыс: 'Ол маған Орталық Азия мен Қытай арасындағы сауда мен мәдениет туралы көп нәрсе үйретті, бұл менің тарихқа деген қызығушылығыммен байланысты.'" }
             ],
-            answer: "'Yes, I really enjoy reading, especially historical novels. For instance, I recently finished a book about the Silk Road. It taught me so much about trade and culture between Central Asia and China, which connects to my interest in history.'"
+            answer: "'Yes, I really enjoy reading, especially historical novels. For instance, I recently finished a book about the Silk Road. It taught me so much about trade and culture between Central Asia and China, which connects to my interest in history.'",
+            answerRu: "'Да, я действительно люблю читать, особенно исторические романы. Например, недавно я дочитал книгу о Шёлковом пути. Она многому научила меня о торговле и культуре между Центральной Азией и Китаем, что связано с моим интересом к истории.'",
+            answerKk: "'Иә, оқуды шынымен ұнатамын, әсіресе тарихи романдарды. Мысалы, жақында Жібек жолы туралы кітапты оқып бітірдім. Ол маған Орталық Азия мен Қытай арасындағы сауда мен мәдениет туралы көп нәрсе үйретті, бұл менің тарихқа деген қызығушылығыммен байланысты.'"
           }
         ],
         practiceProblems: [
@@ -2075,6 +2141,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Сколько частей в тесте IELTS Speaking и какова общая длительность?",
             questionKk: "IELTS Speaking тестінде қанша бөлім бар және жалпы қанша уақыт?",
             answer: "3 parts, approximately 11-14 minutes total.",
+            answerRu: "3 части, всего примерно 11-14 минут.",
+            answerKk: "3 бөлім, жалпы шамамен 11-14 минут.",
             hint: "Part 1 is 4-5 min, Part 2 is 3-4 min, Part 3 is 4-5 min.",
             hintRu: "Часть 1: 4-5 мин, Часть 2: 3-4 мин, Часть 3: 4-5 мин.",
             hintKk: "1-бөлім: 4-5 мин, 2-бөлім: 3-4 мин, 3-бөлім: 4-5 мин.",
@@ -2086,6 +2154,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Карточка Части 2: 'Опишите навык, который вы выучили в детстве.' У вас 1 минута на подготовку. Перечислите 4 вещи для записи.",
             questionKk: "2-бөлім карточкасы: 'Балалық шақта үйренген дағдыңызды сипаттаңыз.' Дайындалуға 1 минутыңыз бар. Жазып алатын 4 нәрсені атаңыз.",
             answer: "1) What the skill is, 2) When/where you learned it, 3) How you learned it, 4) Why it was important or how you felt about it.",
+            answerRu: "1) Что это за навык, 2) когда/где вы его выучили, 3) как вы его выучили, 4) почему он был важен или что вы при этом чувствовали.",
+            answerKk: "1) Бұл қандай дағды, 2) оны қашан/қайда үйрендіңіз, 3) оны қалай үйрендіңіз, 4) ол неге маңызды болды немесе сол кезде не сезіндіңіз.",
             hint: "Cue cards always have 3-4 bullet points — note a key word or phrase for each one.",
             hintRu: "Карточки всегда содержат 3-4 пункта — запишите ключевое слово для каждого.",
             hintKk: "Карточкаларда әрқашан 3-4 тармақ болады — әрқайсысына кілт сөз жазыңыз.",
@@ -2097,6 +2167,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Вопрос Части 3: 'Как вы думаете, технологии заменят учителей в будущем?' Подготовьте полный ответ (4-5 предложений) по методу PEEL с примером и сбалансированным выводом.",
             questionKk: "3-бөлім сұрағы: 'Технология болашақта мұғалімдерді алмастырады деп ойлайсыз ба?' PEEL әдісімен толық жауап дайындаңыз (4-5 сөйлем), кемінде бір мысал және теңдестірілген қорытынды.",
             answer: "Point: I don't think technology will fully replace teachers, though it will certainly change their role. Example: For instance, AI tutoring tools like Khan Academy can teach math concepts effectively, but they cannot motivate a struggling student the way a human teacher can. Explain: Students need emotional support, mentorship, and social interaction that only a real person can provide. Link: So while technology will become a powerful teaching tool, I believe teachers will remain essential — they will just use technology to enhance their teaching rather than be replaced by it.",
+            answerRu: "Тезис: Я не думаю, что технологии полностью заменят учителей, хотя они точно изменят их роль. Пример: Например, инструменты ИИ-репетиторства вроде Khan Academy эффективно объясняют математические понятия, но не могут мотивировать отстающего ученика так, как это делает живой учитель. Объяснение: Ученикам нужна эмоциональная поддержка, наставничество и социальное взаимодействие, которые может дать только реальный человек. Связь: Поэтому, хотя технологии станут мощным инструментом обучения, я считаю, что учителя останутся незаменимыми — они просто будут использовать технологии для улучшения преподавания, а не будут заменены ими.",
+            answerKk: "Тезис: Технологиялар мұғалімдерді толығымен алмастырады деп ойламаймын, дегенмен олардың рөлін міндетті түрде өзгертеді. Мысал: Мысалы, Khan Academy сияқты AI репетиторлық құралдары математика ұғымдарын тиімді үйрете алады, бірақ олар қиналған оқушыны нағыз мұғалім сияқты ынталандыра алмайды. Түсіндіру: Оқушыларға тек нақты адам бере алатын эмоционалды қолдау, тәлімгерлік және әлеуметтік қарым-қатынас қажет. Байланыс: Сондықтан технологиялар қуатты оқыту құралына айналғанымен, мұғалімдер маңызды болып қала береді деп санаймын — олар технологияны алмастырылу үшін емес, оқытуды жақсарту үшін қолданады.",
             hint: "State your position, give a specific example, explain your reasoning, and connect it back to the question.",
             hintRu: "Изложите позицию, приведите пример, объясните рассуждение и свяжите с вопросом.",
             hintKk: "Позицияңызды айтыңыз, нақты мысал келтіріңіз, пайымдауыңызды түсіндіріңіз және сұраққа байланыстырыңыз.",
@@ -2128,7 +2200,9 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
               { en: "Context clue: 'invasive species' are generally harmful. The sentence discusses negative impacts on native ecosystems.", ru: "Подсказка контекста: инвазивные виды обычно вредны. Предложение обсуждает негативное влияние на экосистемы.", kk: "Контекст кеңесі: инвазивті түрлер әдетте зиянды. Сөйлем экожүйелерге теріс әсерді талқылайды." },
               { en: "The answer is (B) harmful — 'deleterious' means causing harm or damage.", ru: "Ответ (B) вредные — 'deleterious' означает причиняющий вред.", kk: "Жауап (B) зиянды — 'deleterious' зиян келтіретін дегенді білдіреді." }
             ],
-            answer: "B — harmful. 'Deleterious' means causing harm or damage."
+            answer: "B — harmful. 'Deleterious' means causing harm or damage.",
+            answerRu: "B — вредные. 'Deleterious' означает причиняющий вред или ущерб.",
+            answerKk: "B — зиянды. 'Deleterious' зиян немесе нұқсан келтіретін дегенді білдіреді."
           }
         ],
         practiceProblems: [
@@ -2138,6 +2212,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Сколько текстов и вопросов в разделе TOEFL Reading?",
             questionKk: "TOEFL Reading бөлімінде қанша мәтін мен сұрақ бар?",
             answer: "2 passages with 10 questions each (20 questions total in 35 minutes).",
+            answerRu: "2 текста по 10 вопросов каждый (всего 20 вопросов за 35 минут).",
+            answerKk: "Әрқайсысы 10 сұрақтан тұратын 2 мәтін (35 минутта жалпы 20 сұрақ).",
             hint: "The TOEFL iBT was updated — it now has fewer passages than the older format.",
             hintRu: "TOEFL iBT обновлён — теперь текстов меньше, чем в старом формате.",
             hintKk: "TOEFL iBT жаңартылды — ескі форматтан аз мәтін бар.",
@@ -2149,6 +2225,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Текст обсуждает фотосинтез: 'В ходе светозависимых реакций молекулы воды расщепляются, высвобождая кислород.' К какому типу относится вопрос: 'Согласно тексту, что высвобождается при расщеплении молекул воды?'",
             questionKk: "Мәтін фотосинтезді талқылайды: 'Жарыққа тәуелді реакциялар кезінде су молекулалары ыдырап, оттегі шығарылады.' Сұрақ түрі қандай: 'Мәтін бойынша, су молекулалары ыдыраған кезде не шығарылады?'",
             answer: "This is a 'factual detail' question — the answer is stated directly in the passage (oxygen).",
+            answerRu: "Это вопрос на 'фактическую деталь' — ответ прямо указан в тексте (кислород).",
+            answerKk: "Бұл 'фактілік мәлімет' сұрағы — жауап мәтінде тікелей көрсетілген (оттегі).",
             hint: "If the answer is directly stated in the text, it's a factual detail question.",
             hintRu: "Если ответ прямо указан в тексте, это вопрос на фактическую деталь.",
             hintKk: "Жауап мәтінде тікелей көрсетілсе, бұл фактілік мәлімет сұрағы.",
@@ -2160,6 +2238,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Вопрос на резюме TOEFL просит выбрать 3 предложения с основными идеями текста о Промышленной революции. Какую стратегию использовать для исключения неверных ответов?",
             questionKk: "TOEFL қысқаша мазмұн сұрағы Өнеркәсіптік революция туралы мәтіннің негізгі идеяларын білдіретін 3 сөйлемді таңдауды сұрайды. Қате жауаптарды жою үшін қандай стратегия қолдану керек?",
             answer: "Eliminate sentences that (1) contain minor details not mentioned prominently, (2) contradict the passage, or (3) introduce information not in the passage. The correct answers will be broad statements covering main themes, not specific facts.",
+            answerRu: "Исключите предложения, которые (1) содержат второстепенные детали, не выделенные заметно, (2) противоречат тексту, или (3) вводят информацию, отсутствующую в тексте. Правильные ответы — это широкие утверждения, охватывающие основные темы, а не конкретные факты.",
+            answerKk: "(1) айқын аталмаған кіші мәліметтерді қамтитын, (2) мәтінге қайшы келетін немесе (3) мәтінде жоқ ақпаратты енгізетін сөйлемдерді алып тастаңыз. Дұрыс жауаптар негізгі тақырыптарды қамтитын кең тұжырымдар болады, нақты фактілер емес.",
             hint: "Summary answers are big-picture ideas, not small details. Eliminate anything too specific or contradictory.",
             hintRu: "Ответы на резюме — это главные идеи, не мелкие детали. Исключите слишком конкретные или противоречивые.",
             hintKk: "Қысқаша мазмұн жауаптары — негізгі идеялар, ұсақ мәліметтер емес. Тым нақты немесе қарама-қайшы нәрселерді алып тастаңыз.",
@@ -2206,7 +2286,9 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
               { en: "f(4) = 2(4²) − 3 = 2(16) − 3 = 32 − 3 = 29.", ru: "f(4) = 2(4²) − 3 = 2(16) − 3 = 32 − 3 = 29.", kk: "f(4) = 2(4²) − 3 = 2(16) − 3 = 32 − 3 = 29." },
               { en: "Since 2x² is a parabola opening upward with vertex at x = 0, the function is increasing for all x > 0, so it is increasing at x = 4.", ru: "Поскольку 2x² — парабола, открытая вверх с вершиной в x = 0, функция возрастает при x > 0, значит возрастает при x = 4.", kk: "2x² жоғары ашылатын парабола, төбесі x = 0-де, функция x > 0 кезінде өседі, сондықтан x = 4-те өседі." }
             ],
-            answer: "f(4) = 29, and the function is increasing at x = 4."
+            answer: "f(4) = 29, and the function is increasing at x = 4.",
+            answerRu: "f(4) = 29, и функция возрастает при x = 4.",
+            answerKk: "f(4) = 29, функция x = 4-те өседі."
           }
         ],
         practiceProblems: [
@@ -2216,6 +2298,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Если f(x) = 3x + 5, найдите f(−2).",
             questionKk: "Егер f(x) = 3x + 5 болса, f(−2) табыңыз.",
             answer: "f(−2) = 3(−2) + 5 = −6 + 5 = −1",
+            answerRu: "f(−2) = 3(−2) + 5 = −6 + 5 = −1",
+            answerKk: "f(−2) = 3(−2) + 5 = −6 + 5 = −1",
             hint: "Substitute −2 for x in the expression.",
             hintRu: "Подставьте −2 вместо x в выражение.",
             hintKk: "Өрнекте x орнына −2 қойыңыз.",
@@ -2227,6 +2311,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "График g(x) = x² сдвинут на 3 единицы вправо и 2 единицы вверх. Запишите новую функцию.",
             questionKk: "g(x) = x² графигі 3 бірлікке оңға және 2 бірлікке жоғары жылжытылды. Жаңа функцияны жазыңыз.",
             answer: "g(x) = (x − 3)² + 2",
+            answerRu: "g(x) = (x − 3)² + 2",
+            answerKk: "g(x) = (x − 3)² + 2",
             hint: "Right shift by h: replace x with (x − h). Up shift by k: add k.",
             hintRu: "Сдвиг вправо на h: замените x на (x − h). Сдвиг вверх на k: добавьте k.",
             hintKk: "h-ға оңға жылжу: x-ті (x − h) алмастырыңыз. k-ға жоғары жылжу: k қосыңыз.",
@@ -2238,6 +2324,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Популяция начинается с 500 и удваивается каждые 3 года. Запишите экспоненциальную функцию P(t) для популяции через t лет и найдите популяцию через 9 лет.",
             questionKk: "Популяция 500-ден басталады және әр 3 жылда екі есе артады. t жылдан кейінгі популяция үшін P(t) экспоненциалды функциясын жазыңыз және 9 жылдан кейінгі популяцияны табыңыз.",
             answer: "P(t) = 500 · 2^(t/3). After 9 years: P(9) = 500 · 2³ = 500 · 8 = 4000.",
+            answerRu: "P(t) = 500 · 2^(t/3). Через 9 лет: P(9) = 500 · 2³ = 500 · 8 = 4000.",
+            answerKk: "P(t) = 500 · 2^(t/3). 9 жылдан кейін: P(9) = 500 · 2³ = 500 · 8 = 4000.",
             hint: "Doubling every 3 years means the base is 2 and the exponent is t/3.",
             hintRu: "Удвоение каждые 3 года: основание 2, показатель t/3.",
             hintKk: "Әр 3 жылда екі есе арту: негіз 2, дәреже t/3.",
@@ -2269,7 +2357,9 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
               { en: "Mean = (72 + 85 + 88 + 90 + 95) ÷ 5 = 430 ÷ 5 = 86.", ru: "Среднее = (72 + 85 + 88 + 90 + 95) ÷ 5 = 430 ÷ 5 = 86.", kk: "Орташа = (72 + 85 + 88 + 90 + 95) ÷ 5 = 430 ÷ 5 = 86." },
               { en: "Median: the data is already sorted, and the middle (3rd) value is 88.", ru: "Медиана: данные отсортированы, среднее (3-е) значение — 88.", kk: "Медиана: деректер сұрыпталған, ортаңғы (3-ші) мән — 88." }
             ],
-            answer: "Mean = 86, Median = 88."
+            answer: "Mean = 86, Median = 88.",
+            answerRu: "Среднее = 86, Медиана = 88.",
+            answerKk: "Орташа = 86, Медиана = 88."
           }
         ],
         practiceProblems: [
@@ -2279,6 +2369,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Найдите среднее: 10, 20, 30, 40, 50.",
             questionKk: "Орташа мәнді табыңыз: 10, 20, 30, 40, 50.",
             answer: "30 (sum = 150, divide by 5 = 30)",
+            answerRu: "30 (сумма = 150, разделить на 5 = 30)",
+            answerKk: "30 (қосынды = 150, 5-ке бөлу = 30)",
             hint: "Add all values and divide by the count.",
             hintRu: "Сложите все значения и разделите на количество.",
             hintKk: "Барлық мәндерді қосып, санына бөліңіз.",
@@ -2290,6 +2382,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Класс из 20 учеников имеет средний балл 78. Новый ученик набрал 98. Каков новый средний балл?",
             questionKk: "20 оқушы класының орташа тест балы 78. Жаңа оқушы 98 балл жинады. Жаңа орташа бал қандай?",
             answer: "New mean = (20 × 78 + 98) ÷ 21 = (1560 + 98) ÷ 21 = 1658 ÷ 21 ≈ 78.95",
+            answerRu: "Новое среднее = (20 × 78 + 98) ÷ 21 = (1560 + 98) ÷ 21 = 1658 ÷ 21 ≈ 78,95",
+            answerKk: "Жаңа орташа = (20 × 78 + 98) ÷ 21 = (1560 + 98) ÷ 21 = 1658 ÷ 21 ≈ 78,95",
             hint: "Find the original total (mean × count), add the new score, divide by new count.",
             hintRu: "Найдите исходную сумму (среднее × количество), добавьте новый балл, разделите на новое количество.",
             hintKk: "Бастапқы қосындыны табыңыз (орташа × сан), жаңа балды қосыңыз, жаңа санға бөліңіз.",
@@ -2301,6 +2395,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Опрос показывает, что 60% из 200 респондентов предпочитают онлайн-обучение. Погрешность ±5%. Какой диапазон полной популяции, вероятно, предпочитает онлайн-обучение? Что может сделать опрос предвзятым?",
             questionKk: "Сауалнама 200 респонденттің 60%-ы онлайн оқуды қалайтынын көрсетеді. Қателік маржасы ±5%. Толық популяцияның қандай диапазоны онлайн оқуды қалауы мүмкін? Сауалнаманы не бұрмалауы мүмкін?",
             answer: "Between 55% and 65% of the population likely prefers online learning. Bias could come from surveying only internet users (selection bias), as people without internet access are excluded and would likely have different preferences.",
+            answerRu: "Вероятно, от 55% до 65% населения предпочитает онлайн-обучение. Предвзятость может возникнуть из-за опроса только пользователей интернета (систематическая ошибка отбора), поскольку люди без доступа к интернету исключаются и, вероятно, имели бы другие предпочтения.",
+            answerKk: "Халықтың шамамен 55%-дан 65%-ға дейінгі бөлігі онлайн оқуды қалайтын сияқты. Бұрмалану тек интернет пайдаланушыларын сауалнамадан өткізуден (таңдау бұрмалануы) туындауы мүмкін, өйткені интернетке қолжетімсіз адамдар алынып тасталады және олардың қалауы басқаша болуы мүмкін.",
             hint: "Apply margin of error to the percentage. Think about who was surveyed and who was left out.",
             hintRu: "Примените погрешность к проценту. Подумайте, кого опрашивали и кого исключили.",
             hintKk: "Қателік маржасын пайызға қолданыңыз. Кімді сұрағанын және кімді алып тастағанын ойлаңыз.",
@@ -2332,7 +2428,9 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
               { en: "Identify each author's main claim: Author 1 prioritizes long-term survival; Author 2 prioritizes immediate needs.", ru: "Определите главное утверждение каждого: Автор 1 приоритизирует долгосрочное выживание; Автор 2 — немедленные потребности.", kk: "Әр автордың негізгі мәлімдемесін анықтаңыз: 1-автор ұзақ мерзімді өмір сүруді; 2-автор жедел қажеттіліктерді басымдық етеді." },
               { en: "The fundamental disagreement is about resource allocation priorities — whether humanity should invest in future possibilities or present crises.", ru: "Фундаментальное разногласие — приоритеты распределения ресурсов: инвестировать в будущее или решать текущие кризисы.", kk: "Негізгі келіспеушілік ресурстарды бөлу басымдықтары туралы — болашақ мүмкіндіктерге немесе қазіргі дағдарыстарға инвестиция салу." }
             ],
-            answer: "The disagreement is about whether limited resources should be allocated to long-term space exploration or to solving immediate problems on Earth."
+            answer: "The disagreement is about whether limited resources should be allocated to long-term space exploration or to solving immediate problems on Earth.",
+            answerRu: "Разногласие в том, следует ли направлять ограниченные ресурсы на долгосрочное освоение космоса или на решение неотложных земных проблем.",
+            answerKk: "Келіспеушілік шектеулі ресурстарды ұзақ мерзімді ғарышты зерттеуге немесе Жердегі жедел мәселелерді шешуге бөлу керек пе деген мәселеде."
           }
         ],
         practiceProblems: [
@@ -2342,6 +2440,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "В чём разница между 'пониманием' и 'критическим чтением'?",
             questionKk: "'Түсіну' мен 'сыни оқу' арасындағы айырмашылық қандай?",
             answer: "Comprehension is understanding what the text says; critical reading is evaluating how well the author argues, what techniques they use, and whether the evidence supports the claims.",
+            answerRu: "Понимание — это осознание того, что говорится в тексте; критическое чтение — это оценка того, насколько хорошо автор аргументирует, какие приёмы использует и подтверждают ли доказательства утверждения.",
+            answerKk: "Түсіну — мәтінде не айтылғанын ұғыну; сыни оқу — автордың қаншалықты жақсы дәлелдейтінін, қандай тәсілдер қолданатынын және дәлелдердің мәлімдемелерді растайтынын бағалау.",
             hint: "Comprehension = what does it say? Critical reading = how well does it say it?",
             hintRu: "Понимание = что говорится? Критическое чтение = насколько хорошо это аргументировано?",
             hintKk: "Түсіну = не айтылады? Сыни оқу = қаншалықты жақсы дәлелденген?",
@@ -2353,6 +2453,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Автор утверждает: 'Социальные сети уничтожили осмысленное общение. Люди теперь предпочитают эмодзи искренним разговорам.' Определите риторический приём и одну слабость аргумента.",
             questionKk: "Автор дәлелдейді: 'Әлеуметтік желілер мағыналы қарым-қатынасты жойды. Адамдар енді жүректен шыққан әңгімелерге емодзиді таңдайды.' Риторикалық тәсілді және аргументтің бір әлсіздігін анықтаңыз.",
             answer: "Technique: hyperbole ('destroyed') and false dichotomy (emojis vs. conversations as if they cannot coexist). Weakness: lacks evidence — no data is provided, and the claim overgeneralizes about all people.",
+            answerRu: "Приём: гипербола ('destroyed') и ложная дихотомия (эмодзи против разговоров, как будто они не могут сосуществовать). Слабость: отсутствие доказательств — данные не приведены, а утверждение чрезмерно обобщает всех людей.",
+            answerKk: "Тәсіл: гипербола ('destroyed') және жалған дихотомия (емодзи мен әңгіме бірге өмір сүре алмайтындай көрсетілуі). Әлсіздігі: дәлел жоқ — деректер берілмеген, әрі мәлімдеме барлық адамдар туралы шамадан тыс жалпылайды.",
             hint: "Look for exaggeration and either/or thinking. Ask: where is the evidence?",
             hintRu: "Ищите преувеличение и мышление «или/или». Спросите: где доказательства?",
             hintKk: "Асыра сілтеу мен 'не/не' ойлауды іздеңіз. Сұраңыз: дәлелдер қайда?",
@@ -2364,6 +2466,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Два парных текста обсуждают реформу образования. Текст 1 использует статистику Финляндии для аргумента за меньше домашних заданий. Текст 2 использует анекдотичный опыт одного учителя из Техаса за больше заданий. У какого текста сильнее доказательства и почему?",
             questionKk: "Екі жұптық мәтін білім реформасын талқылайды. 1-мәтін аз үй тапсырмасы үшін Финляндия статистикасын қолданады. 2-мәтін көп үй тапсырмасы үшін Техастағы бір мұғалімнің тәжірибесін қолданады. Қай мәтіннің дәлелі күштірек және неге?",
             answer: "Passage 1 has stronger evidence because it uses national-level statistics (large sample, systematic data) from a country with proven educational outcomes. Passage 2 relies on anecdotal evidence from a single person, which cannot be generalized and may reflect personal bias rather than a broader trend.",
+            answerRu: "У текста 1 доказательства сильнее, поскольку он использует общенациональную статистику (большая выборка, систематические данные) страны с доказанными образовательными результатами. Текст 2 опирается на анекдотичный опыт одного человека, который нельзя обобщить и который может отражать личную предвзятость, а не более широкую тенденцию.",
+            answerKk: "1-мәтіннің дәлелі күштірек, өйткені ол білім нәтижелері дәлелденген елдің жалпыұлттық статистикасын (үлкен іріктеме, жүйелі деректер) қолданады. 2-мәтін жалпылауға келмейтін және кең тенденцияны емес, жеке бұрмалануды көрсетуі мүмкін бір адамның анекдоттық тәжірибесіне сүйенеді.",
             hint: "Compare the type of evidence: statistical vs. anecdotal. Consider sample size and generalizability.",
             hintRu: "Сравните тип доказательств: статистические vs. анекдотичные. Учтите размер выборки и обобщаемость.",
             hintKk: "Дәлелдер түрін салыстырыңыз: статистикалық пен анекдоттық. Іріктеме көлемі мен жалпылау мүмкіндігін ескеріңіз.",
@@ -2395,7 +2499,9 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
               { en: "Evidence: the $42 billion statistic provides concrete, verifiable data. Vivid wildlife descriptions use imagery (style) to create emotional connection.", ru: "Доказательства: статистика $42 млрд — конкретные данные. Яркие описания используют образность (стиль) для эмоциональной связи.", kk: "Дәлелдер: $42 млрд статистикасы нақты деректер. Жарқын сипаттамалар бейнелілікті (стиль) қолданып, эмоционалды байланыс жасайды." },
               { en: "Reasoning: the appeal to future generations uses cause-effect logic — if we don't protect parks now, future generations lose them. This combines reasoning with emotional appeal.", ru: "Рассуждение: призыв к будущим поколениям использует логику причины-следствия. Это сочетает рассуждение с эмоциональным призывом.", kk: "Пайымдау: болашақ ұрпаққа шақыру себеп-салдар логикасын қолданады. Бұл пайымдауды эмоционалды шақырумен біріктіреді." }
             ],
-            answer: "Evidence: statistic ($42B). Style: vivid imagery of wildlife. Reasoning: cause-effect appeal to future generations."
+            answer: "Evidence: statistic ($42B). Style: vivid imagery of wildlife. Reasoning: cause-effect appeal to future generations.",
+            answerRu: "Доказательства: статистика ($42 млрд). Стиль: яркая образность дикой природы. Рассуждение: причинно-следственный призыв к будущим поколениям.",
+            answerKk: "Дәлел: статистика ($42 млрд). Стиль: жабайы табиғаттың жарқын бейнелілігі. Пайымдау: болашақ ұрпаққа себеп-салдар шақыруы."
           }
         ],
         practiceProblems: [
@@ -2405,6 +2511,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Нужно ли давать собственное мнение в эссе SAT?",
             questionKk: "SAT эссесінде өз пікіріңізді беру керек пе?",
             answer: "No. The SAT essay asks you to analyze how the author builds their argument, not to state whether you agree or disagree.",
+            answerRu: "Нет. Эссе SAT просит проанализировать, как автор строит свой аргумент, а не изложить, согласны вы или нет.",
+            answerKk: "Жоқ. SAT эссесі автордың аргументін қалай құратынын талдауды сұрайды, келісесіз бе, жоқ па дегенді айтуды емес.",
             hint: "The prompt says 'analyze' — focus on the author's techniques, not your own views.",
             hintRu: "В задании написано 'analyze' — сосредоточьтесь на приёмах автора, а не на своих взглядах.",
             hintKk: "Тапсырмада 'analyze' делінген — өз көзқарасыңызға емес, автордың тәсілдеріне назар аударыңыз.",
@@ -2416,6 +2524,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Автор пишет: 'Ежегодно 8 миллионов тонн пластика попадают в океаны — это равносильно выбрасыванию мусоровоза пластика в море каждую минуту.' Определите приёмы убеждения.",
             questionKk: "Автор жазады: 'Жыл сайын 8 миллион тонна пластик мұхитқа түседі — бұл әр минут сайын теңізге қоқыс машинасын төгумен тең.' Сенімділік тәсілдерін анықтаңыз.",
             answer: "Evidence: specific statistic (8 million tons). Style: vivid analogy (garbage truck every minute) makes the abstract number concrete and alarming. This combination of data and imagery creates both logical and emotional impact.",
+            answerRu: "Доказательства: конкретная статистика (8 миллионов тонн). Стиль: яркая аналогия (мусоровоз каждую минуту) делает абстрактное число конкретным и тревожным. Это сочетание данных и образности создаёт и логическое, и эмоциональное воздействие.",
+            answerKk: "Дәлел: нақты статистика (8 миллион тонна). Стиль: жарқын аналогия (әр минут сайынғы қоқыс машинасы) дерексіз санды нақты әрі алаңдатарлық етеді. Деректер мен бейнеліліктің бұл үйлесімі әрі логикалық, әрі эмоционалды әсер тудырады.",
             hint: "Look for data (evidence) and figurative language (style). How do they work together?",
             hintRu: "Ищите данные (доказательства) и образный язык (стиль). Как они работают вместе?",
             hintKk: "Деректерді (дәлел) және бейнелі тілді (стиль) іздеңіз. Олар бірге қалай жұмыс істейді?",
@@ -2427,6 +2537,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Напишите тезис для эссе SAT, анализирующего текст, где автор использует личные истории, научные исследования и эмоциональный язык, чтобы аргументировать обязательность музыкального образования.",
             questionKk: "Автор музыка білімін міндетті ету керек деп дәлелдеу үшін жеке әңгімелер, ғылыми зерттеулер және эмоционалды тілді қолданатын мәтінді талдайтын SAT эссесі үшін тезис жазыңыз.",
             answer: "In the passage, the author builds a compelling case for mandatory music education by weaving together personal anecdotes that humanize the issue, citing scientific studies that lend credibility, and employing emotionally charged language that motivates readers to action.",
+            answerRu: "В тексте автор выстраивает убедительное обоснование обязательности музыкального образования, сплетая личные истории, которые очеловечивают проблему, ссылки на научные исследования, придающие достоверность, и эмоционально насыщенный язык, побуждающий читателей к действию.",
+            answerKk: "Мәтінде автор мәселені адамдандыратын жеке әңгімелерді, сенімділік беретін ғылыми зерттеулерге сілтемелерді және оқырмандарды әрекетке итермелейтін эмоционалды толы тілді біріктіру арқылы музыка білімін міндетті ету үшін сенімді дәлел құрады.",
             hint: "Your thesis should name the three specific techniques and briefly explain how each contributes to the argument.",
             hintRu: "Тезис должен назвать три конкретных приёма и кратко объяснить вклад каждого.",
             hintKk: "Тезис үш нақты тәсілді атап, әрқайсысының аргументке қосқан үлесін қысқаша түсіндіруі керек.",
@@ -2458,7 +2570,9 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
               { en: "Determine if the clause is essential: 'who passed the exam' tells us which students — it is essential information.", ru: "Определите, важна ли часть предложения: 'who passed the exam' указывает, какие студенты — это существенная информация.", kk: "Сөйлем бөлігі маңызды ма анықтаңыз: 'who passed the exam' қай студенттер екенін айтады — бұл маңызды ақпарат." },
               { en: "Essential (restrictive) clauses do not use commas. Answer: (B).", ru: "Существенные (ограничительные) части не выделяются запятыми. Ответ: (B).", kk: "Маңызды (шектеуші) сөйлем бөліктері үтірмен бөлінбейді. Жауап: (B)." }
             ],
-            answer: "B — 'The students who passed the exam celebrated.' No commas because the clause is essential."
+            answer: "B — 'The students who passed the exam celebrated.' No commas because the clause is essential.",
+            answerRu: "B — 'The students who passed the exam celebrated.' Запятые не нужны, так как придаточная часть существенна.",
+            answerKk: "B — 'The students who passed the exam celebrated.' Сөйлемше маңызды болғандықтан үтір қажет емес."
           }
         ],
         practiceProblems: [
@@ -2468,6 +2582,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Сколько секунд на вопрос у вас есть в разделе ACT English?",
             questionKk: "ACT English бөлімінде әр сұраққа қанша секунд бар?",
             answer: "36 seconds per question (45 minutes × 60 ÷ 75 = 36).",
+            answerRu: "36 секунд на вопрос (45 минут × 60 ÷ 75 = 36).",
+            answerKk: "Әр сұраққа 36 секунд (45 минут × 60 ÷ 75 = 36).",
             hint: "Convert minutes to seconds, then divide by the number of questions.",
             hintRu: "Переведите минуты в секунды и разделите на количество вопросов.",
             hintKk: "Минутты секундқа айналдырып, сұрақтар санына бөліңіз.",
@@ -2479,6 +2595,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Исправьте ошибку: 'She enjoys hiking, swimming, and to ride her bike on weekends.'",
             questionKk: "Қатені түзетіңіз: 'She enjoys hiking, swimming, and to ride her bike on weekends.'",
             answer: "'She enjoys hiking, swimming, and riding her bike on weekends.' — items in a list must have parallel structure (all gerunds).",
+            answerRu: "'She enjoys hiking, swimming, and riding her bike on weekends.' — элементы списка должны иметь параллельную структуру (все герундии).",
+            answerKk: "'She enjoys hiking, swimming, and riding her bike on weekends.' — тізім элементтері параллель құрылымда болуы керек (барлығы герундий).",
             hint: "Look at the pattern: hiking, swimming, and ___. All items should match the same form.",
             hintRu: "Посмотрите на шаблон: hiking, swimming, and ___. Все элементы должны быть в одной форме.",
             hintKk: "Үлгіге қараңыз: hiking, swimming, and ___. Барлық элементтер бір формада болуы керек.",
@@ -2490,6 +2608,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Текст о возобновляемой энергии: 'Solar power is efficient. It is also cost-effective. Solar panels can be installed on rooftops. This makes them accessible.' Автор хочет объединить в одно эффективное предложение. Напишите его.",
             questionKk: "Жаңартылатын энергия туралы мәтін: 'Solar power is efficient. It is also cost-effective. Solar panels can be installed on rooftops. This makes them accessible.' Жазушы бір тиімді сөйлемге біріктіргісі келеді. Жазыңыз.",
             answer: "'Solar power is both efficient and cost-effective, and because panels can be installed on rooftops, they are highly accessible.'",
+            answerRu: "'Solar power is both efficient and cost-effective, and because panels can be installed on rooftops, they are highly accessible.'",
+            answerKk: "'Solar power is both efficient and cost-effective, and because panels can be installed on rooftops, they are highly accessible.'",
             hint: "Combine related ideas using conjunctions and subordination. Remove repetition while keeping all key information.",
             hintRu: "Объедините связанные идеи союзами и подчинением. Уберите повторы, сохранив всю ключевую информацию.",
             hintKk: "Байланысты идеяларды жалғаулықтар мен бағыныңқы сөйлемдермен біріктіріңіз. Қайталауды жойып, барлық негізгі ақпаратты сақтаңыз.",
@@ -2521,7 +2641,9 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
               { en: "Identify a₁ = 3 and d = 7 − 3 = 4.", ru: "Определите a₁ = 3 и d = 7 − 3 = 4.", kk: "a₁ = 3 және d = 7 − 3 = 4 анықтаңыз." },
               { en: "a₁₀ = 3 + (10−1)(4) = 3 + 36 = 39.", ru: "a₁₀ = 3 + (10−1)(4) = 3 + 36 = 39.", kk: "a₁₀ = 3 + (10−1)(4) = 3 + 36 = 39." }
             ],
-            answer: "The 10th term is 39."
+            answer: "The 10th term is 39.",
+            answerRu: "10-й член равен 39.",
+            answerKk: "10-шы мүше 39-ға тең."
           }
         ],
         practiceProblems: [
@@ -2531,6 +2653,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Найдите разность в прогрессии: 5, 12, 19, 26, ...",
             questionKk: "Прогрессиядағы айырманы табыңыз: 5, 12, 19, 26, ...",
             answer: "d = 7 (each term increases by 7)",
+            answerRu: "d = 7 (каждый член увеличивается на 7)",
+            answerKk: "d = 7 (әр мүше 7-ге артады)",
             hint: "Subtract any term from the next one: 12 − 5 = ?",
             hintRu: "Вычтите любой член из следующего: 12 − 5 = ?",
             hintKk: "Кез келген мүшені келесіден алып тастаңыз: 12 − 5 = ?",
@@ -2542,6 +2666,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Найдите 8-й член геометрической прогрессии: 2, 6, 18, 54, ...",
             questionKk: "Геометриялық прогрессияның 8-ші мүшесін табыңыз: 2, 6, 18, 54, ...",
             answer: "a₈ = 2 · 3⁷ = 2 · 2187 = 4374",
+            answerRu: "a₈ = 2 · 3⁷ = 2 · 2187 = 4374",
+            answerKk: "a₈ = 2 · 3⁷ = 2 · 2187 = 4374",
             hint: "Find r = 6/2 = 3, then use aₙ = a₁ · r^(n−1).",
             hintRu: "Найдите r = 6/2 = 3, затем используйте aₙ = a₁ · r^(n−1).",
             hintKk: "r = 6/2 = 3 табыңыз, содан кейін aₙ = a₁ · r^(n−1) қолданыңыз.",
@@ -2553,6 +2679,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Окружность задана уравнением (x − 3)² + (y + 2)² = 25. Найдите центр, радиус и определите, лежит ли точка (6, 2) внутри, на или вне окружности.",
             questionKk: "(x − 3)² + (y + 2)² = 25 теңдеуімен берілген шеңбердің центрін, радиусын табыңыз және (6, 2) нүктесі шеңбердің ішінде, үстінде немесе сыртында жатқанын анықтаңыз.",
             answer: "Center (3, −2), radius = 5. Distance from center to (6, 2) = √((6−3)² + (2−(−2))²) = √(9+16) = √25 = 5. The point lies on the circle.",
+            answerRu: "Центр (3, −2), радиус = 5. Расстояние от центра до (6, 2) = √((6−3)² + (2−(−2))²) = √(9+16) = √25 = 5. Точка лежит на окружности.",
+            answerKk: "Центр (3, −2), радиус = 5. Центрден (6, 2) нүктесіне дейінгі қашықтық = √((6−3)² + (2−(−2))²) = √(9+16) = √25 = 5. Нүкте шеңбердің үстінде жатыр.",
             hint: "The equation (x−h)² + (y−k)² = r² gives center (h,k) and radius r. Calculate the distance from center to the point.",
             hintRu: "Уравнение (x−h)² + (y−k)² = r² даёт центр (h,k) и радиус r. Вычислите расстояние от центра до точки.",
             hintKk: "(x−h)² + (y−k)² = r² теңдеуі центр (h,k) және радиус r береді. Центрден нүктеге дейінгі қашықтықты есептеңіз.",
@@ -2584,7 +2712,9 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
               { en: "Replace generic vocabulary with precise collocations: 'think' → 'contend,' 'good for' → 'has a transformative impact on,' 'helps students learn better' → 'enables personalized learning experiences.'", ru: "Замените общую лексику точными коллокациями: 'think' → 'contend,' 'good for' → 'has a transformative impact on.'", kk: "Жалпы сөздікті дәл коллокациялармен алмастырыңыз: 'think' → 'contend,' 'good for' → 'has a transformative impact on.'" },
               { en: "Add complexity: 'A growing number of educators contend that technology has a transformative impact on education, as it enables personalized learning experiences tailored to individual student needs.'", ru: "Добавьте сложность: 'A growing number of educators contend that technology has a transformative impact on education, as it enables personalized learning experiences tailored to individual student needs.'", kk: "Күрделілік қосыңыз: 'A growing number of educators contend that technology has a transformative impact on education, as it enables personalized learning experiences tailored to individual student needs.'" }
             ],
-            answer: "'A growing number of educators contend that technology has a transformative impact on education, as it enables personalized learning experiences tailored to individual student needs.'"
+            answer: "'A growing number of educators contend that technology has a transformative impact on education, as it enables personalized learning experiences tailored to individual student needs.'",
+            answerRu: "'A growing number of educators contend that technology has a transformative impact on education, as it enables personalized learning experiences tailored to individual student needs.'",
+            answerKk: "'A growing number of educators contend that technology has a transformative impact on education, as it enables personalized learning experiences tailored to individual student needs.'"
           }
         ],
         practiceProblems: [
@@ -2594,6 +2724,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Каковы четыре критерия оценки IELTS Writing?",
             questionKk: "IELTS Writing бағалаудың төрт критерийі қандай?",
             answer: "1) Task Achievement/Response, 2) Coherence and Cohesion, 3) Lexical Resource, 4) Grammatical Range and Accuracy.",
+            answerRu: "1) Выполнение задания (Task Achievement/Response), 2) Связность и логика (Coherence and Cohesion), 3) Лексический ресурс (Lexical Resource), 4) Грамматический диапазон и точность (Grammatical Range and Accuracy).",
+            answerKk: "1) Тапсырманы орындау (Task Achievement/Response), 2) Байланыстылық пен когеренттілік (Coherence and Cohesion), 3) Лексикалық қор (Lexical Resource), 4) Грамматикалық ауқым мен дәлдік (Grammatical Range and Accuracy).",
             hint: "Think about: Did you answer the question? Is it organized? What vocabulary did you use? Is the grammar accurate?",
             hintRu: "Подумайте: Ответили ли на вопрос? Организовано ли? Какая лексика? Точна ли грамматика?",
             hintKk: "Ойлаңыз: Сұраққа жауап бердіңіз бе? Ұйымдастырылған ба? Қандай сөздік қор? Грамматика дәл бе?",
@@ -2605,6 +2737,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Замените базовые слова на лексику Band 7+: (1) 'important' (2) 'bad' (3) 'many people'",
             questionKk: "Негізгі сөздерді Band 7+ сөздік қорымен алмастырыңыз: (1) 'important' (2) 'bad' (3) 'many people'",
             answer: "(1) crucial / paramount / vital (2) detrimental / adverse / harmful (3) a significant proportion of the population / a considerable number of individuals",
+            answerRu: "(1) crucial / paramount / vital (2) detrimental / adverse / harmful (3) a significant proportion of the population / a considerable number of individuals",
+            answerKk: "(1) crucial / paramount / vital (2) detrimental / adverse / harmful (3) a significant proportion of the population / a considerable number of individuals",
             hint: "Think of more precise, academic synonyms. Avoid overused words.",
             hintRu: "Подумайте о более точных, академических синонимах. Избегайте заезженных слов.",
             hintKk: "Дәлірек, академиялық синонимдерді ойлаңыз. Тым жиі қолданылатын сөздерден аулақ болыңыз.",
@@ -2616,6 +2750,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Перепишите этот абзац уровня Band 5 до уровня Band 7+: 'Pollution is a big problem. It makes people sick. The government should do something about it. They should make laws to stop factories from polluting.'",
             questionKk: "Бұл Band 5 абзацын Band 7+ деңгейіне қайта жазыңыз: 'Pollution is a big problem. It makes people sick. The government should do something about it. They should make laws to stop factories from polluting.'",
             answer: "Environmental pollution has emerged as one of the most pressing challenges of the modern era, contributing to a range of health issues including respiratory diseases and cancer. To address this crisis, governments must implement stricter environmental regulations that hold industrial polluters accountable, including imposing substantial fines on factories that exceed emission limits.",
+            answerRu: "Загрязнение окружающей среды стало одной из самых острых проблем современности, вызывая ряд заболеваний, включая респираторные болезни и рак. Чтобы справиться с этим кризисом, правительствам необходимо ввести более строгие экологические нормы, которые заставят промышленных загрязнителей нести ответственность, включая существенные штрафы для заводов, превышающих нормы выбросов.",
+            answerKk: "Қоршаған ортаның ластануы қазіргі заманның ең өткір мәселелерінің біріне айналды, тыныс алу аурулары мен қатерлі ісікті қоса алғанда, көптеген аурулардың себебі болып отыр. Бұл дағдарысты шешу үшін үкіметтер өнеркәсіп ластаушыларды жауапқа тартатын, шығарынды нормаларынан асатын зауыттарға айтарлықтай айыппұл салуды қоса алғанда, қатаң экологиялық ережелер енгізуі керек.",
             hint: "Combine short sentences, use academic vocabulary, add specific examples, and use cohesive devices.",
             hintRu: "Объедините короткие предложения, используйте академическую лексику, добавьте конкретные примеры.",
             hintKk: "Қысқа сөйлемдерді біріктіріңіз, академиялық сөздік қор қолданыңыз, нақты мысалдар қосыңыз.",
@@ -2647,7 +2783,9 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
               { en: "Identify the relationship: the lecture challenges the reading's claim.", ru: "Определите связь: лекция оспаривает утверждение текста.", kk: "Байланысты анықтаңыз: лекция мәтіннің мәлімдемесіне қарсы шығады." },
               { en: "Write: 'While the reading passage argues that remote work leads to higher productivity, the lecturer challenges this view by presenting evidence that it significantly reduces team collaboration.'", ru: "Напишите: 'Хотя текст утверждает, что удалённая работа повышает продуктивность, лектор оспаривает это, приводя доказательства снижения командного сотрудничества.'", kk: "Жазыңыз: 'Мәтін қашықтан жұмыс жоғары өнімділікке әкеледі деп дәлелдесе де, лектор бұл көзқарасқа команда ынтымақтастығын айтарлықтай төмендететін дәлелдер ұсына отырып қарсы шығады.'" }
             ],
-            answer: "'While the reading passage argues that remote work leads to higher productivity, the lecturer challenges this view by presenting evidence that it significantly reduces team collaboration.'"
+            answer: "'While the reading passage argues that remote work leads to higher productivity, the lecturer challenges this view by presenting evidence that it significantly reduces team collaboration.'",
+            answerRu: "'While the reading passage argues that remote work leads to higher productivity, the lecturer challenges this view by presenting evidence that it significantly reduces team collaboration.'",
+            answerKk: "'While the reading passage argues that remote work leads to higher productivity, the lecturer challenges this view by presenting evidence that it significantly reduces team collaboration.'"
           }
         ],
         practiceProblems: [
@@ -2657,6 +2795,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Сколько письменных заданий на TOEFL и сколько времени даётся на каждое?",
             questionKk: "TOEFL-да қанша жазу тапсырмасы бар және әрқайсысына қанша уақыт беріледі?",
             answer: "Two tasks: Integrated Writing (20 minutes) and Writing for an Academic Discussion (10 minutes).",
+            answerRu: "Два задания: Интегрированное письмо (20 минут) и Письмо для академической дискуссии (10 минут).",
+            answerKk: "Екі тапсырма: Интеграцияланған жазу (20 минут) және Академиялық талқылау үшін жазу (10 минут).",
             hint: "The integrated task is longer because you must read and listen before writing.",
             hintRu: "Интегрированное задание дольше, потому что нужно сначала прочитать и прослушать.",
             hintKk: "Интеграцияланған тапсырма ұзағырақ, себебі алдымен оқып, тыңдау керек.",
@@ -2668,6 +2808,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "В интегрированном задании текст говорит, что вырубка лесов необходима для экономического развития. Лекция утверждает, что она наносит необратимый экологический ущерб. Напишите тематическое предложение для первого основного абзаца.",
             questionKk: "Интеграцияланған тапсырмада мәтін орман шабуды экономикалық даму үшін қажет дейді. Лекция оның қайтымсыз экологиялық зиян келтіретінін айтады. Бірінші негізгі абзац үшін тақырыптық сөйлем жазыңыз.",
             answer: "The lecturer directly challenges the reading's claim about economic necessity by arguing that deforestation causes irreversible biodiversity loss that ultimately undermines long-term economic stability.",
+            answerRu: "Лектор напрямую оспаривает утверждение текста об экономической необходимости, аргументируя, что вырубка лесов вызывает необратимую потерю биоразнообразия, что в конечном итоге подрывает долгосрочную экономическую стабильность.",
+            answerKk: "Лектор мәтіннің экономикалық қажеттілік туралы мәлімдемесіне тікелей қарсы шығып, орман шабу қайтымсыз биоәртүрлілік жоғалтуға әкеліп, бұл түбінде ұзақ мерзімді экономикалық тұрақтылықты бұзатынын дәлелдейді.",
             hint: "Start with how the lecture responds to the reading. Show the contrast clearly.",
             hintRu: "Начните с того, как лекция отвечает тексту. Чётко покажите контраст.",
             hintKk: "Лекцияның мәтінге қалай жауап беретінінен бастаңыз. Контрастты анық көрсетіңіз.",
@@ -2679,6 +2821,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "В академической дискуссии профессор спрашивает: 'Должны ли университеты требовать курс программирования?' Студент A говорит да, для карьерных навыков; Студент B говорит нет, не все карьеры требуют этого. Напишите ответ в 100 слов с новой перспективой.",
             questionKk: "Академиялық талқылауда профессор сұрайды: 'Университеттер барлық студенттерден бағдарламалау курсын талап етуі керек пе?' A студент иә дейді, мансап дағдылары үшін; B студент жоқ дейді, барлық мансаптарға қажет емес. Жаңа перспективамен 100 сөздік жауап жазыңыз.",
             answer: "While both students make valid points, I believe universities should offer computational thinking courses rather than strict programming. Computational thinking — which involves problem decomposition, pattern recognition, and logical reasoning — benefits students across all disciplines. A medical student, for example, can apply these skills to diagnostic reasoning, while a literature student might use them for textual analysis. Rather than mandating a specific programming language, universities should focus on the underlying problem-solving framework that programming teaches, making the course relevant regardless of career path.",
+            answerRu: "Хотя оба студента приводят обоснованные доводы, я считаю, что университетам стоит предлагать курсы вычислительного мышления, а не строгое программирование. Вычислительное мышление — включающее декомпозицию задач, распознавание закономерностей и логическое рассуждение — приносит пользу студентам всех специальностей. Например, студент-медик может применять эти навыки в диагностическом мышлении, а студент-филолог — в текстовом анализе. Вместо того чтобы требовать конкретный язык программирования, университетам стоит сосредоточиться на базовой методологии решения задач, которой учит программирование, что делает курс актуальным независимо от карьерного пути.",
+            answerKk: "Екі студенттің де дәлелдері негізді болғанымен, университеттер қатаң бағдарламалаудың орнына есептеу ойлауы курстарын ұсынуы керек деп санаймын. Есептеу ойлауы — мәселені бөліктерге бөлу, үлгілерді тану және логикалық пайымдауды қамтитын — барлық мамандық студенттеріне пайдалы. Мысалы, медицина студенті бұл дағдыларды диагностикалық пайымдауда қолдана алады, ал әдебиет студенті мәтінді талдауда пайдалана алады. Нақты бағдарламалау тілін міндеттеудің орнына, университеттер бағдарламалау үйрететін мәселе шешу негізіне назар аударуы керек, бұл курсты мансап жолына қарамастан маңызды етеді.",
             hint: "Find a middle ground or a completely new angle. Add a specific example to strengthen your position.",
             hintRu: "Найдите золотую середину или совершенно новый угол. Добавьте конкретный пример.",
             hintKk: "Ортаңғы жол немесе мүлдем жаңа көзқарас табыңыз. Нақты мысал қосыңыз.",
@@ -2710,7 +2854,9 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
               { en: "State opinion (5 sec): 'I prefer studying with a group for two main reasons.'", ru: "Мнение (5 сек): 'Я предпочитаю учиться в группе по двум причинам.'", kk: "Пікір (5 сек): 'Екі себеппен топпен оқуды қалаймын.'" },
               { en: "Reason 1 + Example (18 sec): 'First, group study helps me understand difficult concepts. For example, when I struggled with calculus, my study group explained it in ways the textbook couldn't.' Reason 2 + Example (18 sec): 'Second, it keeps me motivated. Studying alone, I often get distracted, but with others I stay focused and accountable.'", ru: "Причина 1 + Пример (18 сек): 'Во-первых, группа помогает понять сложные концепции. Например, мне помогли с математикой.' Причина 2 + Пример (18 сек): 'Во-вторых, это мотивирует. Один я отвлекаюсь, а в группе остаюсь сосредоточенным.'", kk: "Себеп 1 + Мысал (18 сек): 'Біріншіден, топ күрделі тұжырымдамаларды түсінуге көмектеседі. Мысалы, математикадан қиналғанда топтасым түсіндірді.' Себеп 2 + Мысал (18 сек): 'Екіншіден, мотивация береді. Жалғыз оқығанда алаңдаймын, бірақ топпен назар аударамын.'" }
             ],
-            answer: "'I prefer studying with a group for two main reasons. First, group study helps me understand difficult concepts — for example, my study group helped me with calculus. Second, it keeps me motivated and accountable, whereas studying alone I often get distracted.'"
+            answer: "'I prefer studying with a group for two main reasons. First, group study helps me understand difficult concepts — for example, my study group helped me with calculus. Second, it keeps me motivated and accountable, whereas studying alone I often get distracted.'",
+            answerRu: "'Я предпочитаю учиться в группе по двум основным причинам. Во-первых, групповые занятия помогают мне понимать сложные концепции — например, моя учебная группа помогла мне с математическим анализом. Во-вторых, это поддерживает мою мотивацию и ответственность, тогда как в одиночестве я часто отвлекаюсь.'",
+            answerKk: "'Топпен оқуды екі негізгі себеппен қалаймын. Біріншіден, топпен оқу қиын тұжырымдамаларды түсінуге көмектеседі — мысалы, оқу тобым маған калькулюсте көмектесті. Екіншіден, бұл мені ынталы әрі жауапты етіп ұстайды, ал жалғыз оқығанда жиі алаңдаймын.'"
           }
         ],
         practiceProblems: [
@@ -2720,6 +2866,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Сколько заданий по говорению на TOEFL и сколько длится весь раздел?",
             questionKk: "TOEFL-да қанша сөйлеу тапсырмасы бар және бөлім қанша уақытқа созылады?",
             answer: "4 tasks in approximately 17 minutes.",
+            answerRu: "4 задания примерно за 17 минут.",
+            answerKk: "Шамамен 17 минутта 4 тапсырма.",
             hint: "1 independent + 3 integrated = 4 total tasks.",
             hintRu: "1 независимое + 3 интегрированных = 4 задания.",
             hintKk: "1 тәуелсіз + 3 интеграцияланған = барлығы 4 тапсырма.",
@@ -2731,6 +2879,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "У вас 30 секунд на подготовку к интегрированному заданию о кампусном объявлении. Что записать в заметки?",
             questionKk: "Кампус хабарландыруы туралы интеграцияланған тапсырмаға дайындалуға 30 секундыңыз бар. Жазбаларыңызға не жазу керек?",
             answer: "Write: (1) The main change announced, (2) The two reasons given for the change in the reading, (3) The speaker's opinion (agree/disagree) and their two reasons from the listening.",
+            answerRu: "Запишите: (1) главное объявленное изменение, (2) две причины изменения из текста, (3) мнение говорящего (согласен/не согласен) и его две причины из аудирования.",
+            answerKk: "Жазыңыз: (1) жарияланған негізгі өзгеріс, (2) мәтіндегі өзгерістің екі себебі, (3) сөйлеушінің пікірі (келіседі/келіспейді) және тыңдаудан алынған екі себебі.",
             hint: "Focus on the key facts: what changed, why (from reading), and the speaker's reaction (from listening).",
             hintRu: "Сосредоточьтесь на ключевых фактах: что изменилось, почему (из текста) и реакция говорящего (из аудио).",
             hintKk: "Негізгі фактіларға назар аударыңыз: не өзгерді, неге (мәтіннен) және сөйлеушінің реакциясы (аудиодан).",
@@ -2742,6 +2892,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Интегрированное задание: текст сообщает, что университет закроет книжный магазин и перейдёт на онлайн-продажи. Студент в разговоре не согласен. Составьте план ответа на 60 секунд.",
             questionKk: "Интеграцияланған тапсырма: мәтін университет кітап дүкенін жабып, тек онлайн сатуға көшетінін хабарлайды. Әңгімедегі студент келіспейді. 60 секундтық жауап жоспарын құрыңыз.",
             answer: "Introduction (10 sec): 'The university announced it will close the campus bookstore and transition to online-only sales to reduce costs.' Objection 1 (20 sec): 'The student disagrees, arguing that many students need to physically browse textbooks before buying them, especially for courses where multiple editions exist.' Objection 2 (20 sec): 'Additionally, the student points out that the bookstore serves as a community space where students meet and study, and losing it would reduce campus social life.' Closing (10 sec): 'For these reasons, the student believes the university should keep the bookstore open.'",
+            answerRu: "Введение (10 сек): 'Университет объявил, что закроет книжный магазин кампуса и перейдёт исключительно на онлайн-продажи для снижения расходов.' Возражение 1 (20 сек): 'Студент не согласен, утверждая, что многим студентам нужно физически просматривать учебники перед покупкой, особенно на курсах с несколькими изданиями.' Возражение 2 (20 сек): 'Кроме того, студент отмечает, что магазин служит местом общения, где студенты встречаются и учатся, и его потеря снизит социальную жизнь кампуса.' Заключение (10 сек): 'По этим причинам студент считает, что университету стоит оставить магазин открытым.'",
+            answerKk: "Кіріспе (10 сек): 'Университет шығындарды азайту үшін кампус кітап дүкенін жауып, тек онлайн сатуға көшетінін жариялады.' 1-қарсылық (20 сек): 'Студент келіспейді, көптеген студенттерге сатып алу алдында оқулықтарды өз көзімен қарау керек дейді, әсіресе бірнеше басылымы бар курстарда.' 2-қарсылық (20 сек): 'Сонымен қатар, студент дүкеннің студенттер кездесіп, бірге оқитын қауымдастық орны екенін атап көрсетеді, оны жоғалту кампус әлеуметтік өмірін төмендетеді дейді.' Қорытынды (10 сек): 'Осы себептерге байланысты студент университет дүкенді ашық қалдыруы керек деп санайды.'",
             hint: "Summarize the announcement first (what and why), then present each of the student's objections clearly.",
             hintRu: "Сначала изложите объявление (что и почему), затем чётко представьте каждое возражение студента.",
             hintKk: "Алдымен хабарландыруды қысқартыңыз (не және неге), содан кейін студенттің әр қарсылығын анық көрсетіңіз.",
@@ -2779,7 +2931,9 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
               { en: "First, answer the 3 easy questions quickly (about 3 minutes total). This secures guaranteed points.", ru: "Сначала быстро ответьте на 3 лёгких (примерно 3 минуты). Это гарантированные баллы.", kk: "Алдымен 3 оңай сұраққа жылдам жауап беріңіз (шамамен 3 минут). Бұл кепілдікті ұпайлар." },
               { en: "Next, spend about 5 minutes on the 3 medium questions. With remaining 2 minutes, attempt the hard questions or make educated guesses. Never leave any blank — there is no penalty.", ru: "Затем уделите 5 минут 3 средним. Оставшиеся 2 минуты — попытайтесь решить сложные или сделайте обоснованные догадки. Не оставляйте пустых — штрафа нет.", kk: "Содан кейін 3 орташа сұраққа 5 минут жұмсаңыз. Қалған 2 минутта қиын сұрақтарға тырысыңыз немесе негізделген болжам жасаңыз. Бос қалдырмаңыз — айыппұл жоқ." }
             ],
-            answer: "Easy first (3 min) → Medium next (5 min) → Hard last or guess (2 min). Never leave questions blank."
+            answer: "Easy first (3 min) → Medium next (5 min) → Hard last or guess (2 min). Never leave questions blank.",
+            answerRu: "Сначала лёгкие (3 мин) → затем средние (5 мин) → сложные в конце или угадывание (2 мин). Никогда не оставляйте вопросы пустыми.",
+            answerKk: "Алдымен оңай (3 мин) → содан кейін орташа (5 мин) → соңында қиын немесе болжам (2 мин). Сұрақтарды ешқашан бос қалдырмаңыз."
           }
         ],
         practiceProblems: [
@@ -2789,6 +2943,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Назовите три необходимые вещи на день SAT/ACT.",
             questionKk: "SAT/ACT емтихан күніне алу керек үш маңызды затты атаңыз.",
             answer: "Photo ID, admission ticket, and No. 2 pencils. (Also recommended: approved calculator, water, snack, and a watch.)",
+            answerRu: "Удостоверение личности с фото, пропуск на экзамен и карандаши № 2. (Также рекомендуется: разрешённый калькулятор, вода, перекус и часы.)",
+            answerKk: "Фотосы бар жеке куәлік, емтиханға кіру билеті және № 2 қарындаштар. (Сондай-ақ ұсынылады: рұқсат етілген калькулятор, су, тағам және сағат.)",
             hint: "Think about identification, registration proof, and writing tools.",
             hintRu: "Подумайте об удостоверении личности, подтверждении регистрации и письменных принадлежностях.",
             hintKk: "Жеке куәлік, тіркеу растамасы және жазу құралдары туралы ойлаңыз.",
@@ -2800,6 +2956,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Вы чувствуете сильную тревогу прямо перед тестом. Опишите 60-секундную технику успокоения.",
             questionKk: "Тест басталар алдында өте алаңдайсыз. Тынышталу үшін 60 секундтық техниканы сипаттаңыз.",
             answer: "Use 4-7-8 breathing: inhale through your nose for 4 seconds, hold for 7 seconds, exhale slowly through your mouth for 8 seconds. Repeat 3 times (about 57 seconds). This activates your parasympathetic nervous system and reduces anxiety quickly.",
+            answerRu: "Используйте технику дыхания 4-7-8: вдох через нос 4 секунды, задержка на 7 секунд, медленный выдох через рот 8 секунд. Повторите 3 раза (около 57 секунд). Это активирует парасимпатическую нервную систему и быстро снижает тревогу.",
+            answerKk: "4-7-8 тыныс алу техникасын қолданыңыз: мұрын арқылы 4 секунд дем алыңыз, 7 секунд ұстап тұрыңыз, ауыз арқылы баяу 8 секунд дем шығарыңыз. 3 рет қайталаңыз (шамамен 57 секунд). Бұл парасимпатикалық жүйке жүйесін іске қосып, алаңдаушылықты жылдам азайтады.",
             hint: "Controlled breathing is the fastest way to reduce physical anxiety symptoms.",
             hintRu: "Контролируемое дыхание — самый быстрый способ снизить физические симптомы тревоги.",
             hintKk: "Бақыланатын тыныс алу — дене алаңдаушылығы белгілерін азайтудың ең жылдам жолы.",
@@ -2811,6 +2969,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Составьте полный 7-дневный план подготовки для сдающего SAT в следующую субботу. Включите темы, пробные тесты, дни отдыха и логистику дня экзамена.",
             questionKk: "Келесі сенбіде SAT тапсыратын адамға 7 күндік толық дайындық кестесін жасаңыз. Тақырыптарды, пробные тесттерді, демалыс күндерін және емтихан күні логистикасын қосыңыз.",
             answer: "Sunday: Full practice test under timed conditions, review all wrong answers. Monday: Focus on weakest math topics (review errors from practice test). Tuesday: Focus on weakest reading/writing topics. Wednesday: Mixed practice — 1 math section + 1 reading section timed. Thursday: Light review of formulas and strategies only (no full tests). Friday: Complete rest day — no studying, prepare materials (ID, ticket, pencils, calculator, snack), set two alarms, go to bed early. Saturday (Test Day): Wake 2 hours before, light breakfast, arrive 30 minutes early, use breathing technique before start.",
+            answerRu: "Воскресенье: полный пробный тест в условиях реального времени, разбор всех ошибок. Понедельник: сосредоточьтесь на самых слабых темах по математике (разбор ошибок из пробного теста). Вторник: сосредоточьтесь на самых слабых темах чтения/письма. Среда: смешанная практика — 1 математический раздел + 1 раздел чтения на время. Четверг: только лёгкое повторение формул и стратегий (без полных тестов). Пятница: полный день отдыха — без занятий, подготовьте материалы (удостоверение, пропуск, карандаши, калькулятор, перекус), поставьте два будильника, лягте спать пораньше. Суббота (день экзамена): проснитесь за 2 часа, лёгкий завтрак, приезжайте за 30 минут, используйте дыхательную технику перед началом.",
+            answerKk: "Жексенбі: уақыт шектеулі жағдайда толық пробный тест, барлық қателерді талдау. Дүйсенбі: математикадағы ең әлсіз тақырыптарға назар аударыңыз (пробный тесттегі қателерді талдау). Сейсенбі: оқу/жазудағы ең әлсіз тақырыптарға назар аударыңыз. Сәрсенбі: аралас жаттығу — 1 математика бөлімі + 1 оқу бөлімі уақыт есептеп. Бейсенбі: тек формулалар мен стратегияларды жеңіл қайталау (толық тесттерсіз). Жұма: толық демалыс күні — оқымаңыз, материалдарды дайындаңыз (куәлік, билет, қарындаштар, калькулятор, тағам), екі оятқыш қойыңыз, ерте ұйықтаңыз. Сенбі (Емтихан күні): 2 сағат бұрын тұрыңыз, жеңіл таңғы ас ішіңіз, 30 минут бұрын келіңіз, бастамас бұрын тыныс алу техникасын қолданыңыз.",
             hint: "Include a full practice test early, focus on weak areas mid-week, taper off, and rest the day before.",
             hintRu: "Включите полный тест в начале, среди недели — слабые темы, снижайте нагрузку, отдыхайте накануне.",
             hintKk: "Басында толық тест қосыңыз, апта ортасында әлсіз тақырыптар, жүктемені азайтыңыз, алдыңғы күні демалыңыз.",
@@ -2891,7 +3051,9 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
               { en: "Errors recovered = 12 × 50% = 6 additional correct answers.", ru: "Исправленные ошибки = 12 × 50% = 6 дополнительных правильных ответов.", kk: "Түзетілген қателер = 12 × 50% = 6 қосымша дұрыс жауап." },
               { en: "Estimated new score = 1150 + (6 × 10) = 1150 + 60 = 1210.", ru: "Расчётный новый балл = 1150 + (6 × 10) = 1150 + 60 = 1210.", kk: "Болжамды жаңа ұпай = 1150 + (6 × 10) = 1150 + 60 = 1210." }
             ],
-            answer: "Estimated new score is 1210, a 60-point improvement from focused Heart of Algebra practice."
+            answer: "Estimated new score is 1210, a 60-point improvement from focused Heart of Algebra practice.",
+            answerRu: "Расчётный новый балл — 1210, улучшение на 60 баллов благодаря целенаправленной практике Heart of Algebra.",
+            answerKk: "Болжамды жаңа ұпай — 1210, Heart of Algebra бойынша мақсатты жаттығу арқасында 60 ұпайға жақсарды."
           }
         ],
         practiceProblems: [
@@ -2901,6 +3063,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Вы ошиблись в 8 из 30 вопросов в категории Passport to Advanced Math. Каков ваш процент ошибок?",
             questionKk: "Passport to Advanced Math санатында 30 сұрақтың 8-інде қателестіңіз. Қателік деңгейіңіз қандай?",
             answer: "8 ÷ 30 × 100% ≈ 26.7%",
+            answerRu: "8 ÷ 30 × 100% ≈ 26,7%",
+            answerKk: "8 ÷ 30 × 100% ≈ 26,7%",
             hint: "Divide wrong answers by total questions, then multiply by 100.",
             hintRu: "Разделите неправильные ответы на общее количество вопросов и умножьте на 100.",
             hintKk: "Қате жауаптарды жалпы сұрақтар санына бөліп, 100-ге көбейтіңіз.",
@@ -2912,6 +3076,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Ваш базовый балл SAT — 1080. После 40 часов подготовки вы набираете примерно 2 балла в час. Каков прогнозируемый результат?",
             questionKk: "Бастапқы SAT ұпайыңыз 1080. 40 сағат мақсатты дайындықтан кейін сағатына шамамен 2 ұпай аласыз. Болжамды ұпай қандай?",
             answer: "1080 + (40 × 2) = 1080 + 80 = 1160",
+            answerRu: "1080 + (40 × 2) = 1080 + 80 = 1160",
+            answerKk: "1080 + (40 × 2) = 1080 + 80 = 1160",
             hint: "Use the projected score formula: Baseline + (Hours × Points per Hour).",
             hintRu: "Используйте формулу: Базовый балл + (Часы × Баллов в час).",
             hintKk: "Формуланы қолданыңыз: Бастапқы ұпай + (Сағаттар × Сағатына ұпай).",
@@ -2923,6 +3089,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "У вас 60 часов до SAT. Анализ ошибок показывает: Heart of Algebra 40% ошибок (высокий вес), Problem Solving & Data 25% (средний вес), Passport to Advanced Math 35% (высокий вес). Распределите 60 часов и обоснуйте.",
             questionKk: "SAT-қа дейін 60 сағатыңыз бар. Қателер талдауы: Heart of Algebra 40% қате (жоғары салмақ), Problem Solving & Data 25% (орташа салмақ), Passport to Advanced Math 35% (жоғары салмақ). 60 сағатты қалай бөлетініңізді ұсыныңыз және негіздеңіз.",
             answer: "Heart of Algebra: 25 hours (highest error rate + high yield), Passport to Advanced Math: 20 hours (second highest error + high yield), Problem Solving & Data: 10 hours (lower error rate + medium yield), Full practice tests: 5 hours. Justification: prioritize categories with both high error rates and high question counts for maximum point recovery.",
+            answerRu: "Heart of Algebra: 25 часов (наибольший процент ошибок + высокий вес), Passport to Advanced Math: 20 часов (второй по величине процент ошибок + высокий вес), Problem Solving & Data: 10 часов (меньший процент ошибок + средний вес), Полные пробные тесты: 5 часов. Обоснование: приоритет отдаётся категориям с высоким процентом ошибок И большим числом вопросов для максимального восстановления баллов.",
+            answerKk: "Heart of Algebra: 25 сағат (ең жоғары қателік деңгейі + жоғары салмақ), Passport to Advanced Math: 20 сағат (екінші жоғары қателік + жоғары салмақ), Problem Solving & Data: 10 сағат (төмен қателік деңгейі + орташа салмақ), Толық пробный тесттер: 5 сағат. Негіздеме: ұпайды барынша қалпына келтіру үшін қателік деңгейі де, сұрақ саны да жоғары санаттарға басымдық беріледі.",
             hint: "Allocate more hours to categories with high error rates AND high question counts on the test.",
             hintRu: "Выделите больше часов категориям с высоким процентом ошибок И большим числом вопросов.",
             hintKk: "Қателік деңгейі жоғары ЖӘНЕ тесттегі сұрақтар саны көп санаттарға көбірек сағат бөліңіз.",
@@ -2980,7 +3148,9 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
               { en: "Highest Math = 620 (March). Highest EBRW = 640 (June).", ru: "Лучшая математика = 620 (март). Лучший EBRW = 640 (июнь).", kk: "Ең жоғары математика = 620 (наурыз). Ең жоғары EBRW = 640 (маусым)." },
               { en: "Super-score = 620 + 640 = 1260.", ru: "Суперскор = 620 + 640 = 1260.", kk: "Суперскор = 620 + 640 = 1260." }
             ],
-            answer: "The super-score is 1260, compared to 1200 (March) or 1230 (June) individually."
+            answer: "The super-score is 1260, compared to 1200 (March) or 1230 (June) individually.",
+            answerRu: "Суперскор равен 1260 по сравнению с 1200 (март) или 1230 (июнь) по отдельности.",
+            answerKk: "Суперскор 1260-қа тең, ал жеке-жеке наурызда 1200, маусымда 1230 болды."
           }
         ],
         practiceProblems: [
@@ -2990,6 +3160,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Тест 1: Математика 550, EBRW 600. Тест 2: Математика 580, EBRW 570. Каков суперскор?",
             questionKk: "Тест 1: Математика 550, EBRW 600. Тест 2: Математика 580, EBRW 570. Суперскор қандай?",
             answer: "580 + 600 = 1180",
+            answerRu: "580 + 600 = 1180",
+            answerKk: "580 + 600 = 1180",
             hint: "Take the highest Math from either test and the highest EBRW from either test.",
             hintRu: "Возьмите лучший балл математики и лучший EBRW из обоих тестов.",
             hintKk: "Екі тесттен ең жоғары математика мен EBRW ұпайларын алыңыз.",
@@ -3001,6 +3173,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Студент сдавал SAT трижды: (Мат. 520, EBRW 560), (Мат. 580, EBRW 540), (Мат. 560, EBRW 610). Каков суперскор и насколько он выше лучшей одной попытки?",
             questionKk: "Оқушы SAT-ты үш рет тапсырды: (Мат. 520, EBRW 560), (Мат. 580, EBRW 540), (Мат. 560, EBRW 610). Суперскор қандай және ол ең жақсы жалғыз тапсырудан қаншаға жоғары?",
             answer: "Super-score = 580 + 610 = 1190. Best single sitting = 560 + 610 = 1170. Difference = 20 points.",
+            answerRu: "Суперскор = 580 + 610 = 1190. Лучшая одна попытка = 560 + 610 = 1170. Разница = 20 баллов.",
+            answerKk: "Суперскор = 580 + 610 = 1190. Ең жақсы жалғыз тапсыру = 560 + 610 = 1170. Айырмашылық = 20 ұпай.",
             hint: "Find the max Math and max EBRW across all sittings, then compare to the highest total from one sitting.",
             hintRu: "Найдите максимум математики и EBRW по всем попыткам, сравните с лучшей суммой одной попытки.",
             hintKk: "Барлық тапсырулардан ең жоғары математика мен EBRW-ді табыңыз, бір тапсырудың ең жоғары қосындысымен салыстырыңыз.",
@@ -3012,6 +3186,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Целевой суперскор студента — 1400. После двух попыток: (Мат. 670, EBRW 680) и (Мат. 710, EBRW 650). Нужна ли пересдача? Если да, на какой раздел сосредоточиться и какой минимальный балл нужен?",
             questionKk: "Оқушының мақсатты суперскоры 1400. Екі тапсырудан кейін: (Мат. 670, EBRW 680) және (Мат. 710, EBRW 650). Қайта тапсыру керек пе? Олай болса, қай бөлімге назар аудару керек және қандай ең аз ұпай қажет?",
             answer: "Current super-score = 710 + 680 = 1390, which is 10 points short. They should focus on EBRW since Math is already strong at 710. They need EBRW ≥ 690 on the next sitting to reach 710 + 690 = 1400.",
+            answerRu: "Текущий суперскор = 710 + 680 = 1390, чего не хватает на 10 баллов. Нужно сосредоточиться на EBRW, поскольку математика уже сильна — 710. Требуется EBRW ≥ 690 на следующей попытке, чтобы достичь 710 + 690 = 1400.",
+            answerKk: "Ағымдағы суперскор = 710 + 680 = 1390, бұл 10 ұпай жетіспейді. Математика 710-мен жеткілікті күшті болғандықтан, EBRW-ге назар аудару керек. 710 + 690 = 1400-ге жету үшін келесі тапсыруда EBRW ≥ 690 қажет.",
             hint: "Calculate current super-score, find the gap, and target the section with more room for improvement.",
             hintRu: "Рассчитайте текущий суперскор, найдите разницу и нацельтесь на раздел с большим потенциалом роста.",
             hintKk: "Ағымдағы суперскорды есептеңіз, айырмашылықты табыңыз және жақсару әлеуеті жоғары бөлімге бағытталыңыз.",
@@ -3075,7 +3251,9 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
               { en: "Composite = (28 + 32 + 26 + 30) ÷ 4 = 116 ÷ 4 = 29.", ru: "Композит = (28 + 32 + 26 + 30) ÷ 4 = 116 ÷ 4 = 29.", kk: "Композит = (28 + 32 + 26 + 30) ÷ 4 = 116 ÷ 4 = 29." },
               { en: "Using concordance tables, ACT 29 ≈ SAT 1340 (approximate).", ru: "По таблице соответствия ACT 29 ≈ SAT 1340 (приблизительно).", kk: "Сәйкестік кестесі бойынша ACT 29 ≈ SAT 1340 (шамамен)." }
             ],
-            answer: "ACT composite is 29, approximately equivalent to SAT 1340."
+            answer: "ACT composite is 29, approximately equivalent to SAT 1340.",
+            answerRu: "Композит ACT — 29, что примерно эквивалентно SAT 1340.",
+            answerKk: "ACT композиті — 29, бұл шамамен SAT 1340-қа тең."
           }
         ],
         practiceProblems: [
@@ -3085,6 +3263,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Студент получил ACT: English 24, Math 26, Reading 22, Science 24. Каков композитный балл?",
             questionKk: "Оқушы ACT нәтижелері: English 24, Math 26, Reading 22, Science 24. Композиттік ұпай қандай?",
             answer: "(24 + 26 + 22 + 24) ÷ 4 = 96 ÷ 4 = 24",
+            answerRu: "(24 + 26 + 22 + 24) ÷ 4 = 96 ÷ 4 = 24",
+            answerKk: "(24 + 26 + 22 + 24) ÷ 4 = 96 ÷ 4 = 24",
             hint: "Add all four scores and divide by 4.",
             hintRu: "Сложите все четыре балла и разделите на 4.",
             hintKk: "Төрт ұпайды қосып, 4-ке бөліңіз.",
@@ -3096,6 +3276,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Студент силён в научном рассуждении, но слаб в математике без калькулятора. ACT или SAT? Объясните.",
             questionKk: "Оқушы ғылыми пайымдауда күшті, бірақ калькуляторсыз математикада әлсіз. ACT немесе SAT? Түсіндіріңіз.",
             answer: "The ACT is likely better. It has a Science section where the student can earn strong scores, and all ACT Math allows calculator use, avoiding the no-calculator weakness. The SAT's no-calculator section would hurt their score.",
+            answerRu: "ACT, вероятно, лучше. У него есть раздел Science, где студент может набрать высокие баллы, и вся математика ACT допускает калькулятор, что убирает слабость без калькулятора. Раздел SAT без калькулятора мог бы снизить балл.",
+            answerKk: "ACT ыңғайлырақ болуы мүмкін. Онда оқушы жоғары ұпай ала алатын Science бөлімі бар, және барлық ACT математикасында калькулятор рұқсат етіледі, бұл калькуляторсыз әлсіздікті болдырмайды. SAT-тың калькуляторсыз бөлімі ұпайды төмендетер еді.",
             hint: "Consider which test format plays to the student's strengths and avoids their weaknesses.",
             hintRu: "Подумайте, какой формат теста использует сильные стороны студента и избегает слабых.",
             hintKk: "Оқушының күшті жақтарын пайдаланатын және әлсіз жақтарынан қашатын тест форматын ойлаңыз.",
@@ -3107,6 +3289,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Студент сдал оба теста: SAT 1280 и ACT композит 27 (≈ SAT 1280). Но разбивка ACT: English 32, Math 22, Reading 28, Science 26. Посоветуйте, стоит ли пересдать один тест и какой, учитывая потенциал суперскоринга.",
             questionKk: "Оқушы екі тестті де тапсырды: SAT 1280 және ACT композит 27 (≈ SAT 1280). Бірақ ACT бөлінісі: English 32, Math 22, Reading 28, Science 26. Суперскоринг әлеуетін ескере отырып, бір тестті қайта тапсыру керек пе және қайсысын қайта тапсыру керек?",
             answer: "Retake the ACT. The Math score of 22 is significantly dragging down the composite. If Math improves to 28+ on a retake, the composite rises to (32+28+28+26)÷4 = 28.5 → 29, equivalent to ~SAT 1340. The SAT super-score potential is less clear without section breakdowns. Also, the strong English 32 is already banked for ACT super-scoring.",
+            answerRu: "Пересдать ACT. Балл по математике 22 значительно тянет композит вниз. Если математика улучшится до 28+ при пересдаче, композит вырастет до (32+28+28+26)÷4 = 28,5 → 29, что эквивалентно ~SAT 1340. Потенциал суперскора SAT менее ясен без разбивки по разделам. Кроме того, сильный English 32 уже зафиксирован для суперскоринга ACT.",
+            answerKk: "ACT-ты қайта тапсырыңыз. 22 математика ұпайы композитті айтарлықтай төмендетіп тұр. Егер қайта тапсыруда математика 28+-ге жақсарса, композит (32+28+28+26)÷4 = 28,5 → 29-ға көтеріледі, бұл ~SAT 1340-қа тең. SAT суперскор әлеуеті бөлім бөлінісінсіз онша анық емес. Сонымен қатар, күшті English 32 ACT суперскорингі үшін қазірдің өзінде сақталған.",
             hint: "Look at which section has the biggest gap between actual and potential performance.",
             hintRu: "Найдите раздел с наибольшим разрывом между фактическим и потенциальным результатом.",
             hintKk: "Нақты және ықтимал нәтиже арасындағы ең үлкен алшақтығы бар бөлімді табыңыз.",
@@ -3138,7 +3322,9 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
               { en: "Overall = (7.0 + 6.5 + 6.0 + 7.0) ÷ 4 = 26.5 ÷ 4 = 6.625, rounded to 6.5.", ru: "Общий = (7.0 + 6.5 + 6.0 + 7.0) ÷ 4 = 26.5 ÷ 4 = 6.625, округляется до 6.5.", kk: "Жалпы = (7.0 + 6.5 + 6.0 + 7.0) ÷ 4 = 26.5 ÷ 4 = 6.625, 6.5-ке дөңгелектенеді." },
               { en: "Overall band is 6.5 and no section is below 6.0, so they meet the minimum requirement.", ru: "Общий балл 6.5 и ни один раздел не ниже 6.0 — минимальное требование выполнено.", kk: "Жалпы балл 6.5 және ешбір бөлім 6.0-ден төмен емес — ең аз талап орындалды." }
             ],
-            answer: "Overall band is 6.5. Yes, they qualify — overall is 6.5 and all sections are at least 6.0."
+            answer: "Overall band is 6.5. Yes, they qualify — overall is 6.5 and all sections are at least 6.0.",
+            answerRu: "Общий балл — 6.5. Да, студент проходит — общий балл 6.5, и все разделы не ниже 6.0.",
+            answerKk: "Жалпы балл — 6.5. Иә, оқушы өтеді — жалпы балл 6.5, барлық бөлімдер 6.0-ден кем емес."
           }
         ],
         practiceProblems: [
@@ -3148,6 +3334,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Вы поступаете в канадский университет на бакалавриат. Какой IELTS сдавать — Academic или General Training?",
             questionKk: "Канада университетіне бакалавриатқа түсесіз. IELTS Academic пе, әлде General Training тапсыру керек пе?",
             answer: "IELTS Academic. University admissions always require the Academic version, not General Training.",
+            answerRu: "IELTS Academic. Для поступления в вузы всегда требуется версия Academic, а не General Training.",
+            answerKk: "IELTS Academic. Университетке түсу үшін әрқашан Academic нұсқасы талап етіледі, General Training емес.",
             hint: "General Training is for immigration and work, not university admission.",
             hintRu: "General Training — для иммиграции и работы, не для поступления.",
             hintKk: "General Training — иммиграция және жұмыс үшін, университетке түсу үшін емес.",
@@ -3159,6 +3347,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Баллы IELTS: Listening 7.5, Reading 7.0, Writing 5.5, Speaking 6.5. Университет требует 6.5 общий, не ниже 6.0 по разделам. Проходит ли студент?",
             questionKk: "IELTS ұпайлары: Listening 7.5, Reading 7.0, Writing 5.5, Speaking 6.5. Университет жалпы 6.5 және бөлімде 6.0-ден кем емес талап етеді. Оқушы өте ме?",
             answer: "Overall = (7.5 + 7.0 + 5.5 + 6.5) ÷ 4 = 26.5 ÷ 4 = 6.625 → 6.5. The overall is 6.5, but Writing is 5.5 which is below 6.0. The student does NOT qualify because of the Writing band.",
+            answerRu: "Общий = (7.5 + 7.0 + 5.5 + 6.5) ÷ 4 = 26.5 ÷ 4 = 6.625 → 6.5. Общий балл 6.5, но Writing — 5.5, что ниже 6.0. Студент НЕ проходит из-за балла за Writing.",
+            answerKk: "Жалпы = (7.5 + 7.0 + 5.5 + 6.5) ÷ 4 = 26.5 ÷ 4 = 6.625 → 6.5. Жалпы балл 6.5, бірақ Writing — 5.5, бұл 6.0-ден төмен. Оқушы Writing балына байланысты ӨТПЕЙДІ.",
             hint: "Check both the overall score and each individual band against the requirements.",
             hintRu: "Проверьте и общий балл, и каждый раздел по отдельности.",
             hintKk: "Жалпы ұпайды да, әр бөлімді де жеке тексеріңіз.",
@@ -3170,6 +3360,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Студенту нужен IELTS Academic 7.0 общий, не ниже 6.5 по разделам. Текущие баллы: Listening 7.5, Reading 6.5, Writing 6.0, Speaking 7.0. Какой минимальный балл Writing нужен при пересдаче, если остальные баллы сохранятся? Примечание: IELTS не позволяет пересдавать отдельные разделы.",
             questionKk: "Оқушыға IELTS Academic жалпы 7.0 және бөлімде 6.5-тен кем емес қажет. Ағымдағы ұпайлар: Listening 7.5, Reading 6.5, Writing 6.0, Speaking 7.0. Басқа ұпайлар сақталса, қайта тапсыруда Writing ең аз қанша болу керек? Ескерту: IELTS жеке бөлімдерді қайта тапсыруға рұқсат бермейді.",
             answer: "Need overall ≥ 7.0 so sum must be ≥ 28 (since 28÷4=7.0). Current non-Writing sum = 7.5+6.5+7.0 = 21. Need Writing ≥ 28−21 = 7.0. Also need Writing ≥ 6.5 for the band minimum. So Writing must be at least 7.0. But since IELTS requires retaking ALL sections, there is a risk other scores might drop — aim for Writing 7.0+ while maintaining other scores.",
+            answerRu: "Нужен общий балл ≥ 7.0, значит сумма должна быть ≥ 28 (так как 28÷4=7.0). Текущая сумма без Writing = 7.5+6.5+7.0 = 21. Нужно Writing ≥ 28−21 = 7.0. Также нужно Writing ≥ 6.5 для минимума по разделу. Значит Writing должен быть не менее 7.0. Но поскольку IELTS требует пересдачи ВСЕХ разделов, есть риск, что другие баллы снизятся — стремитесь к Writing 7.0+ при сохранении остальных баллов.",
+            answerKk: "Жалпы балл ≥ 7.0 керек, яғни қосынды ≥ 28 болуы керек (себебі 28÷4=7.0). Ағымдағы Writing-сіз қосынды = 7.5+6.5+7.0 = 21. Writing ≥ 28−21 = 7.0 керек. Сондай-ақ бөлім минимумы үшін Writing ≥ 6.5 керек. Демек, Writing кемінде 7.0 болуы керек. Бірақ IELTS БАРЛЫҚ бөлімдерді қайта тапсыруды талап ететіндіктен, басқа ұпайлардың төмендеу қаупі бар — басқа ұпайларды сақтай отырып, Writing 7.0+-ге ұмтылыңыз.",
             hint: "Set up an inequality: (7.5 + 6.5 + W + 7.0) ÷ 4 ≥ 7.0 and solve for W. Don't forget the per-band minimum.",
             hintRu: "Составьте неравенство: (7.5 + 6.5 + W + 7.0) ÷ 4 ≥ 7.0, решите для W. Не забудьте минимум по разделам.",
             hintKk: "Теңсіздік құрыңыз: (7.5 + 6.5 + W + 7.0) ÷ 4 ≥ 7.0, W үшін шешіңіз. Бөлім минимумын ұмытпаңыз.",
@@ -3201,7 +3393,9 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
               { en: "Total = 28 + 25 + 19 + 24 = 96. This is below 100.", ru: "Итого = 28 + 25 + 19 + 24 = 96. Это ниже 100.", kk: "Жалпы = 28 + 25 + 19 + 24 = 96. Бұл 100-ден төмен." },
               { en: "Speaking is 19, which is below the 22 minimum. They need to raise Speaking by at least 3 points and gain 4+ more total points.", ru: "Speaking 19 — ниже минимума 22. Нужно повысить Speaking минимум на 3 балла и набрать ещё 4+ баллов общих.", kk: "Speaking 19 — 22 минимумнан төмен. Speaking-ті кемінде 3 ұпайға көтеріп, жалпы тағы 4+ ұпай жинау керек." }
             ],
-            answer: "Total is 96 (below 100), and Speaking 19 is below the 22-per-section minimum. They do not meet the requirement."
+            answer: "Total is 96 (below 100), and Speaking 19 is below the 22-per-section minimum. They do not meet the requirement.",
+            answerRu: "Итого 96 (ниже 100), а Speaking 19 ниже минимума 22 за раздел. Требование не выполнено.",
+            answerKk: "Жалпы 96 (100-ден төмен), ал Speaking 19 бөлім минимумы 22-ден төмен. Талап орындалмады."
           }
         ],
         practiceProblems: [
@@ -3211,6 +3405,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Баллы TOEFL: Reading 26, Listening 24, Speaking 22, Writing 23. Каков общий балл?",
             questionKk: "TOEFL ұпайлары: Reading 26, Listening 24, Speaking 22, Writing 23. Жалпы ұпай қандай?",
             answer: "26 + 24 + 22 + 23 = 95",
+            answerRu: "26 + 24 + 22 + 23 = 95",
+            answerKk: "26 + 24 + 22 + 23 = 95",
             hint: "Add all four section scores together.",
             hintRu: "Сложите все четыре балла.",
             hintKk: "Төрт бөлім ұпайын қосыңыз.",
@@ -3222,6 +3418,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Университет требует TOEFL 90+ и не ниже 20 по разделам. Студент набрал: Reading 25, Listening 22, Speaking 18, Writing 26. Проходит ли? Если нет, что нужно изменить?",
             questionKk: "Университет TOEFL 90+ және бөлімде 20-дан кем емес талап етеді. Оқушы ұпайлары: Reading 25, Listening 22, Speaking 18, Writing 26. Өте ме? Олай болмаса, нені өзгерту керек?",
             answer: "Total = 25 + 22 + 18 + 26 = 91, which meets the 90+ requirement. However, Speaking is 18, below the 20 minimum. The student must raise Speaking to at least 20.",
+            answerRu: "Итого = 25 + 22 + 18 + 26 = 91, что соответствует требованию 90+. Однако Speaking — 18, ниже минимума 20. Студенту нужно поднять Speaking минимум до 20.",
+            answerKk: "Жалпы = 25 + 22 + 18 + 26 = 91, бұл 90+ талабына сай келеді. Дегенмен Speaking — 18, 20 минимумнан төмен. Оқушы Speaking-ті кемінде 20-ға дейін көтеруі керек.",
             hint: "Check total score first, then check each section against the minimum.",
             hintRu: "Сначала проверьте общий балл, затем каждый раздел по минимуму.",
             hintKk: "Алдымен жалпы ұпайды, содан кейін әр бөлімді минимуммен салыстырыңыз.",
@@ -3233,6 +3431,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Студент подаёт в три вуза: A (100+, каждый ≥ 25), B (90+, каждый ≥ 20), C (80+, без минимума). Баллы: Reading 27, Listening 23, Speaking 21, Writing 26. В какие вузы проходит и что нужно для остальных?",
             questionKk: "Оқушы үш университетке түседі: A (100+, әрқайсысы ≥ 25), B (90+, әрқайсысы ≥ 20), C (80+, бөлім минимумы жоқ). Ұпайлар: Reading 27, Listening 23, Speaking 21, Writing 26. Қайсысына өтеді және қалғандары үшін не қажет?",
             answer: "Total = 97. University C (80+, no minimum): qualifies (97 > 80). University B (90+, each ≥ 20): qualifies (97 > 90, all sections ≥ 20). University A (100+, each ≥ 25): does not qualify — total is 97 (need 100+), Listening is 23 (need 25+), Speaking is 21 (need 25+). Needs +3 total points, +2 in Listening, and +4 in Speaking.",
+            answerRu: "Итого = 97. Университет C (80+, без минимума): проходит (97 > 80). Университет B (90+, каждый ≥ 20): проходит (97 > 90, все разделы ≥ 20). Университет A (100+, каждый ≥ 25): не проходит — итого 97 (нужно 100+), Listening 23 (нужно 25+), Speaking 21 (нужно 25+). Нужно +3 балла к итогу, +2 к Listening и +4 к Speaking.",
+            answerKk: "Жалпы = 97. C университеті (80+, минимумсыз): өтеді (97 > 80). B университеті (90+, әрқайсысы ≥ 20): өтеді (97 > 90, барлық бөлімдер ≥ 20). A университеті (100+, әрқайсысы ≥ 25): өтпейді — жалпы 97 (100+ керек), Listening 23 (25+ керек), Speaking 21 (25+ керек). Жалпыға +3 ұпай, Listening-ке +2, Speaking-ке +4 керек.",
             hint: "Check each university's requirements separately — both total and per-section minimums.",
             hintRu: "Проверьте требования каждого вуза отдельно — общий балл и минимумы по разделам.",
             hintKk: "Әр университеттің талаптарын жеке тексеріңіз — жалпы ұпай және бөлім минимумдары.",
@@ -3270,7 +3470,9 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
               { en: "Raw = 40 − (6 × 0.25) = 40 − 1.5 = 38.5.", ru: "Сырой = 40 − (6 × 0.25) = 40 − 1.5 = 38.5.", kk: "Шикі = 40 − (6 × 0.25) = 40 − 1.5 = 38.5." },
               { en: "38.5 is below 43, so the scaled score is below 790 — typically around 750-770 range.", ru: "38.5 ниже 43, поэтому шкальный балл ниже 790 — обычно в диапазоне 750-770.", kk: "38.5 — 43-тен төмен, сондықтан шкалалық ұпай 790-нан төмен — әдетте 750-770 аралығында." }
             ],
-            answer: "Raw score is 38.5, corresponding to approximately 750-770 scaled score."
+            answer: "Raw score is 38.5, corresponding to approximately 750-770 scaled score.",
+            answerRu: "Сырой балл — 38,5, что соответствует примерно 750-770 шкальному баллу.",
+            answerKk: "Шикі ұпай — 38,5, бұл шамамен 750-770 шкалалық ұпайға сәйкес келеді."
           }
         ],
         practiceProblems: [
@@ -3280,6 +3482,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Студент ответил правильно на 35 и неправильно на 10 из 50 вопросов (5 пропущено). Каков сырой балл?",
             questionKk: "Оқушы 50 сұрақтық SAT пәндік тестінде 35 дұрыс, 10 қате жауап берді (5 өткізіп жіберді). Шикі ұпай қандай?",
             answer: "35 − (10 × 0.25) = 35 − 2.5 = 32.5",
+            answerRu: "35 − (10 × 0,25) = 35 − 2,5 = 32,5",
+            answerKk: "35 − (10 × 0,25) = 35 − 2,5 = 32,5",
             hint: "Subtract the penalty (wrong × 0.25) from the number of correct answers.",
             hintRu: "Вычтите штраф (неправильные × 0.25) из правильных ответов.",
             hintKk: "Дұрыс жауаптардан айыппұлды (қате × 0.25) алып тастаңыз.",
@@ -3291,6 +3495,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Вы исключили 2 из 5 вариантов ответа. Стоит ли угадывать из оставшихся 3? Рассчитайте математическое ожидание.",
             questionKk: "SAT пәндік тестінде 5 нұсқаның 2-сін алып тастадыңыз. Қалған 3-тен болжау тиімді ме? Мат. күтімді есептеңіз.",
             answer: "EV = (1/3)(1) − (2/3)(0.25) = 0.333 − 0.167 = +0.167. Yes, it is worth guessing — the expected value is positive.",
+            answerRu: "EV = (1/3)(1) − (2/3)(0,25) = 0,333 − 0,167 = +0,167. Да, угадывать стоит — математическое ожидание положительное.",
+            answerKk: "EV = (1/3)(1) − (2/3)(0,25) = 0,333 − 0,167 = +0,167. Иә, болжау тиімді — мат. күтім оң.",
             hint: "Expected value = probability of correct × points gained − probability of wrong × penalty.",
             hintRu: "Мат. ожидание = вероятность правильного × очки − вероятность неправильного × штраф.",
             hintKk: "Мат. күтім = дұрыс ықтималдығы × ұпай − қате ықтималдығы × айыппұл.",
@@ -3302,6 +3508,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Студенту нужен 780+ по Math Level 2 (сырой ~42). Текущий результат: 38 правильных, 8 неправильных, 4 пропущенных (сырой = 36). Разработайте стратегию набора 6+ сырых баллов. Сколько дополнительных правильных и на сколько меньше неправильных нужно?",
             questionKk: "Оқушыға Math Level 2-де 780+ қажет (шикі ~42 қажет). Ағымдағы нәтиже: 38 дұрыс, 8 қате, 4 өткізілген (шикі = 36). 6+ шикі ұпай жинау стратегиясын жасаңыз. Қанша қосымша дұрыс жауап және қанша аз қате қажет?",
             answer: "Current raw = 38 − (8×0.25) = 36. Target = 42. Need +6 points. Strategy: convert 5 wrongs to correct (+5 points from gaining answers, +1.25 from removing penalties = +6.25). This means going from 38 correct/8 wrong to 43 correct/3 wrong. Focus study on the 8 question types you got wrong and the 4 omitted topics.",
+            answerRu: "Текущий сырой = 38 − (8×0,25) = 36. Цель = 42. Нужно +6 баллов. Стратегия: превратить 5 неправильных в правильные (+5 баллов за ответы, +1,25 за снятие штрафов = +6,25). Это значит перейти с 38 правильных/8 неправильных на 43 правильных/3 неправильных. Сосредоточьте подготовку на 8 типах вопросов, где были ошибки, и 4 пропущенных темах.",
+            answerKk: "Ағымдағы шикі = 38 − (8×0,25) = 36. Мақсат = 42. +6 ұпай керек. Стратегия: 5 қатені дұрысқа айналдыру (жауаптардан +5 ұпай, айыппұлдарды алу арқылы +1,25 = +6,25). Бұл 38 дұрыс/8 қатеден 43 дұрыс/3 қатеге өтуді білдіреді. Дайындықты қателескен 8 сұрақ түріне және өткізіп жіберген 4 тақырыпқа бағыттаңыз.",
             hint: "Each wrong-to-correct conversion gains 1.25 raw points (1 point for correct + 0.25 saved penalty).",
             hintRu: "Каждая конверсия неправильного в правильный даёт 1.25 сырых (1 за правильный + 0.25 сэкономленного штрафа).",
             hintKk: "Әр қатені дұрысқа айналдыру 1.25 шикі ұпай береді (1 дұрыс ұпай + 0.25 сақталған айыппұл).",
@@ -3333,7 +3541,9 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
               { en: "Biology E emphasizes ecology and evolution, aligning with AP Environmental Science strengths (A grade).", ru: "Biology E делает упор на экологию и эволюцию, что совпадает с сильной стороной AP Environmental Science (оценка A).", kk: "Biology E экология мен эволюцияға баса назар аударады, бұл AP Environmental Science күшті жағымен (A бағасы) сәйкес келеді." },
               { en: "Biology M emphasizes cell biology and biochemistry — the student's weakest area (hardest AP Biology unit). Choose Biology E.", ru: "Biology M делает упор на клеточную биологию и биохимию — слабейшую область студента. Выбирайте Biology E.", kk: "Biology M жасуша биологиясы мен биохимияға баса назар аударады — оқушының ең әлсіз аймағы. Biology E таңдаңыз." }
             ],
-            answer: "Choose Biology E. It emphasizes ecology and evolution, matching the student's strength in environmental science, while avoiding the cell biology weakness."
+            answer: "Choose Biology E. It emphasizes ecology and evolution, matching the student's strength in environmental science, while avoiding the cell biology weakness.",
+            answerRu: "Выберите Biology E. Она делает упор на экологию и эволюцию, что соответствует сильной стороне студента в экологии, и избегает слабости в клеточной биологии.",
+            answerKk: "Biology E таңдаңыз. Ол экология мен эволюцияға баса назар аударады, бұл оқушының экология саласындағы күшті жағымен сәйкес келеді және жасуша биологиясындағы әлсіздігінен аулақ болады."
           }
         ],
         practiceProblems: [
@@ -3343,6 +3553,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "На предметном SAT по химии студент ответил правильно на 62, неправильно на 15, пропустил 8 из 85. Каков сырой балл?",
             questionKk: "SAT Химия пәндік тестінде оқушы 85 сұрақтан 62-ге дұрыс, 15-ке қате жауап берді, 8-ін өткізіп жіберді. Шикі ұпай қандай?",
             answer: "62 − (15 × 0.25) = 62 − 3.75 = 58.25",
+            answerRu: "62 − (15 × 0,25) = 62 − 3,75 = 58,25",
+            answerKk: "62 − (15 × 0,25) = 62 − 3,75 = 58,25",
             hint: "Apply the standard formula: Correct − (Wrong × 0.25).",
             hintRu: "Примените стандартную формулу: Правильные − (Неправильные × 0.25).",
             hintKk: "Стандартты формуланы қолданыңыз: Дұрыс − (Қате × 0.25).",
@@ -3354,6 +3566,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Студент поступает на биомедицинскую инженерию. Можно сдать два предметных SAT. Сильные оценки по AP Physics C и AP Chemistry. Какие два теста выбрать?",
             questionKk: "Оқушы биомедициналық инженерия бағдарламасына түседі. Екі SAT пәндік тестін тапсыра алады. AP Physics C және AP Chemistry бойынша күшті бағалары бар. Қай екі тестті таңдау керек?",
             answer: "Physics and Chemistry. These directly align with their AP strengths and are the most relevant for biomedical engineering (which combines physics, chemistry, and biology). Math Level 2 could also be considered, but Physics + Chemistry best demonstrate science preparedness.",
+            answerRu: "Физика и Химия. Они напрямую соответствуют сильным сторонам по AP и наиболее актуальны для биомедицинской инженерии (сочетающей физику, химию и биологию). Math Level 2 также можно рассмотреть, но Физика + Химия лучше всего демонстрируют научную подготовку.",
+            answerKk: "Физика және Химия. Олар AP бойынша күшті жақтарға тікелей сәйкес келеді және биомедициналық инженерия үшін (физика, химия мен биологияны біріктіретін) ең маңызды. Math Level 2 де қарастырылуы мүмкін, бірақ Физика + Химия ғылыми дайындықты ең жақсы көрсетеді.",
             hint: "Match Subject Tests to both your AP strengths and the intended major's requirements.",
             hintRu: "Соотнесите предметные тесты с вашими сильными AP и требованиями специальности.",
             hintKk: "Пәндік тесттерді AP күшті жақтарыңызбен және мамандық талаптарымен сәйкестендіріңіз.",
@@ -3365,6 +3579,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Студент получил сырой 52 по SAT Physics (85 вопросов), шкальный 700. Нужно 750+. Он ответил 58 правильно, 24 неправильно, пропустил 3. Сколько конверсий неправильного в правильный нужно для сырого 60 (~750)?",
             questionKk: "Оқушы SAT Physics-тен шикі 52 алды (85 сұрақ), шкалалық 700. 750+ қажет. 58 дұрыс, 24 қате, 3 өткізілген. Шикі 60-қа (~750) жету үшін қанша қатені дұрысқа айналдыру қажет?",
             answer: "Current raw = 58 − (24 × 0.25) = 58 − 6 = 52. Target raw = 60. Gap = 8. Each wrong→correct conversion = +1.25 points. Conversions needed = 8 ÷ 1.25 = 6.4, so they need at least 7 conversions (turning 7 wrong answers into correct answers).",
+            answerRu: "Текущий сырой = 58 − (24 × 0,25) = 58 − 6 = 52. Целевой сырой = 60. Разрыв = 8. Каждая конверсия неправильного в правильный = +1,25 балла. Нужно конверсий = 8 ÷ 1,25 = 6,4, значит нужно минимум 7 конверсий (превратить 7 неправильных ответов в правильные).",
+            answerKk: "Ағымдағы шикі = 58 − (24 × 0,25) = 58 − 6 = 52. Мақсатты шикі = 60. Алшақтық = 8. Әр қатені дұрысқа айналдыру = +1,25 ұпай. Қажетті конверсиялар = 8 ÷ 1,25 = 6,4, яғни кемінде 7 конверсия керек (7 қате жауапты дұрысқа айналдыру).",
             hint: "Each wrong→correct gains +1 (for the correct) and saves +0.25 (penalty removed) = 1.25 total.",
             hintRu: "Каждая конверсия: +1 (за правильный) + 0.25 (снятие штрафа) = 1.25 итого.",
             hintKk: "Әр конверсия: +1 (дұрыс үшін) + 0.25 (айыппұл алынып тасталды) = барлығы 1.25.",
@@ -3396,7 +3612,9 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
               { en: "MC percentage: 42/55 = 76.4%. Weighted: 76.4% × 0.50 = 38.2%.", ru: "MC процент: 42/55 = 76.4%. Взвешенный: 76.4% × 0.50 = 38.2%.", kk: "MC пайызы: 42/55 = 76.4%. Салмақталған: 76.4% × 0.50 = 38.2%." },
               { en: "FRQ percentage: 48/75 = 64.0%. Weighted: 64.0% × 0.50 = 32.0%. Composite = 38.2% + 32.0% = 70.2%, which typically earns a score of 4.", ru: "FRQ процент: 48/75 = 64.0%. Взвешенный: 64.0% × 0.50 = 32.0%. Композит = 38.2% + 32.0% = 70.2%, что обычно соответствует оценке 4.", kk: "FRQ пайызы: 48/75 = 64.0%. Салмақталған: 64.0% × 0.50 = 32.0%. Композит = 38.2% + 32.0% = 70.2%, бұл әдетте 4 бағасына сәйкес." }
             ],
-            answer: "Composite is 70.2%, which typically corresponds to an AP score of 4."
+            answer: "Composite is 70.2%, which typically corresponds to an AP score of 4.",
+            answerRu: "Композит — 70,2%, что обычно соответствует оценке AP 4.",
+            answerKk: "Композит — 70,2%, бұл әдетте AP 4 бағасына сәйкес келеді."
           }
         ],
         practiceProblems: [
@@ -3406,6 +3624,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "AP экзамен оценивается 1-5. Какой минимальный балл обычно принимается для зачёта в колледже?",
             questionKk: "AP емтихан 1-5 бағаланады. Колледж кредиті үшін қабылданатын ең аз ұпай қандай?",
             answer: "A score of 3 is generally considered passing, though many selective colleges require 4 or 5 for credit.",
+            answerRu: "Балл 3 обычно считается проходным, хотя многие избирательные колледжи требуют 4 или 5 для зачёта.",
+            answerKk: "3 балл әдетте өтетін балл болып саналады, дегенмен көптеген іріктеу арқылы қабылдайтын колледждер кредит үшін 4 немесе 5 талап етеді.",
             hint: "Scores of 1-2 rarely earn credit, 3 is the threshold, 4-5 are strong.",
             hintRu: "Баллы 1-2 редко дают зачёт, 3 — порог, 4-5 — сильные.",
             hintKk: "1-2 ұпай сирек кредит береді, 3 — шек, 4-5 — күшті.",
@@ -3417,6 +3637,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Студент набрал 80% MC (вес 50%) и 55% FRQ (вес 50%). Каков процент композита? Если 65-75% — это 4, а 75%+ — 5, какой балл?",
             questionKk: "Оқушы MC-де 80% (салмағы 50%) және FRQ-да 55% (салмағы 50%) жинады. Композит пайызы қандай? Егер 65-75% — 4, ал 75%+ — 5 болса, қандай ұпай алады?",
             answer: "Composite = (80% × 0.50) + (55% × 0.50) = 40% + 27.5% = 67.5%. This falls in the 65-75% range, likely earning a score of 4.",
+            answerRu: "Композит = (80% × 0,50) + (55% × 0,50) = 40% + 27,5% = 67,5%. Это попадает в диапазон 65-75%, вероятно, оценка 4.",
+            answerKk: "Композит = (80% × 0,50) + (55% × 0,50) = 40% + 27,5% = 67,5%. Бұл 65-75% аралығына түседі, ықтимал 4 бағасы.",
             hint: "Multiply each section's percentage by its weight, then add them.",
             hintRu: "Умножьте процент каждой секции на её вес и сложите.",
             hintKk: "Әр бөлімнің пайызын салмағына көбейтіп, қосыңыз.",
@@ -3428,6 +3650,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Студент хочет 5 по AP Calculus (нужно ~75% композита). MC — 45 вопросов (вес 50%), FRQ — 6 вопросов по 9 баллов (вес 50%). MC стабильно 38/45. Какой минимум FRQ (из 54) нужен?",
             questionKk: "Оқушы AP Calculus-тен 5 алғысы келеді (~75% композит қажет). MC — 45 сұрақ (салмағы 50%), FRQ — 6 сұрақ, әрқайсысы 9 ұпай (салмағы 50%). MC-де тұрақты 38/45. FRQ-да (54-тен) ең аз қанша ұпай қажет?",
             answer: "MC contribution: (38/45) × 50% = 84.4% × 0.50 = 42.2%. Need total ≥ 75%, so FRQ contribution ≥ 75% − 42.2% = 32.8%. FRQ percentage needed: 32.8% ÷ 0.50 = 65.6%. Score needed: 54 × 65.6% = 35.4, so at least 36 out of 54 on FRQs.",
+            answerRu: "Вклад MC: (38/45) × 50% = 84,4% × 0,50 = 42,2%. Нужно, чтобы итог ≥ 75%, значит вклад FRQ ≥ 75% − 42,2% = 32,8%. Нужный процент FRQ: 32,8% ÷ 0,50 = 65,6%. Нужный балл: 54 × 65,6% = 35,4, то есть минимум 36 из 54 на FRQ.",
+            answerKk: "MC үлесі: (38/45) × 50% = 84,4% × 0,50 = 42,2%. Жалпы ≥ 75% болуы керек, сондықтан FRQ үлесі ≥ 75% − 42,2% = 32,8% болуы керек. Қажетті FRQ пайызы: 32,8% ÷ 0,50 = 65,6%. Қажетті ұпай: 54 × 65,6% = 35,4, яғни FRQ-да 54-тен кемінде 36 ұпай.",
             hint: "Find the MC contribution first, then solve for the FRQ percentage needed to reach 75% total.",
             hintRu: "Найдите вклад MC, затем определите нужный процент FRQ для достижения 75%.",
             hintKk: "Алдымен MC үлесін табыңыз, содан кейін 75%-ға жету үшін қажетті FRQ пайызын анықтаңыз.",
@@ -3459,7 +3683,9 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
               { en: "For ED (Nov 1): 3 weeks essays + 1 week recs + 1 week review + 2 week buffer = 7 weeks. Start by September 13.", ru: "Для ED (1 ноября): 3 недели эссе + 1 неделя рекомендации + 1 неделя проверка + 2 недели запас = 7 недель. Начать к 13 сентября.", kk: "ED үшін (1 қараша): 3 апта эссе + 1 апта ұсыныстар + 1 апта тексеру + 2 апта қор = 7 апта. 13 қыркүйекке дейін бастау." },
               { en: "For RD (Jan 5): Same work but essays can be adapted from ED drafts — estimate 2 weeks for 8 schools. Start RD-specific work by early December after ED is submitted.", ru: "Для RD (5 января): Те же задачи, но эссе можно адаптировать из ED черновиков — 2 недели на 8 вузов. Начать RD-работу в начале декабря после подачи ED.", kk: "RD үшін (5 қаңтар): Сол жұмыс, бірақ эссені ED жобаларынан бейімдеуге болады — 8 мектепке 2 апта. ED тапсырғаннан кейін желтоқсан басында RD жұмысын бастау." }
             ],
-            answer: "Start ED preparation by mid-September (7 weeks before Nov 1). Start RD-specific work by early December (about 4-5 weeks before Jan 5)."
+            answer: "Start ED preparation by mid-September (7 weeks before Nov 1). Start RD-specific work by early December (about 4-5 weeks before Jan 5).",
+            answerRu: "Начните подготовку к ED к середине сентября (за 7 недель до 1 ноября). Начните работу над RD в начале декабря (примерно за 4-5 недель до 5 января).",
+            answerKk: "ED дайындығын қыркүйек ортасына дейін бастаңыз (1 қарашадан 7 апта бұрын). RD жұмысын желтоқсан басында бастаңыз (5 қаңтардан шамамен 4-5 апта бұрын)."
           }
         ],
         practiceProblems: [
@@ -3469,6 +3695,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Назовите три распространённых дедлайна, которые студенты должны отслеживать.",
             questionKk: "Оқушылар бақылауы тиіс үш жалпы өтінім мерзімін атаңыз.",
             answer: "Early Decision/Early Action deadline (typically Nov 1-15), Regular Decision deadline (typically Jan 1-15), and Financial Aid deadline (FAFSA/CSS Profile, often Oct-Feb depending on school).",
+            answerRu: "Дедлайн Early Decision/Early Action (обычно 1-15 ноября), дедлайн Regular Decision (обычно 1-15 января) и дедлайн финансовой помощи (FAFSA/CSS Profile, часто с октября по февраль в зависимости от вуза).",
+            answerKk: "Early Decision/Early Action мерзімі (әдетте 1-15 қараша), Regular Decision мерзімі (әдетте 1-15 қаңтар) және қаржылық көмек мерзімі (FAFSA/CSS Profile, көбінесе қазан-ақпан аралығында мектепке байланысты).",
             hint: "Think about the different rounds of application and financial aid.",
             hintRu: "Подумайте о разных раундах подачи и финансовой помощи.",
             hintKk: "Өтінімнің әртүрлі кезеңдері мен қаржылық көмек туралы ойлаңыз.",
@@ -3480,6 +3708,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "У студента дедлайны Regular Decision: 1 января, 5 января, 15 января. На финальную доработку каждой заявки нужно 5 дней. Составьте график, считая от дедлайнов назад.",
             questionKk: "Оқушының Regular Decision мерзімдері: 1 қаңтар, 5 қаңтар, 15 қаңтар. Әр өтінімді соңғы жетілдіруге 5 күн қажет. Мерзімдерден кері есептеп кесте жасаңыз.",
             answer: "School 1 (Jan 1): Start polishing Dec 27. School 2 (Jan 5): Start polishing Dec 31. School 3 (Jan 15): Start polishing Jan 10. Work on School 1 first (Dec 27-31), then School 2 (Jan 1-4), then School 3 (Jan 10-14), submitting each the day before or on the deadline.",
+            answerRu: "Школа 1 (1 января): начать доработку 27 декабря. Школа 2 (5 января): начать 31 декабря. Школа 3 (15 января): начать 10 января. Работайте сначала над Школой 1 (27-31 декабря), затем Школой 2 (1-4 января), затем Школой 3 (10-14 января), подавая каждую за день до дедлайна или в сам день.",
+            answerKk: "1-мектеп (1 қаңтар): 27 желтоқсанда жетілдіруді бастаңыз. 2-мектеп (5 қаңтар): 31 желтоқсанда бастаңыз. 3-мектеп (15 қаңтар): 10 қаңтарда бастаңыз. Алдымен 1-мектеппен жұмыс істеңіз (27-31 желтоқсан), содан кейін 2-мектеп (1-4 қаңтар), содан кейін 3-мектеп (10-14 қаңтар), әрқайсысын мерзімнен бір күн бұрын немесе мерзім күні тапсырыңыз.",
             hint: "Subtract 5 days from each deadline. Sequence the work so tasks don't overlap.",
             hintRu: "Отнимите 5 дней от каждого дедлайна. Распределите задачи без пересечений.",
             hintKk: "Әр мерзімнен 5 күн алып тастаңыз. Тапсырмалар қабаттаспайтындай реттеңіз.",
@@ -3491,6 +3721,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Студент подаёт в 12 вузов: 2 Early Action (1 ноября), 1 Early Decision (15 ноября), 6 Regular Decision (1 января), 3 Regular Decision (15 января). Каждая заявка требует уникальное эссе (2 дня каждое). Common App уже написан. Рекомендации нужны за 4 недели. CSS Profile: 15 ноября для EA/ED, 1 февраля для RD. Составьте полный график с 1 августа.",
             questionKk: "Оқушы 12 мектепке түседі: 2 Early Action (1 қараша), 1 Early Decision (15 қараша), 6 Regular Decision (1 қаңтар), 3 Regular Decision (15 қаңтар). Әрқайсысына бірегей эссе қажет (2 күн). Common App дайын. Ұсыныстар 4 апта бұрын қажет. CSS Profile: EA/ED үшін 15 қараша, RD үшін 1 ақпан. 1 тамыздан толық кесте жасаңыз.",
             answer: "Aug 1-7: Request recommendation letters (4 weeks before Sep 1 target). Aug 8-Sep 15: Write 3 EA/ED supplemental essays (6 days work + revision time). Sep 15: Follow up on recommendations. Oct 1-15: Complete CSS Profile for EA/ED schools (due Nov 15). Oct 15-31: Final review and submit 2 EA apps (Nov 1 deadline). Nov 1-14: Submit ED app (Nov 15) and CSS Profile. Nov 15-Dec 15: Write 6 RD(Jan 1) supplemental essays (12 days work + revision). Dec 15-31: Final review and submit 6 RD apps (Jan 1). Jan 1-12: Write 3 remaining RD essays (6 days + revision), submit by Jan 15. Jan 15-31: Complete CSS Profile for RD schools (Feb 1).",
+            answerRu: "1-7 авг: запросите рекомендательные письма (за 4 недели до цели 1 сентября). 8 авг - 15 сен: напишите 3 дополнительных эссе EA/ED (6 дней работы + время на правки). 15 сен: уточните статус рекомендаций. 1-15 окт: заполните CSS Profile для школ EA/ED (срок 15 ноября). 15-31 окт: финальная проверка и подача 2 заявок EA (дедлайн 1 ноября). 1-14 ноя: подайте заявку ED (15 ноября) и CSS Profile. 15 ноя - 15 дек: напишите 6 дополнительных эссе для RD (1 января) (12 дней работы + правки). 15-31 дек: финальная проверка и подача 6 заявок RD (1 января). 1-12 янв: напишите оставшиеся 3 эссе RD (6 дней + правки), подайте до 15 января. 15-31 янв: заполните CSS Profile для школ RD (1 февраля).",
+            answerKk: "1-7 там: ұсыныс хаттарын сұраңыз (1 қыркүйек мақсатынан 4 апта бұрын). 8 там - 15 қыр: 3 EA/ED қосымша эссені жазыңыз (6 күн жұмыс + түзету уақыты). 15 қыр: ұсыныстардың жайын тексеріңіз. 1-15 қаз: EA/ED мектептеріне CSS Profile толтырыңыз (мерзімі 15 қараша). 15-31 қаз: соңғы тексеру және 2 EA өтінімін тапсыру (мерзімі 1 қараша). 1-14 қар: ED өтінімін (15 қараша) және CSS Profile тапсырыңыз. 15 қар - 15 жел: RD-ге (1 қаңтар) арналған 6 қосымша эссені жазыңыз (12 күн жұмыс + түзету). 15-31 жел: соңғы тексеру және 6 RD өтінімін тапсыру (1 қаңтар). 1-12 қаң: қалған 3 RD эссесін жазыңыз (6 күн + түзету), 15 қаңтарға дейін тапсырыңыз. 15-31 қаң: RD мектептеріне CSS Profile толтырыңыз (1 ақпан).",
             hint: "Group applications by deadline, work backward from each, and account for recommendation letter lead time.",
             hintRu: "Группируйте по дедлайнам, считайте назад и учтите время на рекомендации.",
             hintKk: "Өтінімдерді мерзім бойынша топтаңыз, әрқайсысынан кері есептеңіз және ұсыныс хаттарына уақыт беріңіз.",
@@ -3522,7 +3754,9 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
               { en: "Content gaps are the largest category (6/15 = 40%). List the specific topics: these are learnable in 8 days.", ru: "Пробелы в знаниях — самая большая категория (6/15 = 40%). Составьте список тем: их можно выучить за 8 дней.", kk: "Білім олқылықтары ең үлкен санат (6/15 = 40%). Нақты тақырыптарды тізімдеңіз: оларды 8 күнде үйренуге болады." },
               { en: "Days 1-5: Study the 6 content gap topics (about 1 topic per day). Days 6-7: Light review + pacing practice for the 4 time issues. Day 8: Rest completely.", ru: "Дни 1-5: Изучите 6 пробельных тем (1 тема в день). Дни 6-7: Лёгкий обзор + тренировка темпа. День 8: Полный отдых.", kk: "1-5 күн: 6 олқылық тақырыпты оқыңыз (күніне 1 тақырып). 6-7 күн: Жеңіл қайталау + қарқын жаттығуы. 8-күн: Толық демалыс." }
             ],
-            answer: "Focus primarily on content gaps (40% of errors) since these are fixable through study. Dedicate 5 days to learning the 6 missing concepts, 2 days to pacing practice, and rest the final day."
+            answer: "Focus primarily on content gaps (40% of errors) since these are fixable through study. Dedicate 5 days to learning the 6 missing concepts, 2 days to pacing practice, and rest the final day.",
+            answerRu: "Сосредоточьтесь в первую очередь на пробелах в знаниях (40% ошибок), так как их можно устранить учёбой. Выделите 5 дней на изучение 6 недостающих понятий, 2 дня на тренировку темпа и последний день отдыхайте.",
+            answerKk: "Ең алдымен білім олқылықтарына назар аударыңыз (қателердің 40%), себебі оларды оқу арқылы түзетуге болады. Жетіспейтін 6 ұғымды үйренуге 5 күн, қарқын жаттығуына 2 күн бөліп, соңғы күні демалыңыз."
           }
         ],
         practiceProblems: [
@@ -3532,6 +3766,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Почему последний полный пробный тест нужно сдавать за 7-10 дней до экзамена, а не накануне?",
             questionKk: "Неге соңғы толық пробный тестті емтиханнан 7-10 күн бұрын тапсыру керек, алдыңғы күні емес?",
             answer: "Taking it 7-10 days before gives you time to analyze errors and do targeted review of weak areas. Taking it the day before causes fatigue and anxiety without time to fix weaknesses, leading to worse performance on test day.",
+            answerRu: "Сдача за 7-10 дней даёт время проанализировать ошибки и провести целенаправленный обзор слабых мест. Сдача накануне вызывает усталость и тревогу без времени на исправление слабостей, что ухудшает результат в день экзамена.",
+            answerKk: "7-10 күн бұрын тапсыру қателерді талдап, әлсіз жақтарды мақсатты қайталауға уақыт береді. Алдыңғы күні тапсыру шаршау мен алаңдаушылық тудырады, әлсіздіктерді түзетуге уақыт қалмайды, бұл емтихан күнінде нәтижені нашарлатады.",
             hint: "Think about what you can do with the results if you have time versus no time.",
             hintRu: "Подумайте, что вы можете сделать с результатами при наличии времени и без него.",
             hintKk: "Уақыт болған кезде және болмаған кезде нәтижелермен не істей алатыныңызды ойлаңыз.",
@@ -3543,6 +3779,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Анализ ошибок пробного теста: 3 пробела в знаниях, 8 ошибок невнимательности, 2 из-за нехватки времени. Какая область наиболее влияет и предложите одну технику.",
             questionKk: "Пробный тест қателерін талдау: 3 білім олқылығы, 8 абайсыздық қатесі, 2 уақыт мәселесі. Ең әсерлі аймақ қайсы және бір нақты техника ұсыныңыз.",
             answer: "Careless mistakes are the largest category (8/13 = 62%). Technique: use the 'double-check flag' method — on first pass, flag any question where you feel uncertain, then spend remaining time re-reading and re-solving only flagged questions. This catches sign errors, misread questions, and calculation mistakes.",
+            answerRu: "Ошибки по невнимательности — самая большая категория (8/13 = 62%). Техника: используйте метод 'флажок для перепроверки' — при первом проходе отмечайте флажком любой вопрос, в котором не уверены, а оставшееся время потратьте на перечитывание и повторное решение только отмеченных вопросов. Это ловит ошибки в знаках, неправильно прочитанные вопросы и ошибки вычислений.",
+            answerKk: "Абайсыздық қателері ең үлкен санат (8/13 = 62%). Техника: 'қайта тексеру жалаушасы' әдісін қолданыңыз — бірінші өтуде сенімсіз болған кез келген сұрақты жалаушамен белгілеңіз, содан кейін қалған уақытты тек белгіленген сұрақтарды қайта оқу мен қайта шешуге жұмсаңыз. Бұл таңба қателерін, дұрыс оқылмаған сұрақтарды және есептеу қателерін ұстайды.",
             hint: "The largest error category has the most room for improvement. Careless mistakes need a systematic checking strategy.",
             hintRu: "Самая большая категория — наибольший потенциал улучшения. Невнимательность требует системы проверки.",
             hintKk: "Ең үлкен санат — жақсарту әлеуеті ең жоғары. Абайсыздық жүйелі тексеру стратегиясын қажет етеді.",
@@ -3554,6 +3792,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
             questionRu: "Студент сдал 3 пробных SAT: 1180, 1220, 1250. Ошибки: Пробный 1: 10 знания, 8 невнимательность, 5 время. Пробный 2: 6 знания, 9 невнимательность, 4 время. Пробный 3: 4 знания, 10 невнимательность, 3 время. SAT через 10 дней. Проанализируйте тренд, найдите устойчивую проблему и составьте план на 10 дней.",
             questionKk: "Оқушы 3 пробный SAT тапсырды: 1180, 1220, 1250. Қателер: Пробный 1: 10 білім, 8 абайсыздық, 5 уақыт. Пробный 2: 6 білім, 9 абайсыздық, 4 уақыт. Пробный 3: 4 білім, 10 абайсыздық, 3 уақыт. SAT-қа 10 күн. Үрдісті талдаңыз, тұрақты мәселені анықтаңыз және 10 күндік жоспар жасаңыз.",
             answer: "Trend: Content gaps are improving (10→6→4), time issues are improving (5→4→3), but careless mistakes are persistent and worsening (8→9→10). The persistent problem is careless mistakes. 10-day plan: Days 1-3: Practice sections with a 'double-check' protocol — solve each question, then immediately re-read the question before moving on. Days 4-5: Timed practice focusing on underlining key words in each question. Days 6-7: Take one final mock with the new checking habits. Days 8-9: Review the 4 remaining content gaps from Mock 3. Day 10: Complete rest, prepare materials. Target: reducing careless errors from 10 to 5 would add ~50 points, pushing toward 1300.",
+            answerRu: "Тренд: пробелы в знаниях улучшаются (10→6→4), проблемы со временем улучшаются (5→4→3), но невнимательные ошибки устойчивы и усугубляются (8→9→10). Устойчивая проблема — невнимательность. 10-дневный план: Дни 1-3: практика разделов с протоколом 'двойной проверки' — решить вопрос, затем сразу перечитать его перед переходом дальше. Дни 4-5: практика на время с акцентом на подчёркивание ключевых слов в каждом вопросе. Дни 6-7: один финальный пробный тест с новыми привычками проверки. Дни 8-9: повторение 4 оставшихся пробелов в знаниях из Пробного 3. День 10: полный отдых, подготовка материалов. Цель: снижение невнимательных ошибок с 10 до 5 добавит ~50 баллов, приближая к 1300.",
+            answerKk: "Үрдіс: білім олқылықтары жақсарып жатыр (10→6→4), уақыт мәселелері жақсарып жатыр (5→4→3), бірақ абайсыздық қателері тұрақты әрі нашарлап барады (8→9→10). Тұрақты мәселе — абайсыздық. 10 күндік жоспар: 1-3 күн: 'қос тексеру' хаттамасымен бөлімдерді жаттығу — сұрақты шешіп, әрі қарай жылжымас бұрын оны бірден қайта оқу. 4-5 күн: әр сұрақтың негізгі сөздерінің астын сызуға назар аудара отырып, уақытты есептеп жаттығу. 6-7 күн: жаңа тексеру дағдыларымен бір қорытынды пробный тест тапсыру. 8-9 күн: 3-пробныйдан қалған 4 білім олқылығын қайталау. 10-күн: толық демалыс, материалдарды дайындау. Мақсат: абайсыздық қателерін 10-нан 5-ке дейін азайту ~50 ұпай қосады, 1300-ге жақындатады.",
             hint: "Look at which error type is NOT improving despite score increases. That is the bottleneck.",
             hintRu: "Найдите тип ошибок, который НЕ улучшается несмотря на рост баллов. Это узкое место.",
             hintKk: "Ұпай өсуіне қарамастан ЖАҚСАРМАЙТЫН қате түрін табыңыз. Бұл тар жер.",

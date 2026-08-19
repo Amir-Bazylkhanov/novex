@@ -1,11 +1,13 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { motion, useReducedMotion } from 'framer-motion';
 import {
   Award,
   BookOpen,
   Calendar,
   Camera,
   Check,
+  ChevronDown,
   Cog,
   GraduationCap,
   Loader2,
@@ -26,6 +28,7 @@ import { useLanguage } from '../context/LanguageContext.tsx';
 import { useAuth, type ExamScores, type Profile, type Goal } from '../context/AuthContext.tsx';
 import type { TutorModel } from '../services/aiService.ts';
 import { supabase } from '../services/supabaseClient.ts';
+import { ACADEMY_DIRECTIONS, ACADEMY_PLANETS } from '../constants/academy/catalog.ts';
 import { RobotAvatar } from './robots/RobotAvatars.tsx';
 
 /* --- content --- */
@@ -277,6 +280,61 @@ const SUBJECTS: Array<{ slug: string; label: Localized }> = [
   },
 ];
 
+const SELECTED_COUNT = (count: number): Localized => ({
+  ru: `выбрано: ${count}`,
+  kk: `таңдалды: ${count}`,
+  en: `selected: ${count}`,
+});
+
+const SUBJECT_LABELS: Record<string, Localized> = Object.fromEntries(
+  SUBJECTS.map((s) => [s.slug, s.label]),
+);
+
+/* The academy catalog's academic planets (core_sciences, apib, admission_exams,
+   research) don't map 1:1 onto the eight school subjects, so level 3 of the
+   tree is grouped this way: the catalog's core_sciences planet («Точные науки»)
+   owns the exact sciences, and a local «Языки и гуманитарные» group — absent
+   from the catalog — owns kazakh / english / history. */
+const LANGUAGES_GROUP: Localized = {
+  ru: 'Языки и гуманитарные',
+  kk: 'Тілдер және гуманитарлық пәндер',
+  en: 'Languages & Humanities',
+};
+
+const planetName = (slug: string): Localized => {
+  const planet = ACADEMY_PLANETS.find((p) => p.slug === slug);
+  if (!planet) throw new Error(`unknown planet: ${slug}`);
+  return planet.name;
+};
+
+const ACADEMIC_GROUPS: Array<{ key: string; name: Localized; subjectSlugs: string[] }> = [
+  {
+    key: 'core_sciences',
+    name: planetName('core_sciences'),
+    subjectSlugs: ['math', 'physics', 'chemistry', 'biology', 'informatics'],
+  },
+  {
+    key: 'languages',
+    name: LANGUAGES_GROUP,
+    subjectSlugs: ['kazakh', 'english', 'history'],
+  },
+];
+
+/* Three-level tree matching /learn: direction → planets → (academic only)
+   school subjects. profiles.subjects keeps storing the SAME school-subject
+   slugs for level-3 picks; planet picks append planet slugs to the same array.
+   Consumers tolerate the mix: the diagnostic prefills through a known-slug
+   filter (DiagnosticPage), and the dashboard doesn't read subjects directly. */
+const SUBJECT_TREE = ACADEMY_DIRECTIONS.map((direction) => ({
+  id: direction.id,
+  name: direction.name,
+  groups: direction.id === 'nov04' ? ACADEMIC_GROUPS : [],
+  planets:
+    direction.id === 'nov04'
+      ? []
+      : ACADEMY_PLANETS.filter((p) => p.directionId === direction.id),
+}));
+
 const GOALS: Array<{ value: Goal; label: Localized }> = [
   { value: 'ent', label: { ru: 'ЕНТ', kk: 'ҰБТ', en: 'UNT' } },
   { value: 'olympiad', label: { ru: 'Олимпиада', kk: 'Олимпиада', en: 'Olympiad' } },
@@ -385,9 +443,20 @@ const CHIP =
 const CHIP_ON = 'border-teal bg-teal text-white shadow-[0_4px_14px_rgba(33,159,162,0.25)]';
 const CHIP_OFF = 'border-line bg-white text-ink hover:border-teal/60 hover:text-teal';
 
+const FADE_UP = {
+  initial: { opacity: 0, y: 24 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, margin: '-80px' },
+  transition: { duration: 0.5 },
+};
+
 const ProfilePage: React.FC = () => {
   const { user, profile, loading, signOut, updateProfile, uploadAvatar } = useAuth();
   const { language } = useLanguage();
+  const reduceMotion = useReducedMotion();
+  const motionProps = reduceMotion
+    ? { ...FADE_UP, initial: { opacity: 0 }, whileInView: { opacity: 1 } }
+    : FADE_UP;
 
   const [form, setForm] = useState<FormState>({
     fullName: '',
@@ -409,6 +478,10 @@ const ProfilePage: React.FC = () => {
   const [avatarUploading, setAvatarUploading] = useState(false);
   const [avatarBroken, setAvatarBroken] = useState(false);
   const hydratedIdRef = useRef<string | null>(null);
+
+  // subjects tree accordions — everything closed by default
+  const [openDirections, setOpenDirections] = useState<Record<string, boolean>>({});
+  const [openGroups, setOpenGroups] = useState<Record<string, boolean>>({});
 
   // class membership (student role only) — class_id is not part of the
   // AuthContext profile mapping, so this card reads/writes it directly
@@ -564,6 +637,21 @@ const ProfilePage: React.FC = () => {
         ? f.subjects.filter((s) => s !== slug)
         : [...f.subjects, slug],
     }));
+
+  const toggleDirection = (id: string) =>
+    setOpenDirections((m) => ({ ...m, [id]: !m[id] }));
+
+  const toggleSubjectGroup = (key: string) =>
+    setOpenGroups((m) => ({ ...m, [key]: !m[key] }));
+
+  // selections bubble up: academic counts school subjects, others count planets
+  const countDirectionSelections = (direction: (typeof SUBJECT_TREE)[number]): number =>
+    direction.groups.length > 0
+      ? direction.groups.reduce(
+          (sum, g) => sum + g.subjectSlugs.filter((s) => form.subjects.includes(s)).length,
+          0,
+        )
+      : direction.planets.filter((p) => form.subjects.includes(p.slug)).length;
 
   const toggleGoal = (value: Goal) =>
     setForm((f) => ({
@@ -763,27 +851,125 @@ const ProfilePage: React.FC = () => {
                 {loc(language, SUBJECTS_LABEL)}
               </legend>
               <p className="mt-1 text-xs text-slateink">{loc(language, SUBJECTS_HINT)}</p>
-              <div className="mt-2.5 flex flex-wrap gap-2">
-                {SUBJECTS.map((s) => {
-                  const selected = form.subjects.includes(s.slug);
+              <motion.div {...motionProps} className="mt-2.5 space-y-2">
+                {SUBJECT_TREE.map((direction) => {
+                  const directionOpen = openDirections[direction.id] ?? false;
+                  const selectedCount = countDirectionSelections(direction);
                   return (
-                    <label key={s.slug} className="cursor-pointer">
-                      <input
-                        type="checkbox"
-                        name="subjects"
-                        value={s.slug}
-                        checked={selected}
-                        onChange={() => toggleSubject(s.slug)}
-                        className="peer sr-only"
-                      />
-                      <span className={`${CHIP} gap-1.5 px-4 py-2.5 ${selected ? CHIP_ON : CHIP_OFF}`}>
-                        {selected && <Check className="h-3.5 w-3.5" aria-hidden="true" />}
-                        {loc(language, s.label)}
-                      </span>
-                    </label>
+                    <div key={direction.id} className="rounded-xl border border-line/60">
+                      <button
+                        type="button"
+                        aria-expanded={directionOpen}
+                        aria-controls={`subjects-${direction.id}`}
+                        onClick={() => toggleDirection(direction.id)}
+                        className={`${FOCUS_RING} flex w-full items-center gap-2 rounded-xl px-4 py-3 text-left transition-colors hover:bg-canvas`}
+                      >
+                        <ChevronDown
+                          className={`h-4 w-4 shrink-0 text-teal transition-transform ${directionOpen ? 'rotate-180' : ''}`}
+                          aria-hidden="true"
+                        />
+                        <span className="flex-1 text-sm font-semibold text-ink">
+                          {loc(language, direction.name)}
+                        </span>
+                        {!directionOpen && selectedCount > 0 && (
+                          <span className="rounded-full bg-teal/10 px-2.5 py-1 text-xs font-semibold text-teal-dark">
+                            {loc(language, SELECTED_COUNT(selectedCount))}
+                          </span>
+                        )}
+                      </button>
+                      {directionOpen && (
+                        <div
+                          id={`subjects-${direction.id}`}
+                          className="border-t border-line/40 px-4 py-3"
+                        >
+                          {direction.groups.length > 0 ? (
+                            <div className="space-y-2">
+                              {direction.groups.map((group) => {
+                                const groupOpen = openGroups[group.key] ?? false;
+                                return (
+                                  <div key={group.key} className="rounded-lg border border-line/40">
+                                    <button
+                                      type="button"
+                                      aria-expanded={groupOpen}
+                                      aria-controls={`subjects-group-${group.key}`}
+                                      onClick={() => toggleSubjectGroup(group.key)}
+                                      className={`${FOCUS_RING} flex w-full items-center gap-2 rounded-lg px-3 py-2.5 text-left transition-colors hover:bg-canvas`}
+                                    >
+                                      <ChevronDown
+                                        className={`h-4 w-4 shrink-0 text-teal transition-transform ${groupOpen ? 'rotate-180' : ''}`}
+                                        aria-hidden="true"
+                                      />
+                                      <span className="flex-1 text-sm font-medium text-ink">
+                                        {loc(language, group.name)}
+                                      </span>
+                                    </button>
+                                    {groupOpen && (
+                                      <div
+                                        id={`subjects-group-${group.key}`}
+                                        className="flex flex-wrap gap-2 px-3 pb-3 pt-1"
+                                      >
+                                        {group.subjectSlugs.map((slug) => {
+                                          const selected = form.subjects.includes(slug);
+                                          return (
+                                            <label key={slug} className="cursor-pointer">
+                                              <input
+                                                type="checkbox"
+                                                name="subjects"
+                                                value={slug}
+                                                checked={selected}
+                                                onChange={() => toggleSubject(slug)}
+                                                className="peer sr-only"
+                                              />
+                                              <span
+                                                className={`${CHIP} gap-1.5 px-4 py-2.5 ${selected ? CHIP_ON : CHIP_OFF}`}
+                                              >
+                                                {selected && (
+                                                  <Check className="h-3.5 w-3.5" aria-hidden="true" />
+                                                )}
+                                                {loc(language, SUBJECT_LABELS[slug])}
+                                              </span>
+                                            </label>
+                                          );
+                                        })}
+                                      </div>
+                                    )}
+                                  </div>
+                                );
+                              })}
+                            </div>
+                          ) : (
+                            <div className="flex flex-wrap gap-2">
+                              {direction.planets.map((planet) => {
+                                const selected = form.subjects.includes(planet.slug);
+                                return (
+                                  <label key={planet.slug} className="cursor-pointer">
+                                    <input
+                                      type="checkbox"
+                                      name="subjects"
+                                      value={planet.slug}
+                                      checked={selected}
+                                      onChange={() => toggleSubject(planet.slug)}
+                                      className="peer sr-only"
+                                    />
+                                    <span
+                                      className={`${CHIP} gap-1.5 px-4 py-2.5 ${selected ? CHIP_ON : CHIP_OFF}`}
+                                    >
+                                      {selected && (
+                                        <Check className="h-3.5 w-3.5" aria-hidden="true" />
+                                      )}
+                                      {loc(language, planet.name)}
+                                    </span>
+                                  </label>
+                                );
+                              })}
+                            </div>
+                          )}
+                        </div>
+                      )}
+                    </div>
                   );
                 })}
-              </div>
+              </motion.div>
             </fieldset>
 
             <fieldset className="mt-6">

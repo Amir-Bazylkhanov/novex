@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useSearchParams } from 'react-router-dom';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import {
   ArrowLeft,
@@ -20,12 +20,19 @@ import {
   planetBySlug,
 } from '../../constants/academy/catalog.ts';
 import PlanetLevels, {
+  LevelStepPills,
   loadPlanetProgress,
+  markSectionCompleted,
   markSectionSkipped,
+  type LevelStepState,
   type PlanetLevelStatus,
   type PlanetProgress,
 } from './PlanetLevels.tsx';
 import PlanetSkipTest, { buildSkipTest } from './PlanetSkipTest.tsx';
+import PlanetPlacementTest, {
+  canBuildPlacementTest,
+  type PlacementResult,
+} from './PlanetPlacementTest.tsx';
 
 /* --- content --- */
 
@@ -80,6 +87,11 @@ const START_LESSON: Localized = {
   kk: 'Сабақты бастау',
   en: 'Start lesson',
 };
+const START_LEVEL_TEST: Localized = {
+  ru: 'Пройти тест уровня',
+  kk: 'Деңгей тестін тапсыру',
+  en: 'Take the level test',
+};
 const LEVEL_DONE: Localized = {
   ru: 'Уровень пройден',
   kk: 'Деңгей өтілді',
@@ -122,20 +134,39 @@ const PlanetPage: React.FC = () => {
   const [activeIdx, setActiveIdx] = useState(0);
   /** Locked level whose skip test is open (the test covers level − 1). */
   const [skipTestFor, setSkipTestFor] = useState<number | null>(null);
+  /** Unlocked level whose in-level test is open (Урок → Тест → Уровень пройден). */
+  const [levelTestFor, setLevelTestFor] = useState<number | null>(null);
+  /** «Подобрать уровень» — cross-planet placement test open. */
+  const [placementTestOpen, setPlacementTestOpen] = useState(false);
+  const [searchParams, setSearchParams] = useSearchParams();
 
-  // Re-sync progress + land on the first incomplete level per planet.
+  // Re-sync progress + land on the first incomplete level per planet, or on
+  // the level named by ?test= (set by the lesson page's "К тесту уровня").
   useEffect(() => {
     const loaded = loadPlanetProgress(planetSlug ?? '');
     setProgress(loaded);
     setSkipTestFor(null);
+    setLevelTestFor(null);
+
+    const testParam = searchParams.get('test');
+    const testIdx = testParam !== null ? Number.parseInt(testParam, 10) : Number.NaN;
+
     if (content) {
-      const firstIncomplete = content.sections.findIndex(
-        (_, i) => !loaded.completedSections.includes(i),
-      );
-      setActiveIdx(firstIncomplete >= 0 ? firstIncomplete : 0);
+      if (Number.isInteger(testIdx) && testIdx >= 0 && testIdx < content.sections.length) {
+        setActiveIdx(testIdx);
+        setLevelTestFor(testIdx);
+        setSearchParams({}, { replace: true });
+      } else {
+        const firstIncomplete = content.sections.findIndex(
+          (_, i) => !loaded.completedSections.includes(i),
+        );
+        setActiveIdx(firstIncomplete >= 0 ? firstIncomplete : 0);
+      }
     } else {
       setActiveIdx(0);
     }
+    // Only re-run on planet/content change — ?test= is consumed once, on mount.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [planetSlug, content]);
 
   if (!planet || !direction || !content) {
@@ -181,6 +212,20 @@ const PlanetPage: React.FC = () => {
   const activeStatus = statuses[safeActiveIdx];
   const activeCompleted = progress.completedSections.includes(safeActiveIdx);
   const activeSkipped = progress.skipped.includes(safeActiveIdx);
+
+  // Урок → Тест → Уровень пройден for the active level. lessonRead entries
+  // written before this field existed are implied by completedSections.
+  const activeLessonRead =
+    progress.lessonRead.includes(safeActiveIdx) || activeCompleted;
+  const activeSectionHasTest = buildSkipTest(activeSection, language, content.sections) !== null;
+  const lessonStepState: LevelStepState = activeLessonRead ? 'done' : 'active';
+  const testStepState: LevelStepState = activeCompleted
+    ? 'done'
+    : activeLessonRead
+      ? 'active'
+      : 'locked';
+  const doneStepState: LevelStepState = activeCompleted ? 'done' : 'locked';
+
   const activeIntro =
     pickLangField(language, activeSection.content, activeSection.contentRu, activeSection.contentKk)
       .split(/\n\s*\n/)
@@ -188,12 +233,35 @@ const PlanetPage: React.FC = () => {
       .filter((p) => p.length > 0)[0] ?? '';
   const prevSection = safeActiveIdx > 0 ? content.sections[safeActiveIdx - 1] : undefined;
   const skipTestAvailable =
-    activeStatus === 'locked' && prevSection !== undefined && buildSkipTest(prevSection, language) !== null;
+    activeStatus === 'locked' &&
+    prevSection !== undefined &&
+    buildSkipTest(prevSection, language, content.sections) !== null;
 
   const jumpToRecommended = () => setActiveIdx(firstIncomplete >= 0 ? firstIncomplete : 0);
   const handleSkipPass = () => {
     if (skipTestFor === null) return;
     setProgress(markSectionSkipped(planet.slug, skipTestFor - 1));
+  };
+  const handleLevelTestPass = () => {
+    if (levelTestFor === null) return;
+    setProgress(markSectionCompleted(planet.slug, levelTestFor));
+  };
+  // Sections before the assigned level are unlocked via the same skip helper
+  // the locked-level flow uses; the assigned level itself is left open (not
+  // completed) so the student still takes its lesson/test, unless the test
+  // already implied mastery of the whole planet (acedEverything).
+  const handlePlacementResult = (result: PlacementResult) => {
+    let latest = progress;
+    for (const idx of result.sectionsToSkip) {
+      latest = markSectionSkipped(planet.slug, idx);
+    }
+    setProgress(latest);
+    setActiveIdx(result.assignedLevel);
+  };
+  const canPlacementTest = canBuildPlacementTest(content.sections, language);
+  const handleBannerCta = () => {
+    if (canPlacementTest) setPlacementTestOpen(true);
+    else jumpToRecommended();
   };
   const lessonPath = `/learn/p/${planet.slug}/${safeActiveIdx}`;
 
@@ -260,7 +328,7 @@ const PlanetPage: React.FC = () => {
               </div>
               <button
                 type="button"
-                onClick={jumpToRecommended}
+                onClick={handleBannerCta}
                 className={`${FOCUS_RING} inline-flex shrink-0 items-center gap-2 rounded-xl border border-teal bg-white px-4 py-2 text-sm font-semibold text-teal-dark transition-colors hover:bg-teal/10`}
               >
                 {loc(language, BANNER_CTA)}
@@ -383,24 +451,43 @@ const PlanetPage: React.FC = () => {
                   </div>
 
                   <div className="px-5 pb-5 sm:px-6">
-                    {activeCompleted ? (
-                      <div className="flex items-center gap-3 rounded-2xl border border-teal/40 bg-mist/20 px-4 py-3.5">
-                        <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-teal text-white">
-                          <CheckCircle2 className="h-4 w-4" aria-hidden="true" />
-                        </span>
-                        <span className="text-sm font-semibold text-teal-dark">
-                          {activeSkipped ? loc(language, TESTED_OUT) : loc(language, LEVEL_DONE)}
-                        </span>
-                      </div>
-                    ) : (
-                      <Link
-                        to={lessonPath}
-                        className={`${FOCUS_RING} inline-flex w-full items-center justify-center gap-2 rounded-xl bg-teal px-6 py-3.5 text-base font-semibold text-white shadow-[0_4px_14px_rgba(33,159,162,0.25)] transition-colors hover:bg-teal-dark`}
-                      >
-                        {loc(language, START_LESSON)}
-                        <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                      </Link>
-                    )}
+                    <LevelStepPills
+                      lessonState={lessonStepState}
+                      testState={activeSectionHasTest ? testStepState : undefined}
+                      doneState={doneStepState}
+                      onTestClick={
+                        testStepState === 'active' ? () => setLevelTestFor(safeActiveIdx) : undefined
+                      }
+                    />
+                    <div className="mt-4">
+                      {activeCompleted ? (
+                        <div className="flex items-center gap-3 rounded-2xl border border-teal/40 bg-mist/20 px-4 py-3.5">
+                          <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-teal text-white">
+                            <CheckCircle2 className="h-4 w-4" aria-hidden="true" />
+                          </span>
+                          <span className="text-sm font-semibold text-teal-dark">
+                            {activeSkipped ? loc(language, TESTED_OUT) : loc(language, LEVEL_DONE)}
+                          </span>
+                        </div>
+                      ) : activeSectionHasTest && activeLessonRead ? (
+                        <button
+                          type="button"
+                          onClick={() => setLevelTestFor(safeActiveIdx)}
+                          className={`${FOCUS_RING} inline-flex w-full items-center justify-center gap-2 rounded-xl bg-teal px-6 py-3.5 text-base font-semibold text-white shadow-[0_4px_14px_rgba(33,159,162,0.25)] transition-colors hover:bg-teal-dark`}
+                        >
+                          {loc(language, START_LEVEL_TEST)}
+                          <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                        </button>
+                      ) : (
+                        <Link
+                          to={lessonPath}
+                          className={`${FOCUS_RING} inline-flex w-full items-center justify-center gap-2 rounded-xl bg-teal px-6 py-3.5 text-base font-semibold text-white shadow-[0_4px_14px_rgba(33,159,162,0.25)] transition-colors hover:bg-teal-dark`}
+                        >
+                          {loc(language, START_LESSON)}
+                          <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                        </Link>
+                      )}
+                    </div>
                   </div>
                 </article>
               )}
@@ -413,8 +500,30 @@ const PlanetPage: React.FC = () => {
       {skipTestFor !== null && prevSection && (
         <PlanetSkipTest
           section={prevSection}
+          allSections={content.sections}
           onPass={handleSkipPass}
           onClose={() => setSkipTestFor(null)}
+        />
+      )}
+
+      {/* level test for the active section — passing marks it fully completed */}
+      {levelTestFor !== null && content.sections[levelTestFor] && (
+        <PlanetSkipTest
+          mode="level"
+          section={content.sections[levelTestFor]}
+          allSections={content.sections}
+          onPass={handleLevelTestPass}
+          onClose={() => setLevelTestFor(null)}
+        />
+      )}
+
+      {/* placement test — «Подобрать уровень», samples questions across every level */}
+      {placementTestOpen && (
+        <PlanetPlacementTest
+          sections={content.sections}
+          directionCode={`NOV-${direction.id.slice(3)}`}
+          onPlaced={handlePlacementResult}
+          onClose={() => setPlacementTestOpen(false)}
         />
       )}
     </main>

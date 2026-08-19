@@ -601,7 +601,7 @@ interface TeacherLessonRow {
   created_at: string;
 }
 
-/** Roster entry: a profile row joined with aggregated lesson_progress. */
+/** Roster entry: one row from the get_class_roster RPC (progress aggregated server-side). */
 interface RosterStudent {
   id: string;
   full_name: string | null;
@@ -821,10 +821,14 @@ const TeacherPage: React.FC = () => {
 
     const loadRoster = async () => {
       try {
-        const { data: profileRows, error: profilesError } = await supabase
-          .from('profiles')
-          .select('id, full_name, avatar_url')
-          .eq('class_id', classId);
+        // security definer RPC: returns public profile fields plus
+        // server-side aggregated progress (lessons_completed, total_xp) only
+        // when the caller owns the class (or is admin); direct profiles
+        // select is blocked by select-own RLS.
+        const { data: profileRows, error: profilesError } = await supabase.rpc(
+          'get_class_roster',
+          { p_class_id: classId },
+        );
         if (cancelled) return;
         if (profilesError) {
           setRosterError(true);
@@ -834,39 +838,15 @@ const TeacherPage: React.FC = () => {
           id: string;
           full_name: string | null;
           avatar_url: string | null;
+          lessons_completed: number;
+          total_xp: number;
         }>;
-        if (students.length === 0) {
-          setRoster([]);
-          return;
-        }
-        const ids = students.map((s) => s.id);
-        const { data: progressRows, error: progressError } = await supabase
-          .from('lesson_progress')
-          .select('user_id, lesson_slug, status, xp')
-          .in('user_id', ids);
-        if (cancelled) return;
-        if (progressError) {
-          setRosterError(true);
-          return;
-        }
-        const stats = new Map<string, { completed: Set<string>; xp: number }>();
-        for (const row of (progressRows ?? []) as Array<{
-          user_id: string;
-          lesson_slug: string;
-          status: string;
-          xp: number | null;
-        }>) {
-          const entry = stats.get(row.user_id) ?? { completed: new Set<string>(), xp: 0 };
-          if (row.status === 'completed') entry.completed.add(row.lesson_slug);
-          entry.xp += row.xp ?? 0;
-          stats.set(row.user_id, entry);
-        }
         const rosterRows: RosterStudent[] = students.map((s) => ({
           id: s.id,
           full_name: s.full_name,
           avatar_url: s.avatar_url,
-          lessonsCompleted: stats.get(s.id)?.completed.size ?? 0,
-          totalXp: stats.get(s.id)?.xp ?? 0,
+          lessonsCompleted: s.lessons_completed ?? 0,
+          totalXp: s.total_xp ?? 0,
         }));
         rosterRows.sort((a, b) =>
           (a.full_name ?? '').localeCompare(b.full_name ?? '', language === 'kk' ? 'kk' : language),

@@ -38,7 +38,9 @@ export const APIB_FULL: Record<string, LessonContent> = {
               { en: "Add the scores: 5 + 4 = 9", ru: "Сложим баллы: 5 + 4 = 9", kk: "Балдарды қосамыз: 5 + 4 = 9" },
               { en: "Divide by number of exams: 9 / 2 = 4.5", ru: "Разделим на количество экзаменов: 9 / 2 = 4,5", kk: "Емтихан санына бөлеміз: 9 / 2 = 4,5" }
             ],
-            answer: "4.5"
+            answer: "4.5",
+            answerRu: "4,5",
+            answerKk: "4,5"
           }
         ],
         practiceProblems: [
@@ -48,6 +50,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Каков максимальный балл на одном экзамене AP?",
             questionKk: "Бір AP емтиханындағы ең жоғары балл қанша?",
             answer: "5",
+            answerRu: "5",
+            answerKk: "5",
             hint: "AP exams use a 1-5 scale",
             hintRu: "Экзамены AP используют шкалу 1-5",
             hintKk: "AP емтихандары 1-5 шкаласын қолданады",
@@ -59,6 +63,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Ученик IB набрал 6, 5, 7, 4, 5, 6 по шести предметам и получил 2 бонусных балла. Каков общий балл IB?",
             questionKk: "IB оқушысы алты пән бойынша 6, 5, 7, 4, 5, 6 алып, 2 бонус балл алды. Жалпы IB балы қанша?",
             answer: "35",
+            answerRu: "35",
+            answerKk: "35",
             hint: "Add all six subject scores plus the bonus points",
             hintRu: "Сложите все шесть баллов по предметам и бонусные баллы",
             hintKk: "Алты пән балын және бонус балдарды қосыңыз",
@@ -70,6 +76,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Ученик хочет сдать 5 экзаменов AP. Если каждый экзамен стоит $98 и предоставляется скидка $34 за экзамен, сколько всего он заплатит?",
             questionKk: "Оқушы 5 AP емтиханын тапсырғысы келеді. Әр емтихан $98 тұрса және қаржылық қажеттілік бойынша $34 жеңілдік берілсе, жалпы қанша төлейді?",
             answer: "$320",
+            answerRu: "$320",
+            answerKk: "$320",
             hint: "Calculate (98 - 34) per exam, then multiply by 5",
             hintRu: "Вычислите (98 - 34) за экзамен, затем умножьте на 5",
             hintKk: "(98 - 34) әр емтихан үшін есептеп, 5-ке көбейтіңіз",
@@ -107,7 +115,9 @@ export const APIB_FULL: Record<string, LessonContent> = {
               { en: "Apply slope formula: m = (8 - 2) / (4 - 1) = 6 / 3", ru: "Применим формулу наклона: m = (8 - 2) / (4 - 1) = 6 / 3", kk: "Көлбеу формуласын қолданамыз: m = (8 - 2) / (4 - 1) = 6 / 3" },
               { en: "Simplify: m = 2", ru: "Упрощаем: m = 2", kk: "Жеңілдетеміз: m = 2" }
             ],
-            answer: "m = 2"
+            answer: "m = 2",
+            answerRu: "m = 2",
+            answerKk: "m = 2"
           }
         ],
         practiceProblems: [
@@ -117,6 +127,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Какова точка пересечения с осью y для y = 3x + 7?",
             questionKk: "y = 3x + 7 теңдеуінің y осімен қиылысу нүктесі қандай?",
             answer: "7",
+            answerRu: "7",
+            answerKk: "7",
             hint: "In y = mx + b, the y-intercept is b",
             hintRu: "В y = mx + b точка пересечения с осью y — это b",
             hintKk: "y = mx + b теңдеуінде y осімен қиылысу нүктесі — b",
@@ -128,6 +140,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Найдите наклон прямой через (−2, 5) и (3, −5).",
             questionKk: "(−2, 5) және (3, −5) нүктелері арқылы өтетін түзудің көлбеуін табыңыз.",
             answer: "−2",
+            answerRu: "−2",
+            answerKk: "−2",
             hint: "m = (−5 − 5) / (3 − (−2))",
             hintRu: "m = (−5 − 5) / (3 − (−2))",
             hintKk: "m = (−5 − 5) / (3 − (−2))",
@@ -139,6 +153,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Запишите уравнение прямой с наклоном 4, проходящей через (2, 3).",
             questionKk: "Көлбеуі 4 болып, (2, 3) нүктесі арқылы өтетін түзудің теңдеуін жазыңыз.",
             answer: "y = 4x − 5",
+            answerRu: "y = 4x − 5",
+            answerKk: "y = 4x − 5",
             hint: "Use point-slope form: y − y₁ = m(x − x₁), then convert to slope-intercept",
             hintRu: "Используйте форму точка-наклон: y − y₁ = m(x − x₁), затем преобразуйте",
             hintKk: "Нүкте-көлбеу формасын қолданыңыз: y − y₁ = m(x − x₁), содан кейін түрлендіріңіз",
@@ -170,7 +186,9 @@ export const APIB_FULL: Record<string, LessonContent> = {
               { en: "Compare growth values across conditions: shade (2 cm) < partial (5 cm) < full sun (9 cm)", ru: "Сравним рост в разных условиях: тень (2 см) < частичное (5 см) < полное солнце (9 см)", kk: "Жағдайлар бойынша өсуді салыстырамыз: көлеңке (2 см) < жартылай (5 см) < толық күн (9 см)" },
               { en: "Growth increases with sunlight, so the data supports the hypothesis", ru: "Рост увеличивается с увеличением солнечного света, поэтому данные подтверждают гипотезу", kk: "Өсу күн сәулесімен артады, сондықтан деректер гипотезаны растайды" }
             ],
-            answer: "Yes, the data supports the hypothesis — growth increases with more sunlight."
+            answer: "Yes, the data supports the hypothesis — growth increases with more sunlight.",
+            answerRu: "Да, данные подтверждают гипотезу — рост увеличивается с ростом солнечного света.",
+            answerKk: "Иә, деректер гипотезаны растайды — күн сәулесі көбейген сайын өсу артады."
           }
         ],
         practiceProblems: [
@@ -180,6 +198,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Что следует после формулирования гипотезы в научном методе?",
             questionKk: "Ғылыми әдісте гипотеза құрғаннан кейін не келеді?",
             answer: "Experiment (testing the hypothesis)",
+            answerRu: "Эксперимент (проверка гипотезы)",
+            answerKk: "Эксперимент (гипотезаны тексеру)",
             hint: "Think about the five steps in order",
             hintRu: "Подумайте о пяти шагах по порядку",
             hintKk: "Бес қадамды ретімен ойлаңыз",
@@ -191,6 +211,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "В эксперименте по проверке влияния удобрения на высоту растения, что является независимой переменной?",
             questionKk: "Тыңайтқыштың өсімдік биіктігіне әсерін тексеретін тәжірибеде тәуелсіз айнымалы не?",
             answer: "The amount of fertilizer",
+            answerRu: "Количество удобрения",
+            answerKk: "Тыңайтқыш мөлшері",
             hint: "The independent variable is what the experimenter changes",
             hintRu: "Независимая переменная — это то, что экспериментатор изменяет",
             hintKk: "Тәуелсіз айнымалы — эксперименттеуші өзгертетін нәрсе",
@@ -202,6 +224,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Ученик тестирует три марки бумажных полотенец на впитываемость, измеряя объём впитанной воды в мл. Почему каждый тест нужно повторить минимум 3 раза?",
             questionKk: "Оқушы үш маркалы қағаз сүлгінің сіңіргіштігін сынайды, сіңірілген суды мл-мен өлшейді. Неге әр сынақты кемінде 3 рет қайталау керек?",
             answer: "To ensure reliability of results and reduce the effect of random errors/outliers",
+            answerRu: "Чтобы обеспечить надёжность результатов и уменьшить влияние случайных ошибок/выбросов",
+            answerKk: "Нәтижелердің сенімділігін қамтамасыз ету және кездейсоқ қателердің/ерекше мәндердің әсерін азайту үшін",
             hint: "Think about what could go wrong in a single trial",
             hintRu: "Подумайте, что может пойти не так в одном испытании",
             hintKk: "Бір сынақта не дұрыс болмауы мүмкін екенін ойлаңыз",
@@ -233,7 +257,9 @@ export const APIB_FULL: Record<string, LessonContent> = {
               { en: "Identify the claim: 'Schools should start later' — this is the author's position", ru: "Определяем утверждение: «Школы должны начинать позже» — это позиция автора", kk: "Мәлімдемені анықтаймыз: «Мектептер кешірек басталуы керек» — бұл автордың ұстанымы" },
               { en: "Identify the evidence: '23% worse on tests (National Sleep Foundation, 2023)' — a statistic from a credible source", ru: "Определяем доказательство: «на 23% хуже на тестах (National Sleep Foundation, 2023)» — статистика из надёжного источника", kk: "Дәлелдемені анықтаймыз: «тесттерде 23% нашар (National Sleep Foundation, 2023)» — сенімді дереккөзден статистика" }
             ],
-            answer: "Claim: Schools should start later. Evidence: 23% worse test performance (National Sleep Foundation, 2023)."
+            answer: "Claim: Schools should start later. Evidence: 23% worse test performance (National Sleep Foundation, 2023).",
+            answerRu: "Утверждение: школы должны начинать позже. Доказательство: результаты на 23% хуже (National Sleep Foundation, 2023).",
+            answerKk: "Мәлімдеме: мектептер кешірек басталуы керек. Дәлелдеме: нәтижелер 23% нашар (National Sleep Foundation, 2023)."
           }
         ],
         practiceProblems: [
@@ -243,6 +269,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Что означает буква 'P' в SOAPSTone?",
             questionKk: "SOAPSTone ішіндегі 'P' нені білдіреді?",
             answer: "Purpose",
+            answerRu: "Цель (Purpose)",
+            answerKk: "Мақсат (Purpose)",
             hint: "It describes why the author wrote the text",
             hintRu: "Это описывает, зачем автор написал текст",
             hintKk: "Бұл автордың мәтінді неге жазғанын сипаттайды",
@@ -254,6 +282,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Следующее утверждение — факт или мнение? «Мона Лиза — самая красивая картина в истории.»",
             questionKk: "Келесі мәлімдеме факт пе, пікір ме? «Мона Лиза — тарихтағы ең әдемі картина.»",
             answer: "Opinion — 'most beautiful' is a subjective judgment that cannot be objectively measured",
+            answerRu: "Мнение — «самая красивая» является субъективным суждением, которое нельзя объективно измерить",
+            answerKk: "Пікір — «ең әдемі» деген субъективті пайымдау, оны объективті өлшеу мүмкін емес",
             hint: "Can this claim be proven with data?",
             hintRu: "Можно ли доказать это утверждение данными?",
             hintKk: "Бұл мәлімдемені деректермен дәлелдеуге бола ма?",
@@ -265,6 +295,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Автор пишет о климатических изменениях, используя эмоциональный язык (опустошительный, катастрофический) и цитируя рецензированные исследования. Какие риторические стратегии совмещены?",
             questionKk: "Автор климат өзгерісі туралы «жойқын», «апатты» сияқты эмоционалды тілді қолданып, рецензияланған зерттеулерге сілтеме жасайды. Қандай риторикалық стратегиялар біріктірілген?",
             answer: "Pathos (emotional appeal through word choice) and logos (logical appeal through scientific evidence)",
+            answerRu: "Пафос (эмоциональное воздействие через выбор слов) и логос (логическое воздействие через научные доказательства)",
+            answerKk: "Пафос (сөз таңдау арқылы эмоционалды әсер) және логос (ғылыми дәлелдер арқылы логикалық әсер)",
             hint: "Think about Aristotle's three modes of persuasion",
             hintRu: "Подумайте о трёх способах убеждения Аристотеля",
             hintKk: "Аристотельдің үш сендіру тәсілін ойлаңыз",
@@ -296,7 +328,9 @@ export const APIB_FULL: Record<string, LessonContent> = {
               { en: "Alert the teacher and nearby students; put on gloves if not already wearing them", ru: "Предупредите учителя и ближайших учеников; наденьте перчатки, если их ещё нет", kk: "Мұғалімді және жақын отырған оқушыларды ескертіңіз; қолғап киіңіз" },
               { en: "Neutralize with baking soda (sodium bicarbonate), then wipe with paper towels and dispose properly", ru: "Нейтрализуйте пищевой содой, затем протрите бумажными полотенцами и утилизируйте правильно", kk: "Ас содасымен (натрий бикарбонаты) бейтараптаңыз, содан кейін қағаз сүлгімен сүртіп, дұрыс тастаңыз" }
             ],
-            answer: "Alert teacher, neutralize with baking soda, clean up, and dispose of materials properly."
+            answer: "Alert teacher, neutralize with baking soda, clean up, and dispose of materials properly.",
+            answerRu: "Предупредите учителя, нейтрализуйте пищевой содой, уберите и правильно утилизируйте материалы.",
+            answerKk: "Мұғалімді ескертіңіз, ас содасымен бейтараптаңыз, тазалаңыз және материалдарды дұрыс тастаңыз."
           }
         ],
         practiceProblems: [
@@ -306,6 +340,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Можно ли есть или пить в научной лаборатории?",
             questionKk: "Ғылыми зертханада тамақ ішуге немесе су ішуге бола ма?",
             answer: "No — food and drink are never allowed in a lab",
+            answerRu: "Нет — еда и напитки никогда не разрешены в лаборатории",
+            answerKk: "Жоқ — тамақ пен сусынға зертханада ешқашан рұқсат етілмейді",
             hint: "Think about contamination risks",
             hintRu: "Подумайте о рисках загрязнения",
             hintKk: "Ластану қаупі туралы ойлаңыз",
@@ -317,6 +353,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Почему кислоту всегда добавляют в воду, а не воду в кислоту?",
             questionKk: "Неге қышқылды суға қосады, суды қышқылға емес?",
             answer: "Adding acid to water allows the large volume of water to absorb the heat of the exothermic reaction safely; adding water to acid can cause violent boiling and splashing",
+            answerRu: "Добавление кислоты в воду позволяет большому объёму воды безопасно поглотить тепло экзотермической реакции; добавление воды в кислоту может вызвать бурное кипение и разбрызгивание",
+            answerKk: "Қышқылды суға қосу судың үлкен көлеміне экзотермиялық реакция жылуын қауіпсіз сіңіруге мүмкіндік береді; суды қышқылға қосу қатты қайнауға және шашырауға әкелуі мүмкін",
             hint: "Think about what happens with heat during mixing",
             hintRu: "Подумайте, что происходит с теплом при смешивании",
             hintKk: "Араластыру кезінде жылумен не болатынын ойлаңыз",
@@ -328,6 +366,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Разработайте протокол безопасности для эксперимента с нагреванием неизвестной жидкости в пробирке. Перечислите минимум 3 меры предосторожности.",
             questionKk: "Сынақ түтігінде белгісіз сұйықтықты қыздыру тәжірибесі үшін қауіпсіздік хаттамасын жасаңыз. Кемінде 3 сақтық шарасын атаңыз.",
             answer: "1) Wear safety goggles and heat-resistant gloves. 2) Point test tube away from people when heating. 3) Heat gently and never heat a sealed container. 4) Work near a fire extinguisher.",
+            answerRu: "1) Наденьте защитные очки и термостойкие перчатки. 2) Направляйте пробирку в сторону от людей при нагревании. 3) Нагревайте осторожно и никогда не нагревайте закрытый сосуд. 4) Работайте рядом с огнетушителем.",
+            answerKk: "1) Қорғаныш көзілдірік пен ыстыққа төзімді қолғап киіңіз. 2) Қыздырғанда сынақ түтігін адамдардан алшақ бағыттаңыз. 3) Ақырын қыздырыңыз және жабық ыдысты ешқашан қыздырмаңыз. 4) Өрт сөндіргіштің жанында жұмыс істеңіз.",
             hint: "Consider eye protection, direction of the tube opening, and heating technique",
             hintRu: "Подумайте о защите глаз, направлении отверстия пробирки и технике нагрева",
             hintKk: "Көз қорғанысы, түтік саңылауының бағыты және қыздыру техникасы туралы ойлаңыз",
@@ -365,7 +405,9 @@ export const APIB_FULL: Record<string, LessonContent> = {
               { en: "Calculate the mean: (99.5 + 100.2 + 99.8) / 3 = 299.5 / 3 = 99.83°C", ru: "Вычислим среднее: (99,5 + 100,2 + 99,8) / 3 = 299,5 / 3 = 99,83°C", kk: "Орташаны есептейміз: (99,5 + 100,2 + 99,8) / 3 = 299,5 / 3 = 99,83°C" },
               { en: "Percent error: |99.83 − 100.0| / 100.0 × 100% = 0.17%", ru: "Процент погрешности: |99,83 − 100,0| / 100,0 × 100% = 0,17%", kk: "Пайыздық қате: |99,83 − 100,0| / 100,0 × 100% = 0,17%" }
             ],
-            answer: "Mean = 99.83°C, Percent error = 0.17%"
+            answer: "Mean = 99.83°C, Percent error = 0.17%",
+            answerRu: "Среднее = 99,83°C, Процент погрешности = 0,17%",
+            answerKk: "Орташа = 99,83°C, Пайыздық қате = 0,17%"
           }
         ],
         practiceProblems: [
@@ -375,6 +417,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "«Раствор стал синим» — это качественное или количественное наблюдение?",
             questionKk: "«Ерітінді көк түске айналды» — бұл сапалық па, сандық бақылау ма?",
             answer: "Qualitative",
+            answerRu: "Качественное",
+            answerKk: "Сапалық",
             hint: "Does it involve a number or a description?",
             hintRu: "Это связано с числом или описанием?",
             hintKk: "Бұл санмен байланысты ма, әлде сипаттамамен ме?",
@@ -386,6 +430,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Вычислите среднее значение этих измерений массы: 12,3 г, 12,5 г, 12,1 г, 12,4 г.",
             questionKk: "Мына масса өлшемдерінің орташасын есептеңіз: 12,3 г, 12,5 г, 12,1 г, 12,4 г.",
             answer: "12.325 g",
+            answerRu: "12,325 г",
+            answerKk: "12,325 г",
             hint: "Add all values and divide by 4",
             hintRu: "Сложите все значения и разделите на 4",
             hintKk: "Барлық мәндерді қосып, 4-ке бөліңіз",
@@ -397,6 +443,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Ученик измерил плотность алюминия как 2,85 г/см³. Принятое значение — 2,70 г/см³. Каков процент погрешности?",
             questionKk: "Оқушы алюминийдің тығыздығын 2,85 г/см³ деп өлшеді. Қабылданған мән — 2,70 г/см³. Пайыздық қате қандай?",
             answer: "5.56%",
+            answerRu: "5,56%",
+            answerKk: "5,56%",
             hint: "|2.85 − 2.70| / 2.70 × 100%",
             hintRu: "|2,85 − 2,70| / 2,70 × 100%",
             hintKk: "|2,85 − 2,70| / 2,70 × 100%",
@@ -428,7 +476,9 @@ export const APIB_FULL: Record<string, LessonContent> = {
               { en: "Calculate the slope: Δy/Δx = (80 − 20) / (3 − 1) = 60 / 2", ru: "Вычислим наклон: Δy/Δx = (80 − 20) / (3 − 1) = 60 / 2", kk: "Көлбеуді есептейміз: Δy/Δx = (80 − 20) / (3 − 1) = 60 / 2" },
               { en: "Speed = 30 km/hr", ru: "Скорость = 30 км/ч", kk: "Жылдамдық = 30 км/сағ" }
             ],
-            answer: "30 km/hr"
+            answer: "30 km/hr",
+            answerRu: "30 км/ч",
+            answerKk: "30 км/сағ"
           }
         ],
         practiceProblems: [
@@ -438,6 +488,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Какой тип графика лучше всего показывает связь между температурой и временем при нагревании?",
             questionKk: "Қыздыру кезінде температура мен уақыт арасындағы байланысты қай тип график жақсы көрсетеді?",
             answer: "Line graph",
+            answerRu: "Линейный график",
+            answerKk: "Сызықтық график",
             hint: "Both variables are continuous",
             hintRu: "Обе переменные непрерывные",
             hintKk: "Екі айнымалы да үздіксіз",
@@ -449,6 +501,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "На графике популяция растёт медленно, затем быстро, потом выходит на плато. Какой это тип кривой роста?",
             questionKk: "Графикте популяция баяу, содан кейін тез өсіп, кейін тұрақтанады. Бұл өсу қисығының қандай түрі?",
             answer: "S-curve (logistic growth curve)",
+            answerRu: "S-образная кривая (логистическая кривая роста)",
+            answerKk: "S-тәрізді қисық (логистикалық өсу қисығы)",
             hint: "Think about carrying capacity and resource limits",
             hintRu: "Подумайте о ёмкости среды и ограниченности ресурсов",
             hintKk: "Орта сыйымдылығы мен ресурстар шектеулілігі туралы ойлаңыз",
@@ -460,6 +514,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "График скорость-время показывает прямую от (0, 0) до (5, 20). Что представляет площадь под этой прямой и каково её значение?",
             questionKk: "Жылдамдық-уақыт графигі (0, 0)-ден (5, 20)-ға дейінгі түзу сызықты көрсетеді. Бұл сызықтың астындағы аудан нені білдіреді және оның мәні қандай?",
             answer: "The area represents displacement. Area = ½ × base × height = ½ × 5 × 20 = 50 meters.",
+            answerRu: "Площадь представляет перемещение. Площадь = ½ × основание × высота = ½ × 5 × 20 = 50 метров.",
+            answerKk: "Аудан орын ауыстыруды білдіреді. Аудан = ½ × табан × биіктік = ½ × 5 × 20 = 50 метр.",
             hint: "Area under a v-t graph = displacement; the shape is a triangle",
             hintRu: "Площадь под графиком v-t = перемещение; фигура — треугольник",
             hintKk: "v-t графигінің астындағы аудан = орын ауыстыру; пішін — үшбұрыш",
@@ -491,7 +547,9 @@ export const APIB_FULL: Record<string, LessonContent> = {
               { en: "Each cycle = 25 + 5 = 30 min. Total time = 180 min. Cycles = 180/30 = 6 cycles", ru: "Каждый цикл = 25 + 5 = 30 мин. Общее время = 180 мин. Циклов = 180/30 = 6", kk: "Әр цикл = 25 + 5 = 30 мин. Жалпы уақыт = 180 мин. Циклдер = 180/30 = 6" },
               { en: "Actual study time = 6 × 25 = 150 min = 2.5 hours", ru: "Реальное время учёбы = 6 × 25 = 150 мин = 2,5 часа", kk: "Нақты оқу уақыты = 6 × 25 = 150 мин = 2,5 сағат" }
             ],
-            answer: "6 cycles, 150 minutes (2.5 hours) of actual study time"
+            answer: "6 cycles, 150 minutes (2.5 hours) of actual study time",
+            answerRu: "6 циклов, 150 минут (2,5 часа) реального времени учёбы",
+            answerKk: "6 цикл, 150 минут (2,5 сағат) нақты оқу уақыты"
           }
         ],
         practiceProblems: [
@@ -501,6 +559,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Какова рекомендуемая продолжительность работы в одном цикле Помодоро?",
             questionKk: "Бір Помодоро циклінде ұсынылатын жұмыс ұзақтығы қанша?",
             answer: "25 minutes",
+            answerRu: "25 минут",
+            answerKk: "25 минут",
             hint: "It is named after a tomato-shaped kitchen timer",
             hintRu: "Название происходит от кухонного таймера в форме помидора",
             hintKk: "Атауы қызанақ тәріздес асхана таймерінен шыққан",
@@ -512,6 +572,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Какой метод учёбы эффективнее для долгосрочного запоминания: перечитывание конспектов или практическое тестирование? Почему?",
             questionKk: "Ұзақ мерзімді есте сақтау үшін қай оқу әдісі тиімдірек: жазбаларды қайта оқу ма, практикалық тестілеу ме? Неге?",
             answer: "Practice testing — it forces active recall, which strengthens memory pathways more than passive re-reading",
+            answerRu: "Практическое тестирование — оно заставляет активно вспоминать, что укрепляет пути памяти сильнее, чем пассивное перечитывание",
+            answerKk: "Практикалық тестілеу — ол белсенді еске түсіруге мәжбүрлейді, бұл пассивті қайта оқудан гөрі есте сақтау жолдарын күшейтеді",
             hint: "Think about active vs. passive learning",
             hintRu: "Подумайте об активном и пассивном обучении",
             hintKk: "Белсенді және пассивті оқу туралы ойлаңыз",
@@ -523,6 +585,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "У ученика 5 экзаменов AP через 2 недели. У него 4 часа учёбы в день. Как распределить время между предметами по принципу интервального повторения?",
             questionKk: "Оқушының 2 аптада 5 AP емтиханы бар. Күніне 4 сағат оқу уақыты бар. Аралықты қайталау принципімен пәндерге уақытты қалай бөлу керек?",
             answer: "Allocate more time to weaker subjects (e.g., 30% weakest, 25% next, 20%, 15%, 10% strongest) and rotate subjects daily rather than studying one per day",
+            answerRu: "Выделяйте больше времени слабым предметам (например, 30% самому слабому, 25% следующему, 20%, 15%, 10% самому сильному) и чередуйте предметы ежедневно, а не изучайте один предмет в день",
+            answerKk: "Әлсіз пәндерге көбірек уақыт бөліңіз (мысалы, ең әлсізіне 30%, келесісіне 25%, 20%, 15%, ең күштісіне 10%) және пәндерді күн сайын ауыстырыңыз, күніне бір пән оқымаңыз",
             hint: "Spaced repetition means revisiting all subjects regularly, not blocking one subject per day",
             hintRu: "Интервальное повторение означает регулярное возвращение ко всем предметам, а не изучение одного в день",
             hintKk: "Аралықты қайталау — барлық пәндерге үнемі оралу, күніне бір пән емес",
@@ -554,7 +618,9 @@ export const APIB_FULL: Record<string, LessonContent> = {
               { en: "Check for correlation vs. causation: breakfast eating may correlate with higher scores, but other factors (family income, sleep quality) could be the real cause", ru: "Проверяем корреляцию vs. причинность: завтрак может коррелировать с высокими баллами, но настоящей причиной могут быть другие факторы (доход семьи, качество сна)", kk: "Корреляция мен себеп-салдарды тексереміз: таңғы ас жоғары балдармен байланысты болуы мүмкін, бірақ нақты себеп басқа факторлар болуы мүмкін (отбасы табысы, ұйқы сапасы)" },
               { en: "Ask: Who conducted the study? What was the sample size? Were confounding variables controlled?", ru: "Спрашиваем: Кто проводил исследование? Каков размер выборки? Были ли контролируемы мешающие переменные?", kk: "Сұраймыз: Зерттеуді кім жүргізді? Іріктеме көлемі қандай? Бөгет айнымалылар бақыланды ма?" }
             ],
-            answer: "The claim shows correlation, not necessarily causation. We need to know the study design, sample size, and whether confounding variables were controlled."
+            answer: "The claim shows correlation, not necessarily causation. We need to know the study design, sample size, and whether confounding variables were controlled.",
+            answerRu: "Утверждение показывает корреляцию, но не обязательно причинность. Нужно знать дизайн исследования, размер выборки и учитывались ли мешающие переменные.",
+            answerKk: "Мәлімдеме корреляцияны көрсетеді, бірақ міндетті түрде себеп-салдарлықты емес. Зерттеу дизайнын, іріктеме көлемін және бөгет айнымалылардың бақыланғанын білу керек."
           }
         ],
         practiceProblems: [
@@ -564,6 +630,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "В чём разница между фактом и мнением?",
             questionKk: "Факт пен пікірдің айырмашылығы неде?",
             answer: "A fact can be verified with evidence; an opinion is a personal judgment that cannot be objectively proven",
+            answerRu: "Факт можно проверить доказательствами; мнение — это личное суждение, которое нельзя объективно доказать",
+            answerKk: "Фактіні дәлелдермен тексеруге болады; пікір — объективті дәлелдеуге болмайтын жеке пайымдау",
             hint: "Can the statement be tested or measured?",
             hintRu: "Можно ли проверить или измерить утверждение?",
             hintKk: "Мәлімдемені тексеруге немесе өлшеуге бола ма?",
@@ -575,6 +643,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Компания утверждает, что их витамины «повышают иммунитет на 50%». Какие вопросы нужно задать, прежде чем верить этому?",
             questionKk: "Компания өз витамин қоспаларының «иммунитетті 50% арттырады» деп мәлімдейді. Бұған сенбес бұрын қандай сұрақтар қою керек?",
             answer: "Was there a peer-reviewed study? What was the sample size? Was there a control group? How was 'immunity' measured? Who funded the study?",
+            answerRu: "Было ли рецензированное исследование? Каков размер выборки? Была ли контрольная группа? Как измерялся «иммунитет»? Кто финансировал исследование?",
+            answerKk: "Рецензияланған зерттеу болды ма? Іріктеме көлемі қандай? Бақылау тобы болды ма? «Иммунитет» қалай өлшенді? Зерттеуді кім қаржыландырды?",
             hint: "Think about scientific rigor and potential bias",
             hintRu: "Подумайте о научной строгости и возможной предвзятости",
             hintKk: "Ғылыми қатаңдық пен ықтимал біржақтылық туралы ойлаңыз",
@@ -586,6 +656,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Два исследования о влиянии экранного времени на оценки дали противоположные выводы. Исследование A (50 учеников, 1 школа) — нет эффекта. Исследование B (5000 учеников, 100 школ) — отрицательная корреляция. Какое надёжнее и почему?",
             questionKk: "Экран уақыты мен бағалар туралы екі зерттеу қарама-қарсы қорытындыға келді. A зерттеу (50 оқушы, 1 мектеп) — әсер жоқ. B зерттеу (5000 оқушы, 100 мектеп) — теріс корреляция. Қайсысы сенімдірек және неге?",
             answer: "Study B is more reliable due to its much larger sample size (5000 vs 50) and broader representation (100 schools vs 1), which reduces sampling bias and increases statistical power",
+            answerRu: "Исследование B надёжнее благодаря гораздо большему размеру выборки (5000 против 50) и более широкой репрезентативности (100 школ против 1), что снижает систематическую ошибку выборки и повышает статистическую мощность",
+            answerKk: "B зерттеуі анағұрлым сенімдірек, себебі оның іріктемесі әлдеқайда үлкен (5000-ға қарсы 50) және өкілдігі кеңірек (100 мектепке қарсы 1), бұл іріктеме қателігін азайтып, статистикалық қуатты арттырады",
             hint: "Consider sample size and diversity of participants",
             hintRu: "Учтите размер выборки и разнообразие участников",
             hintKk: "Іріктеме көлемі мен қатысушылар алуантүрлілігін ескеріңіз",
@@ -617,7 +689,9 @@ export const APIB_FULL: Record<string, LessonContent> = {
               { en: "Engineering requires strong STEM foundations: physics, calculus, and programming are directly relevant", ru: "Инженерия требует сильную базу STEM: физика, матанализ и программирование напрямую относятся к специальности", kk: "Инженерия күшті STEM негізін талап етеді: физика, калькулюс және бағдарламалау тікелей қатысты" },
               { en: "Option B aligns with engineering prerequisites; Option A, while valuable, does not build STEM skills", ru: "Вариант B соответствует предпосылкам инженерии; вариант A, хотя и ценен, не развивает STEM-навыки", kk: "B нұсқасы инженерия алдын ала талаптарына сәйкес; A нұсқасы құнды болғанымен, STEM дағдыларын дамытпайды" }
             ],
-            answer: "Option B — AP Physics 1, AP Calc AB, AP Computer Science — best supports an engineering major."
+            answer: "Option B — AP Physics 1, AP Calc AB, AP Computer Science — best supports an engineering major.",
+            answerRu: "Вариант B — AP Physics 1, AP Calc AB, AP Computer Science — лучше всего поддерживает инженерную специальность.",
+            answerKk: "B нұсқасы — AP Physics 1, AP Calc AB, AP Computer Science — инженерия мамандығын жақсы қолдайды."
           }
         ],
         practiceProblems: [
@@ -627,6 +701,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Сколько курсов AP эксперты рекомендуют начинать в 9-10 классе?",
             questionKk: "Сарапшылар 9-10 сыныпта қанша AP курсынан бастауды ұсынады?",
             answer: "1-2",
+            answerRu: "1-2",
+            answerKk: "1-2",
             hint: "Start small and build up gradually",
             hintRu: "Начните с малого и постепенно увеличивайте",
             hintKk: "Аздан бастап, біртіндеп арттырыңыз",
@@ -638,6 +714,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Ученик хочет изучать медицину. Что приоритетнее — AP Biology и AP Chemistry, или AP European History и AP Art History? Почему?",
             questionKk: "Оқушы медицина оқығысы келеді. AP Biology мен AP Chemistry-ге басымдық беру керек пе, әлде AP European History мен AP Art History-ге ме? Неге?",
             answer: "AP Biology and AP Chemistry — they are direct prerequisites for medical school and demonstrate science competency",
+            answerRu: "AP Biology и AP Chemistry — они являются прямыми предпосылками для медицинской школы и демонстрируют научную компетентность",
+            answerKk: "AP Biology және AP Chemistry — олар медицина мектебі үшін тікелей алдын ала талап және ғылыми құзыреттілікті көрсетеді",
             hint: "Think about what courses medical schools require",
             hintRu: "Подумайте, какие курсы требуют медицинские школы",
             hintKk: "Медицина мектептерінің қандай курстарды талап ететінін ойлаңыз",
@@ -649,6 +727,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "У ученика баллы AP: Calc AB (5), Physics 1 (3), English Lang (4), Biology (2). Целевой университет засчитывает только 4+. Как скорректировать план на выпускной класс?",
             questionKk: "Оқушының AP балдары: Calc AB (5), Physics 1 (3), English Lang (4), Biology (2). Мақсатты университет тек 4+ қабылдайды. Бітіру сынып жоспарын қалай түзету керек?",
             answer: "Retake AP Biology (scored 2) to improve, consider AP Physics C to build on Physics 1 knowledge, take AP Calc BC to advance from the 5 in AB, and continue humanities strength with AP English Lit",
+            answerRu: "Пересдать AP Biology (балл 2), рассмотреть AP Physics C для развития знаний Physics 1, взять AP Calc BC для развития от 5 по AB и продолжить гуманитарную силу с AP English Lit",
+            answerKk: "AP Biology-ні қайта тапсыру (балы 2) керек, Physics 1 біліміне негізделген AP Physics C қарастыру, AB-дегі 5-тен дамыту үшін AP Calc BC алу және AP English Lit-пен гуманитарлық күшті жалғастыру",
             hint: "Focus on improving weak scores and advancing strong ones",
             hintRu: "Сосредоточьтесь на улучшении слабых баллов и развитии сильных",
             hintKk: "Әлсіз балдарды жақсартуға және күштілерді дамытуға шоғырланыңыз",
@@ -690,7 +770,9 @@ export const APIB_FULL: Record<string, LessonContent> = {
               { en: "SA = 6 × (2)² = 24 μm²; V = (2)³ = 8 μm³", ru: "SA = 6 × (2)² = 24 мкм²; V = (2)³ = 8 мкм³", kk: "SA = 6 × (2)² = 24 мкм²; V = (2)³ = 8 мкм³" },
               { en: "SA:V = 24/8 = 3:1", ru: "SA:V = 24/8 = 3:1", kk: "SA:V = 24/8 = 3:1" }
             ],
-            answer: "SA:V = 3:1"
+            answer: "SA:V = 3:1",
+            answerRu: "SA:V = 3:1",
+            answerKk: "SA:V = 3:1"
           }
         ],
         practiceProblems: [
@@ -700,6 +782,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Какую органеллу называют «электростанцией клетки»?",
             questionKk: "Қай органелла «жасушаның энергия станциясы» деп аталады?",
             answer: "Mitochondria",
+            answerRu: "Митохондрии",
+            answerKk: "Митохондрия",
             hint: "It produces ATP through cellular respiration",
             hintRu: "Она производит АТФ через клеточное дыхание",
             hintKk: "Ол жасушалық тыныс алу арқылы АТФ өндіреді",
@@ -711,6 +795,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Назовите две органеллы, которые есть в растительных клетках, но отсутствуют в животных.",
             questionKk: "Өсімдік жасушаларында бар, бірақ жануар жасушаларында жоқ екі органелланы атаңыз.",
             answer: "Cell wall and chloroplasts",
+            answerRu: "Клеточная стенка и хлоропласты",
+            answerKk: "Жасуша қабырғасы және хлоропласттар",
             hint: "Think about what plants need for photosynthesis and structural support",
             hintRu: "Подумайте, что нужно растениям для фотосинтеза и структурной поддержки",
             hintKk: "Өсімдіктерге фотосинтез және құрылымдық қолдау үшін не керек екенін ойлаңыз",
@@ -722,6 +808,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Куб-клетка со стороной 4 мкм имеет SA:V = 1,5. Куб-клетка со стороной 1 мкм имеет SA:V = 6. Объясните, почему большинство клеток маленькие.",
             questionKk: "Қабырғасы 4 мкм куб жасушаның SA:V = 1,5. Қабырғасы 1 мкм куб жасушаның SA:V = 6. Неге көптеген жасушалар кішкентай екенін түсіндіріңіз.",
             answer: "Smaller cells have a higher SA:V ratio, allowing more efficient nutrient exchange and waste removal per unit volume. Large cells cannot transport materials fast enough to sustain their volume.",
+            answerRu: "Меньшие клетки имеют более высокое соотношение SA:V, что обеспечивает более эффективный обмен веществ и удаление отходов на единицу объёма. Крупные клетки не могут транспортировать вещества достаточно быстро для поддержания своего объёма.",
+            answerKk: "Кіші жасушаларда SA:V қатынасы жоғарырақ, бұл көлем бірлігіне қоректік алмасу мен қалдықтарды шығаруды тиімдірек етеді. Үлкен жасушалар өз көлемін қолдау үшін заттарды жеткілікті тез тасымалдай алмайды.",
             hint: "Think about how nutrients enter and wastes exit through the surface",
             hintRu: "Подумайте, как питательные вещества входят и отходы выходят через поверхность",
             hintKk: "Қоректік заттардың бет арқылы қалай кіретінін және қалдықтардың қалай шығатынын ойлаңыз",
@@ -753,7 +841,9 @@ export const APIB_FULL: Record<string, LessonContent> = {
               { en: "Look at the balanced equation: 6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂", ru: "Смотрим уравненное уравнение: 6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂", kk: "Теңестірілген теңдеуге қараймыз: 6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂" },
               { en: "The coefficient in front of CO₂ is 6, meaning 6 molecules of CO₂ are needed per glucose", ru: "Коэффициент перед CO₂ равен 6, значит нужно 6 молекул CO₂ на молекулу глюкозы", kk: "CO₂ алдындағы коэффициент 6, яғни бір глюкозаға 6 молекула CO₂ қажет" }
             ],
-            answer: "6 molecules of CO₂"
+            answer: "6 molecules of CO₂",
+            answerRu: "6 молекул CO₂",
+            answerKk: "6 молекула CO₂"
           }
         ],
         practiceProblems: [
@@ -763,6 +853,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "В какой органелле происходит фотосинтез?",
             questionKk: "Фотосинтез қай органеллада жүреді?",
             answer: "Chloroplast",
+            answerRu: "Хлоропласт",
+            answerKk: "Хлоропласт",
             hint: "It contains the green pigment chlorophyll",
             hintRu: "Она содержит зелёный пигмент хлорофилл",
             hintKk: "Онда жасыл пигмент хлорофилл бар",
@@ -774,6 +866,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Каковы два продукта фотосинтеза?",
             questionKk: "Фотосинтездің екі өнімі қандай?",
             answer: "Glucose (C₆H₁₂O₆) and oxygen (O₂)",
+            answerRu: "Глюкоза (C₆H₁₂O₆) и кислород (O₂)",
+            answerKk: "Глюкоза (C₆H₁₂O₆) және оттегі (O₂)",
             hint: "Look at the right side of the photosynthesis equation",
             hintRu: "Посмотрите на правую часть уравнения фотосинтеза",
             hintKk: "Фотосинтез теңдеуінің оң жағына қараңыз",
@@ -785,6 +879,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Если растение поместить в герметичный контейнер с CO₂, но без света, будет ли оно производить кислород? Объясните.",
             questionKk: "Егер өсімдік CO₂ бар, бірақ жарықсыз тұйық ыдысқа қойылса, ол оттегі өндіре ме? Түсіндіріңіз.",
             answer: "No — photosynthesis requires light energy to drive the light-dependent reactions. Without light, the process cannot proceed, and no oxygen is produced. The plant will only perform cellular respiration, consuming O₂.",
+            answerRu: "Нет — фотосинтез требует световой энергии для светозависимых реакций. Без света процесс не может происходить, кислород не образуется. Растение будет только осуществлять клеточное дыхание, потребляя O₂.",
+            answerKk: "Жоқ — фотосинтез жарыққа тәуелді реакциялар үшін жарық энергиясын қажет етеді. Жарықсыз процесс жүрмейді, оттегі өндірілмейді. Өсімдік тек жасушалық тыныс алуды жүзеге асырып, O₂ жұмсайды.",
             hint: "Think about the role of light in the photosynthesis equation",
             hintRu: "Подумайте о роли света в уравнении фотосинтеза",
             hintKk: "Фотосинтез теңдеуіндегі жарықтың рөлін ойлаңыз",
@@ -822,7 +918,9 @@ export const APIB_FULL: Record<string, LessonContent> = {
               { en: "Protons = atomic number = 6; Electrons = protons (neutral atom) = 6", ru: "Протоны = атомный номер = 6; Электроны = протоны (нейтральный атом) = 6", kk: "Протондар = атомдық нөмір = 6; Электрондар = протондар (бейтарап атом) = 6" },
               { en: "Neutrons = mass number − protons = 14 − 6 = 8", ru: "Нейтроны = массовое число − протоны = 14 − 6 = 8", kk: "Нейтрондар = массалық сан − протондар = 14 − 6 = 8" }
             ],
-            answer: "6 protons, 8 neutrons, 6 electrons"
+            answer: "6 protons, 8 neutrons, 6 electrons",
+            answerRu: "6 протонов, 8 нейтронов, 6 электронов",
+            answerKk: "6 протон, 8 нейтрон, 6 электрон"
           }
         ],
         practiceProblems: [
@@ -832,6 +930,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Каков атомный номер кислорода (O)?",
             questionKk: "Оттегінің (O) атомдық нөмірі қанша?",
             answer: "8",
+            answerRu: "8",
+            answerKk: "8",
             hint: "Look at the periodic table — atomic number is above the symbol",
             hintRu: "Посмотрите в таблицу Менделеева — атомный номер над символом",
             hintKk: "Периодтық кестеге қараңыз — атомдық нөмір символдың үстінде",
@@ -843,6 +943,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Сколько нейтронов в атоме натрия-23 (Na, Z=11)?",
             questionKk: "Натрий-23 (Na, Z=11) атомында қанша нейтрон бар?",
             answer: "12",
+            answerRu: "12",
+            answerKk: "12",
             hint: "N = A − Z = 23 − 11",
             hintRu: "N = A − Z = 23 − 11",
             hintKk: "N = A − Z = 23 − 11",
@@ -854,6 +956,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Хлор имеет два стабильных изотопа: Cl-35 (75,77%) и Cl-37 (24,23%). Вычислите среднюю атомную массу.",
             questionKk: "Хлордың екі тұрақты изотопы бар: Cl-35 (75,77%) және Cl-37 (24,23%). Орташа атомдық массаны есептеңіз.",
             answer: "35.48 amu",
+            answerRu: "35,48 а.е.м.",
+            answerKk: "35,48 а.б.б.",
             hint: "Average = (35 × 0.7577) + (37 × 0.2423)",
             hintRu: "Среднее = (35 × 0,7577) + (37 × 0,2423)",
             hintKk: "Орташа = (35 × 0,7577) + (37 × 0,2423)",
@@ -891,7 +995,9 @@ export const APIB_FULL: Record<string, LessonContent> = {
               { en: "Both are in Period 3. Na is on the left (Group 1), Cl is on the right (Group 17)", ru: "Оба в 3 периоде. Na слева (группа 1), Cl справа (группа 17)", kk: "Екеуі де 3 периодта. Na сол жақта (1 топ), Cl оң жақта (17 топ)" },
               { en: "Atomic radius decreases left to right across a period, so Na > Cl", ru: "Атомный радиус уменьшается слева направо по периоду, значит Na > Cl", kk: "Атомдық радиус период бойынша солдан оңға кішірейеді, сондықтан Na > Cl" }
             ],
-            answer: "Na (sodium) has a larger atomic radius than Cl"
+            answer: "Na (sodium) has a larger atomic radius than Cl",
+            answerRu: "Na (натрий) имеет больший атомный радиус, чем Cl",
+            answerKk: "Na (натрий) атомдық радиусы Cl-ден үлкен"
           }
         ],
         practiceProblems: [
@@ -901,6 +1007,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Какой элемент более электроотрицателен: кислород или сера?",
             questionKk: "Қай элемент электртерістігірек: оттегі немесе күкірт?",
             answer: "Oxygen",
+            answerRu: "Кислород",
+            answerKk: "Оттегі",
             hint: "Electronegativity increases going up a group",
             hintRu: "Электроотрицательность увеличивается вверх по группе",
             hintKk: "Электртерістік топ бойынша жоғары қарай артады",
@@ -912,6 +1020,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Расположите элементы в порядке увеличения атомного радиуса: K, Na, Li.",
             questionKk: "Элементтерді атомдық радиустың артуы бойынша орналастырыңыз: K, Na, Li.",
             answer: "Li < Na < K",
+            answerRu: "Li < Na < K",
+            answerKk: "Li < Na < K",
             hint: "All are in Group 1; atomic radius increases going down",
             hintRu: "Все в группе 1; атомный радиус увеличивается вниз",
             hintKk: "Барлығы 1 топта; атомдық радиус төмен қарай артады",
@@ -923,6 +1033,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Объясните, почему первая энергия ионизации Mg (738 кДж/моль) выше, чем у Al (577 кДж/моль), хотя Al правее Mg.",
             questionKk: "Неге Mg-ның бірінші иондану энергиясы (738 кДж/моль) Al-дан (577 кДж/моль) жоғары, Al оң жақта тұрса да?",
             answer: "Mg has a full 3s² sublevel which is extra stable. Al's outer electron is in 3p¹, which is easier to remove because p orbitals are higher in energy and less shielded than s orbitals.",
+            answerRu: "У Mg заполненный подуровень 3s², который особенно стабилен. Внешний электрон Al находится на 3p¹, его легче удалить, так как p-орбитали имеют более высокую энергию и хуже экранированы, чем s-орбитали.",
+            answerKk: "Mg-да толық 3s² деңгейшесі бар, ол ерекше тұрақты. Al-дың сыртқы электроны 3p¹-де орналасқан, оны алу оңайырақ, себебі p-орбитальдар энергиясы жоғары және s-орбитальдарға қарағанда нашар экрандалған.",
             hint: "Think about electron configuration stability — full sublevels are extra stable",
             hintRu: "Подумайте о стабильности электронной конфигурации — полные подуровни особенно стабильны",
             hintKk: "Электрон конфигурациясының тұрақтылығын ойлаңыз — толық деңгейшелер ерекше тұрақты",
@@ -960,7 +1072,9 @@ export const APIB_FULL: Record<string, LessonContent> = {
               { en: "Fx = 10 × cos 30° = 10 × 0.866 = 8.66 N", ru: "Fx = 10 × cos 30° = 10 × 0,866 = 8,66 Н", kk: "Fx = 10 × cos 30° = 10 × 0,866 = 8,66 Н" },
               { en: "Fy = 10 × sin 30° = 10 × 0.5 = 5.0 N", ru: "Fy = 10 × sin 30° = 10 × 0,5 = 5,0 Н", kk: "Fy = 10 × sin 30° = 10 × 0,5 = 5,0 Н" }
             ],
-            answer: "Fx = 8.66 N, Fy = 5.0 N"
+            answer: "Fx = 8.66 N, Fy = 5.0 N",
+            answerRu: "Fx = 8,66 Н, Fy = 5,0 Н",
+            answerKk: "Fx = 8,66 Н, Fy = 5,0 Н"
           }
         ],
         practiceProblems: [
@@ -970,6 +1084,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Температура — вектор или скаляр?",
             questionKk: "Температура — вектор ма, скаляр ма?",
             answer: "Scalar",
+            answerRu: "Скаляр",
+            answerKk: "Скаляр",
             hint: "Does temperature have a direction?",
             hintRu: "Имеет ли температура направление?",
             hintKk: "Температураның бағыты бар ма?",
@@ -981,6 +1097,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Найдите модуль вектора с компонентами Vx = 3 и Vy = 4.",
             questionKk: "Vx = 3 және Vy = 4 компоненттері бар вектордың модулін табыңыз.",
             answer: "5",
+            answerRu: "5",
+            answerKk: "5",
             hint: "Use the Pythagorean theorem: |V| = √(3² + 4²)",
             hintRu: "Используйте теорему Пифагора: |V| = √(3² + 4²)",
             hintKk: "Пифагор теоремасын қолданыңыз: |V| = √(3² + 4²)",
@@ -992,6 +1110,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "На объект действуют две силы: F₁ = 6 Н на восток и F₂ = 8 Н на север. Найдите модуль и направление результирующей силы.",
             questionKk: "Нысанға екі күш әрекет етеді: F₁ = 6 Н шығысқа және F₂ = 8 Н солтүстікке. Қорытқы күштің модулі мен бағытын табыңыз.",
             answer: "10 N at 53.1° north of east",
+            answerRu: "10 Н под углом 53,1° к северу от востока",
+            answerKk: "10 Н, шығыстан солтүстікке қарай 53,1° бұрышпен",
             hint: "Magnitude = √(6² + 8²); angle = arctan(8/6)",
             hintRu: "Модуль = √(6² + 8²); угол = arctan(8/6)",
             hintKk: "Модуль = √(6² + 8²); бұрыш = arctan(8/6)",
@@ -1023,7 +1143,9 @@ export const APIB_FULL: Record<string, LessonContent> = {
               { en: "Displacement = area under v-t graph = base × height for a rectangle", ru: "Перемещение = площадь под графиком v-t = основание × высота для прямоугольника", kk: "Орын ауыстыру = v-t графигінің астындағы аудан = тіктөртбұрыш үшін негіз × биіктік" },
               { en: "Displacement = 5 m/s × 4 s = 20 m", ru: "Перемещение = 5 м/с × 4 с = 20 м", kk: "Орын ауыстыру = 5 м/с × 4 с = 20 м" }
             ],
-            answer: "20 m"
+            answer: "20 m",
+            answerRu: "20 м",
+            answerKk: "20 м"
           }
         ],
         practiceProblems: [
@@ -1033,6 +1155,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "На графике положение-время что означает горизонтальная линия?",
             questionKk: "Орын-уақыт графигінде көлденең сызық нені білдіреді?",
             answer: "The object is at rest (not moving)",
+            answerRu: "Объект находится в состоянии покоя (не движется)",
+            answerKk: "Нысан тыныштық күйінде (қозғалмайды)",
             hint: "A horizontal line means position is not changing",
             hintRu: "Горизонтальная линия означает, что положение не меняется",
             hintKk: "Көлденең сызық орынның өзгермейтінін білдіреді",
@@ -1044,6 +1168,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "График положение-время показывает прямую от (0, 0) до (5, 15). Какова скорость?",
             questionKk: "Орын-уақыт графигі (0, 0)-ден (5, 15)-ке дейінгі түзу сызықты көрсетеді. Жылдамдық қандай?",
             answer: "3 m/s",
+            answerRu: "3 м/с",
+            answerKk: "3 м/с",
             hint: "Velocity = slope = Δx/Δt = (15-0)/(5-0)",
             hintRu: "Скорость = наклон = Δx/Δt = (15-0)/(5-0)",
             hintKk: "Жылдамдық = көлбеу = Δx/Δt = (15-0)/(5-0)",
@@ -1055,6 +1181,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "График v-t показывает линейное увеличение скорости от 0 до 10 м/с за 4 секунды, затем постоянную скорость 10 м/с в течение 3 секунд. Каково общее перемещение?",
             questionKk: "v-t графигі жылдамдықтың 4 секундта 0-ден 10 м/с-ке дейін сызықтық артуын, содан кейін 3 секунд бойы 10 м/с тұрақты жылдамдықты көрсетеді. Жалпы орын ауыстыру қандай?",
             answer: "50 m",
+            answerRu: "50 м",
+            answerKk: "50 м",
             hint: "Area = triangle (½ × 4 × 10) + rectangle (3 × 10)",
             hintRu: "Площадь = треугольник (½ × 4 × 10) + прямоугольник (3 × 10)",
             hintKk: "Аудан = үшбұрыш (½ × 4 × 10) + тіктөртбұрыш (3 × 10)",
@@ -1086,7 +1214,9 @@ export const APIB_FULL: Record<string, LessonContent> = {
               { en: "Apply inclusion-exclusion: n(S ∪ B) = n(S) + n(B) − n(S ∩ B) = 18 + 12 − 5", ru: "Применяем включение-исключение: n(S ∪ B) = n(S) + n(B) − n(S ∩ B) = 18 + 12 − 5", kk: "Қосу-алу принципін қолданамыз: n(S ∪ B) = n(S) + n(B) − n(S ∩ B) = 18 + 12 − 5" },
               { en: "n(S ∪ B) = 25 students play at least one sport", ru: "n(S ∪ B) = 25 учеников играют хотя бы в один спорт", kk: "n(S ∪ B) = 25 оқушы кем дегенде бір спортпен шұғылданады" }
             ],
-            answer: "25 students"
+            answer: "25 students",
+            answerRu: "25 учеников",
+            answerKk: "25 оқушы"
           }
         ],
         practiceProblems: [
@@ -1096,6 +1226,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Если A = {1, 2, 3} и B = {3, 4, 5}, что такое A ∩ B?",
             questionKk: "Егер A = {1, 2, 3} және B = {3, 4, 5} болса, A ∩ B нені білдіреді?",
             answer: "{3}",
+            answerRu: "{3}",
+            answerKk: "{3}",
             hint: "Intersection means elements in BOTH sets",
             hintRu: "Пересечение — элементы, принадлежащие ОБОИМ множествам",
             hintKk: "Қиылысу — ЕКЕУ жиынға да тиесілі элементтер",
@@ -1107,6 +1239,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Множество A содержит 15 элементов, B — 10, A ∩ B — 4. Сколько элементов в A ∪ B?",
             questionKk: "A жиынында 15 элемент, B-де 10, A ∩ B-де 4 элемент бар. A ∪ B-де қанша элемент бар?",
             answer: "21",
+            answerRu: "21",
+            answerKk: "21",
             hint: "Use n(A ∪ B) = n(A) + n(B) − n(A ∩ B)",
             hintRu: "Используйте n(A ∪ B) = n(A) + n(B) − n(A ∩ B)",
             hintKk: "n(A ∪ B) = n(A) + n(B) − n(A ∩ B) қолданыңыз",
@@ -1118,6 +1252,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Дано высказывание p: «Идёт дождь» и q: «Я беру зонт». Запишите символическую форму и определите, логически ли эквивалентно выражение «Если НЕ идёт дождь, то я НЕ беру зонт» выражению p → q.",
             questionKk: "p: «Жаңбыр жауып тұр» және q: «Мен қолшатыр аламын» пропозициялары берілген. «Егер жаңбыр жаумаса, мен қолшатыр алмаймын» символдық формасын жазыңыз. Бұл p → q-ға логикалық эквивалент пе?",
             answer: "¬p → ¬q (inverse of p → q). This is NOT logically equivalent to p → q. It is equivalent to q → p (the converse).",
+            answerRu: "¬p → ¬q (обратное к p → q). Оно НЕ логически эквивалентно p → q. Оно эквивалентно q → p (обращению).",
+            answerKk: "¬p → ¬q (p → q-ға кері). Бұл p → q-ға логикалық эквивалент ЕМЕС. Ол q → p-ға (айналдырылғанға) эквивалент.",
             hint: "The inverse ¬p → ¬q is NOT the same as the original p → q; it equals the converse q → p",
             hintRu: "Обратное ¬p → ¬q НЕ равно исходному p → q; оно равно обращению q → p",
             hintKk: "Кері ¬p → ¬q бастапқы p → q-ға ТЕҢ ЕМЕС; ол q → p-ға тең",
@@ -1149,7 +1285,9 @@ export const APIB_FULL: Record<string, LessonContent> = {
               { en: "Identify the device: This is a metaphor — it directly compares the classroom to a zoo without using 'like' or 'as'", ru: "Определяем приём: Это метафора — прямое сравнение класса с зоопарком без слов «как» или «подобно»", kk: "Тәсілді анықтаймыз: Бұл метафора — сынып хайуанатханамен «сияқты» сөзінсіз тікелей салыстырылады" },
               { en: "Explain the effect: It creates a vivid image of chaos and noise, suggesting the students are loud and uncontrolled", ru: "Объясняем эффект: Создаёт яркий образ хаоса и шума, предполагая, что ученики громкие и неуправляемые", kk: "Әсерін түсіндіреміз: Бұл тәртіпсіздік пен шудың жарқын бейнесін жасайды, оқушылардың шулы және бақыланбайтынын білдіреді" }
             ],
-            answer: "Metaphor — it vividly conveys the chaotic, noisy atmosphere of the classroom."
+            answer: "Metaphor — it vividly conveys the chaotic, noisy atmosphere of the classroom.",
+            answerRu: "Метафора — она ярко передаёт хаотичную, шумную атмосферу класса.",
+            answerKk: "Метафора — ол сыныптың тәртіпсіз, шулы атмосферасын жарқын жеткізеді."
           }
         ],
         practiceProblems: [
@@ -1159,6 +1297,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Какой литературный приём использован в: «Её улыбка была как солнечный свет»?",
             questionKk: "«Оның күлкісі күн сәулесіндей болды» сөйлемінде қандай әдеби тәсіл қолданылған?",
             answer: "Simile",
+            answerRu: "Сравнение (симиле)",
+            answerKk: "Теңеу (симиле)",
             hint: "Look for comparison words: 'like' or 'as'",
             hintRu: "Ищите слова сравнения: «как» или «подобно»",
             hintKk: "Салыстыру сөздерін іздеңіз: «сияқты» немесе «тәрізді»",
@@ -1170,6 +1310,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "В рассказе о тонущем корабле персонаж говорит: «Какой прекрасный день для плавания!» Какой это литературный приём?",
             questionKk: "Батып жатқан кеме туралы әңгімеде кейіпкер: «Жүзуге қандай тамаша күн!» дейді. Бұл қандай әдеби тәсіл?",
             answer: "Verbal irony (or situational irony) — the character says the opposite of the reality",
+            answerRu: "Словесная ирония (или ситуативная ирония) — персонаж говорит противоположное реальности",
+            answerKk: "Сөздік ирония (немесе жағдаяттық ирония) — кейіпкер шындыққа қарама-қайшы нәрсе айтады",
             hint: "When someone says the opposite of what the situation suggests",
             hintRu: "Когда кто-то говорит противоположное тому, что предполагает ситуация",
             hintKk: "Біреу жағдайға қарама-қайшы нәрсе айтқанда",
@@ -1181,6 +1323,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Напишите абзац PEE, анализируя: «В «1984» Оруэлла лозунг ВОЙНА — ЭТО МИР использует оксюморон». Дополните доказательство и объяснение.",
             questionKk: "PEE параграфын жазыңыз: «Оруэллдің 1984 романында «СОҒЫС — БҰЛ БЕЙБІТШІЛІК» ұраны оксюморон қолданады». Дәлелдеме мен түсіндірмені толтырыңыз.",
             answer: "Point: Orwell uses oxymoron. Evidence: 'WAR IS PEACE' combines contradictory terms. Explanation: This reveals how the totalitarian government manipulates language to control thought — by making citizens accept contradictions as truth, the Party eliminates critical thinking.",
+            answerRu: "Утверждение: Оруэлл использует оксюморон. Доказательство: «ВОЙНА — ЭТО МИР» объединяет противоречивые термины. Объяснение: это показывает, как тоталитарное правительство манипулирует языком для контроля мышления — заставляя граждан принимать противоречия за истину, Партия устраняет критическое мышление.",
+            answerKk: "Мәлімдеме: Оруэлл оксюморон қолданады. Дәлелдеме: «СОҒЫС — БҰЛ БЕЙБІТШІЛІК» қарама-қайшы терминдерді біріктіреді. Түсіндірме: бұл тоталитарлық үкіметтің ойлауды бақылау үшін тілді қалай манипуляциялайтынын көрсетеді — азаматтарды қайшылықтарды ақиқат деп қабылдатып, Партия сыни ойлауды жояды.",
             hint: "Connect the oxymoron to the theme of language manipulation and totalitarian control",
             hintRu: "Свяжите оксюморон с темой манипуляции языком и тоталитарного контроля",
             hintKk: "Оксюморонды тіл манипуляциясы мен тоталитарлық бақылау тақырыбымен байланыстырыңыз",
@@ -1218,7 +1362,9 @@ export const APIB_FULL: Record<string, LessonContent> = {
               { en: "Apply the formula: Density = Population / Area = 50,000,000 / 200,000", ru: "Применяем формулу: Плотность = Население / Площадь = 50 000 000 / 200 000", kk: "Формуланы қолданамыз: Тығыздық = Халық / Аудан = 50 000 000 / 200 000" },
               { en: "Density = 250 people per km²", ru: "Плотность = 250 человек на км²", kk: "Тығыздық = 250 адам/км²" }
             ],
-            answer: "250 people/km²"
+            answer: "250 people/km²",
+            answerRu: "250 человек/км²",
+            answerKk: "250 адам/км²"
           }
         ],
         practiceProblems: [
@@ -1228,6 +1374,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Как называется перемещение людей из сельских районов в города?",
             questionKk: "Адамдардың ауылдық жерлерден қалаларға көшуі қалай аталады?",
             answer: "Urbanization",
+            answerRu: "Урбанизация",
+            answerKk: "Урбанизация",
             hint: "It is related to the word 'urban'",
             hintRu: "Это связано со словом «городской»",
             hintKk: "Бұл «қалалық» сөзімен байланысты",
@@ -1239,6 +1387,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "В стране уровень рождаемости 25 на 1000, смертности — 10 на 1000. Каков естественный прирост?",
             questionKk: "Елдің туу коэффициенті 1000-ға 25, өлім коэффициенті 1000-ға 10. Табиғи өсу жылдамдығы қандай?",
             answer: "15 per 1000 (or 1.5%)",
+            answerRu: "15 на 1000 (или 1,5%)",
+            answerKk: "1000-ға 15 (немесе 1,5%)",
             hint: "NIR = Birth Rate − Death Rate",
             hintRu: "ЕП = Рождаемость − Смертность",
             hintKk: "ТӨ = Туу коэффициенті − Өлім коэффициенті",
@@ -1250,6 +1400,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Объясните, почему Бангладеш (плотность ~1200/км²) намного гуще населён, чем Австралия (~3/км²), учитывая физические и человеческие факторы.",
             questionKk: "Неге Бангладеш (тығыздығы ~1200/км²) Австралиядан (~3/км²) әлдеқайда тығыз қоныстанған, физикалық және адами факторларды ескере отырып түсіндіріңіз.",
             answer: "Bangladesh: fertile river delta (Ganges-Brahmaputra), monsoon climate supports rice farming, small land area. Australia: vast interior desert (arid), population concentrated on coasts, large land area with low agricultural potential inland.",
+            answerRu: "Бангладеш: плодородная речная дельта (Ганг-Брахмапутра), муссонный климат поддерживает рисоводство, небольшая площадь. Австралия: обширная внутренняя пустыня (засушливая), население сосредоточено на побережьях, большая площадь с низким сельскохозяйственным потенциалом внутри страны.",
+            answerKk: "Бангладеш: құнарлы өзен атырауы (Ганг-Брахмапутра), муссондық климат күріш өсіруге қолайлы, аумағы кіші. Австралия: кең ішкі шөл (құрғақ), халық жағалауларда шоғырланған, аумағы үлкен, бірақ ішкі бөлігінде ауыл шаруашылық әлеуеті төмен.",
             hint: "Consider climate, farming potential, land area, and where people can actually live",
             hintRu: "Учтите климат, сельскохозяйственный потенциал, площадь и где люди могут реально жить",
             hintKk: "Климатты, ауыл шаруашылық әлеуетін, аумақты және адамдардың нақты тұра алатын жерін ескеріңіз",
@@ -1281,7 +1433,9 @@ export const APIB_FULL: Record<string, LessonContent> = {
               { en: "Identify the prerequisite gap: AP Physics C requires concurrent or prior calculus (AP Calc AB minimum)", ru: "Определяем пробел: AP Physics C требует одновременного или предварительного изучения матанализа (минимум AP Calc AB)", kk: "Алдын ала талап олқылығын анықтаймыз: AP Physics C бір мезгілде немесе алдын ала калькулюсты талап етеді (кемінде AP Calc AB)" },
               { en: "Better path: Take AP Physics 1 in 9th grade, AP Calc AB in 10th, then AP Physics C in 11th", ru: "Лучший путь: AP Physics 1 в 9 классе, AP Calc AB в 10 классе, затем AP Physics C в 11 классе", kk: "Жақсы жол: 9-сыныпта AP Physics 1, 10-сыныпта AP Calc AB, содан кейін 11-сыныпта AP Physics C" }
             ],
-            answer: "Take AP Physics 1 first, build calculus skills, then take AP Physics C in a later year."
+            answer: "Take AP Physics 1 first, build calculus skills, then take AP Physics C in a later year.",
+            answerRu: "Сначала возьмите AP Physics 1, развейте навыки матанализа, затем возьмите AP Physics C в следующем году.",
+            answerKk: "Алдымен AP Physics 1 алыңыз, калькулюс дағдыларын дамытыңыз, содан кейін кейінгі жылы AP Physics C алыңыз."
           }
         ],
         practiceProblems: [
@@ -1291,6 +1445,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Нужно ли проходить AP Calculus BC до AP Calculus AB?",
             questionKk: "AP Calculus AB алдында AP Calculus BC алу керек пе?",
             answer: "No — AP Calc AB is the prerequisite for BC (AB content is included in BC)",
+            answerRu: "Нет — AP Calc AB является предпосылкой для BC (содержание AB включено в BC)",
+            answerKk: "Жоқ — AP Calc AB BC үшін алдын ала талап (AB мазмұны BC-ге кіреді)",
             hint: "Think about which course is more advanced",
             hintRu: "Подумайте, какой курс более продвинутый",
             hintKk: "Қай курс жоғарырақ деңгейлі екенін ойлаңыз",
@@ -1302,6 +1458,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Ученик берёт 5 AP-курсов в 11 классе, и GPA падает с 3,8 до 3,2. Было ли это хорошим решением? Почему?",
             questionKk: "Оқушы 11-сыныпта 5 AP курсын алады және GPA 3,8-ден 3,2-ге түседі. Бұл дұрыс шешім бе? Неге?",
             answer: "Likely not — a significant GPA drop suggests overloading. Colleges prefer strong grades in fewer APs over poor grades in many. 3-4 APs with a 3.8 GPA is stronger than 5 APs with a 3.2.",
+            answerRu: "Скорее всего нет — значительное падение GPA указывает на перегрузку. Вузы предпочитают высокие оценки в меньшем числе AP, чем низкие во многих. 3-4 AP с GPA 3,8 сильнее, чем 5 AP с 3,2.",
+            answerKk: "Ықтимал жоқ — GPA-дың айтарлықтай төмендеуі шамадан тыс жүктемені білдіреді. Университеттер көп AP-тегі нашар бағалардан гөрі аз AP-тегі жоғары бағаларды жөн көреді. GPA 3,8-мен 3-4 AP, GPA 3,2-мен 5 AP-ден күштірек.",
             hint: "Colleges look at both course rigor AND grades",
             hintRu: "Вузы смотрят и на сложность курсов, И на оценки",
             hintKk: "Университеттер курс қатаңдығын ДА, бағаларды ДА қарайды",
@@ -1313,6 +1471,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Составьте 4-летний план AP для будущего студента медицины, который сейчас в 8 классе. Включите минимум 2 AP в год начиная с 10 класса.",
             questionKk: "Қазір 8-сыныптағы болашақ медицина студенті үшін 4 жылдық AP жоспарын жасаңыз. 10-сыныптан бастап жылына кемінде 2 AP қосыңыз.",
             answer: "Grade 9: Honors Bio, Honors Chem (prep). Grade 10: AP Biology, AP Chemistry. Grade 11: AP Calc AB, AP Physics 1, AP English Lang. Grade 12: AP Calc BC, AP Physics C, AP Psychology, AP Statistics.",
+            answerRu: "9 класс: углублённая биология, углублённая химия (подготовка). 10 класс: AP Biology, AP Chemistry. 11 класс: AP Calc AB, AP Physics 1, AP English Lang. 12 класс: AP Calc BC, AP Physics C, AP Psychology, AP Statistics.",
+            answerKk: "9-сынып: тереңдетілген биология, тереңдетілген химия (дайындық). 10-сынып: AP Biology, AP Chemistry. 11-сынып: AP Calc AB, AP Physics 1, AP English Lang. 12-сынып: AP Calc BC, AP Physics C, AP Psychology, AP Statistics.",
             hint: "Pre-med needs strong science (bio, chem, physics), math (calc, stats), and well-rounded humanities",
             hintRu: "Для медицины нужны сильные науки (био, хим, физика), математика (матанализ, статистика) и гуманитарные предметы",
             hintKk: "Медицина үшін күшті ғылымдар (био, хим, физика), математика (калькулюс, статистика) және гуманитарлық пәндер қажет",
@@ -1354,7 +1514,9 @@ export const APIB_FULL: Record<string, LessonContent> = {
               { en: "First find g(2): g(2) = 2² = 4", ru: "Сначала найдём g(2): g(2) = 2² = 4", kk: "Алдымен g(2)-ні табамыз: g(2) = 2² = 4" },
               { en: "Then find f(4): f(4) = 2(4) + 3 = 11", ru: "Затем найдём f(4): f(4) = 2(4) + 3 = 11", kk: "Содан кейін f(4)-ті табамыз: f(4) = 2(4) + 3 = 11" }
             ],
-            answer: "f(g(2)) = 11"
+            answer: "f(g(2)) = 11",
+            answerRu: "f(g(2)) = 11",
+            answerKk: "f(g(2)) = 11"
           }
         ],
         practiceProblems: [
@@ -1364,6 +1526,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Какова область определения f(x) = 1/x?",
             questionKk: "f(x) = 1/x функциясының анықталу облысы қандай?",
             answer: "All real numbers except x = 0",
+            answerRu: "Все действительные числа, кроме x = 0",
+            answerKk: "x = 0-ден басқа барлық нақты сандар",
             hint: "What value of x makes the denominator zero?",
             hintRu: "Какое значение x делает знаменатель нулём?",
             hintKk: "x-тің қандай мәні бөлімді нөлге айналдырады?",
@@ -1375,6 +1539,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Найдите обратную функцию для f(x) = 3x − 7.",
             questionKk: "f(x) = 3x − 7 функциясының кері функциясын табыңыз.",
             answer: "f⁻¹(x) = (x + 7)/3",
+            answerRu: "f⁻¹(x) = (x + 7)/3",
+            answerKk: "f⁻¹(x) = (x + 7)/3",
             hint: "Swap x and y, then solve for y",
             hintRu: "Поменяйте x и y, затем выразите y",
             hintKk: "x пен y-ді ауыстырып, y-ті табыңыз",
@@ -1386,6 +1552,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Если f(x) = x² + 1 и g(x) = √(x − 1), найдите g(f(x)) и определите область определения.",
             questionKk: "Егер f(x) = x² + 1 және g(x) = √(x − 1) болса, g(f(x))-ті тауып, анықталу облысын көрсетіңіз.",
             answer: "g(f(x)) = √(x²) = |x|; domain is all real numbers",
+            answerRu: "g(f(x)) = √(x²) = |x|; область определения — все действительные числа",
+            answerKk: "g(f(x)) = √(x²) = |x|; анықталу облысы — барлық нақты сандар",
             hint: "Substitute f(x) into g: √((x² + 1) − 1) = √(x²)",
             hintRu: "Подставьте f(x) в g: √((x² + 1) − 1) = √(x²)",
             hintKk: "f(x)-ті g-ға қойыңыз: √((x² + 1) − 1) = √(x²)",
@@ -1423,7 +1591,9 @@ export const APIB_FULL: Record<string, LessonContent> = {
               { en: "Factor the numerator: x² − 9 = (x + 3)(x − 3)", ru: "Разложим числитель: x² − 9 = (x + 3)(x − 3)", kk: "Алымды множителіктерге жіктейміз: x² − 9 = (x + 3)(x − 3)" },
               { en: "Cancel (x − 3): lim(x→3) (x + 3) = 3 + 3 = 6", ru: "Сокращаем (x − 3): lim(x→3) (x + 3) = 3 + 3 = 6", kk: "(x − 3) қысқартамыз: lim(x→3) (x + 3) = 3 + 3 = 6" }
             ],
-            answer: "6"
+            answer: "6",
+            answerRu: "6",
+            answerKk: "6"
           }
         ],
         practiceProblems: [
@@ -1433,6 +1603,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Найдите lim(x→2) (3x + 1).",
             questionKk: "lim(x→2) (3x + 1) табыңыз.",
             answer: "7",
+            answerRu: "7",
+            answerKk: "7",
             hint: "For continuous functions, just substitute x = 2",
             hintRu: "Для непрерывных функций просто подставьте x = 2",
             hintKk: "Үздіксіз функциялар үшін x = 2 қойыңыз",
@@ -1444,6 +1616,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Найдите lim(x→4) (x² − 16)/(x − 4).",
             questionKk: "lim(x→4) (x² − 16)/(x − 4) табыңыз.",
             answer: "8",
+            answerRu: "8",
+            answerKk: "8",
             hint: "Factor x² − 16 as a difference of squares",
             hintRu: "Разложите x² − 16 как разность квадратов",
             hintKk: "x² − 16 квадраттар айырмасы ретінде жіктеңіз",
@@ -1455,6 +1629,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Найдите lim(x→0) (√(x+4) − 2)/x.",
             questionKk: "lim(x→0) (√(x+4) − 2)/x табыңыз.",
             answer: "1/4",
+            answerRu: "1/4",
+            answerKk: "1/4",
             hint: "Multiply numerator and denominator by the conjugate (√(x+4) + 2)",
             hintRu: "Умножьте числитель и знаменатель на сопряжённое (√(x+4) + 2)",
             hintKk: "Алым мен бөлімді түйіндес өрнекке көбейтіңіз (√(x+4) + 2)",
@@ -1492,7 +1668,9 @@ export const APIB_FULL: Record<string, LessonContent> = {
               { en: "Use Δx = v₀t + ½at²; v₀ = 0, a = 9.8, t = 3", ru: "Используем Δx = v₀t + ½at²; v₀ = 0, a = 9,8, t = 3", kk: "Δx = v₀t + ½at² қолданамыз; v₀ = 0, a = 9,8, t = 3" },
               { en: "Δx = 0 + ½(9.8)(3²) = ½(9.8)(9) = 44.1 m", ru: "Δx = 0 + ½(9,8)(3²) = ½(9,8)(9) = 44,1 м", kk: "Δx = 0 + ½(9,8)(3²) = ½(9,8)(9) = 44,1 м" }
             ],
-            answer: "44.1 m"
+            answer: "44.1 m",
+            answerRu: "44,1 м",
+            answerKk: "44,1 м"
           }
         ],
         practiceProblems: [
@@ -1502,6 +1680,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Автомобиль разгоняется из покоя с ускорением 2 м/с². Какова его скорость через 5 секунд?",
             questionKk: "Автомобиль тыныштық күйден 2 м/с² үдеумен жылдамдайды. 5 секундтан кейін жылдамдығы қандай?",
             answer: "10 m/s",
+            answerRu: "10 м/с",
+            answerKk: "10 м/с",
             hint: "v = v₀ + at = 0 + 2(5)",
             hintRu: "v = v₀ + at = 0 + 2(5)",
             hintKk: "v = v₀ + at = 0 + 2(5)",
@@ -1513,6 +1693,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Автомобиль, движущийся со скоростью 20 м/с, тормозит до остановки за 4 секунды. Каково ускорение?",
             questionKk: "20 м/с жылдамдықпен жүретін автомобиль 4 секундта тоқтайды. Үдеуі қандай?",
             answer: "−5 m/s²",
+            answerRu: "−5 м/с²",
+            answerKk: "−5 м/с²",
             hint: "a = (v − v₀)/t = (0 − 20)/4",
             hintRu: "a = (v − v₀)/t = (0 − 20)/4",
             hintKk: "a = (v − v₀)/t = (0 − 20)/4",
@@ -1524,6 +1706,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Мяч брошен вверх со скоростью 15 м/с с земли. На какую высоту он поднимется? (g = 9,8 м/с²)",
             questionKk: "Доп жерден 15 м/с жылдамдықпен жоғары лақтырылады. Қандай биіктікке көтеріледі? (g = 9,8 м/с²)",
             answer: "11.48 m",
+            answerRu: "11,48 м",
+            answerKk: "11,48 м",
             hint: "At maximum height v = 0. Use v² = v₀² + 2aΔx where a = −9.8",
             hintRu: "На максимальной высоте v = 0. Используйте v² = v₀² + 2aΔx где a = −9,8",
             hintKk: "Ең жоғары биіктікте v = 0. v² = v₀² + 2aΔx қолданыңыз, мұнда a = −9,8",
@@ -1561,7 +1745,9 @@ export const APIB_FULL: Record<string, LessonContent> = {
               { en: "Forces: Weight W = mg = 5 × 9.8 = 49 N downward; Normal force N upward", ru: "Силы: Вес W = mg = 5 × 9,8 = 49 Н вниз; Нормальная сила N вверх", kk: "Күштер: Салмақ W = mg = 5 × 9,8 = 49 Н төмен; Тірек күші N жоғары" },
               { en: "Since a = 0 (at rest), ΣF = 0, so N − W = 0, thus N = 49 N", ru: "Так как a = 0 (покой), ΣF = 0, значит N − W = 0, следовательно N = 49 Н", kk: "a = 0 (тыныштықта) болғандықтан, ΣF = 0, сондықтан N − W = 0, демек N = 49 Н" }
             ],
-            answer: "N = 49 N upward"
+            answer: "N = 49 N upward",
+            answerRu: "N = 49 Н вверх",
+            answerKk: "N = 49 Н жоғары"
           }
         ],
         practiceProblems: [
@@ -1571,6 +1757,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Каков вес объекта массой 10 кг на Земле? (g = 9,8 м/с²)",
             questionKk: "Жерде 10 кг нысанның салмағы қандай? (g = 9,8 м/с²)",
             answer: "98 N",
+            answerRu: "98 Н",
+            answerKk: "98 Н",
             hint: "W = mg = 10 × 9.8",
             hintRu: "W = mg = 10 × 9,8",
             hintKk: "W = mg = 10 × 9,8",
@@ -1582,6 +1770,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Блок массой 3 кг толкают горизонтальной силой 15 Н по поверхности без трения. Каково ускорение?",
             questionKk: "3 кг блокты үйкеліссіз бетте 15 Н көлденең күшпен итереді. Үдеуі қандай?",
             answer: "5 m/s²",
+            answerRu: "5 м/с²",
+            answerKk: "5 м/с²",
             hint: "a = F/m = 15/3",
             hintRu: "a = F/m = 15/3",
             hintKk: "a = F/m = 15/3",
@@ -1593,6 +1783,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Блок массой 4 кг на поверхности с μₖ = 0,3. Приложена горизонтальная сила 20 Н. Найдите ускорение. (g = 10 м/с²)",
             questionKk: "Бетте μₖ = 0,3 болатын 4 кг блок. 20 Н көлденең күш қолданылады. Үдеуді табыңыз. (g = 10 м/с²)",
             answer: "2 m/s²",
+            answerRu: "2 м/с²",
+            answerKk: "2 м/с²",
             hint: "Friction = μₖ × N = 0.3 × 40 = 12 N. Net force = 20 − 12 = 8 N. a = 8/4",
             hintRu: "Трение = μₖ × N = 0,3 × 40 = 12 Н. Результирующая = 20 − 12 = 8 Н. a = 8/4",
             hintKk: "Үйкеліс = μₖ × N = 0,3 × 40 = 12 Н. Қорытқы күш = 20 − 12 = 8 Н. a = 8/4",
@@ -1630,7 +1822,9 @@ export const APIB_FULL: Record<string, LessonContent> = {
               { en: "Apply n = m/M: n = 36 g / 18 g/mol", ru: "Применяем n = m/M: n = 36 г / 18 г/моль", kk: "n = m/M қолданамыз: n = 36 г / 18 г/моль" },
               { en: "n = 2 mol", ru: "n = 2 моль", kk: "n = 2 моль" }
             ],
-            answer: "2 mol"
+            answer: "2 mol",
+            answerRu: "2 моль",
+            answerKk: "2 моль"
           }
         ],
         practiceProblems: [
@@ -1640,6 +1834,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Какова молярная масса CO₂? (C = 12, O = 16)",
             questionKk: "CO₂-нің молярлық массасы қандай? (C = 12, O = 16)",
             answer: "44 g/mol",
+            answerRu: "44 г/моль",
+            answerKk: "44 г/моль",
             hint: "Add: 12 + 16 + 16",
             hintRu: "Сложите: 12 + 16 + 16",
             hintKk: "Қосыңыз: 12 + 16 + 16",
@@ -1651,6 +1847,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Сколько граммов в 3 молях NaCl? (M = 58,44 г/моль)",
             questionKk: "3 моль NaCl-де қанша грамм бар? (M = 58,44 г/моль)",
             answer: "175.32 g",
+            answerRu: "175,32 г",
+            answerKk: "175,32 г",
             hint: "m = n × M = 3 × 58.44",
             hintRu: "m = n × M = 3 × 58,44",
             hintKk: "m = n × M = 3 × 58,44",
@@ -1662,6 +1860,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "В реакции 2H₂ + O₂ → 2H₂O, сколько граммов воды образуется из 4 г H₂? (M_H₂ = 2, M_H₂O = 18)",
             questionKk: "2H₂ + O₂ → 2H₂O реакциясында 4 г H₂-ден қанша грамм су түзіледі? (M_H₂ = 2, M_H₂O = 18)",
             answer: "36 g",
+            answerRu: "36 г",
+            answerKk: "36 г",
             hint: "4g H₂ = 2 mol H₂ → 2 mol H₂O (1:1 ratio from equation) → 2 × 18 = 36 g",
             hintRu: "4г H₂ = 2 моль H₂ → 2 моль H₂O (соотношение 1:1) → 2 × 18 = 36 г",
             hintKk: "4г H₂ = 2 моль H₂ → 2 моль H₂O (1:1 қатынасы) → 2 × 18 = 36 г",
@@ -1699,7 +1899,9 @@ export const APIB_FULL: Record<string, LessonContent> = {
               { en: "Boyle's Law: P₁V₁ = P₂V₂ → 1 × 2 = 3 × V₂", ru: "Закон Бойля: P₁V₁ = P₂V₂ → 1 × 2 = 3 × V₂", kk: "Бойль заңы: P₁V₁ = P₂V₂ → 1 × 2 = 3 × V₂" },
               { en: "V₂ = 2/3 = 0.667 L", ru: "V₂ = 2/3 = 0,667 л", kk: "V₂ = 2/3 = 0,667 л" }
             ],
-            answer: "0.667 L"
+            answer: "0.667 L",
+            answerRu: "0,667 л",
+            answerKk: "0,667 л"
           }
         ],
         practiceProblems: [
@@ -1709,6 +1911,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "По закону Бойля, если давление удваивается, что происходит с объёмом (при постоянной температуре)?",
             questionKk: "Бойль заңы бойынша, егер қысым екі есе артса, көлем не болады (тұрақты температурада)?",
             answer: "Volume is halved",
+            answerRu: "Объём уменьшается вдвое",
+            answerKk: "Көлем екі есе кемиді",
             hint: "Pressure and volume are inversely proportional",
             hintRu: "Давление и объём обратно пропорциональны",
             hintKk: "Қысым мен көлем кері пропорционалды",
@@ -1720,6 +1924,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Сколько молей газа в контейнере 10 л при 2 атм и 300 К? (R = 0,0821)",
             questionKk: "2 атм және 300 К кезінде 10 л ыдыста қанша моль газ бар? (R = 0,0821)",
             answer: "0.812 mol",
+            answerRu: "0,812 моль",
+            answerKk: "0,812 моль",
             hint: "n = PV/(RT) = (2 × 10)/(0.0821 × 300)",
             hintRu: "n = PV/(RT) = (2 × 10)/(0,0821 × 300)",
             hintKk: "n = PV/(RT) = (2 × 10)/(0,0821 × 300)",
@@ -1731,6 +1937,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Газ при 27°C и 1 атм занимает 5 л. Какой объём он займёт при 127°C и 2 атм?",
             questionKk: "27°C және 1 атм кезінде газ 5 л алады. 127°C және 2 атм кезінде қандай көлем алады?",
             answer: "3.33 L",
+            answerRu: "3,33 л",
+            answerKk: "3,33 л",
             hint: "Convert to Kelvin first (add 273). Then use P₁V₁/T₁ = P₂V₂/T₂",
             hintRu: "Сначала переведите в Кельвины (прибавьте 273). Затем используйте P₁V₁/T₁ = P₂V₂/T₂",
             hintKk: "Алдымен Кельвинге айналдырыңыз (273 қосыңыз). Содан кейін P₁V₁/T₁ = P₂V₂/T₂ қолданыңыз",
@@ -1762,7 +1970,9 @@ export const APIB_FULL: Record<string, LessonContent> = {
               { en: "Set up Punnett square: Tt × Tt gives TT, Tt, Tt, tt", ru: "Составим решётку Пеннета: Tt × Tt даёт TT, Tt, Tt, tt", kk: "Пеннет торын құрамыз: Tt × Tt нәтижесі TT, Tt, Tt, tt" },
               { en: "Count tt: 1 out of 4 = 25%", ru: "Считаем tt: 1 из 4 = 25%", kk: "tt-ні санаймыз: 4-тен 1 = 25%" }
             ],
-            answer: "1/4 or 25%"
+            answer: "1/4 or 25%",
+            answerRu: "1/4 или 25%",
+            answerKk: "1/4 немесе 25%"
           }
         ],
         practiceProblems: [
@@ -1772,6 +1982,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "В решётке Пеннета 'Tt' — это гомозиготный или гетерозиготный генотип?",
             questionKk: "Пеннет торында 'Tt' — гомозиготалы ма, гетерозиготалы ма?",
             answer: "Heterozygous",
+            answerRu: "Гетерозиготный",
+            answerKk: "Гетерозиготалы",
             hint: "Hetero means different — the two alleles are different",
             hintRu: "Гетеро означает разный — два аллеля различаются",
             hintKk: "Гетеро — әртүрлі дегенді білдіреді — екі аллель әртүрлі",
@@ -1783,6 +1995,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Скрестите Tt × tt. Какой процент потомства будет высоким (T_)?",
             questionKk: "Tt × tt будандастырыңыз. Ұрпақтың қанша пайызы биік (T_) болады?",
             answer: "50%",
+            answerRu: "50%",
+            answerKk: "50%",
             hint: "Punnett square gives Tt, Tt, tt, tt",
             hintRu: "Решётка Пеннета даёт Tt, Tt, tt, tt",
             hintKk: "Пеннет торы Tt, Tt, tt, tt береді",
@@ -1794,6 +2008,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "При дигибридном скрещивании (AaBb × AaBb), какая доля потомства будет иметь генотип AABB?",
             questionKk: "Дигибридті будандастыруда (AaBb × AaBb) ұрпақтың қандай бөлігі AABB генотипіне ие болады?",
             answer: "1/16",
+            answerRu: "1/16",
+            answerKk: "1/16",
             hint: "P(AA) = 1/4 and P(BB) = 1/4; multiply independent probabilities",
             hintRu: "P(AA) = 1/4 и P(BB) = 1/4; умножьте независимые вероятности",
             hintKk: "P(AA) = 1/4 және P(BB) = 1/4; тәуелсіз ықтималдықтарды көбейтіңіз",
@@ -1825,7 +2041,9 @@ export const APIB_FULL: Record<string, LessonContent> = {
               { en: "q² = 0.16, so q = √0.16 = 0.4", ru: "q² = 0,16, значит q = √0,16 = 0,4", kk: "q² = 0,16, сондықтан q = √0,16 = 0,4" },
               { en: "p = 1 − q = 1 − 0.4 = 0.6", ru: "p = 1 − q = 1 − 0,4 = 0,6", kk: "p = 1 − q = 1 − 0,4 = 0,6" }
             ],
-            answer: "p = 0.6"
+            answer: "p = 0.6",
+            answerRu: "p = 0,6",
+            answerKk: "p = 0,6"
           }
         ],
         practiceProblems: [
@@ -1835,6 +2053,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Как называются структуры у разных видов, имеющие общее эволюционное происхождение (например, рука человека и плавник кита)?",
             questionKk: "Ортақ эволюциялық шығу тегі бар әр түрлі түрлердегі құрылымдар қалай аталады (мысалы, адам қолы мен кит жүзгіші)?",
             answer: "Homologous structures",
+            answerRu: "Гомологичные структуры",
+            answerKk: "Гомологиялық құрылымдар",
             hint: "Homo- means same; these structures have the same origin but different functions",
             hintRu: "Гомо- означает одинаковый; эти структуры имеют одинаковое происхождение, но разные функции",
             hintKk: "Гомо- бірдей дегенді білдіреді; бұл құрылымдар бірдей шығу тегіне ие, бірақ функциялары әртүрлі",
@@ -1846,6 +2066,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Если q = 0,3 в популяции Харди-Вайнберга, какова частота гетерозигот (2pq)?",
             questionKk: "Харди-Вайнберг популяциясында q = 0,3 болса, гетерозиготалардың жиілігі (2pq) қандай?",
             answer: "0.42",
+            answerRu: "0,42",
+            answerKk: "0,42",
             hint: "p = 1 − 0.3 = 0.7; 2pq = 2(0.7)(0.3)",
             hintRu: "p = 1 − 0,3 = 0,7; 2pq = 2(0,7)(0,3)",
             hintKk: "p = 1 − 0,3 = 0,7; 2pq = 2(0,7)(0,3)",
@@ -1857,6 +2079,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Объясните, почему устойчивость бактерий к антибиотикам — пример естественного отбора, а не ламаркизма.",
             questionKk: "Неге бактериялардың антибиотикке төзімділігі табиғи сұрыптаудың мысалы, Ламарк эволюциясы емес екенін түсіндіріңіз.",
             answer: "Resistant bacteria existed before antibiotic exposure due to random mutations. The antibiotic kills susceptible bacteria, leaving resistant ones to reproduce — this is selection of pre-existing variation, not bacteria 'acquiring' resistance through effort (Lamarckian).",
+            answerRu: "Устойчивые бактерии существовали до контакта с антибиотиком из-за случайных мутаций. Антибиотик убивает восприимчивые бактерии, оставляя устойчивые размножаться — это отбор уже существующей изменчивости, а не «приобретение» устойчивости бактериями через усилие (ламаркизм).",
+            answerKk: "Төзімді бактериялар кездейсоқ мутациялар салдарынан антибиотикпен жанасудан бұрын болған. Антибиотик сезімтал бактерияларды өлтіреді, төзімділерін көбеюге қалдырады — бұл бар-болмысты сұрыптау, бактериялардың күш салып «иеленуі» емес (ламаркизм).",
             hint: "Focus on whether the trait existed before or after the environmental pressure",
             hintRu: "Сосредоточьтесь на том, существовал ли признак до или после воздействия среды",
             hintKk: "Белгі қоршаған орта қысымына дейін немесе кейін бар болғанына назар аударыңыз",
@@ -1888,7 +2112,9 @@ export const APIB_FULL: Record<string, LessonContent> = {
               { en: "Perception: We observe day/night cycles and seasonal changes, but direct perception suggests the Sun moves around Earth", ru: "Восприятие: Мы наблюдаем смену дня и ночи, но прямое восприятие подсказывает, что Солнце движется вокруг Земли", kk: "Қабылдау: Күн мен түн ауысуын бақылаймыз, бірақ тікелей қабылдау Күннің Жерді айналатынын көрсетеді" },
               { en: "Reason: Mathematical models and scientific evidence (Copernicus, Kepler, gravity) override our perception — reason corrects the senses", ru: "Разум: Математические модели и научные доказательства (Коперник, Кеплер, гравитация) опровергают восприятие — разум корректирует чувства", kk: "Ақыл: Математикалық модельдер мен ғылыми дәлелдемелер (Коперник, Кеплер, гравитация) қабылдауды жоққа шығарады — ақыл сезімдерді түзетеді" }
             ],
-            answer: "Both, but reason overrides perception. Our senses suggest the Sun moves, but mathematical and scientific reasoning proves Earth orbits the Sun."
+            answer: "Both, but reason overrides perception. Our senses suggest the Sun moves, but mathematical and scientific reasoning proves Earth orbits the Sun.",
+            answerRu: "Оба, но разум преобладает над восприятием. Наши чувства подсказывают, что Солнце движется, но математические и научные рассуждения доказывают, что Земля вращается вокруг Солнца.",
+            answerKk: "Екеуі де, бірақ ақыл қабылдаудан басым. Сезімдеріміз Күн қозғалады дегенді айтады, бірақ математикалық және ғылыми пайымдау Жердің Күнді айналатынын дәлелдейді."
           }
         ],
         practiceProblems: [
@@ -1898,6 +2124,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Назовите два из четырёх основных «способов познания» в TOK.",
             questionKk: "TOK-тағы төрт негізгі «тану жолының» екеуін атаңыз.",
             answer: "Any two of: reason, emotion, language, perception (also: faith, intuition, imagination, memory)",
+            answerRu: "Любые два из: разум, эмоции, язык, восприятие (также: вера, интуиция, воображение, память)",
+            answerKk: "Мыналардың кез келген екеуі: ақыл, эмоция, тіл, қабылдау (сонымен қатар: сенім, интуиция, қиял, есте сақтау)",
             hint: "How do we acquire knowledge? Through thinking, feeling, speaking, or sensing",
             hintRu: "Как мы получаем знания? Через мышление, чувства, язык или ощущения",
             hintKk: "Біз білімді қалай аламыз? Ойлау, сезу, тіл немесе қабылдау арқылы",
@@ -1909,6 +2137,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Могут ли эмоции быть надёжным способом познания? Приведите один аргумент «за» и один «против».",
             questionKk: "Эмоциялар сенімді тану жолы бола ала ма? Бір «иә» және бір «жоқ» дәлел келтіріңіз.",
             answer: "For: Emotions can signal danger (fear) or injustice (moral outrage), guiding us to important truths. Against: Emotions can be biased, irrational, and lead to confirmation bias, making us believe what feels right rather than what is true.",
+            answerRu: "За: Эмоции могут сигнализировать об опасности (страх) или несправедливости (моральное возмущение), направляя нас к важным истинам. Против: Эмоции могут быть предвзятыми, иррациональными и приводить к предвзятости подтверждения, заставляя нас верить в то, что кажется правильным, а не в то, что истинно.",
+            answerKk: "Иә: Эмоциялар қауіп туралы (қорқыныш) немесе әділетсіздік туралы (моральдық ашу) сигнал беріп, маңызды ақиқаттарға бағыттай алады. Жоқ: Эмоциялар біржақты, иррационалды болып, растау қателігіне әкеліп, ақиқат емес, дұрыс сезілетін нәрсеге сендіруі мүмкін.",
             hint: "Think about when emotions help vs. when they mislead",
             hintRu: "Подумайте, когда эмоции помогают и когда вводят в заблуждение",
             hintKk: "Эмоциялар қашан көмектесетінін және қашан адастыратынын ойлаңыз",
@@ -1920,6 +2150,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Историк и физик оба утверждают, что производят «знание». Как может различаться природа знания в истории и естественной науке? Рассмотрите методологию и доказательства.",
             questionKk: "Тарихшы мен физик екеуі де «білім» шығарамыз дейді. Тарих пен жаратылыстану ғылымдарында білімнің табиғаты қалай ерекшеленуі мүмкін? Әдіснама мен дәлелдемелерді қарастырыңыз.",
             answer: "Natural science uses controlled experiments, reproducibility, and falsifiable hypotheses — it seeks universal laws. History relies on interpretation of unique past events through primary sources, testimony, and context — it produces narrative explanations, not universal laws. Both are valid knowledge but differ in methodology, certainty, and generalizability.",
+            answerRu: "Естественная наука использует контролируемые эксперименты, воспроизводимость и опровержимые гипотезы — она ищет универсальные законы. История опирается на интерпретацию уникальных прошлых событий через первичные источники, свидетельства и контекст — она создаёт нарративные объяснения, а не универсальные законы. Оба вида знания достоверны, но различаются методологией, определённостью и обобщаемостью.",
+            answerKk: "Жаратылыстану ғылымы бақыланатын тәжірибелерді, қайталанатындықты және теріске шығарылатын гипотезаларды қолданады — ол әмбебап заңдарды іздейді. Тарих бірегей өткен оқиғаларды бастапқы дереккөздер, куәліктер мен контекст арқылы түсіндіруге сүйенеді — ол әмбебап заңдар емес, баяндау түсіндірмелерін шығарады. Екеуі де жарамды білім, бірақ әдіснама, айқындық және жалпылау бойынша ерекшеленеді.",
             hint: "Compare: experiments vs. source analysis; universal laws vs. unique events; reproducibility vs. interpretation",
             hintRu: "Сравните: эксперименты vs. анализ источников; универсальные законы vs. уникальные события; воспроизводимость vs. интерпретация",
             hintKk: "Салыстырыңыз: тәжірибелер vs. дереккөздерді талдау; әмбебап заңдар vs. бірегей оқиғалар; қайталанатындық vs. түсіндіру",
@@ -1951,7 +2183,9 @@ export const APIB_FULL: Record<string, LessonContent> = {
               { en: "Narrow the topic: Choose a specific aspect (e.g., impact on one region, one species, or one policy)", ru: "Сузим тему: Выберите конкретный аспект (воздействие на один регион, один вид или одну политику)", kk: "Тақырыпты тарылтамыз: Нақты аспектіні таңдаңыз (бір аймаққа, бір түрге немесе бір саясатқа әсері)" },
               { en: "Formulate as a question: 'To what extent has glacial retreat in the Tian Shan mountains accelerated since 2000 due to rising temperatures?'", ru: "Сформулируем вопрос: «В какой степени отступление ледников в горах Тянь-Шань ускорилось с 2000 года из-за роста температур?»", kk: "Сұрақ түрінде тұжырымдаймыз: «2000 жылдан бері температураның жоғарылауына байланысты Тянь-Шань тауларындағы мұздық шегінісі қаншалықты жылдамдады?»" }
             ],
-            answer: "'To what extent has glacial retreat in the Tian Shan mountains accelerated since 2000 due to rising temperatures?' — specific, researchable, and analytical."
+            answer: "'To what extent has glacial retreat in the Tian Shan mountains accelerated since 2000 due to rising temperatures?' — specific, researchable, and analytical.",
+            answerRu: "«В какой степени отступление ледников в горах Тянь-Шань ускорилось с 2000 года из-за роста температур?» — конкретный, исследуемый и аналитический вопрос.",
+            answerKk: "«2000 жылдан бері температураның жоғарылауына байланысты Тянь-Шань тауларындағы мұздық шегінісі қаншалықты жылдамдады?» — нақты, зерттелетін және аналитикалық сұрақ."
           }
         ],
         practiceProblems: [
@@ -1961,6 +2195,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Каков максимальный объём слов для расширенного эссе IB?",
             questionKk: "IB кеңейтілген эссесінің сөздердің ең көп саны қанша?",
             answer: "4,000 words",
+            answerRu: "4000 слов",
+            answerKk: "4000 сөз",
             hint: "It is a specific limit that you must not exceed",
             hintRu: "Это конкретный лимит, который нельзя превышать",
             hintKk: "Бұл аспауға тиіс нақты шектеу",
@@ -1972,6 +2208,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Какой исследовательский вопрос лучше: (A) «Что такое искусственный интеллект?» или (B) «В какой степени модели ИИ на основе GPT могут точно диагностировать рак кожи по сравнению с дерматологами?»",
             questionKk: "Қай зерттеу сұрағы жақсырақ: (A) «Жасанды интеллект дегеніміз не?» немесе (B) «GPT-негізіндегі ЖИ модельдері тері обырын дерматологтармен салыстырғанда қаншалықты дәл диагноздай алады?»",
             answer: "B — it is specific, comparative, analytical, and researchable within 4000 words",
+            answerRu: "B — он конкретный, сравнительный, аналитический и исследуемый в пределах 4000 слов",
+            answerKk: "B — ол нақты, салыстырмалы, аналитикалық және 4000 сөз шегінде зерттелетін",
             hint: "Good EE questions are narrow, analytical (not just descriptive), and use phrases like 'to what extent'",
             hintRu: "Хорошие вопросы EE узкие, аналитические (не просто описательные) и используют фразы вроде «в какой степени»",
             hintKk: "Жақсы EE сұрақтары тар, аналитикалық (жай сипаттамалы емес) және «қаншалықты» сияқты сөз тіркестерін қолданады",
@@ -1983,6 +2221,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Вы хотите написать EE по биологии об устойчивости к антибиотикам. Школьная лаборатория не может культивировать опасные бактерии. Предложите альтернативную методологию.",
             questionKk: "Антибиотикке төзімділік туралы Biology EE жазғыңыз келеді. Мектеп зертханасы қауіпті бактерияларды өсіре алмайды. Баламалы әдіснаманы ұсыныңыз.",
             answer: "Use non-pathogenic bacteria (E. coli K-12 lab strain) with common antibiotics, measure zones of inhibition using disk diffusion assays. Alternatively, conduct a secondary data analysis using published research databases to compare resistance rates across regions.",
+            answerRu: "Используйте непатогенные бактерии (лабораторный штамм E. coli K-12) с обычными антибиотиками, измеряйте зоны подавления методом диско-диффузии. Альтернативно проведите вторичный анализ данных с использованием опубликованных научных баз для сравнения уровней устойчивости по регионам.",
+            answerKk: "Кәдімгі антибиотиктермен патогенді емес бактерияларды (E. coli K-12 зертханалық штаммы) қолданыңыз, дискілі диффузия әдісімен тежелу аймақтарын өлшеңіз. Балама ретінде аймақтар бойынша төзімділік деңгейлерін салыстыру үшін жарияланған зерттеу дерекқорларымен қайталама деректер талдауын жүргізіңіз.",
             hint: "Consider using safe lab strains or published data instead of dangerous pathogens",
             hintRu: "Рассмотрите использование безопасных лабораторных штаммов или опубликованных данных вместо опасных патогенов",
             hintKk: "Қауіпті патогендердің орнына қауіпсіз зертханалық штаммдарды немесе жарияланған деректерді қолдануды қарастырыңыз",
@@ -2030,7 +2270,9 @@ export const APIB_FULL: Record<string, LessonContent> = {
               { en: "Apply the power rule to each term: d/dx[3x⁴] = 12x³, d/dx[−2x²] = −4x, d/dx[5] = 0", ru: "Применяем правило степени к каждому члену: d/dx[3x⁴] = 12x³, d/dx[−2x²] = −4x, d/dx[5] = 0", kk: "Әр мүшеге дәреже ережесін қолданамыз: d/dx[3x⁴] = 12x³, d/dx[−2x²] = −4x, d/dx[5] = 0" },
               { en: "f'(x) = 12x³ − 4x", ru: "f'(x) = 12x³ − 4x", kk: "f'(x) = 12x³ − 4x" }
             ],
-            answer: "f'(x) = 12x³ − 4x"
+            answer: "f'(x) = 12x³ − 4x",
+            answerRu: "f'(x) = 12x³ − 4x",
+            answerKk: "f'(x) = 12x³ − 4x"
           }
         ],
         practiceProblems: [
@@ -2040,6 +2282,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Найдите производную f(x) = 5x³.",
             questionKk: "f(x) = 5x³ функциясының туындысын табыңыз.",
             answer: "15x²",
+            answerRu: "15x²",
+            answerKk: "15x²",
             hint: "Power rule: bring down the exponent and reduce by 1",
             hintRu: "Правило степени: опустите показатель и уменьшите на 1",
             hintKk: "Дәреже ережесі: дәрежені түсіріп, 1-ге азайтыңыз",
@@ -2051,6 +2295,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Найдите производную f(x) = (2x + 1)⁵.",
             questionKk: "f(x) = (2x + 1)⁵ функциясының туындысын табыңыз.",
             answer: "10(2x + 1)⁴",
+            answerRu: "10(2x + 1)⁴",
+            answerKk: "10(2x + 1)⁴",
             hint: "Chain rule: 5(2x + 1)⁴ × d/dx[2x + 1] = 5(2x + 1)⁴ × 2",
             hintRu: "Цепное правило: 5(2x + 1)⁴ × d/dx[2x + 1] = 5(2x + 1)⁴ × 2",
             hintKk: "Тізбек ережесі: 5(2x + 1)⁴ × d/dx[2x + 1] = 5(2x + 1)⁴ × 2",
@@ -2062,6 +2308,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Найдите производную f(x) = x² · sin(x).",
             questionKk: "f(x) = x² · sin(x) функциясының туындысын табыңыз.",
             answer: "2x·sin(x) + x²·cos(x)",
+            answerRu: "2x·sin(x) + x²·cos(x)",
+            answerKk: "2x·sin(x) + x²·cos(x)",
             hint: "Product rule: (u·v)' = u'v + uv' where u = x², v = sin(x)",
             hintRu: "Правило произведения: (u·v)' = u'v + uv' где u = x², v = sin(x)",
             hintKk: "Көбейтінді ережесі: (u·v)' = u'v + uv' мұнда u = x², v = sin(x)",
@@ -2093,7 +2341,9 @@ export const APIB_FULL: Record<string, LessonContent> = {
               { en: "Find critical point: f'(x) = −2x + 4 = 0 → x = 2", ru: "Найдём критическую точку: f'(x) = −2x + 4 = 0 → x = 2", kk: "Критикалық нүктені табамыз: f'(x) = −2x + 4 = 0 → x = 2" },
               { en: "f''(x) = −2 < 0, so x = 2 is a maximum. f(2) = −4 + 8 + 1 = 5", ru: "f''(x) = −2 < 0, значит x = 2 — максимум. f(2) = −4 + 8 + 1 = 5", kk: "f''(x) = −2 < 0, сондықтан x = 2 максимум. f(2) = −4 + 8 + 1 = 5" }
             ],
-            answer: "Local maximum at (2, 5)"
+            answer: "Local maximum at (2, 5)",
+            answerRu: "Локальный максимум в точке (2, 5)",
+            answerKk: "Жергілікті максимум (2, 5) нүктесінде"
           }
         ],
         practiceProblems: [
@@ -2103,6 +2353,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Если f'(x) > 0 на интервале, функция f возрастает или убывает?",
             questionKk: "Егер аралықта f'(x) > 0 болса, f артады ма, кемиді ме?",
             answer: "Increasing",
+            answerRu: "Возрастает",
+            answerKk: "Артады",
             hint: "Positive derivative means the function is going up",
             hintRu: "Положительная производная означает, что функция растёт",
             hintKk: "Оң туынды функцияның артып жатқанын білдіреді",
@@ -2114,6 +2366,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Найдите критические точки f(x) = x³ − 3x.",
             questionKk: "f(x) = x³ − 3x функциясының критикалық нүктелерін табыңыз.",
             answer: "x = 1 and x = −1",
+            answerRu: "x = 1 и x = −1",
+            answerKk: "x = 1 және x = −1",
             hint: "Set f'(x) = 3x² − 3 = 0 and solve",
             hintRu: "Приравняйте f'(x) = 3x² − 3 = 0 и решите",
             hintKk: "f'(x) = 3x² − 3 = 0 теңдеп, шешіңіз",
@@ -2125,6 +2379,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "У фермера 100 м забора для прямоугольного сада у стены сарая (нужно оградить 3 стороны). Какие размеры максимизируют площадь?",
             questionKk: "Фермерде қора қабырғасына тірейтін тіктөртбұрышты бақша қоршау үшін 100 м қоршау бар (тек 3 жағын қоршау керек). Қандай өлшемдер ауданды максималдайды?",
             answer: "Width = 25 m, Length = 50 m, Maximum area = 1250 m²",
+            answerRu: "Ширина = 25 м, Длина = 50 м, Максимальная площадь = 1250 м²",
+            answerKk: "Ені = 25 м, Ұзындығы = 50 м, Максималды аудан = 1250 м²",
             hint: "Let width = x. Then length = 100 − 2x. A = x(100 − 2x). Find dA/dx = 0.",
             hintRu: "Пусть ширина = x. Тогда длина = 100 − 2x. A = x(100 − 2x). Найдите dA/dx = 0.",
             hintKk: "Ені = x болсын. Онда ұзындығы = 100 − 2x. A = x(100 − 2x). dA/dx = 0 табыңыз.",
@@ -2162,7 +2418,9 @@ export const APIB_FULL: Record<string, LessonContent> = {
               { en: "Energy conservation: mgh = ½mv² → v² = 2gh = 2(10)(5) = 100", ru: "Сохранение энергии: mgh = ½mv² → v² = 2gh = 2(10)(5) = 100", kk: "Энергия сақталуы: mgh = ½mv² → v² = 2gh = 2(10)(5) = 100" },
               { en: "v = √100 = 10 m/s", ru: "v = √100 = 10 м/с", kk: "v = √100 = 10 м/с" }
             ],
-            answer: "10 m/s"
+            answer: "10 m/s",
+            answerRu: "10 м/с",
+            answerKk: "10 м/с"
           }
         ],
         practiceProblems: [
@@ -2172,6 +2430,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Какова кинетическая энергия объекта массой 3 кг, движущегося со скоростью 4 м/с?",
             questionKk: "4 м/с жылдамдықпен қозғалатын 3 кг нысанның кинетикалық энергиясы қандай?",
             answer: "24 J",
+            answerRu: "24 Дж",
+            answerKk: "24 Дж",
             hint: "KE = ½mv² = ½(3)(16)",
             hintRu: "KE = ½mv² = ½(3)(16)",
             hintKk: "KE = ½mv² = ½(3)(16)",
@@ -2183,6 +2443,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Автомобиль массой 1500 кг при 20 м/с сталкивается с неподвижным автомобилем 1000 кг. Они сцепляются. Какова конечная скорость?",
             questionKk: "1500 кг автомобиль 20 м/с жылдамдықпен тұрған 1000 кг автомобильге соғылады. Олар біріге қалады. Соңғы жылдамдық қандай?",
             answer: "12 m/s",
+            answerRu: "12 м/с",
+            answerKk: "12 м/с",
             hint: "m₁v₁ = (m₁ + m₂)v_f → 1500(20) = 2500 × v_f",
             hintRu: "m₁v₁ = (m₁ + m₂)v_f → 1500(20) = 2500 × v_f",
             hintKk: "m₁v₁ = (m₁ + m₂)v_f → 1500(20) = 2500 × v_f",
@@ -2194,6 +2456,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Вагонетка аттракциона (500 кг) стартует с вершины холма 30 м. Какова скорость на вершине холма 10 м? (Без трения, g = 10 м/с²)",
             questionKk: "Аттракцион вагоны (500 кг) 30 м төбеден тыныштық күйден бастайды. 10 м төбеде жылдамдығы қандай? (Үйкеліссіз, g = 10 м/с²)",
             answer: "20 m/s",
+            answerRu: "20 м/с",
+            answerKk: "20 м/с",
             hint: "mgh₁ = ½mv² + mgh₂ → v² = 2g(h₁ − h₂) = 2(10)(30 − 10)",
             hintRu: "mgh₁ = ½mv² + mgh₂ → v² = 2g(h₁ − h₂) = 2(10)(30 − 10)",
             hintKk: "mgh₁ = ½mv² + mgh₂ → v² = 2g(h₁ − h₂) = 2(10)(30 − 10)",
@@ -2231,7 +2495,9 @@ export const APIB_FULL: Record<string, LessonContent> = {
               { en: "Apply τ = Iα: 12 = 3 × α", ru: "Применяем τ = Iα: 12 = 3 × α", kk: "τ = Iα қолданамыз: 12 = 3 × α" },
               { en: "α = 12/3 = 4 rad/s²", ru: "α = 12/3 = 4 рад/с²", kk: "α = 12/3 = 4 рад/с²" }
             ],
-            answer: "4 rad/s²"
+            answer: "4 rad/s²",
+            answerRu: "4 рад/с²",
+            answerKk: "4 рад/с²"
           }
         ],
         practiceProblems: [
@@ -2241,6 +2507,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Что является вращательным аналогом силы?",
             questionKk: "Күштің айналмалы аналогы не?",
             answer: "Torque (τ)",
+            answerRu: "Момент силы (τ)",
+            answerKk: "Айналдыру моменті (τ)",
             hint: "It causes rotational acceleration, just as force causes linear acceleration",
             hintRu: "Он вызывает угловое ускорение, как сила вызывает линейное",
             hintKk: "Ол бұрыштық үдеуді тудырады, күш сызықтық үдеуді тудыратындай",
@@ -2252,6 +2520,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Гаечный ключ прикладывает силу 40 Н на расстоянии 0,3 м от болта. Каков момент силы?",
             questionKk: "Кілт бұрамадан 0,3 м қашықтықта 40 Н күш қолданады. Айналдыру моменті қандай?",
             answer: "12 N·m",
+            answerRu: "12 Н·м",
+            answerKk: "12 Н·м",
             hint: "τ = r × F = 0.3 × 40",
             hintRu: "τ = r × F = 0,3 × 40",
             hintKk: "τ = r × F = 0,3 × 40",
@@ -2263,6 +2533,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Сплошной диск (I = ½MR²) массой 4 кг и радиусом 0,5 м вращается со скоростью 10 рад/с. Какова вращательная кинетическая энергия?",
             questionKk: "Тұтас диск (I = ½MR²) массасы 4 кг, радиусы 0,5 м, 10 рад/с жылдамдықпен айналады. Айналмалы кинетикалық энергиясы қандай?",
             answer: "25 J",
+            answerRu: "25 Дж",
+            answerKk: "25 Дж",
             hint: "I = ½(4)(0.5²) = 0.5; KE = ½Iω² = ½(0.5)(100)",
             hintRu: "I = ½(4)(0,5²) = 0,5; KE = ½Iω² = ½(0,5)(100)",
             hintKk: "I = ½(4)(0,5²) = 0,5; KE = ½Iω² = ½(0,5)(100)",
@@ -2300,7 +2572,9 @@ export const APIB_FULL: Record<string, LessonContent> = {
               { en: "ΔT = 70 − 20 = 50°C", ru: "ΔT = 70 − 20 = 50°C", kk: "ΔT = 70 − 20 = 50°C" },
               { en: "q = mcΔT = 200 × 4.18 × 50 = 41,800 J = 41.8 kJ", ru: "q = mcΔT = 200 × 4,18 × 50 = 41 800 Дж = 41,8 кДж", kk: "q = mcΔT = 200 × 4,18 × 50 = 41 800 Дж = 41,8 кДж" }
             ],
-            answer: "41,800 J (41.8 kJ)"
+            answer: "41,800 J (41.8 kJ)",
+            answerRu: "41 800 Дж (41,8 кДж)",
+            answerKk: "41 800 Дж (41,8 кДж)"
           }
         ],
         practiceProblems: [
@@ -2310,6 +2584,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Реакция с ΔH = −100 кДж — экзотермическая или эндотермическая?",
             questionKk: "ΔH = −100 кДж реакция экзотермиялық па, эндотермиялық па?",
             answer: "Exothermic",
+            answerRu: "Экзотермическая",
+            answerKk: "Экзотермиялық",
             hint: "Negative ΔH means heat is released",
             hintRu: "Отрицательный ΔH означает выделение теплоты",
             hintKk: "Теріс ΔH жылу бөлінетінін білдіреді",
@@ -2321,6 +2597,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Сколько теплоты выделяется при охлаждении 100 г воды с 80°C до 30°C? (c = 4,18 Дж/г·°C)",
             questionKk: "100 г су 80°C-тан 30°C-қа дейін салқындағанда қанша жылу бөлінеді? (c = 4,18 Дж/г·°C)",
             answer: "20,900 J (20.9 kJ)",
+            answerRu: "20 900 Дж (20,9 кДж)",
+            answerKk: "20 900 Дж (20,9 кДж)",
             hint: "q = 100 × 4.18 × 50",
             hintRu: "q = 100 × 4,18 × 50",
             hintKk: "q = 100 × 4,18 × 50",
@@ -2332,6 +2610,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Дано: C + O₂ → CO₂ (ΔH = −393,5 кДж) и CO + ½O₂ → CO₂ (ΔH = −283,0 кДж). Найдите ΔH для C + ½O₂ → CO по закону Гесса.",
             questionKk: "Берілген: C + O₂ → CO₂ (ΔH = −393,5 кДж) және CO + ½O₂ → CO₂ (ΔH = −283,0 кДж). Гесс заңы бойынша C + ½O₂ → CO үшін ΔH табыңыз.",
             answer: "−110.5 kJ",
+            answerRu: "−110,5 кДж",
+            answerKk: "−110,5 кДж",
             hint: "Use reaction 1 and reverse reaction 2: ΔH = −393.5 − (−283.0)",
             hintRu: "Используйте реакцию 1 и обратную реакцию 2: ΔH = −393,5 − (−283,0)",
             hintKk: "1-реакцияны және 2-реакцияны кері қолданыңыз: ΔH = −393,5 − (−283,0)",
@@ -2363,7 +2643,9 @@ export const APIB_FULL: Record<string, LessonContent> = {
               { en: "K = [NH₃]² / ([N₂][H₂]³)", ru: "K = [NH₃]² / ([N₂][H₂]³)", kk: "K = [NH₃]² / ([N₂][H₂]³)" },
               { en: "K < 1 means reactants are favored at equilibrium (more reactants than products)", ru: "K < 1 означает, что реагенты преобладают при равновесии", kk: "K < 1 тепе-теңдікте реагенттер басым екенін білдіреді" }
             ],
-            answer: "K = [NH₃]²/([N₂][H₂]³); K = 0.5 < 1, so reactants are favored."
+            answer: "K = [NH₃]²/([N₂][H₂]³); K = 0.5 < 1, so reactants are favored.",
+            answerRu: "K = [NH₃]²/([N₂][H₂]³); K = 0,5 < 1, значит преобладают реагенты.",
+            answerKk: "K = [NH₃]²/([N₂][H₂]³); K = 0,5 < 1, сондықтан реагенттер басым."
           }
         ],
         practiceProblems: [
@@ -2373,6 +2655,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Если K >> 1, равновесие сдвинуто в сторону продуктов или реагентов?",
             questionKk: "Егер K >> 1 болса, тепе-теңдік өнімдерге ме, реагенттерге ме ығысқан?",
             answer: "Products",
+            answerRu: "Продукты",
+            answerKk: "Өнімдер",
             hint: "K = products/reactants; if K is large, the numerator is large",
             hintRu: "K = продукты/реагенты; если K велик, числитель велик",
             hintKk: "K = өнімдер/реагенттер; K үлкен болса, алым үлкен",
@@ -2384,6 +2668,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "По принципу Ле Шателье: если добавить N₂ к равновесию N₂ + 3H₂ ⇌ 2NH₃, в какую сторону сдвинется реакция?",
             questionKk: "Ле Шателье принципі бойынша: N₂ + 3H₂ ⇌ 2NH₃ тепе-теңдігіне N₂ қосылса, реакция қай бағытқа ығысады?",
             answer: "Shifts to the right (toward products) to consume the added N₂",
+            answerRu: "Сдвигается вправо (в сторону продуктов), чтобы израсходовать добавленный N₂",
+            answerKk: "Қосылған N₂-ні жұмсау үшін оңға (өнімдерге қарай) ығысады",
             hint: "The system adjusts to counteract the change — it uses up the added reactant",
             hintRu: "Система подстраивается, чтобы компенсировать изменение — расходует добавленный реагент",
             hintKk: "Жүйе өзгеріске қарсы әрекет етеді — қосылған реагентті жұмсайды",
@@ -2395,6 +2681,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Для 2SO₂ + O₂ ⇌ 2SO₃ при равновесии: [SO₂] = 0,2 М, [O₂] = 0,1 М, [SO₃] = 0,6 М. Вычислите K.",
             questionKk: "2SO₂ + O₂ ⇌ 2SO₃ тепе-теңдігінде: [SO₂] = 0,2 М, [O₂] = 0,1 М, [SO₃] = 0,6 М. K-ні есептеңіз.",
             answer: "90",
+            answerRu: "90",
+            answerKk: "90",
             hint: "K = [SO₃]²/([SO₂]²[O₂]) = (0.6)²/((0.2)²(0.1))",
             hintRu: "K = [SO₃]²/([SO₂]²[O₂]) = (0,6)²/((0,2)²(0,1))",
             hintKk: "K = [SO₃]²/([SO₂]²[O₂]) = (0,6)²/((0,2)²(0,1))",
@@ -2432,7 +2720,9 @@ export const APIB_FULL: Record<string, LessonContent> = {
               { en: "Transcribe DNA → mRNA (A→U, T→A, C→G, G→C): 5'-AUG-CGU-UUA-3'", ru: "Транскрибируем ДНК → мРНК (A→U, T→A, C→G, G→C): 5'-AUG-CGU-UUA-3'", kk: "ДНҚ → мРНҚ транскрибциялаймыз (A→U, T→A, C→G, G→C): 5'-AUG-CGU-UUA-3'" },
               { en: "3 codons = 3 amino acids (AUG = Met/start, CGU = Arg, UUA = Leu)", ru: "3 кодона = 3 аминокислоты (AUG = Мет/старт, CGU = Арг, UUA = Лей)", kk: "3 кодон = 3 амин қышқылы (AUG = Мет/бастау, CGU = Арг, UUA = Лей)" }
             ],
-            answer: "mRNA: 5'-AUG-CGU-UUA-3'; codes for 3 amino acids (Met-Arg-Leu)"
+            answer: "mRNA: 5'-AUG-CGU-UUA-3'; codes for 3 amino acids (Met-Arg-Leu)",
+            answerRu: "мРНК: 5'-AUG-CGU-UUA-3'; кодирует 3 аминокислоты (Мет-Арг-Лей)",
+            answerKk: "мРНҚ: 5'-AUG-CGU-UUA-3'; 3 амин қышқылын кодтайды (Мет-Арг-Лей)"
           }
         ],
         practiceProblems: [
@@ -2442,6 +2732,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Какая молекула переносит генетическую информацию из ядра к рибосоме?",
             questionKk: "Генетикалық ақпаратты ядродан рибосомаға қай молекула тасиды?",
             answer: "mRNA (messenger RNA)",
+            answerRu: "мРНК (матричная РНК)",
+            answerKk: "мРНҚ (хабаршы РНҚ)",
             hint: "It is a type of RNA that acts as a messenger",
             hintRu: "Это тип РНК, который действует как посредник",
             hintKk: "Бұл хабаршы ретінде әрекет ететін РНҚ түрі",
@@ -2453,6 +2745,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Если мРНК содержит 300 нуклеотидов (исключая стоп-кодон), сколько аминокислот будет в белке?",
             questionKk: "мРНҚ тізбегінде 300 нуклеотид болса (тоқтау кодонын есептемегенде), алынған ақуызда қанша амин қышқылы болады?",
             answer: "100 amino acids",
+            answerRu: "100 аминокислот",
+            answerKk: "100 амин қышқылы",
             hint: "Each codon is 3 nucleotides: 300/3 = 100",
             hintRu: "Каждый кодон состоит из 3 нуклеотидов: 300/3 = 100",
             hintKk: "Әр кодон 3 нуклеотидтен тұрады: 300/3 = 100",
@@ -2464,6 +2758,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Точечная мутация изменяет кодон GAG на GUG. GAG кодирует глутаминовую кислоту, GUG — валин. Это мутация серповидноклеточной анемии. Объясните, почему одно изменение вызывает болезнь.",
             questionKk: "Нүктелік мутация GAG кодонын GUG-ға өзгертеді. GAG глутамин қышқылын, GUG валинді кодтайды. Бұл орақ жасушалы мутация. Неге бұл бір өзгеріс ауруды тудыратынын түсіндіріңіз.",
             answer: "Valine is hydrophobic while glutamic acid is hydrophilic. This changes the protein's shape, causing hemoglobin molecules to stick together and form rigid rods. Red blood cells become sickle-shaped, blocking blood vessels and reducing oxygen delivery.",
+            answerRu: "Валин гидрофобен, а глутаминовая кислота гидрофильна. Это меняет форму белка, заставляя молекулы гемоглобина слипаться и образовывать жёсткие стержни. Эритроциты приобретают серповидную форму, блокируя сосуды и снижая доставку кислорода.",
+            answerKk: "Валин гидрофобты, ал глутамин қышқылы гидрофильді. Бұл ақуыздың пішінін өзгертіп, гемоглобин молекулаларын жабысып, қатты таяқшалар түзуге мәжбүрлейді. Эритроциттер орақ тәрізді пішінге ие болып, қан тамырларын бітейді және оттегі жеткізілуін азайтады.",
             hint: "Think about how amino acid properties (hydrophobic vs. hydrophilic) affect protein folding",
             hintRu: "Подумайте, как свойства аминокислот (гидрофобные vs. гидрофильные) влияют на укладку белка",
             hintKk: "Амин қышқылдарының қасиеттерінің (гидрофобты vs. гидрофильді) ақуыз бүктелуіне қалай әсер ететінін ойлаңыз",
@@ -2495,7 +2791,9 @@ export const APIB_FULL: Record<string, LessonContent> = {
               { en: "Producers → primary consumers: 10,000 × 10% = 1,000 kJ", ru: "Продуценты → первичные консументы: 10 000 × 10% = 1000 кДж", kk: "Продуценттер → бірінші реттік тұтынушылар: 10 000 × 10% = 1000 кДж" },
               { en: "Primary consumers → secondary consumers: 1,000 × 10% = 100 kJ", ru: "Первичные → вторичные консументы: 1000 × 10% = 100 кДж", kk: "Бірінші реттік → екінші реттік тұтынушылар: 1000 × 10% = 100 кДж" }
             ],
-            answer: "100 kJ"
+            answer: "100 kJ",
+            answerRu: "100 кДж",
+            answerKk: "100 кДж"
           }
         ],
         practiceProblems: [
@@ -2505,6 +2803,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "На каком трофическом уровне находятся травоядные?",
             questionKk: "Шөпқоректілер қай трофикалық деңгейде орналасқан?",
             answer: "Primary consumers (second trophic level)",
+            answerRu: "Первичные консументы (второй трофический уровень)",
+            answerKk: "Бірінші реттік тұтынушылар (екінші трофикалық деңгей)",
             hint: "They eat producers (plants), so they are the first level of consumers",
             hintRu: "Они едят продуцентов (растения), значит это первый уровень консументов",
             hintKk: "Олар продуценттерді (өсімдіктерді) жейді, сондықтан тұтынушылардың бірінші деңгейі",
@@ -2516,6 +2816,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "В экосистеме 50 000 кДж на уровне продуцентов. Сколько энергии дойдёт до третичных консументов?",
             questionKk: "Экожүйеде продуцент деңгейінде 50 000 кДж бар. Үшінші реттік тұтынушыларға қанша энергия жетеді?",
             answer: "50 kJ",
+            answerRu: "50 кДж",
+            answerKk: "50 кДж",
             hint: "Apply 10% rule three times: 50,000 → 5,000 → 500 → 50",
             hintRu: "Примените правило 10% три раза: 50 000 → 5000 → 500 → 50",
             hintKk: "10% ережесін үш рет қолданыңыз: 50 000 → 5000 → 500 → 50",
@@ -2527,6 +2829,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Озёрная экосистема получает избыток азота из сельскохозяйственного стока. Предскажите экологические последствия и объясните механизм.",
             questionKk: "Көл экожүйесі ауыл шаруашылық ағынынан артық азот алады. Экологиялық салдарларды болжап, механизмді түсіндіріңіз.",
             answer: "Eutrophication: excess nitrogen causes algal bloom → algae block sunlight → submerged plants die → dead organisms decomposed by bacteria → bacteria consume dissolved oxygen → oxygen depletion (hypoxia) → fish and other organisms die → dead zone.",
+            answerRu: "Эвтрофикация: избыток азота вызывает цветение водорослей → водоросли блокируют солнечный свет → подводные растения гибнут → мёртвые организмы разлагаются бактериями → бактерии потребляют растворённый кислород → истощение кислорода (гипоксия) → рыба и другие организмы гибнут → мёртвая зона.",
+            answerKk: "Эвтрофикация: артық азот балдырлардың гүлденуін тудырады → балдырлар күн сәулесін бөгейді → су асты өсімдіктері қырылады → өлі организмдерді бактериялар ыдыратады → бактериялар еріген оттегіні жұмсайды → оттегі тапшылығы (гипоксия) → балықтар мен басқа организмдер қырылады → өлі аймақ.",
             hint: "Think about the chain: nutrient excess → algal growth → oxygen depletion",
             hintRu: "Думайте о цепочке: избыток питательных веществ → рост водорослей → истощение кислорода",
             hintKk: "Тізбекті ойлаңыз: қоректік заттар артықшылығы → балдырлар өсуі → оттегі тапшылығы",
@@ -2558,7 +2862,9 @@ export const APIB_FULL: Record<string, LessonContent> = {
               { en: "IV = temperature (what the student changes). DV = rate of enzyme activity (what is measured, e.g., time for reaction to complete or amount of product)", ru: "IV = температура (что изменяет ученик). DV = скорость ферментативной активности (что измеряется)", kk: "IV = температура (оқушы не өзгертеді). DV = фермент белсенділігінің жылдамдығы (не өлшенеді)" },
               { en: "CVs: concentration of enzyme solution, pH of solution, volume of substrate, type of enzyme", ru: "CV: концентрация раствора фермента, pH раствора, объём субстрата, тип фермента", kk: "CV: фермент ерітіндісінің концентрациясы, ерітіндінің pH-ы, субстрат көлемі, фермент түрі" }
             ],
-            answer: "IV: temperature. DV: rate of enzyme activity. CVs: enzyme concentration, pH, substrate volume."
+            answer: "IV: temperature. DV: rate of enzyme activity. CVs: enzyme concentration, pH, substrate volume.",
+            answerRu: "IV: температура. DV: скорость ферментативной активности. CV: концентрация фермента, pH, объём субстрата.",
+            answerKk: "IV: температура. DV: фермент белсенділігінің жылдамдығы. CV: фермент концентрациясы, pH, субстрат көлемі."
           }
         ],
         practiceProblems: [
@@ -2568,6 +2874,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "В эксперименте независимая переменная — это то, что учёный ___.",
             questionKk: "Тәжірибеде тәуелсіз айнымалы — ғалымның ___ нәрсесі.",
             answer: "Changes (manipulates)",
+            answerRu: "Изменяет (управляет)",
+            answerKk: "Өзгертетін (басқаратын)",
             hint: "It is the variable the experimenter has control over",
             hintRu: "Это переменная, которой экспериментатор управляет",
             hintKk: "Бұл эксперименттеуші басқаратын айнымалы",
@@ -2579,6 +2887,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Почему важно повторять опыты в эксперименте IA?",
             questionKk: "IA тәжірибесінде сынақтарды неге қайталау маңызды?",
             answer: "To improve reliability by identifying and reducing the effect of random errors, and to calculate meaningful averages and standard deviations",
+            answerRu: "Чтобы повысить надёжность, выявляя и снижая влияние случайных ошибок, и вычислить значимые средние и стандартные отклонения",
+            answerKk: "Кездейсоқ қателердің әсерін анықтап, азайту арқылы сенімділікті арттыру және мағыналы орташа мәндер мен стандартты ауытқуларды есептеу үшін",
             hint: "Think about reliability, random errors, and statistical validity",
             hintRu: "Подумайте о надёжности, случайных ошибках и статистической достоверности",
             hintKk: "Сенімділік, кездейсоқ қателер және статистикалық дұрыстық туралы ойлаңыз",
@@ -2590,6 +2900,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Разработайте исследовательский вопрос IA по биологии, изучающий влияние концентрации соли на осмос в клетках картофеля. Укажите IV, DV, один CV и ожидаемую тенденцию.",
             questionKk: "Картоп жасушаларындағы осмосқа тұз концентрациясының әсерін зерттейтін Biology IA зерттеу сұрағын жасаңыз. IV, DV, бір CV және күтілетін үрдісті көрсетіңіз.",
             answer: "RQ: 'How does the concentration of NaCl solution (0%, 2%, 4%, 6%, 8%) affect the percentage change in mass of potato cylinders after 30 minutes?' IV: NaCl concentration. DV: % mass change. CV: potato variety, cylinder size, temperature, time. Expected: higher salt → more water leaves cells (osmosis) → greater mass loss.",
+            answerRu: "RQ: «Как концентрация раствора NaCl (0%, 2%, 4%, 6%, 8%) влияет на процентное изменение массы цилиндров картофеля за 30 минут?» IV: концентрация NaCl. DV: % изменения массы. CV: сорт картофеля, размер цилиндра, температура, время. Ожидание: больше соли → больше воды выходит из клеток (осмос) → больше потеря массы.",
+            answerKk: "RQ: «NaCl ерітіндісінің концентрациясы (0%, 2%, 4%, 6%, 8%) картоп цилиндрлерінің массасының 30 минуттан кейінгі пайыздық өзгерісіне қалай әсер етеді?» IV: NaCl концентрациясы. DV: массаның % өзгерісі. CV: картоп сорты, цилиндр өлшемі, температура, уақыт. Күтілетін: тұз көп → жасушадан су көбірек шығады (осмос) → масса көбірек жоғалады.",
             hint: "Use measurable variables and consider osmosis direction at different concentrations",
             hintRu: "Используйте измеримые переменные и учтите направление осмоса при разных концентрациях",
             hintKk: "Өлшенетін айнымалыларды қолданыңыз және әр түрлі концентрацияларда осмос бағытын ескеріңіз",
@@ -2621,7 +2933,9 @@ export const APIB_FULL: Record<string, LessonContent> = {
               { en: "Time per question: 90/45 = 2 minutes per question", ru: "Время на вопрос: 90/45 = 2 минуты на вопрос", kk: "Бір сұраққа уақыт: 90/45 = 2 минут" },
               { en: "Strategy: Mark difficult questions and skip them. Answer all easy/medium questions first, then return. There is no penalty for guessing on AP exams, so never leave a blank.", ru: "Стратегия: Отметьте сложные вопросы и пропустите. Ответьте на лёгкие/средние, затем вернитесь. На AP нет штрафа за угадывание, поэтому не оставляйте пустых.", kk: "Стратегия: Қиын сұрақтарды белгілеп, өтіп кетіңіз. Алдымен жеңіл/орташа сұрақтарға жауап беріп, кейін оралыңыз. AP емтихандарында болжау үшін айыппұл жоқ, сондықтан бос қалдырмаңыз." }
             ],
-            answer: "2 minutes per question. Skip difficult ones, return later, never leave blanks."
+            answer: "2 minutes per question. Skip difficult ones, return later, never leave blanks.",
+            answerRu: "2 минуты на вопрос. Пропускайте сложные, возвращайтесь позже, никогда не оставляйте пустых.",
+            answerKk: "Әр сұраққа 2 минут. Қиындарын өткізіп жіберіп, кейін оралыңыз, ешқашан бос қалдырмаңыз."
           }
         ],
         practiceProblems: [
@@ -2631,6 +2945,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Есть ли штраф за неправильные ответы на текущих экзаменах AP?",
             questionKk: "Қазіргі AP емтихандарында дұрыс емес жауаптар үшін айыппұл бар ма?",
             answer: "No — there is no penalty for guessing, so you should answer every question",
+            answerRu: "Нет — за угадывание штрафа нет, поэтому нужно отвечать на каждый вопрос",
+            answerKk: "Жоқ — болжау үшін айыппұл жоқ, сондықтан әр сұраққа жауап беру керек",
             hint: "This changed in 2011 — the guessing penalty was removed",
             hintRu: "Это изменилось в 2011 году — штраф за угадывание был отменён",
             hintKk: "Бұл 2011 жылы өзгерді — болжау айыппұлы алынып тасталды",
@@ -2642,6 +2958,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Ученик набрал 60% на MC и 40% на FRQ на пробном AP Calc. На какую секцию сосредоточиться для максимального прироста?",
             questionKk: "Оқушы AP Calc сынақ емтиханында MC-де 60%, FRQ-де 40% алды. Жинақталған балды тиімді жақсарту үшін қай бөлімге назар аудару керек?",
             answer: "FRQ — it has more room for improvement (40% vs 60%) and the same weight. Improving FRQ by 20% has the same impact as improving MC by 20%.",
+            answerRu: "FRQ — у неё больше потенциал для роста (40% против 60%) при том же весе. Улучшение FRQ на 20% даёт тот же эффект, что и улучшение MC на 20%.",
+            answerKk: "FRQ — оның жақсарту әлеуеті көбірек (40% қарсы 60%), салмағы бірдей. FRQ-ны 20%-ға жақсарту MC-ны 20%-ға жақсартумен бірдей әсер береді.",
             hint: "Focus on the section with the lower score — it has the most room for growth",
             hintRu: "Сосредоточьтесь на секции с более низким баллом — там больше потенциала для роста",
             hintKk: "Балы төмен бөлімге назар аударыңыз — онда өсу әлеуеті көбірек",
@@ -2653,6 +2971,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Составьте 4-недельный план подготовки к AP Biology. У вас 2 часа в день. Темы: Клеточная биология (20%), Генетика (20%), Эволюция (20%), Экология (20%), Системы организма (20%). Пробные баллы: Клетка 85%, Генетика 60%, Эволюция 70%, Экология 50%, Системы 75%.",
             questionKk: "AP Biology емтиханына 4 апталық оқу жоспарын жасаңыз. Күніне 2 сағат. Тақырыптар: Жасуша биологиясы (20%), Генетика (20%), Эволюция (20%), Экология (20%), Дене жүйелері (20%). Сынақ балдары: Жасуша 85%, Генетика 60%, Эволюция 70%, Экология 50%, Жүйелер 75%.",
             answer: "Week 1: Ecology (weakest, 50%) — 1.5 hrs/day + 30 min daily review of other topics. Week 2: Genetics (60%) — 1.5 hrs + review. Week 3: Evolution + Body Systems (70-75%) — split time equally. Week 4: Full practice exams + targeted review of remaining weak points. Cell Bio (85%) gets maintenance review only. Do timed practice FRQs every other day.",
+            answerRu: "Неделя 1: Экология (слабейшая, 50%) — 1,5 ч/день + 30 мин ежедневного повторения других тем. Неделя 2: Генетика (60%) — 1,5 ч + повторение. Неделя 3: Эволюция + Системы организма (70-75%) — поровну. Неделя 4: Полные пробные экзамены + целевое повторение оставшихся слабых мест. Клеточная биология (85%) — только поддерживающее повторение. Практикуйте FRQ на время через день.",
+            answerKk: "1-апта: Экология (ең әлсіз, 50%) — күніне 1,5 сағ + басқа тақырыптарды күнделікті 30 мин қайталау. 2-апта: Генетика (60%) — 1,5 сағ + қайталау. 3-апта: Эволюция + Дене жүйелері (70-75%) — уақытты тең бөлу. 4-апта: Толық сынақ емтихандары + қалған әлсіз жерлерді бағытталған қайталау. Жасуша биологиясы (85%) — тек қолдаушы қайталау. FRQ-ды күн ара уақыт шектеуімен жаттығыңыз.",
             hint: "Allocate the most time to your weakest topics (Ecology, Genetics) and less to strengths (Cell Bio)",
             hintRu: "Уделите больше времени слабым темам (Экология, Генетика) и меньше сильным (Клеточная биология)",
             hintKk: "Ең әлсіз тақырыптарға (Экология, Генетика) көбірек уақыт бөліп, күштілерге (Жасуша биологиясы) аз бөліңіз",
@@ -2699,7 +3019,9 @@ export const APIB_FULL: Record<string, LessonContent> = {
               { en: "Let u = x, dv = eˣ dx → du = dx, v = eˣ", ru: "Пусть u = x, dv = eˣ dx → du = dx, v = eˣ", kk: "u = x, dv = eˣ dx делік → du = dx, v = eˣ" },
               { en: "Apply formula: ∫x·eˣ dx = x·eˣ − ∫eˣ dx = x·eˣ − eˣ + C = eˣ(x − 1) + C", ru: "Применяем формулу: ∫x·eˣ dx = x·eˣ − ∫eˣ dx = x·eˣ − eˣ + C = eˣ(x − 1) + C", kk: "Формуланы қолданамыз: ∫x·eˣ dx = x·eˣ − ∫eˣ dx = x·eˣ − eˣ + C = eˣ(x − 1) + C" }
             ],
-            answer: "eˣ(x − 1) + C"
+            answer: "eˣ(x − 1) + C",
+            answerRu: "eˣ(x − 1) + C",
+            answerKk: "eˣ(x − 1) + C"
           }
         ],
         practiceProblems: [
@@ -2709,6 +3031,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Вычислите ∫x² dx от 0 до 3.",
             questionKk: "∫x² dx интегралын 0-ден 3-ке дейін есептеңіз.",
             answer: "x³/3 evaluated from 0 to 3 = 27/3 − 0 = 9",
+            answerRu: "x³/3 от 0 до 3 = 27/3 − 0 = 9",
+            answerKk: "x³/3, 0-ден 3-ке дейін = 27/3 − 0 = 9",
             hint: "Use the power rule for integration: ∫xⁿ dx = xⁿ⁺¹/(n+1)",
             hintRu: "Используйте правило степени: ∫xⁿ dx = xⁿ⁺¹/(n+1)",
             hintKk: "Дәреже ережесін қолданыңыз: ∫xⁿ dx = xⁿ⁺¹/(n+1)",
@@ -2720,6 +3044,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Вычислите ∫ln(x) dx методом интегрирования по частям.",
             questionKk: "Бөліктеп интегралдау әдісімен ∫ln(x) dx есептеңіз.",
             answer: "x·ln(x) − x + C. Let u = ln(x), dv = dx, then du = 1/x dx, v = x.",
+            answerRu: "x·ln(x) − x + C. Пусть u = ln(x), dv = dx, тогда du = 1/x dx, v = x.",
+            answerKk: "x·ln(x) − x + C. u = ln(x), dv = dx делік, онда du = 1/x dx, v = x.",
             hint: "Set u = ln(x) and dv = dx, then apply ∫u dv = uv − ∫v du",
             hintRu: "Пусть u = ln(x), dv = dx, затем примените ∫u dv = uv − ∫v du",
             hintKk: "u = ln(x), dv = dx деп алып, ∫u dv = uv − ∫v du қолданыңыз",
@@ -2731,6 +3057,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Определите, сходится или расходится ∫₁^∞ (x²+1)/(x⁴) dx, и если сходится, найдите значение.",
             questionKk: "∫₁^∞ (x²+1)/(x⁴) dx жинақтала ма әлде ыдырай ма анықтаңыз, жинақталса мәнін табыңыз.",
             answer: "Rewrite as ∫₁^∞ (1/x² + 1/x⁴) dx. Both terms converge (p=2>1, p=4>1). Value = [−1/x − 1/(3x³)]₁^∞ = 0 − (−1 − 1/3) = 4/3.",
+            answerRu: "Перепишем как ∫₁^∞ (1/x² + 1/x⁴) dx. Оба слагаемых сходятся (p=2>1, p=4>1). Значение = [−1/x − 1/(3x³)]₁^∞ = 0 − (−1 − 1/3) = 4/3.",
+            answerKk: "∫₁^∞ (1/x² + 1/x⁴) dx түрінде қайта жазамыз. Екі мүше де жинақталады (p=2>1, p=4>1). Мәні = [−1/x − 1/(3x³)]₁^∞ = 0 − (−1 − 1/3) = 4/3.",
             hint: "Split the fraction into simpler terms and test each with the p-series rule",
             hintRu: "Разбейте дробь на простые слагаемые и проверьте каждое с помощью p-ряда",
             hintKk: "Бөлшекті қарапайым қосылғыштарға бөліп, әрқайсысын p-қатар ережесімен тексеріңіз",
@@ -2768,7 +3096,9 @@ export const APIB_FULL: Record<string, LessonContent> = {
               { en: "Compute L = lim |aₙ₊₁/aₙ| = lim |(n+1)/2ⁿ⁺¹ · 2ⁿ/n| = lim (n+1)/(2n)", ru: "Вычислим L = lim |aₙ₊₁/aₙ| = lim |(n+1)/2ⁿ⁺¹ · 2ⁿ/n| = lim (n+1)/(2n)", kk: "L = lim |aₙ₊₁/aₙ| = lim |(n+1)/2ⁿ⁺¹ · 2ⁿ/n| = lim (n+1)/(2n) есептейміз" },
               { en: "L = lim (n+1)/(2n) = 1/2. Since 1/2 < 1, the series converges by the ratio test.", ru: "L = lim (n+1)/(2n) = 1/2. Так как 1/2 < 1, ряд сходится по признаку Даламбера.", kk: "L = lim (n+1)/(2n) = 1/2. 1/2 < 1 болғандықтан, қатар қатынас тесті бойынша жинақталады." }
             ],
-            answer: "The series converges (L = 1/2 < 1)."
+            answer: "The series converges (L = 1/2 < 1).",
+            answerRu: "Ряд сходится (L = 1/2 < 1).",
+            answerKk: "Қатар жинақталады (L = 1/2 < 1)."
           }
         ],
         practiceProblems: [
@@ -2778,6 +3108,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Сходится или расходится геометрический ряд ∑(n=0→∞) (1/3)ⁿ? Если сходится, найдите сумму.",
             questionKk: "∑(n=0→∞) (1/3)ⁿ геометриялық қатары жинақтала ма әлде ыдырай ма? Жинақталса, қосындысын табыңыз.",
             answer: "Converges. Sum = 1/(1 − 1/3) = 3/2.",
+            answerRu: "Сходится. Сумма = 1/(1 − 1/3) = 3/2.",
+            answerKk: "Жинақталады. Қосындысы = 1/(1 − 1/3) = 3/2.",
             hint: "A geometric series ∑rⁿ converges when |r| < 1 with sum = 1/(1−r)",
             hintRu: "Геометрический ряд ∑rⁿ сходится при |r| < 1, сумма = 1/(1−r)",
             hintKk: "∑rⁿ геометриялық қатары |r| < 1 болғанда жинақталады, қосындысы = 1/(1−r)",
@@ -2789,6 +3121,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Найдите первые три ненулевых члена ряда Маклорена для sin(x).",
             questionKk: "sin(x) үшін Маклорен қатарының алғашқы үш нөлдік емес мүшесін табыңыз.",
             answer: "sin(x) = x − x³/3! + x⁵/5! = x − x³/6 + x⁵/120",
+            answerRu: "sin(x) = x − x³/3! + x⁵/5! = x − x³/6 + x⁵/120",
+            answerKk: "sin(x) = x − x³/3! + x⁵/5! = x − x³/6 + x⁵/120",
             hint: "sin(x) = ∑(−1)ⁿ · x²ⁿ⁺¹/(2n+1)! — only odd powers of x appear",
             hintRu: "sin(x) = ∑(−1)ⁿ · x²ⁿ⁺¹/(2n+1)! — только нечётные степени x",
             hintKk: "sin(x) = ∑(−1)ⁿ · x²ⁿ⁺¹/(2n+1)! — тек x-тің тақ дәрежелері кіреді",
@@ -2800,6 +3134,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Используя признак Даламбера, найдите интервал сходимости для ∑(n=1→∞) (x−2)ⁿ/(n·3ⁿ).",
             questionKk: "Қатынас тестін пайдаланып ∑(n=1→∞) (x−2)ⁿ/(n·3ⁿ) жинақтылық аралығын табыңыз.",
             answer: "L = |x−2|/3. Converges when |x−2| < 3, i.e., −1 < x < 5. At x=−1: ∑(−1)ⁿ/n converges (alternating). At x=5: ∑1/n diverges (harmonic). Interval: [−1, 5).",
+            answerRu: "L = |x−2|/3. Сходится при |x−2| < 3, т.е. −1 < x < 5. При x=−1: ∑(−1)ⁿ/n сходится (знакочередующийся). При x=5: ∑1/n расходится (гармонический). Интервал: [−1, 5).",
+            answerKk: "L = |x−2|/3. |x−2| < 3 болғанда жинақталады, яғни −1 < x < 5. x=−1: ∑(−1)ⁿ/n жинақталады (алмасымалы). x=5: ∑1/n ыдырайды (гармоникалық). Аралық: [−1, 5).",
             hint: "Apply the ratio test, then check endpoints separately with known series tests",
             hintRu: "Примените признак Даламбера, затем проверьте граничные точки отдельно",
             hintKk: "Қатынас тестін қолданып, шеткі нүктелерді белгілі қатар тесттерімен бөлек тексеріңіз",
@@ -2837,7 +3173,9 @@ export const APIB_FULL: Record<string, LessonContent> = {
               { en: "F = k|q₁||q₂|/r² = (8.99×10⁹)(3×10⁻⁶)(5×10⁻⁶)/(0.2)²", ru: "F = k|q₁||q₂|/r² = (8,99×10⁹)(3×10⁻⁶)(5×10⁻⁶)/(0,2)²", kk: "F = k|q₁||q₂|/r² = (8,99×10⁹)(3×10⁻⁶)(5×10⁻⁶)/(0,2)²" },
               { en: "F = (8.99×10⁹)(15×10⁻¹²)/(0.04) = 0.13485/0.04 ≈ 3.37 N (attractive)", ru: "F = (8,99×10⁹)(15×10⁻¹²)/(0,04) = 0,13485/0,04 ≈ 3,37 Н (притяжение)", kk: "F = (8,99×10⁹)(15×10⁻¹²)/(0,04) = 0,13485/0,04 ≈ 3,37 Н (тартылыс)" }
             ],
-            answer: "≈ 3.37 N (attractive force)"
+            answer: "≈ 3.37 N (attractive force)",
+            answerRu: "≈ 3,37 Н (сила притяжения)",
+            answerKk: "≈ 3,37 Н (тартылыс күші)"
           }
         ],
         practiceProblems: [
@@ -2847,6 +3185,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Каково электрическое поле на расстоянии 1 м от точечного заряда +2 мкКл?",
             questionKk: "+2 мкКл нүктелік зарядтан 1 м қашықтықтағы электр өрісі қандай?",
             answer: "E = kq/r² = (8.99×10⁹)(2×10⁻⁶)/1² = 1.80×10⁴ N/C",
+            answerRu: "E = kq/r² = (8,99×10⁹)(2×10⁻⁶)/1² = 1,80×10⁴ Н/Кл",
+            answerKk: "E = kq/r² = (8,99×10⁹)(2×10⁻⁶)/1² = 1,80×10⁴ Н/Кл",
             hint: "Use E = kq/r² with k = 8.99×10⁹ N·m²/C²",
             hintRu: "Используйте E = kq/r², где k = 8,99×10⁹ Н·м²/Кл²",
             hintKk: "E = kq/r² қолданыңыз, мұнда k = 8,99×10⁹ Н·м²/Кл²",
@@ -2858,6 +3198,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Плоский конденсатор имеет пластины площадью 0,01 м², разделённые 0,001 м. Найдите ёмкость. (ε₀ = 8,85×10⁻¹² Ф/м)",
             questionKk: "Жазық конденсатордың пластиналар ауданы 0,01 м², ара қашықтығы 0,001 м. Сыйымдылығын табыңыз. (ε₀ = 8,85×10⁻¹² Ф/м)",
             answer: "C = ε₀A/d = (8.85×10⁻¹²)(0.01)/(0.001) = 8.85×10⁻¹¹ F ≈ 88.5 pF",
+            answerRu: "C = ε₀A/d = (8,85×10⁻¹²)(0,01)/(0,001) = 8,85×10⁻¹¹ Ф ≈ 88,5 пФ",
+            answerKk: "C = ε₀A/d = (8,85×10⁻¹²)(0,01)/(0,001) = 8,85×10⁻¹¹ Ф ≈ 88,5 пФ",
             hint: "For a parallel plate capacitor: C = ε₀A/d",
             hintRu: "Для плоского конденсатора: C = ε₀A/d",
             hintKk: "Жазық конденсатор үшін: C = ε₀A/d",
@@ -2869,6 +3211,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Используя закон Гаусса, выведите электрическое поле снаружи равномерно заряженной сферы с зарядом Q и радиусом R на расстоянии r > R от центра.",
             questionKk: "Гаусс заңын пайдаланып, жалпы заряды Q және радиусы R біркелкі зарядталған сфераның сыртындағы r > R қашықтықтағы электр өрісін шығарыңыз.",
             answer: "Choose a Gaussian sphere of radius r > R. By symmetry, E is constant on this surface and points radially. ∮E·dA = E(4πr²) = Q/ε₀. Therefore E = Q/(4πε₀r²) = kQ/r², identical to a point charge.",
+            answerRu: "Выберем гауссову сферу радиуса r > R. По симметрии E постоянно на этой поверхности и направлено радиально. ∮E·dA = E(4πr²) = Q/ε₀. Следовательно E = Q/(4πε₀r²) = kQ/r², как у точечного заряда.",
+            answerKk: "Радиусы r > R Гаусс сферасын таңдаймыз. Симметрия бойынша E бұл бетте тұрақты және радиалды бағытталған. ∮E·dA = E(4πr²) = Q/ε₀. Демек E = Q/(4πε₀r²) = kQ/r², нүктелік зарядтағыдай.",
             hint: "Choose a spherical Gaussian surface of radius r > R and exploit the spherical symmetry",
             hintRu: "Выберите сферическую гауссову поверхность радиуса r > R и используйте сферическую симметрию",
             hintKk: "Радиусы r > R сфералық Гаусс бетін таңдап, сфералық симметрияны пайдаланыңыз",
@@ -2906,7 +3250,9 @@ export const APIB_FULL: Record<string, LessonContent> = {
               { en: "τ = RC = (2000)(50×10⁻⁶) = 0.1 s", ru: "τ = RC = (2000)(50×10⁻⁶) = 0,1 с", kk: "τ = RC = (2000)(50×10⁻⁶) = 0,1 с" },
               { en: "V_c = 10(1 − e^(−0.1/0.1)) = 10(1 − e⁻¹) = 10(1 − 0.368) ≈ 6.32 V", ru: "V_c = 10(1 − e^(−0,1/0,1)) = 10(1 − e⁻¹) = 10(1 − 0,368) ≈ 6,32 В", kk: "V_c = 10(1 − e^(−0,1/0,1)) = 10(1 − e⁻¹) = 10(1 − 0,368) ≈ 6,32 В" }
             ],
-            answer: "τ = 0.1 s; V_c ≈ 6.32 V after one time constant"
+            answer: "τ = 0.1 s; V_c ≈ 6.32 V after one time constant",
+            answerRu: "τ = 0,1 с; V_c ≈ 6,32 В через одну постоянную времени",
+            answerKk: "τ = 0,1 с; V_c ≈ 6,32 В бір уақыт тұрақтысынан кейін"
           }
         ],
         practiceProblems: [
@@ -2916,6 +3262,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Каково общее сопротивление резисторов 4 Ом и 6 Ом, соединённых последовательно?",
             questionKk: "Тізбектей қосылған 4 Ом және 6 Ом резисторлардың жалпы кедергісі қандай?",
             answer: "R_total = 4 + 6 = 10Ω",
+            answerRu: "R_total = 4 + 6 = 10 Ом",
+            answerKk: "R_total = 4 + 6 = 10 Ом",
             hint: "In series, resistances simply add up",
             hintRu: "При последовательном соединении сопротивления складываются",
             hintKk: "Тізбектей қосылғанда кедергілер қосылады",
@@ -2927,6 +3275,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Найдите общее сопротивление резисторов 4 Ом и 6 Ом, соединённых параллельно.",
             questionKk: "Параллель қосылған 4 Ом және 6 Ом резисторлардың жалпы кедергісін табыңыз.",
             answer: "1/R = 1/4 + 1/6 = 3/12 + 2/12 = 5/12 → R = 12/5 = 2.4Ω",
+            answerRu: "1/R = 1/4 + 1/6 = 3/12 + 2/12 = 5/12 → R = 12/5 = 2,4 Ом",
+            answerKk: "1/R = 1/4 + 1/6 = 3/12 + 2/12 = 5/12 → R = 12/5 = 2,4 Ом",
             hint: "For parallel resistors: 1/R_total = 1/R₁ + 1/R₂",
             hintRu: "Для параллельных резисторов: 1/R = 1/R₁ + 1/R₂",
             hintKk: "Параллель резисторлар үшін: 1/R = 1/R₁ + 1/R₂",
@@ -2938,6 +3288,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "RC-цепь имеет R = 5 кОм и C = 20 мкФ. Конденсатор полностью заряжен до 12 В, затем батарея убрана. Через сколько напряжение упадёт до 3 В?",
             questionKk: "RC тізбегінде R = 5 кОм, C = 20 мкФ. Конденсатор 12 В-қа толық зарядталған, содан кейін батарея алынды. Конденсатор кернеуі 3 В-қа дейін қашан түседі?",
             answer: "τ = RC = 0.1 s. V = 12·e^(−t/0.1) = 3 → e^(−t/0.1) = 0.25 → −t/0.1 = ln(0.25) = −1.386 → t ≈ 0.139 s",
+            answerRu: "τ = RC = 0,1 с. V = 12·e^(−t/0,1) = 3 → e^(−t/0,1) = 0,25 → −t/0,1 = ln(0,25) = −1,386 → t ≈ 0,139 с",
+            answerKk: "τ = RC = 0,1 с. V = 12·e^(−t/0,1) = 3 → e^(−t/0,1) = 0,25 → −t/0,1 = ln(0,25) = −1,386 → t ≈ 0,139 с",
             hint: "Use V = V₀·e^(−t/τ) and solve for t with natural logarithm",
             hintRu: "Используйте V = V₀·e^(−t/τ) и решите для t через натуральный логарифм",
             hintKk: "V = V₀·e^(−t/τ) қолданып, натурал логарифм арқылы t-ні шешіңіз",
@@ -2975,7 +3327,9 @@ export const APIB_FULL: Record<string, LessonContent> = {
               { en: "Zn has lower E°, so Zn is oxidized (anode). Cu²⁺ is reduced (cathode).", ru: "Zn имеет более низкий E°, поэтому Zn окисляется (анод). Cu²⁺ восстанавливается (катод).", kk: "Zn-нің E° төмен, сондықтан Zn тотығады (анод). Cu²⁺ тотықсызданады (катод)." },
               { en: "E°cell = E°cathode − E°anode = (+0.34) − (−0.76) = +1.10 V (spontaneous)", ru: "E°cell = E°катод − E°анод = (+0,34) − (−0,76) = +1,10 В (самопроизвольная)", kk: "E°cell = E°катод − E°анод = (+0,34) − (−0,76) = +1,10 В (спонтанды)" }
             ],
-            answer: "E°cell = +1.10 V. Anode: Zn; Cathode: Cu."
+            answer: "E°cell = +1.10 V. Anode: Zn; Cathode: Cu.",
+            answerRu: "E°cell = +1,10 В. Анод: Zn; Катод: Cu.",
+            answerKk: "E°cell = +1,10 В. Анод: Zn; Катод: Cu."
           }
         ],
         practiceProblems: [
@@ -2985,6 +3339,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "В гальваническом элементе окисление происходит на аноде или катоде?",
             questionKk: "Гальваникалық элементте тотығу анодта ма әлде катодта ма жүреді?",
             answer: "Oxidation always occurs at the anode (remember: AN OX — anode oxidation).",
+            answerRu: "Окисление всегда происходит на аноде (запомните: АН ОК — анод окисление).",
+            answerKk: "Тотығу әрқашан анодта жүреді (есте сақтаңыз: АН ОК — анод тотығу).",
             hint: "Think of the mnemonic: AN OX and RED CAT",
             hintRu: "Запомните мнемонику: АН ОК (анод — окисление) и КАТ ВОС (катод — восстановление)",
             hintKk: "Мнемониканы есте сақтаңыз: АН ОК (анод — тотығу) және КАТ ТОТ (катод — тотықсыздану)",
@@ -2996,6 +3352,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Рассчитайте E°cell для Fe³⁺/Fe (E° = −0,04 В) и Ag⁺/Ag (E° = +0,80 В). Реакция самопроизвольна?",
             questionKk: "Fe³⁺/Fe (E° = −0,04 В) және Ag⁺/Ag (E° = +0,80 В) үшін E°cell есептеңіз. Реакция спонтанды ма?",
             answer: "E°cell = +0.80 − (−0.04) = +0.84 V. Yes, spontaneous (E°cell > 0). Fe is oxidized, Ag⁺ is reduced.",
+            answerRu: "E°cell = +0,80 − (−0,04) = +0,84 В. Да, самопроизвольная (E°cell > 0). Fe окисляется, Ag⁺ восстанавливается.",
+            answerKk: "E°cell = +0,80 − (−0,04) = +0,84 В. Иә, спонтанды (E°cell > 0). Fe тотығады, Ag⁺ тотықсызданады.",
             hint: "The metal with the lower reduction potential gets oxidized (is the anode)",
             hintRu: "Металл с более низким потенциалом восстановления окисляется (анод)",
             hintKk: "Тотықсыздану потенциалы төмен металл тотығады (анод болады)",
@@ -3007,6 +3365,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Используя уравнение Нернста, найдите потенциал Zn-Cu элемента при 25°C (E° = 1,10 В), если [Zn²⁺] = 0,1 М и [Cu²⁺] = 2,0 М. (n = 2)",
             questionKk: "Нернст теңдеуін пайдаланып, [Zn²⁺] = 0,1 М және [Cu²⁺] = 2,0 М болғанда 25°C-де Zn-Cu ұяшығының потенциалын табыңыз (E° = 1,10 В, n = 2).",
             answer: "E = 1.10 − (0.0592/2)log([Zn²⁺]/[Cu²⁺]) = 1.10 − 0.0296·log(0.1/2.0) = 1.10 − 0.0296·log(0.05) = 1.10 − 0.0296·(−1.301) = 1.10 + 0.0385 ≈ 1.14 V",
+            answerRu: "E = 1,10 − (0,0592/2)log([Zn²⁺]/[Cu²⁺]) = 1,10 − 0,0296·log(0,1/2,0) = 1,10 − 0,0296·log(0,05) = 1,10 − 0,0296·(−1,301) = 1,10 + 0,0385 ≈ 1,14 В",
+            answerKk: "E = 1,10 − (0,0592/2)log([Zn²⁺]/[Cu²⁺]) = 1,10 − 0,0296·log(0,1/2,0) = 1,10 − 0,0296·log(0,05) = 1,10 − 0,0296·(−1,301) = 1,10 + 0,0385 ≈ 1,14 В",
             hint: "Q = [products]/[reactants] = [Zn²⁺]/[Cu²⁺] since Zn is oxidized and Cu²⁺ is reduced",
             hintRu: "Q = [продукты]/[реагенты] = [Zn²⁺]/[Cu²⁺], так как Zn окисляется, а Cu²⁺ восстанавливается",
             hintKk: "Q = [өнімдер]/[реагенттер] = [Zn²⁺]/[Cu²⁺], себебі Zn тотығады, Cu²⁺ тотықсызданады",
@@ -3038,7 +3398,9 @@ export const APIB_FULL: Record<string, LessonContent> = {
               { en: "Glycine contains an amino group (−NH₂) and a carboxyl group (−COOH) — both are polar and can form hydrogen bonds.", ru: "Глицин содержит аминогруппу (−NH₂) и карбоксильную группу (−COOH) — обе полярные и образуют водородные связи.", kk: "Глицинде амин тобы (−NH₂) және карбоксил тобы (−COOH) бар — екеуі де полярлы және сутектік байланыстар түзеді." },
               { en: "Since both groups are polar and hydrophilic, glycine is highly soluble in water (polar solvent) and insoluble in hexane (nonpolar).", ru: "Поскольку обе группы полярные и гидрофильные, глицин хорошо растворим в воде (полярный растворитель) и нерастворим в гексане (неполярный).", kk: "Екі топ та полярлы және гидрофильді болғандықтан, глицин суда (полярлы еріткіш) жақсы ериді және гександа (полярлы емес) ерімейді." }
             ],
-            answer: "Functional groups: amino (−NH₂) and carboxyl (−COOH). Glycine is water-soluble due to polar, hydrogen-bonding groups."
+            answer: "Functional groups: amino (−NH₂) and carboxyl (−COOH). Glycine is water-soluble due to polar, hydrogen-bonding groups.",
+            answerRu: "Функциональные группы: амино (−NH₂) и карбоксил (−COOH). Глицин хорошо растворим в воде благодаря полярным группам, образующим водородные связи.",
+            answerKk: "Функционалдық топтар: амин (−NH₂) және карбоксил (−COOH). Глицин полярлы, сутектік байланыс түзетін топтар арқасында суда жақсы ериді."
           }
         ],
         practiceProblems: [
@@ -3048,6 +3410,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Какова молекулярная формула бутана (алкан с 4 атомами углерода)?",
             questionKk: "Бутанның (4 көміртекті алкан) молекулалық формуласы қандай?",
             answer: "C₄H₁₀ (using CₙH₂ₙ₊₂: n=4 → 2(4)+2 = 10 hydrogens)",
+            answerRu: "C₄H₁₀ (по формуле CₙH₂ₙ₊₂: n=4 → 2(4)+2 = 10 атомов водорода)",
+            answerKk: "C₄H₁₀ (CₙH₂ₙ₊₂ формуласы бойынша: n=4 → 2(4)+2 = 10 сутегі атомы)",
             hint: "Use the alkane formula CₙH₂ₙ₊₂ with n = 4",
             hintRu: "Используйте формулу алканов CₙH₂ₙ₊₂ при n = 4",
             hintKk: "n = 4 болғанда CₙH₂ₙ₊₂ алкан формуласын қолданыңыз",
@@ -3059,6 +3423,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Классифицируйте молекулы по функциональным группам: CH₃OH, CH₃COOH, CH₃NH₂, CH₃CHO.",
             questionKk: "Молекулаларды функционалдық топтар бойынша жіктеңіз: CH₃OH, CH₃COOH, CH₃NH₂, CH₃CHO.",
             answer: "CH₃OH = alcohol (−OH); CH₃COOH = carboxylic acid (−COOH); CH₃NH₂ = amine (−NH₂); CH₃CHO = aldehyde (−CHO).",
+            answerRu: "CH₃OH = спирт (−OH); CH₃COOH = карбоновая кислота (−COOH); CH₃NH₂ = амин (−NH₂); CH₃CHO = альдегид (−CHO).",
+            answerKk: "CH₃OH = спирт (−OH); CH₃COOH = карбон қышқылы (−COOH); CH₃NH₂ = амин (−NH₂); CH₃CHO = альдегид (−CHO).",
             hint: "Look at the group attached to the carbon chain: −OH, −COOH, −NH₂, −CHO",
             hintRu: "Посмотрите на группу, присоединённую к углеродной цепи: −OH, −COOH, −NH₂, −CHO",
             hintKk: "Көміртек тізбегіне қосылған топты қараңыз: −OH, −COOH, −NH₂, −CHO",
@@ -3070,6 +3436,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Нарисуйте все структурные изомеры C₃H₈O. Сколько различных изомеров существует и какие функциональные группы они содержат?",
             questionKk: "C₃H₈O-ның барлық құрылымдық изомерлерін салыңыз. Қанша бөлек изомер бар және олар қандай функционалдық топтарды қамтиды?",
             answer: "3 isomers: 1-propanol (CH₃CH₂CH₂OH, primary alcohol), 2-propanol (CH₃CH(OH)CH₃, secondary alcohol), and methyl ethyl ether (CH₃OCH₂CH₃, ether). Two are alcohols (−OH) and one is an ether (C−O−C).",
+            answerRu: "3 изомера: 1-пропанол (CH₃CH₂CH₂OH, первичный спирт), 2-пропанол (CH₃CH(OH)CH₃, вторичный спирт) и метилэтиловый эфир (CH₃OCH₂CH₃, эфир). Два — спирты (−OH), один — эфир (C−O−C).",
+            answerKk: "3 изомер: 1-пропанол (CH₃CH₂CH₂OH, біріншілік спирт), 2-пропанол (CH₃CH(OH)CH₃, екіншілік спирт) және метилэтил эфирі (CH₃OCH₂CH₃, эфир). Екеуі — спирттер (−OH), біреуі — эфир (C−O−C).",
             hint: "Consider both alcohol (−OH) and ether (C−O−C) functional groups with 3 carbons",
             hintRu: "Рассмотрите как спирты (−OH), так и простые эфиры (C−O−C) с 3 углеродами",
             hintKk: "3 көміртекпен спирт (−OH) және қарапайым эфир (C−O−C) функционалдық топтарын қарастырыңыз",
@@ -3101,7 +3469,9 @@ export const APIB_FULL: Record<string, LessonContent> = {
               { en: "After eating, blood glucose rises. Beta cells in the pancreas detect this and secrete insulin into the bloodstream.", ru: "После еды уровень глюкозы в крови повышается. Бета-клетки поджелудочной железы определяют это и выделяют инсулин в кровоток.", kk: "Тамақтан кейін қан глюкозасы көтеріледі. Ұйқы безінің бета-жасушалары мұны анықтап, қанға инсулин бөледі." },
               { en: "Insulin signals liver and muscle cells to absorb glucose and store it as glycogen (glycogenesis), lowering blood glucose back to normal — a classic negative feedback loop.", ru: "Инсулин сигнализирует печени и мышцам поглощать глюкозу и запасать её в виде гликогена (гликогенез), снижая глюкозу до нормы — классическая отрицательная обратная связь.", kk: "Инсулин бауыр мен бұлшықет жасушаларына глюкозаны сіңіріп, гликоген түрінде сақтауды (гликогенез) сигнал береді, қан глюкозасын қалыпқа түсіреді — классикалық теріс кері байланыс." }
             ],
-            answer: "Pancreas secretes insulin → liver/muscles store glucose as glycogen → blood glucose decreases (negative feedback)."
+            answer: "Pancreas secretes insulin → liver/muscles store glucose as glycogen → blood glucose decreases (negative feedback).",
+            answerRu: "Поджелудочная железа выделяет инсулин → печень/мышцы запасают глюкозу как гликоген → уровень глюкозы в крови снижается (отрицательная обратная связь).",
+            answerKk: "Ұйқы безі инсулин бөледі → бауыр/бұлшықеттер глюкозаны гликоген түрінде сақтайды → қан глюкозасы төмендейді (теріс кері байланыс)."
           }
         ],
         practiceProblems: [
@@ -3111,6 +3481,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Какой тип иммунного ответа быстрее: врождённый или адаптивный? Почему?",
             questionKk: "Қай иммундық жауап жылдамырақ: туа біткен бе, әлде бейімделгіш пе? Неліктен?",
             answer: "Innate immunity is faster because it is non-specific and always ready — no time needed to identify specific pathogens. Adaptive immunity takes days to develop targeted antibodies.",
+            answerRu: "Врождённый иммунитет быстрее, потому что он неспецифичен и всегда готов — не нужно время на идентификацию конкретных патогенов. Адаптивному иммунитету требуются дни для выработки целевых антител.",
+            answerKk: "Туа біткен иммунитет жылдамырақ, себебі ол бейспецификалық және әрдайым дайын — нақты патогендерді анықтауға уақыт қажет емес. Бейімделгіш иммунитетке мақсатты антиденелер шығару үшін бірнеше күн қажет.",
             hint: "Think about which system needs to 'learn' about the pathogen first",
             hintRu: "Подумайте, какой системе нужно сначала «узнать» патоген",
             hintKk: "Қай жүйенің алдымен патогенді «танып білуі» керектігін ойланыңыз",
@@ -3122,6 +3494,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Сравните нервную и эндокринную системы по типу сигнала, скорости и длительности эффекта.",
             questionKk: "Жүйке жүйесі мен эндокриндік жүйені сигнал түрі, жылдамдығы және әсер ұзақтығы бойынша салыстырыңыз.",
             answer: "Nervous: electrical impulses, very fast (milliseconds), short duration. Endocrine: chemical hormones via blood, slower (seconds to hours), longer-lasting effects. Both maintain homeostasis but operate on different timescales.",
+            answerRu: "Нервная: электрические импульсы, очень быстро (миллисекунды), короткая продолжительность. Эндокринная: химические гормоны через кровь, медленнее (секунды-часы), более долгий эффект. Обе поддерживают гомеостаз, но работают в разных временных масштабах.",
+            answerKk: "Жүйке: электр импульстары, өте жылдам (миллисекундтар), қысқа ұзақтық. Эндокрин: қан арқылы химиялық гормондар, баяуырақ (секундтар-сағаттар), ұзағырақ әсер. Екеуі де гомеостазды сақтайды, бірақ әртүрлі уақыт шкаласында жұмыс істейді.",
             hint: "Consider: What carries the signal? How fast does it travel? How long does the effect last?",
             hintRu: "Подумайте: что переносит сигнал? Как быстро он распространяется? Как долго длится эффект?",
             hintKk: "Ойланыңыз: сигналды не тасымалдайды? Қаншалықты жылдам таралады? Әсері қанша уақыт созылады?",
@@ -3133,6 +3507,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Пациент получает пересадку органа. Объясните, почему иммуносупрессивные препараты необходимы, описав конкретные иммунные механизмы, которые вызвали бы отторжение без них.",
             questionKk: "Пациент орган трансплантациясын алады. Иммуносупрессивті дәрілердің неліктен қажет екенін, оларсыз қабылдамауды тудыратын нақты иммундық механизмдерді сипаттай отырып түсіндіріңіз.",
             answer: "Without immunosuppression, the adaptive immune system recognizes donor MHC proteins as foreign. Helper T-cells activate cytotoxic T-cells that directly attack donor cells. B-cells produce antibodies against donor antigens (humoral rejection). Memory cells form, making future rejection faster. Immunosuppressants inhibit T-cell activation (e.g., cyclosporine blocks IL-2 signaling) to prevent these responses.",
+            answerRu: "Без иммуносупрессии адаптивная иммунная система распознаёт MHC-белки донора как чужеродные. Т-хелперы активируют цитотоксические Т-клетки, которые атакуют клетки донора. В-клетки вырабатывают антитела против антигенов донора (гуморальное отторжение). Образуются клетки памяти, ускоряя будущее отторжение. Иммуносупрессанты подавляют активацию Т-клеток (например, циклоспорин блокирует сигнал IL-2), предотвращая эти реакции.",
+            answerKk: "Иммуносупрессиясыз бейімделгіш иммундық жүйе донор MHC ақуыздарын бөгде деп таниды. Т-хелперлер донор жасушаларына тікелей шабуыл жасайтын цитотоксикалық Т-жасушаларды белсендіреді. В-жасушалар донор антигендеріне қарсы антиденелер шығарады (гуморалды қабылдамау). Есте сақтау жасушалары түзіліп, болашақ қабылдамауды жылдамдатады. Иммуносупрессанттар Т-жасуша белсенділігін тежейді (мысалы, циклоспорин IL-2 сигналын бөгейді), осы жауаптардың алдын алады.",
             hint: "Focus on how T-cells and B-cells recognize 'non-self' MHC markers on the transplanted organ",
             hintRu: "Сосредоточьтесь на том, как T- и B-клетки распознают «чужие» MHC-маркеры на пересаженном органе",
             hintKk: "T-жасушалар мен B-жасушалардың трансплантацияланған органдағы «бөтен» MHC маркерлерін қалай танитынына назар аударыңыз",
@@ -3164,7 +3540,9 @@ export const APIB_FULL: Record<string, LessonContent> = {
               { en: "Improve the research question to be specific and measurable: 'To what extent does sub-inhibitory concentration of tetracycline promote horizontal gene transfer of resistance plasmids in E. coli?'", ru: "Улучшите вопрос, сделав его конкретным и измеримым: «В какой степени субингибирующая концентрация тетрациклина способствует горизонтальному переносу плазмид резистентности у E. coli?»", kk: "Зерттеу сұрағын нақты және өлшенетін етіп жақсартыңыз: «Тетрациклиннің субингибиторлық концентрациясы E. coli-де резистенттік плазмидтердің көлденең ген тасымалын қаншалықты ынталандырады?»" },
               { en: "Structure: Introduction (background on antibiotic resistance + RQ), Body (methodology, data collection from experiments/literature, analysis of results), Conclusion (answer to RQ, limitations, implications), Bibliography.", ru: "Структура: Введение (предпосылки + исследовательский вопрос), Основная часть (методология, сбор данных, анализ), Заключение (ответ, ограничения, значение), Библиография.", kk: "Құрылым: Кіріспе (антибиотик резистенттілігі + зерттеу сұрағы), Негізгі бөлім (әдіснама, деректер жинау, талдау), Қорытынды (жауап, шектеулер, маңыздылық), Әдебиеттер." }
             ],
-            answer: "Revised RQ: 'To what extent does sub-inhibitory tetracycline concentration promote horizontal gene transfer of resistance plasmids in E. coli?' — specific, measurable, and researchable within 4,000 words."
+            answer: "Revised RQ: 'To what extent does sub-inhibitory tetracycline concentration promote horizontal gene transfer of resistance plasmids in E. coli?' — specific, measurable, and researchable within 4,000 words.",
+            answerRu: "Пересмотренный вопрос: «В какой степени субингибирующая концентрация тетрациклина способствует горизонтальному переносу плазмид резистентности у E. coli?» — конкретный, измеримый и исследуемый в пределах 4000 слов.",
+            answerKk: "Түзетілген сұрақ: «Тетрациклиннің субингибиторлық концентрациясы E. coli-де резистенттік плазмидтердің көлденең ген тасымалын қаншалықты ынталандырады?» — нақты, өлшенетін және 4000 сөз шегінде зерттелетін."
           }
         ],
         practiceProblems: [
@@ -3174,6 +3552,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Каков максимальный объём слов для Расширенного эссе IB?",
             questionKk: "IB Кеңейтілген эссенің максималды сөз саны қандай?",
             answer: "4,000 words. This does not include the bibliography, table of contents, or appendices.",
+            answerRu: "4000 слов. Это не включает библиографию, оглавление или приложения.",
+            answerKk: "4000 сөз. Бұған әдебиеттер тізімі, мазмұны немесе қосымшалар кірмейді.",
             hint: "The word limit is a strict maximum — exceeding it results in a penalty",
             hintRu: "Лимит строгий — превышение штрафуется",
             hintKk: "Сөз шегі қатаң — асыру айыппұлға әкеледі",
@@ -3185,6 +3565,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Оцените исследовательский вопрос: «Как температура влияет на активность ферментов?» Предложите два конкретных улучшения.",
             questionKk: "Бұл зерттеу сұрағын бағалаңыз: «Температураның фермент белсенділігіне әсері қандай?» Екі нақты жақсарту ұсыныңыз.",
             answer: "Too broad. Improvement 1: Specify the enzyme (e.g., amylase, catalase). Improvement 2: Define the temperature range and measurable outcome (e.g., 'How does temperature between 20-80°C affect the rate of starch hydrolysis by salivary amylase, measured by iodine test?').",
+            answerRu: "Слишком широко. Улучшение 1: Уточните фермент (например, амилаза, каталаза). Улучшение 2: Определите диапазон температур и измеримый результат (например, «Как температура 20-80°C влияет на скорость гидролиза крахмала слюнной амилазой, измеряемую йодным тестом?»).",
+            answerKk: "Тым кең. Жақсарту 1: Ферментті нақтылаңыз (мысалы, амилаза, каталаза). Жақсарту 2: Температура диапазоны мен өлшенетін нәтижені анықтаңыз (мысалы, «Температура 20-80°C аралығында сілекей амилазасының крахмал гидролизі жылдамдығына йод тестімен өлшенгенде қалай әсер етеді?»).",
             hint: "A good EE question specifies the variables, the organism/enzyme, and how results will be measured",
             hintRu: "Хороший вопрос EE указывает переменные, организм/фермент и способ измерения",
             hintKk: "Жақсы EE сұрағы айнымалыларды, организмді/ферментті және нәтижелерді өлшеу тәсілін көрсетеді",
@@ -3196,6 +3578,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Вы пишете EE по экономике о влиянии минимальной зарплаты. Сформулируйте вопрос, определите источники и методологию (количественная, качественная или смешанная).",
             questionKk: "Ең төменгі жалақы әсерлері туралы экономикадан EE жазып жатырсыз. Нақты зерттеу сұрағын жасап, бастапқы және қосалқы дереккөздерді анықтаңыз, әдіснаманы (сандық, сапалық немесе аралас) түсіндіріңіз.",
             answer: "RQ: 'To what extent did Kazakhstan's 2024 minimum wage increase affect youth unemployment rates in Almaty?' Primary: Kazakhstan Bureau of Statistics employment data, government wage reports. Secondary: academic papers on minimum wage elasticity, ILO reports. Methodology: Mixed — quantitative analysis of unemployment data (before/after comparison) with qualitative context from economic theory and policy analysis.",
+            answerRu: "Вопрос: «В какой степени повышение минимальной зарплаты в Казахстане в 2024 году повлияло на уровень безработицы среди молодёжи в Алматы?» Первичные источники: данные Бюро статистики РК, отчёты о зарплатах. Вторичные: научные статьи об эластичности минимальной зарплаты, отчёты МОТ. Методология: смешанная — количественный анализ данных о безработице (сравнение до/после) с качественным контекстом из экономической теории.",
+            answerKk: "Сұрақ: «Қазақстанда 2024 жылы ең төменгі жалақының көтерілуі Алматыдағы жастар жұмыссыздығына қаншалықты әсер етті?» Бастапқы дереккөздер: ҚР Статистика бюросының жұмыспен қамту деректері, жалақы туралы есептер. Қосалқы: ең төменгі жалақы серпінділігі туралы ғылыми мақалалар, ХЕҰ есептері. Әдіснама: аралас — жұмыссыздық деректерін сандық талдау (дейін/кейін салыстыру) экономикалық теориядан сапалық контекстпен.",
             hint: "Focus on a specific country, time period, and measurable economic indicator",
             hintRu: "Сфокусируйтесь на конкретной стране, периоде и измеримом экономическом показателе",
             hintKk: "Нақты елге, уақыт кезеңіне және өлшенетін экономикалық көрсеткішке назар аударыңыз",
@@ -3227,7 +3611,9 @@ export const APIB_FULL: Record<string, LessonContent> = {
               { en: "MC: 28/35 = 80%. FRQ: 30/45 = 66.7%. Composite = 0.5(80%) + 0.5(66.7%) = 73.3%", ru: "MC: 28/35 = 80%. FRQ: 30/45 = 66,7%. Композит = 0,5(80%) + 0,5(66,7%) = 73,3%", kk: "MC: 28/35 = 80%. FRQ: 30/45 = 66,7%. Композит = 0,5(80%) + 0,5(66,7%) = 73,3%" },
               { en: "73.3% composite is well above the typical 60-70% threshold for a 5 in AP Physics C. Likely AP score: 5.", ru: "73,3% значительно выше типичного порога 60-70% для 5 по AP Physics C. Вероятный балл AP: 5.", kk: "73,3% AP Physics C-де 5 алу үшін типтік 60-70% шегінен анық жоғары. Ықтимал AP балы: 5." }
             ],
-            answer: "Composite ≈ 73.3%. Likely AP score: 5."
+            answer: "Composite ≈ 73.3%. Likely AP score: 5.",
+            answerRu: "Композит ≈ 73,3%. Вероятный балл AP: 5.",
+            answerKk: "Композит ≈ 73,3%. Ықтимал AP балы: 5."
           }
         ],
         practiceProblems: [
@@ -3237,6 +3623,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Если порог для 5 на AP Chemistry — примерно 65%, а вы набрали 70% на пробном, вы на верном пути?",
             questionKk: "AP Chemistry-де 5 алу шегі шамамен 65% болса және сіз сынақта 70% алсаңыз, дұрыс жолдасыз ба?",
             answer: "Yes — 70% exceeds the 65% threshold, so you are on track for a 5. Continue practice to maintain or improve.",
+            answerRu: "Да — 70% превышает порог 65%, значит вы на верном пути к 5. Продолжайте практику, чтобы удержать или улучшить результат.",
+            answerKk: "Иә — 70% 65% шегінен асады, яғни 5 балға дұрыс жолдасыз. Нәтижені сақтау немесе жақсарту үшін жаттығуды жалғастырыңыз.",
             hint: "Compare your score directly to the threshold percentage",
             hintRu: "Сравните свой балл непосредственно с пороговым процентом",
             hintKk: "Балыңызды шекті пайызбен тікелей салыстырыңыз",
@@ -3248,6 +3636,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "На AP экзамене осталось 15 минут и 3 части FRQ. Каждая по 3 балла. Можно полностью решить 1 или частично попробовать все 3. Что даст больше баллов?",
             questionKk: "AP емтиханында 15 минут және 3 FRQ бөлімі қалды. Әрқайсысы 3 балл. 15 минутта 1-ін толық шешуге немесе 3-ін ішінара шешуге болады. Қай стратегия көбірек балл береді?",
             answer: "Partially attempt all 3. Full answer on 1 = 3 points max. Partial attempts on 3 (writing setup equations, known formulas, correct units, diagrams) typically earns 1-2 points each = 3-6 points total. AP FRQ grading awards partial credit generously.",
+            answerRu: "Частично попробуйте все 3. Полный ответ на 1 = максимум 3 балла. Частичные попытки на 3 (запись начальных уравнений, известных формул, правильных единиц, диаграмм) обычно дают 1-2 балла каждая = 3-6 баллов всего. Оценивание AP FRQ щедро начисляет частичные баллы.",
+            answerKk: "3-еуін де ішінара шешіп көріңіз. 1-іне толық жауап = максимум 3 балл. 3-еуіне ішінара әрекет (бастапқы теңдеулерді, белгілі формулаларды, дұрыс өлшем бірліктерін, диаграммаларды жазу) әдетте әрқайсысына 1-2 балл = жалпы 3-6 балл береді. AP FRQ бағалауы ішінара баллды кеңінен береді.",
             hint: "AP FRQ scoring awards partial credit — even writing the correct equation earns points",
             hintRu: "AP FRQ щедро начисляет частичные баллы — даже правильное уравнение приносит баллы",
             hintKk: "AP FRQ бағалауы ішінара кредит береді — тіпті дұрыс теңдеу жазу да балл әкеледі",
@@ -3259,6 +3649,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "В мае вы сдаёте 4 AP экзамена: Calc BC, Physics C, Chemistry, Biology. 8 недель, 3 часа в день. Пробные: Calc BC 75%, Physics C 55%, Chem 62%, Bio 68%. Составьте оптимальный план.",
             questionKk: "Мамырда 4 AP емтихан тапсырасыз: Calc BC, Physics C, Chemistry, Biology. 8 апта, күніне 3 сағат. Сынақ балдары: Calc BC 75%, Physics C 55%, Chem 62%, Bio 68%. Оңтайландырылған оқу жоспарын жасаңыз.",
             answer: "Total: 168 hours. Allocate by gap from 5-threshold (~65%): Physics C (55%, biggest gap) = 30% → 50 hrs. Chemistry (62%) = 25% → 42 hrs. Biology (68%) = 25% → 42 hrs. Calc BC (75%, already above 5 threshold) = 20% → 34 hrs. Schedule: Weeks 1-4 heavy on Physics C and Chem. Weeks 5-6 balanced across all. Weeks 7-8 full practice exams + targeted review. Study chronologically by exam date in May.",
+            answerRu: "Всего: 168 часов. Распределение по разрыву от порога 5 (~65%): Physics C (55%, наибольший разрыв) = 30% → 50 ч. Chemistry (62%) = 25% → 42 ч. Biology (68%) = 25% → 42 ч. Calc BC (75%, уже выше порога) = 20% → 34 ч. График: Недели 1-4 упор на Physics C и Chem. Недели 5-6 сбалансировано по всем. Недели 7-8 полные пробные экзамены + целевое повторение. Учитесь хронологически по датам экзаменов в мае.",
+            answerKk: "Барлығы: 168 сағат. 5 шегінен алшақтыққа қарай бөлу (~65%): Physics C (55%, ең үлкен алшақтық) = 30% → 50 сағ. Chemistry (62%) = 25% → 42 сағ. Biology (68%) = 25% → 42 сағ. Calc BC (75%, шектен жоғары) = 20% → 34 сағ. Кесте: 1-4 апталар Physics C пен Chem-ге басым. 5-6 апталар барлығына тең бөлінген. 7-8 апталар толық сынақ емтихандар + бағытталған қайталау. Мамырдағы емтихан күндеріне қарай хронологиялық оқыңыз.",
             hint: "Allocate the most time to subjects furthest below the score-5 threshold, and arrange study by exam date",
             hintRu: "Больше времени — предметам далеко от порога 5, и планируйте по дате экзамена",
             hintKk: "5 балл шегінен ең алыс пәндерге көбірек уақыт бөліп, емтихан күніне қарай жоспарлаңыз",
@@ -3290,7 +3682,9 @@ export const APIB_FULL: Record<string, LessonContent> = {
               { en: "Credits earned: Calc BC (8) + Physics C (4) + Chem (0 — scored 3, needs 4+) + Bio (4) = 16 credits total.", ru: "Полученные кредиты: Calc BC (8) + Physics C (4) + Chem (0 — набрал 3, нужно 4+) + Bio (4) = 16 кредитов.", kk: "Алынған кредиттер: Calc BC (8) + Physics C (4) + Chem (0 — 3 алды, 4+ қажет) + Bio (4) = 16 кредит." },
               { en: "Savings = 16 credits × $500/credit = $8,000 saved. Note: the AP Chem score of 3 earned no credit at this university.", ru: "Экономия = 16 × $500 = $8 000. Примечание: балл 3 по AP Chem не дал кредитов в этом вузе.", kk: "Үнемдеу = 16 × $500 = $8,000. Ескертпе: AP Chem-дегі 3 балл бұл университетте кредит бермеді." }
             ],
-            answer: "16 credits earned, $8,000 saved. AP Chem (score 3) earned no credit at this university."
+            answer: "16 credits earned, $8,000 saved. AP Chem (score 3) earned no credit at this university.",
+            answerRu: "Получено 16 кредитов, сэкономлено $8000. AP Chem (балл 3) не дал кредита в этом вузе.",
+            answerKk: "16 кредит алынды, $8000 үнемделді. AP Chem (балы 3) бұл университетте кредит бермеді."
           }
         ],
         practiceProblems: [
@@ -3300,6 +3694,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Какой минимальный балл AP обычно принимается для зачёта в большинстве университетов США?",
             questionKk: "АҚШ университеттерінің көпшілігінде кредит үшін қабылданатын ең төменгі AP балы қандай?",
             answer: "A score of 3 is the minimum accepted at most US universities, though more selective schools may require 4 or 5.",
+            answerRu: "Балл 3 — минимум, принимаемый большинством вузов США, хотя более селективные вузы могут требовать 4 или 5.",
+            answerKk: "3 балл — АҚШ университеттерінің көпшілігінде қабылданатын ең төменгі балл, бірақ іріктемелі университеттер 4 немесе 5 талап етуі мүмкін.",
             hint: "AP scores range from 1-5, and most universities set the credit threshold at the passing score",
             hintRu: "Баллы AP от 1 до 5, большинство вузов устанавливают порог на проходном балле",
             hintKk: "AP балдары 1-ден 5-ке дейін, университеттердің көпшілігі шекті өту балына қояды",
@@ -3311,6 +3707,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Сравните: Вуз A принимает AP 3+, но максимум 30 кредитов. Вуз B — только 4+, без ограничений. У студента 12 баллов AP: 3,3,3,4,4,4,5,5,5,3,4,5 (по 3 кредита). Сколько кредитов в каждом?",
             questionKk: "Салыстырыңыз: A университеті AP 3+ қабылдайды, бірақ 30 кредитпен шектеледі. B университеті тек 4+ қабылдайды, шектеусіз. Оқушыда 12 AP балы бар: 3,3,3,4,4,4,5,5,5,3,4,5 (әрқайсысы 3 кредит). Әр университетте қанша кредит?",
             answer: "University A: All 12 qualify (3+) = 36 credits, but capped at 30 credits. University B: 8 scores are 4+ (four 4s and four 5s) = 24 credits (no cap). University A: 30, University B: 24.",
+            answerRu: "Вуз A: Все 12 подходят (3+) = 36 кредитов, но ограничено 30 кредитами. Вуз B: 8 баллов 4+ (четыре 4 и четыре 5) = 24 кредита (без лимита). Вуз A: 30, Вуз B: 24.",
+            answerKk: "A университеті: Барлық 12 сәйкес келеді (3+) = 36 кредит, бірақ 30 кредитпен шектелген. B университеті: 8 балл 4+ (төрт 4 және төрт 5) = 24 кредит (шектеусіз). A университеті: 30, B университеті: 24.",
             hint: "Count qualifying scores for each policy, then apply any credit caps",
             hintRu: "Подсчитайте проходные баллы для каждой политики, затем примените лимиты",
             hintKk: "Әр саясат бойынша өту балдарын санап, кредит шектерін қолданыңыз",
@@ -3322,6 +3720,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
             questionRu: "Студент выбирает: (A) Сдать 6 AP экзаменов со средним 3,5 или (B) 4 AP со средним 4,5. Вуз даёт 4 кредита за 3, 4 за 4, 8 за 5. С реалистичным распределением, что даст больше кредитов?",
             questionKk: "Оқушы таңдайды: (A) 6 AP емтихан, орташа 3,5 немесе (B) 4 AP емтихан, орташа 4,5. Университет 3 үшін 4 кредит, 4 үшін 4, 5 үшін 8 кредит береді. Шынайы балл бөлінісімен қайсысы көбірек кредит береді?",
             answer: "Option A (avg 3.5): Realistic distribution might be three 3s and three 4s = 3(4) + 3(4) = 24 credits. Option B (avg 4.5): Realistic distribution might be two 4s and two 5s = 2(4) + 2(8) = 24 credits. Credits are equal, BUT Option B is better: fewer exams means less stress, higher scores look better on transcripts, and scores of 5 are more likely to transfer at selective universities. Quality over quantity.",
+            answerRu: "Вариант A (сред. 3,5): Реалистичное распределение — три 3 и три 4 = 3(4) + 3(4) = 24 кредита. Вариант B (сред. 4,5): Реалистичное распределение — два 4 и два 5 = 2(4) + 2(8) = 24 кредита. Кредиты равны, НО вариант B лучше: меньше экзаменов — меньше стресса, высокие баллы лучше смотрятся в транскрипте, а баллы 5 с большей вероятностью зачтутся в селективных вузах. Качество важнее количества.",
+            answerKk: "A нұсқасы (орт. 3,5): Шынайы бөлініс — үш 3 және үш 4 = 3(4) + 3(4) = 24 кредит. B нұсқасы (орт. 4,5): Шынайы бөлініс — екі 4 және екі 5 = 2(4) + 2(8) = 24 кредит. Кредиттер тең, БІРАҚ B нұсқасы жақсырақ: аз емтихан — аз стресс, жоғары балдар транскриптте жақсы көрінеді, әрі 5 балдар іріктемелі университеттерде есептелу ықтималдығы жоғары. Сан емес, сапа маңызды.",
             hint: "Calculate credits for realistic score distributions, then consider factors beyond raw credit count",
             hintRu: "Рассчитайте кредиты для реалистичных распределений, затем учтите факторы помимо количества кредитов",
             hintKk: "Шынайы балл бөлінісі үшін кредиттерді есептеп, шикі кредит санынан тыс факторларды қарастырыңыз",

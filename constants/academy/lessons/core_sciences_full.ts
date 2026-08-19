@@ -3366,7 +3366,9 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
               { en: "Factor the numerator: $\\dfrac{(x-3)(x+3)}{x-3}$. Cancel $(x-3)$.", ru: "Разложим числитель: $\\dfrac{(x-3)(x+3)}{x-3}$. Сократим $(x-3)$.", kk: "Алымды жіктейміз: $\\dfrac{(x-3)(x+3)}{x-3}$. $(x-3)$ қысқартамыз." },
               { en: "$\\lim_{x \\to 3} (x + 3) = 3 + 3 = 6$", ru: "$\\lim_{x \\to 3} (x + 3) = 6$", kk: "$\\lim_{x \\to 3} (x + 3) = 6$" }
             ],
-            answer: "$6$"
+            answer: "$6$",
+            answerRu: "$6$",
+            answerKk: "$6$"
           }
         ],
         practiceProblems: [
@@ -3376,6 +3378,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Найдите $\\lim_{x \\to 2} (3x + 1)$",
             questionKk: "$\\lim_{x \\to 2} (3x + 1)$ табыңыз",
             answer: "7",
+            answerRu: "7",
+            answerKk: "7",
             hint: "For a polynomial, just substitute $x = 2$",
             hintRu: "Для многочлена просто подставьте $x = 2$",
             hintKk: "Көпмүше үшін $x = 2$ қойыңыз",
@@ -3387,6 +3391,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Найдите $\\lim_{x \\to 4} \\dfrac{x^{2} - 16}{x - 4}$",
             questionKk: "$\\lim_{x \\to 4} \\dfrac{x^{2} - 16}{x - 4}$ табыңыз",
             answer: "8",
+            answerRu: "8",
+            answerKk: "8",
             hint: "Factor: $\\dfrac{(x-4)(x+4)}{x-4} = x+4$",
             hintRu: "Разложите: $\\dfrac{(x-4)(x+4)}{x-4} = x+4$",
             hintKk: "Жіктеңіз: $\\dfrac{(x-4)(x+4)}{x-4} = x+4$",
@@ -3398,6 +3404,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Найдите $\\lim_{x \\to 0} \\dfrac{1 - \\cos x}{x^{2}}$",
             questionKk: "$\\lim_{x \\to 0} \\dfrac{1 - \\cos x}{x^{2}}$ табыңыз",
             answer: "$\\dfrac{1}{2}$",
+            answerRu: "$\\dfrac{1}{2}$",
+            answerKk: "$\\dfrac{1}{2}$",
             hint: "Use L'Hôpital's rule twice, or the identity $1 - \\cos x \\approx \\dfrac{x^{2}}{2}$ for small $x$",
             hintRu: "Примените правило Лопиталя дважды или приближение $1 - \\cos x \\approx \\dfrac{x^{2}}{2}$",
             hintKk: "Лопиталь ережесін екі рет қолданыңыз немесе $1 - \\cos x \\approx \\dfrac{x^{2}}{2}$ жуықтауын пайдаланыңыз",
@@ -3438,7 +3446,9 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
               { en: "Apply power rule to each term: 3(4x³) − 2(2x) + 5(1) − 0", ru: "Правило степени для каждого члена: 3(4x³) − 2(2x) + 5(1) − 0", kk: "Әр мүшеге дәреже ережесін қолданамыз: 3(4x³) − 2(2x) + 5(1) − 0" },
               { en: "f'(x) = 12x³ − 4x + 5", ru: "f'(x) = 12x³ − 4x + 5", kk: "f'(x) = 12x³ − 4x + 5" }
             ],
-            answer: "f'(x) = 12x³ − 4x + 5"
+            answer: "f'(x) = 12x³ − 4x + 5",
+            answerRu: "f'(x) = 12x³ − 4x + 5",
+            answerKk: "f'(x) = 12x³ − 4x + 5"
           }
         ],
         practiceProblems: [
@@ -3448,6 +3458,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Найдите производную f(x) = x⁵.",
             questionKk: "f(x) = x⁵ туындысын табыңыз.",
             answer: "5x⁴",
+            answerRu: "5x⁴",
+            answerKk: "5x⁴",
             hint: "Power rule: bring down the exponent and reduce by 1",
             hintRu: "Правило степени: выносим показатель и уменьшаем на 1",
             hintKk: "Дәреже ережесі: дәрежені түсіріп, 1-ге азайтыңыз",
@@ -3459,6 +3471,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Найдите f'(x), если f(x) = 4x³ − 6x + 2.",
             questionKk: "f(x) = 4x³ − 6x + 2 болса, f'(x) табыңыз.",
             answer: "12x² − 6",
+            answerRu: "12x² − 6",
+            answerKk: "12x² − 6",
             hint: "Differentiate each term: 4(3x²) − 6(1) + 0",
             hintRu: "Продифференцируйте каждый член: 4(3x²) − 6(1) + 0",
             hintKk: "Әр мүшенің туындысын алыңыз: 4(3x²) − 6(1) + 0",
@@ -3470,6 +3484,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Найдите производную f(x) = (2x + 1)³ по правилу цепочки.",
             questionKk: "f(x) = (2x + 1)³ туындысын тізбек ережесі арқылы табыңыз.",
             answer: "6(2x + 1)²",
+            answerRu: "6(2x + 1)²",
+            answerKk: "6(2x + 1)²",
             hint: "Chain rule: 3(2x+1)² × d/dx(2x+1) = 3(2x+1)² × 2",
             hintRu: "Цепное правило: 3(2x+1)² × (2x+1)' = 3(2x+1)² × 2",
             hintKk: "Тізбек ережесі: 3(2x+1)² × (2x+1)' = 3(2x+1)² × 2",
@@ -3510,7 +3526,9 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
               { en: "Antiderivative of 2x is x². Evaluate from 1 to 3: 3² − 1²", ru: "Первообразная 2x = x². Вычислим от 1 до 3: 3² − 1²", kk: "2x-тің алғашқы функциясы x². 1-ден 3-ке дейін есептейміз: 3² − 1²" },
               { en: "= 9 − 1 = 8", ru: "= 9 − 1 = 8", kk: "= 9 − 1 = 8" }
             ],
-            answer: "8"
+            answer: "8",
+            answerRu: "8",
+            answerKk: "8"
           }
         ],
         practiceProblems: [
@@ -3520,6 +3538,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Найдите ∫x³ dx.",
             questionKk: "∫x³ dx табыңыз.",
             answer: "x⁴/4 + C",
+            answerRu: "x⁴/4 + C",
+            answerKk: "x⁴/4 + C",
             hint: "Add 1 to exponent and divide by new exponent",
             hintRu: "Увеличьте показатель на 1 и разделите на новый",
             hintKk: "Дәрежеге 1 қосып, жаңа дәрежеге бөліңіз",
@@ -3531,6 +3551,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Вычислите ∫₀² (3x² + 1) dx.",
             questionKk: "∫₀² (3x² + 1) dx есептеңіз.",
             answer: "10",
+            answerRu: "10",
+            answerKk: "10",
             hint: "Antiderivative: x³ + x. Evaluate: (8+2) − (0+0) = 10",
             hintRu: "Первообразная: x³ + x. Вычислим: (8+2) − 0 = 10",
             hintKk: "Алғашқы функция: x³ + x. Есептейміз: (8+2) − 0 = 10",
@@ -3542,6 +3564,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Найдите площадь под y = x² от x = 0 до x = 3.",
             questionKk: "x = 0-ден x = 3-ке дейін y = x² астындағы ауданды табыңыз.",
             answer: "9",
+            answerRu: "9",
+            answerKk: "9",
             hint: "∫₀³ x² dx = [x³/3]₀³ = 27/3 − 0 = 9",
             hintRu: "∫₀³ x² dx = [x³/3]₀³ = 27/3 − 0 = 9",
             hintKk: "∫₀³ x² dx = [x³/3]₀³ = 27/3 − 0 = 9",
@@ -3574,7 +3598,9 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
               { en: "|v| = √(9 + 16) = √25 = 5", ru: "|v| = √(9 + 16) = √25 = 5", kk: "|v| = √(9 + 16) = √25 = 5" },
               { en: "a·b = 2(1) + 5(3) = 2 + 15 = 17", ru: "a·b = 2(1) + 5(3) = 2 + 15 = 17", kk: "a·b = 2(1) + 5(3) = 2 + 15 = 17" }
             ],
-            answer: "|v| = 5, a·b = 17"
+            answer: "|v| = 5, a·b = 17",
+            answerRu: "|v| = 5, a·b = 17",
+            answerKk: "|v| = 5, a·b = 17"
           }
         ],
         practiceProblems: [
@@ -3584,6 +3610,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Сложите векторы a = (2, 3) и b = (4, −1).",
             questionKk: "a = (2, 3) және b = (4, −1) векторларын қосыңыз.",
             answer: "(6, 2)",
+            answerRu: "(6, 2)",
+            answerKk: "(6, 2)",
             hint: "Add corresponding components: (2+4, 3+(−1))",
             hintRu: "Сложите соответствующие компоненты: (2+4, 3+(−1))",
             hintKk: "Тиісті компоненттерді қосыңыз: (2+4, 3+(−1))",
@@ -3595,6 +3623,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Найдите модуль вектора (−5, 12).",
             questionKk: "(−5, 12) векторының модулін табыңыз.",
             answer: "13",
+            answerRu: "13",
+            answerKk: "13",
             hint: "|v| = √(25 + 144) = √169",
             hintRu: "|v| = √(25 + 144) = √169",
             hintKk: "|v| = √(25 + 144) = √169",
@@ -3606,6 +3636,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Найдите угол между a = (1, 0) и b = (1, 1).",
             questionKk: "a = (1, 0) мен b = (1, 1) арасындағы бұрышты табыңыз.",
             answer: "45°",
+            answerRu: "45°",
+            answerKk: "45°",
             hint: "cos θ = (a·b)/(|a||b|) = 1/(1×√2) = 1/√2 → θ = 45°",
             hintRu: "cos θ = (a·b)/(|a||b|) = 1/(1×√2) → θ = 45°",
             hintKk: "cos θ = (a·b)/(|a||b|) = 1/(1×√2) → θ = 45°",
@@ -3638,7 +3670,9 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
               { en: "FOIL: 3(1) + 3(−4i) + 2i(1) + 2i(−4i) = 3 − 12i + 2i − 8i²", ru: "Раскроем: 3 − 12i + 2i − 8i²", kk: "Жаямыз: 3 − 12i + 2i − 8i²" },
               { en: "Since i² = −1: 3 − 10i − 8(−1) = 3 − 10i + 8 = 11 − 10i", ru: "Так как i² = −1: 3 − 10i + 8 = 11 − 10i", kk: "i² = −1 болғандықтан: 3 − 10i + 8 = 11 − 10i" }
             ],
-            answer: "11 − 10i"
+            answer: "11 − 10i",
+            answerRu: "11 − 10i",
+            answerKk: "11 − 10i"
           }
         ],
         practiceProblems: [
@@ -3648,6 +3682,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Сложите: (4 + 3i) + (2 − 5i)",
             questionKk: "Қосыңыз: (4 + 3i) + (2 − 5i)",
             answer: "6 − 2i",
+            answerRu: "6 − 2i",
+            answerKk: "6 − 2i",
             hint: "Add real parts and imaginary parts separately",
             hintRu: "Сложите действительные и мнимые части отдельно",
             hintKk: "Нақты және жорамал бөліктерді бөлек қосыңыз",
@@ -3659,6 +3695,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Найдите модуль z = 3 + 4i.",
             questionKk: "z = 3 + 4i модулін табыңыз.",
             answer: "5",
+            answerRu: "5",
+            answerKk: "5",
             hint: "|z| = √(9 + 16) = √25",
             hintRu: "|z| = √(9 + 16) = √25",
             hintKk: "|z| = √(9 + 16) = √25",
@@ -3670,6 +3708,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Упростите: i¹⁷",
             questionKk: "Жеңілдетіңіз: i¹⁷",
             answer: "i",
+            answerRu: "i",
+            answerKk: "i",
             hint: "Powers of i cycle with period 4: i¹=i, i²=−1, i³=−i, i⁴=1. 17 mod 4 = 1",
             hintRu: "Степени i циклически повторяются с периодом 4: i¹=i, i²=−1, i³=−i, i⁴=1",
             hintKk: "i дәрежелері 4 кезеңмен қайталанады: i¹=i, i²=−1, i³=−i, i⁴=1",
@@ -3708,7 +3748,9 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
               { en: "F = k|q₁q₂|/r² = 9×10⁹ × 3×10⁻⁶ × 5×10⁻⁶ / (0.1)²", ru: "F = k|q₁q₂|/r² = 9×10⁹ × 3×10⁻⁶ × 5×10⁻⁶ / (0,1)²", kk: "F = k|q₁q₂|/r² = 9×10⁹ × 3×10⁻⁶ × 5×10⁻⁶ / (0,1)²" },
               { en: "F = 9×10⁹ × 15×10⁻¹² / 0.01 = 135×10⁻³ / 0.01 = 13.5 N (attractive)", ru: "F = 13,5 Н (притяжение)", kk: "F = 13,5 Н (тартылу)" }
             ],
-            answer: "13.5 N (attractive)"
+            answer: "13.5 N (attractive)",
+            answerRu: "13,5 Н (притяжение)",
+            answerKk: "13,5 Н (тартылу)"
           }
         ],
         practiceProblems: [
@@ -3718,6 +3760,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Одноимённые заряды притягиваются или отталкиваются?",
             questionKk: "Бірдей зарядтар тартыла ма, тебіле ме?",
             answer: "Repel",
+            answerRu: "Отталкиваются",
+            answerKk: "Тебіледі",
             hint: "Like repels like; opposites attract",
             hintRu: "Одноимённые отталкиваются; разноимённые притягиваются",
             hintKk: "Бірдейлер тебіледі; қарама-қарсылар тартылады",
@@ -3729,6 +3773,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Провод 2 м с током 5 А в магнитном поле 0,3 Тл. Какая сила действует?",
             questionKk: "0,3 Тл магнит өрісіндегі 2 м сым 5 А ток тасымалдайды. Қандай күш әсер етеді?",
             answer: "3 N",
+            answerRu: "3 Н",
+            answerKk: "3 Н",
             hint: "F = BIL = 0.3 × 5 × 2",
             hintRu: "F = BIL = 0,3 × 5 × 2",
             hintKk: "F = BIL = 0,3 × 5 × 2",
@@ -3740,6 +3786,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Если расстояние между зарядами удвоить, что произойдёт с силой?",
             questionKk: "Егер екі заряд арасындағы қашықтық екі есе артса, электростатикалық күшке не болады?",
             answer: "The force decreases to 1/4 of its original value (inverse square law).",
+            answerRu: "Сила уменьшается до 1/4 от первоначального значения (закон обратных квадратов).",
+            answerKk: "Күш бастапқы мәнінің 1/4-іне дейін азаяды (кері квадраттар заңы).",
             hint: "F ∝ 1/r². If r → 2r, then F → F/(2²) = F/4",
             hintRu: "F ∝ 1/r². Если r → 2r, то F → F/4",
             hintKk: "F ∝ 1/r². Егер r → 2r болса, F → F/4",
@@ -3772,7 +3820,9 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
               { en: "E = hf = 6.63 × 10⁻³⁴ × 5 × 10¹⁴", ru: "E = hf = 6,63 × 10⁻³⁴ × 5 × 10¹⁴", kk: "E = hf = 6,63 × 10⁻³⁴ × 5 × 10¹⁴" },
               { en: "E = 3.315 × 10⁻¹⁹ J", ru: "E = 3,315 × 10⁻¹⁹ Дж", kk: "E = 3,315 × 10⁻¹⁹ Дж" }
             ],
-            answer: "3.315 × 10⁻¹⁹ J"
+            answer: "3.315 × 10⁻¹⁹ J",
+            answerRu: "3,315 × 10⁻¹⁹ Дж",
+            answerKk: "3,315 × 10⁻¹⁹ Дж"
           }
         ],
         practiceProblems: [
@@ -3782,6 +3832,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Что такое корпускулярно-волновой дуализм?",
             questionKk: "Толқын-бөлшек дуализмі дегеніміз не?",
             answer: "The concept that light (and matter at small scales) exhibits both wave-like and particle-like properties.",
+            answerRu: "Концепция, согласно которой свет (и материя в малых масштабах) проявляет свойства и волны, и частицы.",
+            answerKk: "Жарық (және кіші масштабтағы зат) толқындық және бөлшектік қасиеттерді бірге көрсететін тұжырымдама.",
             hint: "Light can act as a wave (diffraction) and as a particle (photoelectric effect)",
             hintRu: "Свет может вести себя как волна (дифракция) и как частица (фотоэффект)",
             hintKk: "Жарық толқын (дифракция) және бөлшек (фотоэффект) ретінде әрекет ете алады",
@@ -3793,6 +3845,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Длина волны фотона 600 нм. Какова его частота? (c = 3 × 10⁸ м/с)",
             questionKk: "Фотонның толқын ұзындығы 600 нм. Жиілігі қандай? (c = 3 × 10⁸ м/с)",
             answer: "5 × 10¹⁴ Hz",
+            answerRu: "5 × 10¹⁴ Гц",
+            answerKk: "5 × 10¹⁴ Гц",
             hint: "f = c/λ = 3×10⁸ / 600×10⁻⁹",
             hintRu: "f = c/λ = 3×10⁸ / 600×10⁻⁹",
             hintKk: "f = c/λ = 3×10⁸ / 600×10⁻⁹",
@@ -3804,6 +3858,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Работа выхода металла 3,0 эВ. Какова минимальная частота? (h = 4,14 × 10⁻¹⁵ эВ·с)",
             questionKk: "Металдың шығу жұмысы 3,0 эВ. Ең аз жиілік қандай? (h = 4,14 × 10⁻¹⁵ эВ·с)",
             answer: "≈ 7.25 × 10¹⁴ Hz",
+            answerRu: "≈ 7,25 × 10¹⁴ Гц",
+            answerKk: "≈ 7,25 × 10¹⁴ Гц",
             hint: "f_min = W/h = 3.0 / 4.14×10⁻¹⁵",
             hintRu: "f_min = W/h = 3,0 / 4,14×10⁻¹⁵",
             hintKk: "f_min = W/h = 3,0 / 4,14×10⁻¹⁵",
@@ -3836,7 +3892,9 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
               { en: "New rate = k(2[A])² = k × 4[A]² = 4 × original rate", ru: "Новая скорость = k(2[A])² = 4 × исходная", kk: "Жаңа жылдамдық = k(2[A])² = 4 × бастапқы" },
               { en: "The rate quadruples (increases by a factor of 4).", ru: "Скорость увеличивается в 4 раза.", kk: "Жылдамдық 4 есе артады." }
             ],
-            answer: "The rate increases by a factor of 4."
+            answer: "The rate increases by a factor of 4.",
+            answerRu: "Скорость увеличивается в 4 раза.",
+            answerKk: "Жылдамдық 4 есе артады."
           }
         ],
         practiceProblems: [
@@ -3846,6 +3904,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Назовите два фактора, увеличивающих скорость реакции.",
             questionKk: "Химиялық реакция жылдамдығын арттыратын екі факторды атаңыз.",
             answer: "Any two: increasing temperature, increasing concentration, adding a catalyst, increasing surface area",
+            answerRu: "Любые два: повышение температуры, увеличение концентрации, добавление катализатора, увеличение площади поверхности",
+            answerKk: "Кез келген екеуі: температураны жоғарылату, концентрацияны арттыру, катализатор қосу, бет ауданын арттыру",
             hint: "Think about what gives particles more chances to collide",
             hintRu: "Подумайте, что даёт частицам больше шансов столкнуться",
             hintKk: "Бөлшектерге соқтығысу мүмкіндігін не арттыратынын ойлаңыз",
@@ -3857,6 +3917,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Что делает катализатор? Расходуется ли он в реакции?",
             questionKk: "Катализатор не істейді? Ол реакцияда жұмсала ма?",
             answer: "A catalyst lowers the activation energy, speeding up the reaction. It is NOT consumed — it can be reused.",
+            answerRu: "Катализатор снижает энергию активации, ускоряя реакцию. Он НЕ расходуется — его можно использовать повторно.",
+            answerKk: "Катализатор белсендіру энергиясын төмендетіп, реакцияны жылдамдатады. Ол ЖҰМСАЛМАЙДЫ — оны қайта пайдалануға болады.",
             hint: "It provides an alternative pathway with lower energy barrier",
             hintRu: "Он предоставляет альтернативный путь с более низким энергетическим барьером",
             hintKk: "Ол төменірек энергия кедергісімен балама жол ұсынады",
@@ -3868,6 +3930,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Для rate = k[A][B]², если [A] утроится и [B] удвоится, во сколько раз изменится скорость?",
             questionKk: "rate = k[A][B]² үшін, егер [A] үш есе және [B] екі есе артса, жылдамдық қанша есе өзгереді?",
             answer: "12 times",
+            answerRu: "12 раз",
+            answerKk: "12 есе",
             hint: "Factor = 3 × 2² = 3 × 4 = 12",
             hintRu: "Фактор = 3 × 2² = 3 × 4 = 12",
             hintKk: "Фактор = 3 × 2² = 3 × 4 = 12",
@@ -3900,7 +3964,9 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
               { en: "Carbohydrates provide quick energy; lipids store energy and form membranes.", ru: "Углеводы дают быструю энергию; липиды запасают энергию и формируют мембраны.", kk: "Көмірсулар жылдам энергия береді; липидтер энергия жинайды және мембрана түзеді." },
               { en: "Proteins catalyze reactions and provide structure; nucleic acids store genetic information.", ru: "Белки катализируют реакции и обеспечивают структуру; нуклеиновые кислоты хранят генетическую информацию.", kk: "Белоктар реакцияларды катализдейді және құрылым береді; нуклеин қышқылдары генетикалық ақпаратты сақтайды." }
             ],
-            answer: "Carbohydrates (energy), Lipids (storage/membranes), Proteins (enzymes/structure), Nucleic acids (genetic info)"
+            answer: "Carbohydrates (energy), Lipids (storage/membranes), Proteins (enzymes/structure), Nucleic acids (genetic info)",
+            answerRu: "Углеводы (энергия), Липиды (запас/мембраны), Белки (ферменты/структура), Нуклеиновые кислоты (генетическая информация)",
+            answerKk: "Көмірсулар (энергия), Липидтер (қор/мембраналар), Белоктар (ферменттер/құрылым), Нуклеин қышқылдары (генетикалық ақпарат)"
           }
         ],
         practiceProblems: [
@@ -3910,6 +3976,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Какая молекула является энергетической валютой клетки?",
             questionKk: "Жасушаның энергия валютасы қандай молекула?",
             answer: "ATP (adenosine triphosphate)",
+            answerRu: "АТФ (аденозинтрифосфат)",
+            answerKk: "АТФ (аденозинтрифосфат)",
             hint: "This three-letter molecule powers almost all cellular processes",
             hintRu: "Эта трёхбуквенная молекула питает почти все процессы клетки",
             hintKk: "Бұл үш әріпті молекула жасушаның барлық дерлік процестерін қуаттайды",
@@ -3921,6 +3989,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Какова роль ферментов в биохимических реакциях?",
             questionKk: "Биохимиялық реакцияларда ферменттердің рөлі қандай?",
             answer: "Enzymes are biological catalysts that speed up reactions by lowering activation energy. They are specific to their substrates (lock-and-key model).",
+            answerRu: "Ферменты — биологические катализаторы, ускоряющие реакции путём снижения энергии активации. Они специфичны к своим субстратам (модель 'ключ-замок').",
+            answerKk: "Ферменттер — белсендіру энергиясын төмендету арқылы реакцияларды жылдамдататын биологиялық катализаторлар. Олар өз субстраттарына тән ('кілт-құлып' моделі).",
             hint: "They are protein catalysts — very specific about what they work on",
             hintRu: "Это белковые катализаторы — очень специфичны к субстрату",
             hintKk: "Олар белокты катализаторлар — субстратына өте арнайы",
@@ -3932,6 +4002,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Сколько молекул АТФ производится из одной молекулы глюкозы при аэробном дыхании?",
             questionKk: "Аэробты жасуша тыныс алу кезінде бір глюкоза молекуласынан қанша АТФ молекуласы өндіріледі?",
             answer: "Approximately 36-38 ATP",
+            answerRu: "Примерно 36-38 АТФ",
+            answerKk: "Шамамен 36-38 АТФ",
             hint: "Glycolysis (2) + Krebs cycle (2) + electron transport chain (32-34)",
             hintRu: "Гликолиз (2) + цикл Кребса (2) + электронная цепь (32-34)",
             hintKk: "Гликолиз (2) + Кребс циклі (2) + электрон тасымалдау тізбегі (32-34)",
@@ -3964,7 +4036,9 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
               { en: "Right atrium → right ventricle → pulmonary artery → lungs (gas exchange) → pulmonary vein → left atrium", ru: "Правое предсердие → правый желудочек → лёгочная артерия → лёгкие (газообмен) → лёгочная вена → левое предсердие", kk: "Оң жүрекше → оң қарынша → өкпе артериясы → өкпе (газ алмасу) → өкпе венасы → сол жүрекше" },
               { en: "Left atrium → left ventricle → aorta → body (delivers O₂) → vena cava → right atrium", ru: "Левое предсердие → левый желудочек → аорта → тело (доставка O₂) → полая вена → правое предсердие", kk: "Сол жүрекше → сол қарынша → аорта → дене (O₂ жеткізу) → қуыс вена → оң жүрекше" }
             ],
-            answer: "Right atrium → right ventricle → lungs → left atrium → left ventricle → body → right atrium"
+            answer: "Right atrium → right ventricle → lungs → left atrium → left ventricle → body → right atrium",
+            answerRu: "Правое предсердие → правый желудочек → лёгкие → левое предсердие → левый желудочек → тело → правое предсердие",
+            answerKk: "Оң жүрекше → оң қарынша → өкпе → сол жүрекше → сол қарынша → дене → оң жүрекше"
           }
         ],
         practiceProblems: [
@@ -3974,6 +4048,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Какой газ мы вдыхаем и какой выдыхаем?",
             questionKk: "Біз қандай газ жұтамыз және қандай газ шығарамыз?",
             answer: "We inhale oxygen (O₂) and exhale carbon dioxide (CO₂).",
+            answerRu: "Мы вдыхаем кислород (O₂) и выдыхаем углекислый газ (CO₂).",
+            answerKk: "Біз оттегін (O₂) жұтамыз және көмірқышқыл газын (CO₂) шығарамыз.",
             hint: "Breathing brings in what cells need and removes their waste",
             hintRu: "Дыхание доставляет то, что нужно клеткам, и удаляет отходы",
             hintKk: "Тыныс алу жасушаларға қажеттісін жеткізіп, қалдықтарын шығарады",
@@ -3985,6 +4061,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Что такое гомеостаз? Приведите пример.",
             questionKk: "Гомеостаз дегеніміз не? Бір мысал келтіріңіз.",
             answer: "Homeostasis is the maintenance of stable internal conditions. Example: body temperature regulation at ~37°C through sweating (cooling) and shivering (warming).",
+            answerRu: "Гомеостаз — это поддержание стабильных внутренних условий. Пример: регуляция температуры тела на уровне ~37°C через потоотделение (охлаждение) и дрожь (согревание).",
+            answerKk: "Гомеостаз — тұрақты ішкі жағдайларды сақтау. Мысал: дене температурасын ~37°C деңгейінде тершеу (салқындату) және дірілдеу (жылыту) арқылы реттеу.",
             hint: "Think about what your body does to maintain a constant temperature",
             hintRu: "Подумайте, как тело поддерживает постоянную температуру",
             hintKk: "Дене тұрақты температураны қалай сақтайтынын ойлаңыз",
@@ -3996,6 +4074,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
             questionRu: "Объясните, как нервная и эндокринная системы различаются в способах передачи сигналов.",
             questionKk: "Жүйке жүйесі мен эндокриндік жүйенің байланыс тәсілдерінің айырмашылығын түсіндіріңіз.",
             answer: "The nervous system uses fast electrical signals (nerve impulses) transmitted along neurons for rapid, targeted responses. The endocrine system uses hormones released into the bloodstream for slower, longer-lasting, widespread effects.",
+            answerRu: "Нервная система использует быстрые электрические сигналы (нервные импульсы), передаваемые по нейронам для быстрых, целенаправленных реакций. Эндокринная система использует гормоны, выделяемые в кровоток, для более медленных, длительных и широких эффектов.",
+            answerKk: "Жүйке жүйесі жылдам, мақсатты жауаптар үшін нейрондар арқылы берілетін жылдам электрлік сигналдарды (жүйке импульстерін) қолданады. Эндокриндік жүйе баяу, ұзақ әрі кең әсерлер үшін қанға бөлінетін гормондарды қолданады.",
             hint: "One uses electricity (fast, precise); the other uses chemicals in the blood (slow, broad)",
             hintRu: "Одна использует электричество (быстро, точно); другая — химические вещества в крови (медленно, широко)",
             hintKk: "Бірі электр пайдаланады (жылдам, нақты); екіншісі қандағы химиялық заттарды (баяу, кең)",

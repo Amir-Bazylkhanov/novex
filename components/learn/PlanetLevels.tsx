@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { useReducedMotion } from 'framer-motion';
-import { ChevronLeft, ChevronRight, Lock } from 'lucide-react';
+import { CheckCircle2, ChevronLeft, ChevronRight, Lock } from 'lucide-react';
 import { loc, type Localized } from '../../utils/i18n.ts';
 import { useLanguage } from '../../context/LanguageContext.tsx';
 import { pickLangField, type AcademySection } from '../../constants/academy/catalog.ts';
@@ -12,6 +12,12 @@ import { pickLangField, type AcademySection } from '../../constants/academy/cata
 export interface PlanetProgress {
   completedSections: number[];
   skipped: number[];
+  /** Sections whose lesson has been read (step 1 of Урок → Тест → Уровень
+      пройден) but whose level test hasn't been passed yet. A section already
+      present in `completedSections` — including data written before this
+      field existed — counts as fully read too; callers should treat lesson
+      "read" as `lessonRead.includes(i) || completedSections.includes(i)`. */
+  lessonRead: number[];
 }
 
 const progressKey = (slug: string): string => `novex.planet.${slug}`;
@@ -24,14 +30,15 @@ const sanitizeIndices = (value: unknown): number[] =>
 export const loadPlanetProgress = (slug: string): PlanetProgress => {
   try {
     const raw = window.localStorage.getItem(progressKey(slug));
-    if (!raw) return { completedSections: [], skipped: [] };
+    if (!raw) return { completedSections: [], skipped: [], lessonRead: [] };
     const parsed = JSON.parse(raw) as Partial<PlanetProgress>;
     return {
       completedSections: sanitizeIndices(parsed.completedSections),
       skipped: sanitizeIndices(parsed.skipped),
+      lessonRead: sanitizeIndices(parsed.lessonRead),
     };
   } catch {
-    return { completedSections: [], skipped: [] };
+    return { completedSections: [], skipped: [], lessonRead: [] };
   }
 };
 
@@ -59,8 +66,20 @@ export const markSectionCompleted = (slug: string, sectionIndex: number): Planet
 export const markSectionSkipped = (slug: string, sectionIndex: number): PlanetProgress => {
   const current = loadPlanetProgress(slug);
   const next: PlanetProgress = {
+    ...current,
     completedSections: addToSorted(current.completedSections, sectionIndex),
     skipped: addToSorted(current.skipped, sectionIndex),
+  };
+  savePlanetProgress(slug, next);
+  return next;
+};
+
+/** Step 1 of a level (Урок) — read but not yet tested/completed. */
+export const markLessonRead = (slug: string, sectionIndex: number): PlanetProgress => {
+  const current = loadPlanetProgress(slug);
+  const next: PlanetProgress = {
+    ...current,
+    lessonRead: addToSorted(current.lessonRead, sectionIndex),
   };
   savePlanetProgress(slug, next);
   return next;
@@ -208,3 +227,91 @@ const PlanetLevels: React.FC<PlanetLevelsProps> = ({
 };
 
 export default PlanetLevels;
+
+/* --- level step pills (Урок → Тест → Уровень пройден) --- */
+
+export type LevelStepState = 'done' | 'active' | 'locked';
+
+const STEP_LESSON: Localized = { ru: 'Урок', kk: 'Сабақ', en: 'Lesson' };
+const STEP_TEST: Localized = { ru: 'Тест', kk: 'Тест', en: 'Test' };
+const STEP_DONE: Localized = { ru: 'Уровень пройден', kk: 'Деңгей өтілді', en: 'Level completed' };
+
+const stepPillClass = (state: LevelStepState): string =>
+  state === 'done'
+    ? 'border-teal bg-teal/10 text-teal-dark'
+    : state === 'active'
+      ? 'border-teal bg-teal text-white'
+      : 'border-line/50 bg-mist/20 text-slateink/70';
+
+interface LevelStepPillsProps {
+  lessonState: LevelStepState;
+  /** Omit when the section can't generate a test — the flow collapses to
+      Урок → Уровень пройден, same as before. */
+  testState?: LevelStepState;
+  doneState: LevelStepState;
+  /** Called when the Тест pill is clicked; only wired up while it's 'active'. */
+  onTestClick?: () => void;
+}
+
+/** Three-step progress pills for the active level card: Урок → Тест →
+    Уровень пройден (Тест omitted when the section has no generatable test). */
+export const LevelStepPills: React.FC<LevelStepPillsProps> = ({
+  lessonState,
+  testState,
+  doneState,
+  onTestClick,
+}) => {
+  const { language } = useLanguage();
+  const steps: Array<{
+    key: string;
+    label: Localized;
+    state: LevelStepState;
+    onClick?: () => void;
+  }> = [
+    { key: 'lesson', label: STEP_LESSON, state: lessonState },
+    ...(testState !== undefined
+      ? [
+          {
+            key: 'test',
+            label: STEP_TEST,
+            state: testState,
+            onClick: testState === 'active' ? onTestClick : undefined,
+          },
+        ]
+      : []),
+    { key: 'done', label: STEP_DONE, state: doneState },
+  ];
+
+  return (
+    <div className="flex flex-wrap items-center gap-2">
+      {steps.map((step, i) => {
+        const inner = (
+          <>
+            {step.state === 'done' && <CheckCircle2 className="h-3.5 w-3.5" aria-hidden="true" />}
+            {loc(language, step.label)}
+          </>
+        );
+        return (
+          <React.Fragment key={step.key}>
+            {i > 0 && <span aria-hidden="true" className="h-px w-4 shrink-0 bg-line/60" />}
+            {step.onClick ? (
+              <button
+                type="button"
+                onClick={step.onClick}
+                className={`${FOCUS_RING} inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-semibold transition-colors hover:border-teal-dark ${stepPillClass(step.state)}`}
+              >
+                {inner}
+              </button>
+            ) : (
+              <span
+                className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-semibold ${stepPillClass(step.state)}`}
+              >
+                {inner}
+              </span>
+            )}
+          </React.Fragment>
+        );
+      })}
+    </div>
+  );
+};

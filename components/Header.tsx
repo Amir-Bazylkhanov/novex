@@ -8,6 +8,7 @@ import {
   LogOut,
   Map,
   Menu,
+  MessagesSquare,
   Tag,
   TrendingUp,
   User,
@@ -41,6 +42,11 @@ const APP_NAV_LINKS: Array<{
     to: '/practice',
     label: { ru: 'Практика', kk: 'Практика', en: 'Practice' },
     icon: ClipboardList,
+  },
+  {
+    to: '/community',
+    label: { ru: 'Сообщество', kk: 'Қауымдастық', en: 'Community' },
+    icon: MessagesSquare,
   },
   {
     to: '/plan',

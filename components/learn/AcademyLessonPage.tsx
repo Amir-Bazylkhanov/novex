@@ -9,6 +9,7 @@ import {
   Lightbulb,
   ListChecks,
   Sigma,
+  XCircle,
 } from 'lucide-react';
 import { loc, type Localized } from '../../utils/i18n.ts';
 import { useLanguage } from '../../context/LanguageContext.tsx';
@@ -22,7 +23,8 @@ import {
   planetBySlug,
   type AcademySection,
 } from '../../constants/academy/catalog.ts';
-import { loadPlanetProgress, markSectionCompleted } from './PlanetLevels.tsx';
+import { loadPlanetProgress, markLessonRead, markSectionCompleted } from './PlanetLevels.tsx';
+import { buildSkipTest } from './PlanetSkipTest.tsx';
 
 /* Lesson completion is written to the planet's localStorage progress
    (novex.planet.<slug>, see PlanetLevels.tsx) — DB persistence to
@@ -77,6 +79,14 @@ const HIDE_SOLUTION: Localized = {
   kk: 'Шешімді жасыру',
   en: 'Hide solution',
 };
+const CHECK_ANSWER: Localized = { ru: 'Проверить', kk: 'Тексеру', en: 'Check' };
+const ANSWER_CORRECT: Localized = { ru: 'Верно!', kk: 'Дұрыс!', en: 'Correct!' };
+const ANSWER_WRONG: Localized = {
+  ru: 'Пока нет — попробуй ещё',
+  kk: 'Әзірге жоқ — тағы көріп көр',
+  en: 'Not quite — try again',
+};
+const YOUR_ANSWER_LABEL: Localized = { ru: 'Твой ответ', kk: 'Жауабың', en: 'Your answer' };
 const COMPLETE_LESSON: Localized = {
   ru: 'Завершить урок',
   kk: 'Сабақты аяқтау',
@@ -86,6 +96,16 @@ const COMPLETE_HINT: Localized = {
   ru: 'Урок прочитан до конца? Засчитай его и переходи к следующему уровню.',
   kk: 'Сабақты соңына дейін оқыдың ба? Оны есепке алып, келесі деңгейге өт.',
   en: 'Finished the lesson? Mark it complete and move on to the next level.',
+};
+const GO_TO_LEVEL_TEST: Localized = {
+  ru: 'К тесту уровня',
+  kk: 'Деңгей тестіне',
+  en: 'To the level test',
+};
+const GO_TO_TEST_HINT: Localized = {
+  ru: 'Урок прочитан до конца? Пройди короткий тест по теме, чтобы засчитать уровень.',
+  kk: 'Сабақты соңына дейін оқыдың ба? Деңгейді есепке алу үшін тақырып бойынша қысқа тест тапсыр.',
+  en: 'Finished the lesson? Take a short test on this topic to complete the level.',
 };
 const LESSON_DONE_TITLE: Localized = {
   ru: 'Урок пройден!',
@@ -114,7 +134,51 @@ const CARD =
 
 type PracticeProblem = AcademySection['practiceProblems'][number];
 
-/** One free-form practice problem: question + hint + expandable solution. */
+/* --- answer checking (practice cards) ---
+   Normalizes both sides (trim, lowercase, collapse whitespace, strip a
+   trailing period). When both the user's text and the stored answer contain
+   a parseable number (',' accepted as a decimal separator), the first
+   numbers are compared numerically — this lets a short numeric answer
+   ("375", "$375") match a verbose stored answer ("$375 surplus per month").
+   Otherwise it falls back to full normalized-string equality. Checked
+   against every localized answer variant (en/ru/kk) so a Russian-phrased
+   answer also passes. */
+
+const normalizeAnswer = (value: string): string =>
+  value.trim().toLowerCase().replace(/\s+/g, ' ').replace(/\.+$/, '');
+
+const firstNumber = (value: string): number | null => {
+  const match = value.replace(/,/g, '.').match(/-?\d+(?:\.\d+)?/);
+  if (!match) return null;
+  const n = Number.parseFloat(match[0]);
+  return Number.isFinite(n) ? n : null;
+};
+
+const answerMatches = (userInput: string, stored: string): boolean => {
+  const normalizedUser = normalizeAnswer(userInput);
+  if (normalizedUser.length === 0) return false;
+  const userNumber = firstNumber(userInput);
+  const storedNumber = firstNumber(stored);
+  if (userNumber !== null && storedNumber !== null) {
+    return Math.abs(userNumber - storedNumber) < 1e-9;
+  }
+  return normalizedUser === normalizeAnswer(stored);
+};
+
+const answerVariants = (problem: PracticeProblem): string[] => {
+  const seen = new Set<string>();
+  const out: string[] = [];
+  for (const value of [problem.answer, problem.answerRu, problem.answerKk]) {
+    if (!value || value.trim().length === 0) continue;
+    const key = normalizeAnswer(value);
+    if (seen.has(key)) continue;
+    seen.add(key);
+    out.push(value);
+  }
+  return out;
+};
+
+/** One free-form practice problem: question + hint + answer check + expandable solution. */
 const PracticeProblemCard: React.FC<{ problem: PracticeProblem; index: number }> = ({
   problem,
   index,
@@ -122,8 +186,18 @@ const PracticeProblemCard: React.FC<{ problem: PracticeProblem; index: number }>
   const { language } = useLanguage();
   const reducedMotion = useReducedMotion();
   const [open, setOpen] = useState(false);
+  const [answerInput, setAnswerInput] = useState('');
+  const [status, setStatus] = useState<'idle' | 'correct' | 'wrong'>('idle');
 
   const hint = pickLangFieldOptional(language, problem.hint ?? '', problem.hintRu, problem.hintKk);
+  const solved = status === 'correct';
+  const solutionVisible = open || solved;
+
+  const handleCheck = () => {
+    if (answerInput.trim().length === 0) return;
+    const correct = answerVariants(problem).some((variant) => answerMatches(answerInput, variant));
+    setStatus(correct ? 'correct' : 'wrong');
+  };
 
   return (
     <motion.article
@@ -154,19 +228,66 @@ const PracticeProblemCard: React.FC<{ problem: PracticeProblem; index: number }>
           </span>
         </p>
       )}
-      <button
-        type="button"
-        onClick={() => setOpen((v) => !v)}
-        aria-expanded={open}
-        className={`${FOCUS_RING} mt-4 inline-flex items-center gap-2 rounded-xl border border-line/60 bg-white px-4 py-2 text-sm font-semibold text-teal-dark transition-colors hover:border-teal/50 hover:text-teal`}
-      >
-        {loc(language, open ? HIDE_SOLUTION : SHOW_SOLUTION)}
-        <ChevronDown
-          className={`h-4 w-4 transition-transform ${open ? 'rotate-180' : ''}`}
-          aria-hidden="true"
+      <div className="mt-4 flex flex-col gap-2 sm:flex-row">
+        <input
+          type="text"
+          value={answerInput}
+          disabled={solved}
+          onChange={(e) => {
+            setAnswerInput(e.target.value);
+            if (status === 'wrong') setStatus('idle');
+          }}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter') {
+              e.preventDefault();
+              handleCheck();
+            }
+          }}
+          aria-label={loc(language, YOUR_ANSWER_LABEL)}
+          className={`${FOCUS_RING} min-w-0 flex-1 rounded-xl border border-line bg-white px-4 py-2.5 text-sm text-ink placeholder:text-slateink/60 disabled:cursor-not-allowed disabled:bg-mist/20 disabled:text-slateink`}
         />
-      </button>
-      {open && (
+        <button
+          type="button"
+          onClick={handleCheck}
+          disabled={solved || answerInput.trim().length === 0}
+          className={`${FOCUS_RING} inline-flex shrink-0 items-center justify-center rounded-xl bg-teal px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-teal-dark disabled:cursor-not-allowed disabled:opacity-50`}
+        >
+          {loc(language, CHECK_ANSWER)}
+        </button>
+      </div>
+      {status === 'wrong' && (
+        <p
+          aria-live="polite"
+          className="mt-2 flex items-center gap-1.5 text-sm font-semibold text-coral"
+        >
+          <XCircle className="h-4 w-4 shrink-0" aria-hidden="true" />
+          {loc(language, ANSWER_WRONG)}
+        </p>
+      )}
+      {solved && (
+        <p
+          aria-live="polite"
+          className="mt-4 flex items-center gap-1.5 text-sm font-semibold text-teal-dark"
+        >
+          <CheckCircle2 className="h-4 w-4 shrink-0" aria-hidden="true" />
+          {loc(language, ANSWER_CORRECT)}
+        </p>
+      )}
+      {!solved && (
+        <button
+          type="button"
+          onClick={() => setOpen((v) => !v)}
+          aria-expanded={open}
+          className={`${FOCUS_RING} mt-4 inline-flex items-center gap-2 rounded-xl border border-line/60 bg-white px-4 py-2 text-sm font-semibold text-teal-dark transition-colors hover:border-teal/50 hover:text-teal`}
+        >
+          {loc(language, open ? HIDE_SOLUTION : SHOW_SOLUTION)}
+          <ChevronDown
+            className={`h-4 w-4 transition-transform ${open ? 'rotate-180' : ''}`}
+            aria-hidden="true"
+          />
+        </button>
+      )}
+      {solutionVisible && (
         <div
           aria-live="polite"
           className="mt-4 rounded-xl border border-teal/25 bg-mist/15 px-4 py-3"
@@ -242,11 +363,20 @@ const AcademyLessonPage: React.FC = () => {
     .map((p) => p.trim())
     .filter((p) => p.length > 0);
 
-  // Completing the lesson unlocks the next planet level.
+  // Sections that can generate a level test go Урок → Тест → Уровень пройден;
+  // sections that can't (too few practice problems/key terms) keep the old
+  // complete-directly behavior.
+  const hasLevelTest = buildSkipTest(section, language, content.sections) !== null;
+
   const handleCompleteLesson = () => {
     if (!Number.isInteger(sectionIndex)) return;
-    markSectionCompleted(planet.slug, sectionIndex);
-    navigate(`/learn/p/${planet.slug}`);
+    if (hasLevelTest) {
+      markLessonRead(planet.slug, sectionIndex);
+      navigate(`/learn/p/${planet.slug}?test=${sectionIndex}`);
+    } else {
+      markSectionCompleted(planet.slug, sectionIndex);
+      navigate(`/learn/p/${planet.slug}`);
+    }
   };
 
   return (
@@ -451,7 +581,7 @@ const AcademyLessonPage: React.FC = () => {
             ) : (
               <>
                 <p className="max-w-md text-sm leading-relaxed text-slateink">
-                  {loc(language, COMPLETE_HINT)}
+                  {loc(language, hasLevelTest ? GO_TO_TEST_HINT : COMPLETE_HINT)}
                 </p>
                 <button
                   type="button"
@@ -459,7 +589,7 @@ const AcademyLessonPage: React.FC = () => {
                   className={`${FOCUS_RING} mt-4 inline-flex items-center gap-2 rounded-xl bg-teal px-6 py-3 text-sm font-semibold text-white shadow-[0_4px_14px_rgba(33,159,162,0.25)] transition-colors hover:bg-teal-dark`}
                 >
                   <CheckCircle2 className="h-4 w-4" aria-hidden="true" />
-                  {loc(language, COMPLETE_LESSON)}
+                  {loc(language, hasLevelTest ? GO_TO_LEVEL_TEST : COMPLETE_LESSON)}
                 </button>
               </>
             )}

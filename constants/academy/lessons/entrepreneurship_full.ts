@@ -32,7 +32,9 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
               { en: "Problem: Students forget their lunch and get hungry.", ru: "Проблема: Ученики забывают обед и голодают.", kk: "Мәселе: Оқушылар түскі асты ұмытып, аш қалады." },
               { en: "Solution: Selling affordable sandwiches at school. Customer: Classmates who forgot lunch.", ru: "Решение: Продажа доступных бутербродов в школе. Клиент: Одноклассники, забывшие обед.", kk: "Шешім: Мектепте қолжетімді сэндвичтер сату. Тұтынушы: Түскі асты ұмытқан сыныптастар." }
             ],
-            answer: "Problem: forgotten lunches; Solution: selling sandwiches; Customer: hungry classmates"
+            answer: "Problem: forgotten lunches; Solution: selling sandwiches; Customer: hungry classmates",
+            answerRu: "Проблема: забытые обеды; Решение: продажа бутербродов; Клиент: голодные одноклассники",
+            answerKk: "Мәселе: ұмытылған түскі ас; Шешім: сэндвич сату; Тұтынушы: аш сыныптастар"
           }
         ],
         practiceProblems: [
@@ -42,6 +44,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Назовите один бизнес, который вы видите каждый день, и определите, какую проблему он решает.",
             questionKk: "Күнде көретін бір бизнесті атаңыз және ол қандай мәселені шешетінін анықтаңыз.",
             answer: "Example: A grocery store solves the problem of people needing food.",
+            answerRu: "Например: продуктовый магазин решает проблему людей, которым нужна еда.",
+            answerKk: "Мысалы: азық-түлік дүкені адамдарға тамақ қажеттігі мәселесін шешеді.",
             hint: "Think about shops or services near your home.",
             hintRu: "Подумайте о магазинах или услугах рядом с вашим домом.",
             hintKk: "Үйіңіздің жанындағы дүкендер мен қызметтерді ойлаңыз.",
@@ -53,6 +57,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Ученик выгуливает собак после школы по $10 за собаку. Это бизнес? Объясните, используя определение бизнеса.",
             questionKk: "Оқушы мектептен кейін иттерді $10-нан серуендетеді. Бұл бизнес пе? Бизнес анықтамасын қолданып түсіндіріңіз.",
             answer: "Yes, it is a business because the student provides a service (dog walking) to customers (dog owners) in exchange for money ($10).",
+            answerRu: "Да, это бизнес, потому что ученик предоставляет услугу (выгул собак) клиентам (владельцам собак) в обмен на деньги ($10).",
+            answerKk: "Иә, бұл бизнес, себебі оқушы қызметті (иттерді серуендетуді) тұтынушыларға (ит иелеріне) ақшаға ($10) айырбастап ұсынады.",
             hint: "Check if it has a service, a customer, and payment.",
             hintRu: "Проверьте, есть ли услуга, клиент и оплата.",
             hintKk: "Қызмет, тұтынушы және төлем бар-жоғын тексеріңіз.",
@@ -64,6 +70,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Вашей школе нужна репетиторская служба, но никто её не организовал. Опишите проблему, решение, кто будет клиентами и как вы будете брать оплату.",
             questionKk: "Мектебіңізге репетиторлық қызмет керек, бірақ ешкім бастаған жоқ. Мәселені, шешімді, тұтынушыларды және төлем жүйесін сипаттаңыз.",
             answer: "Problem: Students struggle with subjects and need help. Solution: After-school tutoring sessions. Customers: Students who need academic help. Pricing: $5-10 per session or monthly subscription.",
+            answerRu: "Проблема: Ученики испытывают трудности с предметами и нуждаются в помощи. Решение: занятия репетитора после уроков. Клиенты: ученики, которым нужна учебная помощь. Цена: $5-10 за занятие или ежемесячная подписка.",
+            answerKk: "Мәселе: Оқушылар пәндерде қиналып, көмек қажет етеді. Шешім: сабақтан кейінгі репетиторлық сабақтар. Тұтынушылар: академиялық көмек қажет ететін оқушылар. Баға: сабаққа $5-10 немесе ай сайынғы жазылым.",
             xp: 20
           }
         ]
@@ -98,7 +106,9 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
               { en: "Revenue = 40 × $2 = $80", ru: "Доход = 40 × $2 = $80", kk: "Табыс = 40 × $2 = $80" },
               { en: "Profit = $80 - $30 = $50", ru: "Прибыль = $80 - $30 = $50", kk: "Пайда = $80 - $30 = $50" }
             ],
-            answer: "$50"
+            answer: "$50",
+            answerRu: "$50",
+            answerKk: "$50"
           }
         ],
         practiceProblems: [
@@ -108,6 +118,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Вы продаёте 10 карандашей по $1 и потратили $4 на материалы. Какова прибыль?",
             questionKk: "Сіз 10 қарындашты $1-ден сатып, материалдарға $4 жұмсадыңыз. Пайда қанша?",
             answer: "$6",
+            answerRu: "$6",
+            answerKk: "$6",
             hint: "Revenue = 10 × $1, then subtract costs.",
             hintRu: "Доход = 10 × $1, затем вычтите затраты.",
             hintKk: "Табыс = 10 × $1, содан кейін шығындарды шегеріңіз.",
@@ -119,6 +131,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Ученик продаёт 25 браслетов по $4. Материалы стоят $1.50 за браслет. Какова прибыль?",
             questionKk: "Оқушы 25 білезікті $4-тен сатады. Материалдар әр білезікке $1.50. Жалпы пайда қанша?",
             answer: "$62.50 (Revenue $100 - Costs $37.50)",
+            answerRu: "$62.50 (Доход $100 - Затраты $37.50)",
+            answerKk: "$62.50 (Табыс $100 - Шығын $37.50)",
             hint: "Calculate total revenue and total costs separately first.",
             hintRu: "Сначала рассчитайте общий доход и затраты отдельно.",
             hintKk: "Алдымен жалпы табыс пен шығындарды бөлек есептеңіз.",
@@ -130,6 +144,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Вы продаёте футболки по $15. Чистые футболки стоят $6, печать — $2, а за интернет-магазин $20/месяц. Вы продали 30 футболок. Какова прибыль?",
             questionKk: "Сіз футболкаларды $15-тен сатасыз. Таза футболка $6, басып шығару $2, интернет-дүкен айына $20. 30 футболка саттыңыз. Пайда қанша?",
             answer: "$190 (Revenue $450 - Variable costs $240 - Fixed costs $20)",
+            answerRu: "$190 (Доход $450 - Переменные затраты $240 - Постоянные затраты $20)",
+            answerKk: "$190 (Табыс $450 - Айнымалы шығындар $240 - Тұрақты шығындар $20)",
             xp: 20
           }
         ]
@@ -164,7 +180,9 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
               { en: "Demand increased while supply stayed constant — this creates scarcity.", ru: "Спрос вырос, а предложение осталось прежним — это создаёт дефицит.", kk: "Сұраныс өсті, ал ұсыныс тұрақты қалды — бұл тапшылық тудырады." },
               { en: "By the law of supply and demand, the price will increase above $2.", ru: "По закону спроса и предложения цена вырастет выше $2.", kk: "Сұраныс пен ұсыныс заңы бойынша баға $2-ден жоғары болады." }
             ],
-            answer: "The price will increase above $2 because demand exceeds supply."
+            answer: "The price will increase above $2 because demand exceeds supply.",
+            answerRu: "Цена вырастет выше $2, потому что спрос превышает предложение.",
+            answerKk: "Баға $2-ден жоғары көтеріледі, себебі сұраныс ұсыныстан асып түседі."
           }
         ],
         practiceProblems: [
@@ -174,6 +192,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Зонтики обычно стоят $5. Начинается сильный дождь. Что произойдёт с ценой зонтиков?",
             questionKk: "Қолшатырлар әдетте $5 тұрады. Қатты жаңбыр жауды. Қолшатыр бағасына не болады?",
             answer: "The price goes up because demand increases while supply stays the same.",
+            answerRu: "Цена растёт, потому что спрос увеличивается, а предложение остаётся прежним.",
+            answerKk: "Баға көтеріледі, себебі сұраныс артады, ал ұсыныс өзгермейді.",
             hint: "Think about what happens to demand when it rains.",
             hintRu: "Подумайте, что происходит со спросом, когда идёт дождь.",
             hintKk: "Жаңбыр жауғанда сұранысқа не болатынын ойлаңыз.",
@@ -185,6 +205,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Открывается новая фабрика и производит в два раза больше велосипедов. Спрос не изменился. Что произойдёт с ценами и почему?",
             questionKk: "Жаңа зауыт ашылып, бұрынғыдан екі есе көп велосипед шығарады. Сұраныс өзгермеді. Велосипед бағасына не болады және неге?",
             answer: "Prices decrease because supply doubled while demand stayed constant, creating a surplus.",
+            answerRu: "Цены снижаются, потому что предложение удвоилось, а спрос остался прежним, что создаёт избыток.",
+            answerKk: "Бағалар түседі, себебі ұсыныс екі есе артты, ал сұраныс тұрақты қалып, артықшылық туды.",
             xp: 10
           },
           {
@@ -193,6 +215,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Популярная игрушка выходит перед праздниками. В магазине 50 штук, но 200 человек хотят купить. После праздников — 150 штук и только 30 желающих. Объясните, что происходит с ценой.",
             questionKk: "Мерекелер алдында танымал ойыншық шығады. Дүкенде 50 бірлік бар, бірақ 200 адам сатып алғысы келеді. Мерекелерден кейін 150 бірлік бар, тек 30 адам қалайды. Әр кезеңдегі баға өзгерісін түсіндіріңіз.",
             answer: "Before holidays: price rises (demand 200 > supply 50). After holidays: price drops significantly (supply 150 > demand 30).",
+            answerRu: "Перед праздниками: цена растёт (спрос 200 > предложение 50). После праздников: цена значительно падает (предложение 150 > спрос 30).",
+            answerKk: "Мерекелер алдында: баға көтеріледі (сұраныс 200 > ұсыныс 50). Мерекелерден кейін: баға айтарлықтай төмендейді (ұсыныс 150 > сұраныс 30).",
             xp: 20
           }
         ]
@@ -221,7 +245,9 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
               { en: "Demographics: Students aged 13-18 who own smartphones.", ru: "Демография: Ученики 13-18 лет, у которых есть смартфоны.", kk: "Демография: Смартфоны бар 13-18 жастағы оқушылар." },
               { en: "Needs: Protection and style for their phones. Buying power: Students with allowance money ($5-15).", ru: "Потребности: Защита и стиль. Покупательная способность: Ученики с карманными деньгами ($5-15).", kk: "Қажеттіліктер: Телефонды қорғау және стиль. Сатып алу мүмкіндігі: Қалта ақшасы бар оқушылар ($5-15)." }
             ],
-            answer: "Target market: 13-18 year old students with smartphones who want affordable, stylish phone cases."
+            answer: "Target market: 13-18 year old students with smartphones who want affordable, stylish phone cases.",
+            answerRu: "Целевой рынок: ученики 13-18 лет со смартфонами, которые хотят доступные и стильные чехлы для телефонов.",
+            answerKk: "Мақсатты нарық: смартфоны бар, қолжетімді әрі сәнді телефон қаптарын қалайтын 13-18 жастағы оқушылар."
           }
         ],
         practiceProblems: [
@@ -231,6 +257,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Кто целевой рынок магазина игрушек: дети или пожилые люди?",
             questionKk: "Ойыншық дүкенінің мақсатты нарығы кім: балалар ма, қарт адамдар ма?",
             answer: "Children (and their parents who make the purchase).",
+            answerRu: "Дети (и их родители, которые совершают покупку).",
+            answerKk: "Балалар (және сатып алуды жасайтын ата-аналары).",
             hint: "Think about who uses the product.",
             hintRu: "Подумайте, кто пользуется продуктом.",
             hintKk: "Өнімді кім пайдаланатынын ойлаңыз.",
@@ -242,6 +270,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Вы продаёте открытки ручной работы. Опишите целевой рынок: возраст, потребности и когда они покупают.",
             questionKk: "Сіз қолмен жасалған құттықтау карталарын сатасыз. Мақсатты нарықты сипаттаңыз: жас, қажеттіліктер, қашан сатып алады.",
             answer: "Target market: People aged 15-60 who want personalized gifts, especially before holidays, birthdays, and special occasions.",
+            answerRu: "Целевой рынок: люди 15-60 лет, которые хотят персонализированные подарки, особенно перед праздниками, днями рождения и особыми событиями.",
+            answerKk: "Мақсатты нарық: әсіресе мерекелер, туған күндер және ерекше оқиғалар алдында дербестендірілген сыйлықтарды қалайтын 15-60 жастағы адамдар.",
             xp: 10
           },
           {
@@ -250,6 +280,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Две пекарни на одной улице. Одна продаёт дорогие торты на заказ, другая — дешёвый хлеб. Объясните, как обе могут преуспеть.",
             questionKk: "Бір көшеде екі наубайхана бар. Бірі қымбат тапсырыс торттарын, екіншісі арзан күнделікті нан сатады. Екеуі де қалай табысты бола алатынын түсіндіріңіз.",
             answer: "They target different markets: the custom cake shop targets people celebrating special events (willing to pay more), while the bread shop targets daily shoppers (high volume, low price). Different customers, different needs.",
+            answerRu: "Они ориентируются на разные рынки: пекарня на заказ нацелена на людей, отмечающих особые события (готовых платить больше), а хлебная лавка — на повседневных покупателей (большой объём, низкая цена). Разные клиенты, разные потребности.",
+            answerKk: "Олар әртүрлі нарықтарға бағытталған: тапсырыс торттары дүкені ерекше оқиғаларды тойлайтын адамдарды (көбірек төлеуге дайын) нысанаға алады, ал нан дүкені күнделікті сатып алушыларды (жоғары көлем, төмен баға) нысанаға алады. Әртүрлі тұтынушылар, әртүрлі қажеттіліктер.",
             xp: 20
           }
         ]
@@ -284,7 +316,9 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
               { en: "Markup amount = $3 × 100% = $3", ru: "Сумма наценки = $3 × 100% = $3", kk: "Үстеме сомасы = $3 × 100% = $3" },
               { en: "Selling Price = Cost + Markup = $3 + $3 = $6", ru: "Цена продажи = Себестоимость + Наценка = $3 + $3 = $6", kk: "Сату бағасы = Өзіндік құн + Үстеме = $3 + $3 = $6" }
             ],
-            answer: "$6"
+            answer: "$6",
+            answerRu: "$6",
+            answerKk: "$6"
           }
         ],
         practiceProblems: [
@@ -294,6 +328,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Печенье стоит $0.50. Вы продаёте за $1.50. Какова прибыль с одного печенья?",
             questionKk: "Печенье жасау $0.50 тұрады. Сіз $1.50-ден сатасыз. Бір печеньеден пайда қанша?",
             answer: "$1.00",
+            answerRu: "$1.00",
+            answerKk: "$1.00",
             hint: "Profit = Selling Price - Cost.",
             hintRu: "Прибыль = Цена продажи - Себестоимость.",
             hintKk: "Пайда = Сату бағасы - Өзіндік құн.",
@@ -305,6 +341,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Вы делаете свечи за $4. Вы хотите наценку 150%. Какова цена продажи?",
             questionKk: "Сіз шамдарды $4-тен жасайсыз және 150% үстеме қалайсыз. Сату бағасы қанша?",
             answer: "$10 (Markup = $4 × 1.5 = $6, Price = $4 + $6 = $10)",
+            answerRu: "$10 (Наценка = $4 × 1.5 = $6, Цена = $4 + $6 = $10)",
+            answerKk: "$10 (Үстеме = $4 × 1.5 = $6, Баға = $4 + $6 = $10)",
             hint: "Markup amount = Cost × Markup percentage.",
             hintRu: "Сумма наценки = Себестоимость × Процент наценки.",
             hintKk: "Үстеме сомасы = Өзіндік құн × Үстеме пайызы.",
@@ -316,6 +354,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Магазин покупает рубашки за $8, делает наценку 125%, затем скидку 20%. Какова итоговая цена и прибыль?",
             questionKk: "Дүкен көйлектерді $8-ден сатып алып, 125% үстеме қосып, содан кейін 20% жеңілдік жасайды. Соңғы баға мен пайда қанша?",
             answer: "Marked up price = $18, Sale price = $14.40, Profit = $6.40",
+            answerRu: "Цена с наценкой = $18, Цена продажи = $14.40, Прибыль = $6.40",
+            answerKk: "Үстемемен баға = $18, Сату бағасы = $14.40, Пайда = $6.40",
             xp: 20
           }
         ]
@@ -344,7 +384,9 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
               { en: "Product: Homemade chocolate chip cookies. Price: $2 per cookie.", ru: "Продукт: Домашнее печенье с шоколадной крошкой. Цена: $2 за штуку.", kk: "Өнім: Үйде жасалған шоколадты печенье. Баға: $2." },
               { en: "Place: School cafeteria and local market. Promotion: Instagram posts, free samples, and word of mouth.", ru: "Место: Школьная столовая и местный рынок. Продвижение: Посты в Instagram, бесплатные образцы, сарафанное радио.", kk: "Орын: Мектеп асханасы және жергілікті нарық. Жарнама: Instagram жазбалары, тегін үлгілер, ауызша жарнама." }
             ],
-            answer: "Product: chocolate chip cookies; Price: $2; Place: school & local market; Promotion: social media & free samples"
+            answer: "Product: chocolate chip cookies; Price: $2; Place: school & local market; Promotion: social media & free samples",
+            answerRu: "Продукт: печенье с шоколадной крошкой; Цена: $2; Место: школа и местный рынок; Продвижение: соцсети и бесплатные образцы",
+            answerKk: "Өнім: шоколадты печенье; Баға: $2; Орын: мектеп және жергілікті нарық; Жарнама: әлеуметтік желілер және тегін үлгілер"
           }
         ],
         practiceProblems: [
@@ -354,6 +396,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Какой из 4P представляет плакат, рекламирующий ваш продукт?",
             questionKk: "Өніміңізді жарнамалайтын постер 4P-нің қайсысына жатады?",
             answer: "Promotion",
+            answerRu: "Продвижение",
+            answerKk: "Жарнама",
             hint: "Think about what the poster is trying to do.",
             hintRu: "Подумайте, для чего нужен плакат.",
             hintKk: "Постердің не үшін қажет екенін ойлаңыз.",
@@ -365,6 +409,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Вы продаёте лимонад. Примените все 4P: продукт, цена, место и продвижение.",
             questionKk: "Сіз лимонад сатасыз. Барлық 4P-ні қолданыңыз: өнім, баға, орын және жарнама.",
             answer: "Product: Fresh lemonade; Price: $1-2 per cup; Place: Busy street corner or park; Promotion: Signs, social media, or shouting out deals.",
+            answerRu: "Продукт: свежий лимонад; Цена: $1-2 за стакан; Место: людное место на углу улицы или парк; Продвижение: вывески, соцсети или устные объявления об акциях.",
+            answerKk: "Өнім: жаңа лимонад; Баға: стақанына $1-2; Орын: көшенің қалың адам жүретін бұрышы немесе саябақ; Жарнама: маңдайшалар, әлеуметтік желілер немесе акциялар туралы дауыстап жариялау.",
             xp: 10
           },
           {
@@ -373,6 +419,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Ученик хочет продавать наклейки онлайн. Создайте маркетинговый план по 4P и объясните каждый выбор.",
             questionKk: "Оқушы қолмен жасалған стикерлерді онлайн сатқысы келеді. 4P бойынша маркетинг жоспарын жасап, әр таңдауды түсіндіріңіз.",
             answer: "Product: Custom vinyl stickers with trendy designs; Price: $3-5 (covers materials + profit); Place: Etsy, Instagram shop; Promotion: TikTok videos showing the making process, student discounts, bundle deals.",
+            answerRu: "Продукт: наклейки из винила с трендовыми дизайнами; Цена: $3-5 (покрывает материалы + прибыль); Место: Etsy, магазин в Instagram; Продвижение: видео в TikTok, показывающие процесс создания, скидки для студентов, комплекты со скидкой.",
+            answerKk: "Өнім: сәнді дизайндары бар винил стикерлер; Баға: $3-5 (материалдар мен пайданы жабады); Орын: Etsy, Instagram дүкені; Жарнама: жасау процесін көрсететін TikTok бейнелері, оқушыларға жеңілдіктер, топтамалық ұсыныстар.",
             xp: 20
           }
         ]
@@ -401,7 +449,9 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
               { en: "Problem: Long lunch lines waste students' break time.", ru: "Проблема: Длинные очереди тратят время перемены.", kk: "Мәселе: Ұзын кезектер оқушылардың үзіліс уақытын жояды." },
               { en: "Solution: Pre-order lunch app where students order before break. Customers: All students at school.", ru: "Решение: Приложение предзаказа обедов. Клиенты: Все ученики школы.", kk: "Шешім: Түскі асты алдын ала тапсыру қосымшасы. Тұтынушылар: Мектептің барлық оқушылары." }
             ],
-            answer: "Pre-order lunch service that lets students skip the line by ordering in advance."
+            answer: "Pre-order lunch service that lets students skip the line by ordering in advance.",
+            answerRu: "Услуга предзаказа обедов, позволяющая ученикам не стоять в очереди, заказывая заранее.",
+            answerKk: "Оқушыларға алдын ала тапсырыс беру арқылы кезекте тұрмауға мүмкіндік беретін түскі ас алдын ала тапсырыс қызметі."
           }
         ],
         practiceProblems: [
@@ -411,6 +461,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Назовите одну ежедневную проблему, которую мог бы решить бизнес.",
             questionKk: "Бизнес шеше алатын бір күнделікті мәселені атаңыз.",
             answer: "Answers vary. Example: Forgetting homework — a reminder app service.",
+            answerRu: "Ответы могут отличаться. Например: забывание домашнего задания — сервис приложения-напоминания.",
+            answerKk: "Жауаптар әртүрлі болуы мүмкін. Мысалы: үй тапсырмасын ұмыту — еске салғыш қосымша қызметі.",
             hint: "Think about what annoys you at school or home.",
             hintRu: "Подумайте, что вас раздражает в школе или дома.",
             hintKk: "Мектепте немесе үйде сізді не мазалайтынын ойлаңыз.",
@@ -422,6 +474,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "В вашем районе негде купить свежий сок. Создайте бизнес-идею с проблемой, решением и целевым клиентом.",
             questionKk: "Ауданыңызда жаңа сөл сатып алатын жер жоқ. Мәселе, шешім және мақсатты тұтынушымен бизнес идея жасаңыз.",
             answer: "Problem: No fresh juice nearby. Solution: Mobile juice cart visiting the neighborhood. Target: Health-conscious residents and families.",
+            answerRu: "Проблема: рядом нет свежего сока. Решение: мобильная тележка с соком, объезжающая район. Целевая аудитория: жители и семьи, заботящиеся о здоровье.",
+            answerKk: "Мәселе: жақын маңда жаңа сөл жоқ. Шешім: ауданды аралайтын жылжымалы сөл арбасы. Мақсатты аудитория: денсаулығына мән беретін тұрғындар мен отбасылар.",
             xp: 10
           },
           {
@@ -430,6 +484,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Придумайте три бизнес-идеи на основе проблем учеников. Для каждой опишите проблему, решение, клиента и способ заработка.",
             questionKk: "Оқушылар мәселелеріне негізделген үш бизнес идеяны ойлаңыз. Әрқайсысы үшін мәселені, шешімді, тұтынушыны және ақша табу жолын сипаттаңыз.",
             answer: "Example: (1) Homework help app — subscription fee; (2) School supplies delivery — per-order fee; (3) Lost & found matching service — small finder's fee.",
+            answerRu: "Например: (1) Приложение помощи с домашним заданием — плата за подписку; (2) Доставка школьных принадлежностей — плата за заказ; (3) Служба поиска потерянных вещей — небольшая плата за находку.",
+            answerKk: "Мысалы: (1) Үй тапсырмасына көмек қосымшасы — жазылым ақысы; (2) Мектеп керек-жарақтарын жеткізу — тапсырысқа ақы; (3) Жоғалған заттарды табу қызметі — тапқаны үшін шағын ақы.",
             xp: 20
           }
         ]
@@ -458,7 +514,9 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
               { en: "Match strengths to business needs: Design, Finance, Sales.", ru: "Соотнесите сильные стороны с потребностями бизнеса: Дизайн, Финансы, Продажи.", kk: "Күшті жақтарды бизнес қажеттіліктерімен сәйкестендіріңіз: Дизайн, Қаржы, Сату." },
               { en: "Alex → Designer (creative), Ben → Finance Manager (math), Clara → Sales & Marketing (people skills).", ru: "Алекс → Дизайнер, Бен → Финансы, Клара → Продажи и маркетинг.", kk: "Алекс → Дизайнер, Бен → Қаржы, Клара → Сату және маркетинг." }
             ],
-            answer: "Alex: Designer, Ben: Finance Manager, Clara: Sales & Marketing"
+            answer: "Alex: Designer, Ben: Finance Manager, Clara: Sales & Marketing",
+            answerRu: "Алекс: Дизайнер, Бен: Финансовый менеджер, Клара: Продажи и маркетинг",
+            answerKk: "Алекс: Дизайнер, Бен: Қаржы менеджері, Клара: Сату және маркетинг"
           }
         ],
         practiceProblems: [
@@ -468,6 +526,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Почему в бизнесе лучше работать в команде, чем одному?",
             questionKk: "Неге бизнесте жалғыз жұмыс істегеннен команда болған жақсы?",
             answer: "A team brings different skills, shares the workload, and can accomplish more than one person alone.",
+            answerRu: "Команда объединяет разные навыки, делит нагрузку и может достичь большего, чем один человек в одиночку.",
+            answerKk: "Команда әртүрлі дағдыларды біріктіреді, жүктемені бөліседі және жалғыз адамға қарағанда көбірек нәтижеге жетеді.",
             hint: "Think about what one person cannot do alone.",
             hintRu: "Подумайте, что один человек не может сделать в одиночку.",
             hintKk: "Бір адам жалғыз не істей алмайтынын ойлаңыз.",
@@ -479,6 +539,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Ваша команда из 4 человек создаёт школьную газету. Назовите 4 роли и объясните важность каждой.",
             questionKk: "4 адамнан тұратын командаңыз мектеп газетін шығарады. 4 рөлді атап, әрқайсысының маңыздылығын түсіндіріңіз.",
             answer: "Editor (content quality), Writer (creates articles), Designer (layout/visuals), Distributor (gets papers to students).",
+            answerRu: "Редактор (качество контента), Автор (пишет статьи), Дизайнер (макет/визуал), Распространитель (доставляет газеты ученикам).",
+            answerKk: "Редактор (мазмұн сапасы), Автор (мақала жазады), Дизайнер (макет/визуал), Тарату (газеттерді оқушыларға жеткізеді).",
             xp: 10
           },
           {
@@ -487,6 +549,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Два члена команды спорят: продавать онлайн или на физическом прилавке. Как команде разрешить конфликт?",
             questionKk: "Екі команда мүшесі онлайн сату немесе физикалық дүкенде сату туралы келіспейді. Команда бұл қайшылықты қалай шешуі керек?",
             answer: "Listen to both arguments, test both approaches on a small scale, look at the data (costs, reach, customer preference), and vote or try a hybrid approach.",
+            answerRu: "Выслушать оба аргумента, протестировать оба подхода в небольшом масштабе, посмотреть на данные (затраты, охват, предпочтения клиентов) и проголосовать или попробовать гибридный подход.",
+            answerKk: "Екі дәлелді де тыңдау, екі тәсілді де шағын көлемде сынау, деректерге қарау (шығындар, қамту, тұтынушы қалауы) және дауыс беру немесе аралас тәсілді қолданып көру.",
             xp: 20
           }
         ]
@@ -515,7 +579,9 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
               { en: "Student B offers something extra: decoration, which makes the cookies look special and gift-worthy.", ru: "Ученик Б предлагает нечто особенное: украшение, делающее печенье подарочным.", kk: "Б оқушы ерекше нәрсе ұсынады: безендіру, бұл печеньені сыйлыққа лайық етеді." },
               { en: "Competitive advantage: Better presentation and uniqueness, justifying a higher price.", ru: "Преимущество: Лучшее оформление и уникальность, оправдывающие высокую цену.", kk: "Артықшылық: Жақсы безендіру мен бірегейлік, жоғары бағаны ақтайды." }
             ],
-            answer: "Student B's competitive advantage is unique decoration that adds perceived value, allowing a premium price."
+            answer: "Student B's competitive advantage is unique decoration that adds perceived value, allowing a premium price.",
+            answerRu: "Конкурентное преимущество ученика Б — уникальное украшение, повышающее воспринимаемую ценность и оправдывающее более высокую цену.",
+            answerKk: "Б оқушының бәсекелік артықшылығы — қабылданатын құндылықты арттырып, жоғары бағаны ақтайтын бірегей безендіру."
           }
         ],
         practiceProblems: [
@@ -525,6 +591,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Назовите два ресторана быстрого питания и одно различие между ними.",
             questionKk: "Екі тез тағам мейрамханасын атап, олардың бір айырмашылығын айтыңыз.",
             answer: "Example: McDonald's (burgers, fast service) vs. Subway (sandwiches, healthier options). Difference: type of food offered.",
+            answerRu: "Например: McDonald's (бургеры, быстрое обслуживание) против Subway (сэндвичи, более полезные варианты). Различие: тип предлагаемой еды.",
+            answerKk: "Мысалы: McDonald's (бургерлер, тез қызмет) пен Subway (сэндвичтер, пайдалырақ нұсқалар). Айырмашылық: ұсынылатын тағам түрі.",
             hint: "Think about what each restaurant is known for.",
             hintRu: "Подумайте, чем известен каждый ресторан.",
             hintKk: "Әр мейрамхана немен танымал екенін ойлаңыз.",
@@ -536,6 +604,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Вы открываете ларёк с соком, но рядом уже есть один. Назовите три способа отличиться.",
             questionKk: "Сіз сөл дүкенін ашасыз, бірақ жақын маңда бар. Ерекшеленудің үш жолын атаңыз.",
             answer: "1) Offer unique flavors, 2) Lower prices or bundle deals, 3) Better location or delivery service.",
+            answerRu: "1) Предложить уникальные вкусы, 2) Снизить цены или сделать комплекты, 3) Лучшее расположение или доставка.",
+            answerKk: "1) Бірегей дәмдер ұсыну, 2) Бағаны төмендету немесе топтамалық ұсыныстар жасау, 3) Жақсырақ орналасу немесе жеткізу қызметі.",
             xp: 10
           },
           {
@@ -544,6 +614,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Рядом с маленьким книжным магазином открывается большая сеть. Какие стратегии может использовать маленький магазин?",
             questionKk: "Кішкентай кітап дүкенінің жанында үлкен желі ашылады. Кішкентай дүкен қандай стратегияларды қолдана алады?",
             answer: "Personalized recommendations, community events (book clubs, author visits), curated local/niche selections, loyalty programs, cozy atmosphere the chain cannot replicate.",
+            answerRu: "Персонализированные рекомендации, общественные мероприятия (книжные клубы, встречи с авторами), тщательно подобранный местный/нишевый ассортимент, программы лояльности, уютная атмосфера, которую сеть не сможет повторить.",
+            answerKk: "Дербестендірілген ұсыныстар, қоғамдық іс-шаралар (кітап клубтары, авторлармен кездесулер), мұқият таңдалған жергілікті/тар бағыттағы ассортимент, адалдық бағдарламалары, желі қайталай алмайтын жайлы атмосфера.",
             xp: 20
           }
         ]
@@ -578,7 +650,9 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
               { en: "Total fixed costs = $15 + $5 = $20. Variable cost per cup ≈ $0 (already included in fixed costs for simplicity).", ru: "Общие постоянные затраты = $15 + $5 = $20. Переменные затраты ≈ $0 (для простоты включены в постоянные).", kk: "Жалпы тұрақты шығындар = $15 + $5 = $20. Айнымалы шығындар ≈ $0 (қарапайымдылық үшін тұрақтыға қосылған)." },
               { en: "Break-even = $20 / $1.50 = 13.3, so you need to sell at least 14 cups.", ru: "Безубыточность = $20 / $1.50 = 13.3, значит нужно продать минимум 14 стаканов.", kk: "Шығынсыздық = $20 / $1.50 = 13.3, яғни кемінде 14 стақан сату керек." }
             ],
-            answer: "14 cups (rounding up from 13.3)"
+            answer: "14 cups (rounding up from 13.3)",
+            answerRu: "14 стаканов (округление от 13.3)",
+            answerKk: "14 стақан (13.3-тен дөңгелектеу)"
           }
         ],
         practiceProblems: [
@@ -588,6 +662,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Организация ларька стоит $10. Вы продаёте стаканы по $2. Сколько нужно продать, чтобы вернуть деньги?",
             questionKk: "Дүкенді ашу $10 тұрады. Стақанды $2-ден сатасыз. Ақшаңызды қайтару үшін қанша стақан сату керек?",
             answer: "5 cups ($10 / $2 = 5)",
+            answerRu: "5 стаканов ($10 / $2 = 5)",
+            answerKk: "5 стақан ($10 / $2 = 5)",
             hint: "Divide total cost by price per cup.",
             hintRu: "Разделите общие затраты на цену стакана.",
             hintKk: "Жалпы шығынды стақан бағасына бөліңіз.",
@@ -599,6 +675,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Вы потратили $20 на материалы и продали 30 стаканов по $1.50. Какова прибыль и маржа?",
             questionKk: "Материалдарға $20 жұмсап, 30 стақанды $1.50-ден саттыңыз. Пайда мен маржа қанша?",
             answer: "Revenue = $45, Profit = $25, Profit margin = 55.6% ($25/$45 × 100)",
+            answerRu: "Доход = $45, Прибыль = $25, Маржа прибыли = 55.6% ($25/$45 × 100)",
+            answerKk: "Табыс = $45, Пайда = $25, Пайда маржасы = 55.6% ($25/$45 × 100)",
             hint: "Calculate revenue first, then subtract costs for profit.",
             hintRu: "Сначала рассчитайте доход, затем вычтите затраты.",
             hintKk: "Алдымен табысты есептеңіз, содан кейін шығындарды шегеріңіз.",
@@ -610,6 +688,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Создайте полный бизнес-план лимонадного ларька: затраты, цена, прогноз продаж, точка безубыточности и недельная прибыль (5 дней).",
             questionKk: "Толық лимонад дүкені бизнес-жоспарын жасаңыз: шығындар, баға, күнделікті сатуды болжау, шығынсыздық нүктесі және апталық пайда (5 күн).",
             answer: "Example: Costs $25/week (supplies), Price $2/cup, Est. 20 cups/day, Break-even = 13 cups/day, Daily profit = $15, Weekly profit = $75.",
+            answerRu: "Например: Затраты $25/неделю (материалы), Цена $2/стакан, Прогноз 20 стаканов/день, Точка безубыточности = 13 стаканов/день, Дневная прибыль = $15, Недельная прибыль = $75.",
+            answerKk: "Мысалы: Шығындар апталық $25 (материалдар), Баға стақанына $2, Болжам күніне 20 стақан, Шығынсыздық нүктесі = күніне 13 стақан, Күнделікті пайда = $15, Апталық пайда = $75.",
             xp: 20
           }
         ]
@@ -648,7 +728,9 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
               { en: "Netflix uses a subscription model — customers pay a recurring fee for access.", ru: "Netflix использует модель подписки — клиенты платят регулярную плату за доступ.", kk: "Netflix жазылым моделін қолданады — тұтынушылар қолжетімділік үшін тұрақты төлем жасайды." },
               { en: "Value capture: Predictable monthly revenue from millions of subscribers.", ru: "Получение ценности: Предсказуемый ежемесячный доход от миллионов подписчиков.", kk: "Құндылық алу: Миллиондаған жазылушылардан болжамды ай сайынғы табыс." }
             ],
-            answer: "Subscription business model — recurring monthly payments for unlimited content access."
+            answer: "Subscription business model — recurring monthly payments for unlimited content access.",
+            answerRu: "Модель подписки — регулярные ежемесячные платежи за неограниченный доступ к контенту.",
+            answerKk: "Жазылым бизнес-моделі — шексіз мазмұнға қолжетімділік үшін тұрақты ай сайынғы төлемдер."
           }
         ],
         practiceProblems: [
@@ -658,6 +740,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Продуктовый магазин — это модель подписки или прямых продаж?",
             questionKk: "Азық-түлік дүкені жазылым моделі ме, әлде тікелей сату моделі ме?",
             answer: "Direct sales model — customers pay each time they buy products.",
+            answerRu: "Модель прямых продаж — клиенты платят каждый раз при покупке товаров.",
+            answerKk: "Тікелей сату моделі — тұтынушылар өнім сатып алған сайын төлейді.",
             hint: "Do you pay once or every month?",
             hintRu: "Вы платите один раз или каждый месяц?",
             hintKk: "Сіз бір рет төлейсіз бе, әлде ай сайын ба?",
@@ -669,6 +753,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "У Spotify есть бесплатный уровень с рекламой и платный без рекламы. Какая это модель? Объясните оба источника дохода.",
             questionKk: "Spotify-да жарнамалы тегін деңгей мен жарнамасыз ақылы деңгей бар. Бұл қандай модель? Екі табыс көзін түсіндіріңіз.",
             answer: "Freemium model. Revenue from ads on free tier + subscription fees from premium users.",
+            answerRu: "Модель фримиум. Доход от рекламы на бесплатном уровне + плата за подписку от премиум-пользователей.",
+            answerKk: "Фримиум моделі. Тегін деңгейдегі жарнамадан + премиум пайдаланушылардың жазылым ақысынан түскен табыс.",
             xp: 10
           },
           {
@@ -677,6 +763,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Uber соединяет водителей с пассажирами, но не владеет машинами. Какая это модель? Объясните создание ценности для обеих сторон и способ заработка.",
             questionKk: "Uber жүргізушілерді жолаушылармен байланыстырады, бірақ көліктері жоқ. Бұл қандай модель? Екі жаққа құндылық жасауды және ақша табу жолын түсіндіріңіз.",
             answer: "Marketplace/platform model. Value for riders: convenient transportation. Value for drivers: flexible income. Uber takes a commission (20-30%) from each ride.",
+            answerRu: "Модель маркетплейса/платформы. Ценность для пассажиров: удобный транспорт. Ценность для водителей: гибкий доход. Uber берёт комиссию (20-30%) с каждой поездки.",
+            answerKk: "Маркетплейс/платформа моделі. Жолаушылар үшін құндылық: қолайлы көлік. Жүргізушілер үшін құндылық: икемді табыс. Uber әр сапардан комиссия алады (20-30%).",
             xp: 20
           }
         ]
@@ -705,7 +793,9 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
               { en: "Target: Busy high school students. Problem: Struggling with homework, limited time.", ru: "Целевая аудитория: Занятые старшеклассники. Проблема: Трудности с домашним заданием, мало времени.", kk: "Мақсатты аудитория: Бос уақыты аз жоғары сынып оқушылары. Мәселе: Үй тапсырмасымен қиындық, уақыт аз." },
               { en: "Unique benefit: Step-by-step explanations available 24/7 on your phone.", ru: "Уникальная выгода: Пошаговые объяснения 24/7 на вашем телефоне.", kk: "Бірегей пайда: Телефоныңызда тәулік бойы қадамдық түсіндірмелер." }
             ],
-            answer: "For busy high school students who struggle with homework, our app provides instant step-by-step explanations 24/7, so you learn faster and never miss a deadline."
+            answer: "For busy high school students who struggle with homework, our app provides instant step-by-step explanations 24/7, so you learn faster and never miss a deadline.",
+            answerRu: "Для занятых старшеклассников, испытывающих трудности с домашним заданием, наше приложение даёт мгновенные пошаговые объяснения 24/7, чтобы вы учились быстрее и никогда не пропускали сроки.",
+            answerKk: "Үй тапсырмасымен қиналатын бос уақыты аз жоғары сынып оқушылары үшін біздің қосымша тәулік бойы жедел қадамдық түсіндірмелер береді, сондықтан сіз тезірек үйреніп, мерзімді ешқашан өткізіп алмайсыз."
           }
         ],
         practiceProblems: [
@@ -715,6 +805,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Какое ценностное предложение бутылки для воды? Сформулируйте главную выгоду одним предложением.",
             questionKk: "Су бөтелкесінің құндылық ұсынысы қандай? Негізгі пайданы бір сөйлеммен айтыңыз.",
             answer: "Stay hydrated anywhere by carrying water conveniently with you.",
+            answerRu: "Оставайтесь увлажнёнными где угодно, удобно нося воду с собой.",
+            answerKk: "Суды өзіңізбен ыңғайлы алып жүріп, кез келген жерде сусыз қалмаңыз.",
             hint: "Think about the main problem it solves.",
             hintRu: "Подумайте, какую главную проблему она решает.",
             hintKk: "Ол шешетін негізгі мәселені ойлаңыз.",
@@ -726,6 +818,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Напишите ценностное предложение для репетиторской службы для средних классов. Укажите клиента, проблему и уникальную выгоду.",
             questionKk: "Орта мектеп оқушыларына арналған репетиторлық қызмет үшін құндылық ұсынысын жазыңыз. Тұтынушыны, мәселені және бірегей пайданы көрсетіңіз.",
             answer: "For middle school students falling behind in math and science, our tutoring provides personalized one-on-one lessons that build confidence and raise grades within one month.",
+            answerRu: "Для учеников средней школы, отстающих по математике и естественным наукам, наши занятия предлагают персонализированные индивидуальные уроки, которые повышают уверенность и оценки в течение месяца.",
+            answerKk: "Математика мен жаратылыстанудан артта қалып жатқан орта мектеп оқушылары үшін репетиторлығымыз сенімділікті арттырып, бір ай ішінде бағаларды көтеретін дербестендірілген жеке сабақтар ұсынады.",
             xp: 10
           },
           {
@@ -734,6 +828,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Сравните ценностные предложения Coca-Cola и местного бренда органического сока. Как они нацелены на разных клиентов?",
             questionKk: "Coca-Cola мен жергілікті органикалық сөл брендінің құндылық ұсыныстарын салыстырыңыз. Олар қалай әртүрлі тұтынушыларға бағытталған?",
             answer: "Coca-Cola: affordable, refreshing taste, global brand recognition — targets mass market. Organic juice: health benefits, natural ingredients, premium quality — targets health-conscious consumers willing to pay more.",
+            answerRu: "Coca-Cola: доступность, освежающий вкус, глобальная узнаваемость бренда — нацелена на массовый рынок. Органический сок: польза для здоровья, натуральные ингредиенты, премиальное качество — нацелен на заботящихся о здоровье потребителей, готовых платить больше.",
+            answerKk: "Coca-Cola: қолжетімділік, сергітетін дәм, жаһандық бренд танымалдығы — жаппай нарыққа бағытталған. Органикалық сөл: денсаулыққа пайда, табиғи ингредиенттер, премиум сапа — көбірек төлеуге дайын, денсаулығына мән беретін тұтынушыларға бағытталған.",
             xp: 20
           }
         ]
@@ -762,7 +858,9 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
               { en: "Focus on understanding the problem: How often do you run out of school supplies? What is most inconvenient about buying them?", ru: "Сосредоточьтесь на проблеме: Как часто заканчиваются школьные принадлежности? Что неудобно в их покупке?", kk: "Мәселені түсінуге бағытталыңыз: Мектеп керек-жарақтары қаншалықты жиі бітеді? Оларды сатып алудың ең қолайсыз жағы не?" },
               { en: "Test willingness to pay: Would you pay $2-3 for same-day delivery of supplies to school?", ru: "Проверьте готовность платить: Заплатили бы вы $2-3 за доставку в тот же день?", kk: "Төлеуге дайындықты тексеріңіз: Керек-жарақтарды сол күні жеткізу үшін $2-3 төлер ме едіңіз?" }
             ],
-            answer: "1) How often do you forget or run out of supplies? 2) What is hardest about buying supplies? 3) Would you pay $2-3 for same-day delivery to school?"
+            answer: "1) How often do you forget or run out of supplies? 2) What is hardest about buying supplies? 3) Would you pay $2-3 for same-day delivery to school?",
+            answerRu: "1) Как часто у вас заканчиваются или вы забываете принадлежности? 2) Что сложнее всего в их покупке? 3) Заплатили бы вы $2-3 за доставку в школу в тот же день?",
+            answerKk: "1) Керек-жарақтарыңыз қаншалықты жиі бітеді немесе ұмытасыз? 2) Оларды сатып алудың ең қиын жағы не? 3) Мектепке сол күні жеткізу үшін $2-3 төлер ме едіңіз?"
           }
         ],
         practiceProblems: [
@@ -772,6 +870,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Почему важно поговорить с клиентами до создания продукта?",
             questionKk: "Өнім жасамас бұрын тұтынушылармен сөйлесу неге маңызды?",
             answer: "To make sure you are solving a real problem that people actually have and are willing to pay for.",
+            answerRu: "Чтобы убедиться, что вы решаете реальную проблему, которая действительно есть у людей и за которую они готовы платить.",
+            answerKk: "Адамдарда шынымен бар және олар ақы төлеуге дайын нақты мәселені шешіп жатқаныңызға көз жеткізу үшін.",
             hint: "What happens if you build something nobody wants?",
             hintRu: "Что будет, если вы создадите то, что никому не нужно?",
             hintKk: "Ешкімге қажет емес нәрсе жасасаңыз не болады?",
@@ -783,6 +883,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Вы хотите начать услугу по присмотру за домашними животными. Напишите 3 вопроса для потенциальных клиентов.",
             questionKk: "Сіз үй жануарларына қарау қызметін бастағыңыз келеді. Әлеуетті тұтынушыларға 3 сұрақ жазыңыз.",
             answer: "1) How often do you travel and leave your pet? 2) What do you currently do with your pet when you are away? 3) How much would you pay per day for someone to care for your pet at your home?",
+            answerRu: "1) Как часто вы путешествуете и оставляете питомца? 2) Что вы сейчас делаете с питомцем, когда уезжаете? 3) Сколько вы заплатили бы в день за уход за питомцем у вас дома?",
+            answerKk: "1) Саяхаттап, үй жануарыңызды қаншалықты жиі қалдырасыз? 2) Кетіп қалғанда үй жануарыңызбен қазір не істейсіз? 3) Үйіңізде үй жануарыңызға қараушы адамға күніне қанша төлер едіңіз?",
             xp: 10
           },
           {
@@ -791,6 +893,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Вы опросили 20 учеников о приложении для поиска учебных групп. 15 учатся в одиночку, 12 хотят партнёров, но только 5 готовы платить. Что вы узнали и что делать дальше?",
             questionKk: "Сіз 20 оқушыдан оқу тобын іздеу қосымшасы туралы сұхбат алдыңыз. 15-і жалғыз оқиды, 12-сі серіктес қалайды, бірақ тек 5-і ақша төлеуге дайын. Бұл деректерден не білдіңіз және не істеуіңіз керек?",
             answer: "The problem exists (75% study alone, 60% want partners) but willingness to pay is low (25%). Next step: explore a free app with ads, or a freemium model, or find another way to monetize like school partnerships.",
+            answerRu: "Проблема существует (75% учатся в одиночку, 60% хотят партнёров), но готовность платить низкая (25%). Следующий шаг: рассмотреть бесплатное приложение с рекламой, модель фримиум или другой способ монетизации, например партнёрство со школами.",
+            answerKk: "Мәселе бар (75% жалғыз оқиды, 60% серіктес қалайды), бірақ төлеуге дайындық төмен (25%). Келесі қадам: жарнамасы бар тегін қосымшаны, фримиум модельді немесе мектеп серіктестігі сияқты басқа монетизация жолын қарастыру.",
             xp: 20
           }
         ]
@@ -819,7 +923,9 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
               { en: "Stream 1: Advertising revenue = $200/month. Stream 2: Copy sales = 100 × $1 = $100/month.", ru: "Поток 1: Реклама = $200/месяц. Поток 2: Продажи = 100 × $1 = $100/месяц.", kk: "1-ші ағын: Жарнама = $200/ай. 2-ші ағын: Сату = 100 × $1 = $100/ай." },
               { en: "Total Revenue = $200 + $100 = $300/month.", ru: "Общий доход = $200 + $100 = $300/месяц.", kk: "Жалпы табыс = $200 + $100 = $300/ай." }
             ],
-            answer: "Two revenue streams (ads + sales). Total monthly revenue = $300."
+            answer: "Two revenue streams (ads + sales). Total monthly revenue = $300.",
+            answerRu: "Два потока дохода (реклама + продажи). Общий месячный доход = $300.",
+            answerKk: "Екі табыс ағыны (жарнама + сату). Жалпы ай сайынғы табыс = $300."
           }
         ],
         practiceProblems: [
@@ -829,6 +935,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Пекарня продаёт хлеб. Каков её основной поток дохода?",
             questionKk: "Наубайхана нан сатады. Оның негізгі табыс ағыны қандай?",
             answer: "Product sales — money earned from selling bread directly to customers.",
+            answerRu: "Продажа продукции — деньги, заработанные от прямой продажи хлеба клиентам.",
+            answerKk: "Өнім сату — нанды тұтынушыларға тікелей сатудан табылған ақша.",
             hint: "How does the bakery get money?",
             hintRu: "Как пекарня получает деньги?",
             hintKk: "Наубайхана ақшаны қалай алады?",
@@ -840,6 +948,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "YouTube зарабатывает на рекламе в видео и подписках Premium. Назовите оба потока и кто платит в каждом случае.",
             questionKk: "YouTube бейнелердегі жарнамадан және Premium жазылымдардан ақша табады. Екі ағынды атап, әр жағдайда кім төлейтінін түсіндіріңіз.",
             answer: "Stream 1: Advertising — companies pay YouTube to show ads. Stream 2: Subscriptions — users pay YouTube monthly for ad-free experience.",
+            answerRu: "Поток 1: Реклама — компании платят YouTube за показ рекламы. Поток 2: Подписки — пользователи платят YouTube ежемесячно за просмотр без рекламы.",
+            answerKk: "1-ағын: Жарнама — компаниялар YouTube-қа жарнама көрсету үшін төлейді. 2-ағын: Жазылымдар — пайдаланушылар жарнамасыз тәжірибе үшін YouTube-қа ай сайын төлейді.",
             xp: 10
           },
           {
@@ -848,6 +958,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Создайте школьный репетиторский бизнес с минимум 3 потоками доходов. Объясните каждый и оцените месячный доход.",
             questionKk: "Кемінде 3 табыс ағыны бар мектеп репетиторлық бизнесін жасаңыз. Әрқайсысын түсіндіріп, ай сайынғы табысты бағалаңыз.",
             answer: "1) One-on-one sessions at $20/hour (est. $400/month), 2) Group workshops at $5/student (est. $150/month), 3) Study guide sales at $3 each (est. $90/month). Total: ~$640/month.",
+            answerRu: "1) Индивидуальные занятия по $20/час (прогноз $400/месяц), 2) Групповые мастер-классы по $5/ученик (прогноз $150/месяц), 3) Продажа учебных пособий по $3 (прогноз $90/месяц). Всего: ~$640/месяц.",
+            answerKk: "1) Жеке сабақтар сағатына $20 (болжам $400/ай), 2) Топтық шеберлік сабақтары оқушыға $5 (болжам $150/ай), 3) Оқу құралдарын $3-тен сату (болжам $90/ай). Барлығы: ~$640/ай.",
             xp: 20
           }
         ]
@@ -882,7 +994,9 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
               { en: "Contribution per candle = $10 - $3 = $7 (what each candle contributes toward fixed costs).", ru: "Вклад с одной свечи = $10 - $3 = $7 (сколько каждая свеча покрывает постоянных затрат).", kk: "Әр шамның үлесі = $10 - $3 = $7 (әр шам тұрақты шығындарға қосатын сома)." },
               { en: "Break-even = $50 / $7 = 7.14, so 8 candles must be sold.", ru: "Безубыточность = $50 / $7 = 7.14, значит нужно продать 8 свечей.", kk: "Шығынсыздық = $50 / $7 = 7.14, яғни 8 шам сату керек." }
             ],
-            answer: "8 candles (rounding up from 7.14)"
+            answer: "8 candles (rounding up from 7.14)",
+            answerRu: "8 свечей (округление от 7.14)",
+            answerKk: "8 шам (7.14-тен дөңгелектеу)"
           }
         ],
         practiceProblems: [
@@ -892,6 +1006,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Аренда — постоянные или переменные затраты? Почему?",
             questionKk: "Жалға алу тұрақты шығын ба, айнымалы шығын ба? Неге?",
             answer: "Fixed cost — rent stays the same regardless of how many units you sell.",
+            answerRu: "Постоянные затраты — аренда остаётся одинаковой независимо от того, сколько единиц вы продаёте.",
+            answerKk: "Тұрақты шығын — жалға алу қанша бірлік сатқаныңызға қарамастан бірдей қалады.",
             hint: "Does rent change if you sell more products?",
             hintRu: "Меняется ли аренда, если вы продаёте больше?",
             hintKk: "Көбірек сатсаңыз жалға алу өзгере ме?",
@@ -903,6 +1019,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Пиццерия платит $1000/месяц аренды и $4 за пиццу на ингредиенты. Пицца стоит $12. Какова точка безубыточности?",
             questionKk: "Пицца дүкені айына $1000 жалға алу және пиццаға $4 ингредиент төлейді. Пицца $12 тұрады. Шығынсыздық нүктесі қайда?",
             answer: "Break-even = $1000 / ($12 - $4) = $1000 / $8 = 125 pizzas per month.",
+            answerRu: "Точка безубыточности = $1000 / ($12 - $4) = $1000 / $8 = 125 пицц в месяц.",
+            answerKk: "Шығынсыздық нүктесі = $1000 / ($12 - $4) = $1000 / $8 = айына 125 пицца.",
             hint: "First calculate the contribution per pizza (price minus variable cost).",
             hintRu: "Сначала рассчитайте вклад с одной пиццы (цена минус переменные затраты).",
             hintKk: "Алдымен бір пиццаның үлесін есептеңіз (баға минус айнымалы шығын).",
@@ -914,6 +1032,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Онлайн-магазин наклеек: хостинг $30/месяц, материалы $0.50 за наклейку, доставка $0.30. Цена $3. Рассчитайте безубыточность и прибыль при 100 продажах.",
             questionKk: "Онлайн стикер дүкені: хостинг $30/ай, материалдар стикерге $0.50, жеткізу $0.30. Баға $3. 100 стикер сатылса шығынсыздық пен пайданы есептеңіз.",
             answer: "Variable cost/unit = $0.80, Contribution = $2.20, Break-even = $30/$2.20 = 14 stickers. At 100 sold: Revenue $300 - Fixed $30 - Variable $80 = $190 profit.",
+            answerRu: "Переменные затраты/единица = $0.80, Вклад = $2.20, Точка безубыточности = $30/$2.20 = 14 наклеек. При продаже 100 шт: Доход $300 - Постоянные $30 - Переменные $80 = $190 прибыли.",
+            answerKk: "Бірлікке айнымалы шығын = $0.80, Үлес = $2.20, Шығынсыздық нүктесі = $30/$2.20 = 14 стикер. 100 сатылғанда: Табыс $300 - Тұрақты $30 - Айнымалы $80 = $190 пайда.",
             xp: 20
           }
         ]
@@ -942,7 +1062,9 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
               { en: "Strengths: Fresh, homemade quality; personal customer service. Weaknesses: Small production capacity; higher prices.", ru: "Сильные стороны: Свежее домашнее качество; личное обслуживание. Слабости: Малый объём; высокие цены.", kk: "Күшті жақтар: Жаңа, үйде жасалған сапа; жеке қызмет. Әлсіздіктер: Аз өндіріс; жоғары бағалар." },
               { en: "Opportunities: Specialty cakes and custom orders the chain cannot match. Threats: Chain's lower prices may attract your customers.", ru: "Возможности: Спецзаказы, которые сеть не делает. Угрозы: Низкие цены сети могут переманить клиентов.", kk: "Мүмкіндіктер: Желі жасай алмайтын арнайы тапсырыстар. Қауіптер: Желінің төмен бағалары тұтынушыларды тартуы мүмкін." }
             ],
-            answer: "S: Quality & service; W: Small scale & price; O: Custom orders & specialty items; T: Chain's lower prices."
+            answer: "S: Quality & service; W: Small scale & price; O: Custom orders & specialty items; T: Chain's lower prices.",
+            answerRu: "S: Качество и сервис; W: Малый масштаб и цена; O: Заказы на заказ и особые товары; T: Более низкие цены сети.",
+            answerKk: "S: Сапа мен қызмет; W: Шағын көлем мен баға; O: Тапсырыс бойынша тапсырыстар мен арнайы бұйымдар; T: Желінің төмен бағалары."
           }
         ],
         practiceProblems: [
@@ -952,6 +1074,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Что означает SWOT?",
             questionKk: "SWOT не білдіреді?",
             answer: "Strengths, Weaknesses, Opportunities, Threats.",
+            answerRu: "Сильные стороны, Слабости, Возможности, Угрозы.",
+            answerKk: "Күшті жақтар, Әлсіздіктер, Мүмкіндіктер, Қауіптер.",
             hint: "It is four words that start with S, W, O, and T.",
             hintRu: "Это четыре слова, начинающиеся на S, W, O, T.",
             hintKk: "Бұл S, W, O, T әріптерінен басталатын төрт сөз.",
@@ -963,6 +1087,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Вы продаёте украшения ручной работы. Конкурент продаёт массовые украшения за полцены. Назовите одну сильную сторону и одну возможность.",
             questionKk: "Сіз қолмен жасалған зергерлік бұйымдар сатасыз. Бәсекелес бағаңыздың жартысына жаппай бұйымдар сатады. Бір күшті жақ пен бір мүмкіндікті атаңыз.",
             answer: "Strength: Unique, one-of-a-kind designs. Opportunity: Target customers who value handmade, personalized gifts for special occasions.",
+            answerRu: "Сильная сторона: уникальные, единственные в своём роде дизайны. Возможность: ориентация на клиентов, ценящих ручную работу и персонализированные подарки для особых случаев.",
+            answerKk: "Күшті жақ: бірегей, жалғыз данадағы дизайндар. Мүмкіндік: қолмен жасалғанды және ерекше жағдайларға арналған дербестендірілген сыйлықтарды бағалайтын тұтынушыларды нысанаға алу.",
             xp: 10
           },
           {
@@ -971,6 +1097,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Сравните два конкурирующих приложения доставки еды. Создайте таблицу по 4 критериям и определите общее преимущество.",
             questionKk: "Екі бәсекелес тамақ жеткізу қосымшасын салыстырыңыз. 4 критерий бойынша талдау жасап, жалпы артықшылықты анықтаңыз.",
             answer: "Example: App A — lower prices, slower delivery, more restaurants, average UX. App B — higher prices, faster delivery, fewer restaurants, better UX. Overall depends on whether customers prioritize price or speed.",
+            answerRu: "Например: Приложение A — низкие цены, медленная доставка, больше ресторанов, средний UX. Приложение B — выше цены, быстрая доставка, меньше ресторанов, лучший UX. В целом зависит от того, что клиенты ценят больше — цену или скорость.",
+            answerKk: "Мысалы: A қосымшасы — төмен бағалар, баяу жеткізу, көбірек мейрамхана, орташа UX. B қосымшасы — жоғары бағалар, жылдам жеткізу, азырақ мейрамхана, жақсырақ UX. Жалпы артықшылық тұтынушылардың бағаны немесе жылдамдықты бірінші орынға қоюына байланысты.",
             xp: 20
           }
         ]
@@ -999,7 +1127,9 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
               { en: "Apple has a recognizable logo, minimalist design, consistent messaging about innovation and premium quality.", ru: "У Apple узнаваемый логотип, минималистичный дизайн, последовательный месседж об инновациях и качестве.", kk: "Apple-дің танымал логотипі, минималист дизайны, инновация мен сапа туралы тұрақты хабарламасы бар." },
               { en: "Generic brands lack distinctive identity, emotional connection, and consistent design language.", ru: "У обычных брендов нет отличительной идентичности, эмоциональной связи и единого дизайна.", kk: "Кәдімгі брендтерде ерекше сәйкестілік, эмоционалды байланыс және бірыңғай дизайн жоқ." }
             ],
-            answer: "Apple's brand is stronger due to consistent visual identity, emotional connection (innovation, premium), and instant recognition worldwide."
+            answer: "Apple's brand is stronger due to consistent visual identity, emotional connection (innovation, premium), and instant recognition worldwide.",
+            answerRu: "Бренд Apple сильнее благодаря последовательной визуальной идентичности, эмоциональной связи (инновации, премиум) и мгновенной узнаваемости во всём мире.",
+            answerKk: "Apple брендінің күштілігі тұрақты визуалды сәйкестікте, эмоционалды байланыста (инновация, премиум) және бүкіл әлемде бірден танылуында."
           }
         ],
         practiceProblems: [
@@ -1009,6 +1139,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Назовите бренд, который вы узнаёте мгновенно по логотипу. Какие цвета он использует?",
             questionKk: "Логотипі бойынша бірден танитын брендті атаңыз. Ол қандай түстерді қолданады?",
             answer: "Example: McDonald's — golden arches on red background. Nike — black swoosh.",
+            answerRu: "Например: McDonald's — золотые арки на красном фоне. Nike — чёрный свуш.",
+            answerKk: "Мысалы: McDonald's — қызыл фондағы алтын доғалар. Nike — қара свуш.",
             hint: "Think about logos you see every day.",
             hintRu: "Подумайте о логотипах, которые видите каждый день.",
             hintKk: "Күнде көретін логотиптерді ойлаңыз.",
@@ -1020,6 +1152,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Вы создаёте бренд полезных закусок для подростков. Выберите название, опишите логотип и 2-3 цвета. Объясните выбор.",
             questionKk: "Жасөспірімдерге арналған пайдалы тағам бренді жасайсыз. Атауды, логотип тұжырымдамасын және 2-3 түсті таңдаңыз. Әр таңдауды түсіндіріңіз.",
             answer: "Example: 'FreshBite' — name suggests freshness. Logo: A green leaf + bite mark. Colors: Green (health), orange (energy), white (clean). These appeal to teens wanting healthy but fun snacks.",
+            answerRu: "Например: «FreshBite» — название говорит о свежести. Логотип: зелёный лист + след укуса. Цвета: зелёный (здоровье), оранжевый (энергия), белый (чистота). Это привлекает подростков, желающих полезные, но весёлые закуски.",
+            answerKk: "Мысалы: «FreshBite» — атауы жаңалықты білдіреді. Логотип: жасыл жапырақ + тістеу ізі. Түстер: жасыл (денсаулық), қызғылт сары (энергия), ақ (тазалық). Бұл пайдалы, бірақ қызықты тағамдарды қалайтын жасөспірімдерге ұнайды.",
             xp: 10
           },
           {
@@ -1028,6 +1162,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Бренд одежды хочет перейти от «дёшево и модно» к «экологично и премиум». Опишите необходимые изменения элементов бренда и почему.",
             questionKk: "Киім бренді «арзан және сәнді» деңгейден «тұрақты және премиум» деңгейге ауысқысы келеді. Бренд элементтеріне қажет өзгерістерді сипаттаңыз.",
             answer: "Name: More sophisticated, less playful. Logo: Cleaner, minimalist design. Colors: Earth tones (green, brown, cream) instead of bright neons. Voice: Educational, authentic storytelling about sustainability. Pricing: Higher prices justified by quality and ethics.",
+            answerRu: "Название: более утончённое, менее игривое. Логотип: чище, минималистичнее. Цвета: землистые тона (зелёный, коричневый, кремовый) вместо ярких неонов. Голос: образовательный, искренний рассказ об устойчивости. Цены: выше, оправданы качеством и этикой.",
+            answerKk: "Атауы: неғұрлым нәзік, ойыншықтығы аз. Логотип: тазарақ, минималист дизайн. Түстер: жарқын неон түстердің орнына жер тондары (жасыл, қоңыр, кремді). Дауыс: білім беруші, тұрақтылық туралы шынайы әңгімелеу. Баға: сапа мен этикамен ақталған жоғары бағалар.",
             xp: 20
           }
         ]
@@ -1056,7 +1192,9 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
               { en: "Total engagement = 30 + 10 + 5 = 45 interactions.", ru: "Общая вовлечённость = 30 + 10 + 5 = 45 взаимодействий.", kk: "Жалпы қатысу = 30 + 10 + 5 = 45 әрекеттесу." },
               { en: "Engagement Rate = 45 / 500 × 100% = 9%.", ru: "Уровень вовлечённости = 45 / 500 × 100% = 9%.", kk: "Қатысу деңгейі = 45 / 500 × 100% = 9%." }
             ],
-            answer: "9% engagement rate (considered very good — average is 1-3%)"
+            answer: "9% engagement rate (considered very good — average is 1-3%)",
+            answerRu: "Уровень вовлечённости 9% (считается очень хорошим — среднее значение 1-3%)",
+            answerKk: "Қатысу деңгейі 9% (өте жақсы деп саналады — орташа мән 1-3%)"
           }
         ],
         practiceProblems: [
@@ -1066,6 +1204,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Какая платформа лучше для коротких видео: Instagram Reels, LinkedIn или Email?",
             questionKk: "Қысқа бейнелер үшін қай платформа жақсы: Instagram Reels, LinkedIn немесе Email?",
             answer: "Instagram Reels — designed specifically for short video content.",
+            answerRu: "Instagram Reels — специально создан для короткого видеоконтента.",
+            answerKk: "Instagram Reels — қысқа бейне мазмұны үшін арнайы жасалған.",
             hint: "Think about what each platform is designed for.",
             hintRu: "Подумайте, для чего предназначена каждая платформа.",
             hintKk: "Әр платформа не үшін жасалғанын ойлаңыз.",
@@ -1077,6 +1217,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Аккаунт с 2000 подписчиками. Пост получил 40 лайков, 15 комментариев, 5 репостов. Рассчитайте уровень вовлечённости.",
             questionKk: "2000 жазылушысы бар аккаунт. Жазба 40 лайк, 15 пікір, 5 бөлісу алды. Қатысу деңгейін есептеңіз.",
             answer: "3% ((40+15+5)/2000 × 100%)",
+            answerRu: "3% ((40+15+5)/2000 × 100%)",
+            answerKk: "3% ((40+15+5)/2000 × 100%)",
             hint: "Add all interactions and divide by followers, then multiply by 100.",
             hintRu: "Сложите все взаимодействия, разделите на подписчиков и умножьте на 100.",
             hintKk: "Барлық әрекеттесулерді қосып, жазылушыларға бөліңіз, содан кейін 100-ге көбейтіңіз.",
@@ -1088,6 +1230,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Создайте недельный SMM-план для студенческой пекарни: что публиковать каждый день (Пн-Пт), на какой платформе и тип контента.",
             questionKk: "Студенттік наубайхана үшін бір апталық SMM жоспар жасаңыз: күн сайын (Дс-Жм) не жариялау, қай платформада және мазмұн түрі.",
             answer: "Mon: Product photo (Instagram); Tue: Behind-the-scenes baking video (TikTok); Wed: Customer testimonial story (Instagram); Thu: Poll on new flavors (Instagram Stories); Fri: Weekend special announcement (all platforms).",
+            answerRu: "Пн: фото продукта (Instagram); Вт: видео закулисья выпечки (TikTok); Ср: отзыв клиента в сторис (Instagram); Чт: опрос о новых вкусах (Instagram Stories); Пт: анонс выходных предложений (все платформы).",
+            answerKk: "Дс: өнім фотосы (Instagram); Сс: пісіру кулисасы бейнесі (TikTok); Ср: тұтынушы пікірі стори (Instagram); Бс: жаңа дәмдер туралы сауалнама (Instagram Stories); Жм: демалыс күндері акциясы туралы хабарландыру (барлық платформалар).",
             xp: 20
           }
         ]
@@ -1116,7 +1260,9 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
               { en: "% Promoters = 30/50 = 60%. % Detractors = 10/50 = 20%.", ru: "% Промоутеров = 30/50 = 60%. % Критиков = 10/50 = 20%.", kk: "% Промоутерлер = 30/50 = 60%. % Сыншылар = 10/50 = 20%." },
               { en: "NPS = 60% - 20% = 40 (a good score; above 0 is positive).", ru: "NPS = 60% - 20% = 40 (хороший результат; выше 0 — положительный).", kk: "NPS = 60% - 20% = 40 (жақсы нәтиже; 0-ден жоғары — оң)." }
             ],
-            answer: "NPS = 40 (considered good)"
+            answer: "NPS = 40 (considered good)",
+            answerRu: "NPS = 40 (считается хорошим)",
+            answerKk: "NPS = 40 (жақсы деп саналады)"
           }
         ],
         practiceProblems: [
@@ -1126,6 +1272,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Почему обратная связь от клиентов важна для бизнеса?",
             questionKk: "Тұтынушы пікірі бизнес үшін неге маңызды?",
             answer: "It helps you understand what to improve, keep customers happy, and make better business decisions.",
+            answerRu: "Это помогает понять, что улучшить, сохранить довольство клиентов и принимать более обоснованные бизнес-решения.",
+            answerKk: "Бұл нені жақсарту керектігін түсінуге, тұтынушыларды қанағаттандыруға және жақсы бизнес шешімдер қабылдауға көмектеседі.",
             hint: "What happens if you never ask customers what they think?",
             hintRu: "Что будет, если вы никогда не спросите мнение клиентов?",
             hintKk: "Тұтынушылардың пікірін ешқашан сұрамасаңыз не болады?",
@@ -1137,6 +1285,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Опрошено 100 клиентов: 50 промоутеров, 30 пассивных, 20 критиков. Рассчитайте NPS.",
             questionKk: "100 тұтынушыдан сауалнама алынды: 50 промоутер, 30 пассив, 20 сыншы. NPS-ті есептеңіз.",
             answer: "NPS = 50% - 20% = 30",
+            answerRu: "NPS = 50% - 20% = 30",
+            answerKk: "NPS = 50% - 20% = 30",
             hint: "NPS = % Promoters - % Detractors (ignore passives).",
             hintRu: "NPS = % промоутеров - % критиков (пассивные не учитываются).",
             hintKk: "NPS = % Промоутерлер - % Сыншылар (пассивтер есептелмейді).",
@@ -1148,6 +1298,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Ваша пекарня получила отзыв: «Печенье вкусное, но доставка всегда опаздывает и коробка приходит повреждённой». Определите проблемы, приоритизируйте и предложите решения.",
             questionKk: "Наубайханаңыз пікір алды: «Печенье дәмді, бірақ жеткізу әрқашан кешігеді және қорап бүлінген күйінде келеді». Мәселелерді анықтап, басымдық беріп, шешім ұсыныңыз.",
             answer: "Issue 1 (high priority): Late delivery — switch to a faster courier or set realistic delivery windows. Issue 2 (high priority): Damaged packaging — use sturdier boxes or add padding. Positive: Great taste is the core strength to maintain.",
+            answerRu: "Проблема 1 (высокий приоритет): Опоздания доставки — перейти на более быстрого курьера или установить реалистичные окна доставки. Проблема 2 (высокий приоритет): Повреждённая упаковка — использовать более прочные коробки или добавить прокладки. Позитив: Отличный вкус — основная сила, которую нужно сохранить.",
+            answerKk: "1-мәселе (жоғары басымдық): Жеткізудің кешігуі — жылдамырақ курьерге ауысу немесе шынайы жеткізу уақыт аралығын белгілеу. 2-мәселе (жоғары басымдық): Бүлінген қаптама — берік қораптар қолдану немесе жастықша қосу. Оң жақ: Тамаша дәм — сақталуы керек негізгі күш.",
             xp: 20
           }
         ]
@@ -1176,7 +1328,9 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
               { en: "Include: What the business does, who it serves, how it makes money.", ru: "Включите: Чем занимается бизнес, кому служит, как зарабатывает.", kk: "Қамтыңыз: Бизнес не істейді, кімге қызмет етеді, қалай ақша табады." },
               { en: "StudyBuddy provides affordable after-school tutoring to middle school students at $15/hour, focusing on math and science. We project 20 sessions per week, generating $1,200/month in revenue.", ru: "StudyBuddy предоставляет доступное репетиторство по $15/час для учеников средних классов по математике и естественным наукам. Прогноз: 20 сессий в неделю, $1,200/месяц дохода.", kk: "StudyBuddy орта мектеп оқушыларына математика мен жаратылыстану бойынша сағатына $15 репетиторлық ұсынады. Болжам: аптасына 20 сабақ, айына $1,200 табыс." }
             ],
-            answer: "StudyBuddy is an after-school tutoring service providing math and science help to middle school students at $15/hour, targeting 20 weekly sessions for $1,200/month in revenue."
+            answer: "StudyBuddy is an after-school tutoring service providing math and science help to middle school students at $15/hour, targeting 20 weekly sessions for $1,200/month in revenue.",
+            answerRu: "StudyBuddy — служба репетиторства после школы, предоставляющая помощь по математике и естественным наукам ученикам средней школы за $15/час, с целью 20 сессий в неделю и доходом $1,200/месяц.",
+            answerKk: "StudyBuddy — орта мектеп оқушыларына сағатына $15-тен математика мен жаратылыстану бойынша көмек көрсететін сабақтан кейінгі репетиторлық қызмет, аптасына 20 сеанс және айына $1,200 табыс мақсатымен."
           }
         ],
         practiceProblems: [
@@ -1186,6 +1340,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Назовите три раздела, которые должен включать каждый бизнес-план.",
             questionKk: "Әрбір бизнес-жоспарда болуы керек үш бөлімді атаңыз.",
             answer: "Executive summary, target market description, and financial projections (revenue/costs).",
+            answerRu: "Резюме, описание целевого рынка и финансовые прогнозы (доходы/затраты).",
+            answerKk: "Қысқаша мазмұн, мақсатты нарық сипаттамасы және қаржылық болжамдар (табыс/шығын).",
             hint: "Think: what, who, and how much money.",
             hintRu: "Подумайте: что, кто и сколько денег.",
             hintKk: "Ойлаңыз: не, кім және қанша ақша.",
@@ -1197,6 +1353,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Напишите краткий раздел о целевом рынке для мобильной автомойки в вашем городе.",
             questionKk: "Қалаңыздағы мобильді автожуу бизнесі үшін қысқаша мақсатты нарық бөлімін жазыңыз.",
             answer: "Target market: Busy professionals aged 25-50 who own cars but lack time to visit a car wash. Market size: approximately 10,000 car owners within 10km radius. Customer need: convenient, time-saving car cleaning at their location.",
+            answerRu: "Целевой рынок: занятые профессионалы 25-50 лет, у которых есть автомобиль, но нет времени посещать автомойку. Размер рынка: примерно 10,000 владельцев авто в радиусе 10 км. Потребность клиента: удобная, экономящая время мойка авто на их месте.",
+            answerKk: "Мақсатты нарық: көлігі бар, бірақ автожуу орнына баруға уақыты жоқ 25-50 жастағы бос уақыты аз мамандар. Нарық көлемі: 10 км радиуста шамамен 10,000 көлік иесі. Тұтынушы қажеттілігі: олардың орналасқан жерінде ыңғайлы, уақыт үнемдейтін көлік тазалау.",
             xp: 10
           },
           {
@@ -1205,6 +1363,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Создайте мини бизнес-план для службы организации школьных мероприятий: резюме (2 предложения), целевой рынок, конкурент, модель дохода и прогноз выручки.",
             questionKk: "Мектеп іс-шараларын жоспарлау қызметі үшін шағын бизнес-жоспар жасаңыз: қысқаша мазмұн (2 сөйлем), мақсатты нарық, бәсекелес, табыс моделі және ай сайынғы табыс болжамы.",
             answer: "Summary: EventPro helps student clubs organize memorable events stress-free. We handle venue setup, decorations, and logistics for school dances, fundraisers, and celebrations. Market: 15 student clubs at our school. Competitor: DIY planning by clubs. Revenue: $100 per event × 4 events/month = $400/month.",
+            answerRu: "Резюме: EventPro помогает студенческим клубам организовывать запоминающиеся мероприятия без стресса. Мы занимаемся подготовкой площадки, декорациями и логистикой для школьных танцев, сборов средств и праздников. Рынок: 15 студенческих клубов в нашей школе. Конкурент: самостоятельное планирование клубами. Доход: $100 за мероприятие × 4 мероприятия/месяц = $400/месяц.",
+            answerKk: "Қысқаша мазмұн: EventPro студенттік клубтарға есте қаларлық іс-шараларды стресссіз ұйымдастыруға көмектеседі. Біз мектеп кештері, қаражат жинау және мерекелер үшін орын дайындауды, безендіруді және логистиканы қамтамасыз етеміз. Нарық: мектебімізде 15 студенттік клуб. Бәсекелес: клубтардың өз бетінше жоспарлауы. Табыс: іс-шараға $100 × айына 4 іс-шара = $400/ай.",
             xp: 20
           }
         ]
@@ -1243,7 +1403,9 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
               { en: "Build: Prepare 10 sample meals and offer them to classmates for one week.", ru: "Создай: Приготовьте 10 пробных обедов и предложите одноклассникам на неделю.", kk: "Құру: 10 сынақ тамақ дайындап, сыныптастарыңызға бір аптаға ұсыныңыз." },
               { en: "Measure: Track how many ordered, repeat orders, and feedback. Learn: If 7/10 reorder, the idea works — scale up. If only 2/10, pivot the menu.", ru: "Измерь: Отследите заказы и отзывы. Учись: Если 7/10 повторили — масштабируйте. Если 2/10 — измените меню.", kk: "Өлшеу: Тапсырыстар мен пікірлерді бақылаңыз. Үйрену: 7/10 қайта тапсырыс берсе — кеңейтіңіз. 2/10 болса — мәзірді өзгертіңіз." }
             ],
-            answer: "Build 10 sample meals → Measure orders and feedback → Learn whether to scale, pivot, or stop."
+            answer: "Build 10 sample meals → Measure orders and feedback → Learn whether to scale, pivot, or stop.",
+            answerRu: "Создайте 10 пробных обедов → Измерьте заказы и отзывы → Узнайте, нужно ли масштабировать, изменить курс или остановиться.",
+            answerKk: "10 сынақ тамақ жасаңыз → Тапсырыстар мен пікірлерді өлшеңіз → Кеңейту, бағытты өзгерту немесе тоқтату керектігін біліңіз."
           }
         ],
         practiceProblems: [
@@ -1253,6 +1415,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Каковы три шага цикла бережливого стартапа?",
             questionKk: "Үнемді стартап циклінің үш қадамы қандай?",
             answer: "Build, Measure, Learn.",
+            answerRu: "Создай, Измерь, Учись.",
+            answerKk: "Құру, Өлшеу, Үйрену.",
             hint: "Think about what comes before measuring results.",
             hintRu: "Подумайте, что нужно сделать перед измерением.",
             hintKk: "Нәтижелерді өлшеу алдында не істеу керектігін ойлаңыз.",
@@ -1264,6 +1428,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Почему подход бережливого стартапа лучше, чем год написания подробного плана перед запуском?",
             questionKk: "Неге үнемді стартап тәсілі іске қоспас бұрын бір жыл бойы жоспар жазудан жақсы?",
             answer: "It saves time and money by testing real customer demand early. You avoid building something nobody wants and can adapt quickly based on feedback.",
+            answerRu: "Это экономит время и деньги, проверяя реальный спрос клиентов на раннем этапе. Вы избегаете создания того, что никому не нужно, и можете быстро адаптироваться на основе отзывов.",
+            answerKk: "Бұл нақты тұтынушы сұранысын ерте кезеңде тексеру арқылы уақыт пен ақшаны үнемдейді. Сіз ешкімге қажет емес нәрсе жасаудан аулақ боласыз және пікірлер негізінде тез бейімделе аласыз.",
             xp: 10
           },
           {
@@ -1272,6 +1438,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Вы запустили приложение для домашних заданий: 100 зарегистрировались, но только 10 пользуются ежедневно. Что вы узнали и что сделаете дальше?",
             questionKk: "Сіз үй тапсырмасы қосымшасын іске қостыңыз: 100 тіркелді, бірақ тек 10 күнделікті пайдаланады. Не білдіңіз және келесі не жасайсыз?",
             answer: "Learn: Interest exists (100 signups) but retention is poor (10% daily). Next: Interview the 10 active users to find what they love, interview inactive users to find barriers, then rebuild focusing on the features active users value most.",
+            answerRu: "Узнали: интерес есть (100 регистраций), но удержание слабое (10% ежедневно). Далее: опросить 10 активных пользователей, чтобы узнать, что им нравится, опросить неактивных, чтобы найти барьеры, затем переработать приложение с упором на функции, которые ценят активные пользователи.",
+            answerKk: "Білдіңіз: қызығушылық бар (100 тіркелу), бірақ ұстап тұру нашар (күнделікті 10%). Келесі: не ұнайтынын білу үшін 10 белсенді пайдаланушыдан сұхбат алу, кедергілерді табу үшін белсенді емес пайдаланушылардан сұхбат алу, содан кейін белсенді пайдаланушылар бағалайтын мүмкіндіктерге назар аударып қайта құру.",
             xp: 20
           }
         ]
@@ -1300,7 +1468,9 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
               { en: "Full product: App with restaurant listings, real-time tracking, payment, ratings, driver matching. Costs $50,000+ and months of development.", ru: "Полный продукт: Приложение с ресторанами, отслеживанием, оплатой, рейтингами. Стоимость $50,000+ и месяцы разработки.", kk: "Толық өнім: Мейрамханалар тізімі, нақты уақыт бақылау, төлем, рейтингтер бар қосымша. $50,000+ құнын және ай бойы әзірлеуді қажет етеді." },
               { en: "MVP: A simple Google Form where students order from 3 local restaurants, and you deliver by bike. Costs $0 and tests demand in one day.", ru: "MVP: Google-форма для заказов из 3 кафе, доставка на велосипеде. Стоимость $0, проверка спроса за день.", kk: "MVP: 3 жергілікті мейрамханадан тапсырыс беретін Google Form, велосипедпен жеткізу. Құны $0, сұранысты бір күнде тексеру." }
             ],
-            answer: "MVP: Google Form + manual delivery by bike. Tests demand for $0 in one day versus $50,000+ for full app."
+            answer: "MVP: Google Form + manual delivery by bike. Tests demand for $0 in one day versus $50,000+ for full app.",
+            answerRu: "MVP: Google-форма + ручная доставка на велосипеде. Проверяет спрос за $0 за один день против $50,000+ для полного приложения.",
+            answerKk: "MVP: Google Form + велосипедпен қолмен жеткізу. Толық қосымшаға арналған $50,000+ орнына бір күнде $0-ге сұранысты тексереді."
           }
         ],
         practiceProblems: [
@@ -1310,6 +1480,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Что означает MVP?",
             questionKk: "MVP не білдіреді?",
             answer: "Minimum Viable Product.",
+            answerRu: "Минимально жизнеспособный продукт.",
+            answerKk: "Минималды өміршең өнім.",
             hint: "Each letter stands for a word: M__, V__, P__.",
             hintRu: "Каждая буква — слово: М__, Ж__, П__.",
             hintKk: "Әр әріп сөзді білдіреді: М__, Ө__, Ө__.",
@@ -1321,6 +1493,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Вы хотите создать онлайн-платформу репетиторства. Опишите MVP (не полную платформу).",
             questionKk: "Сіз онлайн репетиторлық платформа жасағыңыз келеді. MVP-ді сипаттаңыз (толық платформа емес).",
             answer: "MVP: A WhatsApp group where students post questions and volunteer tutors answer them. Tests if students want help and if tutors are available, with zero development cost.",
+            answerRu: "MVP: группа в WhatsApp, где студенты публикуют вопросы, а репетиторы-волонтёры отвечают на них. Проверяет, хотят ли студенты помощи и доступны ли репетиторы, при нулевых затратах на разработку.",
+            answerKk: "MVP: студенттер сұрақтарын жариялап, еріктілер-репетиторлар жауап беретін WhatsApp тобы. Студенттердің көмек қалайтынын және репетиторлардың қолжетімді екенін нөлдік әзірлеу шығынымен тексереді.",
             xp: 10
           },
           {
@@ -1329,6 +1503,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Команда 6 месяцев разрабатывала полноценный планировщик с AI и геймификацией. После запуска — только 20 пользователей. Что пошло не так и что нужно было делать иначе?",
             questionKk: "Команда AI, әлеуметтік мүмкіндіктер мен геймификациясы бар оқу жоспарлаушысын 6 ай жасады. Іске қосқаннан кейін тек 20 пайдаланушы болды. Не дұрыс болмады және не істеу керек еді?",
             answer: "They skipped validation — built too much without testing demand first. They should have started with an MVP (simple spreadsheet or paper planner), tested with 50 students, measured usage, then gradually added features based on real feedback.",
+            answerRu: "Они пропустили валидацию — создали слишком много без предварительной проверки спроса. Им следовало начать с MVP (простая таблица или бумажный планировщик), протестировать с 50 студентами, измерить использование, а затем постепенно добавлять функции на основе реальных отзывов.",
+            answerKk: "Олар растауды өткізіп жіберді — сұранысты алдын ала тексермей тым көп нәрсе жасады. Оларға MVP-ден (қарапайым кесте немесе қағаз жоспарлаушы) бастап, 50 студентпен тестілеп, пайдалануды өлшеп, содан кейін нақты пікірлер негізінде бірте-бірте мүмкіндіктер қосу керек еді.",
             xp: 20
           }
         ]
@@ -1357,7 +1533,9 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
               { en: "TAM: All 800 students (total possible market). SAM: 500 students who buy snacks at school (have money and interest).", ru: "TAM: Все 800 учеников. SAM: 500 учеников, покупающих закуски (есть деньги и интерес).", kk: "TAM: Барлық 800 оқушы. SAM: Мектепте тағам сатып алатын 500 оқушы (ақшасы мен қызығушылығы бар)." },
               { en: "SOM: Realistically, you can reach 100 students in your first month with limited production capacity.", ru: "SOM: Реально в первый месяц вы достигнете 100 учеников с ограниченным производством.", kk: "SOM: Шынайы түрде бірінші айда шектеулі өндіріспен 100 оқушыға жете аласыз." }
             ],
-            answer: "TAM: 800 students; SAM: 500 snack buyers; SOM: 100 students (first month realistic target)"
+            answer: "TAM: 800 students; SAM: 500 snack buyers; SOM: 100 students (first month realistic target)",
+            answerRu: "TAM: 800 учеников; SAM: 500 покупателей закусок; SOM: 100 учеников (реалистичная цель первого месяца)",
+            answerKk: "TAM: 800 оқушы; SAM: 500 тағам сатып алушы; SOM: 100 оқушы (бірінші айдың шынайы мақсаты)"
           }
         ],
         practiceProblems: [
@@ -1367,6 +1545,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "В чём разница между первичным и вторичным исследованием?",
             questionKk: "Бастапқы зерттеу мен екінші ретті зерттеудің айырмашылығы не?",
             answer: "Primary: You collect data yourself (surveys, interviews). Secondary: You use existing data from other sources (reports, articles, statistics).",
+            answerRu: "Первичное: вы сами собираете данные (опросы, интервью). Вторичное: вы используете существующие данные из других источников (отчёты, статьи, статистика).",
+            answerKk: "Бастапқы: деректерді өзіңіз жинайсыз (сауалнамалар, сұхбаттар). Екінші ретті: басқа көздердің бар деректерін пайдаланасыз (есептер, мақалалар, статистика).",
             hint: "Think about who collected the data.",
             hintRu: "Подумайте, кто собирал данные.",
             hintKk: "Деректерді кім жинағанын ойлаңыз.",
@@ -1378,6 +1558,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Вы хотите начать выгул собак в районе. Составьте анкету из 5 вопросов для первичного исследования.",
             questionKk: "Сіз ауданыңызда ит серуендету қызметін бастағыңыз келеді. Бастапқы зерттеу үшін 5 сұрақтан тұратын сауалнама жасаңыз.",
             answer: "1) Do you own a dog? 2) How often do you need help walking your dog? 3) What times are hardest for you to walk your dog? 4) How much would you pay per walk? 5) Would you prefer daily or weekly packages?",
+            answerRu: "1) У вас есть собака? 2) Как часто вам нужна помощь с выгулом собаки? 3) В какое время вам сложнее всего выгуливать собаку? 4) Сколько вы заплатили бы за прогулку? 5) Вы предпочли бы дневные или недельные пакеты?",
+            answerKk: "1) Итіңіз бар ма? 2) Итіңізді серуендетуге қаншалықты жиі көмек керек? 3) Итіңізді серуендету үшін қай уақыт қиынырақ? 4) Бір серуенге қанша төлер едіңіз? 5) Күнделікті немесе апталық топтамаларды қалайсыз ба?",
             xp: 10
           },
           {
@@ -1386,6 +1568,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Рассчитайте TAM, SAM и SOM для онлайн-репетиторства по английскому для старшеклассников Казахстана: 1.8 млн старшеклассников, 40% хотят учить английский, реально обслужить 200 в первый год.",
             questionKk: "Қазақстан жоғары сынып оқушыларына арналған онлайн ағылшын тілі репетиторлығы үшін TAM, SAM және SOM есептеңіз: 1.8 млн жоғары сынып оқушысы, 40% ағылшын тілін қалайды, бірінші жылы 200 оқушыға қызмет көрсете аласыз.",
             answer: "TAM: 1.8M students. SAM: 720,000 (40% wanting English tutoring). SOM: 200 students (year 1 realistic capacity). If pricing at $50/month: SOM revenue = $10,000/month.",
+            answerRu: "TAM: 1.8 млн учеников. SAM: 720,000 (40% желающих изучать английский). SOM: 200 учеников (реалистичная вместимость на 1 год). При цене $50/месяц: доход SOM = $10,000/месяц.",
+            answerKk: "TAM: 1.8 млн оқушы. SAM: 720,000 (ағылшын тілін репетиторлық арқылы үйренгісі келетін 40%). SOM: 200 оқушы (1-жылдың шынайы сыйымдылығы). $50/ай баға болса: SOM табысы = $10,000/ай.",
             xp: 20
           }
         ]
@@ -1414,7 +1598,9 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
               { en: "Saying 'yes' in a survey is not validation — people often say they will buy but do not follow through.", ru: "Ответ «да» в опросе — не валидация. Люди часто говорят, что купят, но не покупают.", kk: "Сауалнамада «иә» дегені растау емес — адамдар жиі сатып аламын дейді, бірақ сатып алмайды." },
               { en: "True validation: Ask them to pre-pay $3 right now for the first month. If 15+ pay, the idea is validated.", ru: "Настоящая валидация: Попросите предоплату $3 прямо сейчас. Если 15+ заплатят — идея валидирована.", kk: "Нағыз растау: Бірінші ай үшін $3 алдын ала төлеуді сұраңыз. 15+ адам төлесе — идея расталды." }
             ],
-            answer: "Not yet validated. Saying yes is not the same as paying. You need to collect actual pre-orders or payments to truly validate."
+            answer: "Not yet validated. Saying yes is not the same as paying. You need to collect actual pre-orders or payments to truly validate.",
+            answerRu: "Ещё не подтверждено. Сказать «да» — не то же самое, что заплатить. Нужно собрать реальные предзаказы или платежи для настоящей валидации.",
+            answerKk: "Әлі расталған жоқ. «Иә» деу — төлеумен бірдей емес. Нағыз растау үшін нақты алдын ала тапсырыстар немесе төлемдер жинау керек."
           }
         ],
         practiceProblems: [
@@ -1424,6 +1610,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Что лучше для валидации: 100 человек говорят «я бы купил» или 10 реально платят?",
             questionKk: "Растау үшін не жақсы: 100 адам «сатып алар едім» дегені ме, әлде 10 адамның шынымен төлегені ме?",
             answer: "10 people actually paying — real money is the strongest form of validation.",
+            answerRu: "10 человек, реально заплативших — настоящие деньги являются самой сильной формой валидации.",
+            answerKk: "10 адамның шынымен төлегені — нақты ақша ең күшті растау түрі.",
             hint: "Think about what proves real demand.",
             hintRu: "Подумайте, что доказывает реальный спрос.",
             hintKk: "Нақты сұранысты не дәлелдейтінін ойлаңыз.",
@@ -1435,6 +1623,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Опишите два способа валидации бизнес-идеи без создания полного продукта.",
             questionKk: "Толық өнім жасамай бизнес идеяны растаудың екі жолын сипаттаңыз.",
             answer: "1) Create a landing page describing the product and collect email sign-ups or pre-orders. 2) Offer a manual version of the service to 10 people and see if they pay and come back.",
+            answerRu: "1) Создайте лендинг-страницу, описывающую продукт, и собирайте email-подписки или предзаказы. 2) Предложите ручную версию услуги 10 людям и посмотрите, заплатят ли они и вернутся ли.",
+            answerKk: "1) Өнімді сипаттайтын лендинг бет жасап, email тіркелулерін немесе алдын ала тапсырыстарды жинаңыз. 2) Қызметтің қолмен орындалатын нұсқасын 10 адамға ұсынып, олардың төлейтінін және қайта келетінін көріңіз.",
             xp: 10
           },
           {
@@ -1443,6 +1633,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Вы создали лендинг для фитнес-приложения. За неделю: 1000 посещений, 200 подписок, 15 оплат по $5/месяц. Рассчитайте конверсии. Идея валидирована?",
             questionKk: "Сіз фитнес қосымшасы үшін лендинг жасадыңыз. Бір аптада: 1000 кіруші, 200 тіркелу, 15 алдын ала төлем $5/ай. Конверсияларды есептеңіз. Идея расталды ма?",
             answer: "Visitor-to-signup: 200/1000 = 20% (good). Signup-to-paying: 15/200 = 7.5% (decent). Revenue: $75/month from 15 users. Yes, partially validated — there is willingness to pay, but need to increase paying conversion.",
+            answerRu: "Посетитель-в-подписку: 200/1000 = 20% (хорошо). Подписка-в-оплату: 15/200 = 7.5% (неплохо). Доход: $75/месяц от 15 пользователей. Да, частично валидировано — есть готовность платить, но нужно повысить конверсию в оплату.",
+            answerKk: "Кірушіден тіркелуге: 200/1000 = 20% (жақсы). Тіркелуден төлемге: 15/200 = 7.5% (жаман емес). Табыс: 15 пайдаланушыдан $75/ай. Иә, ішінара расталды — төлеуге дайындық бар, бірақ төлем конверсиясын арттыру керек.",
             xp: 20
           }
         ]
@@ -1471,7 +1663,9 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
               { en: "Idea: Water bottle with filter for clean water anywhere. Prototype: 3D-print a bottle design and test a basic filter insert.", ru: "Идея: Бутылка с фильтром для чистой воды. Прототип: 3D-печать бутылки и тест базового фильтра.", kk: "Идея: Таза су үшін сүзгісі бар бөтелке. Прототип: Бөтелке дизайнын 3D-басып шығару және негізгі сүзгіні тестілеу." },
               { en: "Test with 20 users, collect feedback on taste, leak, and ease of use. Iterate: Fix issues, then launch to market.", ru: "Тест с 20 пользователями, отзывы о вкусе, герметичности, удобстве. Итерация: Исправить проблемы, запуск.", kk: "20 пайдаланушымен тестілеу, дәм, ағу, қолдану ыңғайлылығы туралы пікір жинау. Қайталау: Мәселелерді түзетіп, нарыққа шығу." }
             ],
-            answer: "Idea → 3D-print prototype → Test with 20 users → Fix issues based on feedback → Launch."
+            answer: "Idea → 3D-print prototype → Test with 20 users → Fix issues based on feedback → Launch.",
+            answerRu: "Идея → 3D-печать прототипа → Тестирование с 20 пользователями → Исправление проблем на основе отзывов → Запуск.",
+            answerKk: "Идея → 3D-басып шығарылған прототип → 20 пайдаланушымен тестілеу → Пікірлер негізінде мәселелерді түзету → Іске қосу."
           }
         ],
         practiceProblems: [
@@ -1481,6 +1675,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Что такое прототип?",
             questionKk: "Прототип дегеніміз не?",
             answer: "An early model or sample of a product used for testing before mass production.",
+            answerRu: "Ранняя модель или образец продукта, используемый для тестирования перед массовым производством.",
+            answerKk: "Жаппай өндіріске дейін тестілеу үшін қолданылатын өнімнің алғашқы моделі немесе үлгісі.",
             hint: "Think of it as a 'first draft' of a physical product.",
             hintRu: "Думайте об этом как о «черновике» продукта.",
             hintKk: "Оны өнімнің «алғашқы жобасы» ретінде қарастырыңыз.",
@@ -1492,6 +1688,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Вы разрабатываете рюкзак с зарядкой для телефона. Как выглядит прототип и как его тестировать?",
             questionKk: "Сіз ішкі телефон зарядтағышы бар рюкзак жасайсыз. Прототипіңіз қалай болады және оны қалай тестілейсіз?",
             answer: "Prototype: Sew a battery pack pocket into a regular backpack with a USB cable running to the strap. Test: Give to 5 students for a week, measure phone charge success rate and comfort feedback.",
+            answerRu: "Прототип: пришить карман для батареи в обычный рюкзак с USB-кабелем, идущим к ремню. Тест: раздать 5 ученикам на неделю, измерить успешность зарядки телефона и удобство по отзывам.",
+            answerKk: "Прототип: белдікке дейін жететін USB кабелі бар батарея қалтасын кәдімгі рюкзакқа тігу. Тест: 5 оқушыға бір аптаға беру, телефон зарядтау сәттілігі мен ыңғайлылық туралы пікірді өлшеу.",
             xp: 10
           },
           {
@@ -1500,6 +1698,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Прототип тестировали 30 пользователей. 20 полюбили основную функцию, 25 сказали, что настройка слишком сложная, 15 хотели больше настроек. Как приоритизировать исправления для версии 2?",
             questionKk: "Бірінші прототипті 30 пайдаланушы тестіледі. 20-сі негізгі мүмкіндікті ұнатты, 25-і орнатудың тым күрделі екенін айтты, 15-і көбірек бейімдеу қалады. 2-нұсқа үшін не түзетуді қалай басымдылыққа қоясыз?",
             answer: "Priority 1: Simplify setup (affects 83% of users — biggest barrier to adoption). Priority 2: Keep core feature strong (67% love it — this is your competitive advantage). Priority 3: Add customization later (50% want it — nice to have, not critical for launch).",
+            answerRu: "Приоритет 1: Упростить настройку (влияет на 83% пользователей — самый большой барьер для внедрения). Приоритет 2: Сохранить сильную основную функцию (67% её любят — это конкурентное преимущество). Приоритет 3: Добавить настройку позже (50% хотят её — приятное дополнение, не критично для запуска).",
+            answerKk: "1-басымдық: Орнатуды жеңілдету (пайдаланушылардың 83%-ына әсер етеді — қабылдаудың ең үлкен кедергісі). 2-басымдық: Негізгі мүмкіндікті күшті сақтау (67% ұнатады — бұл бәсекелік артықшылық). 3-басымдық: Бейімдеуді кейінірек қосу (50% қалайды — жақсы қосымша, іске қосу үшін маңызды емес).",
             xp: 20
           }
         ]
@@ -1528,7 +1728,9 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
               { en: "Conversions = 25 purchases. Total visitors = 500.", ru: "Конверсии = 25 покупок. Всего посетителей = 500.", kk: "Конверсиялар = 25 сатып алу. Жалпы кірушілер = 500." },
               { en: "Conversion Rate = 25/500 × 100% = 5%.", ru: "Конверсия = 25/500 × 100% = 5%.", kk: "Конверсия деңгейі = 25/500 × 100% = 5%." }
             ],
-            answer: "5% conversion rate"
+            answer: "5% conversion rate",
+            answerRu: "Конверсия 5%",
+            answerKk: "Конверсия деңгейі 5%"
           }
         ],
         practiceProblems: [
@@ -1538,6 +1740,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Назовите два канала цифрового маркетинга.",
             questionKk: "Цифрлық маркетингтің екі арнасын атаңыз.",
             answer: "Social media marketing and email marketing (also: SEO, content marketing, paid ads).",
+            answerRu: "Маркетинг в соцсетях и email-маркетинг (также: SEO, контент-маркетинг, платная реклама).",
+            answerKk: "Әлеуметтік медиа маркетинг және электрондық пошта маркетингі (сонымен қатар: SEO, контент-маркетинг, ақылы жарнама).",
             hint: "Think about how businesses reach you online.",
             hintRu: "Подумайте, как бизнесы находят вас онлайн.",
             hintKk: "Бизнестер сізге онлайн қалай жететінін ойлаңыз.",
@@ -1549,6 +1753,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "В вашем онлайн-магазине 1000 посетителей, 40 купили. Какова конверсия? Если средний заказ $25, какова выручка?",
             questionKk: "Онлайн дүкеніңізде 1000 кіруші болды, 40-ы сатып алды. Конверсия деңгейі қанша? Орташа тапсырыс $25 болса, жалпы табыс қанша?",
             answer: "Conversion rate = 4% (40/1000). Revenue = 40 × $25 = $1,000.",
+            answerRu: "Конверсия = 4% (40/1000). Доход = 40 × $25 = $1,000.",
+            answerKk: "Конверсия деңгейі = 4% (40/1000). Табыс = 40 × $25 = $1,000.",
             hint: "Divide purchases by visitors for conversion, multiply purchases by average order for revenue.",
             hintRu: "Разделите покупки на посетителей для конверсии.",
             hintKk: "Конверсия үшін сатып алуларды кірушілерге бөліңіз.",
@@ -1560,6 +1766,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Вы потратили $200 на рекламу в Instagram, привлекли 2000 посетителей. Конверсия 3%, средний чек $30. Рассчитайте выручку и ROAS.",
             questionKk: "Сіз Instagram жарнамасына $200 жұмсап, сайтқа 2000 кіруші тарттыңыз. Конверсия 3%, орташа тапсырыс $30. Жалпы табыс пен ROAS есептеңіз.",
             answer: "Conversions = 2000 × 3% = 60. Revenue = 60 × $30 = $1,800. ROAS = $1,800/$200 = 9x (for every $1 spent, you earned $9).",
+            answerRu: "Конверсии = 2000 × 3% = 60. Доход = 60 × $30 = $1,800. ROAS = $1,800/$200 = 9x (на каждый потраченный $1 вы заработали $9).",
+            answerKk: "Конверсиялар = 2000 × 3% = 60. Табыс = 60 × $30 = $1,800. ROAS = $1,800/$200 = 9x (жұмсалған әр $1-ге $9 таптыңыз).",
             xp: 20
           }
         ]
@@ -1588,7 +1796,9 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
               { en: "Track drop-off at each stage: 1000 → 200 (20%) → 50 (25%) → 20 (40%).", ru: "Отслеживайте потери на каждом этапе: 1000 → 200 (20%) → 50 (25%) → 20 (40%).", kk: "Әр кезеңдегі төмендеуді бақылаңыз: 1000 → 200 (20%) → 50 (25%) → 20 (40%)." },
               { en: "Overall conversion = 20/1000 = 2%. Biggest drop: Awareness to Interest (80% lost).", ru: "Общая конверсия = 20/1000 = 2%. Наибольшая потеря: Осведомлённость → Интерес (80%).", kk: "Жалпы конверсия = 20/1000 = 2%. Ең үлкен төмендеу: Хабардарлықтан Қызығушылыққа (80% жоғалды)." }
             ],
-            answer: "2% overall conversion rate. The biggest improvement opportunity is at the Awareness-to-Interest stage."
+            answer: "2% overall conversion rate. The biggest improvement opportunity is at the Awareness-to-Interest stage.",
+            answerRu: "Общая конверсия 2%. Наибольшая возможность улучшения — на этапе от Осведомлённости к Интересу.",
+            answerKk: "Жалпы конверсия деңгейі 2%. Ең үлкен жақсарту мүмкіндігі — Хабардарлықтан Қызығушылыққа өту кезеңінде."
           }
         ],
         practiceProblems: [
@@ -1598,6 +1808,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Каковы четыре этапа воронки продаж AIDA?",
             questionKk: "AIDA сату воронкасының төрт кезеңі қандай?",
             answer: "Awareness, Interest, Decision, Action.",
+            answerRu: "Осведомлённость, Интерес, Решение, Действие.",
+            answerKk: "Хабардарлық, Қызығушылық, Шешім, Әрекет.",
             hint: "AIDA is an acronym — each letter is a stage.",
             hintRu: "AIDA — аббревиатура, каждая буква — этап.",
             hintKk: "AIDA — аббревиатура, әр әріп — кезең.",
@@ -1609,6 +1821,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Магазин: 500 посетителей/день. 10% интересуются, 30% из них задают вопросы, 50% из них покупают. Сколько продаж?",
             questionKk: "Дүкенге күніне 500 кіруші келеді. 10% қызығады, олардың 30% сұрақ қояды, олардың 50% сатып алады. Күніне қанша сату?",
             answer: "500 × 10% = 50 interested → 50 × 30% = 15 ask questions → 15 × 50% = 7.5, so about 7-8 sales per day.",
+            answerRu: "500 × 10% = 50 заинтересованных → 50 × 30% = 15 задают вопросы → 15 × 50% = 7.5, значит около 7-8 продаж в день.",
+            answerKk: "500 × 10% = 50 қызыққан → 50 × 30% = 15 сұрақ қояды → 15 × 50% = 7.5, яғни күніне шамамен 7-8 сату.",
             hint: "Multiply each stage by the next conversion rate.",
             hintRu: "Умножайте каждый этап на следующий процент конверсии.",
             hintKk: "Әр кезеңді келесі конверсия пайызына көбейтіңіз.",
@@ -1620,6 +1834,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Воронка: 10,000 посещений, 1,000 на бесплатную пробную версию, 100 платят по $10/месяц. Рассчитайте конверсию на каждом этапе и доход. Сколько нужно посетителей для $5,000/месяц?",
             questionKk: "Воронка: 10,000 кіруші, 1,000 тегін сынаққа тіркеледі, 100 ай сайын $10 төлейді. Әр кезеңдегі конверсияны және табысты есептеңіз. $5,000/ай табыс үшін қанша кіруші қажет?",
             answer: "Visitor→Trial: 10% (1000/10000). Trial→Paid: 10% (100/1000). Revenue: 100 × $10 = $1,000/month. For $5,000: need 500 paying = 5,000 trials = 50,000 visitors.",
+            answerRu: "Посетитель→Пробная версия: 10% (1000/10000). Пробная версия→Оплата: 10% (100/1000). Доход: 100 × $10 = $1,000/месяц. Для $5,000: нужно 500 платящих = 5,000 пробных = 50,000 посетителей.",
+            answerKk: "Кіруші→Сынақ: 10% (1000/10000). Сынақ→Төлем: 10% (100/1000). Табыс: 100 × $10 = $1,000/ай. $5,000 үшін: 500 төлеуші = 5,000 сынақ = 50,000 кіруші керек.",
             xp: 20
           }
         ]
@@ -1654,7 +1870,9 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
               { en: "Month 1: $500. Month 2: $500 × 1.20 = $600.", ru: "Месяц 1: $500. Месяц 2: $500 × 1.20 = $600.", kk: "1-ай: $500. 2-ай: $500 × 1.20 = $600." },
               { en: "Month 3: $600 × 1.20 = $720. Q1 Total = $500 + $600 + $720 = $1,820.", ru: "Месяц 3: $600 × 1.20 = $720. Итого Q1 = $1,820.", kk: "3-ай: $600 × 1.20 = $720. Q1 барлығы = $1,820." }
             ],
-            answer: "Month 1: $500, Month 2: $600, Month 3: $720. Quarter total: $1,820."
+            answer: "Month 1: $500, Month 2: $600, Month 3: $720. Quarter total: $1,820.",
+            answerRu: "Месяц 1: $500, Месяц 2: $600, Месяц 3: $720. Итого за квартал: $1,820.",
+            answerKk: "1-ай: $500, 2-ай: $600, 3-ай: $720. Тоқсан бойынша барлығы: $1,820."
           }
         ],
         practiceProblems: [
@@ -1664,6 +1882,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Если вы зарабатываете $200/месяц, а расходы $150/месяц, какова месячная прибыль?",
             questionKk: "Ай сайын $200 тауып, шығындарыңыз $150 болса, ай сайынғы пайда қанша?",
             answer: "$50/month",
+            answerRu: "$50/месяц",
+            answerKk: "$50/ай",
             hint: "Profit = Revenue - Expenses.",
             hintRu: "Прибыль = Доход - Расходы.",
             hintKk: "Пайда = Табыс - Шығындар.",
@@ -1675,6 +1895,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Бизнес приносит $1,000 в первый месяц с ростом 10%/месяц. Каков доход в 4-м месяце?",
             questionKk: "Бизнесіңіз 1-ші айда $1,000 тауып, ай сайын 10% өседі. 4-ші айдағы табыс қанша?",
             answer: "Month 2: $1,100; Month 3: $1,210; Month 4: $1,331",
+            answerRu: "Месяц 2: $1,100; Месяц 3: $1,210; Месяц 4: $1,331",
+            answerKk: "2-ай: $1,100; 3-ай: $1,210; 4-ай: $1,331",
             hint: "Multiply by 1.10 each month.",
             hintRu: "Умножайте на 1.10 каждый месяц.",
             hintKk: "Ай сайын 1.10-ға көбейтіңіз.",
@@ -1686,6 +1908,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Создайте 6-месячный прогноз для репетиторского бизнеса. Месяц 1: 10 учеников по $50, расходы $200. Рост: 3 ученика/месяц, расходы +$50/месяц.",
             questionKk: "Репетиторлық бизнес үшін 6 айлық болжам жасаңыз. 1-ай: 10 оқушы $50-ден, шығындар $200. Өсу: айына 3 оқушы, шығындар +$50/ай.",
             answer: "M1: Rev $500, Exp $200, Profit $300. M2: $650, $250, $400. M3: $800, $300, $500. M4: $950, $350, $600. M5: $1100, $400, $700. M6: $1250, $450, $800. Total 6-month profit: $3,300.",
+            answerRu: "М1: Доход $500, Расход $200, Прибыль $300. М2: $650, $250, $400. М3: $800, $300, $500. М4: $950, $350, $600. М5: $1100, $400, $700. М6: $1250, $450, $800. Итоговая прибыль за 6 месяцев: $3,300.",
+            answerKk: "1-ай: Табыс $500, Шығын $200, Пайда $300. 2-ай: $650, $250, $400. 3-ай: $800, $300, $500. 4-ай: $950, $350, $600. 5-ай: $1100, $400, $700. 6-ай: $1250, $450, $800. 6 айлық жалпы пайда: $3,300.",
             xp: 20
           }
         ]
@@ -1714,7 +1938,9 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
               { en: "Logo and brand name: Trademark protection — prevents others from using your brand identity.", ru: "Логотип и название: Товарный знак — запрещает другим использовать ваш бренд.", kk: "Логотип пен бренд атауы: Тауар белгісі — басқалардың сіздің бренд сәйкестілігіңізді пайдалануына жол бермейді." },
               { en: "Blog content: Copyright protection — automatically protects your original written work.", ru: "Контент блога: Авторское право — автоматически защищает оригинальный текст.", kk: "Блог мазмұны: Авторлық құқық — түпнұсқа жазбаңызды автоматты түрде қорғайды." }
             ],
-            answer: "Logo: Trademark. Blog content: Copyright."
+            answer: "Logo: Trademark. Blog content: Copyright.",
+            answerRu: "Логотип: Товарный знак. Контент блога: Авторское право.",
+            answerKk: "Логотип: Тауар белгісі. Блог мазмұны: Авторлық құқық."
           }
         ],
         practiceProblems: [
@@ -1724,6 +1950,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Почему бизнес нужно юридически регистрировать?",
             questionKk: "Неге бизнесті заңды түрде тіркеу керек?",
             answer: "Legal registration protects the owner, allows opening a bank account, builds trust, and ensures compliance with tax laws.",
+            answerRu: "Юридическая регистрация защищает владельца, позволяет открыть банковский счёт, укрепляет доверие и обеспечивает соблюдение налогового законодательства.",
+            answerKk: "Заңды тіркеу иесін қорғайды, банктік шот ашуға мүмкіндік береді, сенімді нығайтады және салық заңдарын сақтауды қамтамасыз етеді.",
             hint: "What happens if you run a business without registering?",
             hintRu: "Что будет, если вести бизнес без регистрации?",
             hintKk: "Тіркеусіз бизнес жүргізсеңіз не болады?",
@@ -1735,6 +1963,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "В чём разница между товарным знаком и авторским правом? Приведите примеры.",
             questionKk: "Тауар белгісі мен авторлық құқықтың айырмашылығы не? Мысал келтіріңіз.",
             answer: "Trademark: Protects brand names and logos (e.g., Nike swoosh). Copyright: Protects creative works like writing, music, and art (e.g., a novel or song).",
+            answerRu: "Товарный знак: защищает названия брендов и логотипы (напр., символ Nike). Авторское право: защищает творческие работы, такие как тексты, музыка и искусство (напр., роман или песня).",
+            answerKk: "Тауар белгісі: бренд атауларын және логотиптерді қорғайды (мысалы, Nike белгісі). Авторлық құқық: жазбалар, музыка және өнер сияқты шығармашылық жұмыстарды қорғайды (мысалы, роман немесе ән).",
             xp: 10
           },
           {
@@ -1743,6 +1973,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Вы начинаете онлайн-бизнес по продаже футболок. Перечислите все юридические шаги: регистрация, защита ИС, разрешения и договоры.",
             questionKk: "Сіз онлайн футболка бизнесін бастайсыз. Барлық заңды қадамдарды тізімдеңіз: тіркеу, ЗМ қорғау, рұқсаттар мен келісімдер.",
             answer: "1) Register the business (sole proprietorship or LLC). 2) Trademark your brand name and logo. 3) Copyright your original designs. 4) Get a business license. 5) Terms of service and privacy policy for your website. 6) Supplier contracts for blank T-shirts.",
+            answerRu: "1) Зарегистрировать бизнес (ИП или ООО). 2) Зарегистрировать товарный знак названия бренда и логотипа. 3) Защитить авторским правом оригинальные дизайны. 4) Получить бизнес-лицензию. 5) Условия использования и политику конфиденциальности для сайта. 6) Договоры с поставщиками чистых футболок.",
+            answerKk: "1) Бизнесті тіркеу (ЖК немесе ЖШС). 2) Бренд атауы мен логотипін тауар белгісі ретінде тіркеу. 3) Түпнұсқа дизайндарды авторлық құқықпен қорғау. 4) Бизнес лицензиясын алу. 5) Сайт үшін қызмет көрсету шарттары мен құпиялылық саясаты. 6) Таза футболкалар үшін жеткізушілермен келісімшарттар.",
             xp: 20
           }
         ]
@@ -1771,7 +2003,9 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
               { en: "Slide 1: Problem — 60% of students struggle to find affordable tutors. Slide 2: Solution — App matching students with peer tutors at $5/hour.", ru: "Слайд 1: Проблема — 60% учеников не могут найти доступных репетиторов. Слайд 2: Решение — Приложение для связи с репетиторами-сверстниками за $5/час.", kk: "1-слайд: Мәселе — 60% оқушы қолжетімді репетитор таба алмайды. 2-слайд: Шешім — Оқушыларды $5/сағат құрдас репетиторлармен байланыстыратын қосымша." },
               { en: "Slide 3: Market — 5M high school students in the region. Slide 4: Traction — 200 beta users, 4.5 star rating. Slide 5: Ask — $10,000 for marketing and development.", ru: "Слайд 3: Рынок — 5 млн старшеклассников в регионе. Слайд 4: Трекшн — 200 бета-пользователей. Слайд 5: Запрос — $10,000.", kk: "3-слайд: Нарық — аймақтағы 5М жоғары сынып оқушысы. 4-слайд: Тартымдылық — 200 бета пайдаланушы. 5-слайд: Сұраныс — $10,000." }
             ],
-            answer: "5 slides: Problem (unaffordable tutoring), Solution (peer tutor app), Market (5M students), Traction (200 beta users), Ask ($10K)."
+            answer: "5 slides: Problem (unaffordable tutoring), Solution (peer tutor app), Market (5M students), Traction (200 beta users), Ask ($10K).",
+            answerRu: "5 слайдов: Проблема (недоступное репетиторство), Решение (приложение с репетиторами-сверстниками), Рынок (5 млн учеников), Трекшн (200 бета-пользователей), Запрос ($10K).",
+            answerKk: "5 слайд: Мәселе (қолжетімсіз репетиторлық), Шешім (құрдас репетиторлар қосымшасы), Нарық (5 млн оқушы), Тартымдылық (200 бета пайдаланушы), Сұраныс ($10K)."
           }
         ],
         practiceProblems: [
@@ -1781,6 +2015,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Какова цель питч-дека?",
             questionKk: "Питч-дектің мақсаты не?",
             answer: "To present your business idea to potential investors or partners in a clear, visual way and convince them to support or invest.",
+            answerRu: "Представить бизнес-идею потенциальным инвесторам или партнёрам ясным, визуальным способом и убедить их поддержать или инвестировать.",
+            answerKk: "Бизнес идеяны әлеуетті инвесторларға немесе серіктестерге анық, визуалды түрде ұсынып, оларды қолдауға немесе инвестициялауға сендіру.",
             hint: "Think about who you are presenting to and why.",
             hintRu: "Подумайте, кому и зачем вы презентуете.",
             hintKk: "Кімге және неге презентация жасайтыныңызды ойлаңыз.",
@@ -1792,6 +2028,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Перечислите 7 основных слайдов питч-дека и кратко опишите содержание каждого.",
             questionKk: "Питч-декте болуы керек 7 негізгі слайдты тізімдеп, әрқайсысының мазмұнын бір сөйлеммен сипаттаңыз.",
             answer: "1) Problem: The pain point you solve. 2) Solution: Your product/service. 3) Market: Size and opportunity. 4) Business Model: How you make money. 5) Traction: Early results/users. 6) Team: Who is building it. 7) Ask: How much funding you need.",
+            answerRu: "1) Проблема: боль, которую вы решаете. 2) Решение: ваш продукт/услуга. 3) Рынок: размер и возможность. 4) Бизнес-модель: как вы зарабатываете. 5) Трекшн: ранние результаты/пользователи. 6) Команда: кто это создаёт. 7) Запрос: сколько финансирования нужно.",
+            answerKk: "1) Мәселе: шешетін ауыртпалық. 2) Шешім: өніміңіз/қызметіңіз. 3) Нарық: көлемі мен мүмкіндігі. 4) Бизнес-модель: қалай ақша табасыз. 5) Тартымдылық: алғашқы нәтижелер/пайдаланушылар. 6) Команда: кім жасайды. 7) Сұраныс: қанша қаржыландыру керек.",
             xp: 10
           },
           {
@@ -1800,6 +2038,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Напишите сценарий 60-секундного питча для мобильного приложения поиска учебных групп: проблема, решение, размер рынка и отличие.",
             questionKk: "Оқу топтарын табуға көмектесетін мобильді қосымша үшін 60 секундтық лифт питчінің сценарийін жазыңыз: мәселе, шешім, нарық көлемі және ерекшелігі.",
             answer: "Did you know 70% of students study alone even though studying in groups improves grades by 25%? StudyMatch instantly connects you with classmates studying the same subject, right on your phone. With 2 million high school students in our city, and no competitor doing this, we have already matched 500 study groups in our beta. We are looking for $15,000 to launch nationwide.",
+            answerRu: "Знали ли вы, что 70% студентов учатся в одиночку, хотя учёба в группах повышает оценки на 25%? StudyMatch мгновенно связывает вас с одноклассниками, изучающими тот же предмет, прямо на вашем телефоне. При 2 миллионах старшеклассников в нашем городе и отсутствии конкурентов мы уже собрали 500 учебных групп в бета-версии. Мы ищем $15,000 для запуска по всей стране.",
+            answerKk: "Топта оқу бағаларды 25%-ға арттыратынын білсеңіз де, студенттердің 70%-ы жалғыз оқитынын білдіңіз бе? StudyMatch сізді сол пәнді оқитын сыныптастарыңызбен телефоныңызда бірден байланыстырады. Қаламызда 2 миллион жоғары сынып оқушысы бар және бұл бағытта бәсекелес жоқ, біз бета нұсқада 500 оқу тобын біріктірдік. Бүкіл ел бойынша іске қосу үшін $15,000 іздеп жатырмыз.",
             xp: 20
           }
         ]
@@ -1838,7 +2078,9 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
               { en: "Hook + Problem: 'Have you ever done 90% of a group project alone? 80% of students say group work is unfair because tasks are never split equally.'", ru: "Зацепка + Проблема: «Вы когда-нибудь делали 90% группового проекта в одиночку? 80% студентов считают групповую работу несправедливой.»", kk: "Ілмек + Мәселе: 'Топтық жобаның 90%-ын жалғыз жасағаныңыз бар ма? 80% студенттер топтық жұмысты әділетсіз деп санайды.'" },
               { en: "Solution + Ask: 'TaskSplit uses AI to assign tasks based on each member's skills and availability. We have 300 beta users and need $5,000 to launch campus-wide.'", ru: "Решение + Запрос: «TaskSplit использует ИИ для распределения задач по навыкам. У нас 300 бета-пользователей, нужно $5,000 для масштабирования.»", kk: "Шешім + Сұраныс: 'TaskSplit ИИ арқылы тапсырмаларды дағдыларға сәйкес бөледі. 300 бета пайдаланушымыз бар, кампус бойынша іске қосу үшін $5,000 керек.'" }
             ],
-            answer: "Hook: relatable frustration. Problem: unfair task distribution. Solution: AI-powered task splitting. Ask: $5,000 for campus launch."
+            answer: "Hook: relatable frustration. Problem: unfair task distribution. Solution: AI-powered task splitting. Ask: $5,000 for campus launch.",
+            answerRu: "Зацепка: близкое каждому разочарование. Проблема: несправедливое распределение задач. Решение: разделение задач на базе ИИ. Запрос: $5,000 для запуска в кампусе.",
+            answerKk: "Ілмек: барлығына таныс наразылық. Мәселе: тапсырмалардың әділетсіз бөлінуі. Шешім: ИИ негізінде тапсырмаларды бөлу. Сұраныс: кампуста іске қосу үшін $5,000."
           }
         ],
         practiceProblems: [
@@ -1848,6 +2090,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Какие четыре ключевых компонента элеватор-питча?",
             questionKk: "Элеватор питчтің төрт негізгі компоненті қандай?",
             answer: "Hook (attention grabber), Problem (pain point), Solution (your product/service), and Ask (what you need from the listener).",
+            answerRu: "Зацепка (привлекает внимание), Проблема (боль), Решение (ваш продукт/услуга) и Запрос (что вам нужно от слушателя).",
+            answerKk: "Ілмек (назар аудартады), Мәселе (ауыртпалық), Шешім (өніміңіз/қызметіңіз) және Сұраныс (тыңдаушыдан не керек екені).",
             hint: "Think about what you need to communicate in under 60 seconds.",
             hintRu: "Подумайте, что нужно сказать за 60 секунд.",
             hintKk: "60 секундта не айту керектігін ойлаңыз.",
@@ -1859,6 +2103,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Вы презентуете сервис доставки готовой еды для занятых студентов. Напишите зацепку и описание проблемы.",
             questionKk: "Бос уақыты жоқ студенттерге дайын тағам жеткізу қызметін ұсынасыз. Питчіңіздің ілмегі мен мәселе сипаттамасын жазыңыз.",
             answer: "Hook: 'What if you never had to choose between studying and eating well?' Problem: 'College students skip meals or eat junk food because they have no time to cook — 65% report poor nutrition affects their grades.'",
+            answerRu: "Зацепка: «А что, если бы вам никогда не пришлось выбирать между учёбой и хорошим питанием?» Проблема: «Студенты колледжей пропускают приёмы пищи или едят нездоровую еду, потому что у них нет времени готовить — 65% сообщают, что плохое питание влияет на их оценки.»",
+            answerKk: "Ілмек: «Оқу мен дұрыс тамақтанудың арасынан ешқашан таңдау жасамасаңыз ше?» Мәселе: «Колледж студенттері тамақтануды өткізіп жібереді немесе аспауға уақыт болмағандықтан зиянды тағам жейді — 65% нашар тамақтану бағаларына әсер ететінін айтады.»",
             hint: "Start with a question or surprising statistic, then describe the pain.",
             hintRu: "Начните с вопроса или удивительной статистики, затем опишите проблему.",
             hintKk: "Сұрақпен немесе таңғажайып статистикамен бастап, мәселені сипаттаңыз.",
@@ -1870,6 +2116,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Напишите полный 60-секундный питч для приложения, соединяющего фермеров напрямую с покупателями. Включите все четыре компонента.",
             questionKk: "Жергілікті фермерлерді тұтынушылармен тікелей байланыстыратын мобильді қосымша үшін толық 60 секундтық питч жазыңыз. Барлық төрт компонентті қосыңыз.",
             answer: "Hook: 'Your tomatoes travel 1,500 miles before reaching your plate.' Problem: 'Farmers earn only 15 cents per dollar while consumers pay inflated prices due to middlemen.' Solution: 'FarmDirect connects you to local farmers within 50 miles — fresher food, 30% cheaper, and farmers earn 3x more.' Ask: 'We have 50 farmers and 500 users. We need $20,000 to expand to three more cities.'",
+            answerRu: "Зацепка: «Ваши помидоры проезжают 1,500 миль, прежде чем попасть к вам на тарелку.» Проблема: «Фермеры зарабатывают лишь 15 центов с доллара, пока потребители платят завышенные цены из-за посредников.» Решение: «FarmDirect соединяет вас с местными фермерами в радиусе 50 миль — свежее продукты, на 30% дешевле, а фермеры зарабатывают в 3 раза больше.» Запрос: «У нас 50 фермеров и 500 пользователей. Нам нужны $20,000 для расширения ещё на три города.»",
+            answerKk: "Ілмек: «Қызанақтарыңыз табағыңызға жетпес бұрын 1,500 миль жол жүреді.» Мәселе: «Делдалдар салдарынан тұтынушылар қымбат баға төлеп жатқанда, фермерлер әр доллардан тек 15 цент табады.» Шешім: «FarmDirect сізді 50 миль радиустағы жергілікті фермерлермен байланыстырады — тағам жаңа, 30% арзан, ал фермерлер 3 есе көп табады.» Сұраныс: «Бізде 50 фермер мен 500 пайдаланушы бар. Тағы үш қалаға кеңею үшін $20,000 керек.»",
             xp: 20
           }
         ]
@@ -1904,7 +2152,9 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
               { en: "Post-Money Valuation = $2,000,000 + $500,000 = $2,500,000", ru: "Пост-оценка = $2,000,000 + $500,000 = $2,500,000", kk: "Инвестициядан кейінгі бағалау = $2,000,000 + $500,000 = $2,500,000" },
               { en: "Investor Ownership = $500,000 / $2,500,000 × 100 = 20%", ru: "Доля инвестора = $500,000 / $2,500,000 × 100 = 20%", kk: "Инвестор үлесі = $500,000 / $2,500,000 × 100 = 20%" }
             ],
-            answer: "Post-money valuation is $2,500,000 and the investor owns 20%."
+            answer: "Post-money valuation is $2,500,000 and the investor owns 20%.",
+            answerRu: "Оценка после инвестиций — $2,500,000, инвестор владеет 20%.",
+            answerKk: "Инвестициядан кейінгі бағалау — $2,500,000, инвестор 20%-ға ие."
           }
         ],
         practiceProblems: [
@@ -1914,6 +2164,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Что получает венчурный капиталист в обмен на инвестиции?",
             questionKk: "Венчурлық капиталист инвестицияға айырбасқа не алады?",
             answer: "Equity (ownership shares) in the startup company.",
+            answerRu: "Долю (акции владения) в стартап-компании.",
+            answerKk: "Стартап компаниядағы үлесті (меншік акцияларын).",
             hint: "Think about what the investor gets — it is not just a thank-you note.",
             hintRu: "Подумайте, что получает инвестор — это не просто благодарность.",
             hintKk: "Инвестордың не алатынын ойлаңыз — бұл жай алғыс емес.",
@@ -1925,6 +2177,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Стартап оценён в $1,000,000. Инвестор вкладывает $250,000. Какой процент компании получает инвестор?",
             questionKk: "Стартаптың алдын ала бағалауы $1,000,000. Инвестор $250,000 салады. Инвестор компанияның қанша пайызына ие болады?",
             answer: "20%. Post-money = $1,250,000. Ownership = $250,000 / $1,250,000 = 20%.",
+            answerRu: "20%. Пост-оценка = $1,250,000. Доля владения = $250,000 / $1,250,000 = 20%.",
+            answerKk: "20%. Инвестициядан кейінгі бағалау = $1,250,000. Меншік үлесі = $250,000 / $1,250,000 = 20%.",
             hint: "First calculate the post-money valuation, then divide.",
             hintRu: "Сначала рассчитайте пост-оценку, затем разделите.",
             hintKk: "Алдымен инвестициядан кейінгі бағалауды есептеңіз, содан кейін бөліңіз.",
@@ -1936,6 +2190,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Стартап привлекает $2M seed при пре-оценке $8M, затем $10M Series A при пре-оценке $40M. Сколько всего капитала отдано инвесторам?",
             questionKk: "Стартап $8M алдын ала бағалаумен $2M seed раунд, содан кейін $40M алдын ала бағалаумен $10M Series A жинайды. Инвесторларға барлығы қанша үлес берілді?",
             answer: "Seed: $2M / $10M = 20%. Series A: $10M / $50M = 20%. Total equity given: 40%.",
+            answerRu: "Seed: $2M / $10M = 20%. Series A: $10M / $50M = 20%. Всего отдано капитала: 40%.",
+            answerKk: "Seed: $2M / $10M = 20%. Series A: $10M / $50M = 20%. Барлығы берілген үлес: 40%.",
             xp: 20
           }
         ]
@@ -1964,7 +2220,9 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
               { en: "Unit Profit = $5.00 - $2.20 = $2.80 per cup", ru: "Прибыль с единицы = $5.00 - $2.20 = $2.80 за чашку", kk: "Бірлік пайда = $5.00 - $2.20 = кесеге $2.80" },
               { en: "Daily Gross Profit = $2.80 × 200 = $560", ru: "Дневная валовая прибыль = $2.80 × 200 = $560", kk: "Күнделікті жалпы пайда = $2.80 × 200 = $560" }
             ],
-            answer: "Unit profit is $2.80 per cup, daily gross profit is $560."
+            answer: "Unit profit is $2.80 per cup, daily gross profit is $560.",
+            answerRu: "Прибыль с единицы — $2.80 за чашку, дневная валовая прибыль — $560.",
+            answerKk: "Бірлік пайдасы — кесеге $2.80, күнделікті жалпы пайда — $560."
           }
         ],
         practiceProblems: [
@@ -1974,6 +2232,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Вы продаёте лимонад за $3. Каждая чашка стоит $1. Какова прибыль с единицы?",
             questionKk: "Лимонадты $3-тен сатасыз. Әр кесенің құны $1. Бірлік пайдаңыз қандай?",
             answer: "$2 per cup.",
+            answerRu: "$2 за чашку.",
+            answerKk: "Кесеге $2.",
             hint: "Subtract cost from revenue for one unit.",
             hintRu: "Вычтите затраты из дохода за одну единицу.",
             hintKk: "Бір бірліктің табысынан шығынды шегеріңіз.",
@@ -1985,6 +2245,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Онлайн-курс стоит $15 на студента (хостинг, поддержка). Вы берёте $49. При 500 студентах какова валовая прибыль?",
             questionKk: "Онлайн курстың бір студентке шығыны $15 (хостинг, қолдау). Сіз $49 аласыз. 500 студент тіркелсе, жалпы пайда қанша?",
             answer: "$17,000. Unit profit = $49 - $15 = $34. Total = $34 × 500 = $17,000.",
+            answerRu: "$17,000. Прибыль с единицы = $49 - $15 = $34. Итого = $34 × 500 = $17,000.",
+            answerKk: "$17,000. Бірлік пайда = $49 - $15 = $34. Барлығы = $34 × 500 = $17,000.",
             hint: "Find the unit profit first, then multiply by the number of students.",
             hintRu: "Сначала найдите прибыль с единицы, затем умножьте на количество студентов.",
             hintKk: "Алдымен бірлік пайданы тауып, студенттер санына көбейтіңіз.",
@@ -1996,6 +2258,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "SaaS-компания берёт $29/месяц с пользователя. Серверы — $3, поддержка — $2, обработка платежей — 3% от дохода. Какова прибыль с пользователя в месяц?",
             questionKk: "SaaS компания пайдаланушыдан айына $29 алады. Сервер — $3, қолдау — $2, төлем өңдеу — табыстың 3%. Айына бір пайдаланушыға пайда қанша?",
             answer: "$23.13. Costs = $3 + $2 + ($29 × 0.03) = $5.87. Unit profit = $29 - $5.87 = $23.13.",
+            answerRu: "$23.13. Затраты = $3 + $2 + ($29 × 0.03) = $5.87. Прибыль с единицы = $29 - $5.87 = $23.13.",
+            answerKk: "$23.13. Шығындар = $3 + $2 + ($29 × 0.03) = $5.87. Бірлік пайда = $29 - $5.87 = $23.13.",
             xp: 20
           }
         ]
@@ -2030,7 +2294,9 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
               { en: "CAC = $10,000 / 200 = $50 per customer", ru: "CAC = $10,000 / 200 = $50 за клиента", kk: "CAC = $10,000 / 200 = тұтынушыға $50" },
               { en: "LTV = $25 × 8 = $200 per customer. LTV:CAC = $200 / $50 = 4:1 (healthy ratio)", ru: "LTV = $25 × 8 = $200. LTV:CAC = $200 / $50 = 4:1 (здоровое соотношение)", kk: "LTV = $25 × 8 = $200. LTV:CAC = $200 / $50 = 4:1 (сау қатынас)" }
             ],
-            answer: "CAC is $50, LTV is $200, LTV:CAC ratio is 4:1 — the business is healthy."
+            answer: "CAC is $50, LTV is $200, LTV:CAC ratio is 4:1 — the business is healthy.",
+            answerRu: "CAC — $50, LTV — $200, соотношение LTV:CAC — 4:1 — бизнес здоров.",
+            answerKk: "CAC — $50, LTV — $200, LTV:CAC қатынасы — 4:1 — бизнес сау."
           }
         ],
         practiceProblems: [
@@ -2040,6 +2306,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Вы потратили $500 на рекламу в Instagram и получили 50 новых клиентов. Каков ваш CAC?",
             questionKk: "Instagram жарнамасына $500 жұмсап, 50 жаңа тұтынушы алдыңыз. CAC-ыңыз қандай?",
             answer: "$10 per customer. CAC = $500 / 50 = $10.",
+            answerRu: "$10 за клиента. CAC = $500 / 50 = $10.",
+            answerKk: "Тұтынушыға $10. CAC = $500 / 50 = $10.",
             hint: "Divide total marketing spend by number of new customers.",
             hintRu: "Разделите общие расходы на маркетинг на количество новых клиентов.",
             hintKk: "Жалпы маркетинг шығынын жаңа тұтынушылар санына бөліңіз.",
@@ -2051,6 +2319,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Спортзал берёт $40/месяц, средний клиент остаётся 14 месяцев. На привлечение тратят $120. Рассчитайте LTV и соотношение LTV:CAC. Это здоровый показатель?",
             questionKk: "Спортзал айына $40 алады, орташа мүше 14 ай қалады. Тарту құны $120. LTV мен LTV:CAC қатынасын есептеңіз. Бұл сау ма?",
             answer: "LTV = $40 × 14 = $560. LTV:CAC = $560 / $120 = 4.67:1. Yes, this is healthy (above 3:1).",
+            answerRu: "LTV = $40 × 14 = $560. LTV:CAC = $560 / $120 = 4.67:1. Да, это здоровый показатель (выше 3:1).",
+            answerKk: "LTV = $40 × 14 = $560. LTV:CAC = $560 / $120 = 4.67:1. Иә, бұл сау көрсеткіш (3:1-ден жоғары).",
             hint: "LTV = monthly revenue × months retained, then compare to CAC.",
             hintRu: "LTV = месячный доход × месяцы удержания, затем сравните с CAC.",
             hintKk: "LTV = айлық табыс × сақталу айлары, содан кейін CAC-пен салыстырыңыз.",
@@ -2062,6 +2332,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Стартап тратит $30,000/месяц на маркетинг и привлекает 600 клиентов. Каждый тратит $20/месяц и остаётся 10 месяцев. Рассчитайте CAC, LTV, LTV:CAC и срок окупаемости.",
             questionKk: "Стартап маркетингке айына $30,000 жұмсап, 600 тұтынушы тартады. Әрқайсысы айына $20 жұмсап, 10 ай қалады. CAC, LTV, LTV:CAC және өтелу мерзімін есептеңіз.",
             answer: "CAC = $30,000/600 = $50. LTV = $20 × 10 = $200. LTV:CAC = 4:1. Payback period = $50/$20 = 2.5 months.",
+            answerRu: "CAC = $30,000/600 = $50. LTV = $20 × 10 = $200. LTV:CAC = 4:1. Срок окупаемости = $50/$20 = 2.5 месяца.",
+            answerKk: "CAC = $30,000/600 = $50. LTV = $20 × 10 = $200. LTV:CAC = 4:1. Өтелу мерзімі = $50/$20 = 2.5 ай.",
             xp: 20
           }
         ]
@@ -2096,7 +2368,9 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
               { en: "MRR = 400 × $30 = $12,000. Churn Rate = 20/400 × 100 = 5%.", ru: "MRR = 400 × $30 = $12,000. Отток = 20/400 × 100 = 5%.", kk: "MRR = 400 × $30 = $12,000. Кету деңгейі = 20/400 × 100 = 5%." },
               { en: "Net customer growth = 50 gained - 20 lost = +30 customers. New MRR = 430 × $30 = $12,900.", ru: "Чистый рост = 50 - 20 = +30. Новый MRR = 430 × $30 = $12,900.", kk: "Таза өсу = 50 - 20 = +30. Жаңа MRR = 430 × $30 = $12,900." }
             ],
-            answer: "MRR is $12,000, churn rate is 5%, net growth is +30 users, new MRR is $12,900."
+            answer: "MRR is $12,000, churn rate is 5%, net growth is +30 users, new MRR is $12,900.",
+            answerRu: "MRR — $12,000, отток — 5%, чистый рост — +30 пользователей, новый MRR — $12,900.",
+            answerKk: "MRR — $12,000, кету деңгейі — 5%, таза өсу — +30 пайдаланушы, жаңа MRR — $12,900."
           }
         ],
         practiceProblems: [
@@ -2106,6 +2380,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "У стартапа 100 пользователей по $10/месяц. Каков MRR?",
             questionKk: "Стартаптың 100 төлеуші пайдаланушысы бар, әрқайсысы $10/ай. MRR қандай?",
             answer: "$1,000. MRR = 100 × $10.",
+            answerRu: "$1,000. MRR = 100 × $10.",
+            answerKk: "$1,000. MRR = 100 × $10.",
             hint: "Multiply the number of customers by the monthly price.",
             hintRu: "Умножьте количество клиентов на месячную цену.",
             hintKk: "Тұтынушылар санын айлық бағаға көбейтіңіз.",
@@ -2117,6 +2393,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Компания начала месяц с 800 клиентов и потеряла 40. Каков уровень оттока? Если среднее по отрасли 3%, хорошо ли это?",
             questionKk: "Компания айды 800 тұтынушымен бастап, 40-ын жоғалтты. Кету деңгейі қандай? Салалық орташа 3% болса, бұл жақсы ма?",
             answer: "Churn = 40/800 × 100 = 5%. This is worse than the 3% industry average — the company needs to improve retention.",
+            answerRu: "Отток = 40/800 × 100 = 5%. Это хуже, чем средний показатель по отрасли 3% — компании нужно улучшить удержание.",
+            answerKk: "Кету деңгейі = 40/800 × 100 = 5%. Бұл салалық орташа 3%-дан нашар — компанияға ұстап тұруды жақсарту керек.",
             hint: "Divide lost customers by starting customers, then multiply by 100.",
             hintRu: "Разделите потерянных клиентов на начальное количество и умножьте на 100.",
             hintKk: "Жоғалтылған тұтынушыларды бастапқы санға бөліп, 100-ге көбейтіңіз.",
@@ -2128,6 +2406,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "У стартапа MRR $50,000 в январе и $57,500 в феврале. В феврале начали с 1,000 клиентов, потеряли 50, привлекли 150. Рассчитайте рост MRR и отток.",
             questionKk: "Стартаптың қаңтарда MRR-і $50,000, ақпанда $57,500. Ақпанды 1,000 тұтынушымен бастап, 50-ін жоғалтып, 150 жаңа тартты. Ай сайынғы MRR өсу қарқыны мен кету деңгейін есептеңіз.",
             answer: "MRR Growth = ($57,500 - $50,000) / $50,000 × 100 = 15%. Churn Rate = 50/1,000 × 100 = 5%.",
+            answerRu: "Рост MRR = ($57,500 - $50,000) / $50,000 × 100 = 15%. Уровень оттока = 50/1,000 × 100 = 5%.",
+            answerKk: "MRR өсуі = ($57,500 - $50,000) / $50,000 × 100 = 15%. Кету деңгейі = 50/1,000 × 100 = 5%.",
             xp: 20
           }
         ]
@@ -2156,7 +2436,9 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
               { en: "Skill gap 1: Technical — you need a CTO/developer to build and maintain the app.", ru: "Пробел 1: Техническая — нужен CTO/разработчик для создания приложения.", kk: "Дағды олқылығы 1: Техникалық — қосымшаны жасау үшін CTO/әзірлеуші керек." },
               { en: "Skill gap 2: Operations/Food — you need someone with restaurant or food industry experience to manage the supply side.", ru: "Пробел 2: Операции/Еда — нужен человек с опытом в ресторанной индустрии.", kk: "Дағды олқылығы 2: Операциялар/Тағам — жеткізу жағын басқару үшін мейрамхана тәжірибесі бар адам керек." }
             ],
-            answer: "A technical co-founder (CTO) to build the app, and an operations co-founder with food industry experience to manage the restaurant and delivery side."
+            answer: "A technical co-founder (CTO) to build the app, and an operations co-founder with food industry experience to manage the restaurant and delivery side.",
+            answerRu: "Технический сооснователь (CTO) для создания приложения и операционный сооснователь с опытом в пищевой индустрии для управления ресторанной и доставочной стороной.",
+            answerKk: "Қосымшаны жасау үшін техникалық серіктес (CTO) және мейрамхана мен жеткізу жағын басқару үшін тағам индустриясы тәжірибесі бар операциялық серіктес."
           }
         ],
         practiceProblems: [
@@ -2166,6 +2448,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Почему инвесторы говорят, что инвестируют в команды, а не в идеи?",
             questionKk: "Инвесторлар неге идеяларға емес, командаларға инвестициялайтынын айтады?",
             answer: "Because ideas change and pivot, but a strong team can adapt, solve problems, and execute. A great team with an average idea will outperform an average team with a great idea.",
+            answerRu: "Потому что идеи меняются и разворачиваются, а сильная команда может адаптироваться, решать проблемы и выполнять задачи. Отличная команда со средней идеей превзойдёт среднюю команду с отличной идеей.",
+            answerKk: "Себебі идеялар өзгереді және бағыт ауысады, ал күшті команда бейімделіп, мәселелерді шешіп, орындай алады. Орташа идеясы бар тамаша команда тамаша идеясы бар орташа командадан асып түседі.",
             hint: "Think about what happens when the original idea does not work.",
             hintRu: "Подумайте, что происходит, когда первоначальная идея не работает.",
             hintKk: "Бастапқы идея жұмыс істемегенде не болатынын ойлаңыз.",
@@ -2177,6 +2461,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "У стартапа три сооснователя — все программисты. В чём риск и каких специалистов нанять?",
             questionKk: "Стартаптың үш серіктесі — барлығы бағдарламашылар. Тәуекел неде және қандай рөлдерге жалдау керек?",
             answer: "Risk: no business, sales, or marketing expertise — they can build a product but may struggle to sell it or manage finances. They should recruit for sales/marketing (CMO) and business operations (COO/CFO).",
+            answerRu: "Риск: нет опыта в бизнесе, продажах или маркетинге — они могут создать продукт, но могут испытывать трудности с его продажей или управлением финансами. Им следует нанять специалистов по продажам/маркетингу (CMO) и бизнес-операциям (COO/CFO).",
+            answerKk: "Тәуекел: бизнес, сату немесе маркетинг тәжірибесі жоқ — олар өнім жасай алады, бірақ оны сатуда немесе қаржыны басқаруда қиналуы мүмкін. Оларға сату/маркетинг (CMO) және бизнес операциялары (COO/CFO) мамандарын жалдау керек.",
             hint: "Think about what skills are missing besides building software.",
             hintRu: "Подумайте, каких навыков не хватает помимо разработки.",
             hintKk: "Бағдарлама жасаудан басқа қандай дағдылар жетіспейтінін ойлаңыз.",
@@ -2188,6 +2474,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Вы создаёте edtech-стартап и нанимаете первых 5 сотрудников. Перечислите роли в порядке приоритета с обоснованием.",
             questionKk: "Edtech стартап құрасыз және алғашқы 5 қызметкерді жалдайсыз. 5 рөлді басымдық бойынша тізімдеп, әрқайсысын негіздеңіз.",
             answer: "1) Full-stack developer (build the product). 2) Content creator/curriculum designer (create educational material). 3) Growth marketer (acquire users). 4) Customer success manager (retain users, gather feedback). 5) Designer/UX (improve user experience). Product first, then content, then growth.",
+            answerRu: "1) Full-stack разработчик (создание продукта). 2) Автор контента/дизайнер учебной программы (создание учебных материалов). 3) Маркетолог роста (привлечение пользователей). 4) Менеджер по успеху клиентов (удержание пользователей, сбор отзывов). 5) Дизайнер/UX (улучшение пользовательского опыта). Сначала продукт, затем контент, затем рост.",
+            answerKk: "1) Full-stack әзірлеуші (өнімді жасау). 2) Контент авторы/оқу бағдарламасы дизайнері (оқу материалдарын жасау). 3) Өсу маркетологы (пайдаланушыларды тарту). 4) Тұтынушы табысы менеджері (пайдаланушыларды ұстап тұру, пікір жинау). 5) Дизайнер/UX (пайдаланушы тәжірибесін жақсарту). Алдымен өнім, содан кейін контент, содан кейін өсу.",
             xp: 20
           }
         ]
@@ -2222,7 +2510,9 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
               { en: "CTO's total allocation = 35% of 1,000,000 = 350,000 shares.", ru: "Общее количество акций CTO = 35% от 1,000,000 = 350,000 акций.", kk: "CTO-ның жалпы үлесі = 1,000,000-ның 35% = 350,000 акция." },
               { en: "After 2 years of 4-year vesting = 50% vested. Vested shares = 350,000 × 0.50 = 175,000 shares.", ru: "После 2 из 4 лет = 50%. Вестированные акции = 350,000 × 0.50 = 175,000.", kk: "4 жылдың 2 жылынан кейін = 50%. Вестінгтелген акциялар = 350,000 × 0.50 = 175,000." }
             ],
-            answer: "The CTO has vested 175,000 shares (50% of the 350,000 total allocation)."
+            answer: "The CTO has vested 175,000 shares (50% of the 350,000 total allocation).",
+            answerRu: "CTO вестировал 175,000 акций (50% от общего распределения в 350,000).",
+            answerKk: "CTO 175,000 акция вестінглеген (жалпы 350,000 үлестің 50%)."
           }
         ],
         practiceProblems: [
@@ -2232,6 +2522,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "У компании 500,000 акций. У вас 100,000. Каков ваш процент владения?",
             questionKk: "Компанияда 500,000 акция бар. Сізде 100,000. Меншік пайызыңыз қандай?",
             answer: "20%. Ownership = 100,000 / 500,000 × 100 = 20%.",
+            answerRu: "20%. Доля владения = 100,000 / 500,000 × 100 = 20%.",
+            answerKk: "20%. Меншік үлесі = 100,000 / 500,000 × 100 = 20%.",
             hint: "Divide your shares by total shares, then multiply by 100.",
             hintRu: "Разделите свои акции на общее количество и умножьте на 100.",
             hintKk: "Акцияларыңызды жалпы санға бөліп, 100-ге көбейтіңіз.",
@@ -2243,6 +2535,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "У основателя 200,000 акций с 4-летним вестингом и 1-летним клифом. Он уходит через 18 месяцев. Сколько акций он сохранит?",
             questionKk: "Негізін қалаушының 4 жылдық вестинг кестесімен (1 жыл клиф) 200,000 акциясы бар. 18 айдан кейін кетеді. Қанша акция сақтайды?",
             answer: "75,000 shares. After 12 months (cliff): 25% = 50,000. Then 6 more months: 6/48 total = 12.5% more = 25,000. Total = 50,000 + 25,000 = 75,000.",
+            answerRu: "75,000 акций. После 12 месяцев (клиф): 25% = 50,000. Затем ещё 6 месяцев: 6/48 всего = ещё 12.5% = 25,000. Итого = 50,000 + 25,000 = 75,000.",
+            answerKk: "75,000 акция. 12 айдан кейін (клиф): 25% = 50,000. Содан кейін тағы 6 ай: 6/48 барлығы = тағы 12.5% = 25,000. Барлығы = 50,000 + 25,000 = 75,000.",
             hint: "First check if they passed the cliff, then calculate monthly vesting.",
             hintRu: "Сначала проверьте, прошёл ли клиф, затем рассчитайте помесячный вестинг.",
             hintKk: "Алдымен клифтен өтті ме тексеріңіз, содан кейін айлық вестингті есептеңіз.",
@@ -2254,6 +2548,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Два сооснователя делят капитал 60/40. После seed инвестор получает 20%, затем в Series A — ещё 15%. Какой процент у каждого основателя после обоих раундов?",
             questionKk: "Екі серіктес үлесті 60/40 бөледі. Seed раундта инвестор 20% алады, Series A-да тағы 15%. Екі раундтан кейін әр серіктестің пайызы қандай?",
             answer: "After seed (20% dilution): Founder A = 60% × 0.80 = 48%, Founder B = 40% × 0.80 = 32%. After Series A (15% dilution): Founder A = 48% × 0.85 = 40.8%, Founder B = 32% × 0.85 = 27.2%. Total founder equity: 68%.",
+            answerRu: "После seed (20% разводнение): Основатель A = 60% × 0.80 = 48%, Основатель B = 40% × 0.80 = 32%. После Series A (15% разводнение): Основатель A = 48% × 0.85 = 40.8%, Основатель B = 32% × 0.85 = 27.2%. Общий капитал основателей: 68%.",
+            answerKk: "Seed-тен кейін (20% сұйылту): A серіктесі = 60% × 0.80 = 48%, B серіктесі = 40% × 0.80 = 32%. Series A-дан кейін (15% сұйылту): A серіктесі = 48% × 0.85 = 40.8%, B серіктесі = 32% × 0.85 = 27.2%. Серіктестердің жалпы үлесі: 68%.",
             xp: 20
           }
         ]
@@ -2282,7 +2578,9 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
               { en: "Current runway = $120,000 / $15,000 = 8 months. They need 18 months total.", ru: "Текущий runway = $120,000 / $15,000 = 8 месяцев. Нужно 18 месяцев.", kk: "Ағымдағы ресурс = $120,000 / $15,000 = 8 ай. 18 ай қажет." },
               { en: "Total cash needed = 18 × $15,000 = $270,000. Amount to raise = $270,000 - $120,000 = $150,000.", ru: "Нужно $270,000. Привлечь = $270,000 - $120,000 = $150,000.", kk: "Қажет сома = 18 × $15,000 = $270,000. Тарту керек = $270,000 - $120,000 = $150,000." }
             ],
-            answer: "They need to raise $150,000 to have 18 months of runway."
+            answer: "They need to raise $150,000 to have 18 months of runway.",
+            answerRu: "Им нужно привлечь $150,000, чтобы иметь 18 месяцев запаса средств.",
+            answerKk: "Оларға 18 айлық ресурс болу үшін $150,000 тарту керек."
           }
         ],
         practiceProblems: [
@@ -2292,6 +2590,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "У стартапа $60,000 и расход $10,000/месяц. Сколько месяцев runway?",
             questionKk: "Стартаптың $60,000 бар, айлық шығыны $10,000. Қанша ай ресурс бар?",
             answer: "6 months. Runway = $60,000 / $10,000 = 6.",
+            answerRu: "6 месяцев. Запас средств = $60,000 / $10,000 = 6.",
+            answerKk: "6 ай. Ресурс = $60,000 / $10,000 = 6.",
             hint: "Divide total cash by monthly spending.",
             hintRu: "Разделите деньги на ежемесячные расходы.",
             hintKk: "Жалпы ақшаны айлық шығынға бөліңіз.",
@@ -2303,6 +2603,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Бизнес-ангел предлагает $100,000 за 10%. Какова подразумеваемая пре- и пост-оценка?",
             questionKk: "Бизнес-періште 10% үлес үшін $100,000 ұсынады. Бұл қандай алдын ала және кейінгі бағалауды білдіреді?",
             answer: "Post-money = $100,000 / 10% = $1,000,000. Pre-money = $1,000,000 - $100,000 = $900,000.",
+            answerRu: "Пост-оценка = $100,000 / 10% = $1,000,000. Пре-оценка = $1,000,000 - $100,000 = $900,000.",
+            answerKk: "Кейінгі бағалау = $100,000 / 10% = $1,000,000. Алдын ала бағалау = $1,000,000 - $100,000 = $900,000.",
             hint: "If $100K buys 10%, the whole company after investment is worth 10 times that.",
             hintRu: "Если $100K = 10%, вся компания стоит в 10 раз больше.",
             hintKk: "Егер $100K = 10% болса, бүкіл компания одан 10 есе қымбат.",
@@ -2314,6 +2616,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Стартап тратит $20,000/месяц, имеет $40,000. Seed-раунд на $300,000 ожидается через 3 месяца. Выживут ли? Если нет, назовите два варианта.",
             questionKk: "Стартап айына $20,000 жұмсайды, $40,000 бар. $300,000 seed раунд 3 айдан кейін күтіледі. Аман қала ма? Болмаса, екі нұсқа атаңыз.",
             answer: "Runway = $40,000 / $20,000 = 2 months. They will run out 1 month before closing. Options: 1) Cut costs to $13,000/month to stretch to 3 months. 2) Seek a bridge loan or convertible note for $20,000+ to cover the gap.",
+            answerRu: "Запас средств = $40,000 / $20,000 = 2 месяца. Деньги закончатся за 1 месяц до закрытия раунда. Варианты: 1) Сократить расходы до $13,000/месяц, чтобы растянуть на 3 месяца. 2) Найти промежуточный кредит или конвертируемую ноту на $20,000+, чтобы покрыть разрыв.",
+            answerKk: "Ресурс = $40,000 / $20,000 = 2 ай. Раунд жабылғанға дейін 1 ай бұрын ақша бітеді. Нұсқалар: 1) Шығындарды $13,000/айға дейін қысқартып, 3 айға созу. 2) Алшақтықты жабу үшін $20,000+ көпір несиесін немесе конвертацияланатын нотаны іздеу.",
             xp: 20
           }
         ]
@@ -2342,7 +2646,9 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
               { en: "Problem: The stated value (transparency) does not match behavior (secret decisions). This creates distrust.", ru: "Проблема: Заявленная ценность (прозрачность) не соответствует поведению (тайные решения). Это создаёт недоверие.", kk: "Мәселе: Жарияланған құндылық (ашықтық) мінез-құлыққа (құпия шешімдер) сәйкес келмейді. Бұл сенімсіздік тудырады." },
               { en: "Fix: Hold weekly all-hands meetings where the CEO shares decisions, reasoning, and invites feedback. Make it a rule that major decisions include team input.", ru: "Решение: Еженедельные общие встречи, где CEO делится решениями и приглашает обратную связь.", kk: "Шешім: CEO шешімдерді бөлісіп, кері байланыс шақыратын апта сайынғы жалпы жиналыстар өткізу." }
             ],
-            answer: "Values must match actions. Fix: weekly all-hands meetings, shared decision-making process, and open feedback channels."
+            answer: "Values must match actions. Fix: weekly all-hands meetings, shared decision-making process, and open feedback channels.",
+            answerRu: "Ценности должны соответствовать действиям. Решение: еженедельные общие собрания, совместный процесс принятия решений и открытые каналы обратной связи.",
+            answerKk: "Құндылықтар әрекеттерге сәйкес келуі керек. Шешім: апта сайынғы жалпы жиналыстар, ортақ шешім қабылдау процесі және ашық кері байланыс арналары."
           }
         ],
         practiceProblems: [
@@ -2352,6 +2658,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Назовите три основные ценности, характерные для успешных стартап-культур.",
             questionKk: "Табысты стартап мәдениеттеріне тән үш негізгі құндылықты атаңыз.",
             answer: "Examples: innovation/experimentation, transparency/openness, customer-centricity, speed/agility, continuous learning, ownership/accountability.",
+            answerRu: "Примеры: инновации/эксперименты, прозрачность/открытость, клиентоориентированность, скорость/гибкость, непрерывное обучение, ответственность.",
+            answerKk: "Мысалдар: инновация/эксперимент, ашықтық/айқындық, тұтынушыға бағдарлану, жылдамдық/икемділік, үздіксіз оқу, жауапкершілік.",
             hint: "Think about what makes startups different from traditional companies.",
             hintRu: "Подумайте, чем стартапы отличаются от традиционных компаний.",
             hintKk: "Стартаптарды дәстүрлі компаниялардан нені ерекшелейтінін ойлаңыз.",
@@ -2363,6 +2671,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Стартап из 20 человек планирует нанять 30 за 6 месяцев. Назовите два риска для культуры и способы их снижения.",
             questionKk: "20 адамдық стартап 6 айда 30 адам жалдауды жоспарлап отыр. Мәдениетке қандай екі тәуекел бар және оларды қалай азайтуға болады?",
             answer: "Risk 1: Culture dilution — new hires may not share original values. Mitigation: document values, include culture fit in hiring. Risk 2: Communication breakdown — too many people for informal communication. Mitigation: establish regular all-hands, team rituals, and clear communication channels.",
+            answerRu: "Риск 1: Размывание культуры — новые сотрудники могут не разделять первоначальные ценности. Смягчение: документировать ценности, учитывать соответствие культуре при найме. Риск 2: Сбой коммуникации — слишком много людей для неформального общения. Смягчение: наладить регулярные общие встречи, командные ритуалы и чёткие каналы связи.",
+            answerKk: "1-тәуекел: Мәдениеттің сұйылуы — жаңа қызметкерлер бастапқы құндылықтарды бөліспеуі мүмкін. Азайту: құндылықтарды құжаттау, жалдау кезінде мәдени сәйкестікті ескеру. 2-тәуекел: Байланыстың бұзылуы — бейресми қарым-қатынас үшін адамдар тым көп. Азайту: тұрақты жалпы жиналыстар, командалық дәстүрлер және анық байланыс арналарын орнату.",
             hint: "Think about what changes when a team triples in size.",
             hintRu: "Подумайте, что меняется, когда команда утраивается.",
             hintKk: "Команда үш есе өскенде не өзгеретінін ойлаңыз.",
@@ -2374,6 +2684,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Сравните культуры двух компаний: A — безлимитный отпуск, без иерархии, удалёнка. B — структурированное расписание, чёткая иерархия, офис. Что лучше для стартапа из 10 человек и почему?",
             questionKk: "Екі компанияның мәдениетін салыстырыңыз: A — шексіз демалыс, иерархия жоқ, қашықтан жұмыс. B — құрылымды кесте, нақты есеп беру, кеңседе жұмыс. 10 адамдық ерте кезеңдегі стартап үшін қайсысы жақсы және неге?",
             answer: "For a 10-person early startup, Company A's approach is generally better because it offers flexibility and speed needed for rapid iteration, attracts top talent, and builds trust. However, some structure from B (clear roles, regular check-ins) should be added to prevent chaos. The best approach is a hybrid: flexibility with lightweight structure.",
+            answerRu: "Для стартапа из 10 человек на ранней стадии подход компании A в целом лучше, потому что он даёт гибкость и скорость, необходимые для быстрой итерации, привлекает лучших специалистов и строит доверие. Однако некоторая структура из B (чёткие роли, регулярные встречи) должна быть добавлена, чтобы предотвратить хаос. Лучший подход — гибрид: гибкость с лёгкой структурой.",
+            answerKk: "10 адамдық ерте кезеңдегі стартап үшін A компаниясының тәсілі жалпы жақсырақ, себебі ол жылдам итерацияға қажет икемділік пен жылдамдықты береді, үздік мамандарды тартады және сенім қалыптастырады. Дегенмен, хаосты болдырмау үшін B-ден кейбір құрылым (нақты рөлдер, тұрақты кездесулер) қосылуы керек. Ең жақсы тәсіл — гибрид: жеңіл құрылымы бар икемділік.",
             xp: 20
           }
         ]
@@ -2402,7 +2714,9 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
               { en: "Problem-Market Fit: Hotels are expensive; people have spare rooms. Massive untapped market of travelers wanting affordable, local stays.", ru: "Соответствие проблема-рынок: Отели дорогие; у людей есть свободные комнаты. Огромный неохваченный рынок путешественников.", kk: "Мәселе-нарық сәйкестігі: Қонақүйлер қымбат; адамдардың бос бөлмелері бар. Қолжетімді жергілікті тұрақ қалайтын саяхатшылардың үлкен нарығы." },
               { en: "Rapid Iteration: Started with air mattresses, iterated to full apartments, then experiences. Strong Team: Technical and design co-founders with complementary skills. Timing: 2008 recession made people want extra income.", ru: "Быстрая итерация: от матрасов до квартир и впечатлений. Сильная команда: технический и дизайн-сооснователи. Тайминг: рецессия 2008 — люди искали дополнительный доход.", kk: "Жылдам итерация: матрастан толық пәтерлерге, содан кейін тәжірибелерге. Күшті команда: техникалық және дизайн серіктестері. Уақыт: 2008 дағдарысы адамдарды қосымша табыс іздеуге мәжбүр етті." }
             ],
-            answer: "Airbnb succeeded through perfect problem-market fit (affordable stays), rapid iteration (mattresses to platform), complementary team, and right timing (2008 recession)."
+            answer: "Airbnb succeeded through perfect problem-market fit (affordable stays), rapid iteration (mattresses to platform), complementary team, and right timing (2008 recession).",
+            answerRu: "Airbnb добилась успеха благодаря идеальному соответствию проблема-рынок (доступное жильё), быстрой итерации (от матрасов до платформы), взаимодополняющей команде и правильному моменту (рецессия 2008 года).",
+            answerKk: "Airbnb мәселе-нарық сәйкестігінің (қолжетімді тұрақ), жылдам итерацияның (матрастан платформаға дейін), бір-бірін толықтыратын команданың және дұрыс уақыттың (2008 дағдарысы) арқасында табысқа жетті."
           }
         ],
         practiceProblems: [
@@ -2412,6 +2726,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Назовите один урок из истории основания Airbnb.",
             questionKk: "Airbnb негізін қалау тарихынан бір сабақ атаңыз.",
             answer: "Start small and solve your own problem first. The founders did not build a billion-dollar platform on day one — they started with air mattresses in their own apartment to pay rent.",
+            answerRu: "Начинайте с малого и сначала решите свою собственную проблему. Основатели не построили миллиардную платформу в первый день — они начали с надувных матрасов в собственной квартире, чтобы заплатить аренду.",
+            answerKk: "Кішіден бастаңыз және алдымен өз мәселеңізді шешіңіз. Негізін қалаушылар бірінші күні миллиардтық платформа құрған жоқ — олар жалдау ақысын төлеу үшін өз пәтерлеріндегі надувной матрастан бастады.",
             hint: "Think about how they started versus where they are now.",
             hintRu: "Подумайте, как они начинали и где они сейчас.",
             hintKk: "Олардың қалай бастағанын және қазір қайда екенін ойлаңыз.",
@@ -2423,6 +2739,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Spotify запустился в 2008 году, когда музыкальное пиратство процветало. Как они превратили проблему в бизнес-возможность?",
             questionKk: "Spotify 2008 жылы музыкалық қарақшылық кең тараған кезде іске қосылды. Олар мәселені (қарақшылық) бизнес мүмкіндігіне қалай айналдырды?",
             answer: "Key insight: People pirated music not because they did not want to pay, but because paying was inconvenient. Spotify made legal music easier than pirating — instant streaming, huge library, free tier with ads. They competed with free by being more convenient.",
+            answerRu: "Ключевое понимание: люди пиратствовали не потому, что не хотели платить, а потому, что платить было неудобно. Spotify сделал легальную музыку удобнее пиратства — мгновенный стриминг, огромная библиотека, бесплатный уровень с рекламой. Они конкурировали с бесплатным, будучи более удобными.",
+            answerKk: "Негізгі түсінік: адамдар төлегісі келмегендіктен емес, төлеу қолайсыз болғандықтан қарақшылық жасады. Spotify заңды музыканы қарақшылықтан ыңғайлырақ етті — жедел стриминг, үлкен кітапхана, жарнамасы бар тегін деңгей. Олар тегінмен ыңғайлырақ болу арқылы бәсекелесті.",
             hint: "Think about why people chose piracy over buying CDs or iTunes tracks.",
             hintRu: "Подумайте, почему люди выбирали пиратство вместо покупки музыки.",
             hintKk: "Адамдар неге CD немесе iTunes сатып алудың орнына қарақшылықты таңдағанын ойлаңыз.",
@@ -2434,6 +2752,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Сравните ранние стратегии Uber и Lyft. Обе вошли на рынок, но с разными подходами. Что сделало Uber доминирующим и чему можно научиться?",
             questionKk: "Uber мен Lyft-тің ерте стратегияларын салыстырыңыз. Екеуі де нарыққа кірді, бірақ әртүрлі тәсілдермен. Uber-ді не үстем еткенін және жаңа стартап бұл бәсекелестіктен не үйрене алатынын талдаңыз.",
             answer: "Uber pursued aggressive global expansion, heavy spending, and market dominance at all costs. Lyft focused on a friendlier brand, US-first approach, and driver relations. Uber became dominant through speed and capital but faced reputation issues. Lesson: First-mover advantage and capital matter, but brand and culture determine long-term sustainability. A startup should balance growth speed with sustainable practices.",
+            answerRu: "Uber преследовал агрессивную глобальную экспансию, крупные траты и рыночное доминирование любой ценой. Lyft сосредоточился на более дружелюбном бренде, подходе «сначала США» и отношениях с водителями. Uber стал доминирующим благодаря скорости и капиталу, но столкнулся с проблемами репутации. Урок: преимущество первопроходца и капитал важны, но бренд и культура определяют долгосрочную устойчивость. Стартап должен балансировать скорость роста с устойчивыми практиками.",
+            answerKk: "Uber агрессивті жаһандық кеңеюді, үлкен шығындарды және кез келген жолмен нарықта үстемдікті ұстанды. Lyft достық брендке, «алдымен АҚШ» тәсіліне және жүргізушілермен қарым-қатынасқа назар аударды. Uber жылдамдық пен капитал арқасында үстем болды, бірақ беделге қатысты мәселелерге тап болды. Сабақ: бірінші болып қозғалу артықшылығы мен капитал маңызды, бірақ бренд пен мәдениет ұзақ мерзімді тұрақтылықты анықтайды. Стартап өсу жылдамдығын тұрақты тәжірибелермен теңестіруі керек.",
             xp: 20
           }
         ]
@@ -2472,7 +2792,9 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
               { en: "Scalability Ratio = 300% / 100% = 3.0", ru: "Коэффициент = 300% / 100% = 3.0", kk: "Коэффициент = 300% / 100% = 3.0" },
               { en: "A ratio of 3.0 means revenue grows 3x faster than costs — this is excellent scalability. Each dollar spent on growth generates $3 in revenue.", ru: "3.0 означает, что доход растёт в 3 раза быстрее затрат — отличная масштабируемость.", kk: "3.0 табыстың шығындардан 3 есе тез өсетінін білдіреді — тамаша масштабтау." }
             ],
-            answer: "Scalability ratio is 3.0 — the company grows revenue 3x faster than costs, indicating excellent scalability."
+            answer: "Scalability ratio is 3.0 — the company grows revenue 3x faster than costs, indicating excellent scalability.",
+            answerRu: "Коэффициент масштабируемости — 3.0 — доход компании растёт в 3 раза быстрее затрат, что указывает на отличную масштабируемость.",
+            answerKk: "Масштабтау коэффициенті — 3.0 — компанияның табысы шығындардан 3 есе тез өседі, бұл тамаша масштабтауды көрсетеді."
           }
         ],
         practiceProblems: [
@@ -2482,6 +2804,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Почему софтверная компания обычно более масштабируема, чем ресторан?",
             questionKk: "Бағдарламалық компания неге мейрамханаға қарағанда масштабталымдырақ?",
             answer: "Software can serve millions of users with the same code and servers (low marginal cost), while a restaurant needs more staff, ingredients, and space for each additional customer (high marginal cost).",
+            answerRu: "Программное обеспечение может обслуживать миллионы пользователей тем же кодом и серверами (низкие предельные затраты), тогда как ресторану нужно больше персонала, ингредиентов и места для каждого дополнительного клиента (высокие предельные затраты).",
+            answerKk: "Бағдарламалық жасақтама сол код пен серверлермен миллиондаған пайдаланушыға қызмет көрсете алады (төмен шекті шығын), ал мейрамханаға әр қосымша тұтынушы үшін көбірек қызметкер, ингредиент және орын керек (жоғары шекті шығын).",
             hint: "Think about what happens when each business gets 10x more customers.",
             hintRu: "Подумайте, что происходит, когда каждый бизнес получает в 10 раз больше клиентов.",
             hintKk: "Әр бизнес 10 есе көп тұтынушы алғанда не болатынын ойлаңыз.",
@@ -2493,6 +2817,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Доход вырос с $100K до $500K (400%), затраты — с $80K до $240K (200%). Рассчитайте коэффициент. Хорошо ли масштабируется компания?",
             questionKk: "Табыс $100K-дан $500K-ға (400%) өсті, шығындар $80K-дан $240K-ға (200%). Коэффициентті есептеңіз. Компания жақсы масштабталып жатыр ма?",
             answer: "Scalability Ratio = 400% / 200% = 2.0. Yes, the company is scaling well — revenue grows twice as fast as costs.",
+            answerRu: "Коэффициент масштабируемости = 400% / 200% = 2.0. Да, компания хорошо масштабируется — доход растёт вдвое быстрее затрат.",
+            answerKk: "Масштабтау коэффициенті = 400% / 200% = 2.0. Иә, компания жақсы масштабталуда — табыс шығындардан екі есе тез өседі.",
             hint: "Divide revenue growth rate by cost growth rate.",
             hintRu: "Разделите темп роста дохода на темп роста затрат.",
             hintKk: "Табыс өсу қарқынын шығын өсу қарқынына бөліңіз.",
@@ -2504,6 +2830,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Маркетплейс связывает репетиторов со студентами за 15% комиссии. 200 репетиторов, 2,000 студентов. Для масштабирования до 2,000 и 20,000 — что масштабируется автоматически, а что требует инвестиций?",
             questionKk: "Маркетплейс репетиторларды студенттермен байланыстырып, 15% комиссия алады. 200 репетитор, 2,000 студент. 2,000 репетитор мен 20,000 студентке масштабтау үшін не автоматты масштабталады, ал не қосымша инвестиция қажет етеді?",
             answer: "Auto-scales: the platform/matching algorithm, payment processing, commission collection, user profiles. Needs investment: server infrastructure (10x load), customer support team, trust/safety team for verification, marketing to attract 1,800 more tutors, and potentially local expansion teams.",
+            answerRu: "Автоматически масштабируется: платформа/алгоритм подбора, обработка платежей, сбор комиссии, профили пользователей. Требует инвестиций: серверная инфраструктура (нагрузка ×10), команда поддержки клиентов, команда доверия/безопасности для верификации, маркетинг для привлечения ещё 1,800 репетиторов и, возможно, команды локального расширения.",
+            answerKk: "Автоматты масштабталады: платформа/сәйкестендіру алгоритмі, төлемдерді өңдеу, комиссия жинау, пайдаланушы профильдері. Инвестиция қажет: сервер инфрақұрылымы (10x жүктеме), тұтынушыларды қолдау командасы, растау үшін сенім/қауіпсіздік командасы, тағы 1,800 репетитор тарту үшін маркетинг және мүмкін жергілікті кеңею командалары.",
             xp: 20
           }
         ]
@@ -2532,7 +2860,9 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
               { en: "Viral Coefficient K = 5 invites × 0.30 conversion = 1.5", ru: "K = 5 приглашений × 0.30 конверсия = 1.5", kk: "K = 5 шақыру × 0.30 конверсия = 1.5" },
               { en: "Since K = 1.5 > 1, yes — the app achieves viral growth. Each user generates 1.5 new users on average.", ru: "K = 1.5 > 1, да — вирусный рост достигнут. Каждый пользователь приводит 1.5 новых.", kk: "K = 1.5 > 1, иә — вирусты өсу бар. Әр пайдаланушы орта есеппен 1.5 жаңа пайдаланушы тартады." }
             ],
-            answer: "Viral coefficient is 1.5 — since it exceeds 1, the app is achieving viral growth."
+            answer: "Viral coefficient is 1.5 — since it exceeds 1, the app is achieving viral growth.",
+            answerRu: "Вирусный коэффициент — 1.5 — поскольку он превышает 1, приложение достигает вирусного роста.",
+            answerKk: "Вирусты коэффициент — 1.5 — ол 1-ден асатындықтан, қосымша вирусты өсуге жетеді."
           }
         ],
         practiceProblems: [
@@ -2542,6 +2872,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Чем growth hacking отличается от традиционного маркетинга?",
             questionKk: "Өсу хакингі мен дәстүрлі маркетингтің айырмашылығы неде?",
             answer: "Growth hacking is data-driven, experimental, and low-cost, focusing on rapid user acquisition through product features and viral mechanics. Traditional marketing uses bigger budgets for brand awareness through ads, PR, and events.",
+            answerRu: "Growth hacking основан на данных, экспериментален и малозатратен, фокусируется на быстром привлечении пользователей через функции продукта и вирусные механики. Традиционный маркетинг использует большие бюджеты для узнаваемости бренда через рекламу, PR и мероприятия.",
+            answerKk: "Өсу хакингі деректерге негізделген, эксперименттік және арзан, өнім мүмкіндіктері мен вирусты механикалар арқылы пайдаланушыларды жылдам тартуға бағытталған. Дәстүрлі маркетинг жарнама, PR және іс-шаралар арқылы бренд танымалдығы үшін үлкен бюджеттерді пайдаланады.",
             hint: "Think budget, speed, and methods.",
             hintRu: "Подумайте о бюджете, скорости и методах.",
             hintKk: "Бюджет, жылдамдық және әдістер туралы ойлаңыз.",
@@ -2553,6 +2885,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Каждый пользователь приглашает 8 друзей, но регистрируются только 10%. Каков вирусный коэффициент? Что нужно изменить для вирусного роста?",
             questionKk: "Пайдаланушы 8 досты шақырады, бірақ тек 10%-ы тіркеледі. Вирусты коэффициент қандай? Вирусты өсуге жету үшін нені өзгерту керек?",
             answer: "K = 8 × 0.10 = 0.8. Not viral (K < 1). To reach K > 1: either increase invites (e.g., to 11+) or improve conversion rate (e.g., to 13%+), or both.",
+            answerRu: "K = 8 × 0.10 = 0.8. Не вирусный (K < 1). Чтобы достичь K > 1: либо увеличить приглашения (например, до 11+), либо улучшить конверсию (например, до 13%+), либо и то, и другое.",
+            answerKk: "K = 8 × 0.10 = 0.8. Вирусты емес (K < 1). K > 1-ге жету үшін: шақыруларды арттыру (мысалы, 11+-ге дейін) немесе конверсияны жақсарту (мысалы, 13%+-ге дейін), немесе екеуін де істеу керек.",
             hint: "Calculate K, then figure out which variable to increase.",
             hintRu: "Рассчитайте K, затем определите, какую переменную увеличить.",
             hintKk: "K есептеп, қай айнымалыны арттыру керектігін анықтаңыз.",
@@ -2564,6 +2898,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Dropbox вырос с 100K до 4M пользователей за 15 месяцев с реферальной программой: 500MB за каждого друга. Почему это сработало? Придумайте аналогичный хак для приложения изучения языков.",
             questionKk: "Dropbox 15 айда 100K-дан 4M пайдаланушыға рефералдық бағдарлама арқылы өсті: әр дос үшін 500MB. Бұл неге жұмыс істеді? Тіл үйрену қосымшасы үшін ұқсас өсу хакін жасаңыз.",
             answer: "Dropbox worked because: 1) The reward (storage) was the core product value. 2) Both referrer and referee benefited. 3) More storage made the product more useful. For a language learning app: 'Invite a friend and both get 1 week of premium lessons free.' This works because premium content is the core value, both sides benefit, and learning with friends increases retention.",
+            answerRu: "Dropbox сработал, потому что: 1) Награда (хранилище) была основной ценностью продукта. 2) Выигрывали и приглашающий, и приглашённый. 3) Больше хранилища делало продукт полезнее. Для приложения изучения языков: «Пригласи друга, и оба получите неделю премиум-уроков бесплатно.» Это работает, потому что премиум-контент — основная ценность, обе стороны выигрывают, а учёба с друзьями повышает удержание.",
+            answerKk: "Dropbox жұмыс істеді, себебі: 1) Сыйақы (сақтау орны) өнімнің негізгі құндылығы болды. 2) Шақырушы да, шақырылған да пайда көрді. 3) Көбірек сақтау орны өнімді пайдалырақ етті. Тіл үйрену қосымшасы үшін: «Досты шақыр, екеуің де бір апта премиум сабақ тегін аласың.» Бұл жұмыс істейді, себебі премиум мазмұн негізгі құндылық, екі жақ та пайда көреді, ал достармен бірге оқу ұстап тұруды арттырады.",
             xp: 20
           }
         ]
@@ -2598,7 +2934,9 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
               { en: "Series A: Post-money = $20M + $5M = $25M. Dilution = $5M / $25M = 20%. Company valued at $25M.", ru: "Series A: Пост-оценка = $25M. Разводнение = 20%.", kk: "Series A: Кейінгі бағалау = $25M. Сұйылту = 20%." },
               { en: "Series B: Post-money = $80M + $20M = $100M. Dilution = $20M / $100M = 20%. Company valued at $100M — a 4x increase from Series A.", ru: "Series B: Пост-оценка = $100M. Разводнение = 20%. Рост в 4 раза.", kk: "Series B: Кейінгі бағалау = $100M. Сұйылту = 20%. Series A-дан 4 есе өсу." }
             ],
-            answer: "Series A: $25M post-money, 20% dilution. Series B: $100M post-money, 20% dilution. Valuation grew 4x between rounds."
+            answer: "Series A: $25M post-money, 20% dilution. Series B: $100M post-money, 20% dilution. Valuation grew 4x between rounds.",
+            answerRu: "Series A: пост-оценка $25M, разводнение 20%. Series B: пост-оценка $100M, разводнение 20%. Оценка выросла в 4 раза между раундами.",
+            answerKk: "Series A: инвестициядан кейінгі бағалау $25M, сұйылту 20%. Series B: инвестициядан кейінгі бағалау $100M, сұйылту 20%. Раундтар арасында бағалау 4 есе өсті."
           }
         ],
         practiceProblems: [
@@ -2608,6 +2946,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Расположите этапы финансирования от раннего к позднему: Series B, Seed, Series C, Series A.",
             questionKk: "Қаржыландыру кезеңдерін ертеден кешке дейін реттеңіз: Series B, Seed, Series C, Series A.",
             answer: "Seed → Series A → Series B → Series C.",
+            answerRu: "Seed → Series A → Series B → Series C.",
+            answerKk: "Seed → Series A → Series B → Series C.",
             hint: "Think alphabetically, with Seed coming before the lettered rounds.",
             hintRu: "Подумайте в алфавитном порядке, Seed — перед буквенными раундами.",
             hintKk: "Алфавит бойынша ойлаңыз, Seed әріпті раундтардың алдында.",
@@ -2619,6 +2959,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Стартап привлекает Series A $8M при пре-оценке $32M. Какой процент у инвесторов? Какова пост-оценка?",
             questionKk: "Стартап $32M алдын ала бағалаумен $8M Series A тартады. Series A инвесторлары компанияның қанша пайызына ие? Кейінгі бағалау қандай?",
             answer: "Post-money = $32M + $8M = $40M. Investor ownership = $8M / $40M = 20%.",
+            answerRu: "Пост-оценка = $32M + $8M = $40M. Доля инвестора = $8M / $40M = 20%.",
+            answerKk: "Инвестициядан кейінгі бағалау = $32M + $8M = $40M. Инвестор үлесі = $8M / $40M = 20%.",
             hint: "Post-money = pre-money + investment. Ownership = investment / post-money.",
             hintRu: "Пост-оценка = пре-оценка + инвестиции. Доля = инвестиции / пост-оценка.",
             hintKk: "Кейінгі бағалау = алдын ала бағалау + инвестиция. Үлес = инвестиция / кейінгі бағалау.",
@@ -2630,6 +2972,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Основатель владеет 60% после seed. Series A: $5M, пре-оценка $20M, отдаёт 20%. Series B: $15M, пре-оценка $60M, отдаёт 20%. Какова доля после Series B?",
             questionKk: "Seed-тен кейін негізін қалаушы 60%-ға ие. Series A: $5M, $20M алдын ала, 20% береді. Series B: $15M, $60M алдын ала, 20% береді. Series B-ден кейін негізін қалаушының үлесі қандай?",
             answer: "After Series A: 60% × (1 - 0.20) = 60% × 0.80 = 48%. After Series B: 48% × (1 - 0.20) = 48% × 0.80 = 38.4%. The founder owns 38.4%.",
+            answerRu: "После Series A: 60% × (1 - 0.20) = 60% × 0.80 = 48%. После Series B: 48% × (1 - 0.20) = 48% × 0.80 = 38.4%. Основатель владеет 38.4%.",
+            answerKk: "Series A-дан кейін: 60% × (1 - 0.20) = 60% × 0.80 = 48%. Series B-ден кейін: 48% × (1 - 0.20) = 48% × 0.80 = 38.4%. Негізін қалаушы 38.4%-ға ие.",
             xp: 20
           }
         ]
@@ -2658,7 +3002,9 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
               { en: "Target users in Uzbekistan = 35,000,000 × 3% = 1,050,000 potential users.", ru: "Целевые пользователи = 35,000,000 × 3% = 1,050,000.", kk: "Мақсатты пайдаланушылар = 35,000,000 × 3% = 1,050,000." },
               { en: "TAM = 1,050,000 × $2/month × 12 months = $25,200,000 per year.", ru: "TAM = 1,050,000 × $2 × 12 = $25,200,000 в год.", kk: "TAM = 1,050,000 × $2 × 12 = жылына $25,200,000." }
             ],
-            answer: "The estimated TAM for Uzbekistan is $25.2M per year with 1.05M potential users."
+            answer: "The estimated TAM for Uzbekistan is $25.2M per year with 1.05M potential users.",
+            answerRu: "Оценочный TAM для Узбекистана составляет $25.2 млн в год при 1.05 млн потенциальных пользователей.",
+            answerKk: "Өзбекстан үшін болжамды TAM жылына $25.2 млн, 1.05 млн әлеуетті пайдаланушымен."
           }
         ],
         practiceProblems: [
@@ -2668,6 +3014,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Назовите три проблемы технологической компании при выходе на рынок новой страны.",
             questionKk: "Жаңа елге кеңейген кезде технологиялық компания кездесетін үш қиындықты атаңыз.",
             answer: "Language/localization (translating the product), legal/regulatory compliance (different laws), and cultural differences (user behavior and preferences vary by country).",
+            answerRu: "Язык/локализация (перевод продукта), правовое/нормативное соответствие (разные законы) и культурные различия (поведение и предпочтения пользователей различаются по странам).",
+            answerKk: "Тіл/локализация (өнімді аудару), заңды/реттеушілік сәйкестік (әртүрлі заңдар) және мәдени айырмашылықтар (пайдаланушы мінез-құлқы мен қалауы елге қарай өзгереді).",
             hint: "Think about what changes when you cross a border.",
             hintRu: "Подумайте, что меняется при пересечении границы.",
             hintKk: "Шекараны кесіп өткенде не өзгеретінін ойлаңыз.",
@@ -2679,6 +3027,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Приложение доставки еды из Турции хочет выйти на рынок Германии. Перечислите три вещи, которые нужно адаптировать.",
             questionKk: "Түркиядағы тағам жеткізу қосымшасы Германияға кеңейгісі келеді. Неміс нарығы үшін бейімдеу қажет үш нәрсені тізімдеңіз.",
             answer: "1) Language: Full German localization of app and support. 2) Payment: Germans prefer direct debit (Lastschrift) and PayPal over credit cards. 3) Food preferences: Menu must include local German cuisine and dietary preferences (more vegetarian options).",
+            answerRu: "1) Язык: полная немецкая локализация приложения и поддержки. 2) Оплата: немцы предпочитают прямой дебет (Lastschrift) и PayPal кредитным картам. 3) Пищевые предпочтения: меню должно включать местную немецкую кухню и диетические предпочтения (больше вегетарианских опций).",
+            answerKk: "1) Тіл: қосымша мен қолдаудың толық неміс локализациясы. 2) Төлем: немістер несие карталарынан гөрі тікелей дебетті (Lastschrift) және PayPal-ды артық көреді. 3) Тағам қалаулары: мәзірде жергілікті неміс асханасы мен диеталық қалаулар болуы керек (көбірек вегетариандық опциялар).",
             hint: "Consider language, payment habits, and food culture.",
             hintRu: "Учтите язык, платёжные привычки и культуру питания.",
             hintKk: "Тіл, төлем әдеттері мен тағам мәдениетін ескеріңіз.",
@@ -2690,6 +3040,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Сравните две стратегии: (A) запуск в 10 странах с базовой локализацией, (B) запуск в 2 странах с глубокой локализацией. Какая лучше для стартапа из 50 человек?",
             questionKk: "Екі стратегияны салыстырыңыз: (A) негізгі локализациямен 10 елде іске қосу, (B) терең локализациямен 2 елде іске қосу. 50 адамдық стартап үшін қайсысы жақсы?",
             answer: "Strategy A pros: faster market coverage, learn from many markets. Cons: thin resources, poor user experience, high failure rate. Strategy B pros: deep product-market fit, strong brand, higher success rate. Cons: slower expansion. For a 50-person startup, Strategy B is better — focus wins over breadth with limited resources.",
+            answerRu: "Плюсы стратегии A: быстрее охват рынка, обучение на многих рынках. Минусы: скудные ресурсы, плохой пользовательский опыт, высокий процент неудач. Плюсы стратегии B: глубокое соответствие продукт-рынок, сильный бренд, выше процент успеха. Минусы: медленная экспансия. Для стартапа из 50 человек стратегия B лучше — при ограниченных ресурсах фокус побеждает широту.",
+            answerKk: "A стратегиясының артықшылықтары: нарықты жылдам қамту, көптеген нарықтардан үйрену. Кемшіліктер: аз ресурстар, нашар пайдаланушы тәжірибесі, жоғары сәтсіздік деңгейі. B стратегиясының артықшылықтары: терең өнім-нарық сәйкестігі, күшті бренд, жоғары табыс деңгейі. Кемшіліктер: баяу кеңею. 50 адамдық стартап үшін B стратегиясы жақсырақ — шектеулі ресурстармен фокус кеңдіктен басым.",
             xp: 20
           }
         ]
@@ -2718,7 +3070,9 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
               { en: "Investor's share at exit = 10% of $20,000,000 = $2,000,000.", ru: "Доля инвестора = 10% от $20,000,000 = $2,000,000.", kk: "Инвестордың үлесі = $20,000,000-ның 10% = $2,000,000." },
               { en: "ROI = ($2,000,000 - $200,000) / $200,000 × 100 = 900%. The investor made 10x their money.", ru: "ROI = ($2,000,000 - $200,000) / $200,000 × 100 = 900%. Возврат в 10 раз.", kk: "ROI = ($2,000,000 - $200,000) / $200,000 × 100 = 900%. Инвестор ақшасын 10 есе арттырды." }
             ],
-            answer: "The investor receives $2,000,000 — a 900% ROI (10x return) on their $200,000 investment."
+            answer: "The investor receives $2,000,000 — a 900% ROI (10x return) on their $200,000 investment.",
+            answerRu: "Инвестор получает $2,000,000 — ROI 900% (10-кратный доход) на инвестицию $200,000.",
+            answerKk: "Инвестор $2,000,000 алады — $200,000 инвестициясына 900% ROI (10 еселенген қайтарым)."
           }
         ],
         practiceProblems: [
@@ -2728,6 +3082,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Назовите три самых распространённых стратегии выхода для стартапа.",
             questionKk: "Стартап үшін ең көп таралған үш шығу стратегиясын атаңыз.",
             answer: "1) Acquisition (being bought by another company). 2) IPO (going public on a stock exchange). 3) Merger (combining with another company).",
+            answerRu: "1) Поглощение (покупка другой компанией). 2) IPO (выход на биржу). 3) Слияние (объединение с другой компанией).",
+            answerKk: "1) Сатып алу (басқа компания сатып алуы). 2) IPO (қор биржасына шығу). 3) Бірігу (басқа компаниямен біріктіру).",
             hint: "Think about how a founder or investor gets their money out.",
             hintRu: "Подумайте, как основатель или инвестор получает свои деньги.",
             hintKk: "Негізін қалаушы немесе инвестор ақшасын қалай алатынын ойлаңыз.",
@@ -2739,6 +3095,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Инвестор купил 15% за $300,000. Компания вышла на биржу с оценкой $50,000,000. Каков ROI?",
             questionKk: "Инвестор 15%-ды $300,000-ға сатып алды. Компания $50,000,000 бағалаумен биржаға шықты. ROI қандай?",
             answer: "Investor's share = 15% of $50M = $7,500,000. ROI = ($7,500,000 - $300,000) / $300,000 × 100 = 2,400% (25x return).",
+            answerRu: "Доля инвестора = 15% от $50M = $7,500,000. ROI = ($7,500,000 - $300,000) / $300,000 × 100 = 2,400% (25-кратный доход).",
+            answerKk: "Инвестор үлесі = $50M-ның 15% = $7,500,000. ROI = ($7,500,000 - $300,000) / $300,000 × 100 = 2,400% (25 еселенген қайтарым).",
             hint: "Calculate the investor's share at exit, then use the ROI formula.",
             hintRu: "Рассчитайте долю инвестора при выходе, затем используйте формулу ROI.",
             hintKk: "Шығу кезіндегі инвестор үлесін есептеп, ROI формуласын қолданыңыз.",
@@ -2750,6 +3108,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Основатель владеет 35% после всех раундов. Два предложения: (A) Поглощение за $80M, (B) IPO с оценкой $120M, но lock-up 1 год и акции могут упасть на 30%. Какой вариант лучше?",
             questionKk: "Негізін қалаушы барлық раундтардан кейін 35%-ға ие. Екі ұсыныс: (A) $80M сатып алу, (B) $120M бағалаумен IPO, бірақ 1 жыл lock-up және акциялар 30% түсуі мүмкін. Екі нұсқаны талдап, біреуін ұсыныңыз.",
             answer: "Option A: 35% × $80M = $28M guaranteed. Option B best case: 35% × $120M = $42M. Worst case (30% drop): 35% × $84M = $29.4M. Recommendation: If the founder needs certainty, take A ($28M guaranteed). If they can afford the risk, B offers higher upside ($42M) and even the worst case ($29.4M) exceeds A. For most founders, B is better if the business is strong.",
+            answerRu: "Вариант A: 35% × $80M = $28M гарантированно. Вариант B лучший случай: 35% × $120M = $42M. Худший случай (падение на 30%): 35% × $84M = $29.4M. Рекомендация: если основателю нужна уверенность, выбрать A ($28M гарантированно). Если он может позволить себе риск, B предлагает более высокий потенциал ($42M), и даже худший случай ($29.4M) превышает A. Для большинства основателей B лучше, если бизнес сильный.",
+            answerKk: "A нұсқасы: 35% × $80M = $28M кепілдендірілген. B нұсқасының ең жақсы жағдайы: 35% × $120M = $42M. Ең нашар жағдай (30% төмендеу): 35% × $84M = $29.4M. Ұсыныс: егер негізін қалаушыға сенімділік керек болса, A-ны таңдау керек ($28M кепілдендірілген). Егер тәуекелге баруға мүмкіндігі болса, B жоғарырақ мүмкіндік ұсынады ($42M), тіпті ең нашар жағдай ($29.4M) A-дан асып түседі. Көптеген негізін қалаушылар үшін бизнес мықты болса, B жақсырақ.",
             xp: 20
           }
         ]
@@ -2778,7 +3138,9 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
               { en: "Market Cap = $25 × (40,000,000 + 10,000,000) = $25 × 50,000,000 = $1,250,000,000 ($1.25B).", ru: "Капитализация = $25 × 50,000,000 = $1,250,000,000 ($1.25B).", kk: "Нарықтық кап = $25 × 50,000,000 = $1,250,000,000 ($1.25B)." },
               { en: "Capital Raised = 10,000,000 new shares × $25 = $250,000,000 ($250M).", ru: "Привлечено = 10,000,000 × $25 = $250,000,000 ($250M).", kk: "Тартылған капитал = 10,000,000 × $25 = $250,000,000 ($250M)." }
             ],
-            answer: "Market cap is $1.25B and the company raised $250M from the IPO."
+            answer: "Market cap is $1.25B and the company raised $250M from the IPO.",
+            answerRu: "Рыночная капитализация — $1.25 млрд, компания привлекла $250 млн от IPO.",
+            answerKk: "Нарықтық капитализация — $1.25 млрд, компания IPO-дан $250 млн тартты."
           }
         ],
         practiceProblems: [
@@ -2788,6 +3150,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Что означает IPO и что происходит во время IPO?",
             questionKk: "IPO нені білдіреді және IPO кезінде не болады?",
             answer: "IPO stands for Initial Public Offering. A private company sells shares to the public for the first time on a stock exchange, becoming a publicly traded company.",
+            answerRu: "IPO означает первичное публичное размещение. Частная компания впервые продаёт акции публике на бирже, становясь публично торгуемой компанией.",
+            answerKk: "IPO бастапқы ашық ұсынысты білдіреді. Жеке компания акцияларын алғаш рет биржада жұртшылыққа сатып, ашық сатылатын компанияға айналады.",
             hint: "Think about what 'public' means for a company's shares.",
             hintRu: "Подумайте, что значит «публичный» для акций компании.",
             hintKk: "Компания акциялары үшін «ашық» нені білдіретінін ойлаңыз.",
@@ -2799,6 +3163,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Компания выходит на IPO по $40/акция, 20,000,000 акций. В первый день цена выросла до $55. Какова начальная и конечная капитализация?",
             questionKk: "Компания $40/акциямен IPO жасайды, 20,000,000 акция. Бірінші күні баға $55-ке көтеріледі. Бастапқы және 1-ші күн соңындағы нарықтық капитализация қандай?",
             answer: "Initial market cap = $40 × 20M = $800M. End of day 1 = $55 × 20M = $1.1B. The company gained $300M in market cap on day 1.",
+            answerRu: "Начальная капитализация = $40 × 20M = $800M. Конец 1-го дня = $55 × 20M = $1.1B. Компания получила $300M капитализации за 1-й день.",
+            answerKk: "Бастапқы капитализация = $40 × 20M = $800M. 1-күн соңы = $55 × 20M = $1.1B. Компания 1-күнде $300M капитализация қосты.",
             hint: "Market cap = share price × total shares. Calculate for both prices.",
             hintRu: "Капитализация = цена × количество акций. Рассчитайте для обеих цен.",
             hintKk: "Нарықтық кап = акция бағасы × жалпы акциялар. Екі баға үшін есептеңіз.",
@@ -2810,6 +3176,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Компания планирует IPO: NASDAQ с оценкой $2B и продажей 20% акций, или малая биржа с $1.5B и 15%. Какой вариант привлечёт больше капитала? Какие ещё факторы учесть?",
             questionKk: "Компания IPO жоспарлайды: NASDAQ $2B бағалаумен 20% акциялар, немесе кіші биржа $1.5B бағалаумен 15%. Қайсысы көбірек капитал тартады? Қандай факторларды ескеру керек?",
             answer: "NASDAQ: Capital = $2B × 20% = $400M. Small exchange: $1.5B × 15% = $225M. NASDAQ raises $175M more and has higher valuation. But consider: NASDAQ has stricter listing requirements, higher compliance costs, more analyst coverage, greater liquidity, and more visibility to institutional investors. The smaller exchange is easier to list on but offers less liquidity.",
+            answerRu: "NASDAQ: Капитал = $2B × 20% = $400M. Малая биржа: $1.5B × 15% = $225M. NASDAQ привлекает на $175M больше и имеет более высокую оценку. Но учтите: NASDAQ имеет более строгие требования к листингу, более высокие расходы на соответствие, больше аналитического покрытия, большую ликвидность и большую видимость для институциональных инвесторов. На меньшую биржу легче попасть, но она предлагает меньшую ликвидность.",
+            answerKk: "NASDAQ: Капитал = $2B × 20% = $400M. Кіші биржа: $1.5B × 15% = $225M. NASDAQ $175M артық тартады және бағалауы жоғары. Бірақ ескеріңіз: NASDAQ-тың листинг талаптары қатаңырақ, сәйкестік шығындары жоғары, аналитикалық қамту көбірек, өтімділігі жоғары және институционалды инвесторларға көрінерлігі жоғары. Кіші биржаға листинг жасау оңайырақ, бірақ өтімділігі төмен.",
             xp: 20
           }
         ]
@@ -2838,7 +3206,9 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
               { en: "Acquisition Premium = ($39 - $30) / $30 × 100 = 30%.", ru: "Премия = ($39 - $30) / $30 × 100 = 30%.", kk: "Сыйақы = ($39 - $30) / $30 × 100 = 30%." },
               { en: "Total Deal Value = $39 × 10,000,000 = $390,000,000 ($390M).", ru: "Сумма сделки = $39 × 10,000,000 = $390M.", kk: "Мәміле сомасы = $39 × 10,000,000 = $390M." }
             ],
-            answer: "The acquisition premium is 30% and the total deal value is $390M."
+            answer: "The acquisition premium is 30% and the total deal value is $390M.",
+            answerRu: "Премия за поглощение — 30%, общая сумма сделки — $390M.",
+            answerKk: "Сатып алу сыйақысы — 30%, мәміленің жалпы сомасы — $390M."
           }
         ],
         practiceProblems: [
@@ -2848,6 +3218,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "В чём разница между слиянием и поглощением?",
             questionKk: "Бірігу мен сатып алудың айырмашылығы неде?",
             answer: "A merger combines two companies into one new entity (usually equals). An acquisition is when one company buys and absorbs another (one company disappears into the buyer).",
+            answerRu: "Слияние объединяет две компании в одну новую организацию (обычно на равных). Поглощение — когда одна компания покупает и поглощает другую (одна компания исчезает, растворяясь в покупателе).",
+            answerKk: "Бірігу екі компанияны бір жаңа ұйымға біріктіреді (әдетте тең дәрежеде). Сатып алу — бір компания екіншісін сатып алып, сіңіргенде болады (бір компания сатып алушыға сіңіп, жоғалады).",
             hint: "Think about whether both companies survive or just one.",
             hintRu: "Подумайте, обе компании сохраняются или только одна.",
             hintKk: "Екі компания да сақтала ма, әлде біреуі ғана ма, ойлаңыз.",
@@ -2859,6 +3231,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Техкомпания торгуется по $50. Покупатель предлагает $65. Какова премия? При 5M акций какова сумма сделки?",
             questionKk: "Тех компания $50-тен сатылады. Ірі компания $65 ұсынады. Сатып алу сыйақысы қандай? 5M акциямен мәміле сомасы қанша?",
             answer: "Premium = ($65 - $50) / $50 × 100 = 30%. Deal value = $65 × 5M = $325M.",
+            answerRu: "Премия = ($65 - $50) / $50 × 100 = 30%. Сумма сделки = $65 × 5M = $325M.",
+            answerKk: "Сыйақы = ($65 - $50) / $50 × 100 = 30%. Мәміле сомасы = $65 × 5M = $325M.",
             hint: "Premium = (offer - market) / market × 100. Deal value = offer × shares.",
             hintRu: "Премия = (предложение - рынок) / рынок × 100. Сумма = предложение × акции.",
             hintKk: "Сыйақы = (ұсыныс - нарық) / нарық × 100. Сома = ұсыныс × акциялар.",
@@ -2870,6 +3244,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Google покупает AI-стартап из 50 человек за $500M при доходе $2M. Почему Google платит 250x от дохода? Назовите три стратегические причины.",
             questionKk: "Google 50 адамдық AI стартапты жылдық табысы $2M болса да $500M-ға сатып алады. Google неге табыстан 250x төлейді? Үш стратегиялық себепті атаңыз.",
             answer: "1) Talent acquisition (acqui-hire): The 50 top AI researchers are worth more than the product. 2) Technology/IP: Proprietary AI models or patents that would take years to develop internally. 3) Competitive defense: Preventing competitors from acquiring the same technology and talent. The price reflects strategic value, not current revenue.",
+            answerRu: "1) Приобретение талантов (acqui-hire): 50 лучших ИИ-исследователей стоят больше, чем сам продукт. 2) Технология/ИС: собственные ИИ-модели или патенты, на разработку которых внутри компании ушли бы годы. 3) Конкурентная защита: недопущение того, чтобы конкуренты приобрели ту же технологию и таланты. Цена отражает стратегическую ценность, а не текущий доход.",
+            answerKk: "1) Талант сатып алу (acqui-hire): 50 үздік ИИ зерттеушісі өнімнен де қымбат тұрады. 2) Технология/ЗМ: ішкі әзірлеуге жылдар кететін меншікті ИИ модельдері немесе патенттер. 3) Бәсекелестік қорғаныс: бәсекелестердің сол технология мен таланттарды сатып алуына жол бермеу. Баға ағымдағы табысты емес, стратегиялық құндылықты көрсетеді.",
             xp: 20
           }
         ]
@@ -2898,7 +3274,9 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
               { en: "Seat 1: CEO/Co-founder (management perspective). Seat 2: Series A investor rep (early investor voice). Seat 3: Series B investor rep (growth investor voice).", ru: "Место 1: CEO (голос менеджмента). Место 2: Представитель Series A. Место 3: Представитель Series B.", kk: "1-орын: CEO (менеджмент көзқарасы). 2-орын: Series A инвестор өкілі. 3-орын: Series B инвестор өкілі." },
               { en: "Seat 4: Independent director (industry expert, no financial ties). Seat 5: Independent director (e.g., experienced CEO or domain expert). This creates balance: 1 management, 2 investors, 2 independents.", ru: "Место 4: Независимый директор (отраслевой эксперт). Место 5: Независимый директор. Баланс: 1 менеджмент, 2 инвестора, 2 независимых.", kk: "4-орын: Тәуелсіз директор (сала сарапшысы). 5-орын: Тәуелсіз директор. Баланс: 1 менеджмент, 2 инвестор, 2 тәуелсіз." }
             ],
-            answer: "5-person board: CEO, Series A rep, Series B rep, and 2 independent directors. This balances management, investor, and independent perspectives."
+            answer: "5-person board: CEO, Series A rep, Series B rep, and 2 independent directors. This balances management, investor, and independent perspectives.",
+            answerRu: "Совет из 5 человек: CEO, представитель Series A, представитель Series B и 2 независимых директора. Это балансирует перспективы менеджмента, инвесторов и независимых сторон.",
+            answerKk: "5 адамдық кеңес: CEO, Series A өкілі, Series B өкілі және 2 тәуелсіз директор. Бұл менеджмент, инвестор және тәуелсіз көзқарастарды теңестіреді."
           }
         ],
         practiceProblems: [
@@ -2908,6 +3286,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Какова роль совета директоров в компании?",
             questionKk: "Компаниядағы директорлар кеңесінің рөлі қандай?",
             answer: "The board oversees company management, makes major strategic decisions, protects shareholder interests, hires/fires the CEO, and ensures the company acts legally and ethically.",
+            answerRu: "Совет директоров контролирует управление компанией, принимает крупные стратегические решения, защищает интересы акционеров, нанимает/увольняет CEO и обеспечивает законность и этичность действий компании.",
+            answerKk: "Кеңес компания басқаруын қадағалайды, ірі стратегиялық шешімдер қабылдайды, акционерлер мүддесін қорғайды, CEO-ны жалдайды/қызметтен босатады және компанияның заңды және этикалық әрекет етуін қамтамасыз етеді.",
             hint: "Think about who watches over the people running the company.",
             hintRu: "Подумайте, кто контролирует руководителей компании.",
             hintKk: "Компанияны басқаратын адамдарды кім бақылайтынын ойлаңыз.",
@@ -2919,6 +3299,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Почему важно иметь в совете независимых директоров (не связанных с компанией или инвесторами)?",
             questionKk: "Кеңесте тәуелсіз директорлардың (компаниямен немесе инвесторлармен байланысы жоқ адамдардың) болуы неге маңызды?",
             answer: "Independent directors provide unbiased oversight, prevent conflicts of interest, bring outside expertise and perspectives, protect minority shareholders, and ensure management is held accountable. They act as neutral voices in boardroom decisions.",
+            answerRu: "Независимые директора обеспечивают беспристрастный надзор, предотвращают конфликты интересов, привносят внешнюю экспертизу и точки зрения, защищают миноритарных акционеров и обеспечивают подотчётность руководства. Они выступают нейтральными голосами в решениях совета директоров.",
+            answerKk: "Тәуелсіз директорлар бейтарап қадағалауды қамтамасыз етеді, мүдделер қақтығысын болдырмайды, сыртқы сараптама мен көзқарас әкеледі, азшылық акционерлерді қорғайды және басшылықтың есеп беруін қамтамасыз етеді. Олар кеңес шешімдерінде бейтарап дауыс ретінде әрекет етеді.",
             hint: "Think about what could go wrong if everyone on the board has ties to the CEO.",
             hintRu: "Подумайте, что может пойти не так, если все в совете связаны с CEO.",
             hintKk: "Кеңестегі барлығы CEO-мен байланысты болса, не болуы мүмкінін ойлаңыз.",
@@ -2930,6 +3312,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "CEO стартапа владеет 51% голосующих акций и назначил 3 членов совета (все — друзья). Инвестор с 30% не представлен в совете. Каковы риски и предложите три реформы.",
             questionKk: "Стартап CEO-сы дауыс беретін акциялардың 51%-ына ие және 3 кеңес мүшесін тағайындаған (барлығы жеке достары). 30% инвестордың кеңесте өкілдігі жоқ. Басқару тәуекелдері қандай, үш нақты реформа ұсыныңыз.",
             answer: "Risks: No checks on CEO power, potential self-dealing, investor rights ignored, groupthink from friend-only board. Reforms: 1) Add 2 independent directors to the board. 2) Give the 30% investor a board seat as is standard practice. 3) Establish an audit committee with at least one independent member. These changes add accountability without removing the CEO's majority control.",
+            answerRu: "Риски: нет сдержек власти CEO, потенциальные сделки в личных интересах, игнорирование прав инвестора, группомыслие от совета из одних друзей. Реформы: 1) Добавить 2 независимых директоров в совет. 2) Дать 30%-ному инвестору место в совете, как это стандартная практика. 3) Создать аудиторский комитет с минимум одним независимым членом. Эти изменения добавляют подотчётность, не лишая CEO контрольного пакета.",
+            answerKk: "Тәуекелдер: CEO билігін тежейтін ештеңе жоқ, жеке мүддедегі мәмілелер мүмкіндігі, инвестор құқығын елемеу, тек достардан тұратын кеңестің топтық ойлауы. Реформалар: 1) Кеңеске 2 тәуелсіз директор қосу. 2) Стандартты тәжірибедегідей 30% инвесторға кеңесте орын беру. 3) Кемінде бір тәуелсіз мүшесі бар аудит комитетін құру. Бұл өзгерістер CEO-ның көпшілік бақылауын алып тастамай, есеп беруді қосады.",
             xp: 20
           }
         ]
@@ -2958,7 +3342,9 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
               { en: "Solar lamps: 5,000 families × high impact (education improvement) × 5 years = deep, lasting change.", ru: "Лампы: 5,000 семей × высокое воздействие × 5 лет = глубокие, длительные изменения.", kk: "Лампалар: 5,000 отбасы × жоғары ықпал × 5 жыл = терең, ұзақ мерзімді өзгеріс." },
               { en: "Cash grants: 50,000 families × low impact ($10 is minimal) × short duration (one-time). More people reached but shallow, temporary impact.", ru: "Гранты: 50,000 семей × низкое воздействие × разово. Больше людей, но поверхностное воздействие.", kk: "Гранттар: 50,000 отбасы × төмен ықпал × бір реттік. Көп адамға жетеді, бірақ үстіңгі, уақытша ықпал." }
             ],
-            answer: "The solar lamp project has greater social impact: fewer people but much deeper and longer-lasting change (education improvement over 5 years) versus a small one-time payment."
+            answer: "The solar lamp project has greater social impact: fewer people but much deeper and longer-lasting change (education improvement over 5 years) versus a small one-time payment.",
+            answerRu: "Проект солнечных ламп имеет большее социальное воздействие: меньше людей, но гораздо более глубокие и долгосрочные изменения (улучшение образования в течение 5 лет) против небольшой разовой выплаты.",
+            answerKk: "Күн лампалары жобасының әлеуметтік ықпалы жоғарырақ: адам саны аз, бірақ әлдеқайда терең және ұзақ мерзімді өзгеріс (5 жыл бойы білім жақсаруы) шағын бір реттік төлемге қарсы."
           }
         ],
         practiceProblems: [
@@ -2968,6 +3354,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Чем социальное предприятие отличается от благотворительности?",
             questionKk: "Әлеуметтік кәсіпорын қайырымдылықтан немен ерекшеленеді?",
             answer: "A social enterprise uses a sustainable business model to generate revenue while creating social impact. A charity relies primarily on donations and grants. Social enterprises are self-sustaining; charities depend on external funding.",
+            answerRu: "Социальное предприятие использует устойчивую бизнес-модель для получения дохода, одновременно создавая социальное воздействие. Благотворительность в основном полагается на пожертвования и гранты. Социальные предприятия самодостаточны; благотворительные организации зависят от внешнего финансирования.",
+            answerKk: "Әлеуметтік кәсіпорын әлеуметтік ықпал жасай отырып, табыс алу үшін тұрақты бизнес-моделін пайдаланады. Қайырымдылық негізінен қайырмалдықтар мен гранттарға сүйенеді. Әлеуметтік кәсіпорындар өзін-өзі қамтамасыз етеді; қайырымдылық ұйымдары сыртқы қаржыландыруға тәуелді.",
             hint: "Think about where the money comes from to keep each one running.",
             hintRu: "Подумайте, откуда берутся деньги для работы каждой модели.",
             hintKk: "Әрқайсысының жұмыс істеуі үшін ақша қайдан келетінін ойлаңыз.",
@@ -2979,6 +3367,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Создайте социальное предприятие для решения неравенства в образовании в сельской Центральной Азии. Опишите проблему, решение, бизнес-модель и соцвоздействие.",
             questionKk: "Орталық Азияның ауылдық аймақтарындағы білім теңсіздігін шешетін әлеуметтік кәсіпорын жасаңыз. Мәселені, шешімді, бизнес-моделді және әлеуметтік ықпалды сипаттаңыз.",
             answer: "Problem: Rural students lack quality education and test prep. Solution: Mobile-first learning app with offline mode and local-language content. Business model: Freemium — basic content free, premium courses $2/month (affordable). Revenue also from government contracts and NGO partnerships. Impact: Equal access to quality education regardless of location.",
+            answerRu: "Проблема: сельским ученикам не хватает качественного образования и подготовки к тестам. Решение: приложение для обучения, ориентированное на мобильные устройства, с офлайн-режимом и контентом на местном языке. Бизнес-модель: фримиум — базовый контент бесплатный, премиум-курсы $2/месяц (доступно). Доход также от госконтрактов и партнёрств с НКО. Воздействие: равный доступ к качественному образованию независимо от местоположения.",
+            answerKk: "Мәселе: ауыл оқушыларына сапалы білім мен тест дайындығы жетіспейді. Шешім: офлайн режимі мен жергілікті тілдегі мазмұны бар мобильді бірінші оқу қосымшасы. Бизнес-модель: фримиум — негізгі мазмұн тегін, премиум курстар $2/ай (қолжетімді). Табыс мемлекеттік келісімшарттар мен ҮЕҰ серіктестігінен де түседі. Ықпал: орналасқан жеріне қарамастан сапалы білімге тең қолжетімділік.",
             hint: "Think about what barriers rural students face and how technology can help.",
             hintRu: "Подумайте о барьерах для сельских учеников и как технологии могут помочь.",
             hintKk: "Ауыл оқушылары кездесетін кедергілерді және технология қалай көмектесе алатынын ойлаңыз.",
@@ -2990,6 +3380,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Соцпредприятие производит фильтры для воды по $3, продаёт за $5, 100,000 штук/год. Инвестор предлагает $1M за 30%, но требует поднять цены до $12. Принять ли? Проанализируйте компромисс.",
             questionKk: "Әлеуметтік кәсіпорын су сүзгілерін $3-тен жасап, $5-тен сатады, жылына 100,000 бірлік. Инвестор 30% үшін $1M ұсынады, бірақ бағаны $12-ге көтеруді талап етеді. Қабылдау керек пе? Пайда мен әлеуметтік ықпал арасындағы ымыраны талдаңыз.",
             answer: "Current: Revenue $500K, Profit $200K, 100K families served. At $12: Revenue may drop to ~40K units (price too high for target market), Revenue $480K, Profit $360K. More profit but 60% fewer families get clean water. Recommendation: Negotiate with the investor — accept the $1M but keep prices at $5-7. Use the investment to scale production and reach 300K+ families, increasing both impact and total profit through volume. Never sacrifice the core mission for short-term margins.",
+            answerRu: "Сейчас: доход $500K, прибыль $200K, обслуживается 100K семей. При $12: продажи могут упасть до ~40K единиц (цена слишком высока для целевого рынка), доход $480K, прибыль $360K. Больше прибыли, но на 60% меньше семей получают чистую воду. Рекомендация: договориться с инвестором — принять $1M, но сохранить цены на уровне $5-7. Использовать инвестиции для масштабирования производства и охвата 300K+ семей, увеличивая и воздействие, и общую прибыль за счёт объёма. Никогда не жертвуйте основной миссией ради краткосрочной маржи.",
+            answerKk: "Қазір: табыс $500K, пайда $200K, 100K отбасыға қызмет көрсетіледі. $12-де: сату ~40K бірлікке дейін түсуі мүмкін (мақсатты нарық үшін баға тым жоғары), табыс $480K, пайда $360K. Пайда көбірек, бірақ 60% азырақ отбасы таза су алады. Ұсыныс: инвестормен келісу — $1M қабылдау, бірақ бағаны $5-7 деңгейінде сақтау. Инвестицияны өндірісті кеңейтуге және 300K+ отбасыға жетуге пайдалану, көлем арқылы ықпал мен жалпы пайданы бірге арттыру. Негізгі миссияны қысқа мерзімді маржа үшін ешқашан құрбан етпеңіз.",
             xp: 20
           }
         ]
@@ -3024,7 +3416,9 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
               { en: "Contribution margin per session = $20 - $12 = $8.", ru: "Маржа на сессию = $20 - $12 = $8.", kk: "Сеанс маржасы = $20 - $12 = $8." },
               { en: "Break-Even = $2,000 / $8 = 250 sessions per month.", ru: "Безубыточность = $2,000 / $8 = 250 сессий в месяц.", kk: "Зиянсыздық нүктесі = $2,000 / $8 = айына 250 сеанс." }
             ],
-            answer: "You need 250 tutoring sessions per month to break even, which is about 8-9 sessions per day."
+            answer: "You need 250 tutoring sessions per month to break even, which is about 8-9 sessions per day.",
+            answerRu: "Вам нужно 250 репетиторских занятий в месяц для безубыточности, то есть около 8-9 занятий в день.",
+            answerKk: "Шығынсыздыққа жету үшін айына 250 репетиторлық сеанс керек, бұл күніне шамамен 8-9 сеанс."
           }
         ],
         practiceProblems: [
@@ -3034,6 +3428,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Перечислите семь основных разделов стартап-плана.",
             questionKk: "Стартап жоспарының жеті негізгі бөлімін тізімдеңіз.",
             answer: "1) Problem, 2) Solution, 3) Market (size and opportunity), 4) Business Model, 5) Financial Projections, 6) Team, 7) Milestones and Timeline.",
+            answerRu: "1) Проблема, 2) Решение, 3) Рынок (размер и возможность), 4) Бизнес-модель, 5) Финансовые прогнозы, 6) Команда, 7) Ключевые этапы и сроки.",
+            answerKk: "1) Мәселе, 2) Шешім, 3) Нарық (көлемі мен мүмкіндігі), 4) Бизнес-модель, 5) Қаржылық болжамдар, 6) Команда, 7) Негізгі кезеңдер мен мерзімдер.",
             hint: "Think about what an investor would want to know before giving you money.",
             hintRu: "Подумайте, что инвестор хотел бы знать перед вложением денег.",
             hintKk: "Инвестор ақша бермес бұрын нені білгісі келетінін ойлаңыз.",
@@ -3045,6 +3441,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Постоянные расходы $5,000/месяц. Подписка $15, переменные затраты $3. Сколько подписчиков для безубыточности?",
             questionKk: "Тұрақты шығындар айына $5,000. Жазылым $15/ай, айнымалы шығындар $3. Зиянсыздық үшін қанша жазылушы керек?",
             answer: "Break-Even = $5,000 / ($15 - $3) = $5,000 / $12 = 417 subscribers (round up to 417).",
+            answerRu: "Точка безубыточности = $5,000 / ($15 - $3) = $5,000 / $12 = 417 подписчиков (округление до 417).",
+            answerKk: "Шығынсыздық нүктесі = $5,000 / ($15 - $3) = $5,000 / $12 = 417 жазылушы (417-ге дейін дөңгелектеу).",
             hint: "Break-even = fixed costs / (price - variable cost).",
             hintRu: "Безубыточность = постоянные затраты / (цена - переменные затраты).",
             hintKk: "Зиянсыздық = тұрақты шығындар / (баға - айнымалы шығын).",
@@ -3056,6 +3454,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
             questionRu: "Напишите мини стартап-план для приложения, решающего вашу студенческую проблему. Включите все 7 разделов: Проблема, Решение, Рынок, Бизнес-модель, Финансы (затраты, доходы, безубыточность), Команда, 3 ключевых этапа на 1-й год.",
             questionKk: "Студент ретінде кездесетін мәселені шешетін қосымша үшін мини стартап жоспарын жазыңыз. Барлық 7 бөлімді қамтыңыз: Мәселе, Шешім, Нарық, Бизнес-модель, Қаржылық болжам (шығындар, табыс, зиянсыздық), Команда, 1-ші жылға 3 негізгі кезең.",
             answer: "Example: Problem: Students waste 2+ hours/week scheduling study groups across different messaging apps. Solution: StudySync app that lets students create, find, and join study groups by subject in one tap. Market: 5M university students in Central Asia, TAM = 5M × 5% adoption × $3/month = $9M/year. Model: Freemium ($3/month premium with room booking, tutor matching). Financials: Costs $3,000/month (hosting, support). Revenue at 1,000 premium users = $3,000. Break-even at 1,000 users. Team: 1 developer, 1 designer, 1 marketer. Milestones: Month 3 — launch beta with 500 users, Month 6 — reach 1,000 premium subscribers, Month 12 — expand to 5 universities with 5,000 users.",
+            answerRu: "Например: Проблема: Ученики тратят 2+ часа/неделю на планирование учебных групп в разных мессенджерах. Решение: приложение StudySync, позволяющее создавать, находить и присоединяться к учебным группам по предмету одним касанием. Рынок: 5 млн студентов вузов в Центральной Азии, TAM = 5 млн × 5% принятие × $3/месяц = $9 млн/год. Модель: фримиум ($3/месяц премиум с бронированием комнат, подбором репетиторов). Финансы: расходы $3,000/месяц (хостинг, поддержка). Доход при 1,000 премиум-пользователей = $3,000. Безубыточность при 1,000 пользователях. Команда: 1 разработчик, 1 дизайнер, 1 маркетолог. Этапы: 3 месяц — запуск бета-версии с 500 пользователями, 6 месяц — достижение 1,000 премиум-подписчиков, 12 месяц — расширение на 5 вузов с 5,000 пользователями.",
+            answerKk: "Мысалы: Мәселе: Оқушылар әртүрлі хабар алмасу қосымшаларында оқу топтарын жоспарлауға аптасына 2+ сағат жоғалтады. Шешім: студенттерге пән бойынша оқу топтарын бір түртумен құруға, табуға және қосылуға мүмкіндік беретін StudySync қосымшасы. Нарық: Орталық Азияда 5 млн университет студенті, TAM = 5 млн × 5% қабылдау × $3/ай = жылына $9 млн. Модель: фримиум (бөлме брондау, репетитор сәйкестендірумен $3/ай премиум). Қаржы: шығындар $3,000/ай (хостинг, қолдау). 1,000 премиум пайдаланушыдан табыс = $3,000. 1,000 пайдаланушыда шығынсыздық. Команда: 1 әзірлеуші, 1 дизайнер, 1 маркетолог. Кезеңдер: 3-ай — 500 пайдаланушымен бета іске қосу, 6-ай — 1,000 премиум жазылушыға жету, 12-ай — 5,000 пайдаланушымен 5 университетке кеңею.",
             xp: 20
           }
         ]

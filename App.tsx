@@ -21,6 +21,7 @@ import TeacherLessonPage from './components/learn/TeacherLessonPage.tsx';
 import TeacherPage from './components/teacher/TeacherPage.tsx';
 import PlanPage from './components/plan/PlanPage.tsx';
 import PracticePage from './components/practice/PracticePage.tsx';
+import CommunityPage from './components/community/CommunityPage.tsx';
 import CareerTestPage from './components/career/CareerTestPage.tsx';
 import TutorChat from './components/chat/TutorChat.tsx';
 import FeedbackWidget from './components/FeedbackWidget.tsx';
@@ -71,6 +72,7 @@ const Shell: React.FC = () => {
           <Route path="/teacher" element={<TeacherPage />} />
           <Route path="/plan" element={<PlanPage />} />
           <Route path="/practice" element={<PracticePage />} />
+          <Route path="/community" element={<CommunityPage />} />
           <Route path="/career" element={<CareerTestPage />} />
         </Route>
         <Route path="*" element={<Navigate to="/" replace />} />

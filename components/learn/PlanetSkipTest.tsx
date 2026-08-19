@@ -53,17 +53,47 @@ const RETRY: Localized = { ru: 'Попробовать снова', kk: 'Қай�
 const LATER: Localized = { ru: 'Позже', kk: 'Кейінірек', en: 'Maybe later' };
 const CLOSE: Localized = { ru: 'Закрыть', kk: 'Жабу', en: 'Close' };
 
+/* mode="level" copy — same test-building machinery, worded for the
+   Урок → Тест → Уровень пройден in-level flow instead of a skip-ahead test. */
+const LEVEL_TEST_TITLE: Localized = { ru: 'Тест уровня', kk: 'Деңгей тесті', en: 'Level test' };
+const LEVEL_PASS_HINT: Localized = {
+  ru: 'Набери 70% правильных ответов — и уровень будет засчитан.',
+  kk: '70% дұрыс жауап жина — деңгей есепке алынады.',
+  en: 'Score 70% and this level will be marked complete.',
+};
+const LEVEL_PASS_TITLE: Localized = {
+  ru: 'Отлично! Уровень пройден',
+  kk: 'Керемет! Деңгей өтілді',
+  en: 'Well done! Level complete',
+};
+const LEVEL_PASS_SUB: Localized = {
+  ru: 'Материал усвоен — можно двигаться дальше.',
+  kk: 'Материал меңгерілді — әрі қарай жалғастыруға болады.',
+  en: 'You’ve mastered the material — move on whenever you’re ready.',
+};
+const LEVEL_FAIL_SUB: Localized = {
+  ru: 'Нужно хотя бы 70%. Перечитай урок этого уровня и попробуй ещё раз.',
+  kk: 'Кемінде 70% керек. Осы деңгей сабағын қайта оқып, тағы көріп көр.',
+  en: 'You need at least 70%. Re-read this level’s lesson and try again.',
+};
+
 const FOCUS_RING =
   'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2 focus-visible:ring-offset-canvas';
 
 /* --- test construction ---
    Academy practiceProblems are free-form (short EN answers, no options), so a
    skip test is assembled into multiple choice: the problem's answer becomes
-   the correct option, other problems' answers become distractors. Sections
-   without enough short-answer problems fall back to a keyTerms quiz
-   («What does term X mean?» with other terms' definitions as distractors).
-   Everything is deterministic — options shuffle via the shared seeded
-   shuffleOptions, so the same section always yields the same test. */
+   the correct option, other problems' answers become distractors — same
+   section first, padded from other sections of the same planet when a
+   section is too small to supply 3 distinct distractors on its own (life-
+   skills sections routinely have only 3 problems and no keyTerms). The
+   keyTerms path («What does term X mean?» with other terms' definitions as
+   distractors) is an additional source mixed into the same pool. Long
+   answers are truncated to MAX_OPTION_LEN with an ellipsis — applied to
+   every option of a question uniformly so length never gives away the
+   correct one. Everything else is deterministic — options shuffle via the
+   shared seeded shuffleOptions, so the same section always yields the same
+   test. */
 
 export interface SkipTestQuestion {
   prompt: string;
@@ -76,8 +106,7 @@ interface Candidate {
   answer: string;
 }
 
-const MAX_QUESTIONS = 6;
-const MIN_QUESTIONS = 4;
+const MAX_QUESTIONS = 5;
 const MAX_OPTION_LEN = 80;
 const SKIP_TEST_SEED = 21;
 const PASS_THRESHOLD = 70;
@@ -87,6 +116,9 @@ const termPrompt = (language: Lang, term: string): string => {
   if (language === 'en') return `What does the term “${term}” mean?`;
   return `Что означает термин «${term}»?`;
 };
+
+const truncateOption = (value: string, maxLen: number): string =>
+  value.length > maxLen ? `${value.slice(0, maxLen - 1).trimEnd()}…` : value;
 
 const problemCandidates = (section: AcademySection, language: Lang): Candidate[] => {
   const seen = new Set<string>();
@@ -99,13 +131,12 @@ const problemCandidates = (section: AcademySection, language: Lang): Candidate[]
       problem.answerKk,
     ).trim();
     const key = answer.toLowerCase();
-    if (answer.length === 0 || answer.length > MAX_OPTION_LEN || seen.has(key)) continue;
+    if (answer.length === 0 || seen.has(key)) continue;
     seen.add(key);
     out.push({
       prompt: pickLangField(language, problem.question, problem.questionRu, problem.questionKk),
       answer,
     });
-    if (out.length >= MAX_QUESTIONS) break;
   }
   return out;
 };
@@ -116,33 +147,82 @@ const termCandidates = (section: AcademySection, language: Lang): Candidate[] =>
     answer: pickLangField(language, term.definition, term.definitionRu, term.definitionKk),
   }));
 
-/** Build the skip test for a section, or null when no quiz can be assembled. */
+/** Other sections' practiceProblem answers, deduped — the padding source
+    when `section`'s own pool can't supply 3 distinct distractors. */
+const foreignProblemAnswers = (
+  section: AcademySection,
+  allSections: AcademySection[],
+  language: Lang,
+): string[] => {
+  const seen = new Set<string>();
+  const out: string[] = [];
+  for (const other of allSections) {
+    if (other === section) continue;
+    for (const problem of other.practiceProblems) {
+      const answer = pickLangFieldOptional(
+        language,
+        problem.answer,
+        problem.answerRu,
+        problem.answerKk,
+      ).trim();
+      const key = answer.toLowerCase();
+      if (answer.length === 0 || seen.has(key)) continue;
+      seen.add(key);
+      out.push(answer);
+    }
+  }
+  return out;
+};
+
+const pickDistractors = (
+  pool: Candidate[],
+  candidateIndex: number,
+  foreignAnswers: string[],
+  seed: number,
+): string[] => {
+  const candidate = pool[candidateIndex];
+  const seen = new Set<string>([candidate.answer.toLowerCase()]);
+  const distractors: string[] = [];
+
+  // same section first
+  for (let step = 1; distractors.length < 3 && step < pool.length; step += 1) {
+    const other = pool[(candidateIndex + step) % pool.length];
+    const key = other.answer.toLowerCase();
+    if (seen.has(key)) continue;
+    seen.add(key);
+    distractors.push(other.answer);
+  }
+
+  // pad from other planet sections when the section alone is too small
+  for (let step = 0; distractors.length < 3 && step < foreignAnswers.length; step += 1) {
+    const answer = foreignAnswers[(seed + step) % foreignAnswers.length];
+    const key = answer.toLowerCase();
+    if (seen.has(key)) continue;
+    seen.add(key);
+    distractors.push(answer);
+  }
+
+  return distractors;
+};
+
+/** Build the skip test for a section, or null when no quiz can be assembled.
+    `allSections` (the planet's full section list) enables cross-section
+    distractor padding; omit it to source distractors from `section` alone. */
 export const buildSkipTest = (
   section: AcademySection,
   language: Lang,
+  allSections?: AcademySection[],
 ): SkipTestQuestion[] | null => {
-  const problems = problemCandidates(section, language);
-  const terms = termCandidates(section, language);
+  const pool = [...problemCandidates(section, language), ...termCandidates(section, language)];
+  if (pool.length < 2) return null;
 
-  let pool: Candidate[];
-  if (problems.length >= MIN_QUESTIONS) pool = problems;
-  else if (terms.length >= MIN_QUESTIONS) pool = terms;
-  else if (problems.length >= 2) pool = problems;
-  else if (terms.length >= 2) pool = terms;
-  else return null;
+  const foreignAnswers = allSections ? foreignProblemAnswers(section, allSections, language) : [];
+  const selected = pool.slice(0, MAX_QUESTIONS);
 
-  return pool.slice(0, MAX_QUESTIONS).map((candidate, index) => {
-    const distractors: string[] = [];
-    for (let step = 1; distractors.length < 3 && step < pool.length; step += 1) {
-      const other = pool[(index + step) % pool.length];
-      if (other.answer === candidate.answer || distractors.includes(other.answer)) continue;
-      distractors.push(other.answer);
-    }
-    const shuffled = shuffleOptions(
-      [candidate.answer, ...distractors],
-      0,
-      SKIP_TEST_SEED * 31 + index + 1,
-    );
+  return selected.map((candidate, index) => {
+    const distractors = pickDistractors(pool, index, foreignAnswers, SKIP_TEST_SEED * 31 + index + 1);
+    const options = [candidate.answer, ...distractors].map((opt) => truncateOption(opt, MAX_OPTION_LEN));
+    const shuffled = shuffleOptions(options, 0, SKIP_TEST_SEED * 31 + index + 1);
     return { prompt: candidate.prompt, options: shuffled.options, correctIndex: shuffled.correctIndex };
   });
 };
@@ -156,22 +236,42 @@ const scoreLine = (language: Lang, score: number): string => {
 /* --- component --- */
 
 interface PlanetSkipTestProps {
-  /** The PREVIOUS section whose material the test draws from. */
+  /** The section whose material the test draws from — the PREVIOUS section
+      for mode="skip" (skip-ahead), or the CURRENT section for mode="level"
+      (in-level test taken right after reading its lesson). */
   section: AcademySection;
-  /** Called once on a passing submit (>= 70%) — records skip + completion. */
+  /** The planet's full section list, for cross-section distractor padding
+      (see buildSkipTest). Omit only when unavailable. */
+  allSections?: AcademySection[];
+  /** Called once on a passing submit (>= 70%) — records skip/completion. */
   onPass: () => void;
   onClose: () => void;
+  /** "skip" (default): the locked-level skip-ahead test. "level": the
+      Урок → Тест → Уровень пройден in-level test, worded accordingly. */
+  mode?: 'skip' | 'level';
 }
 
-const PlanetSkipTest: React.FC<PlanetSkipTestProps> = ({ section, onPass, onClose }) => {
+const PlanetSkipTest: React.FC<PlanetSkipTestProps> = ({
+  section,
+  allSections,
+  onPass,
+  onClose,
+  mode = 'skip',
+}) => {
   const { language } = useLanguage();
   const reducedMotion = useReducedMotion();
   const [answers, setAnswers] = useState<Record<number, number>>({});
   const [submitted, setSubmitted] = useState<{ score: number; passed: boolean } | null>(null);
 
+  const title = mode === 'level' ? LEVEL_TEST_TITLE : SKIP_TEST_TITLE;
+  const passHint = mode === 'level' ? LEVEL_PASS_HINT : PASS_HINT;
+  const passTitle = mode === 'level' ? LEVEL_PASS_TITLE : PASS_TITLE;
+  const passSub = mode === 'level' ? LEVEL_PASS_SUB : PASS_SUB;
+  const failSub = mode === 'level' ? LEVEL_FAIL_SUB : FAIL_SUB;
+
   const questions = useMemo(
-    () => buildSkipTest(section, language) ?? [],
-    [section, language],
+    () => buildSkipTest(section, language, allSections) ?? [],
+    [section, language, allSections],
   );
   const allAnswered = questions.length > 0 && Object.keys(answers).length === questions.length;
 
@@ -237,10 +337,10 @@ const PlanetSkipTest: React.FC<PlanetSkipTestProps> = ({ section, onPass, onClos
                   id="skip-test-title"
                   className="font-display text-xl font-extrabold tracking-tight text-ink sm:text-2xl"
                 >
-                  {loc(language, SKIP_TEST_TITLE)}
+                  {loc(language, title)}
                 </h2>
                 <p className="mt-1 truncate text-sm font-semibold text-teal-dark">{sectionTitle}</p>
-                <p className="mt-2 text-sm text-slateink">{loc(language, PASS_HINT)}</p>
+                <p className="mt-2 text-sm text-slateink">{loc(language, passHint)}</p>
               </div>
               <button
                 type="button"
@@ -260,12 +360,12 @@ const PlanetSkipTest: React.FC<PlanetSkipTestProps> = ({ section, onPass, onClos
                       <CheckCircle2 className="h-8 w-8" aria-hidden="true" />
                     </span>
                     <h3 className="mt-4 font-display text-lg font-bold tracking-tight text-ink sm:text-xl">
-                      {loc(language, PASS_TITLE)}
+                      {loc(language, passTitle)}
                     </h3>
                     <p className="mt-1 text-sm font-semibold text-teal-dark">
                       {scoreLine(language, submitted.score)}
                     </p>
-                    <p className="mt-2 max-w-sm text-sm text-slateink">{loc(language, PASS_SUB)}</p>
+                    <p className="mt-2 max-w-sm text-sm text-slateink">{loc(language, passSub)}</p>
                     <button
                       type="button"
                       onClick={onClose}
@@ -285,7 +385,7 @@ const PlanetSkipTest: React.FC<PlanetSkipTestProps> = ({ section, onPass, onClos
                     <p className="mt-1 text-sm font-semibold text-teal-dark">
                       {scoreLine(language, submitted.score)}
                     </p>
-                    <p className="mt-2 max-w-sm text-sm text-slateink">{loc(language, FAIL_SUB)}</p>
+                    <p className="mt-2 max-w-sm text-sm text-slateink">{loc(language, failSub)}</p>
                     <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
                       <button
                         type="button"
