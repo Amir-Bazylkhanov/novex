@@ -20,6 +20,7 @@ import {
 import { loc, type Localized } from '../../utils/i18n.ts';
 import { useLanguage } from '../../context/LanguageContext.tsx';
 import { useAuth, type Goal } from '../../context/AuthContext.tsx';
+import { shuffleOptions } from '../../services/practiceService.ts';
 import { RobotAvatar } from '../robots/RobotAvatars.tsx';
 import DiagnosticResult from './DiagnosticResult.tsx';
 import {
@@ -194,6 +195,8 @@ const DiagnosticPage: React.FC = () => {
   const [adapted, setAdapted] = useState<'up' | 'down' | null>(null);
   const [selected, setSelected] = useState<number | null>(null);
   const [results, setResults] = useState<SubjectResult[] | null>(null);
+  // Bumped on every quiz start so each run gets a fresh option order.
+  const [runSeed, setRunSeed] = useState(0);
 
   const hydratedRef = useRef(false);
   const questionHeadingRef = useRef<HTMLHeadingElement | null>(null);
@@ -215,15 +218,19 @@ const DiagnosticPage: React.FC = () => {
   }, [profile, probeSubject]);
 
   const activeSubject = picked[subjectIndex];
-  const subjectQuestions = useMemo(
-    () =>
-      activeSubject
-        ? probeSubject
-          ? hardQuestionsForSubject(activeSubject)
-          : questionsForSubject(activeSubject)
-        : [],
-    [activeSubject, probeSubject],
-  );
+  // Options are shuffled ONCE per run (frozen in this memo) — answer records
+  // key on question id and scoring uses the remapped correctIndex.
+  const subjectQuestions = useMemo(() => {
+    const bank = activeSubject
+      ? probeSubject
+        ? hardQuestionsForSubject(activeSubject)
+        : questionsForSubject(activeSubject)
+      : [];
+    return bank.map((q, i) => {
+      const shuffled = shuffleOptions(q.options, q.correctIndex, runSeed * 31 + i + 1);
+      return { ...q, options: shuffled.options, correctIndex: shuffled.correctIndex };
+    });
+  }, [activeSubject, probeSubject, runSeed]);
   const currentQuestion = subjectQuestions[cursor] ?? null;
 
   // move focus to the question whenever it changes
@@ -262,6 +269,7 @@ const DiagnosticPage: React.FC = () => {
     // as goals[0] by updateProfile; DiagnosticResult re-saves it with the rest
     // of the onboarding fields when the run finishes).
     void updateProfile({ goals: [...goals] });
+    setRunSeed((s) => s + 1);
     setAnswers([]);
     setSubjectIndex(0);
     setAskedIds([]);

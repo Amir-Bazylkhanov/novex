@@ -151,6 +151,38 @@ export function availableCount(
   return filterQuestions(subject, difficulty).length;
 }
 
+// mulberry32: tiny seeded PRNG. Deterministic for a given seed, so a frozen
+// question instance keeps the same option order for the whole round.
+export function mulberry32(seed: number): () => number {
+  let a = seed >>> 0;
+  return () => {
+    a = (a + 0x6d2b79f5) >>> 0;
+    let t = a;
+    t = Math.imul(t ^ (t >>> 15), t | 1);
+    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+/**
+ * Shuffle a question's options once and remap correctIndex to the new order.
+ * Pass a seed for a deterministic order (stable within a round/attempt);
+ * omit it for a fresh random shuffle.
+ */
+export function shuffleOptions<T>(
+  options: T[],
+  correctIndex: number,
+  seed?: number,
+): { options: T[]; correctIndex: number } {
+  const rand = mulberry32(seed ?? Math.floor(Math.random() * 4294967296));
+  const order = options.map((_, i) => i);
+  for (let i = order.length - 1; i > 0; i--) {
+    const j = Math.floor(rand() * (i + 1));
+    [order[i], order[j]] = [order[j], order[i]];
+  }
+  return { options: order.map((i) => options[i]), correctIndex: order.indexOf(correctIndex) };
+}
+
 // Fisher–Yates; returns the permutation so the caller can remap indices.
 function shuffledOrder(n: number): number[] {
   const order = Array.from({ length: n }, (_, i) => i);
@@ -174,14 +206,14 @@ export function assembleSession(config: PracticeConfig): PracticeSession {
   const chosen = pickOrder.slice(0, Math.min(config.count, pool.length)).map((i) => pool[i]);
 
   const questions: PracticeSessionQuestion[] = chosen.map((q) => {
-    const optOrder = shuffledOrder(q.options.length);
+    const shuffled = shuffleOptions(q.options, q.correctIndex);
     return {
       id: q.id,
       subject: q.subject,
       topicLabel: q.topicLabel,
       question: q.question,
-      options: optOrder.map((i) => q.options[i]),
-      correctIndex: optOrder.indexOf(q.correctIndex),
+      options: shuffled.options,
+      correctIndex: shuffled.correctIndex,
       explanation: q.explanation,
       difficulty: q.difficulty,
     };

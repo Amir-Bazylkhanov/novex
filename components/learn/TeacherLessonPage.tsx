@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import {
@@ -15,6 +15,7 @@ import {
 import { loc, type Localized } from '../../utils/i18n.ts';
 import { useLanguage } from '../../context/LanguageContext.tsx';
 import { supabase } from '../../services/supabaseClient.ts';
+import { shuffleOptions } from '../../services/practiceService.ts';
 
 /* --- content --- */
 
@@ -184,12 +185,25 @@ const ClassLessonRunner: React.FC<{ lesson: TeacherLesson }> = ({ lesson }) => {
   const [selected, setSelected] = useState<number | null>(null);
   const [answered, setAnswered] = useState(false);
   const [correctCount, setCorrectCount] = useState(0);
+  // Bumped on every practice start so a retake gets a fresh option order.
+  const [roundSeed, setRoundSeed] = useState(0);
 
   const questionHeadingRef = useRef<HTMLHeadingElement | null>(null);
   const doneHeadingRef = useRef<HTMLHeadingElement | null>(null);
 
-  const totalQuestions = lesson.questions.length;
-  const currentQuestion = lesson.questions[cursor] ?? null;
+  // Options are shuffled ONCE per round (frozen in this memo) — the teacher's
+  // `correct` index is remapped to the shuffled order.
+  const roundQuestions = useMemo(
+    () =>
+      lesson.questions.map((q, i) => {
+        const shuffled = shuffleOptions(q.options, q.correct, roundSeed * 31 + i + 1);
+        return { ...q, options: shuffled.options, correct: shuffled.correctIndex };
+      }),
+    [lesson, roundSeed],
+  );
+
+  const totalQuestions = roundQuestions.length;
+  const currentQuestion = roundQuestions[cursor] ?? null;
   const theoryParagraphs = lesson.theory
     .split(/\n\s*\n/)
     .map((p) => p.trim())
@@ -205,6 +219,7 @@ const ClassLessonRunner: React.FC<{ lesson: TeacherLesson }> = ({ lesson }) => {
   }, [phase]);
 
   const startPractice = () => {
+    setRoundSeed((s) => s + 1);
     setCursor(0);
     setSelected(null);
     setAnswered(false);

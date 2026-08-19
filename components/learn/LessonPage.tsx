@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import {
@@ -20,6 +20,7 @@ import { loc, type Localized } from '../../utils/i18n.ts';
 import { useLanguage } from '../../context/LanguageContext.tsx';
 import { useAuth } from '../../context/AuthContext.tsx';
 import { supabase } from '../../services/supabaseClient.ts';
+import { shuffleOptions } from '../../services/practiceService.ts';
 import { RobotAvatar } from '../robots/RobotAvatars.tsx';
 import {
   lessonBySlug,
@@ -231,14 +232,27 @@ const LessonRunner: React.FC<{ lesson: Lesson }> = ({ lesson }) => {
   const [nextCursor, setNextCursor] = useState<number | null>(null);
   const [adapted, setAdapted] = useState<'up' | 'down' | null>(null);
   const [saveState, setSaveState] = useState<SaveState>('idle');
+  // Bumped on every practice start so a retake gets a fresh option order.
+  const [roundSeed, setRoundSeed] = useState(0);
 
   const savedRef = useRef(false);
   const startedRef = useRef(false);
   const questionHeadingRef = useRef<HTMLHeadingElement | null>(null);
   const doneHeadingRef = useRef<HTMLHeadingElement | null>(null);
 
-  const totalQuestions = lesson.questions.length;
-  const currentQuestion = lesson.questions[cursor] ?? null;
+  // Options are shuffled ONCE per round (frozen in this memo) — scoring,
+  // explanations and review all track the remapped correctIndex.
+  const roundQuestions = useMemo(
+    () =>
+      lesson.questions.map((q, i) => {
+        const shuffled = shuffleOptions(q.options, q.correctIndex, roundSeed * 31 + i + 1);
+        return { ...q, options: shuffled.options, correctIndex: shuffled.correctIndex };
+      }),
+    [lesson, roundSeed],
+  );
+
+  const totalQuestions = roundQuestions.length;
+  const currentQuestion = roundQuestions[cursor] ?? null;
   const score = answers.filter((a) => a.correct).length;
   const reviewTopics = answers
     .filter((a) => !a.correct)
@@ -309,6 +323,7 @@ const LessonRunner: React.FC<{ lesson: Lesson }> = ({ lesson }) => {
   }, [phase, user, lesson, score, totalQuestions]);
 
   const startPractice = () => {
+    setRoundSeed((s) => s + 1);
     setCursor(0);
     setSelected(null);
     setAnswered(false);
@@ -335,21 +350,21 @@ const LessonRunner: React.FC<{ lesson: Lesson }> = ({ lesson }) => {
 
     // adaptive pick: two right in a row → one step harder, a wrong answer → one step down
     const askedIds = nextAnswers.map((a) => a.questionId);
-    const unasked = lesson.questions
+    const unasked = roundQuestions
       .map((_, i) => i)
-      .filter((i) => !askedIds.includes(lesson.questions[i].id));
+      .filter((i) => !askedIds.includes(roundQuestions[i].id));
     let next: number | null = null;
     let adapt: 'up' | 'down' | null = null;
     if (unasked.length > 0) {
       if (nextStreak >= 2) {
         const harder = unasked.filter(
-          (i) => lesson.questions[i].difficulty > currentQuestion.difficulty,
+          (i) => roundQuestions[i].difficulty > currentQuestion.difficulty,
         );
         if (harder.length > 0) {
           adapt = 'up';
           next = harder.reduce((best, i) => {
-            const a = lesson.questions[best];
-            const b = lesson.questions[i];
+            const a = roundQuestions[best];
+            const b = roundQuestions[i];
             return b.difficulty < a.difficulty || (b.difficulty === a.difficulty && i < best)
               ? i
               : best;
@@ -357,13 +372,13 @@ const LessonRunner: React.FC<{ lesson: Lesson }> = ({ lesson }) => {
         }
       } else if (!correct) {
         const easier = unasked.filter(
-          (i) => lesson.questions[i].difficulty < currentQuestion.difficulty,
+          (i) => roundQuestions[i].difficulty < currentQuestion.difficulty,
         );
         if (easier.length > 0) {
           adapt = 'down';
           next = easier.reduce((best, i) => {
-            const a = lesson.questions[best];
-            const b = lesson.questions[i];
+            const a = roundQuestions[best];
+            const b = roundQuestions[i];
             return b.difficulty > a.difficulty || (b.difficulty === a.difficulty && i < best)
               ? i
               : best;
