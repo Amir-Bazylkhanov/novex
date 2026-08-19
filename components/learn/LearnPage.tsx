@@ -33,6 +33,8 @@ import {
   type LessonDifficulty,
   type LessonSubject,
 } from '../../constants/lessonData.ts';
+import { LEARN_DIRECTIONS } from '../../constants/learnDirections.ts';
+import { pickGradeContent, planetsByRobot } from '../../constants/academy/catalog.ts';
 
 /* --- content --- */
 
@@ -85,11 +87,22 @@ const PICKER_SUB: Localized = {
   kk: 'Әр роботтың өз бағыты бар. Сабақтарын көру үшін тәлімгерді бас.',
   en: 'Each robot leads its own track. Pick a mentor to see their lessons.',
 };
+const PLANETS_TITLE: Localized = {
+  ru: 'Планеты направления',
+  kk: 'Бағыт планеталары',
+  en: 'Track planets',
+};
+
 const BACK_TO_MENTORS: Localized = {
   ru: 'Ко всем наставникам',
   kk: 'Барлық тәлімгерге оралу',
   en: 'Back to all mentors',
 };
+
+interface ComingTopic {
+  title: Localized;
+  summary: Localized;
+}
 
 interface Mentor {
   id: MentorRobotId;
@@ -97,43 +110,68 @@ interface Mentor {
   name: Localized;
   tagline: Localized;
   subjects: LessonSubject[];
+  /** Locked teaser cards shown on level 2 for topics without lessons yet. */
+  coming: ComingTopic[];
 }
 
-const MENTORS: Mentor[] = [
-  {
-    id: 'nov4',
-    codeLabel: { ru: 'NOV-04 · ЛОГИК', kk: 'NOV-04 · ЛОГИК', en: 'NOV-04 · LOGIC' },
-    name: { ru: 'Логик', kk: 'Логик', en: 'Logic' },
+/* The three mentors mirror Locus Academy's three galaxies: academic base,
+   life skills and future skills. Direction names and subjects come from the
+   shared learn-directions catalogue so /learn and /plan can never drift. */
+const MENTOR_EXTRAS: Record<MentorRobotId, Omit<Mentor, 'id' | 'name' | 'subjects'>> = {
+  nov4: {
+    codeLabel: { ru: 'NOV-04 · АКАДЕМИК', kk: 'NOV-04 · АКАДЕМИК', en: 'NOV-04 · ACADEMIC' },
     tagline: {
-      ru: 'Точные науки: от уравнений до законов Ньютона',
-      kk: 'Дәл ғылымдар: теңдеулерден Ньютон заңдарына дейін',
-      en: "Exact sciences: from equations to Newton's laws",
+      ru: 'Школа и подготовка к вузу',
+      kk: 'Мектеп және ЖОО-ға дайындық',
+      en: 'School and university prep',
     },
-    subjects: ['math', 'physics'],
+    coming: [],
   },
-  {
-    id: 'nov5',
-    codeLabel: { ru: 'NOV-05 · ПОЛИГЛОТ', kk: 'NOV-05 · ПОЛИГЛОТ', en: 'NOV-05 · POLYGLOT' },
-    name: { ru: 'Полиглот', kk: 'Полиглот', en: 'Polyglot' },
+  nov5: {
+    codeLabel: { ru: 'NOV-05 · ПРАКТИК', kk: 'NOV-05 · ПРАКТИК', en: 'NOV-05 · PRACTITIONER' },
     tagline: {
-      ru: 'Языки: понимать и говорить уверенно',
-      kk: 'Тілдер: терең түсініп, сенімді сөйлеу',
-      en: 'Languages: understand and speak with confidence',
+      ru: 'Навыки для реальной жизни',
+      kk: 'Нақты өмірге арналған дағдылар',
+      en: 'Skills for real life',
     },
-    subjects: ['english'],
+    // NOV-05 has no native Novex lessons — its content is the four academy
+    // planets (finance, communication, psychology, productivity) below.
+    coming: [],
   },
-  {
-    id: 'nov6',
+  nov6: {
     codeLabel: { ru: 'NOV-06 · КИБЕР', kk: 'NOV-06 · КИБЕР', en: 'NOV-06 · CYBER' },
-    name: { ru: 'Кибер', kk: 'Кибер', en: 'Cyber' },
     tagline: {
-      ru: 'Алгоритмы и код — мышление будущего',
-      kk: 'Алгоритмдер мен код — болашақтың ойлау әдісі',
-      en: 'Algorithms and code — the thinking of the future',
+      ru: 'Код, ИИ и самопознание',
+      kk: 'Код, ЖИ және өзін-өзі тану',
+      en: 'Code, AI and self-knowledge',
     },
-    subjects: ['informatics'],
+    coming: [
+      {
+        title: { ru: 'Основы ИИ', kk: 'ЖИ негіздері', en: 'AI basics' },
+        summary: {
+          ru: 'Как работают нейросети и где они пригодятся',
+          kk: 'Нейрожелілер қалай жұмыс істейді және қайда пайдалы',
+          en: 'How neural networks work and where they help',
+        },
+      },
+      {
+        title: { ru: 'Кибербезопасность', kk: 'Киберқауіпсіздік', en: 'Cybersecurity' },
+        summary: {
+          ru: 'Защити себя и свои данные в сети',
+          kk: 'Өзіңді және деректеріңді желіде қорға',
+          en: 'Protect yourself and your data online',
+        },
+      },
+    ],
   },
-];
+};
+
+const MENTORS: Mentor[] = LEARN_DIRECTIONS.map((direction) => ({
+  id: direction.robot,
+  name: direction.name,
+  subjects: direction.subjects,
+  ...MENTOR_EXTRAS[direction.robot],
+}));
 
 const STATUS_IN_PROGRESS: Localized = {
   ru: 'В процессе',
@@ -199,6 +237,18 @@ const mentorLessonsLine = (lang: 'ru' | 'kk' | 'en', total: number, completed: n
   if (lang === 'kk') return `Сабақтар: ${total} · аяқталғаны: ${completed}`;
   if (lang === 'en') return `Lessons: ${total} · completed: ${completed}`;
   return `Уроки: ${total} · пройдено: ${completed}`;
+};
+
+const planetsLine = (lang: 'ru' | 'kk' | 'en', total: number): string => {
+  if (lang === 'kk') return `Планеталар: ${total}`;
+  if (lang === 'en') return `Planets: ${total}`;
+  return `Планеты: ${total}`;
+};
+
+const topicsLine = (lang: 'ru' | 'kk' | 'en', total: number): string => {
+  if (lang === 'kk') return `Тақырыптар: ${total}`;
+  if (lang === 'en') return `Topics: ${total}`;
+  return `Тем: ${total}`;
 };
 
 const dateLine = (lang: 'ru' | 'kk' | 'en', iso: string): string =>
@@ -268,7 +318,7 @@ const LessonMeta: React.FC<{ lesson: Lesson }> = ({ lesson }) => {
 
 const LearnPage: React.FC = () => {
   const { language } = useLanguage();
-  const { user, loading: authLoading } = useAuth();
+  const { user, profile, loading: authLoading } = useAuth();
   const reducedMotion = useReducedMotion();
 
   const [progress, setProgress] = useState<Record<string, LessonProgressRow>>({});
@@ -535,6 +585,7 @@ const LearnPage: React.FC = () => {
                   const completedCount = mentorLessons.filter(
                     (l) => progress[l.slug]?.status === 'completed',
                   ).length;
+                  const mentorPlanets = planetsByRobot(mentor.id);
                   return {
                     id: mentor.id,
                     idLine: loc(language, mentor.codeLabel),
@@ -546,11 +597,14 @@ const LearnPage: React.FC = () => {
                       icon: SUBJECT_ICONS[s.slug],
                       label: loc(language, s.label),
                     })),
-                    countsLine: mentorLessonsLine(
-                      language,
-                      mentorLessons.length,
-                      completedCount,
-                    ),
+                    countsLine:
+                      mentorLessons.length > 0
+                        ? mentorPlanets.length > 0
+                          ? `${mentorLessonsLine(language, mentorLessons.length, completedCount)} · ${planetsLine(language, mentorPlanets.length)}`
+                          : mentorLessonsLine(language, mentorLessons.length, completedCount)
+                        : mentorPlanets.length > 0
+                          ? planetsLine(language, mentorPlanets.length)
+                          : loc(language, SOON_BADGE),
                     recommended:
                       role !== 'teacher' &&
                       mentor.subjects.some((s) => recommendedSubjects.has(s)),
@@ -589,6 +643,60 @@ const LearnPage: React.FC = () => {
                   </p>
                 </div>
               </div>
+
+              {/* academy planets of this direction (Locus curriculum) */}
+              {(() => {
+                const mentorPlanets = planetsByRobot(activeMentor.id);
+                if (mentorPlanets.length === 0) return null;
+                return (
+                  <div className="mt-10">
+                    <h2 className="flex items-center gap-2 font-display text-lg font-bold tracking-tight text-ink sm:text-xl">
+                      <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-mist/30 text-teal-dark">
+                        <Sparkles className="h-4 w-4" aria-hidden="true" />
+                      </span>
+                      {loc(language, PLANETS_TITLE)}
+                    </h2>
+                    <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                      {mentorPlanets.map((planet, index) => {
+                        const Icon = planet.icon;
+                        const topics =
+                          pickGradeContent(planet.lessons, profile?.grade ?? null)?.sections
+                            .length ?? 0;
+                        return (
+                          <motion.div
+                            key={planet.slug}
+                            initial={reducedMotion ? { opacity: 0 } : { opacity: 0, y: 16 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, margin: '-40px' }}
+                            transition={{ duration: 0.4, delay: index * 0.05 }}
+                          >
+                            <Link
+                              to={`/learn/p/${planet.slug}`}
+                              className={`${FOCUS_RING} group flex h-full flex-col rounded-2xl border border-line/50 bg-white p-5 shadow-[0_1px_3px_rgba(17,26,42,0.04)] transition-all duration-200 hover:-translate-y-1 hover:border-teal/40 hover:shadow-[0_8px_30px_rgba(33,159,162,0.10)]`}
+                            >
+                              <div className="flex items-start justify-between gap-2">
+                                <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-mist/30 text-teal-dark">
+                                  <Icon className="h-5 w-5" aria-hidden="true" />
+                                </span>
+                                <ChevronRight
+                                  className="mt-0.5 h-4 w-4 shrink-0 text-slateink transition-colors group-hover:text-teal"
+                                  aria-hidden="true"
+                                />
+                              </div>
+                              <h3 className="mt-3 font-display text-base font-bold tracking-tight text-ink group-hover:text-teal-dark">
+                                {loc(language, planet.name)}
+                              </h3>
+                              <p className="mt-2 text-xs text-slateink">
+                                {topicsLine(language, topics)}
+                              </p>
+                            </Link>
+                          </motion.div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                );
+              })()}
 
               {LESSON_SUBJECTS.filter((subject) =>
                 activeMentor.subjects.includes(subject.slug),
@@ -690,6 +798,50 @@ const LearnPage: React.FC = () => {
               </div>
             );
           })}
+
+              {/* locked teaser cards for topics without lessons yet (NOV-06 only;
+                  NOV-05's content lives in its academy planets above) */}
+              {activeMentor.coming.length > 0 && (
+                <div className="mt-10">
+                  <h2 className="flex items-center gap-2 font-display text-lg font-bold tracking-tight text-ink sm:text-xl">
+                    <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-mist/30 text-teal-dark">
+                      <Lock className="h-4 w-4" aria-hidden="true" />
+                    </span>
+                    {loc(language, SOON_BADGE)}
+                  </h2>
+                  {activeMentor.subjects.length === 0 && (
+                    <p className="mt-2 max-w-2xl text-sm text-slateink sm:text-base">
+                      {loc(language, SOON_NOTE)}
+                    </p>
+                  )}
+                  <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                    {activeMentor.coming.map((topic, index) => (
+                      <motion.div
+                        key={loc(language, topic.title)}
+                        initial={reducedMotion ? { opacity: 0 } : { opacity: 0, y: 16 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: '-40px' }}
+                        transition={{ duration: 0.4, delay: index * 0.05 }}
+                      >
+                        <div className="flex h-full flex-col rounded-2xl border border-dashed border-line bg-mist/10 p-5">
+                          <div className="flex items-start justify-between gap-2">
+                            <h3 className="font-display text-base font-bold tracking-tight text-slateink">
+                              {loc(language, topic.title)}
+                            </h3>
+                            <span className="inline-flex shrink-0 items-center gap-1 rounded-full border border-line/60 px-2.5 py-1 text-[11px] font-semibold text-slateink">
+                              <Lock className="h-3 w-3" aria-hidden="true" />
+                              {loc(language, SOON_BADGE)}
+                            </span>
+                          </div>
+                          <p className="mt-1.5 text-sm text-slateink">
+                            {loc(language, topic.summary)}
+                          </p>
+                        </div>
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
           )}
         </section>

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 
 export type RobotId = 'nov1' | 'nov2' | 'nov3';
-/** Mentor robots for the /learn picker: Логик, Полиглот, Кибер. */
+/** Mentor robots for the /learn picker: Академик, Практик, Кибер. */
 export type MentorRobotId = 'nov4' | 'nov5' | 'nov6';
 type AnyRobotId = RobotId | MentorRobotId;
 

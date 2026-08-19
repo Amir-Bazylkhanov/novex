@@ -158,6 +158,11 @@ const DEMO_NOTE: Localized = {
   kk: 'Сыныпта әзірге оқушы жоқ, сондықтан демонстрациялық тізім көрсетілген.',
   en: 'There are no students in this class yet, so a demo roster is shown.',
 };
+const DEMO_STATS_BANNER: Localized = {
+  ru: 'Это демонстрационные данные — пример того, как будет выглядеть статистика. Реальный прогресс появится, когда ученики вашего класса начнут проходить уроки и модули.',
+  kk: 'Бұл демонстрациялық деректер — статистика қалай көрінетінінің мысалы. Сыныбыңыздың оқушылары сабақтар мен модульдерді өте бастағанда нақты үлгерім пайда болады.',
+  en: 'This is demo data — an example of what the statistics will look like. Real progress will appear once your class students start completing lessons and modules.',
+};
 
 const LESSONS_HEADING: Localized = {
   ru: 'Уроки класса',
@@ -2019,11 +2024,19 @@ const TeacherPage: React.FC = () => {
           </>
         )}
 
+        {/* demo-data notice: the stats, chart and curator card below are invented */}
+        <div className="mt-8 flex items-start gap-3 rounded-xl border border-line bg-mist/30 px-4 py-3">
+          <Info className="mt-0.5 h-4 w-4 shrink-0 text-slateink" aria-hidden="true" />
+          <p className="text-xs leading-relaxed text-slateink">
+            {loc(language, DEMO_STATS_BANNER)}
+          </p>
+        </div>
+
         {/* stat cards */}
         <motion.section
           {...sectionMotion(3)}
           aria-label={loc(language, PAGE_TITLE)}
-          className="mt-8"
+          className="mt-4"
         >
           <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
             <li className={`${CARD} flex items-center gap-4`}>
@@ -2034,7 +2047,12 @@ const TeacherPage: React.FC = () => {
                 <p className="font-display text-2xl font-extrabold text-teal-dark">
                   {classAverage}%
                 </p>
-                <p className="text-xs font-medium text-slateink">{loc(language, STAT_AVERAGE)}</p>
+                <div className="flex items-center gap-2">
+                  <p className="text-xs font-medium text-slateink">{loc(language, STAT_AVERAGE)}</p>
+                  <span className="rounded-full border border-line/60 px-2.5 py-0.5 text-[10px] font-semibold text-slateink">
+                    {loc(language, DEMO_MODULE)}
+                  </span>
+                </div>
               </div>
             </li>
             <li className={`${CARD} flex items-center gap-4`}>
@@ -2043,7 +2061,12 @@ const TeacherPage: React.FC = () => {
               </span>
               <div>
                 <p className="font-display text-2xl font-extrabold text-coral">{helpCount}</p>
-                <p className="text-xs font-medium text-slateink">{loc(language, STAT_HELP)}</p>
+                <div className="flex items-center gap-2">
+                  <p className="text-xs font-medium text-slateink">{loc(language, STAT_HELP)}</p>
+                  <span className="rounded-full border border-line/60 px-2.5 py-0.5 text-[10px] font-semibold text-slateink">
+                    {loc(language, DEMO_MODULE)}
+                  </span>
+                </div>
               </div>
             </li>
             <li className={`${CARD} flex items-center gap-4`}>
@@ -2054,7 +2077,12 @@ const TeacherPage: React.FC = () => {
                 <p className="font-display text-2xl font-extrabold text-teal-dark">
                   {WEEK_STATS.lessonsCompleted}
                 </p>
-                <p className="text-xs font-medium text-slateink">{loc(language, STAT_LESSONS)}</p>
+                <div className="flex items-center gap-2">
+                  <p className="text-xs font-medium text-slateink">{loc(language, STAT_LESSONS)}</p>
+                  <span className="rounded-full border border-line/60 px-2.5 py-0.5 text-[10px] font-semibold text-slateink">
+                    {loc(language, DEMO_MODULE)}
+                  </span>
+                </div>
               </div>
             </li>
             <li className={`${CARD} flex items-center gap-4`}>
@@ -2065,7 +2093,12 @@ const TeacherPage: React.FC = () => {
                 <p className="font-display text-2xl font-extrabold text-teal-dark">
                   {WEEK_STATS.avgMinutes} {loc(language, MIN_UNIT)}
                 </p>
-                <p className="text-xs font-medium text-slateink">{loc(language, STAT_TIME)}</p>
+                <div className="flex items-center gap-2">
+                  <p className="text-xs font-medium text-slateink">{loc(language, STAT_TIME)}</p>
+                  <span className="rounded-full border border-line/60 px-2.5 py-0.5 text-[10px] font-semibold text-slateink">
+                    {loc(language, DEMO_MODULE)}
+                  </span>
+                </div>
               </div>
             </li>
           </ul>
@@ -2074,12 +2107,17 @@ const TeacherPage: React.FC = () => {
         {/* chart + curator */}
         <motion.div {...sectionMotion(4)} className="mt-6 grid gap-6 lg:grid-cols-[3fr_2fr]">
           <section aria-labelledby="chart-heading" className={CARD}>
-            <h2
-              id="chart-heading"
-              className="font-display text-lg font-bold tracking-tight text-ink"
-            >
-              {loc(language, CHART_HEADING)}
-            </h2>
+            <div className="flex flex-wrap items-center gap-2">
+              <h2
+                id="chart-heading"
+                className="font-display text-lg font-bold tracking-tight text-ink"
+              >
+                {loc(language, CHART_HEADING)}
+              </h2>
+              <span className="rounded-full border border-line/60 px-2.5 py-0.5 text-[10px] font-semibold text-slateink">
+                {loc(language, DEMO_MODULE)}
+              </span>
+            </div>
             {/* accessible text alternative to the bar chart */}
             <table className="sr-only">
               <caption>{loc(language, CHART_HEADING)}</caption>
@@ -2133,12 +2171,17 @@ const TeacherPage: React.FC = () => {
                 <p className="font-mono text-[11px] font-semibold uppercase tracking-widest text-coral">
                   {loc(language, CURATOR_LABEL)}
                 </p>
-                <h2
-                  id="curator-heading"
-                  className="mt-0.5 font-display text-lg font-bold tracking-tight text-ink"
-                >
-                  {loc(language, CURATOR_HEADING)}
-                </h2>
+                <div className="mt-0.5 flex flex-wrap items-center gap-2">
+                  <h2
+                    id="curator-heading"
+                    className="font-display text-lg font-bold tracking-tight text-ink"
+                  >
+                    {loc(language, CURATOR_HEADING)}
+                  </h2>
+                  <span className="rounded-full border border-line/60 px-2.5 py-0.5 text-[10px] font-semibold text-slateink">
+                    {loc(language, DEMO_MODULE)}
+                  </span>
+                </div>
               </div>
             </div>
             <div className="mt-4 rounded-xl border border-coral/30 bg-coral/10 px-4 py-3">

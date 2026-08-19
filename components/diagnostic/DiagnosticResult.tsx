@@ -81,15 +81,10 @@ const GRADE_UP_BTN: Localized = {
   kk: 'Бір деңгей жоғары тестті тапсыру',
   en: 'Take the next-level test',
 };
-const OLYMPIAD_TRACK: Localized = {
-  ru: 'Все ответы верные на уровне 12 класса! Дальше — олимпиадный трек: обсуди план подготовки с NOV-03.',
-  kk: '12 сынып деңгейінде барлық жауап дұрыс! Бұдан әрі — олимпиадалық бағыт: дайындық жоспарын NOV-03-пен талқыла.',
-  en: 'All answers correct at grade-12 level! Next up — the olympiad track: discuss a preparation plan with NOV-03.',
-};
-const PROBE_ACED: Localized = {
-  ru: 'Ты уверенно решаешь задачи уровнем выше. Рассмотри олимпиадную подготовку — обсуди план с NOV-03.',
-  kk: 'Сен бір деңгей жоғары есептерді сенімді шешесің. Олимпиадалық дайындықты қарастыр — жоспарды NOV-03-пен талқыла.',
-  en: 'You solve above-level problems confidently. Consider olympiad preparation — discuss a plan with NOV-03.',
+const ACED_NEXT: Localized = {
+  ru: 'Все ответы верные! Дальше — пробный тест в формате ЕНТ и задания повышенной сложности. Если интересно — олимпиадный трек: обсуди план с NOV-03.',
+  kk: 'Барлық жауап дұрыс! Әрі қарай — ҰБТ форматындағы сынақ тесті мен күрделі деңгейдегі тапсырмалар. Қызық болса — олимпиадалық бағыт: жоспарды NOV-03-пен талқыла.',
+  en: 'All answers correct! Next up — a practice test in the UNT format and advanced-level tasks. If you are interested, there is the olympiad track: discuss a plan with NOV-03.',
 };
 const MIXED_LINE: Localized = {
   ru: 'Ровный результат, слабых тем нет — NOV-01 предложит задания посложнее.',
@@ -390,9 +385,9 @@ Give a personalized 3-5 sentence recommendation on what to do next, referencing 
                 </div>
               </>
             ) : r.score === r.total ? (
-              isProbe ? (
-                <p className="mt-1 text-sm text-ink">{loc(language, PROBE_ACED)}</p>
-              ) : studentGrade < 12 ? (
+              isProbe || studentGrade >= 12 ? (
+                <p className="mt-1 text-sm text-ink">{loc(language, ACED_NEXT)}</p>
+              ) : (
                 <div className="mt-2 rounded-xl border border-teal-light bg-teal/5 p-4">
                   <p className="text-sm text-ink">{gradeUpText(language, studentGrade)}</p>
                   <Link
@@ -403,8 +398,6 @@ Give a personalized 3-5 sentence recommendation on what to do next, referencing 
                     <ArrowRight className="h-4 w-4" aria-hidden="true" />
                   </Link>
                 </div>
-              ) : (
-                <p className="mt-1 text-sm text-ink">{loc(language, OLYMPIAD_TRACK)}</p>
               )
             ) : (
               <p className="mt-1 text-sm text-slateink">{loc(language, MIXED_LINE)}</p>

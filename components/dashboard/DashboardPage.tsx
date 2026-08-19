@@ -7,6 +7,7 @@ import {
   Bell,
   BookOpen,
   Calendar,
+  Compass,
   Sparkles,
   Target,
   TrendingUp,
@@ -104,15 +105,25 @@ const STRONG_NONE_TEXT: Localized = {
 };
 
 const GOAL_TITLE: Localized = { ru: 'Ближайшая цель', kk: 'Жақын мақсатың', en: 'Next goal' };
-const UNT_DATE_LINE: Localized = {
-  ru: 'Экзамен ЕНТ — 1 июня 2027',
-  kk: 'ҰБТ емтиханы — 1 маусым 2027',
-  en: 'UNT exam — June 1, 2027',
+const UNT_EXAM_LINE: Localized = {
+  ru: 'Экзамен ЕНТ — {date}',
+  kk: 'ҰБТ емтиханы — {date}',
+  en: 'UNT exam — {date}',
 };
 const UNT_CAPTION: Localized = {
   ru: 'до экзамена ЕНТ',
   kk: 'ҰБТ емтиханына дейін',
   en: 'until the UNT exam',
+};
+const UNT_CAPTION_APPROX: Localized = {
+  ru: 'примерно до ближайшего ЕНТ',
+  kk: 'ең жақын ҰБТ-ға дейін шамамен',
+  en: 'approximately until the nearest UNT',
+};
+const UNT_DATES_TBD: Localized = {
+  ru: 'даты уточняются',
+  kk: 'күндері нақтылануда',
+  en: 'dates to be confirmed',
 };
 const YOUR_GOAL: Localized = { ru: 'Твоя цель', kk: 'Мақсатың', en: 'Your goal' };
 const NO_GOAL: Localized = {
@@ -125,11 +136,6 @@ const GOAL_LABELS: Record<Goal, Localized> = {
   olympiad: { ru: 'Олимпиада', kk: 'Олимпиада', en: 'Olympiad' },
   revision: { ru: 'Повторение темы', kk: 'Тақырыпты қайталау', en: 'Topic revision' },
   admission: { ru: 'Поступление', kk: 'Оқуға түсу', en: 'Admission' },
-};
-const GOAL_COUNTDOWN: Localized = {
-  ru: 'осталось {n} {word}',
-  kk: '{n} {word} қалды',
-  en: '{n} {word} left',
 };
 const GOAL_TODAY: Localized = { ru: 'сегодня!', kk: 'бүгін!', en: 'today!' };
 const GOAL_OVERDUE: Localized = {
@@ -146,6 +152,36 @@ const GOAL_PLAN_LINK: Localized = {
   ru: 'План подготовки от NOV-03',
   kk: 'NOV-03 дайындық жоспары',
   en: 'Prep plan from NOV-03',
+};
+
+const CAREER_TITLE: Localized = {
+  ru: 'Профориентация',
+  kk: 'Кәсіби бағдар',
+  en: 'Career orientation',
+};
+const CAREER_PITCH: Localized = {
+  ru: 'Не знаешь, куда поступать? Пройди тест профориентации от NOV-01 — 18 вопросов, 5 минут.',
+  kk: 'Қайда оқуға түсеріңді білмейсің бе? NOV-01-дің кәсіби бағдар тестінен өт — 18 сұрақ, 5 минут.',
+  en: 'Not sure what to study? Take the NOV-01 career orientation test — 18 questions, 5 minutes.',
+};
+const CAREER_PROFILE_LINE: Localized = {
+  ru: 'Твой профиль: {profile}',
+  kk: 'Сенің профилің: {profile}',
+  en: 'Your profile: {profile}',
+};
+const CAREER_CTA_TEST: Localized = {
+  ru: 'Пройти тест',
+  kk: 'Тест тапсыру',
+  en: 'Take the test',
+};
+const CAREER_CTA_OPEN: Localized = { ru: 'Открыть', kk: 'Ашу', en: 'Open' };
+const CAREER_DIMENSION_LABELS: Record<string, Localized> = {
+  analyst: { ru: 'Аналитик', kk: 'Аналитик', en: 'Analyst' },
+  engineer: { ru: 'Инженер', kk: 'Инженер', en: 'Engineer' },
+  humanities: { ru: 'Гуманитарий', kk: 'Гуманитар', en: 'Humanist' },
+  communicator: { ru: 'Коммуникатор', kk: 'Коммуникатор', en: 'Communicator' },
+  creator: { ru: 'Творец', kk: 'Шығармашыл', en: 'Creator' },
+  organizer: { ru: 'Организатор', kk: 'Ұйымдастырушы', en: 'Organizer' },
 };
 
 const REMINDERS_TITLE: Localized = {
@@ -205,8 +241,23 @@ const SUBJECT_LABELS: Record<string, Localized> = {
 
 const DATE_LOCALE: Record<Lang, string> = { ru: 'ru-RU', kk: 'kk-KZ', en: 'en-GB' };
 
-/* The ЕНТ target is fixed for the MVP demo — clearly labelled as the exam date. */
-const ENT_TARGET = new Date('2027-06-01T00:00:00');
+/* ЕНТ sittings are approximate — official dates are confirmed by the testing
+   centre closer to each sitting, so never present them as exact. */
+interface EntSitting {
+  label: Localized;
+  date: string; // YYYY-MM-DD, approximate
+}
+
+const ENT_SITTINGS: EntSitting[] = [
+  {
+    label: { ru: 'Январское ЕНТ', kk: 'Қаңтарлық ҰБТ', en: 'January UNT' },
+    date: '2027-01-15',
+  },
+  {
+    label: { ru: 'Основное ЕНТ', kk: 'Негізгі ҰБТ', en: 'Main UNT' },
+    date: '2027-06-01',
+  },
+];
 
 /* --- shared classes --- */
 
@@ -244,6 +295,7 @@ interface DashboardData {
   hasPlan: boolean;
   hasTeacherModules: boolean;
   profileCreatedAt: string | null;
+  careerTop: string[] | null;
 }
 
 interface SubjectStat {
@@ -273,8 +325,14 @@ const buildSubjectStats = (lessons: LessonProgressRow[]): SubjectStat[] => {
   });
 };
 
-const daysUntilEnt = (): number =>
-  Math.max(0, Math.ceil((ENT_TARGET.getTime() - Date.now()) / 86_400_000));
+/* Nearest upcoming ЕНТ sitting with whole days to it, or null if all passed. */
+const nextEntSitting = (): (EntSitting & { days: number }) | null => {
+  for (const sitting of ENT_SITTINGS) {
+    const days = daysUntilDate(sitting.date);
+    if (days !== null && days >= 0) return { ...sitting, days };
+  }
+  return null;
+};
 
 /* Whole days from today to an ISO date (YYYY-MM-DD); negative means overdue. */
 const daysUntilDate = (iso: string): number | null => {
@@ -313,24 +371,26 @@ const DashboardPage: React.FC = () => {
     let cancelled = false;
     const load = async () => {
       try {
-        const [lessonsRes, diagRes, txRes, planRes, modulesRes, profileRes] = await Promise.all([
-          supabase
-            .from('lesson_progress')
-            .select('lesson_slug, subject, status, xp, completed_at'),
-          supabase
-            .from('diagnostic_results')
-            .select('subject, weak_topics, strong_topics, created_at')
-            .order('created_at', { ascending: false })
-            .limit(1),
-          supabase
-            .from('nova_transactions')
-            .select('amount, action_type, description, created_at')
-            .order('created_at', { ascending: false })
-            .limit(15),
-          supabase.from('study_plans').select('user_id').eq('user_id', user.id).maybeSingle(),
-          supabase.from('teacher_modules').select('id').limit(1),
-          supabase.from('profiles').select('created_at').eq('id', user.id).maybeSingle(),
-        ]);
+        const [lessonsRes, diagRes, txRes, planRes, modulesRes, profileRes, careerRes] =
+          await Promise.all([
+            supabase
+              .from('lesson_progress')
+              .select('lesson_slug, subject, status, xp, completed_at'),
+            supabase
+              .from('diagnostic_results')
+              .select('subject, weak_topics, strong_topics, created_at')
+              .order('created_at', { ascending: false })
+              .limit(1),
+            supabase
+              .from('nova_transactions')
+              .select('amount, action_type, description, created_at')
+              .order('created_at', { ascending: false })
+              .limit(15),
+            supabase.from('study_plans').select('user_id').eq('user_id', user.id).maybeSingle(),
+            supabase.from('teacher_modules').select('id').limit(1),
+            supabase.from('profiles').select('created_at').eq('id', user.id).maybeSingle(),
+            supabase.from('career_results').select('top').eq('user_id', user.id).maybeSingle(),
+          ]);
         if (cancelled) return;
         if (lessonsRes.error || diagRes.error) {
           setLoadError(true);
@@ -346,6 +406,13 @@ const DashboardPage: React.FC = () => {
         const profileRow = profileRes.error
           ? null
           : ((profileRes.data ?? null) as { created_at: string } | null);
+        const careerRow = careerRes.error
+          ? null
+          : ((careerRes.data ?? null) as { top: unknown } | null);
+        const careerTop =
+          careerRow && Array.isArray(careerRow.top)
+            ? careerRow.top.filter((t): t is string => typeof t === 'string')
+            : null;
         setData({
           lessons,
           diagnostic: diagRows[0] ?? null,
@@ -353,6 +420,7 @@ const DashboardPage: React.FC = () => {
           hasPlan: !planRes.error && planRes.data !== null,
           hasTeacherModules: !modulesRes.error && (modulesRes.data ?? []).length > 0,
           profileCreatedAt: profileRow?.created_at ?? null,
+          careerTop: careerTop && careerTop.length >= 2 ? careerTop.slice(0, 2) : null,
         });
       } catch {
         if (!cancelled) setLoadError(true);
@@ -406,11 +474,24 @@ const DashboardPage: React.FC = () => {
         .join(' · ')
     : '';
 
-  const days = daysUntilEnt();
   const examDays = profile.examDate ? daysUntilDate(profile.examDate) : null;
   // All selected goals, falling back to the legacy single-goal column.
   const displayGoals: Goal[] =
     profile.goals.length > 0 ? profile.goals : profile.goal ? [profile.goal] : [];
+  const hasEntGoal = displayGoals.includes('ent');
+  // Honest fallback when no exact exam date is set: the nearest upcoming
+  // sitting, always labelled approximate.
+  const sitting = examDays === null && hasEntGoal ? nextEntSitting() : null;
+  const formatDate = (iso: string): string => {
+    const d = new Date(`${iso}T00:00:00`);
+    return Number.isNaN(d.getTime())
+      ? iso
+      : d.toLocaleDateString(DATE_LOCALE[language], {
+          day: 'numeric',
+          month: 'long',
+          year: 'numeric',
+        });
+  };
 
   const reminders: Array<{ key: string; text: string; to: string | null }> = [];
   if (examDays !== null && examDays >= 0 && examDays <= 30) {
@@ -451,6 +532,15 @@ const DashboardPage: React.FC = () => {
   const greeting = displayName
     ? fill(loc(language, GREETING), { name: displayName })
     : loc(language, GREETING_FALLBACK);
+
+  const careerLabels = (data?.careerTop ?? [])
+    .map((key) => CAREER_DIMENSION_LABELS[key])
+    .filter((label): label is Localized => label !== undefined)
+    .map((label, i) => {
+      const name = loc(language, label);
+      return i === 0 ? name : name.toLowerCase();
+    });
+  const careerProfileName = careerLabels.join('-');
 
   return (
     <main className="relative min-h-screen bg-canvas font-sans text-ink">
@@ -748,19 +838,37 @@ const DashboardPage: React.FC = () => {
                   </h2>
                 </div>
 
-                <div className="mt-5 rounded-xl border border-teal/30 bg-teal/5 p-5">
-                  <p className="flex items-center gap-2 font-mono text-[11px] font-medium uppercase tracking-widest text-teal-dark">
-                    <Calendar className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
-                    {loc(language, UNT_DATE_LINE)}
-                  </p>
-                  <p className="mt-3 font-display text-4xl font-extrabold tracking-tight text-teal-dark sm:text-5xl">
-                    {days}{' '}
-                    <span className="text-xl font-bold text-ink sm:text-2xl">
-                      {daysWord(language, days)}
-                    </span>
-                  </p>
-                  <p className="mt-1 text-sm text-slateink">{loc(language, UNT_CAPTION)}</p>
-                </div>
+                {examDays !== null ? (
+                  <div className="mt-5 rounded-xl border border-teal/30 bg-teal/5 p-5">
+                    <p className="flex items-center gap-2 font-mono text-[11px] font-medium uppercase tracking-widest text-teal-dark">
+                      <Calendar className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
+                      {fill(loc(language, UNT_EXAM_LINE), { date: formatDate(profile.examDate ?? '') })}
+                    </p>
+                    <p className="mt-3 font-display text-4xl font-extrabold tracking-tight text-teal-dark sm:text-5xl">
+                      {Math.max(0, examDays)}{' '}
+                      <span className="text-xl font-bold text-ink sm:text-2xl">
+                        {daysWord(language, Math.max(0, examDays))}
+                      </span>
+                    </p>
+                    <p className="mt-1 text-sm text-slateink">{loc(language, UNT_CAPTION)}</p>
+                  </div>
+                ) : sitting ? (
+                  <div className="mt-5 rounded-xl border border-teal/30 bg-teal/5 p-5">
+                    <p className="flex items-center gap-2 font-mono text-[11px] font-medium uppercase tracking-widest text-teal-dark">
+                      <Calendar className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
+                      {loc(language, sitting.label)} · ~{formatDate(sitting.date)}
+                    </p>
+                    <p className="mt-3 font-display text-4xl font-extrabold tracking-tight text-teal-dark sm:text-5xl">
+                      ≈{sitting.days}{' '}
+                      <span className="text-xl font-bold text-ink sm:text-2xl">
+                        {daysWord(language, sitting.days)}
+                      </span>
+                    </p>
+                    <p className="mt-1 text-sm text-slateink">
+                      {loc(language, UNT_CAPTION_APPROX)} · {loc(language, UNT_DATES_TBD)}
+                    </p>
+                  </div>
+                ) : null}
 
                 {displayGoals.length > 0 ? (
                   <div className="mt-5 flex flex-wrap items-center gap-2">
@@ -780,23 +888,16 @@ const DashboardPage: React.FC = () => {
                   <p className="mt-5 text-sm text-slateink">{loc(language, NO_GOAL)}</p>
                 )}
 
-                {examDays !== null && (
+                {examDays !== null && examDays <= 0 && (
                   <p
                     className={`mt-3 text-sm font-semibold ${
                       examDays < 0 ? 'text-coral' : 'text-teal-dark'
                     }`}
                   >
-                    {examDays === 0
-                      ? loc(language, GOAL_TODAY)
-                      : examDays < 0
-                        ? loc(language, GOAL_OVERDUE)
-                        : fill(loc(language, GOAL_COUNTDOWN), {
-                            n: examDays,
-                            word: daysWord(language, examDays),
-                          })}
+                    {examDays === 0 ? loc(language, GOAL_TODAY) : loc(language, GOAL_OVERDUE)}
                   </p>
                 )}
-                {!profile.examDate && profile.goal && (
+                {examDays === null && sitting && (
                   <Link
                     to="/profile"
                     className={`${FOCUS_RING} mt-3 inline-block rounded-md text-sm font-medium text-slateink underline decoration-line underline-offset-4 transition-colors hover:text-teal`}
@@ -811,6 +912,36 @@ const DashboardPage: React.FC = () => {
                 >
                   {loc(language, GOAL_PLAN_LINK)}
                   <ArrowRight className="h-4 w-4 text-teal" aria-hidden="true" />
+                </Link>
+              </section>
+
+              {/* Профориентация */}
+              <section aria-labelledby="dash-career-heading" className={CARD}>
+                <div className="flex items-center gap-3">
+                  <span className={`${HEADING_ICON} bg-mist/40`}>
+                    <Compass className="h-5 w-5 text-teal-dark" aria-hidden="true" />
+                  </span>
+                  <h2
+                    id="dash-career-heading"
+                    className="font-display text-xl font-bold tracking-tight text-ink"
+                  >
+                    {loc(language, CAREER_TITLE)}
+                  </h2>
+                </div>
+
+                {careerProfileName ? (
+                  <div className="mt-4 flex items-start gap-4">
+                    <RobotAvatar robot="nov1" className="h-12 w-12 shrink-0" />
+                    <p className="text-sm font-medium text-ink">
+                      {fill(loc(language, CAREER_PROFILE_LINE), { profile: careerProfileName })}
+                    </p>
+                  </div>
+                ) : (
+                  <p className="mt-4 text-sm text-slateink">{loc(language, CAREER_PITCH)}</p>
+                )}
+                <Link to="/career" className={`${CTA_PRIMARY} mt-5`}>
+                  {loc(language, careerProfileName ? CAREER_CTA_OPEN : CAREER_CTA_TEST)}
+                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
                 </Link>
               </section>
 

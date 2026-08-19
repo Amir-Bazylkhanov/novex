@@ -1,11 +1,12 @@
 /**
  * Practice-session assembly + scoring for /practice (NOV-02 Наставник).
  *
- * Pure logic, no React. The question pool combines the placement-diagnostic
- * bank (constants/diagnosticData.ts) with the practice questions inside the
- * real lessons (constants/lessonData.ts). Both banks hand-verify their answer
- * keys; lesson questions additionally carry step-by-step explanations, which
- * are preserved into the session and shown in the review.
+ * Pure logic, no React. The question pool combines the full placement-
+ * diagnostic bank (ALL_DIAGNOSTIC_QUESTIONS in constants/diagnosticData.ts —
+ * all eight subjects) with the practice questions inside the real lessons
+ * (constants/lessonData.ts) where the subject has them. Both banks hand-
+ * verify their answer keys; lesson questions additionally carry step-by-step
+ * explanations, which are preserved into the session and shown in the review.
  *
  * Sessions are frozen on assembly: question order AND option order are
  * shuffled once, so a session persisted to sessionStorage restores with the
@@ -14,13 +15,12 @@
  * suspended time still counts down.
  */
 import {
-  DIAGNOSTIC_QUESTIONS,
+  ALL_DIAGNOSTIC_QUESTIONS,
   DIAGNOSTIC_SUBJECTS,
   type DiagnosticSubject,
 } from '../constants/diagnosticData.ts';
 import {
   LESSONS,
-  type LessonSubject,
   type QuestionDifficulty,
 } from '../constants/lessonData.ts';
 import type { Localized } from '../utils/i18n.ts';
@@ -41,7 +41,7 @@ export interface PracticeConfig {
 // correctIndex is remapped to the shuffled order, so scoring stays reliable.
 export interface PracticeSessionQuestion {
   id: string;
-  subject: LessonSubject;
+  subject: DiagnosticSubject;
   topicLabel: Localized;
   question: Localized;
   options: Localized[];
@@ -84,7 +84,7 @@ export interface PracticeResult {
 
 interface PoolQuestion {
   id: string;
-  subject: LessonSubject;
+  subject: DiagnosticSubject;
   topicLabel: Localized;
   question: Localized;
   options: Localized[];
@@ -103,7 +103,9 @@ const normalizeDifficulty = (
   return d;
 };
 
-const DIAGNOSTIC_POOL: PoolQuestion[] = DIAGNOSTIC_QUESTIONS.map((q) => ({
+// The full eight-subject diagnostic bank feeds the pool, so every subject on
+// the config screen has questions even where no lessons exist yet.
+const DIAGNOSTIC_POOL: PoolQuestion[] = ALL_DIAGNOSTIC_QUESTIONS.map((q) => ({
   id: q.id,
   subject: q.subject,
   topicLabel: q.topicLabel,

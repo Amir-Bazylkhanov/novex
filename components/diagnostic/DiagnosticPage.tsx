@@ -3,10 +3,15 @@ import { Link, useSearchParams } from 'react-router-dom';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import {
   Atom,
+  BookOpen,
   Calculator,
   Check,
   ChevronRight,
+  Cpu,
+  Dna,
+  FlaskConical,
   GraduationCap,
+  Landmark,
   Languages,
   ListChecks,
   Loader2,
@@ -130,11 +135,18 @@ const CHIP_OFF = 'border-line bg-white text-ink hover:border-teal/60 hover:text-
 
 const GRADES: readonly number[] = [7, 8, 9, 10, 11, 12];
 const MAX_SUBJECTS = 3;
+/** Questions asked per subject in one run (fewer when the grade band pool is smaller). */
+const QUESTIONS_PER_RUN = 10;
 
 const SUBJECT_ICONS: Record<DiagnosticSubject, React.ReactNode> = {
   math: <Calculator className="h-4 w-4" aria-hidden="true" />,
   physics: <Atom className="h-4 w-4" aria-hidden="true" />,
+  chemistry: <FlaskConical className="h-4 w-4" aria-hidden="true" />,
+  biology: <Dna className="h-4 w-4" aria-hidden="true" />,
+  informatics: <Cpu className="h-4 w-4" aria-hidden="true" />,
+  kazakh: <BookOpen className="h-4 w-4" aria-hidden="true" />,
   english: <Languages className="h-4 w-4" aria-hidden="true" />,
+  history: <Landmark className="h-4 w-4" aria-hidden="true" />,
 };
 
 const GOAL_OPTIONS: readonly { value: Goal; label: Localized; icon: React.ReactNode }[] = [
@@ -218,20 +230,28 @@ const DiagnosticPage: React.FC = () => {
   }, [profile, probeSubject]);
 
   const activeSubject = picked[subjectIndex];
+  // In probe mode the grade comes from the profile (the student already onboarded).
+  const effectiveGrade = grade ?? profile?.grade ?? null;
   // Options are shuffled ONCE per run (frozen in this memo) — answer records
   // key on question id and scoring uses the remapped correctIndex.
   const subjectQuestions = useMemo(() => {
+    const g = effectiveGrade ?? undefined;
     const bank = activeSubject
       ? probeSubject
-        ? hardQuestionsForSubject(activeSubject)
-        : questionsForSubject(activeSubject)
+        ? hardQuestionsForSubject(activeSubject, g)
+        : questionsForSubject(activeSubject, g)
       : [];
     return bank.map((q, i) => {
       const shuffled = shuffleOptions(q.options, q.correctIndex, runSeed * 31 + i + 1);
       return { ...q, options: shuffled.options, correctIndex: shuffled.correctIndex };
     });
-  }, [activeSubject, probeSubject, runSeed]);
+  }, [activeSubject, probeSubject, runSeed, effectiveGrade]);
   const currentQuestion = subjectQuestions[cursor] ?? null;
+  // A run is QUESTIONS_PER_RUN answers per subject, or the whole (band-filtered)
+  // pool when it is smaller. Probe runs always take the full hard-question pool.
+  const runLength = probeSubject
+    ? subjectQuestions.length
+    : Math.min(QUESTIONS_PER_RUN, subjectQuestions.length);
 
   // move focus to the question whenever it changes
   useEffect(() => {
@@ -299,13 +319,15 @@ const DiagnosticPage: React.FC = () => {
     const nextAsked = [...askedIds, currentQuestion.id];
     const nextStreak = correct ? Math.max(streak, 0) + 1 : Math.min(streak, 0) - 1;
 
-    // adaptive pick: two right in a row → hardest unasked, two wrong → easiest
+    // adaptive pick: two right in a row → hardest unasked, two wrong → easiest;
+    // the subject run ends after runLength answers or when the pool is exhausted
     const unasked = subjectQuestions
       .map((_, i) => i)
       .filter((i) => !nextAsked.includes(subjectQuestions[i].id));
+    const subjectDone = nextAsked.length >= runLength || unasked.length === 0;
     let next: number | null = null;
     let adapt: 'up' | 'down' | null = null;
-    if (unasked.length > 0) {
+    if (!subjectDone) {
       if (nextStreak >= 2) {
         adapt = 'up';
         next = unasked.reduce((best, i) => {
@@ -349,12 +371,20 @@ const DiagnosticPage: React.FC = () => {
     }
   };
 
-  const totalQuestions = probeSubject ? subjectQuestions.length : picked.length * 5;
+  const totalQuestions = probeSubject
+    ? subjectQuestions.length
+    : picked.reduce(
+        (sum, s) =>
+          sum +
+          Math.min(
+            QUESTIONS_PER_RUN,
+            questionsForSubject(s, effectiveGrade ?? undefined).length,
+          ),
+        0,
+      );
   const answeredCount = answers.length;
   const activeSubjectLabel =
     DIAGNOSTIC_SUBJECTS.find((s) => s.slug === activeSubject)?.label ?? { ru: '', kk: '', en: '' };
-  // In probe mode the grade comes from the profile (the student already onboarded).
-  const effectiveGrade = grade ?? profile?.grade ?? null;
 
   return (
     <main className="min-h-screen bg-canvas font-sans text-ink">

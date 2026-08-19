@@ -50,6 +50,16 @@ const TX_DIAGNOSTIC: Localized = {
 };
 const TX_LESSON: Localized = { ru: 'Урок пройден', kk: 'Сабақ аяқталды', en: 'Lesson completed' };
 const TX_TUTOR: Localized = { ru: 'Чат с Наставником', kk: 'Тәлімгермен чат', en: 'Tutor chat' };
+const TX_REFUND: Localized = {
+  ru: 'Возврат Новасов',
+  kk: 'Новас қайтарылды',
+  en: 'Novas refunded',
+};
+const TX_UNKNOWN: Localized = {
+  ru: 'Операция с Новасами',
+  kk: 'Новас операциясы',
+  en: 'Nova transaction',
+};
 
 const REL_TODAY: Localized = { ru: 'сегодня', kk: 'бүгін', en: 'today' };
 const REL_YESTERDAY: Localized = { ru: 'вчера', kk: 'кеше', en: 'yesterday' };
@@ -98,7 +108,8 @@ const txLabel = (language: Lang, tx: NovaTransactionRow): string => {
   if (tx.action_type === 'diagnostic') return loc(language, TX_DIAGNOSTIC);
   if (tx.action_type.startsWith('lesson_')) return loc(language, TX_LESSON);
   if (tx.action_type === 'tutor_chat') return loc(language, TX_TUTOR);
-  return tx.description?.trim() || tx.action_type;
+  if (tx.action_type.startsWith('refund')) return loc(language, TX_REFUND);
+  return loc(language, TX_UNKNOWN);
 };
 
 /* "today" / "yesterday" / "n days ago", then a plain date past a week. */

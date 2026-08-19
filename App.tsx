@@ -14,11 +14,14 @@ import ProfilePage from './components/ProfilePage.tsx';
 import DiagnosticPage from './components/diagnostic/DiagnosticPage.tsx';
 import DashboardPage from './components/dashboard/DashboardPage.tsx';
 import LearnPage from './components/learn/LearnPage.tsx';
+import PlanetPage from './components/learn/PlanetPage.tsx';
+import AcademyLessonPage from './components/learn/AcademyLessonPage.tsx';
 import LessonPage from './components/learn/LessonPage.tsx';
 import TeacherLessonPage from './components/learn/TeacherLessonPage.tsx';
 import TeacherPage from './components/teacher/TeacherPage.tsx';
 import PlanPage from './components/plan/PlanPage.tsx';
 import PracticePage from './components/practice/PracticePage.tsx';
+import CareerTestPage from './components/career/CareerTestPage.tsx';
 import TutorChat from './components/chat/TutorChat.tsx';
 import FeedbackWidget from './components/FeedbackWidget.tsx';
 import ProtectedRoute from './components/ProtectedRoute.tsx';
@@ -62,10 +65,13 @@ const Shell: React.FC = () => {
           <Route path="/dashboard" element={<DashboardPage />} />
           <Route path="/learn" element={<LearnPage />} />
           <Route path="/learn/class/:id" element={<TeacherLessonPage />} />
+          <Route path="/learn/p/:planet" element={<PlanetPage />} />
+          <Route path="/learn/p/:planet/:sectionIndex" element={<AcademyLessonPage />} />
           <Route path="/learn/:slug" element={<LessonPage />} />
           <Route path="/teacher" element={<TeacherPage />} />
           <Route path="/plan" element={<PlanPage />} />
           <Route path="/practice" element={<PracticePage />} />
+          <Route path="/career" element={<CareerTestPage />} />
         </Route>
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

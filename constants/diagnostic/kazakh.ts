@@ -1,0 +1,387 @@
+import type { DiagnosticQuestion } from './types.ts';
+
+/**
+ * kazakh (Қазақ тілі) — diagnostic question bank.
+ *
+ * Question stems stay in Kazakh with ru/en support translations (same
+ * contract as the english bank). Every answer key has been verified by
+ * hand — do not reorder options without updating `correctIndex`.
+ * gradeMin/gradeMax tag the honest curriculum band (7..12).
+ */
+export const KAZAKH_QUESTIONS: DiagnosticQuestion<'kazakh'>[] = [
+  {
+    id: 'kazakh-plural-kitap',
+    subject: 'kazakh',
+    topic: 'plural-forms',
+    topicLabel: {
+      ru: 'Множественное число',
+      kk: 'Көпше түр',
+      en: 'Plural forms',
+    },
+    question: {
+      ru: '«Кітап» сөзінің көпше түрінің дұрыс нұсқасы қайсы?',
+      kk: '«Кітап» сөзінің көпше түрінің дұрыс нұсқасы қайсы?',
+      en: '«Кітап» сөзінің көпше түрінің дұрыс нұсқасы қайсы?',
+    },
+    options: [
+      { ru: 'кітаптар', kk: 'кітаптар', en: 'кітаптар' },
+      { ru: 'кітаптер', kk: 'кітаптер', en: 'кітаптер' },
+      { ru: 'кітапдар', kk: 'кітапдар', en: 'кітапдар' },
+      { ru: 'кітаплер', kk: 'кітаплер', en: 'кітаплер' },
+    ],
+    correctIndex: 0, // қатаң даубыссыз «п»-дан кейін −тар жұрнағы жұрнақталады
+    difficulty: 1,
+    gradeMin: 7,
+    gradeMax: 8,
+  },
+  {
+    id: 'kazakh-future-tense',
+    subject: 'kazakh',
+    topic: 'verb-tenses',
+    topicLabel: {
+      ru: 'Времена глагола',
+      kk: 'Етістік шақтары',
+      en: 'Verb tenses',
+    },
+    question: {
+      ru: '«Жазар» етістігі келеші шақтың қай түрінде тұр?',
+      kk: '«Жазар» етістігі келеші шақтың қай түрінде тұр?',
+      en: '«Жазар» етістігі келеші шақтың қай түрінде тұр?',
+    },
+    options: [
+      { ru: 'Болжалды келеші шақ', kk: 'Болжалды келеші шақ', en: 'Болжалды келеші шақ' },
+      { ru: 'Нақты келеші шақ', kk: 'Нақты келеші шақ', en: 'Нақты келеші шақ' },
+      { ru: 'Ауыспалы келеші шақ', kk: 'Ауыспалы келеші шақ', en: 'Ауыспалы келеші шақ' },
+      { ru: 'Нақты өткен шақ', kk: 'Нақты өткен шақ', en: 'Нақты өткен шақ' },
+    ],
+    correctIndex: 0, // -ар/-ер/-р жұрнағы — болжалды келеші шақ
+    difficulty: 3,
+    gradeMin: 10,
+    gradeMax: 11,
+  },
+  {
+    id: 'kazakh-case-locative',
+    subject: 'kazakh',
+    topic: 'cases',
+    topicLabel: {
+      ru: 'Падежи',
+      kk: 'Септіктер',
+      en: 'Cases',
+    },
+    question: {
+      ru: 'В каком падеже стоит слово «Үйде»?',
+      kk: '«Үйде» сөзі қай септікте тұр?',
+      en: 'In which case is the word «Үйде»?',
+    },
+    options: [
+      { ru: 'жатыс септік (местный падеж)', kk: 'жатыс септік', en: 'жатыс септік (locative case)' },
+      { ru: 'барыс септік (дательный падеж)', kk: 'барыс септік', en: 'барыс септік (dative case)' },
+      { ru: 'шығыс септік (исходный падеж)', kk: 'шығыс септік', en: 'шығыс септік (ablative case)' },
+      { ru: 'көмектес септік (совместный падеж)', kk: 'көмектес септік', en: 'көмектес септік (comitative case)' },
+    ],
+    correctIndex: 0, // -де/-да/-те/-та жұрнағы — жатыс септік (кімде? неде?)
+    difficulty: 1,
+    gradeMin: 7,
+    gradeMax: 8,
+  },
+  {
+    id: 'kazakh-synonym-zhylam',
+    subject: 'kazakh',
+    topic: 'lexicon',
+    topicLabel: {
+      ru: 'Лексика',
+      kk: 'Лексика',
+      en: 'Lexicon',
+    },
+    question: {
+      ru: 'Какое слово является синонимом слова «Жылдам»?',
+      kk: '«Жылдам» сөзінің синонимі (мағынадас сөзі) қайсы?',
+      en: 'Which word is a synonym of «Жылдам»?',
+    },
+    options: [
+      { ru: 'шапшаң (быстрый)', kk: 'шапшаң', en: 'шапшаң (fast)' },
+      { ru: 'баяу (медленный)', kk: 'баяу', en: 'баяу (slow)' },
+      { ru: 'сақ (осторожный)', kk: 'сақ', en: 'сақ (careful)' },
+      { ru: 'ұзақ (долгий)', kk: 'ұзақ', en: 'ұзақ (long)' },
+    ],
+    correctIndex: 0, // жылдам = шапшаң — мағынадас сөздер
+    difficulty: 1,
+    gradeMin: 7,
+    gradeMax: 9,
+  },
+  {
+    id: 'kazakh-antonym-ystyk',
+    subject: 'kazakh',
+    topic: 'lexicon',
+    topicLabel: {
+      ru: 'Лексика',
+      kk: 'Лексика',
+      en: 'Lexicon',
+    },
+    question: {
+      ru: 'Какое слово является антонимом (противоположным по значению) слова «Ыстық»?',
+      kk: '«Ыстық» сөзінің антонимі (қарсы мағыналы сөзі) қайсы?',
+      en: 'Which word is an antonym of «Ыстық»?',
+    },
+    options: [
+      { ru: 'суық (холодный)', kk: 'суық', en: 'суық (cold)' },
+      { ru: 'жылы (тёплый)', kk: 'жылы', en: 'жылы (warm)' },
+      { ru: 'шуақты (солнечный)', kk: 'шуақты', en: 'шуақты (sunny)' },
+      { ru: 'қыспақ (тесный)', kk: 'қыспақ', en: 'қыспақ (tight)' },
+    ],
+    correctIndex: 0, // ыстық ↔ суық — антонимдер
+    difficulty: 1,
+    gradeMin: 7,
+    gradeMax: 8,
+  },
+  {
+    id: 'kazakh-subject-sentence',
+    subject: 'kazakh',
+    topic: 'syntax',
+    topicLabel: {
+      ru: 'Синтаксис',
+      kk: 'Синтаксис',
+      en: 'Syntax',
+    },
+    question: {
+      ru: 'Какое слово является подлежащим в предложении «Балалар аулада доп ойнады»?',
+      kk: '«Балалар аулада доп ойнады» сөйлеміндегі бастауыш қай сөз?',
+      en: 'Which word is the subject in the sentence «Балалар аулада доп ойнады»?',
+    },
+    options: [
+      { ru: 'балалар', kk: 'балалар', en: 'балалар' },
+      { ru: 'аулада', kk: 'аулада', en: 'аулада' },
+      { ru: 'доп', kk: 'доп', en: 'доп' },
+      { ru: 'ойнады', kk: 'ойнады', en: 'ойнады' },
+    ],
+    correctIndex: 0, // бастауыш — іс-әрекетті орындайтын мүше: «балалар» (ойнады — баяндауыш)
+    difficulty: 2,
+    gradeMin: 7,
+    gradeMax: 9,
+  },
+  {
+    id: 'kazakh-personal-ending',
+    subject: 'kazakh',
+    topic: 'personal-endings',
+    topicLabel: {
+      ru: 'Личные окончания глагола',
+      kk: 'Жіктік жалғау',
+      en: 'Personal endings',
+    },
+    question: {
+      ru: 'Присоедините правильное личное окончание: «Біз ертең қалаға бар___»',
+      kk: '«Біз ертең қалаға бар___» сөйлеміндегі етістікке жіктік жалғауды дұрыс жалғаңыз.',
+      en: 'Attach the correct personal ending: «Біз ертең қалаға бар___»',
+    },
+    options: [
+      { ru: 'барамыз', kk: 'барамыз', en: 'барамыз' },
+      { ru: 'барасыздар', kk: 'барасыздар', en: 'барасыздар' },
+      { ru: 'барады', kk: 'барады', en: 'барады' },
+      { ru: 'барамын', kk: 'барамын', en: 'барамын' },
+    ],
+    correctIndex: 0, // «біз» жыгасына -мыз/-міз жіктік жалғауы жалғанады
+    difficulty: 2,
+    gradeMin: 8,
+    gradeMax: 10,
+  },
+  {
+    id: 'kazakh-word-formation-shy',
+    subject: 'kazakh',
+    topic: 'word-formation',
+    topicLabel: {
+      ru: 'Словообразование',
+      kk: 'Сөзжасам',
+      en: 'Word formation',
+    },
+    question: {
+      ru: 'В каком слове есть суффикс -шы/-ші, обозначающий название лица?',
+      kk: 'Қай сөзде адам атауын білдіретін -шы/-ші жұрнағы бар?',
+      en: 'Which word contains the suffix -шы/-ші denoting a person?',
+    },
+    options: [
+      { ru: 'жазушы', kk: 'жазушы', en: 'жазушы' },
+      { ru: 'жазады', kk: 'жазады', en: 'жазады' },
+      { ru: 'жазу', kk: 'жазу', en: 'жазу' },
+      { ru: 'жазғы', kk: 'жазғы', en: 'жазғы' },
+    ],
+    correctIndex: 0, // жазу + шы = жазушы — адам атауы (writer)
+    difficulty: 2,
+    gradeMin: 8,
+    gradeMax: 10,
+  },
+  {
+    id: 'kazakh-compound-sentence',
+    subject: 'kazakh',
+    topic: 'syntax',
+    topicLabel: {
+      ru: 'Синтаксис',
+      kk: 'Синтаксис',
+      en: 'Syntax',
+    },
+    question: {
+      ru: '«Күн батты, түн түсті» — какой это тип предложения?',
+      kk: '«Күн батты, түн түсті» — бұл қандай сөйлем?',
+      en: '«Күн батты, түн түсті» — what type of sentence is this?',
+    },
+    options: [
+      { ru: 'салалас күрделі сөйлем (бессоюзное сложное)', kk: 'салалас күрделі сөйлем', en: 'салалас күрделі сөйлем (asyndetic compound)' },
+      { ru: 'орайлас күрделі сөйлем (сложноподчинённое)', kk: 'орайлас күрделі сөйлем', en: 'орайлас күрделі сөйлем (complex)' },
+      { ru: 'аралас күрделі сөйлем (смешанное сложное)', kk: 'аралас күрделі сөйлем', en: 'аралас күрделі сөйлем (mixed compound)' },
+      { ru: 'қарапайым сөйлем (простое)', kk: 'қарапайым сөйлем', en: 'қарапайым сөйлем (simple)' },
+    ],
+    correctIndex: 0, // екі қарапайым сөйлем жалғаулықсыз, тең дәрежелі байланысқан — салалас
+    difficulty: 2,
+    gradeMin: 9,
+    gradeMax: 10,
+  },
+  {
+    id: 'kazakh-phraseology-tas-zhurek',
+    subject: 'kazakh',
+    topic: 'lexicon',
+    topicLabel: {
+      ru: 'Лексика',
+      kk: 'Лексика',
+      en: 'Lexicon',
+    },
+    question: {
+      ru: 'Что означает фразеологизм «Тас жүрек»?',
+      kk: '«Тас жүрек» фразеологизмі нені білдіреді?',
+      en: 'What does the phraseologism «Тас жүрек» mean?',
+    },
+    options: [
+      { ru: 'мейірімсіз адам (бессердечный человек)', kk: 'мейірімсіз адам', en: 'мейірімсіз адам (a heartless person)' },
+      { ru: 'мейірімді адам (добрый человек)', kk: 'мейірімді адам', en: 'мейірімді адам (a kind person)' },
+      { ru: 'батыл адам (смелый человек)', kk: 'батыл адам', en: 'батыл адам (a brave person)' },
+      { ru: 'күшті адам (сильный человек)', kk: 'күшті адам', en: 'күшті адам (a strong person)' },
+    ],
+    correctIndex: 0, // «тас жүрек» — қатыгез, мейірімсіз адам
+    difficulty: 2,
+    gradeMin: 9,
+    gradeMax: 11,
+  },
+  {
+    id: 'kazakh-case-comitative',
+    subject: 'kazakh',
+    topic: 'cases',
+    topicLabel: {
+      ru: 'Падежи',
+      kk: 'Септіктер',
+      en: 'Cases',
+    },
+    question: {
+      ru: 'Правильно присоедините окончание совместного падежа: «Ол мен___ кеңес сұрады»',
+      kk: '«Ол мен___ кеңес сұрады» сөйлеміне көмектес септік жалғауын дұрыс жалғаңыз.',
+      en: 'Attach the correct comitative case ending: «Ол мен___ кеңес сұрады»',
+    },
+    options: [
+      { ru: 'менімен', kk: 'менімен', en: 'менімен' },
+      { ru: 'менен', kk: 'менен', en: 'менен' },
+      { ru: 'менде', kk: 'менде', en: 'менде' },
+      { ru: 'мені', kk: 'мені', en: 'мені' },
+    ],
+    correctIndex: 0, // көмектес септік -мен/-бен/-пен; «мен» езікшеленеді: мен + імен → менімен
+    difficulty: 3,
+    gradeMin: 10,
+    gradeMax: 12,
+  },
+  {
+    id: 'kazakh-gerund-okyp',
+    subject: 'kazakh',
+    topic: 'verb-forms',
+    topicLabel: {
+      ru: 'Формы глагола',
+      kk: 'Етістік есімдері',
+      en: 'Verb forms',
+    },
+    question: {
+      ru: 'К какой части речи относится слово «оқып» в предложении «Ұлым хатты оқып болды»?',
+      kk: '«Ұлым хатты оқып болды» сөйлеміндегі «оқып» сөзі қай сөз табына жатады?',
+      en: 'Which part of speech is the word «оқып» in the sentence «Ұлым хатты оқып болды»?',
+    },
+    options: [
+      { ru: 'көсемше (деепричастие)', kk: 'көсемше', en: 'көсемше (converb/gerund)' },
+      { ru: 'есімше (причастие)', kk: 'есімше', en: 'есімше (participle)' },
+      { ru: 'етістік (глагол)', kk: 'етістік', en: 'етістік (verb)' },
+      { ru: 'үстеу (наречие)', kk: 'үстеу', en: 'үстеу (adverb)' },
+    ],
+    correctIndex: 0, // -ып/-іп/-п жұрнағы — көсемше: қимылдың сүйелдігін білдіреді
+    difficulty: 2,
+    gradeMin: 9,
+    gradeMax: 11,
+  },
+  {
+    id: 'kazakh-text-abai',
+    subject: 'kazakh',
+    topic: 'text-comprehension',
+    topicLabel: {
+      ru: 'Понимание текста',
+      kk: 'Мәтінді түсіну',
+      en: 'Text comprehension',
+    },
+    question: {
+      ru: 'Прочитайте текст: «Абай Құнанбайұлы 1845 жылы қазіргі Абай ауданында дүниеге келген. Ол — ұлы ақын, ағартушы, композитор». Вопрос: в каком году родился Абай?',
+      kk: 'Мәтінді оқыңыз: «Абай Құнанбайұлы 1845 жылы қазіргі Абай ауданында дүниеге келген. Ол — ұлы ақын, ағартушы, композитор». Сұрақ: Абай қай жылы дүниеге келген?',
+      en: 'Read the text: «Абай Құнанбайұлы 1845 жылы қазіргі Абай ауданында дүниеге келген. Ол — ұлы ақын, ағартушы, композитор». Question: in which year was Abai born?',
+    },
+    options: [
+      { ru: '1845', kk: '1845', en: '1845' },
+      { ru: '1904', kk: '1904', en: '1904' },
+      { ru: '1844', kk: '1844', en: '1844' },
+      { ru: '1854', kk: '1854', en: '1854' },
+    ],
+    correctIndex: 0, // мәтінде «1845 жылы дүниеге келген» деп айтылған (1904 — қайтыс болған жылы)
+    difficulty: 2,
+    gradeMin: 9,
+    gradeMax: 11,
+  },
+  {
+    id: 'kazakh-text-science',
+    subject: 'kazakh',
+    topic: 'text-comprehension',
+    topicLabel: {
+      ru: 'Понимание текста',
+      kk: 'Мәтінді түсіну',
+      en: 'Text comprehension',
+    },
+    question: {
+      ru: 'Прочитайте текст: «Ғылым — адамзаттың көп ғасырлық тәжірибесінің қорытындысы. Оны меңгеру үшін табандылық пен қажырлы еңбек керек». Какова основная мысль текста?',
+      kk: 'Мәтінді оқыңыз: «Ғылым — адамзаттың көп ғасырлық тәжірибесінің қорытындысы. Оны меңгеру үшін табандылық пен қажырлы еңбек керек». Мәтіннің негізгі ойы қандай?',
+      en: 'Read the text: «Ғылым — адамзаттың көп ғасырлық тәжірибесінің қорытындысы. Оны меңгеру үшін табандылық пен қажырлы еңбек керек». What is the main idea of the text?',
+    },
+    options: [
+      { ru: 'Ғылымды меңгеру табанды еңбекті қажет етеді', kk: 'Ғылымды меңгеру табанды еңбекті қажет етеді', en: 'Ғылымды меңгеру табанды еңбекті қажет етеді' },
+      { ru: 'Ғылым тек оқырмандарға ғана керек', kk: 'Ғылым тек оқырмандарға ғана керек', en: 'Ғылым тек оқырмандарға ғана керек' },
+      { ru: 'Ғылым ешқандай еңбекті қажет етпейді', kk: 'Ғылым ешқандай еңбекті қажет етпейді', en: 'Ғылым ешқандай еңбекті қажет етпейді' },
+      { ru: 'Тәжірибе ғылымға кері әсер етеді', kk: 'Тәжірибе ғылымға кері әсер етеді', en: 'Тәжірибе ғылымға кері әсер етеді' },
+    ],
+    correctIndex: 0, // мәтінде ғылымды меңгеру үшін табандылық пен еңбек керектігі айтылған
+    difficulty: 3,
+    gradeMin: 10,
+    gradeMax: 12,
+  },
+  {
+    id: 'kazakh-word-formation-kuanysh',
+    subject: 'kazakh',
+    topic: 'word-formation',
+    topicLabel: {
+      ru: 'Словообразование',
+      kk: 'Сөзжасам',
+      en: 'Word formation',
+    },
+    question: {
+      ru: 'В каком слове есть словообразовательный суффикс?',
+      kk: 'Қай сөзде туынды сөз жасайтын жұрнақ бар?',
+      en: 'Which word contains a derivational suffix?',
+    },
+    options: [
+      { ru: 'қуаныш', kk: 'қуаныш', en: 'қуаныш' },
+      { ru: 'қуану', kk: 'қуану', en: 'қуану' },
+      { ru: 'үй', kk: 'үй', en: 'үй' },
+      { ru: 'су', kk: 'су', en: 'су' },
+    ],
+    correctIndex: 0, // -ыш — туынды сөз жасайтын жұрнақ: қуану + ыш = қуаныш; қалғандары — түбір сөздер
+    difficulty: 3,
+    gradeMin: 11,
+    gradeMax: 12,
+  },
+];

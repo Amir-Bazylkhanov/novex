@@ -509,7 +509,7 @@ const ProfilePage: React.FC = () => {
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (!dirty || saving || examErrors) return;
+    if (!dirty || saving) return;
     setSaving(true);
     setError(null);
     setSaved(false);
@@ -522,7 +522,9 @@ const ProfilePage: React.FC = () => {
       school: form.school.trim() || null,
       region: form.region.trim() || null,
       examDate: form.examDate || null,
-      examScores: buildExamScores(form),
+      // invalid score input stays in the field for correcting, so the rest of
+      // the profile saves while the exam_scores column stays untouched
+      ...(examErrors ? {} : { examScores: buildExamScores(form) }),
       preferredModel: form.preferredModel,
     };
     const { error: saveError } = await updateProfile(patch);
@@ -1119,7 +1121,7 @@ const ProfilePage: React.FC = () => {
           <div className="flex flex-wrap items-center gap-3 lg:col-span-2">
             <button
               type="submit"
-              disabled={!dirty || saving || examErrors}
+              disabled={!dirty || saving}
               className={`${FOCUS_RING} inline-flex items-center gap-2 rounded-xl bg-teal px-6 py-3 text-sm font-semibold text-white shadow-[0_4px_14px_rgba(33,159,162,0.25)] transition-colors hover:bg-teal-dark disabled:cursor-not-allowed disabled:border disabled:border-line disabled:bg-white disabled:text-slateink disabled:shadow-none`}
             >
               {saving ? (
