@@ -78,9 +78,9 @@ const CTA_DIAG: Localized = {
   en: 'Take the diagnostic',
 };
 const ROBOT_LABEL: Localized = {
-  ru: 'NOV-01 · Диагност',
-  kk: 'NOV-01 · Диагност',
-  en: 'NOV-01 · Diagnostician',
+  ru: 'NOV-01 · Академик',
+  kk: 'NOV-01 · Академик',
+  en: 'NOV-01 · Academic',
 };
 const ROBOT_ADVICE: Localized = {
   ru: 'Начни с темы «{topic}» — закрой этот пробел первым.',
@@ -149,9 +149,9 @@ const GOAL_NO_DATE_HINT: Localized = {
   en: 'Set the exam date in your profile to see a countdown',
 };
 const GOAL_PLAN_LINK: Localized = {
-  ru: 'План подготовки от NOV-03',
-  kk: 'NOV-03 дайындық жоспары',
-  en: 'Prep plan from NOV-03',
+  ru: 'План подготовки от NOV-01',
+  kk: 'NOV-01 дайындық жоспары',
+  en: 'Prep plan from NOV-01',
 };
 
 const CAREER_TITLE: Localized = {
@@ -218,9 +218,9 @@ const CONTINUE_TITLE: Localized = {
   en: 'Continue learning',
 };
 const CONTINUE_TEXT: Localized = {
-  ru: 'NOV-02 Наставник подберёт задания под твой уровень и объяснит каждую ошибку.',
-  kk: 'NOV-02 Тәлімгер деңгейіңе сай тапсырмалар таңдап, әр қатені түсіндіреді.',
-  en: 'NOV-02 Tutor will pick tasks for your level and explain every mistake.',
+  ru: 'NOV-01 Академик подберёт задания под твой уровень и объяснит каждую ошибку.',
+  kk: 'NOV-01 Академик деңгейіңе сай тапсырмалар таңдап, әр қатені түсіндіреді.',
+  en: 'NOV-01 the Academic will pick tasks for your level and explain every mistake.',
 };
 const CTA_LESSONS: Localized = {
   ru: 'Перейти к урокам',

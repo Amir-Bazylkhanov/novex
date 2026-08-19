@@ -1,7 +1,7 @@
 import type { Localized } from '../utils/i18n.ts';
 
 /**
- * NOV-02 Наставник — scripted response bank for the chat widget demo.
+ * NOV-01 Академик — scripted response bank for the chat widget demo.
  *
  * HONESTY NOTE: there is no live AI backend wired up in this project (the
  * provider keys live on a different Supabase project). These are pre-written,

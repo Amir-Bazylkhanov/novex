@@ -1,7 +1,7 @@
 import type { Localized } from '../../utils/i18n.ts';
 
 /**
- * Shared types for the NOV-01 diagnostic question bank.
+ * Shared types for the NOV-01 Академик diagnostic question bank.
  *
  * Kept in a separate module so the per-subject banks (./math.ts, …) can
  * import them without an import cycle: ../diagnosticData.ts aggregates all

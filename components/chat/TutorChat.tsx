@@ -11,7 +11,7 @@ import { askTutor, type TutorModel } from '../../services/aiService.ts';
 import { spendNovas } from '../../services/novasService.ts';
 
 /**
- * Floating AI tutor chat widget (NOV-02 Наставник).
+ * Floating AI tutor chat widget (NOV-01 Академик).
  *
  * Live backend: the widget calls the Novex edge function `ai-chat` via
  * `services/aiService.ts`, which relays through the Locus `novex-ai` function
@@ -26,9 +26,9 @@ import { spendNovas } from '../../services/novasService.ts';
  */
 
 const UNIT_LABEL: Localized = {
-  ru: 'NOV-02 · НАСТАВНИК',
-  kk: 'NOV-02 · ТӘЛІМГЕР',
-  en: 'NOV-02 · TUTOR',
+  ru: 'NOV-01 · АКАДЕМИК',
+  kk: 'NOV-01 · АКАДЕМИК',
+  en: 'NOV-01 · ACADEMIC',
 };
 
 const INTRO_TEXT: Localized = {
@@ -50,15 +50,15 @@ const INPUT_PLACEHOLDER: Localized = {
 };
 
 const TYPING_LABEL: Localized = {
-  ru: 'Наставник думает…',
-  kk: 'Тәлімгер ойлануда…',
-  en: 'The Tutor is thinking…',
+  ru: 'Академик думает…',
+  kk: 'Академик ойлануда…',
+  en: 'The Academic is thinking…',
 };
 
 const ARIA_OPEN_CHAT: Localized = {
-  ru: 'Открыть чат с Наставником',
-  kk: 'Тәлімгермен чатты ашу',
-  en: 'Open chat with the Tutor',
+  ru: 'Открыть чат с Академиком',
+  kk: 'Академикпен чатты ашу',
+  en: 'Open chat with the Academic',
 };
 
 const ARIA_CLOSE_CHAT: Localized = {
@@ -80,9 +80,9 @@ const ARIA_MESSAGES: Localized = {
 };
 
 const ARIA_PANEL: Localized = {
-  ru: 'Чат с ИИ-наставником NOV-02',
-  kk: 'NOV-02 ИИ-тәлімгермен чат',
-  en: 'Chat with the NOV-02 AI tutor',
+  ru: 'Чат с Академиком NOV-01',
+  kk: 'NOV-01 Академикпен чат',
+  en: 'Chat with NOV-01 the Academic',
 };
 
 const ARIA_MODEL_SWITCHER: Localized = {
@@ -128,9 +128,9 @@ const MODEL_HINTS: Record<TutorModel, Localized> = {
 };
 
 const SIGNIN_PROMPT: Localized = {
-  ru: 'Чтобы задавать вопросы Наставнику, войди в аккаунт — это бесплатно.',
-  kk: 'Тәлімгерге сұрақ қою үшін аккаунтқа кір — бұл тегін.',
-  en: 'Sign in to ask the Tutor questions — it is free.',
+  ru: 'Чтобы задавать вопросы Академику, войди в аккаунт — это бесплатно.',
+  kk: 'Академикке сұрақ қою үшін аккаунтқа кір — бұл тегін.',
+  en: 'Sign in to ask the Academic questions — it is free.',
 };
 
 const SIGNIN_CTA: Localized = {
@@ -187,11 +187,11 @@ function loadModel(preferred: TutorModel | null | undefined): TutorModel {
   return storedModel() ?? preferred ?? 'claude-sonnet-5';
 }
 
-/** System prompt for NOV-02, telling the model which UI language to answer in. */
+/** System prompt for NOV-01, telling the model which UI language to answer in. */
 function buildSystemPrompt(language: Lang): string {
   const langName = language === 'ru' ? 'Russian' : language === 'kk' ? 'Kazakh' : 'English';
   return [
-    'You are NOV-02 "Наставник" (Tutor), a patient AI tutor for Kazakhstani school students in grades 7–12.',
+    'You are NOV-01 "Академик" (Academic), a patient AI tutor for Kazakhstani school students in grades 7–12.',
     'Explain everything step by step, in a friendly and encouraging tone, at a level a school student can follow.',
     `Always answer in ${langName} — the user’s current interface language.`,
     'Never just give the final answer without the reasoning: show the steps first, then the answer, and invite a follow-up question.',
@@ -450,7 +450,7 @@ const TutorChat: React.FC = () => {
             {/* header */}
             <div className="border-b border-line/40 bg-canvas px-4 py-3">
               <div className="flex items-center gap-3">
-                <RobotAvatar robot="nov2" className="h-10 w-10 shrink-0" />
+                <RobotAvatar robot="nov1" className="h-10 w-10 shrink-0" />
                 <div className="min-w-0 flex-1">
                   <span className="font-mono text-[11px] font-semibold uppercase tracking-widest text-teal">
                     {loc(language, UNIT_LABEL)}
@@ -536,7 +536,7 @@ const TutorChat: React.FC = () => {
               {messages.length === 0 && (
                 <>
                   <div className="flex items-start gap-2.5">
-                    <RobotAvatar robot="nov2" className="h-8 w-8 shrink-0" />
+                    <RobotAvatar robot="nov1" className="h-8 w-8 shrink-0" />
                     <div className="max-w-[85%] rounded-2xl rounded-tl-md border border-line/50 bg-white px-3.5 py-2.5 text-sm leading-relaxed text-ink shadow-[0_1px_3px_rgba(17,26,42,0.04)]">
                       {loc(language, INTRO_TEXT)}
                     </div>
@@ -602,7 +602,7 @@ const TutorChat: React.FC = () => {
                   </div>
                 ) : (
                   <div key={msg.id} className="flex items-start gap-2.5">
-                    <RobotAvatar robot="nov2" className="h-8 w-8 shrink-0" />
+                    <RobotAvatar robot="nov1" className="h-8 w-8 shrink-0" />
                     <div className="max-w-[85%] rounded-2xl rounded-tl-md border border-line/50 bg-white px-3.5 py-2.5 shadow-[0_1px_3px_rgba(17,26,42,0.04)]">
                       <div className="text-sm leading-relaxed text-ink">
                         {renderTutorText(msg.text)}
@@ -614,7 +614,7 @@ const TutorChat: React.FC = () => {
 
               {typing && (
                 <div className="flex items-start gap-2.5">
-                  <RobotAvatar robot="nov2" className="h-8 w-8 shrink-0" />
+                  <RobotAvatar robot="nov1" className="h-8 w-8 shrink-0" />
                   <div className="flex items-center gap-2 rounded-2xl rounded-tl-md border border-line/50 bg-white px-3.5 py-2.5 shadow-[0_1px_3px_rgba(17,26,42,0.04)]">
                     <span className="flex gap-1" aria-hidden="true">
                       <span className="h-1.5 w-1.5 rounded-full bg-teal/60 motion-safe:animate-pulse" />

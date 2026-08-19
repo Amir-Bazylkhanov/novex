@@ -42,9 +42,9 @@ import {
 
 const WORDMARK: Localized = { ru: 'Novex', kk: 'Novex', en: 'Novex' };
 const ROBOT_LABEL: Localized = {
-  ru: 'NOV-01 · Диагност',
-  kk: 'NOV-01 · Диагност',
-  en: 'NOV-01 · Diagnostician',
+  ru: 'NOV-01 · Академик',
+  kk: 'NOV-01 · Академик',
+  en: 'NOV-01 · Academic',
 };
 const LOADING: Localized = {
   ru: 'Загружаем…',

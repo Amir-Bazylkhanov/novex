@@ -48,9 +48,9 @@ const ITEMS: FaqItem[] = [
       en: 'Is it free for students and schools?',
     },
     a: {
-      ru: 'Да. Базовый тариф для ученика бесплатен навсегда, а государственные школы получают панель учителя и аналитику полностью бесплатно. Платный тариф «Про» нужен только для безлимитного ИИ-наставника и полной подготовки к ЕНТ.',
-      kk: 'Иә. Оқушыға арналған базалық тариф мәңгілікке тегін, ал мемлекеттік мектептер мұғалім панелі мен аналитиканы толығымен тегін алады. Ақылы «Про» тарифі тек шексіз ИИ-тәлімгер мен ҰБТ-ға толық дайындық үшін қажет.',
-      en: 'Yes. The basic student plan is free forever, and state schools get the teacher panel and analytics completely free. The paid Pro plan is only for the unlimited AI tutor and full UNT preparation.',
+      ru: 'Да. Базовый тариф для ученика бесплатен навсегда, а государственные школы получают панель учителя и аналитику полностью бесплатно. Платный тариф «Про» нужен только для безлимитного чата с Академиком и полной подготовки к ЕНТ.',
+      kk: 'Иә. Оқушыға арналған базалық тариф мәңгілікке тегін, ал мемлекеттік мектептер мұғалім панелі мен аналитиканы толығымен тегін алады. Ақылы «Про» тарифі тек Академикпен шексіз чат пен ҰБТ-ға толық дайындық үшін қажет.',
+      en: 'Yes. The basic student plan is free forever, and state schools get the teacher panel and analytics completely free. The paid Pro plan is only for unlimited chat with the Academic and full UNT preparation.',
     },
   },
   {
@@ -60,9 +60,9 @@ const ITEMS: FaqItem[] = [
       en: 'Which languages does the platform work in?',
     },
     a: {
-      ru: 'На казахском, русском и английском. Язык можно переключить в любой момент — и ИИ-наставник объясняет темы и ошибки на выбранном языке.',
-      kk: 'Қазақ, орыс және ағылшын тілдерінде. Тілді кез келген уақытта ауыстыруға болады — ИИ-тәлімгер тақырыптар мен қателерді таңдалған тілде түсіндіреді.',
-      en: 'Kazakh, Russian and English. You can switch the language at any time — and the AI tutor explains topics and mistakes in the language you choose.',
+      ru: 'На казахском, русском и английском. Язык можно переключить в любой момент — и Академик объясняет темы и ошибки на выбранном языке.',
+      kk: 'Қазақ, орыс және ағылшын тілдерінде. Тілді кез келген уақытта ауыстыруға болады — Академик тақырыптар мен қателерді таңдалған тілде түсіндіреді.',
+      en: 'Kazakh, Russian and English. You can switch the language at any time — and the Academic explains topics and mistakes in the language you choose.',
     },
   },
   {
@@ -110,40 +110,40 @@ const ROBOTS_Q: Localized = {
 };
 
 const ROBOTS_A: Localized = {
-  ru: 'Каждый робот отвечает за свой этап обучения. NOV-01 Диагност проводит проверку уровня и находит слабые темы. NOV-02 Наставник объясняет материал шаг за шагом на трёх языках и подстраивает сложность заданий. NOV-03 Куратор строит план подготовки к ЕНТ или олимпиаде, следит за сроками и присылает отчёты учителю.',
-  kk: 'Әр робот оқудың өз кезеңіне жауап береді. NOV-01 Диагност деңгей тексерісін жүргізіп, әлсіз тақырыптарды табады. NOV-02 Тәлімгер материалды үш тілде қадамдап түсіндіреді және тапсырмалардың күрделілігін бейімдейді. NOV-03 Куратор ҰБТ-ға немесе олимпиадаға дайындық жоспарын құрып, мерзімдерді бақылап, мұғалімге есеп жібереді.',
-  en: 'Each robot owns one stage of the learning journey. NOV-01 the Diagnostician runs the placement test and finds weak topics. NOV-02 the Tutor explains material step by step in three languages and adapts task difficulty. NOV-03 the Curator builds the roadmap to the UNT or an olympiad, tracks deadlines and sends reports to the teacher.',
+  ru: 'Каждый робот ведёт своё направление. NOV-01 Академик ведёт академическую базу: проводит диагностику уровня, объясняет материал шаг за шагом на трёх языках и строит план подготовки к ЕНТ или олимпиаде. NOV-02 Практик ведёт жизненные навыки — от финансовой грамотности до общения. NOV-03 Кибер ведёт навыки будущего: программирование, предпринимательство и креативность.',
+  kk: 'Әр робот өз бағытын жетекшилейді. NOV-01 Академик академиялық негізді жүргізеді: деңгей диагностикасын өткізеді, материалды үш тілде қадамдап түсіндіреді және ҰБТ-ға немесе олимпиадаға дайындық жоспарын құрады. NOV-02 Практик өмірлік дағдыларды — қаржылық сауаттылықтан бастап қарым-қатынасқа дейін — жетекшилейді. NOV-03 Кибер болашақ дағдыларын жүргізеді: бағдарламалау, кәсіпкерлік және креативтілік.',
+  en: 'Each robot leads its own direction. NOV-01 the Academic leads the academic foundation: it runs the level diagnostic, explains material step by step in three languages and builds the prep roadmap for the UNT or an olympiad. NOV-02 the Practitioner leads life skills — from financial literacy to communication. NOV-03 the Cyber leads future skills: programming, entrepreneurship and creativity.',
 };
 
 const ROBOT_TEAM: Array<{ id: RobotId; code: string; name: Localized; job: Localized }> = [
   {
     id: 'nov1',
     code: 'NOV-01',
-    name: { ru: 'Диагност', kk: 'Диагност', en: 'Diagnostician' },
+    name: { ru: 'Академик', kk: 'Академик', en: 'Academic' },
     job: {
-      ru: 'находит слабые темы',
-      kk: 'әлсіз тақырыптарды табады',
-      en: 'finds weak topics',
+      ru: 'ведёт академическую базу',
+      kk: 'академиялық негізді жүргізеді',
+      en: 'leads the academic foundation',
     },
   },
   {
     id: 'nov2',
     code: 'NOV-02',
-    name: { ru: 'Наставник', kk: 'Тәлімгер', en: 'Tutor' },
+    name: { ru: 'Практик', kk: 'Практик', en: 'Practitioner' },
     job: {
-      ru: 'объясняет и адаптирует',
-      kk: 'түсіндіріп, бейімдейді',
-      en: 'explains and adapts',
+      ru: 'ведёт жизненные навыки',
+      kk: 'өмірлік дағдыларды жүргізеді',
+      en: 'leads life skills',
     },
   },
   {
     id: 'nov3',
     code: 'NOV-03',
-    name: { ru: 'Куратор', kk: 'Куратор', en: 'Curator' },
+    name: { ru: 'Кибер', kk: 'Кибер', en: 'Cyber' },
     job: {
-      ru: 'ведёт план и сроки',
-      kk: 'жоспар мен мерзімді жүргізеді',
-      en: 'runs the roadmap and deadlines',
+      ru: 'ведёт навыки будущего',
+      kk: 'болашақ дағдыларын жүргізеді',
+      en: 'leads future skills',
     },
   },
 ];

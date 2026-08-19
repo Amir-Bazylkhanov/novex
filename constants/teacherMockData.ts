@@ -1,7 +1,7 @@
 import type { Localized } from '../utils/i18n.ts';
 
 /**
- * NOV-03 Куратор — DEMO class roster for the teacher panel (MVP requirement F).
+ * NOV-01 Академик — DEMO class roster for the teacher panel (MVP requirement F).
  *
  * IMPORTANT: this is mock data. There is no multi-user class table in the
  * database, and RLS correctly prevents one user reading another's rows, so a
@@ -204,7 +204,7 @@ export const TEACHER_STUDENTS: TeacherStudent[] = [
 ];
 
 /**
- * Class-level average per topic. The NOV-03 «Требуют внимания» card stays
+ * Class-level average per topic. The NOV-01 «Требуют внимания» card stays
  * topic-based (uses this order for tie-breaking); the bar chart shows the
  * per-subject averages derived in CLASS_SUBJECT_PERFORMANCE below.
  */

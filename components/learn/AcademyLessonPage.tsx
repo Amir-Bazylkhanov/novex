@@ -38,15 +38,22 @@ const NOT_FOUND_TITLE: Localized = {
   en: 'Topic not found',
 };
 const NOT_FOUND_SUB: Localized = {
-  ru: 'Такой темы нет на этой планете. Вернись к списку тем.',
-  kk: 'Бұл планетада мұндай тақырып жоқ. Тақырыптар тізіміне орал.',
-  en: 'There is no such topic on this planet. Head back to the topic list.',
+  ru: 'Такой темы нет в этом модуле. Вернись к списку тем.',
+  kk: 'Бұл модульде мұндай тақырып жоқ. Тақырыптар тізіміне орал.',
+  en: 'There is no such topic in this module. Head back to the topic list.',
 };
 const BACK_TO_PLANET: Localized = {
-  ru: 'Назад к планете',
-  kk: 'Планетаға оралу',
-  en: 'Back to planet',
+  ru: 'Назад к модулю',
+  kk: 'Модульге оралу',
+  en: 'Back to module',
 };
+/* Displayed direction codes were renumbered NOV-04/05/06 → NOV-01/02/03;
+   internal AcademyDirectionId keys stay 'nov04'|'nov05'|'nov06'. */
+const DIRECTION_CODE = {
+  nov04: 'NOV-01',
+  nov05: 'NOV-02',
+  nov06: 'NOV-03',
+} as const;
 
 const THEORY_LABEL: Localized = { ru: 'Теория', kk: 'Теория', en: 'Theory' };
 const KEY_TERMS_LABEL: Localized = {
@@ -113,9 +120,9 @@ const LESSON_DONE_TITLE: Localized = {
   en: 'Lesson completed!',
 };
 const LESSON_DONE_SUB: Localized = {
-  ru: 'Прогресс сохранён — уровень планеты засчитан.',
-  kk: 'Прогресс сақталды — планета деңгейі есепке алынды.',
-  en: 'Progress saved — the planet level is complete.',
+  ru: 'Прогресс сохранён — уровень модуля засчитан.',
+  kk: 'Прогресс сақталды — модуль деңгейі есепке алынды.',
+  en: 'Progress saved — the module level is complete.',
 };
 
 const DIFFICULTY_LABEL: Record<'easy' | 'medium' | 'hard', Localized> = {
@@ -357,7 +364,7 @@ const AcademyLessonPage: React.FC = () => {
     );
   }
 
-  const directionLine = `NOV-${direction.id.slice(3)} · ${loc(language, direction.name)}`;
+  const directionLine = `${DIRECTION_CODE[direction.id]} · ${loc(language, direction.name)}`;
   const paragraphs = pickLangField(language, section.content, section.contentRu, section.contentKk)
     .split(/\n\s*\n/)
     .map((p) => p.trim())
@@ -477,7 +484,12 @@ const AcademyLessonPage: React.FC = () => {
                     transition={{ duration: 0.4, delay: i * 0.05 }}
                     className="rounded-2xl border border-teal/20 bg-mist/15 p-5"
                   >
-                    <p className="font-mono text-sm font-semibold text-ink">{item.formula}</p>
+                    {/* formulaRu/formulaKk only exist on formulas with English
+                        prose; pickLangFieldOptional falls back ru→en, kk→ru→en.
+                        Rendered as plain styled text — no tex/LaTeX path here. */}
+                    <p className="font-mono text-sm font-semibold text-ink">
+                      {pickLangFieldOptional(language, item.formula, item.formulaRu, item.formulaKk)}
+                    </p>
                     <p className="mt-1.5 text-sm leading-relaxed text-slateink">
                       {pickLangField(
                         language,

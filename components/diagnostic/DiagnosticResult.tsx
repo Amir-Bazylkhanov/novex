@@ -27,9 +27,9 @@ import {
 /* --- content --- */
 
 const ROBOT_LABEL: Localized = {
-  ru: 'NOV-01 · Диагност',
-  kk: 'NOV-01 · Диагност',
-  en: 'NOV-01 · Diagnostician',
+  ru: 'NOV-01 · Академик',
+  kk: 'NOV-01 · Академик',
+  en: 'NOV-01 · Academic',
 };
 const TITLE: Localized = {
   ru: 'Диагностика завершена',
@@ -82,9 +82,9 @@ const GRADE_UP_BTN: Localized = {
   en: 'Take the next-level test',
 };
 const ACED_NEXT: Localized = {
-  ru: 'Все ответы верные! Дальше — пробный тест в формате ЕНТ и задания повышенной сложности. Если интересно — олимпиадный трек: обсуди план с NOV-03.',
-  kk: 'Барлық жауап дұрыс! Әрі қарай — ҰБТ форматындағы сынақ тесті мен күрделі деңгейдегі тапсырмалар. Қызық болса — олимпиадалық бағыт: жоспарды NOV-03-пен талқыла.',
-  en: 'All answers correct! Next up — a practice test in the UNT format and advanced-level tasks. If you are interested, there is the olympiad track: discuss a plan with NOV-03.',
+  ru: 'Все ответы верные! Дальше — пробный тест в формате ЕНТ и задания повышенной сложности. Если интересно — олимпиадный трек: обсуди план с NOV-01.',
+  kk: 'Барлық жауап дұрыс! Әрі қарай — ҰБТ форматындағы сынақ тесті мен күрделі деңгейдегі тапсырмалар. Қызық болса — олимпиадалық бағыт: жоспарды NOV-01-мен талқыла.',
+  en: 'All answers correct! Next up — a practice test in the UNT format and advanced-level tasks. If you are interested, there is the olympiad track: discuss a plan with NOV-01.',
 };
 const MIXED_LINE: Localized = {
   ru: 'Ровный результат, слабых тем нет — NOV-01 предложит задания посложнее.',
@@ -245,7 +245,7 @@ const DiagnosticResult: React.FC<DiagnosticResultProps> = ({
           return `- ${loc(language, r.label)}: score ${r.score}/${r.total}, level ${r.level}, weak topics: ${weak}, strong topics: ${strong}`;
         })
         .join('\n');
-      const prompt = `You are NOV-01, a friendly school diagnostician on the Novex platform. A student just finished a placement diagnostic.
+      const prompt = `You are NOV-01 "Академик" (Academic), a friendly school mentor on the Novex platform. A student just finished a placement diagnostic.
 Grade: ${studentGrade}. Goal: ${goal ?? 'not set'}.
 Results:
 ${subjectLines}

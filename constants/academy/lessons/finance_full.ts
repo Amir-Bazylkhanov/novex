@@ -18,6 +18,8 @@ export const FINANCE_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Money = Medium of Exchange + Store of Value + Unit of Account",
+            formulaRu: "Деньги = Средство обмена + Средство накопления + Единица учёта",
+            formulaKk: "Ақша = Айырбас құралы + Жинақтау құралы + Есеп бірлігі",
             description: "The three core functions that define money",
             descriptionRu: "Три основные функции, определяющие деньги",
             descriptionKk: "Ақшаны анықтайтын үш негізгі функция"
@@ -86,6 +88,8 @@ export const FINANCE_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Smart Spending = Needs First + Wants with Remaining Money",
+            formulaRu: "Разумные траты = Сначала потребности + Желания на оставшиеся деньги",
+            formulaKk: "Ақылды жұмсау = Алдымен қажеттіліктер + Қалған ақшаға қалаулар",
             description: "Always cover necessities before spending on luxuries",
             descriptionRu: "Сначала покрывайте необходимое, затем тратьте на удовольствия",
             descriptionKk: "Алдымен қажеттіліктерді жабыңыз, содан кейін қалған ақшаны тілектерге жұмсаңыз"
@@ -154,12 +158,16 @@ export const FINANCE_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Earnings = Hours Worked × Hourly Rate",
+            formulaRu: "Заработок = Отработанные часы × Почасовая ставка",
+            formulaKk: "Табыс = Жұмыс істеген сағат × Сағаттық ставка",
             description: "Basic calculation for active income from hourly work",
             descriptionRu: "Базовый расчёт активного дохода при почасовой работе",
             descriptionKk: "Сағаттық жұмыстан белсенді табысты есептеу"
           },
           {
             formula: "Total Income = Active Income + Passive Income",
+            formulaRu: "Общий доход = Активный доход + Пассивный доход",
+            formulaKk: "Жалпы табыс = Белсенді табыс + Пассивті табыс",
             description: "Your total earnings combine both types of income",
             descriptionRu: "Общий заработок объединяет оба вида дохода",
             descriptionKk: "Жалпы табыс табыстың екі түрін біріктіреді"
@@ -228,12 +236,16 @@ export const FINANCE_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Savings = Income - Expenses",
+            formulaRu: "Сбережения = Доход - Расходы",
+            formulaKk: "Жинақ = Табыс - Шығыстар",
             description: "What you keep is what you earn minus what you spend",
             descriptionRu: "Что вы сохраняете — это заработок минус расходы",
             descriptionKk: "Сіз сақтайтын нәрсе — табысыңыз минус шығындарыңыз"
           },
           {
             formula: "Monthly Savings Goal = Target Amount ÷ Number of Months",
+            formulaRu: "Месячная цель накоплений = Целевая сумма ÷ Количество месяцев",
+            formulaKk: "Айлық жинақ мақсаты = Мақсатты сома ÷ Айлар саны",
             description: "Break a big savings goal into manageable monthly amounts",
             descriptionRu: "Разделите большую цель на посильные ежемесячные суммы",
             descriptionKk: "Үлкен мақсатты қолжетімді айлық сомаларға бөліңіз"
@@ -302,6 +314,8 @@ export const FINANCE_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "50/30/20 Rule: Needs (50%) + Wants (30%) + Savings (20%) = 100% of Income",
+            formulaRu: "Правило 50/30/20: Потребности (50%) + Желания (30%) + Сбережения (20%) = 100% дохода",
+            formulaKk: "50/30/20 ережесі: Қажеттіліктер (50%) + Қалаулар (30%) + Жинақ (20%) = табыстың 100%",
             description: "A simple framework for allocating your income",
             descriptionRu: "Простая схема распределения дохода",
             descriptionKk: "Табысты бөлудің қарапайым схемасы"
@@ -370,6 +384,8 @@ export const FINANCE_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Account Balance = Deposits - Withdrawals + Interest Earned",
+            formulaRu: "Баланс счёта = Пополнения - Снятия + Начисленные проценты",
+            formulaKk: "Шот балансы = Салымдар - Алулар + Есептелген пайыз",
             description: "Your balance changes with every deposit, withdrawal, and interest payment",
             descriptionRu: "Баланс меняется с каждым вкладом, снятием и начислением процентов",
             descriptionKk: "Балансыңыз әрбір салым, алу және пайыз есептеумен өзгереді"
@@ -438,12 +454,16 @@ export const FINANCE_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Simple Interest = Principal × Rate × Time",
+            formulaRu: "Простой процент = Основная сумма × Ставка × Время",
+            formulaKk: "Жай пайыз = Негізгі сома × Ставка × Уақыт",
             description: "Calculate interest earned or owed on the original amount",
             descriptionRu: "Расчёт процентов на первоначальную сумму",
             descriptionKk: "Бастапқы сомаға пайызды есептеу"
           },
           {
             formula: "Total Amount = Principal + Interest",
+            formulaRu: "Итоговая сумма = Основная сумма + Проценты",
+            formulaKk: "Жалпы сома = Негізгі сома + Пайыз",
             description: "The final amount including the original plus interest earned",
             descriptionRu: "Итоговая сумма с учётом основного капитала и процентов",
             descriptionKk: "Негізгі капитал мен пайызды қосқандағы соңғы сома"
@@ -512,6 +532,8 @@ export const FINANCE_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Unit Price = Total Price ÷ Quantity",
+            formulaRu: "Цена за единицу = Общая цена ÷ Количество",
+            formulaKk: "Бірлік бағасы = Жалпы баға ÷ Саны",
             description: "Compare products by their cost per unit to find the best deal",
             descriptionRu: "Сравнивайте товары по цене за единицу для лучшей сделки",
             descriptionKk: "Ең жақсы мәмілені табу үшін өнімдерді бірлік бағасы бойынша салыстырыңыз"
@@ -580,6 +602,8 @@ export const FINANCE_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Giving Amount = Income × Giving Percentage",
+            formulaRu: "Сумма пожертвования = Доход × Процент пожертвования",
+            formulaKk: "Қайырымдылық сомасы = Табыс × Қайырымдылық пайызы",
             description: "A planned percentage of income dedicated to charity",
             descriptionRu: "Запланированный процент дохода на благотворительность",
             descriptionKk: "Қайырымдылыққа арналған табыстың жоспарланған пайызы"
@@ -648,6 +672,8 @@ export const FINANCE_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Monthly Savings Needed = Goal Amount ÷ Months Until Deadline",
+            formulaRu: "Необходимые месячные накопления = Сумма цели ÷ Месяцев до срока",
+            formulaKk: "Қажетті айлық жинақ = Мақсат сомасы ÷ Мерзімге дейінгі айлар",
             description: "Break any financial goal into a monthly savings target",
             descriptionRu: "Разделите любую цель на ежемесячную цель сбережений",
             descriptionKk: "Кез келген қаржылық мақсатты айлық жинақ мақсатына бөліңіз"
@@ -725,12 +751,16 @@ export const FINANCE_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Net Income = Total Income - Total Expenses",
+            formulaRu: "Чистый доход = Общий доход - Общие расходы",
+            formulaKk: "Таза табыс = Жалпы табыс - Жалпы шығыстар",
             description: "Positive means surplus; negative means deficit",
             descriptionRu: "Положительное значит профицит; отрицательное — дефицит",
             descriptionKk: "Оң мән профицитті білдіреді; теріс — тапшылықты"
           },
           {
             formula: "Total Expenses = Fixed Expenses + Variable Expenses",
+            formulaRu: "Общие расходы = Постоянные расходы + Переменные расходы",
+            formulaKk: "Жалпы шығыстар = Тұрақты шығыстар + Айнымалы шығыстар",
             description: "The sum of all recurring and changing costs",
             descriptionRu: "Сумма всех постоянных и переменных затрат",
             descriptionKk: "Барлық тұрақты және ауыспалы шығындардың жиынтығы"
@@ -799,6 +829,8 @@ export const FINANCE_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Zero-Based Budget: Income - All Allocations = $0",
+            formulaRu: "Бюджет с нулевой базой: Доход - Все распределения = $0",
+            formulaKk: "Нөлдік бюджет: Табыс - Барлық бөліністер = $0",
             description: "Every dollar is assigned a purpose — spending, saving, or giving",
             descriptionRu: "Каждый доллар имеет назначение — расходы, сбережения или пожертвования",
             descriptionKk: "Әрбір долларға мақсат белгіленеді — шығындар, жинақтар немесе қайырмалдықтар"
@@ -873,6 +905,8 @@ export const FINANCE_FULL: Record<string, LessonContent> = {
           },
           {
             formula: "Compound Interest = P × (1 + r)^n - P",
+            formulaRu: "Сложный процент = P × (1 + r)^n - P",
+            formulaKk: "Күрделі пайыз = P × (1 + r)^n - P",
             description: "The interest portion only, excluding the original principal",
             descriptionRu: "Только сумма процентов, без первоначального капитала",
             descriptionKk: "Бастапқы капиталсыз тек пайыз сомасы"
@@ -941,6 +975,8 @@ export const FINANCE_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Total Repayment = Principal + (Principal × Interest Rate × Time)",
+            formulaRu: "Общая сумма выплаты = Основная сумма + (Основная сумма × Процентная ставка × Время)",
+            formulaKk: "Жалпы өтеу сомасы = Негізгі сома + (Негізгі сома × Пайыздық ставка × Уақыт)",
             description: "How much you pay back in total on a simple-interest loan",
             descriptionRu: "Сколько вы вернёте по кредиту с простыми процентами",
             descriptionKk: "Жай пайызды несие бойынша жалпы қанша қайтарасыз"
@@ -1009,12 +1045,16 @@ export const FINANCE_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Annual Insurance Cost = Monthly Premium × 12",
+            formulaRu: "Годовая стоимость страховки = Месячная премия × 12",
+            formulaKk: "Жылдық сақтандыру құны = Айлық сыйақы × 12",
             description: "The total yearly cost of maintaining insurance coverage",
             descriptionRu: "Годовая стоимость страхового покрытия",
             descriptionKk: "Сақтандыру қамтуын сақтаудың жылдық құны"
           },
           {
             formula: "Out-of-Pocket Cost = Deductible + Copay",
+            formulaRu: "Расходы из своего кармана = Франшиза + Доплата",
+            formulaKk: "Өз қалтасынан шығын = Франшиза + Қосымша төлем",
             description: "What you pay when making a claim before full coverage applies",
             descriptionRu: "Что вы платите при обращении до полного покрытия",
             descriptionKk: "Толық қамту қолданылмас бұрын өтініш берген кезде сіз төлейтін сома"
@@ -1083,12 +1123,16 @@ export const FINANCE_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Tax Owed = Taxable Income × Tax Rate",
+            formulaRu: "Сумма налога = Налогооблагаемый доход × Налоговая ставка",
+            formulaKk: "Салық сомасы = Салық салынатын табыс × Салық ставкасы",
             description: "Basic tax calculation for a single tax bracket",
             descriptionRu: "Базовый расчёт налога для одной ставки",
             descriptionKk: "Бір салық кезеңі үшін негізгі салық есебі"
           },
           {
             formula: "Net Pay = Gross Pay - Taxes - Deductions",
+            formulaRu: "Чистая зарплата = Валовая зарплата - Налоги - Удержания",
+            formulaKk: "Таза жалақы = Жалпы жалақы - Салықтар - Ұсталымдар",
             description: "What you actually take home after all withholdings",
             descriptionRu: "Сколько вы реально получаете после всех вычетов",
             descriptionKk: "Барлық ұстаулардан кейін нақты қолыңызға тиетін сома"
@@ -1157,12 +1201,16 @@ export const FINANCE_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Future Price = Current Price × (1 + Inflation Rate)^Years",
+            formulaRu: "Будущая цена = Текущая цена × (1 + Уровень инфляции)^Годы",
+            formulaKk: "Болашақ баға = Ағымдағы баға × (1 + Инфляция деңгейі)^Жылдар",
             description: "Estimate what something will cost in the future",
             descriptionRu: "Оцените будущую стоимость товара",
             descriptionKk: "Болашақта бір нәрсенің қанша тұратынын бағалаңыз"
           },
           {
             formula: "Real Return = Nominal Return - Inflation Rate",
+            formulaRu: "Реальная доходность = Номинальная доходность - Уровень инфляции",
+            formulaKk: "Нақты табыстылық = Номиналды табыстылық - Инфляция деңгейі",
             description: "The actual growth in purchasing power after accounting for inflation",
             descriptionRu: "Реальный рост покупательной способности с учётом инфляции",
             descriptionKk: "Инфляцияны ескергеннен кейінгі сатып алу қабілетінің нақты өсімі"
@@ -1231,6 +1279,8 @@ export const FINANCE_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Opportunity Cost = Value of Best Alternative Forgone",
+            formulaRu: "Альтернативные издержки = Ценность лучшей упущенной альтернативы",
+            formulaKk: "Балама шығын = Бас тартылған ең жақсы баламаның құны",
             description: "What you sacrifice by choosing one option over another",
             descriptionRu: "Чем вы жертвуете, выбирая один вариант вместо другого",
             descriptionKk: "Бір нұсқаны екіншісінен таңдау арқылы не құрбан етесіз"
@@ -1299,6 +1349,8 @@ export const FINANCE_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Total Cost of Ownership = Purchase Price + Maintenance + Operating Costs",
+            formulaRu: "Общая стоимость владения = Цена покупки + Обслуживание + Эксплуатационные расходы",
+            formulaKk: "Иелену құнының жиынтығы = Сатып алу бағасы + Күтім + Пайдалану шығындары",
             description: "The true cost includes all expenses over the product's lifetime",
             descriptionRu: "Истинная стоимость включает все расходы за весь срок службы",
             descriptionKk: "Нақты құн өнімнің бүкіл қызмет мерзімі бойы барлық шығындарды қамтиды"
@@ -1367,6 +1419,8 @@ export const FINANCE_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Emergency Fund Target = Monthly Expenses × Number of Months (3-6)",
+            formulaRu: "Целевой резервный фонд = Месячные расходы × Количество месяцев (3-6)",
+            formulaKk: "Төтенше жағдай қорының мақсаты = Айлық шығыстар × Айлар саны (3-6)",
             description: "How much you need saved for financial security",
             descriptionRu: "Сколько нужно накопить для финансовой безопасности",
             descriptionKk: "Қаржылық қауіпсіздік үшін қанша жинау керек"
@@ -1444,6 +1498,8 @@ export const FINANCE_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Market Capitalization = Share Price × Total Shares Outstanding",
+            formulaRu: "Рыночная капитализация = Цена акции × Общее количество акций в обращении",
+            formulaKk: "Нарықтық капитализация = Акция бағасы × Айналымдағы акциялардың жалпы саны",
             description: "The total market value of a company's shares",
             descriptionRu: "Общая рыночная стоимость акций компании",
             descriptionKk: "Компания акцияларының жалпы нарықтық құны"
@@ -1512,12 +1568,16 @@ export const FINANCE_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Capital Gain = Selling Price - Purchase Price",
+            formulaRu: "Прирост капитала = Цена продажи - Цена покупки",
+            formulaKk: "Капитал өсімі = Сату бағасы - Сатып алу бағасы",
             description: "Your profit from selling a stock at a higher price than you bought it",
             descriptionRu: "Ваша прибыль от продажи акции дороже покупки",
             descriptionKk: "Акцияны сатып алғаннан жоғары бағамен сатудан түскен пайдаңыз"
           },
           {
             formula: "Total Return = Capital Gain + Dividends Received",
+            formulaRu: "Общая доходность = Прирост капитала + Полученные дивиденды",
+            formulaKk: "Жалпы табыстылық = Капитал өсімі + Алынған дивидендтер",
             description: "The complete profit from owning a stock",
             descriptionRu: "Полная прибыль от владения акцией",
             descriptionKk: "Акцияға ие болудан түскен толық пайда"
@@ -1586,6 +1646,8 @@ export const FINANCE_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Price Change % = ((New Price - Old Price) ÷ Old Price) × 100",
+            formulaRu: "Изменение цены % = ((Новая цена - Старая цена) ÷ Старая цена) × 100",
+            formulaKk: "Баға өзгерісі % = ((Жаңа баға - Ескі баға) ÷ Ескі баға) × 100",
             description: "Measure how much a stock's price has moved in percentage terms",
             descriptionRu: "Процентное изменение цены акции",
             descriptionKk: "Акция бағасының пайыздық өзгерісін өлшеу"
@@ -1654,6 +1716,8 @@ export const FINANCE_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Expense Ratio Cost = Investment Amount × Expense Ratio",
+            formulaRu: "Стоимость комиссии фонда = Сумма инвестиций × Коэффициент расходов",
+            formulaKk: "Қор комиссиясының құны = Инвестиция сомасы × Шығын коэффициенті",
             description: "Annual fee charged by the ETF, expressed as a percentage of your investment",
             descriptionRu: "Ежегодная комиссия ETF в процентах от инвестиции",
             descriptionKk: "ETF алатын жылдық комиссия, инвестицияңыздың пайызы ретінде"
@@ -1722,12 +1786,16 @@ export const FINANCE_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Annual Coupon Payment = Face Value × Coupon Rate",
+            formulaRu: "Годовой купонный платёж = Номинальная стоимость × Купонная ставка",
+            formulaKk: "Жылдық купон төлемі = Номиналды құн × Купон ставкасы",
             description: "The yearly interest payment you receive from a bond",
             descriptionRu: "Годовой процентный платёж по облигации",
             descriptionKk: "Облигациядан алатын жылдық пайыздық төлем"
           },
           {
             formula: "Current Yield = Annual Coupon ÷ Current Bond Price",
+            formulaRu: "Текущая доходность = Годовой купон ÷ Текущая цена облигации",
+            formulaKk: "Ағымдағы табыстылық = Жылдық купон ÷ Облигацияның ағымдағы бағасы",
             description: "The yield based on the price you actually pay for the bond",
             descriptionRu: "Доходность с учётом фактической цены покупки",
             descriptionKk: "Облигация үшін нақты төлеген бағаңыз негізіндегі кірістілік"
@@ -1796,6 +1864,8 @@ export const FINANCE_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Portfolio Return = Σ (Weight_i × Return_i)",
+            formulaRu: "Доходность портфеля = Σ (Weight_i × Return_i)",
+            formulaKk: "Портфель табыстылығы = Σ (Weight_i × Return_i)",
             description: "Total return is the weighted average of each investment's return",
             descriptionRu: "Доходность портфеля — средневзвешенная доходность каждой инвестиции",
             descriptionKk: "Портфель кірістілігі — әр инвестицияның кірістілігінің салмақты орташасы"
@@ -1864,6 +1934,8 @@ export const FINANCE_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Risk-Return Spectrum: Cash < Bonds < Stocks < Alternative Investments",
+            formulaRu: "Спектр риск-доходность: Наличные < Облигации < Акции < Альтернативные инвестиции",
+            formulaKk: "Тәуекел-табыс спектрі: Қолма-қол ақша < Облигациялар < Акциялар < Балама инвестициялар",
             description: "Assets ranked from lowest to highest risk and expected return",
             descriptionRu: "Активы от наименьшего к наибольшему риску и доходности",
             descriptionKk: "Активтер ең төмен тәуекелден ең жоғарыға дейін реттелген"
@@ -1932,6 +2004,8 @@ export const FINANCE_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Tax Savings = Contribution × Tax Rate",
+            formulaRu: "Налоговая экономия = Взнос × Налоговая ставка",
+            formulaKk: "Салықтық үнемдеу = Жарна × Салық ставкасы",
             description: "How much you save in taxes by using a tax-advantaged account",
             descriptionRu: "Сколько налогов вы экономите, используя льготный счёт",
             descriptionKk: "Салық жеңілдігі бар шотты пайдалану арқылы қанша салық үнемдейсіз"
@@ -2000,6 +2074,8 @@ export const FINANCE_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Average Cost Per Share = Total Amount Invested ÷ Total Shares Bought",
+            formulaRu: "Средняя цена за акцию = Общая инвестированная сумма ÷ Общее количество купленных акций",
+            formulaKk: "Акцияның орташа бағасы = Жалпы инвестицияланған сома ÷ Сатып алынған акциялардың жалпы саны",
             description: "Your actual average price paid across all purchases",
             descriptionRu: "Ваша фактическая средняя цена за все покупки",
             descriptionKk: "Барлық сатып алулар бойынша нақты орташа бағаңыз"
@@ -2068,6 +2144,8 @@ export const FINANCE_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Return in Home Currency = Foreign Return + Currency Change",
+            formulaRu: "Доходность в национальной валюте = Доходность в иностранной валюте + Изменение курса валюты",
+            formulaKk: "Ұлттық валютадағы табыстылық = Шетел валютасындағы табыстылық + Валюта бағамының өзгеруі",
             description: "International returns are affected by both investment performance and exchange rates",
             descriptionRu: "Международная доходность зависит и от инвестиции, и от курса валют",
             descriptionKk: "Халықаралық кірістілік инвестиция нәтижесіне де, валюта бағамына да байланысты"
@@ -2145,12 +2223,16 @@ export const FINANCE_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Assets = Liabilities + Shareholders' Equity",
+            formulaRu: "Активы = Обязательства + Собственный капитал акционеров",
+            formulaKk: "Активтер = Міндеттемелер + Акционерлердің меншікті капиталы",
             description: "The fundamental accounting equation — the balance sheet must always balance",
             descriptionRu: "Основное бухгалтерское уравнение — баланс всегда должен сходиться",
             descriptionKk: "Негізгі бухгалтерлік теңдеу — баланс әрқашан сәйкес келуі керек"
           },
           {
             formula: "Net Income = Revenue − Expenses",
+            formulaRu: "Чистый доход = Выручка − Расходы",
+            formulaKk: "Таза табыс = Кіріс − Шығыстар",
             description: "The bottom line of the income statement showing profit or loss",
             descriptionRu: "Итог отчёта о прибылях и убытках, показывающий прибыль или убыток",
             descriptionKk: "Пайда немесе залалды көрсететін пайда мен залал есебінің қорытындысы"
@@ -2219,12 +2301,16 @@ export const FINANCE_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Market Cap = Share Price × Shares Outstanding",
+            formulaRu: "Рыночная капитализация = Цена акции × Количество акций в обращении",
+            formulaKk: "Нарықтық капитализация = Акция бағасы × Айналымдағы акциялар саны",
             description: "The total market value of a company's equity",
             descriptionRu: "Общая рыночная стоимость акционерного капитала компании",
             descriptionKk: "Компанияның акционерлік капиталының жалпы нарықтық құны"
           },
           {
             formula: "Enterprise Value = Market Cap + Debt − Cash",
+            formulaRu: "Стоимость предприятия = Рыночная капитализация + Долг − Денежные средства",
+            formulaKk: "Кәсіпорын құны = Нарықтық капитализация + Қарыз − Ақша қаражаты",
             description: "The total value of a company including debt obligations",
             descriptionRu: "Полная стоимость компании с учётом долговых обязательств",
             descriptionKk: "Борыштық міндеттемелерді қоса алғандағы компанияның толық құны"
@@ -2293,6 +2379,8 @@ export const FINANCE_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "P/E Ratio = Share Price / Earnings Per Share (EPS)",
+            formulaRu: "Коэффициент P/E = Цена акции / Прибыль на акцию (EPS)",
+            formulaKk: "P/E коэффициенті = Акция бағасы / Акцияға шаққандағы пайда (EPS)",
             description: "Shows how many dollars investors pay per dollar of earnings",
             descriptionRu: "Показывает, сколько долларов инвесторы платят за доллар прибыли",
             descriptionKk: "Инвесторлардың пайданың бір долларына қанша доллар төлейтінін көрсетеді"
@@ -2361,12 +2449,16 @@ export const FINANCE_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Dividend Yield = (Annual Dividend / Stock Price) × 100%",
+            formulaRu: "Дивидендная доходность = (Годовой дивиденд / Цена акции) × 100%",
+            formulaKk: "Дивидендтік табыстылық = (Жылдық дивиденд / Акция бағасы) × 100%",
             description: "Percentage return from dividends alone",
             descriptionRu: "Процентный доход только от дивидендов",
             descriptionKk: "Тек дивидендтерден алынатын пайыздық кіріс"
           },
           {
             formula: "Payout Ratio = (Dividends Paid / Net Income) × 100%",
+            formulaRu: "Коэффициент выплат = (Выплаченные дивиденды / Чистый доход) × 100%",
+            formulaKk: "Төлем коэффициенті = (Төленген дивидендтер / Таза табыс) × 100%",
             description: "What percentage of profits the company distributes as dividends",
             descriptionRu: "Какой процент прибыли компания распределяет в виде дивидендов",
             descriptionKk: "Компания пайдасының қанша пайызын дивиденд ретінде бөлетіні"
@@ -2435,6 +2527,8 @@ export const FINANCE_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Cap Rate = (Net Operating Income / Property Value) × 100%",
+            formulaRu: "Ставка капитализации = (Чистый операционный доход / Стоимость недвижимости) × 100%",
+            formulaKk: "Капиталдандыру ставкасы = (Таза операциялық табыс / Жылжымайтын мүлік құны) × 100%",
             description: "The rate of return on a real estate investment based on income",
             descriptionRu: "Ставка доходности инвестиций в недвижимость на основе дохода",
             descriptionKk: "Табысқа негізделген жылжымайтын мүлік инвестициясының кірістілік мөлшерлемесі"
@@ -2503,6 +2597,8 @@ export const FINANCE_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Market Cap (Crypto) = Current Price × Circulating Supply",
+            formulaRu: "Рыночная капитализация (крипто) = Текущая цена × Оборотное предложение",
+            formulaKk: "Нарықтық капитализация (крипто) = Ағымдағы баға × Айналымдағы ұсыныс",
             description: "Total market value of a cryptocurrency",
             descriptionRu: "Общая рыночная стоимость криптовалюты",
             descriptionKk: "Криптовалютаның жалпы нарықтық құны"
@@ -2571,6 +2667,8 @@ export const FINANCE_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Block = Transaction Data + Timestamp + Previous Block Hash",
+            formulaRu: "Блок = Данные транзакции + Метка времени + Хеш предыдущего блока",
+            formulaKk: "Блок = Транзакция деректері + Уақыт белгісі + Алдыңғы блоктың хэші",
             description: "The structure of each block in the chain ensures integrity",
             descriptionRu: "Структура каждого блока обеспечивает целостность цепи",
             descriptionKk: "Тізбектегі әр блоктың құрылымы тұтастықты қамтамасыз етеді"
@@ -2639,12 +2737,16 @@ export const FINANCE_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Call Profit = Max(Stock Price − Strike Price, 0) − Premium",
+            formulaRu: "Прибыль колл-опциона = Max(Цена акции − Цена исполнения, 0) − Премия",
+            formulaKk: "Колл-опцион пайдасы = Max(Акция бағасы − Орындау бағасы, 0) − Сыйақы",
             description: "Profit from a call option at expiration",
             descriptionRu: "Прибыль колл-опциона на момент истечения",
             descriptionKk: "Колл опционның мерзімі аяқталғандағы пайдасы"
           },
           {
             formula: "Put Profit = Max(Strike Price − Stock Price, 0) − Premium",
+            formulaRu: "Прибыль пут-опциона = Max(Цена исполнения − Цена акции, 0) − Премия",
+            formulaKk: "Пут-опцион пайдасы = Max(Орындау бағасы − Акция бағасы, 0) − Сыйақы",
             description: "Profit from a put option at expiration",
             descriptionRu: "Прибыль пут-опциона на момент истечения",
             descriptionKk: "Пут опционның мерзімі аяқталғандағы пайдасы"
@@ -2713,6 +2815,8 @@ export const FINANCE_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Perceived Loss Impact ≈ 2 × Perceived Gain Impact",
+            formulaRu: "Воспринимаемое влияние потери ≈ 2 × Воспринимаемое влияние выигрыша",
+            formulaKk: "Жоғалтудың қабылданатын әсері ≈ 2 × Ұтыстың қабылданатын әсері",
             description: "Loss aversion: people feel losses about twice as intensely as equivalent gains",
             descriptionRu: "Неприятие потерь: люди ощущают потери примерно вдвое сильнее равных выигрышей",
             descriptionKk: "Залалдан қашу: адамдар залалды тең пайдадан шамамен екі есе күшті сезінеді"
@@ -2781,6 +2885,8 @@ export const FINANCE_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Tax-Deferred Growth: FV = PV × (1 + r)^n (taxed only at withdrawal)",
+            formulaRu: "Рост с отсрочкой налога: FV = PV × (1 + r)^n (налог только при снятии)",
+            formulaKk: "Салығы кейінге қалдырылған өсім: FV = PV × (1 + r)^n (салық тек алу кезінде)",
             description: "Money grows without annual tax drag in tax-advantaged accounts",
             descriptionRu: "Деньги растут без ежегодного налогового бремени на льготных счетах",
             descriptionKk: "Ақша салық жеңілдіктері бар шоттарда жылдық салық ауыртпалығынсыз өседі"
@@ -2858,12 +2964,16 @@ export const FINANCE_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Portfolio Return = Σ (Weight_i × Return_i)",
+            formulaRu: "Доходность портфеля = Σ (Weight_i × Return_i)",
+            formulaKk: "Портфель табыстылығы = Σ (Weight_i × Return_i)",
             description: "The weighted average of individual asset returns",
             descriptionRu: "Средневзвешенная доходность отдельных активов",
             descriptionKk: "Жеке актив кірістілігінің өлшенген орташа мәні"
           },
           {
             formula: "Sharpe Ratio = (Portfolio Return − Risk-Free Rate) / Portfolio Std Dev",
+            formulaRu: "Коэффициент Шарпа = (Доходность портфеля − Безрисковая ставка) / Стандартное отклонение портфеля",
+            formulaKk: "Шарп коэффициенті = (Портфель табыстылығы − Тәуекелсіз ставка) / Портфельдің стандартты ауытқуы",
             description: "Measures risk-adjusted return — higher is better",
             descriptionRu: "Измеряет доходность с учётом риска — чем выше, тем лучше",
             descriptionKk: "Тәуекелге түзетілген кірістілікті өлшейді — жоғары болған сайын жақсы"
@@ -2932,6 +3042,8 @@ export const FINANCE_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Stock Allocation Rule of Thumb = 110 − Your Age",
+            formulaRu: "Практическое правило доли акций = 110 − Ваш возраст",
+            formulaKk: "Акция үлесінің тәжірибелік ережесі = 110 − Сіздің жасыңыз",
             description: "A starting guideline for the percentage of stocks in your portfolio",
             descriptionRu: "Начальный ориентир для доли акций в портфеле",
             descriptionKk: "Портфеліңіздегі акциялар пайызы үшін бастапқы нұсқаулық"
@@ -3000,6 +3112,8 @@ export const FINANCE_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Required Nest Egg = Annual Expenses in Retirement / 0.04",
+            formulaRu: "Необходимый пенсионный капитал = Годовые расходы на пенсии / 0.04",
+            formulaKk: "Қажетті зейнетақы капиталы = Зейнеткерліктегі жылдық шығыстар / 0.04",
             description: "The 4% rule: how much you need saved to retire safely",
             descriptionRu: "Правило 4%: сколько нужно накопить для безопасной пенсии",
             descriptionKk: "4% ережесі: қауіпсіз зейнеткерлік үшін қанша жинау қажет"
@@ -3068,6 +3182,8 @@ export const FINANCE_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "FIRE Number = Annual Expenses × 25",
+            formulaRu: "Число FIRE = Годовые расходы × 25",
+            formulaKk: "FIRE саны = Жылдық шығыстар × 25",
             description: "The total savings needed to retire early (based on the 4% withdrawal rate)",
             descriptionRu: "Сумма для раннего выхода на пенсию (на основе 4% ставки снятия)",
             descriptionKk: "Ерте зейнетке шығу үшін қажетті жалпы жинақ (4% алу мөлшерлемесі негізінде)"
@@ -3136,6 +3252,8 @@ export const FINANCE_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Post-Money Valuation = Pre-Money Valuation + Investment Amount",
+            formulaRu: "Оценка после инвестиций = Оценка до инвестиций + Сумма инвестиций",
+            formulaKk: "Инвестициядан кейінгі баға = Инвестицияға дейінгі баға + Инвестиция сомасы",
             description: "The company's value after receiving new funding",
             descriptionRu: "Стоимость компании после получения нового финансирования",
             descriptionKk: "Жаңа қаржыландыру алғаннан кейінгі компания құны"
@@ -3204,6 +3322,8 @@ export const FINANCE_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Cross Rate: A/C = (A/B) × (B/C)",
+            formulaRu: "Кросс-курс: A/C = (A/B) × (B/C)",
+            formulaKk: "Кросс-курс: A/C = (A/B) × (B/C)",
             description: "Calculate exchange rate between two currencies using a common third currency",
             descriptionRu: "Расчёт курса между двумя валютами через общую третью",
             descriptionKk: "Екі валюта арасындағы бағамды ортақ үшінші валюта арқылы есептеу"
@@ -3272,6 +3392,8 @@ export const FINANCE_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Emergency Fund = 3–6 Months of Essential Expenses",
+            formulaRu: "Резервный фонд = 3–6 месяцев основных расходов",
+            formulaKk: "Төтенше жағдай қоры = негізгі шығыстардың 3–6 айы",
             description: "The minimum cash reserve before investing aggressively",
             descriptionRu: "Минимальный денежный резерв до агрессивного инвестирования",
             descriptionKk: "Агрессивті инвестициялау алдындағы ең аз ақша резерві"
@@ -3340,6 +3462,8 @@ export const FINANCE_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Taxable Estate = Total Assets − Debts − Deductions − Exemptions",
+            formulaRu: "Налогооблагаемое наследство = Общие активы − Долги − Вычеты − Освобождения",
+            formulaKk: "Салық салынатын мұра = Жалпы активтер − Қарыздар − Шегерімдер − Босатулар",
             description: "The portion of an estate subject to estate tax",
             descriptionRu: "Часть наследства, облагаемая налогом",
             descriptionKk: "Мұра салығына жататын мүліктің бөлігі"
@@ -3408,6 +3532,8 @@ export const FINANCE_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Real Return = Nominal Return − Inflation Rate",
+            formulaRu: "Реальная доходность = Номинальная доходность − Уровень инфляции",
+            formulaKk: "Нақты табыстылық = Номиналды табыстылық − Инфляция деңгейі",
             description: "The actual purchasing power gain after accounting for inflation",
             descriptionRu: "Реальный прирост покупательной способности с учётом инфляции",
             descriptionKk: "Инфляцияны ескергендегі сатып алу қабілетінің нақты өсімі"
@@ -3476,12 +3602,16 @@ export const FINANCE_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Wealth = (Income − Expenses) × Investment Returns × Time",
+            formulaRu: "Богатство = (Доход − Расходы) × Доходность инвестиций × Время",
+            formulaKk: "Байлық = (Табыс − Шығыстар) × Инвестиция табыстылығы × Уақыт",
             description: "The fundamental wealth-building equation",
             descriptionRu: "Фундаментальное уравнение создания богатства",
             descriptionKk: "Байлық құрудың іргелі теңдеуі"
           },
           {
             formula: "Rule of 72: Years to Double = 72 / Annual Return %",
+            formulaRu: "Правило 72: Годы для удвоения = 72 / Годовая доходность %",
+            formulaKk: "72 ережесі: Екі еселенуге қажет жылдар = 72 / Жылдық табыстылық %",
             description: "Quick estimate of how long it takes to double your money",
             descriptionRu: "Быстрая оценка времени удвоения капитала",
             descriptionKk: "Ақшаңызды екі есе арттыруға қанша уақыт кететінін жылдам бағалау"

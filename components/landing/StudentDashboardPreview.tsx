@@ -77,9 +77,9 @@ const FEATURES: Array<{
       en: 'Goal and deadline side by side',
     },
     desc: {
-      ru: 'Дата ЕНТ и план подготовки от NOV-03 Куратора всегда перед глазами.',
-      kk: 'ҰБТ күні мен NOV-03 Куратордың дайындық жоспары әрқашан көз алдында.',
-      en: 'The UNT date and the prep roadmap from NOV-03 the Curator are always in view.',
+      ru: 'Дата ЕНТ и план подготовки от NOV-01 Академика всегда перед глазами.',
+      kk: 'ҰБТ күні мен NOV-01 Академиктің дайындық жоспары әрқашан көз алдында.',
+      en: 'The UNT date and the prep roadmap from NOV-01 the Academic are always in view.',
     },
   },
   {
@@ -138,9 +138,9 @@ const MOCK_WEAK_LABEL: Localized = {
   en: 'Weak spots',
 };
 const MOCK_PLAN_LABEL: Localized = {
-  ru: 'NOV-03 · ПЛАН',
-  kk: 'NOV-03 · ЖОСПАР',
-  en: 'NOV-03 · ROADMAP',
+  ru: 'NOV-01 · ПЛАН',
+  kk: 'NOV-01 · ЖОСПАР',
+  en: 'NOV-01 · ROADMAP',
 };
 const MOCK_DEADLINE_TITLE: Localized = {
   ru: 'ЕНТ · 12 июня',

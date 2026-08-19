@@ -1,9 +1,23 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
-import { CheckCircle2, Trophy, X } from 'lucide-react';
+import {
+  ArrowLeft,
+  CheckCircle2,
+  Rocket,
+  Telescope,
+  Trophy,
+  X,
+  Zap,
+  type LucideIcon,
+} from 'lucide-react';
 import { loc, type Lang, type Localized } from '../../utils/i18n.ts';
 import { useLanguage } from '../../context/LanguageContext.tsx';
-import { pickLangField, type AcademySection } from '../../constants/academy/catalog.ts';
+import {
+  bandForIndex,
+  pickLangField,
+  type AcademySection,
+  type LevelBand,
+} from '../../constants/academy/catalog.ts';
 import { buildSkipTest, type SkipTestQuestion } from './PlanetSkipTest.tsx';
 
 /* --- content --- */
@@ -19,40 +33,62 @@ const SUBMIT_PLACEMENT: Localized = {
   kk: 'Деңгейімді анықтау',
   en: 'Find my level',
 };
+const NEXT_QUESTION: Localized = { ru: 'Далее', kk: 'Келесі', en: 'Next' };
+const BACK_QUESTION: Localized = { ru: 'Назад', kk: 'Артқа', en: 'Back' };
 const PLACED_TITLE: Localized = { ru: 'Уровень подобран!', kk: 'Деңгей анықталды!', en: 'Level found!' };
 const ACED_TITLE: Localized = { ru: 'Ты знаешь всё!', kk: 'Сен бәрін білесің!', en: 'You know it all!' };
 const CONTINUE: Localized = { ru: 'Продолжить', kk: 'Жалғастыру', en: 'Continue' };
 const CLOSE: Localized = { ru: 'Закрыть', kk: 'Жабу', en: 'Close' };
 
+/* Non-academic modules speak in bands instead of grade-style numbering — see
+   PlanetLevels.tsx for the matching pill labels and the Locus rank mirror. */
+const BAND_LABEL: Record<LevelBand, Localized> = {
+  beginner: { ru: 'Начальный', kk: 'Бастауыш', en: 'Beginner' },
+  intermediate: { ru: 'Средний', kk: 'Орта', en: 'Intermediate' },
+  advanced: { ru: 'Продвинутый', kk: 'Жоғары', en: 'Advanced' },
+};
+const BAND_RANK: Record<LevelBand, { icon: LucideIcon; name: Localized }> = {
+  beginner: { icon: Telescope, name: { ru: 'Исследователь', kk: 'Зерттеуші', en: 'Explorer' } },
+  intermediate: { icon: Rocket, name: { ru: 'Путешественник', kk: 'Саяхатшы', en: 'Voyager' } },
+  advanced: { icon: Zap, name: { ru: 'Пионер', kk: 'Пионер', en: 'Pioneer' } },
+};
+
 const FOCUS_RING =
   'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2 focus-visible:ring-offset-canvas';
 
-const placementIntro = (language: Lang, directionCode: string): string => {
+const placementIntro = (language: Lang, directionCode: string, academic: boolean): string => {
+  if (academic) {
+    if (language === 'kk')
+      return `Әртүрлі деңгейдегі сұрақтарға жауап бер — ${directionCode} сенің қай деңгейден бастау керектігін анықтайды.`;
+    if (language === 'en')
+      return `Answer questions from different levels — ${directionCode} will figure out where you should start.`;
+    return `Ответь на вопросы разных уровней — ${directionCode} определит, с какого уровня тебе начать.`;
+  }
   if (language === 'kk')
-    return `Әртүрлі деңгейдегі сұрақтарға жауап бер — ${directionCode} сенің қай деңгейден бастау керектігін анықтайды.`;
+    return `${directionCode} сенің деңгейіңді анықтайды: бастауыш, орта немесе жоғары.`;
   if (language === 'en')
-    return `Answer questions from different levels — ${directionCode} will figure out where you should start.`;
-  return `Ответь на вопросы разных уровней — ${directionCode} определит, с какого уровня тебе начать.`;
+    return `${directionCode} will find your level: beginner, intermediate, or advanced.`;
+  return `${directionCode} определит твой уровень: начальный, средний или продвинутый.`;
 };
 
 const placementResultLine = (
   language: Lang,
-  levelNumber: number,
+  levelLabel: string,
   sectionTitle: string,
   acedEverything: boolean,
 ): string => {
   if (acedEverything) {
     if (language === 'kk')
-      return `Тамаша нәтиже! Сен планетаның барлық материалын білесің — соңғы деңгей «${sectionTitle}»-ден бастайсың, алдыңғы деңгейлердің барлығы ашық.`;
+      return `Тамаша нәтиже! Сен модульдің барлық материалын білесің — соңғы деңгей «${sectionTitle}»-ден бастайсың, алдыңғы деңгейлердің барлығы ашық.`;
     if (language === 'en')
-      return `Amazing result — you know the whole planet's material! You'll start at the final level, “${sectionTitle}”, with everything before it unlocked.`;
-    return `Отличный результат — ты знаешь весь материал планеты! Начнёшь с последнего уровня «${sectionTitle}», все уровни до него уже открыты.`;
+      return `Amazing result — you know the whole module's material! You'll start at the final level, “${sectionTitle}”, with everything before it unlocked.`;
+    return `Отличный результат — ты знаешь весь материал модуля! Начнёшь с последнего уровня «${sectionTitle}», все уровни до него уже открыты.`;
   }
   if (language === 'kk')
-    return `Сенің деңгейің: ${levelNumber} — «${sectionTitle}». Осыған дейінгі барлық деңгейлер ашық.`;
+    return `Сенің деңгейің: ${levelLabel} — «${sectionTitle}». Осыған дейінгі барлық деңгейлер ашық.`;
   if (language === 'en')
-    return `Your level: ${levelNumber} — “${sectionTitle}”. Every level before it is unlocked.`;
-  return `Твой уровень: ${levelNumber} — «${sectionTitle}». Все уровни до него открыты.`;
+    return `Your level: ${levelLabel} — “${sectionTitle}”. Every level before it is unlocked.`;
+  return `Твой уровень: ${levelLabel} — «${sectionTitle}». Все уровни до него открыты.`;
 };
 
 /* --- placement question sampling ---
@@ -140,8 +176,12 @@ const scorePlacement = (
 
 interface PlanetPlacementTestProps {
   sections: AcademySection[];
-  /** Shown in the intro copy, e.g. "NOV-04". */
+  /** Shown in the intro copy, e.g. "NOV-01". */
   directionCode: string;
+  /** False for Жизненные навыки / Навыки будущего modules — the result and
+      intro copy speak in beginner/intermediate/advanced bands instead of a
+      grade-style level number. */
+  academic: boolean;
   /** Called once the test is scored — apply sectionsToSkip via
       markSectionSkipped and move the swiper to assignedLevel. */
   onPlaced: (result: PlacementResult) => void;
@@ -151,6 +191,7 @@ interface PlanetPlacementTestProps {
 const PlanetPlacementTest: React.FC<PlanetPlacementTestProps> = ({
   sections,
   directionCode,
+  academic,
   onPlaced,
   onClose,
 }) => {
@@ -158,6 +199,8 @@ const PlanetPlacementTest: React.FC<PlanetPlacementTestProps> = ({
   const reducedMotion = useReducedMotion();
   const [answers, setAnswers] = useState<Record<number, number>>({});
   const [result, setResult] = useState<PlacementResult | null>(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [direction, setDirection] = useState<1 | -1>(1);
 
   const questions = useMemo(() => buildPlacementTest(sections, language), [sections, language]);
   const allAnswered = questions.length > 0 && Object.keys(answers).length === questions.length;
@@ -192,7 +235,25 @@ const PlanetPlacementTest: React.FC<PlanetPlacementTestProps> = ({
     onPlaced(scored);
   };
 
-  const answeredCount = Object.keys(answers).length;
+  const currentQuestion = questions[currentIndex];
+  const isLastQuestion = currentIndex === questions.length - 1;
+  const currentAnswered = answers[currentIndex] !== undefined;
+
+  const goNext = () => {
+    if (!currentAnswered) return;
+    if (isLastQuestion) {
+      handleSubmit();
+      return;
+    }
+    setDirection(1);
+    setCurrentIndex((i) => i + 1);
+  };
+
+  const goBack = () => {
+    if (currentIndex === 0) return;
+    setDirection(-1);
+    setCurrentIndex((i) => i - 1);
+  };
   const assignedSectionTitle = result
     ? pickLangField(
         language,
@@ -201,6 +262,13 @@ const PlanetPlacementTest: React.FC<PlanetPlacementTestProps> = ({
         sections[result.assignedLevel].titleKk,
       )
     : '';
+  const assignedBand = result ? bandForIndex(result.assignedLevel, sections.length) : null;
+  const levelLabel =
+    result && !academic && assignedBand
+      ? loc(language, BAND_LABEL[assignedBand])
+      : result
+        ? String(result.assignedLevel + 1)
+        : '';
 
   return (
     <AnimatePresence>
@@ -233,7 +301,9 @@ const PlanetPlacementTest: React.FC<PlanetPlacementTestProps> = ({
                 >
                   {loc(language, PLACEMENT_TITLE)}
                 </h2>
-                <p className="mt-2 text-sm text-slateink">{placementIntro(language, directionCode)}</p>
+                <p className="mt-2 text-sm text-slateink">
+                  {placementIntro(language, directionCode, academic)}
+                </p>
               </div>
               <button
                 type="button"
@@ -260,11 +330,23 @@ const PlanetPlacementTest: React.FC<PlanetPlacementTestProps> = ({
                 <p className="mt-2 max-w-sm text-sm text-slateink">
                   {placementResultLine(
                     language,
-                    result.assignedLevel + 1,
+                    levelLabel,
                     assignedSectionTitle,
                     result.acedEverything,
                   )}
                 </p>
+                {!academic && assignedBand && (
+                  <span
+                    className="mt-3 inline-flex items-center gap-1.5 rounded-full bg-mist/30 px-2.5 py-1 text-[11px] font-bold text-teal-dark"
+                    title={loc(language, BAND_RANK[assignedBand].name)}
+                  >
+                    {(() => {
+                      const RankIcon = BAND_RANK[assignedBand].icon;
+                      return <RankIcon className="h-3 w-3" aria-hidden="true" />;
+                    })()}
+                    {loc(language, BAND_LABEL[assignedBand])}
+                  </span>
+                )}
                 <button
                   type="button"
                   onClick={onClose}
@@ -276,68 +358,95 @@ const PlanetPlacementTest: React.FC<PlanetPlacementTestProps> = ({
             ) : (
               <>
                 <div className="mt-6 flex items-center gap-3">
+                  <button
+                    type="button"
+                    aria-label={loc(language, BACK_QUESTION)}
+                    onClick={goBack}
+                    disabled={currentIndex === 0}
+                    tabIndex={currentIndex === 0 ? -1 : 0}
+                    className={`${FOCUS_RING} flex h-8 w-8 shrink-0 items-center justify-center rounded-lg text-slateink transition-opacity hover:text-teal ${
+                      currentIndex === 0 ? 'pointer-events-none opacity-0' : 'opacity-100'
+                    }`}
+                  >
+                    <ArrowLeft className="h-4 w-4" aria-hidden="true" />
+                  </button>
                   <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-line/40">
                     <div
                       className="h-full rounded-full bg-teal transition-all duration-300"
                       style={{
-                        width: `${questions.length > 0 ? Math.round((answeredCount / questions.length) * 100) : 0}%`,
+                        width: `${questions.length > 0 ? Math.round(((currentIndex + 1) / questions.length) * 100) : 0}%`,
                       }}
                     />
                   </div>
                   <span className="font-mono text-[11px] font-medium uppercase tracking-widest text-slateink">
-                    {answeredCount}/{questions.length}
+                    {currentIndex + 1}/{questions.length}
                   </span>
                 </div>
 
-                <div className="mt-5 space-y-4">
-                  {questions.map((question, qi) => (
-                    <div key={qi} className="rounded-2xl border border-line/50 bg-canvas p-5">
-                      <p className="font-mono text-[11px] font-medium uppercase tracking-widest text-teal-dark">
-                        {loc(language, QUESTION_WORD)} {qi + 1}
-                      </p>
-                      <p className="mt-2 text-sm font-semibold leading-relaxed text-ink sm:text-base">
-                        {question.prompt}
-                      </p>
-                      <div className="mt-3 space-y-2" role="radiogroup" aria-label={question.prompt}>
-                        {question.options.map((option, oi) => {
-                          const selected = answers[qi] === oi;
-                          return (
-                            <button
-                              key={oi}
-                              type="button"
-                              role="radio"
-                              aria-checked={selected}
-                              onClick={() => setAnswers((prev) => ({ ...prev, [qi]: oi }))}
-                              className={`${FOCUS_RING} flex w-full items-start gap-3 rounded-xl border px-4 py-3 text-left text-sm leading-relaxed transition-colors ${
-                                selected
-                                  ? 'border-teal bg-teal/10 text-ink'
-                                  : 'border-line bg-white text-ink hover:border-teal/50'
-                              }`}
-                            >
-                              <span
-                                aria-hidden="true"
-                                className={`mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full font-mono text-[11px] font-bold ${
-                                  selected ? 'bg-teal text-white' : 'bg-mist/40 text-teal-dark'
+                <div className="relative mt-5">
+                  <AnimatePresence mode="wait" initial={false}>
+                    {currentQuestion && (
+                      <motion.div
+                        key={currentIndex}
+                        initial={reducedMotion ? { opacity: 0 } : { opacity: 0, x: 24 * direction }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={reducedMotion ? { opacity: 0 } : { opacity: 0, x: -24 * direction }}
+                        transition={{ duration: 0.2 }}
+                        className="rounded-2xl border border-line/50 bg-canvas p-5"
+                      >
+                        <p className="font-mono text-[11px] font-medium uppercase tracking-widest text-teal-dark">
+                          {loc(language, QUESTION_WORD)} {currentIndex + 1}
+                        </p>
+                        <p className="mt-2 text-sm font-semibold leading-relaxed text-ink sm:text-base">
+                          {currentQuestion.prompt}
+                        </p>
+                        <div
+                          className="mt-3 space-y-2"
+                          role="radiogroup"
+                          aria-label={currentQuestion.prompt}
+                        >
+                          {currentQuestion.options.map((option, oi) => {
+                            const selected = answers[currentIndex] === oi;
+                            return (
+                              <button
+                                key={oi}
+                                type="button"
+                                role="radio"
+                                aria-checked={selected}
+                                onClick={() =>
+                                  setAnswers((prev) => ({ ...prev, [currentIndex]: oi }))
+                                }
+                                className={`${FOCUS_RING} flex w-full items-start gap-3 rounded-xl border px-4 py-3 text-left text-sm leading-relaxed transition-colors ${
+                                  selected
+                                    ? 'border-teal bg-teal/10 text-ink'
+                                    : 'border-line bg-white text-ink hover:border-teal/50'
                                 }`}
                               >
-                                {String.fromCharCode(65 + oi)}
-                              </span>
-                              <span className="min-w-0">{option}</span>
-                            </button>
-                          );
-                        })}
-                      </div>
-                    </div>
-                  ))}
+                                <span
+                                  aria-hidden="true"
+                                  className={`mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full font-mono text-[11px] font-bold ${
+                                    selected ? 'bg-teal text-white' : 'bg-mist/40 text-teal-dark'
+                                  }`}
+                                >
+                                  {String.fromCharCode(65 + oi)}
+                                </span>
+                                <span className="min-w-0">{option}</span>
+                              </button>
+                            );
+                          })}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </div>
 
                 <button
                   type="button"
-                  disabled={!allAnswered}
-                  onClick={handleSubmit}
+                  disabled={!currentAnswered}
+                  onClick={goNext}
                   className={`${FOCUS_RING} mt-6 inline-flex w-full items-center justify-center rounded-xl bg-teal px-6 py-3.5 text-base font-semibold text-white shadow-[0_4px_14px_rgba(33,159,162,0.25)] transition-colors hover:bg-teal-dark disabled:cursor-not-allowed disabled:opacity-50`}
                 >
-                  {loc(language, SUBMIT_PLACEMENT)}
+                  {loc(language, isLastQuestion ? SUBMIT_PLACEMENT : NEXT_QUESTION)}
                 </button>
               </>
             )}

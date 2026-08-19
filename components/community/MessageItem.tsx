@@ -4,6 +4,7 @@ import { Flag, Reply, SmilePlus, Trash2 } from 'lucide-react';
 import { loc, type Lang, type Localized } from '../../utils/i18n.ts';
 import { useLanguage } from '../../context/LanguageContext.tsx';
 import type { CommunityMessage } from '../../services/communityService.ts';
+import { IMAGE_FALLBACK_CONTENT } from '../../services/communityService.ts';
 
 const STUDENT_FALLBACK: Localized = { ru: 'Ученик', kk: 'Оқушы', en: 'Student' };
 const TEACHER_CHIP: Localized = { ru: 'Учитель', kk: 'Мұғалім', en: 'Teacher' };
@@ -18,6 +19,16 @@ const REACTIONS_LABEL: Localized = { ru: 'Реакции на сообщение
 const JUST_NOW: Localized = { ru: 'только что', kk: 'жаңа ғана', en: 'just now' };
 const MIN_AGO: Localized = { ru: '{n} мин назад', kk: '{n} мин бұрын', en: '{n} min ago' };
 const HOURS_AGO: Localized = { ru: '{n} ч назад', kk: '{n} сағ бұрын', en: '{n} h ago' };
+const IMAGE_ALT: Localized = {
+  ru: 'Изображение из сообщения',
+  kk: 'Хабарламадағы сурет',
+  en: 'Image from the message',
+};
+const OPEN_IMAGE: Localized = {
+  ru: 'Открыть изображение в новой вкладке',
+  kk: 'Суретті жаңа бетте ашу',
+  en: 'Open the image in a new tab',
+};
 
 const EMOJIS: Array<{ emoji: string; label: Localized }> = [
   { emoji: '👍', label: { ru: 'Нравится', kk: 'Ұнайды', en: 'Like' } },
@@ -188,9 +199,30 @@ const MessageItem: React.FC<MessageItemProps> = ({
           </button>
         )}
 
-        <p className="whitespace-pre-wrap break-words text-sm leading-relaxed text-ink">
-          {message.content}
-        </p>
+        {/* Attached image (opens full-size in a new tab). The '📷' fallback
+            content written for image-only messages is not rendered. */}
+        {message.image_url && (
+          <a
+            href={message.image_url}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={loc(language, OPEN_IMAGE)}
+            className={`${FOCUS_RING} mb-1 inline-block rounded-xl`}
+          >
+            <img
+              src={message.image_url}
+              alt={loc(language, IMAGE_ALT)}
+              loading="lazy"
+              className="max-h-64 max-w-xs rounded-xl border border-line/60 object-cover"
+            />
+          </a>
+        )}
+
+        {!(message.image_url && message.content.trim() === IMAGE_FALLBACK_CONTENT) && (
+          <p className="whitespace-pre-wrap break-words text-sm leading-relaxed text-ink">
+            {message.content}
+          </p>
+        )}
 
         {/* Aggregated reactions */}
         {message.reactions.length > 0 && (

@@ -1,5 +1,7 @@
 import React from 'react';
 
+/* Internal variant keys stay 'nov04'|'nov05'|'nov06' for compatibility (the
+   career module depends on them); the displayed codes are NOV-01/02/03. */
 export type RobotModelVariant = 'nov04' | 'nov05' | 'nov06';
 
 /** Stable part classes for external animation hooks (CSS / framer-motion selectors). */
@@ -40,8 +42,8 @@ const pivot = (x: number, y: number): React.CSSProperties => ({
 });
 
 /* ------------------------------------------------------------------ */
-/* NOV-04 «Логик» — studious engineer: grid-glasses, calculator chest, */
-/* stocky body, pencil in hand, square-tipped antenna.                 */
+/* NOV-01 «Академик» — studious engineer: grid-glasses, calculator      */
+/* chest, stocky body, pencil in hand, square-tipped antenna.           */
 /* ------------------------------------------------------------------ */
 const Nov04Model: React.FC<EyeProps> = ({ ox, oy }) => (
   <>
@@ -165,9 +167,9 @@ const Nov04Model: React.FC<EyeProps> = ({ ox, oy }) => (
 );
 
 /* ------------------------------------------------------------------ */
-/* NOV-05 «Полиглот» — friendly communicator: round head, big eyes,    */
-/* headphone pads, slim body, right arm raised mid-wave, sound-wave    */
-/* chest screen.                                                       */
+/* NOV-02 «Практик» — friendly communicator: round head, big eyes,      */
+/* headphone pads, slim body, right arm raised mid-wave, sound-wave     */
+/* chest screen.                                                        */
 /* ------------------------------------------------------------------ */
 const Nov05Model: React.FC<EyeProps> = ({ ox, oy }) => (
   <>
@@ -279,9 +281,9 @@ const Nov05Model: React.FC<EyeProps> = ({ ox, oy }) => (
 );
 
 /* ------------------------------------------------------------------ */
-/* NOV-06 «Кибер» — sleek tech: angular head, coral visor (id rm-visor */
-/* for external scan animation), asymmetric shoulder armor, hexagon    */
-/* chest core, head-to-back cable, sturdier legs.                      */
+/* NOV-03 «Кибер» — sleek tech: angular head, coral visor (id rm-visor  */
+/* for external scan animation), asymmetric shoulder armor, hexagon     */
+/* chest core, head-to-back cable, sturdier legs.                       */
 /* ------------------------------------------------------------------ */
 const Nov06Model: React.FC<EyeProps> = ({ ox, oy }) => (
   <>

@@ -1,13 +1,16 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { motion, useReducedMotion } from 'framer-motion';
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
+import type { LucideIcon } from 'lucide-react';
 import {
   AlertTriangle,
   ArrowLeft,
   ArrowRight,
   BookOpen,
   Calendar,
+  Check,
   CheckCircle2,
+  ChevronDown,
   ClipboardCheck,
   Loader2,
   Lock,
@@ -20,18 +23,30 @@ import { loc, type Lang, type Localized } from '../../utils/i18n.ts';
 import { useLanguage } from '../../context/LanguageContext.tsx';
 import { useAuth } from '../../context/AuthContext.tsx';
 import { supabase } from '../../services/supabaseClient.ts';
-import { RobotAvatar } from '../robots/RobotAvatars.tsx';
+import { RobotAvatar, type MentorRobotId } from '../robots/RobotAvatars.tsx';
 import RobotBackdrop from '../RobotBackdrop.tsx';
 import { LESSONS, lessonBySlug } from '../../constants/lessonData.ts';
-import { directionForSubject, type LearnDirection } from '../../constants/learnDirections.ts';
+import {
+  LEARN_DIRECTIONS,
+  directionByRobot,
+  directionForSubject,
+  type LearnDirection,
+} from '../../constants/learnDirections.ts';
+import {
+  directionById,
+  pickGradeContent,
+  pickLangField,
+  planetBySlug,
+  planetsByRobot,
+} from '../../constants/academy/catalog.ts';
 import { topicName } from '../../constants/diagnosticData.ts';
 
 /* --- content --- */
 
 const ROBOT_LABEL: Localized = {
-  ru: 'NOV-03 · Куратор',
-  kk: 'NOV-03 · Куратор',
-  en: 'NOV-03 · Curator',
+  ru: 'NOV-01 · Академик',
+  kk: 'NOV-01 · Академик',
+  en: 'NOV-01 · Academic',
 };
 const TITLE: Localized = {
   ru: 'Твой план подготовки',
@@ -39,9 +54,9 @@ const TITLE: Localized = {
   en: 'Your study plan',
 };
 const SUB: Localized = {
-  ru: 'NOV-03 Куратор собрал маршрут по неделям: сначала закрываем слабые темы, потом новые уроки, в конце — повторение и пробный тест.',
-  kk: 'NOV-03 Куратор апталық бағыт құрды: алдымен әлсіз тақырыптар жабылады, содан кейін жаңа сабақтар, соңында қайталау мен байқама тестісі.',
-  en: 'NOV-03 the Curator mapped your route week by week: weak topics first, then new lessons, then review and a mock test at the end.',
+  ru: 'NOV-01 Академик собрал маршрут по неделям: сначала закрываем слабые темы, потом новые уроки, в конце — повторение и пробный тест.',
+  kk: 'NOV-01 Академик апталық бағыт құрды: алдымен әлсіз тақырыптар жабылады, содан кейін жаңа сабақтар, соңында қайталау мен байқама тестісі.',
+  en: 'NOV-01 the Academic mapped your route week by week: weak topics first, then new lessons, then review and a mock test at the end.',
 };
 const LOADING: Localized = { ru: 'Загружаем…', kk: 'Жүктелуде…', en: 'Loading…' };
 const ERR_LOAD: Localized = {
@@ -111,9 +126,9 @@ const EMPTY_TITLE: Localized = {
   en: 'Start with the diagnostic',
 };
 const EMPTY_TEXT: Localized = {
-  ru: 'NOV-03 строит план по результатам диагностики NOV-01. Пройди её — и маршрут к цели появится здесь.',
-  kk: 'NOV-03 жоспарды NOV-01 диагностикасының нәтижесі бойынша құрады. Диагностикадан өт — мақсатқа бағыт осында пайда болады.',
-  en: 'NOV-03 builds the plan from your NOV-01 diagnostic results. Take it and your roadmap will appear here.',
+  ru: 'NOV-01 строит план по результатам твоей диагностики. Пройди её — и маршрут к цели появится здесь.',
+  kk: 'NOV-01 жоспарды сенің диагностика нәтижелерің бойынша құрады. Диагностикадан өт — мақсатқа бағыт осында пайда болады.',
+  en: 'NOV-01 builds the plan from your diagnostic results. Take it and your roadmap will appear here.',
 };
 const CTA_DIAG: Localized = {
   ru: 'Пройти диагностику',
@@ -133,14 +148,14 @@ const ERRORS_ITEM: Localized = {
 };
 
 const ROBOT_NOV2_LABEL: Localized = {
-  ru: 'NOV-02 · Наставник',
-  kk: 'NOV-02 · Тәлімгер',
-  en: 'NOV-02 · Tutor',
+  ru: 'NOV-01 · Академик',
+  kk: 'NOV-01 · Академик',
+  en: 'NOV-01 · Academic',
 };
 const ROBOT_NOV3_LABEL: Localized = {
-  ru: 'NOV-03 · Куратор',
-  kk: 'NOV-03 · Куратор',
-  en: 'NOV-03 · Curator',
+  ru: 'NOV-01 · Академик',
+  kk: 'NOV-01 · Академик',
+  en: 'NOV-01 · Academic',
 };
 
 /* --- wizard content --- */
@@ -151,9 +166,9 @@ const WIZARD_TITLE: Localized = {
   en: 'Build your plan',
 };
 const WIZARD_SUB: Localized = {
-  ru: 'Три шага — и NOV-03 разложит подготовку по неделям.',
-  kk: 'Үш қадам — NOV-03 дайындықты апталарға бөліп шығады.',
-  en: 'Three steps and NOV-03 will lay your prep out week by week.',
+  ru: 'Три шага — и NOV-01 разложит подготовку по неделям.',
+  kk: 'Үш қадам — NOV-01 дайындықты апталарға бөліп шығады.',
+  en: 'Three steps and NOV-01 will lay your prep out week by week.',
 };
 const STEP_OF: Localized = { ru: 'Шаг {n} из 3', kk: '{n}/3 қадам', en: 'Step {n} of 3' };
 const STEP_DEADLINE: Localized = { ru: 'Дедлайн', kk: 'Дедлайн', en: 'Deadline' };
@@ -168,9 +183,27 @@ const STEP_GOAL: Localized = {
   en: 'What are you preparing for?',
 };
 const GOAL_HINT: Localized = {
-  ru: 'Можно выбрать несколько.',
-  kk: 'Бірнешеуін таңдауға болады.',
-  en: 'You can pick several.',
+  ru: 'Можно выбрать несколько. Хотя бы один предмет или модуль обязателен — по нему собирается маршрут.',
+  kk: 'Бірнешеуін таңдауға болады. Кемінде бір пән немесе модуль міндетті — бағыт содан құрылады.',
+  en: 'You can pick several. At least one subject or module is required — the roadmap is built from it.',
+};
+const GOAL_GROUP_LABEL: Localized = { ru: 'Цель подготовки', kk: 'Дайындық мақсаты', en: 'Prep goal' };
+const SUBJECT_GROUP_LABEL: Localized = { ru: 'Предмет или модуль', kk: 'Пән немесе модуль', en: 'Subject or module' };
+
+/** Same eyebrow codes and taglines as the /learn mentor cards (declared locally — no cross-file content imports). */
+const DIRECTION_CODE_LABEL: Record<MentorRobotId, Localized> = {
+  nov4: { ru: 'NOV-01 · АКАДЕМИК', kk: 'NOV-01 · АКАДЕМИК', en: 'NOV-01 · ACADEMIC' },
+  nov5: { ru: 'NOV-02 · ПРАКТИК', kk: 'NOV-02 · ПРАКТИК', en: 'NOV-02 · PRACTITIONER' },
+  nov6: { ru: 'NOV-03 · КИБЕР', kk: 'NOV-03 · КИБЕР', en: 'NOV-03 · CYBER' },
+};
+const DIRECTION_TAGLINE: Record<MentorRobotId, Localized> = {
+  nov4: { ru: 'Школа и подготовка к вузу', kk: 'Мектеп және ЖОО-ға дайындық', en: 'School and university prep' },
+  nov5: {
+    ru: 'Навыки для реальной жизни',
+    kk: 'Нақты өмірге арналған дағдылар',
+    en: 'Skills for real life',
+  },
+  nov6: { ru: 'Код, ИИ и самопознание', kk: 'Код, ЖИ және өзін-өзі тану', en: 'Code, AI and self-knowledge' },
 };
 const STEP_HOURS: Localized = {
   ru: 'Сколько времени готов уделять?',
@@ -374,8 +407,8 @@ interface SavedPlanRow {
 }
 
 interface PlanItemJson {
-  kind: 'topic' | 'lesson' | 'mock' | 'errors';
-  /** Topic slug or lesson slug; null for mock/errors items. */
+  kind: 'topic' | 'lesson' | 'mock' | 'errors' | 'academy';
+  /** Topic slug, lesson slug, or "<planetSlug>::<sectionIndex>" for 'academy'; null for mock/errors. */
   ref: string | null;
   subject: string | null;
 }
@@ -390,6 +423,8 @@ interface PlanConfigJson {
   /** ISO day (yyyy-mm-dd) or null when the user left the deadline empty. */
   deadline: string | null;
   goals: string[];
+  /** Selected subject / academy-planet slugs — the roadmap is built from these. Absent in plans saved before this field existed. */
+  subjects: string[];
   hours: HoursChoice;
 }
 
@@ -453,15 +488,50 @@ const daysWord = (lang: Lang, days: number): string => {
   return 'дней';
 };
 
+/** School subjects that have real Novex lessons (constants/lessonData.ts); every other selected
+ *  slug is treated as an academy-planet slug (constants/academy/catalog.ts). */
+const LESSON_SUBJECT_SET = new Set<string>(LEARN_DIRECTIONS.flatMap((direction) => direction.subjects));
+
+/** Direction that owns a picked subject or academy-planet slug — the academic base is the fallback. */
+const directionForPick = (subject: string): LearnDirection => {
+  const planet = planetBySlug(subject);
+  if (planet) return directionByRobot(directionById(planet.directionId).robot);
+  return directionForSubject(subject);
+};
+
+/** Small deterministic PRNG (mulberry32) — seeded so a given generation is reproducible, but a new
+ *  seed (e.g. Date.now() on rebuild) reliably reorders the pool. */
+const mulberry32 = (seed: number): (() => number) => {
+  let a = seed >>> 0;
+  return () => {
+    a = (a + 0x6d2b79f5) | 0;
+    let t = Math.imul(a ^ (a >>> 15), 1 | a);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+};
+
+const shuffled = <T,>(items: T[], rng: () => number): T[] => {
+  const arr = [...items];
+  for (let i = arr.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(rng() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+};
+
 /**
- * Deterministic roadmap: weak topics first (subject by subject), then the
- * remaining lessons of the user's subjects, then 1–2 review/mock weeks.
- * The wizard config sets the deadline and the weekly load (themes per week).
+ * Roadmap for the wizard-picked subjects/modules: weak topics first (subject by subject, in
+ * diagnostic order), then each subject's remaining topic pool in an order shuffled by `seed` — a
+ * fresh seed (the caller passes Date.now()) reliably reorders "Пересобрать план" without touching
+ * the weak-topics priority. Then 1–2 review/mock weeks close the plan. The wizard config sets the
+ * deadline and the weekly load (themes per week).
  */
 const buildPlan = (
   profileRow: ProfilePlanRow,
   diagRows: DiagnosticPlanRow[],
   config: PlanConfigJson,
+  seed: number,
 ): StudyPlanJson => {
   // diagRows arrive sorted by created_at desc — keep only the latest per subject
   const weakBySubject = new Map<string, string[]>();
@@ -471,23 +541,41 @@ const buildPlan = (
     }
   }
 
-  const subjects = cleanSlugs(profileRow.subjects);
+  // Wizard subjects/planets win; the profile's subjects are only a fallback for the (unreachable
+  // in practice, since the wizard requires a pick) case of an empty selection.
+  const subjects = config.subjects.length > 0 ? config.subjects : cleanSlugs(profileRow.subjects);
 
   const weakItems: PlanItemJson[] = [];
   const lessonItems: PlanItemJson[] = [];
   const seenTopics = new Set<string>();
-  for (const subject of subjects) {
+  subjects.forEach((subject, subjectIndex) => {
     for (const topic of weakBySubject.get(subject) ?? []) {
       if (seenTopics.has(topic)) continue;
       seenTopics.add(topic);
       weakItems.push({ kind: 'topic', ref: topic, subject });
     }
-    for (const lesson of LESSONS) {
-      if (lesson.subject !== subject || seenTopics.has(lesson.topic)) continue;
-      seenTopics.add(lesson.topic);
-      lessonItems.push({ kind: 'lesson', ref: lesson.slug, subject });
+
+    const subjectPool: PlanItemJson[] = [];
+    if (LESSON_SUBJECT_SET.has(subject)) {
+      for (const lesson of LESSONS) {
+        if (lesson.subject !== subject || seenTopics.has(lesson.topic)) continue;
+        seenTopics.add(lesson.topic);
+        subjectPool.push({ kind: 'lesson', ref: lesson.slug, subject });
+      }
+    } else {
+      const planet = planetBySlug(subject);
+      const sections = planet ? (pickGradeContent(planet.lessons, profileRow.grade)?.sections ?? []) : [];
+      sections.forEach((_, sectionIndex) => {
+        const ref = `${subject}::${sectionIndex}`;
+        if (seenTopics.has(ref)) return;
+        seenTopics.add(ref);
+        subjectPool.push({ kind: 'academy', ref, subject });
+      });
     }
-  }
+    // Each subject's own pool is shuffled independently (subject blocks stay in pick order; only
+    // the topics inside each block reorder) so a rebuild visibly varies the sequence.
+    lessonItems.push(...shuffled(subjectPool, mulberry32(seed + subjectIndex * 97)));
+  });
 
   const exam = parseFutureDate(config.deadline);
   const totalWeeks = weeksForExam(exam);
@@ -537,7 +625,11 @@ const isPlanItem = (value: unknown): value is PlanItemJson => {
   if (typeof value !== 'object' || value === null) return false;
   const item = value as Record<string, unknown>;
   return (
-    (item.kind === 'topic' || item.kind === 'lesson' || item.kind === 'mock' || item.kind === 'errors') &&
+    (item.kind === 'topic' ||
+      item.kind === 'lesson' ||
+      item.kind === 'mock' ||
+      item.kind === 'errors' ||
+      item.kind === 'academy') &&
     (item.ref === null || typeof item.ref === 'string') &&
     (item.subject === null || typeof item.subject === 'string')
   );
@@ -561,14 +653,17 @@ const isStudyPlan = (value: unknown): value is StudyPlanJson => {
 const isHoursChoice = (value: unknown): value is HoursChoice =>
   value === 'h2-3' || value === 'h4-6' || value === 'h7plus';
 
-/** Loose-parse the wizard config stored in a saved plan; null when absent/legacy. */
+/** Loose-parse the wizard config stored in a saved plan; null when absent/legacy. `subjects` is a
+ *  newer field — plans saved before it existed parse fine with an empty array. */
 const parseConfig = (value: unknown): PlanConfigJson | null => {
   if (typeof value !== 'object' || value === null) return null;
   const c = value as Record<string, unknown>;
   if (!(c.deadline === null || typeof c.deadline === 'string')) return null;
   if (!Array.isArray(c.goals) || !c.goals.every((g) => typeof g === 'string')) return null;
   if (!isHoursChoice(c.hours)) return null;
-  return { deadline: c.deadline, goals: c.goals, hours: c.hours };
+  const subjects =
+    Array.isArray(c.subjects) && c.subjects.every((s) => typeof s === 'string') ? c.subjects : [];
+  return { deadline: c.deadline, goals: c.goals, subjects, hours: c.hours };
 };
 
 /** Which week of a saved plan we are in right now; -1 when out of range. */
@@ -601,23 +696,36 @@ const PlanItemRow: React.FC<{ item: PlanItemJson }> = ({ item }) => {
  * Повторение is muted in learning weeks (it comes up in the review weeks
  * that close the plan) and highlighted in review weeks.
  */
-const ThemeRow: React.FC<{ item: PlanItemJson; reviewWeek: boolean }> = ({ item, reviewWeek }) => {
+const ThemeRow: React.FC<{ item: PlanItemJson; reviewWeek: boolean; grade: number | null }> = ({
+  item,
+  reviewWeek,
+  grade,
+}) => {
   const { language } = useLanguage();
 
   let title: string;
-  let lessonSlug: string | null = null;
+  let lessonHref: string | null = null;
   let lessonAvailable = false;
   if (item.kind === 'lesson') {
     const lesson = item.ref ? lessonBySlug(item.ref) : undefined;
     if (!lesson) return null;
     title = loc(language, lesson.title);
-    lessonSlug = lesson.slug;
+    lessonHref = `/learn/${lesson.slug}`;
     lessonAvailable = lesson.available;
+  } else if (item.kind === 'academy') {
+    const [planetSlug, sectionIndexRaw] = (item.ref ?? '').split('::');
+    const planet = planetBySlug(planetSlug);
+    const sectionIndex = Number(sectionIndexRaw);
+    const section = planet ? pickGradeContent(planet.lessons, grade)?.sections[sectionIndex] : undefined;
+    if (!planet || !section) return null;
+    title = pickLangField(language, section.title, section.titleRu, section.titleKk);
+    lessonHref = `/learn/p/${planet.slug}/${sectionIndex}`;
+    lessonAvailable = true;
   } else {
     const topic = item.ref ?? '';
     title = topicName(language, topic);
     const lesson = LESSONS.find((l) => l.topic === topic && l.available);
-    lessonSlug = lesson?.slug ?? null;
+    lessonHref = lesson ? `/learn/${lesson.slug}` : null;
     lessonAvailable = lesson !== undefined;
   }
 
@@ -629,8 +737,8 @@ const ThemeRow: React.FC<{ item: PlanItemJson; reviewWeek: boolean }> = ({ item,
           <span className="font-medium text-ink">{title}</span>
         </span>
         <span className="ml-auto flex items-center gap-1.5">
-          {lessonSlug && lessonAvailable ? (
-            <Link to={`/learn/${lessonSlug}`} className={CHIP_LINK}>
+          {lessonHref && lessonAvailable ? (
+            <Link to={lessonHref} className={CHIP_LINK}>
               <BookOpen className="h-3 w-3" aria-hidden="true" />
               {loc(language, STEP_LESSON)}
             </Link>
@@ -681,7 +789,7 @@ const groupWeekThemes = (items: PlanItemJson[]): ThemeGroup[] => {
     const key = `${subject}|${section}`;
     let group = groups.find((g) => g.key === key);
     if (!group) {
-      group = { key, direction: directionForSubject(subject), subject, section, items: [] };
+      group = { key, direction: directionForPick(subject), subject, section, items: [] };
       groups.push(group);
     }
     group.items.push(item);
@@ -691,9 +799,27 @@ const groupWeekThemes = (items: PlanItemJson[]): ThemeGroup[] => {
 
 /* --- wizard --- */
 
+interface WizardSubjectOption {
+  slug: string;
+  label: Localized;
+  Icon?: LucideIcon;
+}
+
+/** A direction's selectable subjects/planets: its school subjects (real Novex lessons) plus its
+ *  academy planets — the same catalogue /learn draws its mentor cards from. */
+const directionSubjectOptions = (direction: LearnDirection): WizardSubjectOption[] => [
+  ...direction.subjects.map((slug) => ({ slug, label: SUBJECT_LABELS[slug] })),
+  ...planetsByRobot(direction.robot).map((planet) => ({
+    slug: planet.slug,
+    label: planet.name,
+    Icon: planet.icon,
+  })),
+];
+
 interface PlanWizardProps {
   initialDeadline: string;
   initialGoals: string[];
+  initialSubjects: string[];
   initialHours: HoursChoice;
   busy: boolean;
   canCancel: boolean;
@@ -704,6 +830,7 @@ interface PlanWizardProps {
 const PlanWizard: React.FC<PlanWizardProps> = ({
   initialDeadline,
   initialGoals,
+  initialSubjects,
   initialHours,
   busy,
   canCancel,
@@ -715,13 +842,24 @@ const PlanWizard: React.FC<PlanWizardProps> = ({
   const [step, setStep] = useState<1 | 2 | 3>(1);
   const [deadline, setDeadline] = useState(initialDeadline);
   const [goals, setGoals] = useState<string[]>(initialGoals);
+  const [subjects, setSubjects] = useState<string[]>(initialSubjects);
   const [hours, setHours] = useState<HoursChoice>(initialHours);
+  const [openDirections, setOpenDirections] = useState<Set<string>>(() => new Set(['nov4']));
 
   const toggleGoal = (slug: string) =>
     setGoals((prev) => (prev.includes(slug) ? prev.filter((g) => g !== slug) : [...prev, slug]));
+  const toggleSubject = (slug: string) =>
+    setSubjects((prev) => (prev.includes(slug) ? prev.filter((s) => s !== slug) : [...prev, slug]));
+  const toggleDirection = (robot: string) =>
+    setOpenDirections((prev) => {
+      const next = new Set(prev);
+      if (next.has(robot)) next.delete(robot);
+      else next.add(robot);
+      return next;
+    });
 
   const stepTitle = step === 1 ? STEP_DEADLINE : step === 2 ? STEP_GOAL : STEP_HOURS;
-  const canAdvance = step !== 2 || goals.length > 0;
+  const canAdvance = step !== 2 || subjects.length > 0;
 
   return (
     <motion.section
@@ -771,29 +909,131 @@ const PlanWizard: React.FC<PlanWizardProps> = ({
       )}
 
       {step === 2 && (
-        <div className="mt-3">
-          <div className="grid gap-2.5 sm:grid-cols-2">
-            {Object.entries(GOAL_LABELS).map(([slug, label]) => {
-              const selected = goals.includes(slug);
-              return (
+        <div className="mt-3 space-y-3">
+          {LEARN_DIRECTIONS.map((direction) => {
+            const isOpen = openDirections.has(direction.robot);
+            const options = directionSubjectOptions(direction);
+            const optionSlugs = new Set(options.map((o) => o.slug));
+            const selectionCount =
+              subjects.filter((s) => optionSlugs.has(s)).length +
+              (direction.robot === 'nov4' ? goals.length : 0);
+            return (
+              <div
+                key={direction.robot}
+                className="overflow-hidden rounded-2xl border border-line/60 bg-white"
+              >
                 <button
-                  key={slug}
                   type="button"
-                  aria-pressed={selected}
-                  onClick={() => toggleGoal(slug)}
-                  className={`${FOCUS_RING} flex items-center justify-between gap-2 rounded-xl border px-4 py-3 text-sm font-semibold transition-colors ${
-                    selected
-                      ? 'border-teal bg-teal/5 text-teal-dark'
-                      : 'border-line/60 bg-white text-ink hover:border-teal/50'
-                  }`}
+                  aria-expanded={isOpen}
+                  onClick={() => toggleDirection(direction.robot)}
+                  className={`${FOCUS_RING} flex w-full items-center gap-3.5 px-4 py-4 text-left transition-colors hover:bg-mist/10 sm:px-5`}
                 >
-                  {loc(language, label)}
-                  {selected && <CheckCircle2 className="h-4 w-4 shrink-0 text-teal" aria-hidden="true" />}
+                  <RobotAvatar robot={direction.robot} className="h-12 w-12 shrink-0 sm:h-14 sm:w-14" />
+                  <span className="min-w-0 flex-1">
+                    <span className="flex flex-wrap items-center gap-x-2 gap-y-0.5">
+                      <span className="font-mono text-[10px] font-semibold uppercase tracking-widest text-teal-dark">
+                        {loc(language, DIRECTION_CODE_LABEL[direction.robot])}
+                      </span>
+                      {selectionCount > 0 && (
+                        <span className="rounded-full bg-teal/10 px-2 py-0.5 text-[11px] font-semibold text-teal-dark">
+                          {selectionCount}
+                        </span>
+                      )}
+                    </span>
+                    <span className="mt-0.5 block font-display text-base font-bold tracking-tight text-ink sm:text-lg">
+                      {loc(language, direction.name)}
+                    </span>
+                    <span className="mt-0.5 block text-sm text-slateink">
+                      {loc(language, DIRECTION_TAGLINE[direction.robot])}
+                    </span>
+                  </span>
+                  <ChevronDown
+                    className={`h-5 w-5 shrink-0 text-slateink transition-transform duration-200 ${
+                      isOpen ? 'rotate-180' : ''
+                    }`}
+                    aria-hidden="true"
+                  />
                 </button>
-              );
-            })}
-          </div>
-          <p className="mt-2 text-sm text-slateink">{loc(language, GOAL_HINT)}</p>
+                <AnimatePresence initial={false}>
+                  {isOpen && (
+                    <motion.div
+                      initial={reducedMotion ? { opacity: 0 } : { height: 0, opacity: 0 }}
+                      animate={reducedMotion ? { opacity: 1 } : { height: 'auto', opacity: 1 }}
+                      exit={reducedMotion ? { opacity: 0 } : { height: 0, opacity: 0 }}
+                      transition={{ duration: 0.25 }}
+                      className="overflow-hidden"
+                    >
+                      <div className="border-t border-line/50 px-4 pb-4 pt-3.5 sm:px-5">
+                        {direction.robot === 'nov4' && (
+                          <div>
+                            <p className="text-xs font-semibold uppercase tracking-wide text-slateink">
+                              {loc(language, GOAL_GROUP_LABEL)}
+                            </p>
+                            <div className="mt-2 grid gap-2 sm:grid-cols-2">
+                              {Object.entries(GOAL_LABELS).map(([slug, label]) => {
+                                const selected = goals.includes(slug);
+                                return (
+                                  <button
+                                    key={slug}
+                                    type="button"
+                                    aria-pressed={selected}
+                                    onClick={() => toggleGoal(slug)}
+                                    className={`${FOCUS_RING} flex items-center justify-between gap-2 rounded-xl border px-3.5 py-2.5 text-sm font-semibold transition-colors ${
+                                      selected
+                                        ? 'border-teal bg-teal/10 text-teal-dark'
+                                        : 'border-line/60 bg-white text-ink hover:border-teal/50'
+                                    }`}
+                                  >
+                                    {loc(language, label)}
+                                    {selected && (
+                                      <Check className="h-4 w-4 shrink-0 text-teal" aria-hidden="true" />
+                                    )}
+                                  </button>
+                                );
+                              })}
+                            </div>
+                          </div>
+                        )}
+                        <div className={direction.robot === 'nov4' ? 'mt-4' : undefined}>
+                          <p className="text-xs font-semibold uppercase tracking-wide text-slateink">
+                            {loc(language, SUBJECT_GROUP_LABEL)}
+                          </p>
+                          <div className="mt-2 grid gap-2 sm:grid-cols-2">
+                            {options.map((option) => {
+                              const selected = subjects.includes(option.slug);
+                              const Icon = option.Icon;
+                              return (
+                                <button
+                                  key={option.slug}
+                                  type="button"
+                                  aria-pressed={selected}
+                                  onClick={() => toggleSubject(option.slug)}
+                                  className={`${FOCUS_RING} flex items-center justify-between gap-2 rounded-xl border px-3.5 py-2.5 text-sm font-semibold transition-colors ${
+                                    selected
+                                      ? 'border-teal bg-teal/10 text-teal-dark'
+                                      : 'border-line/60 bg-white text-ink hover:border-teal/50'
+                                  }`}
+                                >
+                                  <span className="flex min-w-0 items-center gap-2">
+                                    {Icon && <Icon className="h-4 w-4 shrink-0" aria-hidden="true" />}
+                                    <span className="truncate">{loc(language, option.label)}</span>
+                                  </span>
+                                  {selected && (
+                                    <Check className="h-4 w-4 shrink-0 text-teal" aria-hidden="true" />
+                                  )}
+                                </button>
+                              );
+                            })}
+                          </div>
+                        </div>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            );
+          })}
+          <p className="text-sm text-slateink">{loc(language, GOAL_HINT)}</p>
         </div>
       )}
 
@@ -852,8 +1092,8 @@ const PlanWizard: React.FC<PlanWizardProps> = ({
         ) : (
           <button
             type="button"
-            onClick={() => onGenerate({ deadline: deadline || null, goals, hours })}
-            disabled={busy || goals.length === 0}
+            onClick={() => onGenerate({ deadline: deadline || null, goals, subjects, hours })}
+            disabled={busy || subjects.length === 0}
             className={CTA_PRIMARY}
           >
             {busy ? (
@@ -969,7 +1209,7 @@ const PlanPage: React.FC = () => {
     setBusy(true);
     setSaveNote(null);
     try {
-      const built = buildPlan(source.profileRow, source.diagRows, config);
+      const built = buildPlan(source.profileRow, source.diagRows, config, Date.now());
       const goal = config.goals[0] ?? null;
       const ok = await persistPlan(built, goal, config.deadline);
       setSource({
@@ -1014,7 +1254,9 @@ const PlanPage: React.FC = () => {
 
   const subjectLabel = (slug: string): string => {
     const known = SUBJECT_LABELS[slug];
-    return known ? loc(language, known) : slug;
+    if (known) return loc(language, known);
+    const planet = planetBySlug(slug);
+    return planet ? loc(language, planet.name) : slug;
   };
 
   const updatedDate = updatedAt ? new Date(updatedAt) : null;
@@ -1033,28 +1275,64 @@ const PlanPage: React.FC = () => {
 
   const savedConfig = plan ? parseConfig(plan.config) : null;
   const showWizard = source !== null && source.diagRows.length > 0 && (!plan || wizardOpen);
+  // Same condition as the plan-view branch below: the rebuild CTA lives in the header.
+  const showRebuild =
+    !loadError && source !== null && source.diagRows.length > 0 && !showWizard && plan !== null;
 
   return (
     <main className="relative min-h-screen bg-canvas font-sans text-ink">
       <RobotBackdrop density="subtle" />
       <div className="relative z-10 mx-auto w-full max-w-5xl px-5 py-12 sm:px-6 md:py-16 lg:px-8">
         <header aria-labelledby="plan-heading">
-          <div className="flex items-start gap-4">
-            <RobotAvatar robot="nov3" className="h-14 w-14 shrink-0 sm:h-16 sm:w-16" />
-            <div>
-              <p className="font-mono text-[11px] font-medium uppercase tracking-widest text-teal-dark">
-                {loc(language, ROBOT_LABEL)}
-              </p>
-              <h1
-                id="plan-heading"
-                className="mt-0.5 font-display text-2xl font-extrabold tracking-tight text-ink sm:text-3xl md:text-4xl"
-              >
-                {loc(language, TITLE)}
-              </h1>
-              <p className="mt-1 max-w-2xl text-sm text-slateink sm:text-base">
-                {loc(language, SUB)}
-              </p>
+          <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
+            <div className="flex items-start gap-4">
+              <RobotAvatar robot="nov1" className="h-14 w-14 shrink-0 sm:h-16 sm:w-16" />
+              <div>
+                <p className="font-mono text-[11px] font-medium uppercase tracking-widest text-teal-dark">
+                  {loc(language, ROBOT_LABEL)}
+                </p>
+                <h1
+                  id="plan-heading"
+                  className="mt-0.5 font-display text-2xl font-extrabold tracking-tight text-ink sm:text-3xl md:text-4xl"
+                >
+                  {loc(language, TITLE)}
+                </h1>
+                <p className="mt-1 max-w-2xl text-sm text-slateink sm:text-base">
+                  {loc(language, SUB)}
+                </p>
+              </div>
             </div>
+            {showRebuild && (
+              <div className="flex flex-col items-stretch gap-2.5 sm:shrink-0 sm:items-end">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setSaveNote(null);
+                    setWizardOpen(true);
+                  }}
+                  disabled={busy}
+                  className={`${FOCUS_RING} inline-flex w-full items-center justify-center gap-2.5 rounded-2xl bg-teal px-6 py-3.5 text-base font-bold text-white shadow-[0_10px_30px_rgba(33,159,162,0.35)] transition hover:-translate-y-0.5 hover:bg-teal-dark disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto sm:px-8 sm:py-4 sm:text-lg`}
+                >
+                  <RefreshCw className="h-5 w-5" aria-hidden="true" />
+                  {loc(language, REBUILD)}
+                </button>
+                <div className="flex flex-wrap items-center gap-x-3 gap-y-1 sm:justify-end">
+                  {saveNote === 'saved' && (
+                    <span className="flex items-center gap-1.5 text-sm font-medium text-teal-dark">
+                      <CheckCircle2 className="h-4 w-4" aria-hidden="true" />
+                      {loc(language, SAVED_NOTE)}
+                    </span>
+                  )}
+                  {saveNote === 'error' && (
+                    <span role="alert" className="flex items-center gap-1.5 text-sm font-medium text-coral">
+                      <AlertTriangle className="h-4 w-4" aria-hidden="true" />
+                      {loc(language, SAVE_ERROR)}
+                    </span>
+                  )}
+                  {updatedText && <span className="text-xs text-slateink">{updatedText}</span>}
+                </div>
+              </div>
+            )}
           </div>
 
           {profileRow && (
@@ -1101,7 +1379,7 @@ const PlanPage: React.FC = () => {
         ) : source.diagRows.length === 0 ? (
           <div className={`${CARD} mt-8`}>
             <div className="flex items-start gap-4">
-              <RobotAvatar robot="nov3" className="h-14 w-14 shrink-0" />
+              <RobotAvatar robot="nov1" className="h-14 w-14 shrink-0" />
               <div>
                 <h2 className="font-display text-xl font-bold tracking-tight text-ink">
                   {loc(language, EMPTY_TITLE)}
@@ -1120,6 +1398,7 @@ const PlanPage: React.FC = () => {
             // purpose); the profile only fills in for legacy plans without one.
             initialDeadline={savedConfig ? savedConfig.deadline ?? '' : profileRow?.exam_date ?? ''}
             initialGoals={savedConfig?.goals ?? goalValues}
+            initialSubjects={savedConfig?.subjects ?? []}
             initialHours={savedConfig?.hours ?? 'h4-6'}
             busy={busy}
             canCancel={plan !== null}
@@ -1133,41 +1412,13 @@ const PlanPage: React.FC = () => {
           </div>
         ) : (
           <>
-            <div className="mt-8 flex flex-wrap items-center gap-3">
-              <button
-                type="button"
-                onClick={() => {
-                  setSaveNote(null);
-                  setWizardOpen(true);
-                }}
-                disabled={busy}
-                className={CTA_PRIMARY}
-              >
-                <RefreshCw className="h-4 w-4" aria-hidden="true" />
-                {loc(language, REBUILD)}
-              </button>
-              {saveNote === 'saved' && (
-                <span className="flex items-center gap-1.5 text-sm font-medium text-teal-dark">
-                  <CheckCircle2 className="h-4 w-4" aria-hidden="true" />
-                  {loc(language, SAVED_NOTE)}
-                </span>
-              )}
-              {saveNote === 'error' && (
-                <span role="alert" className="flex items-center gap-1.5 text-sm font-medium text-coral">
-                  <AlertTriangle className="h-4 w-4" aria-hidden="true" />
-                  {loc(language, SAVE_ERROR)}
-                </span>
-              )}
-              {updatedText && <span className="text-xs text-slateink">{updatedText}</span>}
-            </div>
-
             <ol
               aria-label={loc(language, TIMELINE_LABEL)}
               className="relative mt-8 space-y-6 border-l-2 border-line/60 pl-6"
             >
               {plan.weeks.map((week, index) => {
                 const isCurrent = index === activeWeek;
-                const robot = week.phase === 'review' ? 'nov3' : 'nov2';
+                const robot = 'nov1';
                 const robotLabel = week.phase === 'review' ? ROBOT_NOV3_LABEL : ROBOT_NOV2_LABEL;
                 const groups = groupWeekThemes(week.items);
                 const fixedItems = week.items.filter(
@@ -1237,6 +1488,7 @@ const PlanPage: React.FC = () => {
                                     key={`${item.kind}-${item.ref ?? 'fixed'}-${itemIndex}`}
                                     item={item}
                                     reviewWeek={week.phase === 'review'}
+                                    grade={profileRow?.grade ?? null}
                                   />
                                 ))}
                               </ul>

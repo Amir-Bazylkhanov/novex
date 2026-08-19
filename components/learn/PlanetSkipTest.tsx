@@ -1,12 +1,22 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
-import { CheckCircle2, X, XCircle } from 'lucide-react';
+import {
+  ArrowLeft,
+  CheckCircle2,
+  Rocket,
+  Telescope,
+  X,
+  XCircle,
+  Zap,
+  type LucideIcon,
+} from 'lucide-react';
 import { loc, type Lang, type Localized } from '../../utils/i18n.ts';
 import { useLanguage } from '../../context/LanguageContext.tsx';
 import {
   pickLangField,
   pickLangFieldOptional,
   type AcademySection,
+  type LevelBand,
 } from '../../constants/academy/catalog.ts';
 import { shuffleOptions } from '../../services/practiceService.ts';
 
@@ -23,11 +33,9 @@ const PASS_HINT: Localized = {
   en: 'Score 70% and this level unlocks.',
 };
 const QUESTION_WORD: Localized = { ru: 'Вопрос', kk: 'Сұрақ', en: 'Question' };
-const SUBMIT_TEST: Localized = {
-  ru: 'Проверить ответы',
-  kk: 'Жауаптарды тексеру',
-  en: 'Check answers',
-};
+const NEXT_QUESTION: Localized = { ru: 'Далее', kk: 'Келесі', en: 'Next' };
+const FINISH_TEST: Localized = { ru: 'Завершить', kk: 'Аяқтау', en: 'Finish' };
+const BACK_QUESTION: Localized = { ru: 'Назад', kk: 'Артқа', en: 'Back' };
 const PASS_TITLE: Localized = {
   ru: 'Отлично! Уровень разблокирован',
   kk: 'Керемет! Деңгей ашылды',
@@ -77,6 +85,19 @@ const LEVEL_FAIL_SUB: Localized = {
   en: 'You need at least 70%. Re-read this level’s lesson and try again.',
 };
 
+/* Non-academic modules speak in bands instead of grade-style numbering — see
+   PlanetLevels.tsx for the matching pill labels and the Locus rank mirror. */
+const BAND_LABEL: Record<LevelBand, Localized> = {
+  beginner: { ru: 'Начальный', kk: 'Бастауыш', en: 'Beginner' },
+  intermediate: { ru: 'Средний', kk: 'Орта', en: 'Intermediate' },
+  advanced: { ru: 'Продвинутый', kk: 'Жоғары', en: 'Advanced' },
+};
+const BAND_RANK: Record<LevelBand, { icon: LucideIcon; name: Localized }> = {
+  beginner: { icon: Telescope, name: { ru: 'Исследователь', kk: 'Зерттеуші', en: 'Explorer' } },
+  intermediate: { icon: Rocket, name: { ru: 'Путешественник', kk: 'Саяхатшы', en: 'Voyager' } },
+  advanced: { icon: Zap, name: { ru: 'Пионер', kk: 'Пионер', en: 'Pioneer' } },
+};
+
 const FOCUS_RING =
   'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2 focus-visible:ring-offset-canvas';
 
@@ -88,12 +109,19 @@ const FOCUS_RING =
    section is too small to supply 3 distinct distractors on its own (life-
    skills sections routinely have only 3 problems and no keyTerms). The
    keyTerms path («What does term X mean?» with other terms' definitions as
-   distractors) is an additional source mixed into the same pool. Long
-   answers are truncated to MAX_OPTION_LEN with an ellipsis — applied to
-   every option of a question uniformly so length never gives away the
-   correct one. Everything else is deterministic — options shuffle via the
-   shared seeded shuffleOptions, so the same section always yields the same
-   test. */
+   distractors) is an additional source mixed into the same pool.
+
+   Distractor candidates are scored against the correct answer (see
+   `distractorScore`) on length proximity, surface features (leading number,
+   currency symbol, formula/percentage), and same-section origin, and the
+   top 3 are taken — this keeps an out-of-context wall-of-text answer from
+   sitting next to a one-line correct answer. When the correct answer leads
+   with a number and too few real distractors also do, plausible numeric
+   distractors are synthesized by perturbing the correct number (kept in the
+   same $/₸/€ format). Options render in full — no truncation, they wrap to
+   as many lines as needed. Everything is deterministic — options shuffle via
+   the shared seeded shuffleOptions, so the same section always yields the
+   same test. */
 
 export interface SkipTestQuestion {
   prompt: string;
@@ -107,7 +135,6 @@ interface Candidate {
 }
 
 const MAX_QUESTIONS = 5;
-const MAX_OPTION_LEN = 80;
 const SKIP_TEST_SEED = 21;
 const PASS_THRESHOLD = 70;
 
@@ -117,8 +144,68 @@ const termPrompt = (language: Lang, term: string): string => {
   return `Что означает термин «${term}»?`;
 };
 
-const truncateOption = (value: string, maxLen: number): string =>
-  value.length > maxLen ? `${value.slice(0, maxLen - 1).trimEnd()}…` : value;
+/* --- distractor scoring --- */
+
+const LEADING_NUMBER = /^[$€₸]?\s?-?\d[\d.,]*/;
+const LEADING_NUMBER_CAPTURE = /^([$€₸]?)\s?(-?\d[\d.,]*)/;
+const FORMULA_OR_PERCENT = /[=%]|\d\s*[-+×x*/]\s*\d/;
+const CURRENCY_SYMBOL = /[$€₸]/;
+
+const startsWithNumber = (text: string): boolean => LEADING_NUMBER.test(text.trim());
+
+interface TextFeatures {
+  leadingNumber: boolean;
+  currency: boolean;
+  formula: boolean;
+}
+
+const textFeatures = (text: string): TextFeatures => ({
+  leadingNumber: startsWithNumber(text),
+  currency: CURRENCY_SYMBOL.test(text),
+  formula: FORMULA_OR_PERCENT.test(text),
+});
+
+/** Higher = a better-fitting distractor for `correct`: close in length,
+    matching surface features, same-section origin. */
+const distractorScore = (
+  text: string,
+  correctAnswer: string,
+  correctFeatures: TextFeatures,
+  sameSection: boolean,
+): number => {
+  const features = textFeatures(text);
+  const lenRatio =
+    Math.min(text.length, correctAnswer.length) / Math.max(text.length, correctAnswer.length, 1);
+  let score = lenRatio * 4;
+  if (sameSection) score += 3;
+  if (features.leadingNumber === correctFeatures.leadingNumber) score += 1;
+  if (correctFeatures.leadingNumber && features.leadingNumber) score += 1;
+  if (features.currency === correctFeatures.currency) score += 1;
+  if (features.formula === correctFeatures.formula) score += 1;
+  return score;
+};
+
+/** Perturbs the correct answer's leading number (±25%, ±40%, ×2, ÷2 —
+    deterministic per seed) to synthesize a plausible numeric distractor in
+    the same format (currency prefix, decimal places). Last-resort only, for
+    numeric-leading answers with too few real numeric-leading distractors;
+    internal-only "synthetic" — indistinguishable from a real option to the
+    student. Returns null when the answer doesn't actually lead with a
+    parseable number. */
+const synthesizeNumericDistractor = (correctAnswer: string, multiplier: number): string | null => {
+  const match = correctAnswer.match(LEADING_NUMBER_CAPTURE);
+  if (!match) return null;
+  const [, prefix, numText] = match;
+  const decimals = numText.includes('.') ? numText.split('.')[1].length : 0;
+  const value = parseFloat(numText.replace(/,/g, ''));
+  if (!Number.isFinite(value) || value === 0) return null;
+  const perturbed = value * multiplier;
+  const formatted = decimals > 0 ? perturbed.toFixed(decimals) : String(Math.round(perturbed));
+  const rest = correctAnswer.slice(match[0].length);
+  return `${prefix}${formatted}${rest}`;
+};
+
+const SYNTHETIC_MULTIPLIERS = [1.25, 0.75, 2, 0.5, 1.4, 0.6];
 
 const problemCandidates = (section: AcademySection, language: Lang): Candidate[] => {
   const seen = new Set<string>();
@@ -174,6 +261,12 @@ const foreignProblemAnswers = (
   return out;
 };
 
+interface ScoredDistractor {
+  text: string;
+  score: number;
+  order: number;
+}
+
 const pickDistractors = (
   pool: Candidate[],
   candidateIndex: number,
@@ -181,25 +274,52 @@ const pickDistractors = (
   seed: number,
 ): string[] => {
   const candidate = pool[candidateIndex];
+  const correctFeatures = textFeatures(candidate.answer);
   const seen = new Set<string>([candidate.answer.toLowerCase()]);
-  const distractors: string[] = [];
+  const scored: ScoredDistractor[] = [];
+  let order = 0;
 
-  // same section first
-  for (let step = 1; distractors.length < 3 && step < pool.length; step += 1) {
+  // same-section candidates, scored
+  for (let step = 1; step < pool.length; step += 1) {
     const other = pool[(candidateIndex + step) % pool.length];
     const key = other.answer.toLowerCase();
     if (seen.has(key)) continue;
     seen.add(key);
-    distractors.push(other.answer);
+    scored.push({
+      text: other.answer,
+      score: distractorScore(other.answer, candidate.answer, correctFeatures, true),
+      order: order++,
+    });
   }
 
-  // pad from other planet sections when the section alone is too small
-  for (let step = 0; distractors.length < 3 && step < foreignAnswers.length; step += 1) {
+  // other-section candidates, scored (weaker same-section bonus)
+  for (let step = 0; step < foreignAnswers.length; step += 1) {
     const answer = foreignAnswers[(seed + step) % foreignAnswers.length];
     const key = answer.toLowerCase();
     if (seen.has(key)) continue;
     seen.add(key);
-    distractors.push(answer);
+    scored.push({
+      text: answer,
+      score: distractorScore(answer, candidate.answer, correctFeatures, false),
+      order: order++,
+    });
+  }
+
+  scored.sort((a, b) => b.score - a.score || a.order - b.order);
+  const distractors = scored.slice(0, 3).map((s) => s.text);
+
+  // last resort: synthesize numeric distractors when the correct answer
+  // leads with a number and real candidates couldn't fill all 3 slots
+  if (distractors.length < 3 && correctFeatures.leadingNumber) {
+    for (let i = 0; distractors.length < 3 && i < SYNTHETIC_MULTIPLIERS.length; i += 1) {
+      const multiplier = SYNTHETIC_MULTIPLIERS[(seed + i) % SYNTHETIC_MULTIPLIERS.length];
+      const synthetic = synthesizeNumericDistractor(candidate.answer, multiplier);
+      if (!synthetic) break;
+      const key = synthetic.toLowerCase();
+      if (seen.has(key)) continue;
+      seen.add(key);
+      distractors.push(synthetic);
+    }
   }
 
   return distractors;
@@ -221,7 +341,7 @@ export const buildSkipTest = (
 
   return selected.map((candidate, index) => {
     const distractors = pickDistractors(pool, index, foreignAnswers, SKIP_TEST_SEED * 31 + index + 1);
-    const options = [candidate.answer, ...distractors].map((opt) => truncateOption(opt, MAX_OPTION_LEN));
+    const options = [candidate.answer, ...distractors];
     const shuffled = shuffleOptions(options, 0, SKIP_TEST_SEED * 31 + index + 1);
     return { prompt: candidate.prompt, options: shuffled.options, correctIndex: shuffled.correctIndex };
   });
@@ -243,6 +363,12 @@ interface PlanetSkipTestProps {
   /** The planet's full section list, for cross-section distractor padding
       (see buildSkipTest). Omit only when unavailable. */
   allSections?: AcademySection[];
+  /** False for Жизненные навыки / Навыки будущего modules — shows the
+      section's difficulty band instead of grade-style level numbering. */
+  academic: boolean;
+  /** The band the section being tested belongs to; required when
+      `academic` is false. */
+  band?: LevelBand;
   /** Called once on a passing submit (>= 70%) — records skip/completion. */
   onPass: () => void;
   onClose: () => void;
@@ -254,6 +380,8 @@ interface PlanetSkipTestProps {
 const PlanetSkipTest: React.FC<PlanetSkipTestProps> = ({
   section,
   allSections,
+  academic,
+  band,
   onPass,
   onClose,
   mode = 'skip',
@@ -262,6 +390,8 @@ const PlanetSkipTest: React.FC<PlanetSkipTestProps> = ({
   const reducedMotion = useReducedMotion();
   const [answers, setAnswers] = useState<Record<number, number>>({});
   const [submitted, setSubmitted] = useState<{ score: number; passed: boolean } | null>(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [direction, setDirection] = useState<1 | -1>(1);
 
   const title = mode === 'level' ? LEVEL_TEST_TITLE : SKIP_TEST_TITLE;
   const passHint = mode === 'level' ? LEVEL_PASS_HINT : PASS_HINT;
@@ -303,10 +433,31 @@ const PlanetSkipTest: React.FC<PlanetSkipTestProps> = ({
   const handleRetry = () => {
     setAnswers({});
     setSubmitted(null);
+    setCurrentIndex(0);
+    setDirection(1);
+  };
+
+  const currentQuestion = questions[currentIndex];
+  const isLastQuestion = currentIndex === questions.length - 1;
+  const currentAnswered = answers[currentIndex] !== undefined;
+
+  const goNext = () => {
+    if (!currentAnswered) return;
+    if (isLastQuestion) {
+      handleSubmit();
+      return;
+    }
+    setDirection(1);
+    setCurrentIndex((i) => i + 1);
+  };
+
+  const goBack = () => {
+    if (currentIndex === 0) return;
+    setDirection(-1);
+    setCurrentIndex((i) => i - 1);
   };
 
   const sectionTitle = pickLangField(language, section.title, section.titleRu, section.titleKk);
-  const answeredCount = Object.keys(answers).length;
 
   return (
     <AnimatePresence>
@@ -340,6 +491,18 @@ const PlanetSkipTest: React.FC<PlanetSkipTestProps> = ({
                   {loc(language, title)}
                 </h2>
                 <p className="mt-1 truncate text-sm font-semibold text-teal-dark">{sectionTitle}</p>
+                {!academic && band && (
+                  <span
+                    className="mt-2 inline-flex items-center gap-1.5 rounded-full bg-mist/30 px-2.5 py-1 text-[11px] font-bold text-teal-dark"
+                    title={loc(language, BAND_RANK[band].name)}
+                  >
+                    {(() => {
+                      const RankIcon = BAND_RANK[band].icon;
+                      return <RankIcon className="h-3 w-3" aria-hidden="true" />;
+                    })()}
+                    {loc(language, BAND_LABEL[band])}
+                  </span>
+                )}
                 <p className="mt-2 text-sm text-slateink">{loc(language, passHint)}</p>
               </div>
               <button
@@ -408,68 +571,95 @@ const PlanetSkipTest: React.FC<PlanetSkipTestProps> = ({
             ) : (
               <>
                 <div className="mt-6 flex items-center gap-3">
+                  <button
+                    type="button"
+                    aria-label={loc(language, BACK_QUESTION)}
+                    onClick={goBack}
+                    disabled={currentIndex === 0}
+                    tabIndex={currentIndex === 0 ? -1 : 0}
+                    className={`${FOCUS_RING} flex h-8 w-8 shrink-0 items-center justify-center rounded-lg text-slateink transition-opacity hover:text-teal ${
+                      currentIndex === 0 ? 'pointer-events-none opacity-0' : 'opacity-100'
+                    }`}
+                  >
+                    <ArrowLeft className="h-4 w-4" aria-hidden="true" />
+                  </button>
                   <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-line/40">
                     <div
                       className="h-full rounded-full bg-teal transition-all duration-300"
                       style={{
-                        width: `${questions.length > 0 ? Math.round((answeredCount / questions.length) * 100) : 0}%`,
+                        width: `${questions.length > 0 ? Math.round(((currentIndex + 1) / questions.length) * 100) : 0}%`,
                       }}
                     />
                   </div>
                   <span className="font-mono text-[11px] font-medium uppercase tracking-widest text-slateink">
-                    {answeredCount}/{questions.length}
+                    {currentIndex + 1}/{questions.length}
                   </span>
                 </div>
 
-                <div className="mt-5 space-y-4">
-                  {questions.map((question, qi) => (
-                    <div key={qi} className="rounded-2xl border border-line/50 bg-canvas p-5">
-                      <p className="font-mono text-[11px] font-medium uppercase tracking-widest text-teal-dark">
-                        {loc(language, QUESTION_WORD)} {qi + 1}
-                      </p>
-                      <p className="mt-2 text-sm font-semibold leading-relaxed text-ink sm:text-base">
-                        {question.prompt}
-                      </p>
-                      <div className="mt-3 space-y-2" role="radiogroup" aria-label={question.prompt}>
-                        {question.options.map((option, oi) => {
-                          const selected = answers[qi] === oi;
-                          return (
-                            <button
-                              key={oi}
-                              type="button"
-                              role="radio"
-                              aria-checked={selected}
-                              onClick={() => setAnswers((prev) => ({ ...prev, [qi]: oi }))}
-                              className={`${FOCUS_RING} flex w-full items-start gap-3 rounded-xl border px-4 py-3 text-left text-sm leading-relaxed transition-colors ${
-                                selected
-                                  ? 'border-teal bg-teal/10 text-ink'
-                                  : 'border-line bg-white text-ink hover:border-teal/50'
-                              }`}
-                            >
-                              <span
-                                aria-hidden="true"
-                                className={`mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full font-mono text-[11px] font-bold ${
-                                  selected ? 'bg-teal text-white' : 'bg-mist/40 text-teal-dark'
+                <div className="relative mt-5">
+                  <AnimatePresence mode="wait" initial={false}>
+                    {currentQuestion && (
+                      <motion.div
+                        key={currentIndex}
+                        initial={reducedMotion ? { opacity: 0 } : { opacity: 0, x: 24 * direction }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={reducedMotion ? { opacity: 0 } : { opacity: 0, x: -24 * direction }}
+                        transition={{ duration: 0.2 }}
+                        className="rounded-2xl border border-line/50 bg-canvas p-5"
+                      >
+                        <p className="font-mono text-[11px] font-medium uppercase tracking-widest text-teal-dark">
+                          {loc(language, QUESTION_WORD)} {currentIndex + 1}
+                        </p>
+                        <p className="mt-2 text-sm font-semibold leading-relaxed text-ink sm:text-base">
+                          {currentQuestion.prompt}
+                        </p>
+                        <div
+                          className="mt-3 space-y-2"
+                          role="radiogroup"
+                          aria-label={currentQuestion.prompt}
+                        >
+                          {currentQuestion.options.map((option, oi) => {
+                            const selected = answers[currentIndex] === oi;
+                            return (
+                              <button
+                                key={oi}
+                                type="button"
+                                role="radio"
+                                aria-checked={selected}
+                                onClick={() =>
+                                  setAnswers((prev) => ({ ...prev, [currentIndex]: oi }))
+                                }
+                                className={`${FOCUS_RING} flex w-full items-start gap-3 rounded-xl border px-4 py-3 text-left text-sm leading-relaxed transition-colors ${
+                                  selected
+                                    ? 'border-teal bg-teal/10 text-ink'
+                                    : 'border-line bg-white text-ink hover:border-teal/50'
                                 }`}
                               >
-                                {String.fromCharCode(65 + oi)}
-                              </span>
-                              <span className="min-w-0">{option}</span>
-                            </button>
-                          );
-                        })}
-                      </div>
-                    </div>
-                  ))}
+                                <span
+                                  aria-hidden="true"
+                                  className={`mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full font-mono text-[11px] font-bold ${
+                                    selected ? 'bg-teal text-white' : 'bg-mist/40 text-teal-dark'
+                                  }`}
+                                >
+                                  {String.fromCharCode(65 + oi)}
+                                </span>
+                                <span className="min-w-0">{option}</span>
+                              </button>
+                            );
+                          })}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </div>
 
                 <button
                   type="button"
-                  disabled={!allAnswered}
-                  onClick={handleSubmit}
+                  disabled={!currentAnswered}
+                  onClick={goNext}
                   className={`${FOCUS_RING} mt-6 inline-flex w-full items-center justify-center rounded-xl bg-teal px-6 py-3.5 text-base font-semibold text-white shadow-[0_4px_14px_rgba(33,159,162,0.25)] transition-colors hover:bg-teal-dark disabled:cursor-not-allowed disabled:opacity-50`}
                 >
-                  {loc(language, SUBMIT_TEST)}
+                  {loc(language, isLastQuestion ? FINISH_TEST : NEXT_QUESTION)}
                 </button>
               </>
             )}

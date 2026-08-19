@@ -18,12 +18,16 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Score = (Correct Answers × Points per Question) − (Wrong Answers × Penalty)",
+            formulaRu: "Балл = (Правильные ответы × Баллы за вопрос) − (Неправильные ответы × Штраф)",
+            formulaKk: "Балл = (Дұрыс жауаптар × Сұраққа берілетін балл) − (Қате жауаптар × Айыппұл)",
             description: "Basic scoring formula for standardized tests",
             descriptionRu: "Базовая формула оценки стандартизированных тестов",
             descriptionKk: "Стандартталған тесттердің негізгі бағалау формуласы"
           },
           {
             formula: "Time per Question = Total Time ÷ Number of Questions",
+            formulaRu: "Время на вопрос = Общее время ÷ Количество вопросов",
+            formulaKk: "Сұраққа кететін уақыт = Жалпы уақыт ÷ Сұрақтар саны",
             description: "How to calculate the average time you can spend on each question",
             descriptionRu: "Как рассчитать среднее время на каждый вопрос",
             descriptionKk: "Әр сұраққа жұмсалатын орташа уақытты қалай есептеу керек"
@@ -95,12 +99,16 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Main Idea = Topic + Author's Point about the Topic",
+            formulaRu: "Основная мысль = Тема + Точка зрения автора на тему",
+            formulaKk: "Негізгі ой = Тақырып + Автордың тақырып туралы көзқарасы",
             description: "How to identify the central message of a passage",
             descriptionRu: "Как определить центральную мысль текста",
             descriptionKk: "Мәтіннің негізгі ойын қалай анықтау керек"
           },
           {
             formula: "Inference = Evidence from Text + Background Knowledge",
+            formulaRu: "Вывод = Доказательства из текста + Фоновые знания",
+            formulaKk: "Қорытынды = Мәтіндегі дәлелдер + Негізгі білім",
             description: "How to draw logical conclusions beyond what is explicitly stated",
             descriptionRu: "Как делать логические выводы за пределами прямо сказанного",
             descriptionKk: "Тікелей айтылғаннан тыс логикалық қорытынды қалай жасау керек"
@@ -172,12 +180,16 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Word Meaning ≈ Prefix + Root + Suffix",
+            formulaRu: "Значение слова ≈ Приставка + Корень + Суффикс",
+            formulaKk: "Сөздің мағынасы ≈ Префикс + Түбір + Жұрнақ",
             description: "Break a word into its parts to determine its meaning",
             descriptionRu: "Разбейте слово на части, чтобы определить его значение",
             descriptionKk: "Сөзді бөліктерге бөліп мағынасын анықтаңыз"
           },
           {
             formula: "Context Clue Types: Definition, Synonym, Antonym, Example",
+            formulaRu: "Типы контекстных подсказок: Определение, Синоним, Антоним, Пример",
+            formulaKk: "Контекстік кілт түрлері: Анықтама, Синоним, Антоним, Мысал",
             description: "Four ways surrounding text can reveal a word's meaning",
             descriptionRu: "Четыре способа, которыми окружающий текст может раскрыть значение слова",
             descriptionKk: "Қоршаған мәтін сөздің мағынасын ашатын төрт тәсіл"
@@ -249,12 +261,16 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Distance = Speed × Time",
+            formulaRu: "Расстояние = Скорость × Время",
+            formulaKk: "Қашықтық = Жылдамдық × Уақыт",
             description: "Fundamental formula for motion problems",
             descriptionRu: "Основная формула для задач на движение",
             descriptionKk: "Қозғалыс есептерінің негізгі формуласы"
           },
           {
             formula: "Total Cost = Unit Price × Quantity",
+            formulaRu: "Общая стоимость = Цена за единицу × Количество",
+            formulaKk: "Жалпы құн = Бірлік бағасы × Мөлшер",
             description: "Basic formula for price and shopping problems",
             descriptionRu: "Базовая формула для задач на цены и покупки",
             descriptionKk: "Баға және сатып алу есептерінің негізгі формуласы"
@@ -326,12 +342,16 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Mean (Average) = Sum of all values ÷ Number of values",
+            formulaRu: "Среднее значение = Сумма всех значений ÷ Количество значений",
+            formulaKk: "Орташа мән = Барлық мәндердің қосындысы ÷ Мәндер саны",
             description: "How to calculate the average of a data set",
             descriptionRu: "Как рассчитать среднее значение набора данных",
             descriptionKk: "Деректер жиынының орташа мәнін қалай есептеу керек"
           },
           {
             formula: "Percentage of a category = (Category value ÷ Total) × 100",
+            formulaRu: "Процент категории = (Значение категории ÷ Общее значение) × 100",
+            formulaKk: "Санат пайызы = (Санат мәні ÷ Жалпы мән) × 100",
             description: "How to find what percentage one slice of a pie chart represents",
             descriptionRu: "Как найти, какой процент представляет один сектор круговой диаграммы",
             descriptionKk: "Дөңгелек диаграмманың бір секторы қанша пайызды білдіретінін қалай табу керек"
@@ -403,12 +423,16 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Subject-Verb Agreement: Singular subject → singular verb; Plural subject → plural verb",
+            formulaRu: "Согласование подлежащего и сказуемого: Единственное число подлежащего → единственное число глагола; Множественное число подлежащего → множественное число глагола",
+            formulaKk: "Бастауыш пен баяндауыштың үйлесуі: Жекеше бастауыш → жекеше етістік; Көпше бастауыш → көпше етістік",
             description: "The fundamental rule for matching subjects with their verbs",
             descriptionRu: "Основное правило согласования подлежащего со сказуемым",
             descriptionKk: "Бастауышты баяндауышпен сәйкестендірудің негізгі ережесі"
           },
           {
             formula: "Comma Rules: Lists, Introductory phrases, Compound sentences (FANBOYS), Appositives",
+            formulaRu: "Правила запятой: Списки, Вводные фразы, Сложносочинённые предложения (FANBOYS), Приложения",
+            formulaKk: "Үтір ережелері: Тізімдер, Кіріспе тіркестер, Салалас құрмалас сөйлемдер (FANBOYS), Айқындауыштар",
             description: "Four key situations that require commas",
             descriptionRu: "Четыре ключевые ситуации, требующие запятой",
             descriptionKk: "Үтір қажет төрт негізгі жағдай"
@@ -480,6 +504,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Two-Pass Strategy: Pass 1 (easy questions, ~60% of time) → Pass 2 (hard questions, ~40% of time)",
+            formulaRu: "Стратегия двух проходов: Проход 1 (лёгкие вопросы, ~60% времени) → Проход 2 (сложные вопросы, ~40% времени)",
+            formulaKk: "Екі кезеңді стратегия: 1-кезең (жеңіл сұрақтар, уақыттың ~60%) → 2-кезең (қиын сұрақтар, уақыттың ~40%)",
             description: "Split your test time into two rounds for maximum efficiency",
             descriptionRu: "Разделите время теста на два раунда для максимальной эффективности",
             descriptionKk: "Максималды тиімділік үшін тест уақытын екі раундқа бөліңіз"
@@ -551,6 +577,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Probability after elimination: 1 ÷ remaining choices (e.g., eliminate 2 of 4 → 1/2 = 50%)",
+            formulaRu: "Вероятность после исключения: 1 ÷ оставшиеся варианты (например, исключите 2 из 4 → 1/2 = 50%)",
+            formulaKk: "Алып тастағаннан кейінгі ықтималдық: 1 ÷ қалған нұсқалар (мысалы, 4-тен 2-ін алып тастаңыз → 1/2 = 50%)",
             description: "Your chance of guessing correctly increases as you eliminate wrong answers",
             descriptionRu: "Шанс угадать правильно растёт по мере исключения неправильных ответов",
             descriptionKk: "Дұрыс болжау мүмкіндігі қате жауаптарды жойған сайын артады"
@@ -622,12 +650,16 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Paragraph Structure: Topic Sentence → Supporting Detail 1 → Supporting Detail 2 → Concluding Sentence",
+            formulaRu: "Структура абзаца: Тематическое предложение → Подтверждающая деталь 1 → Подтверждающая деталь 2 → Заключительное предложение",
+            formulaKk: "Абзац құрылымы: Тақырыптық сөйлем → Дәлелдейтін деталь 1 → Дәлелдейтін деталь 2 → Қорытынды сөйлем",
             description: "The standard structure for a well-organized paragraph",
             descriptionRu: "Стандартная структура организованного абзаца",
             descriptionKk: "Жақсы ұйымдасқан абзацтың стандартты құрылымы"
           },
           {
             formula: "Transition Words: Addition (also, furthermore) | Contrast (however, but) | Cause (because, therefore)",
+            formulaRu: "Слова-связки: Добавление (also, furthermore) | Контраст (however, but) | Причина (because, therefore)",
+            formulaKk: "Байланыстырушы сөздер: Қосу (also, furthermore) | Қарама-қайшылық (however, but) | Себеп (because, therefore)",
             description: "Key connector words organized by function",
             descriptionRu: "Ключевые слова-связки, организованные по функции",
             descriptionKk: "Функциясы бойынша ұйымдастырылған негізгі байланыстырғыш сөздер"
@@ -699,12 +731,16 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Improvement Rate = (Practice Test 2 Score − Practice Test 1 Score) ÷ Practice Test 1 Score × 100%",
+            formulaRu: "Темп улучшения = (Балл пробного теста 2 − Балл пробного теста 1) ÷ Балл пробного теста 1 × 100%",
+            formulaKk: "Жақсару қарқыны = (2-жаттығу тестінің баллы − 1-жаттығу тестінің баллы) ÷ 1-жаттығу тестінің баллы × 100%",
             description: "How to measure your progress between practice tests",
             descriptionRu: "Как измерить прогресс между пробными тестами",
             descriptionKk: "Сынақ тесттері арасындағы прогресті қалай өлшеу керек"
           },
           {
             formula: "Error Analysis: Categorize mistakes → Content gaps, Careless errors, Time pressure, Misread questions",
+            formulaRu: "Анализ ошибок: Классифицируйте ошибки → Пробелы в знаниях, Невнимательные ошибки, Нехватка времени, Неправильно прочитанные вопросы",
+            formulaKk: "Қателерді талдау: Қателерді жіктеу → Білім олқылықтары, Немқұрайлы қателер, Уақыт тапшылығы, Сұрақты қате оқу",
             description: "Four categories for classifying why you got questions wrong",
             descriptionRu: "Четыре категории для классификации причин ошибок",
             descriptionKk: "Қателердің себебін жіктеудің төрт категориясы"
@@ -786,12 +822,16 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Linear equation: y = mx + b (slope-intercept form)",
+            formulaRu: "Линейное уравнение: y = mx + b (форма с угловым коэффициентом)",
+            formulaKk: "Сызықтық теңдеу: y = mx + b (бұрыштық коэффициент түрі)",
             description: "Standard form for a line where m is slope and b is y-intercept",
             descriptionRu: "Стандартная форма прямой, где m — наклон, b — пересечение с осью y",
             descriptionKk: "Түзудің стандартты формасы, мұнда m — көлбеулік, b — y-өсімен қиылысу"
           },
           {
             formula: "System of equations: solve by substitution or elimination",
+            formulaRu: "Система уравнений: решается методом подстановки или сложения",
+            formulaKk: "Теңдеулер жүйесі: орын басу немесе қосу әдісімен шешіледі",
             description: "Two methods to find values that satisfy two equations simultaneously",
             descriptionRu: "Два метода нахождения значений, удовлетворяющих обоим уравнениям",
             descriptionKk: "Екі теңдеуді бір уақытта қанағаттандыратын мәндерді табудың екі әдісі"
@@ -863,12 +903,16 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Proportion: a/b = c/d → ad = bc (cross multiplication)",
+            formulaRu: "Пропорция: a/b = c/d → ad = bc (перекрёстное умножение)",
+            formulaKk: "Пропорция: a/b = c/d → ad = bc (крест-әдісімен көбейту)",
             description: "Method for solving proportion problems",
             descriptionRu: "Метод решения задач на пропорции",
             descriptionKk: "Пропорция есептерін шешу әдісі"
           },
           {
             formula: "Percent Change = (New − Original) ÷ Original × 100%",
+            formulaRu: "Процентное изменение = (Новое значение − Исходное значение) ÷ Исходное значение × 100%",
+            formulaKk: "Пайыздық өзгеріс = (Жаңа мән − Бастапқы мән) ÷ Бастапқы мән × 100%",
             description: "How to calculate percentage increase or decrease",
             descriptionRu: "Как рассчитать процентное увеличение или уменьшение",
             descriptionKk: "Пайыздық артуды немесе азаюды қалай есептеу керек"
@@ -940,6 +984,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Main Idea = What the entire passage is about + Author's perspective on it",
+            formulaRu: "Основная мысль = О чём весь текст + Точка зрения автора на это",
+            formulaKk: "Негізгі ой = Мәтін неге арналған + Автордың осыған көзқарасы",
             description: "The main idea encompasses both the topic and the author's angle",
             descriptionRu: "Главная мысль охватывает и тему, и точку зрения автора",
             descriptionKk: "Негізгі ой тақырыпты да, автордың көзқарасын да қамтиды"
@@ -1011,6 +1057,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Evidence Question Strategy: Answer the main question first → Find the lines that directly prove your answer",
+            formulaRu: "Стратегия вопросов на доказательство: Сначала ответьте на основной вопрос → Найдите строки, которые напрямую подтверждают ваш ответ",
+            formulaKk: "Дәлел сұрақтары стратегиясы: Алдымен негізгі сұраққа жауап беріңіз → Жауабыңызды тікелей дәлелдейтін жолдарды табыңыз",
             description: "Always answer the content question before looking for evidence",
             descriptionRu: "Всегда отвечайте на содержательный вопрос перед поиском доказательства",
             descriptionKk: "Дәлел іздемес бұрын әрқашан мазмұндық сұраққа жауап беріңіз"
@@ -1082,12 +1130,16 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Parallel Structure: A, B, and C must all be the same grammatical form",
+            formulaRu: "Параллельная структура: A, B и C должны иметь одинаковую грамматическую форму",
+            formulaKk: "Параллель құрылым: A, B және C бірдей грамматикалық формада болуы керек",
             description: "Items in a list or comparison must match in structure",
             descriptionRu: "Элементы списка или сравнения должны совпадать по структуре",
             descriptionKk: "Тізімдегі немесе салыстырудағы элементтер құрылымда сәйкес болуы тиіс"
           },
           {
             formula: "Pronoun Agreement: pronoun must match its antecedent in number and gender",
+            formulaRu: "Согласование местоимений: местоимение должно совпадать с антецедентом по числу и роду",
+            formulaKk: "Есімдіктің үйлесуі: есімдік өзі меңзейтін сөзбен сан және тек жағынан сәйкес келуі керек",
             description: "A pronoun must clearly refer to a specific noun",
             descriptionRu: "Местоимение должно чётко ссылаться на определённое существительное",
             descriptionKk: "Есімдік нақты зат есімге анық сілтеме жасауы керек"
@@ -1159,12 +1211,16 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "IELTS Listening Sections: 1 (social conversation) → 2 (monologue) → 3 (academic discussion) → 4 (lecture)",
+            formulaRu: "Разделы аудирования IELTS: 1 (бытовой разговор) → 2 (монолог) → 3 (академическое обсуждение) → 4 (лекция)",
+            formulaKk: "IELTS тыңдалым бөлімдері: 1 (тұрмыстық әңгіме) → 2 (монолог) → 3 (академиялық талқылау) → 4 (дәріс)",
             description: "The four sections progress from easiest to hardest",
             descriptionRu: "Четыре раздела от самого лёгкого до самого сложного",
             descriptionKk: "Төрт бөлім ең оңайдан ең қиынға дейін жүреді"
           },
           {
             formula: "Prediction Strategy: Read questions → Underline keywords → Predict answer type → Listen for synonyms",
+            formulaRu: "Стратегия предугадывания: Прочитайте вопросы → Подчеркните ключевые слова → Предугадайте тип ответа → Слушайте синонимы",
+            formulaKk: "Болжау стратегиясы: Сұрақтарды оқыңыз → Түйінді сөздерді астын сызыңыз → Жауап түрін болжаңыз → Синонимдерді тыңдаңыз",
             description: "Four-step approach to IELTS listening success",
             descriptionRu: "Четырёхшаговый подход к успеху в аудировании IELTS",
             descriptionKk: "IELTS тыңдауда табысқа жетудің төрт қадамдық тәсілі"
@@ -1236,6 +1292,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Time allocation: Passage 1 (~15 min) + Passage 2 (~20 min) + Passage 3 (~25 min) = 60 min",
+            formulaRu: "Распределение времени: Текст 1 (~15 мин) + Текст 2 (~20 мин) + Текст 3 (~25 мин) = 60 мин",
+            formulaKk: "Уақытты бөлу: 1-мәтін (~15 мин) + 2-мәтін (~20 мин) + 3-мәтін (~25 мин) = 60 мин",
             description: "Spend more time on harder passages to maximize your score",
             descriptionRu: "Уделяйте больше времени сложным текстам для максимизации балла",
             descriptionKk: "Ұпайды барынша арттыру үшін қиын мәтіндерге көбірек уақыт бөліңіз"
@@ -1307,12 +1365,16 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "TOEFL Total = Reading (0-30) + Listening (0-30) + Speaking (0-30) + Writing (0-30) = 0-120",
+            formulaRu: "Общий балл TOEFL = Чтение (0-30) + Аудирование (0-30) + Говорение (0-30) + Письмо (0-30) = 0-120",
+            formulaKk: "TOEFL жалпы баллы = Оқылым (0-30) + Тыңдалым (0-30) + Айтылым (0-30) + Жазылым (0-30) = 0-120",
             description: "TOEFL scoring breakdown by section",
             descriptionRu: "Структура оценивания TOEFL по разделам",
             descriptionKk: "TOEFL бөлімдер бойынша бағалау құрылымы"
           },
           {
             formula: "Note-taking: Keywords + Abbreviations + Symbols (→, =, ↑, ↓, ∴)",
+            formulaRu: "Конспектирование: Ключевые слова + Сокращения + Символы (→, =, ↑, ↓, ∴)",
+            formulaKk: "Конспект жасау: Түйінді сөздер + Қысқартулар + Таңбалар (→, =, ↑, ↓, ∴)",
             description: "Efficient note-taking is critical for TOEFL listening and integrated tasks",
             descriptionRu: "Эффективное конспектирование критически важно для аудирования и интегрированных заданий TOEFL",
             descriptionKk: "Тиімді жазба жасау TOEFL тыңдау және біріктірілген тапсырмалар үшін өте маңызды"
@@ -1384,6 +1446,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "ACT Science: ~52 seconds per question (35 min ÷ 40 questions)",
+            formulaRu: "ACT Наука: ~52 секунды на вопрос (35 мин ÷ 40 вопросов)",
+            formulaKk: "ACT Ғылым: сұраққа ~52 секунд (35 мин ÷ 40 сұрақ)",
             description: "Very fast pacing is required — do not overthink questions",
             descriptionRu: "Требуется очень быстрый темп — не задумывайтесь над вопросами",
             descriptionKk: "Өте жылдам қарқын қажет — сұрақтар үстінде тым ұзақ ойланбаңыз"
@@ -1455,12 +1519,16 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Essay Structure: Introduction (thesis) → Body 1 (argument + evidence) → Body 2 → Body 3 → Conclusion",
+            formulaRu: "Структура эссе: Введение (тезис) → Часть 1 (аргумент + доказательство) → Часть 2 → Часть 3 → Заключение",
+            formulaKk: "Эссе құрылымы: Кіріспе (тезис) → 1-бөлім (дәлел + айғақ) → 2-бөлім → 3-бөлім → Қорытынды",
             description: "The standard five-paragraph essay format",
             descriptionRu: "Стандартный формат эссе из пяти абзацев",
             descriptionKk: "Стандартты бес абзацтық эссе форматы"
           },
           {
             formula: "Thesis = Topic + Your Position + 2-3 Reasons",
+            formulaRu: "Тезис = Тема + Ваша позиция + 2-3 причины",
+            formulaKk: "Тезис = Тақырып + Сіздің көзқарасыңыз + 2-3 себеп",
             description: "A strong thesis statement formula",
             descriptionRu: "Формула сильного тезиса",
             descriptionKk: "Мықты тезис мәлімдемесінің формуласы"
@@ -1618,6 +1686,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "sin θ = opposite / hypotenuse; cos θ = adjacent / hypotenuse; tan θ = opposite / adjacent",
+            formulaRu: "sin θ = противолежащий катет / гипотенуза; cos θ = прилежащий катет / гипотенуза; tan θ = противолежащий катет / прилежащий катет",
+            formulaKk: "sin θ = қарсы қабырға / гипотенуза; cos θ = іргелес қабырға / гипотенуза; tan θ = қарсы қабырға / іргелес қабырға",
             description: "SOHCAHTOA — basic trigonometric ratios",
             descriptionRu: "SOHCAHTOA — основные тригонометрические отношения",
             descriptionKk: "SOHCAHTOA — негізгі тригонометриялық қатынастар"
@@ -1689,6 +1759,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Main Idea = What + So What (Topic + Author's Point about it)",
+            formulaRu: "Основная мысль = Что + И что из этого (Тема + Точка зрения автора на неё)",
+            formulaKk: "Негізгі ой = Не туралы + Одан не шығады (Тақырып + Автордың осыған көзқарасы)",
             description: "Framework for identifying the central argument of a passage",
             descriptionRu: "Метод определения центрального аргумента текста",
             descriptionKk: "Мәтіннің негізгі аргументін анықтау әдісі"
@@ -1760,6 +1832,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Subject-Verb Agreement: Singular subject → singular verb; Plural subject → plural verb",
+            formulaRu: "Согласование подлежащего и сказуемого: Единственное число подлежащего → единственное число глагола; Множественное число подлежащего → множественное число глагола",
+            formulaKk: "Бастауыш пен баяндауыштың үйлесуі: Жекеше бастауыш → жекеше етістік; Көпше бастауыш → көпше етістік",
             description: "Core grammar rule tested heavily on the SAT",
             descriptionRu: "Основное правило грамматики, активно проверяемое на SAT",
             descriptionKk: "SAT-та белсенді тексерілетін негізгі грамматика ережесі"
@@ -1831,6 +1905,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Distance = Rate × Time",
+            formulaRu: "Расстояние = Скорость × Время",
+            formulaKk: "Қашықтық = Жылдамдық × Уақыт",
             description: "Fundamental formula for rate/distance problems common on the ACT",
             descriptionRu: "Фундаментальная формула для задач на скорость/расстояние на ACT",
             descriptionKk: "ACT-та жиі кездесетін жылдамдық/қашықтық есептерінің негізгі формуласы"
@@ -1902,6 +1978,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Time Budget: 35 min ÷ 4 passages ≈ 8.75 min per passage (read 3-4 min, answer 4-5 min)",
+            formulaRu: "Бюджет времени: 35 мин ÷ 4 текста ≈ 8,75 мин на текст (чтение 3-4 мин, ответы 4-5 мин)",
+            formulaKk: "Уақыт бюджеті: 35 мин ÷ 4 мәтін ≈ 8,75 мин мәтінге (оқу 3-4 мин, жауап беру 4-5 мин)",
             description: "Recommended time allocation for ACT Reading",
             descriptionRu: "Рекомендуемое распределение времени для ACT Reading",
             descriptionKk: "ACT Reading үшін ұсынылған уақыт бөлу"
@@ -1973,6 +2051,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Structure: Introduction (paraphrase the question) → Overview (2 key trends) → Details (2 body paragraphs with data)",
+            formulaRu: "Структура: Введение (перефразируйте вопрос) → Обзор (2 ключевые тенденции) → Детали (2 основных абзаца с данными)",
+            formulaKk: "Құрылым: Кіріспе (сұрақты қайта тұжырымдау) → Шолу (2 негізгі үрдіс) → Мәліметтер (деректері бар 2 негізгі абзац)",
             description: "Standard structure for a high-scoring Task 1 response",
             descriptionRu: "Стандартная структура для высокобалльного ответа Task 1",
             descriptionKk: "Жоғары балл алатын Task 1 жауабының стандартты құрылымы"
@@ -2044,6 +2124,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Essay Structure: Introduction (hook + thesis) → Body 1 (topic + evidence + explanation) → Body 2 (topic + evidence + explanation) → Conclusion (restate + final thought)",
+            formulaRu: "Структура эссе: Введение (зацепка + тезис) → Часть 1 (тема + доказательство + объяснение) → Часть 2 (тема + доказательство + объяснение) → Заключение (повтор тезиса + финальная мысль)",
+            formulaKk: "Эссе құрылымы: Кіріспе (қызықтырушы сөйлем + тезис) → 1-бөлім (тақырып + айғақ + түсіндірме) → 2-бөлім (тақырып + айғақ + түсіндірме) → Қорытынды (тезисті қайталау + соңғы ой)",
             description: "Standard four-paragraph essay structure for IELTS Task 2",
             descriptionRu: "Стандартная структура эссе из четырёх абзацев для IELTS Task 2",
             descriptionKk: "IELTS Task 2 үшін стандартты төрт абзацтық эссе құрылымы"
@@ -2115,6 +2197,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "PEEL: Point → Example → Explain → Link back to the question",
+            formulaRu: "PEEL: Тезис → Пример → Объяснение → Возврат к вопросу",
+            formulaKk: "PEEL: Тезис → Мысал → Түсіндіру → Сұраққа қайта оралу",
             description: "Framework for structuring extended speaking responses",
             descriptionRu: "Метод структурирования развёрнутых устных ответов",
             descriptionKk: "Кеңейтілген ауызша жауаптарды құрылымдау әдісі"
@@ -2186,6 +2270,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Time Budget: 35 min ÷ 2 passages ≈ 17.5 min per passage (read 5-6 min, answer 11-12 min)",
+            formulaRu: "Бюджет времени: 35 мин ÷ 2 текста ≈ 17,5 мин на текст (чтение 5-6 мин, ответы 11-12 мин)",
+            formulaKk: "Уақыт бюджеті: 35 мин ÷ 2 мәтін ≈ 17,5 мин мәтінге (оқу 5-6 мин, жауап беру 11-12 мин)",
             description: "Recommended time allocation for TOEFL Reading",
             descriptionRu: "Рекомендуемое распределение времени для TOEFL Reading",
             descriptionKk: "TOEFL Reading үшін ұсынылған уақыт бөлу"
@@ -2266,12 +2352,16 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "f(x + h) shifts left by h; f(x) + k shifts up by k; −f(x) reflects over x-axis",
+            formulaRu: "f(x + h) сдвигает график влево на h; f(x) + k сдвигает вверх на k; −f(x) отражает относительно оси x",
+            formulaKk: "f(x + h) графикті солға h-ге жылжытады; f(x) + k жоғарыға k-ге жылжытады; −f(x) x осіне қатысты бейнелейді",
             description: "Function transformation rules for graph analysis",
             descriptionRu: "Правила преобразования функций для анализа графиков",
             descriptionKk: "Графикті талдау үшін функция түрлендіру ережелері"
           },
           {
             formula: "Exponential growth: f(x) = a · bˣ where b > 1; decay: 0 < b < 1",
+            formulaRu: "Экспоненциальный рост: f(x) = a · bˣ, где b > 1; убывание: 0 < b < 1",
+            formulaKk: "Экспоненциалды өсу: f(x) = a · bˣ, мұндағы b > 1; кему: 0 < b < 1",
             description: "Exponential function model for growth and decay problems",
             descriptionRu: "Модель экспоненциальной функции для задач роста и убывания",
             descriptionKk: "Өсу және кему есептері үшін экспоненциалды функция моделі"
@@ -2343,6 +2433,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Mean = Sum of values ÷ Number of values; Median = Middle value when sorted",
+            formulaRu: "Среднее = Сумма значений ÷ Количество значений; Медиана = Среднее значение при сортировке",
+            formulaKk: "Орташа мән = Мәндер қосындысы ÷ Мәндер саны; Медиана = Ретке тізілгендегі ортаңғы мән",
             description: "Central tendency measures for statistical analysis",
             descriptionRu: "Меры центральной тенденции для статистического анализа",
             descriptionKk: "Статистикалық талдау үшін орталық тенденция өлшемдері"
@@ -2414,6 +2506,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Argument Strength = Claim + Evidence + Reasoning (all three must be present)",
+            formulaRu: "Сила аргумента = Утверждение + Доказательство + Рассуждение (все три должны присутствовать)",
+            formulaKk: "Дәлелдің күші = Тұжырым + Айғақ + Пайымдау (үшеуі де болуы керек)",
             description: "Framework for evaluating the strength of an author's argument",
             descriptionRu: "Метод оценки силы аргумента автора",
             descriptionKk: "Автор аргументінің күшін бағалау әдісі"
@@ -2485,6 +2579,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "SAT Essay Analysis = Evidence (facts, data, examples) + Reasoning (logic, cause-effect) + Style (word choice, tone, rhetorical devices)",
+            formulaRu: "Анализ эссе SAT = Доказательства (факты, данные, примеры) + Рассуждение (логика, причина-следствие) + Стиль (выбор слов, тон, риторические приёмы)",
+            formulaKk: "SAT эссесін талдау = Айғақтар (фактілер, деректер, мысалдар) + Пайымдау (логика, себеп-салдар) + Стиль (сөз таңдау, тон, риторикалық тәсілдер)",
             description: "The three pillars of SAT essay analysis",
             descriptionRu: "Три столпа анализа эссе SAT",
             descriptionKk: "SAT эссе талдауының үш тірегі"
@@ -2556,6 +2652,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Comma Rules: (1) Before FANBOYS conjunctions in compound sentences. (2) After introductory phrases. (3) Around non-essential information.",
+            formulaRu: "Правила запятой: (1) Перед союзами FANBOYS в сложносочинённых предложениях. (2) После вводных фраз. (3) Вокруг необязательной информации.",
+            formulaKk: "Үтір ережелері: (1) Салалас құрмалас сөйлемдердегі FANBOYS жалғаулықтарының алдында. (2) Кіріспе тіркестерден кейін. (3) Міндетті емес ақпараттың айналасында.",
             description: "Three essential comma rules for ACT English",
             descriptionRu: "Три основных правила запятых для ACT English",
             descriptionKk: "ACT English үшін үш маңызды үтір ережесі"
@@ -2627,6 +2725,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Arithmetic sequence: aₙ = a₁ + (n−1)d; Geometric sequence: aₙ = a₁ · r^(n−1)",
+            formulaRu: "Арифметическая прогрессия: aₙ = a₁ + (n−1)d; Геометрическая прогрессия: aₙ = a₁ · r^(n−1)",
+            formulaKk: "Арифметикалық прогрессия: aₙ = a₁ + (n−1)d; Геометриялық прогрессия: aₙ = a₁ · r^(n−1)",
             description: "Formulas for finding the nth term of arithmetic and geometric sequences",
             descriptionRu: "Формулы для нахождения n-го члена арифметической и геометрической прогрессий",
             descriptionKk: "Арифметикалық және геометриялық прогрессиялардың n-ші мүшесін табу формулалары"
@@ -2698,6 +2798,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Band 7 Writing = Task Achievement + Coherence/Cohesion + Lexical Resource + Grammatical Range (all ≥ 7)",
+            formulaRu: "Письмо на балл 7 = Выполнение задания + Связность/Логичность + Лексический запас + Грамматический диапазон (все ≥ 7)",
+            formulaKk: "7 балдық жазылым = Тапсырманы орындау + Байланыстылық/Логикалық реттілік + Лексикалық қор + Грамматикалық ауқым (барлығы ≥ 7)",
             description: "The four IELTS Writing assessment criteria",
             descriptionRu: "Четыре критерия оценки IELTS Writing",
             descriptionKk: "IELTS Writing бағалаудың төрт критерийі"
@@ -2769,6 +2871,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Integrated Writing Structure: Intro (topic + relationship) → Body 1 (Point from lecture that challenges/supports reading) → Body 2 (Second point) → Body 3 (Third point)",
+            formulaRu: "Структура интегрированного письма: Введение (тема + взаимосвязь) → Часть 1 (аргумент из лекции, который опровергает/подтверждает текст) → Часть 2 (второй аргумент) → Часть 3 (третий аргумент)",
+            formulaKk: "Кіріктірілген жазылым құрылымы: Кіріспе (тақырып + байланыс) → 1-бөлім (мәтінге қайшы келетін/қолдайтын дәрістегі дәлел) → 2-бөлім (екінші дәлел) → 3-бөлім (үшінші дәлел)",
             description: "Standard structure for the TOEFL Integrated Writing task",
             descriptionRu: "Стандартная структура интегрированного письменного задания TOEFL",
             descriptionKk: "TOEFL интеграцияланған жазу тапсырмасының стандартты құрылымы"
@@ -2840,6 +2944,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Independent Task: State opinion → Reason 1 + Example → Reason 2 + Example (45 sec)",
+            formulaRu: "Самостоятельное задание: Выскажите мнение → Причина 1 + Пример → Причина 2 + Пример (45 сек)",
+            formulaKk: "Дербес тапсырма: Пікіріңізді айтыңыз → 1-себеп + Мысал → 2-себеп + Мысал (45 сек)",
             description: "Template for TOEFL Speaking independent task",
             descriptionRu: "Шаблон для независимого задания TOEFL Speaking",
             descriptionKk: "TOEFL Speaking тәуелсіз тапсырмасының үлгісі"
@@ -2911,12 +3017,16 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Test Day Checklist: ID + Admission Ticket + Pencils + Calculator (if allowed) + Water + Snack + Watch",
+            formulaRu: "Контрольный список на день теста: Удостоверение личности + Пропуск на экзамен + Карандаши + Калькулятор (если разрешён) + Вода + Перекус + Часы",
+            formulaKk: "Тест күніне арналған тізім: Жеке куәлік + Емтихан рұқсаттамасы + Қарындаштар + Калькулятор (рұқсат етілсе) + Су + Тағамдық жеңіл тамақ + Сағат",
             description: "Essential items to bring on test day",
             descriptionRu: "Необходимые вещи на день экзамена",
             descriptionKk: "Емтихан күні алу керек заттар"
           },
           {
             formula: "Anxiety Management: 4-7-8 Breathing (inhale 4 sec, hold 7 sec, exhale 8 sec)",
+            formulaRu: "Управление тревогой: Дыхание 4-7-8 (вдох 4 сек, задержка 7 сек, выдох 8 сек)",
+            formulaKk: "Мазасыздықты басқару: 4-7-8 дем алу (дем алу 4 сек, ұстап тұру 7 сек, дем шығару 8 сек)",
             description: "Quick breathing technique to reduce test anxiety",
             descriptionRu: "Быстрая дыхательная техника для снижения тревоги",
             descriptionKk: "Емтихан алаңдаушылығын азайту үшін тыныс алу техникасы"
@@ -2997,12 +3107,16 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Projected Score = Baseline + (Hours Studied × Average Points Gained per Hour)",
+            formulaRu: "Прогнозируемый балл = Базовый балл + (Часы обучения × Средний прирост баллов за час)",
+            formulaKk: "Болжалды балл = Бастапқы балл + (Оқыған сағат × Сағатына орташа балл өсімі)",
             description: "Estimate your score improvement based on focused study hours",
             descriptionRu: "Оценка улучшения баллов на основе целенаправленных часов подготовки",
             descriptionKk: "Мақсатты оқу сағаттарына негізделген ұпай жақсаруын бағалау"
           },
           {
             formula: "Error Rate = Wrong Answers in Category ÷ Total Questions in Category × 100%",
+            formulaRu: "Уровень ошибок = Неправильные ответы в категории ÷ Всего вопросов в категории × 100%",
+            formulaKk: "Қателер деңгейі = Санаттағы қате жауаптар ÷ Санаттағы барлық сұрақтар × 100%",
             description: "Calculate your error rate per question category to find weak areas",
             descriptionRu: "Рассчитайте процент ошибок по категории вопросов для выявления слабых мест",
             descriptionKk: "Әлсіз жақтарды табу үшін сұрақ санаты бойынша қателік деңгейін есептеңіз"
@@ -3108,6 +3222,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Super-score = Highest Math (all sittings) + Highest EBRW (all sittings)",
+            formulaRu: "Супербалл = Наивысший балл по математике (за все попытки) + Наивысший балл EBRW (за все попытки)",
+            formulaKk: "Супербалл = Барлық талпыныстардағы ең жоғары математика баллы + Барлық талпыныстардағы ең жоғары EBRW баллы",
             description: "How colleges calculate your SAT super-score from multiple test dates",
             descriptionRu: "Как колледжи считают ваш суперскор SAT из нескольких попыток",
             descriptionKk: "Колледждер бірнеше тапсырудан SAT суперскорыңызды қалай есептейді"
@@ -3205,12 +3321,16 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "ACT Composite = (English + Math + Reading + Science) ÷ 4",
+            formulaRu: "Совокупный балл ACT = (Английский + Математика + Чтение + Наука) ÷ 4",
+            formulaKk: "ACT жиынтық баллы = (Ағылшын тілі + Математика + Оқылым + Ғылым) ÷ 4",
             description: "ACT composite score is the average of the four section scores",
             descriptionRu: "Композитный балл ACT — среднее четырёх разделов",
             descriptionKk: "ACT композиттік ұпайы — төрт бөлім ұпайларының орташасы"
           },
           {
             formula: "SAT Total = Math (200–800) + EBRW (200–800)",
+            formulaRu: "Общий балл SAT = Математика (200–800) + EBRW (200–800)",
+            formulaKk: "SAT жалпы баллы = Математика (200–800) + EBRW (200–800)",
             description: "SAT total score is the sum of the two section scores",
             descriptionRu: "Общий балл SAT — сумма двух разделов",
             descriptionKk: "SAT жалпы ұпайы — екі бөлім ұпайларының қосындысы"
@@ -3308,6 +3428,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "IELTS Overall Band = (Listening + Reading + Writing + Speaking) ÷ 4, rounded to nearest 0.5",
+            formulaRu: "Общий балл IELTS = (Аудирование + Чтение + Письмо + Говорение) ÷ 4, округлённый до ближайшего 0,5",
+            formulaKk: "IELTS жалпы баллы = (Тыңдалым + Оқылым + Жазылым + Айтылым) ÷ 4, жақын 0,5-ке дейін дөңгелектенген",
             description: "IELTS overall band score calculation with standard rounding",
             descriptionRu: "Расчёт общего балла IELTS со стандартным округлением",
             descriptionKk: "Стандартты дөңгелектеумен IELTS жалпы балл есептеу"
@@ -3379,6 +3501,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "TOEFL Total = Reading (0–30) + Listening (0–30) + Speaking (0–30) + Writing (0–30)",
+            formulaRu: "Общий балл TOEFL = Чтение (0–30) + Аудирование (0–30) + Говорение (0–30) + Письмо (0–30)",
+            formulaKk: "TOEFL жалпы баллы = Оқылым (0–30) + Тыңдалым (0–30) + Айтылым (0–30) + Жазылым (0–30)",
             description: "TOEFL iBT total score ranges from 0 to 120",
             descriptionRu: "Общий балл TOEFL iBT от 0 до 120",
             descriptionKk: "TOEFL iBT жалпы ұпайы 0-ден 120-ға дейін"
@@ -3450,12 +3574,16 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Raw Score = Correct − (Wrong × 0.25); Omitted = 0 points",
+            formulaRu: "Сырой балл = Правильные − (Неправильные × 0,25); Пропущенные = 0 баллов",
+            formulaKk: "Шикі балл = Дұрыс − (Қате × 0,25); Өткізіп жіберілген = 0 балл",
             description: "SAT Subject Test scoring with wrong-answer penalty",
             descriptionRu: "Подсчёт предметного SAT со штрафом за неправильные ответы",
             descriptionKk: "Қате жауап айыппұлымен пәндік SAT ұпай есептеу"
           },
           {
             formula: "Expected value of guessing = (1/remaining choices) × 1 − ((remaining−1)/remaining) × 0.25",
+            formulaRu: "Ожидаемое значение угадывания = (1/оставшиеся варианты) × 1 − ((оставшиеся−1)/оставшиеся) × 0,25",
+            formulaKk: "Болжаудың күтілетін мәні = (1/қалған нұсқалар) × 1 − ((қалған−1)/қалған) × 0,25",
             description: "When to guess: if you can eliminate at least one answer, guessing has positive expected value",
             descriptionRu: "Когда угадывать: если исключили хотя бы один вариант, угадывание имеет положительное мат. ожидание",
             descriptionKk: "Қашан болжау керек: кемінде бір нұсқаны алып тастасаңыз, болжаудың оң мат. күтімі бар"
@@ -3527,6 +3655,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Raw Score = Correct − (Wrong × 0.25); same penalty as Math Subject Tests",
+            formulaRu: "Сырой балл = Правильные − (Неправильные × 0,25); тот же штраф, что и в предметных тестах по математике",
+            formulaKk: "Шикі балл = Дұрыс − (Қате × 0,25); математика бойынша пәндік тесттердегідей айыппұл",
             description: "Science Subject Tests use the same scoring formula as Math",
             descriptionRu: "Предметные тесты по наукам используют ту же формулу, что и математика",
             descriptionKk: "Жаратылыстану пәндік тесттері математикамен бірдей формуланы қолданады"
@@ -3598,6 +3728,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "AP Composite = (MC Raw × MC Weight) + (FRQ Raw × FRQ Weight)",
+            formulaRu: "Совокупный балл AP = (Сырой балл MC × Вес MC) + (Сырой балл FRQ × Вес FRQ)",
+            formulaKk: "AP жиынтық баллы = (MC шикі баллы × MC салмағы) + (FRQ шикі баллы × FRQ салмағы)",
             description: "AP exams weight multiple-choice and free-response sections differently",
             descriptionRu: "AP экзамены по-разному взвешивают секции с множественным выбором и свободным ответом",
             descriptionKk: "AP емтихандары көп таңдаулы және еркін жауап бөлімдерін әртүрлі салмақтайды"
@@ -3669,6 +3801,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Timeline Buffer = Deadline Date − 14 days (set reminder) − Estimated Days to Complete",
+            formulaRu: "Временной запас = Дата дедлайна − 14 дней (установите напоминание) − Расчётные дни на выполнение",
+            formulaKk: "Уақыт қоры = Мерзім күні − 14 күн (еске салғышты қойыңыз) − Орындауға болжамды күндер",
             description: "When to start each task to avoid last-minute rushing",
             descriptionRu: "Когда начинать каждую задачу, чтобы избежать спешки в последний момент",
             descriptionKk: "Соңғы сәттегі асығыстықтан аулақ болу үшін әр тапсырманы қашан бастау керек"
@@ -3740,6 +3874,8 @@ export const ADMISSION_EXAMS_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Error Analysis: Content Gaps + Careless Mistakes + Time Issues = Total Errors",
+            formulaRu: "Анализ ошибок: Пробелы в знаниях + Невнимательные ошибки + Проблемы со временем = Всего ошибок",
+            formulaKk: "Қателерді талдау: Білім олқылықтары + Немқұрайлы қателер + Уақыт мәселелері = Барлық қателер",
             description: "Categorize all wrong answers to identify your most impactful area for improvement",
             descriptionRu: "Классифицируйте все неправильные ответы для определения наиболее важной области улучшения",
             descriptionKk: "Жақсартудың ең маңызды аймағын анықтау үшін барлық қате жауаптарды жіктеңіз"

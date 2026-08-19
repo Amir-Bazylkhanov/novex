@@ -1,9 +1,23 @@
 import React, { useEffect, useRef } from 'react';
 import { useReducedMotion } from 'framer-motion';
-import { CheckCircle2, ChevronLeft, ChevronRight, Lock } from 'lucide-react';
+import {
+  CheckCircle2,
+  ChevronLeft,
+  ChevronRight,
+  Lock,
+  Rocket,
+  Telescope,
+  Zap,
+  type LucideIcon,
+} from 'lucide-react';
 import { loc, type Localized } from '../../utils/i18n.ts';
 import { useLanguage } from '../../context/LanguageContext.tsx';
-import { pickLangField, type AcademySection } from '../../constants/academy/catalog.ts';
+import {
+  bandForIndex,
+  pickLangField,
+  type AcademySection,
+  type LevelBand,
+} from '../../constants/academy/catalog.ts';
 
 /* --- planet progress (localStorage) ---
    Level gating state lives in localStorage for the MVP — persistence to the
@@ -102,6 +116,26 @@ const NEXT_LEVEL: Localized = {
   en: 'Next level',
 };
 
+/* Non-academic modules (Жизненные навыки / Навыки будущего) label their
+   sections with Locus Academy's difficulty bands instead of grade-style
+   numbering. */
+const BAND_LABEL: Record<LevelBand, Localized> = {
+  beginner: { ru: 'Начальный', kk: 'Бастауыш', en: 'Beginner' },
+  intermediate: { ru: 'Средний', kk: 'Орта', en: 'Intermediate' },
+  advanced: { ru: 'Продвинутый', kk: 'Жоғары', en: 'Advanced' },
+};
+
+/* Mirrors Locus Academy's second level type — the account-wide XP rank
+   ladder (Explorer → Voyager → Pioneer → Innovator → Founder), which Locus
+   pairs an icon with a localized name for. Each difficulty band here maps to
+   the matching rank tier (first three of that ladder) so the pill carries
+   both classifications, the way Locus does. */
+const BAND_RANK: Record<LevelBand, { icon: LucideIcon; name: Localized }> = {
+  beginner: { icon: Telescope, name: { ru: 'Исследователь', kk: 'Зерттеуші', en: 'Explorer' } },
+  intermediate: { icon: Rocket, name: { ru: 'Путешественник', kk: 'Саяхатшы', en: 'Voyager' } },
+  advanced: { icon: Zap, name: { ru: 'Пионер', kk: 'Пионер', en: 'Pioneer' } },
+};
+
 const FOCUS_RING =
   'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2 focus-visible:ring-offset-canvas';
 
@@ -135,6 +169,10 @@ interface PlanetLevelsProps {
   activeIdx: number;
   /** First incomplete level («Рекомендуется» chip); -1 when all is done. */
   recommendedIdx: number;
+  /** Академическая база modules keep grade-style "Уровень N" numbering;
+      every other direction labels pills with beginner/intermediate/advanced
+      bands instead (see `bandForIndex`). */
+  isAcademic: boolean;
   onSelect: (idx: number) => void;
 }
 
@@ -144,6 +182,7 @@ const PlanetLevels: React.FC<PlanetLevelsProps> = ({
   statuses,
   activeIdx,
   recommendedIdx,
+  isAcademic,
   onSelect,
 }) => {
   const { language } = useLanguage();
@@ -174,46 +213,76 @@ const PlanetLevels: React.FC<PlanetLevelsProps> = ({
         aria-label={loc(language, LEVEL_WORD)}
         className="planet-levels-strip flex flex-1 items-center gap-1.5 overflow-x-auto px-0.5 py-0.5"
       >
-        {sections.map((section, idx) => {
-          const status = statuses[idx] ?? 'open';
-          const isActive = idx === activeIdx;
-          const isLocked = status === 'locked';
-          const isRecommended = idx === recommendedIdx;
-          return (
-            <button
-              key={`${section.title}-${idx}`}
-              type="button"
-              role="tab"
-              aria-selected={isActive}
-              data-level-idx={idx}
-              onClick={() => onSelect(idx)}
-              className={`${FOCUS_RING} inline-flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-full border px-3.5 py-2 text-xs font-semibold transition-colors ${
-                isActive
-                  ? 'border-teal bg-teal text-white shadow-[0_4px_12px_rgba(33,159,162,0.25)]'
-                  : isLocked
-                    ? 'border-line/40 bg-mist/30 text-slateink/70 hover:border-line/70'
-                    : 'border-line/60 bg-white text-slateink hover:border-teal/40 hover:text-teal-dark'
-              }`}
-            >
-              {isLocked && <Lock className="h-3 w-3 shrink-0" aria-hidden="true" />}
-              <span>
-                {loc(language, LEVEL_WORD)} {idx + 1} ·{' '}
-              </span>
-              <span className="max-w-40 truncate sm:max-w-56">
-                {pickLangField(language, section.title, section.titleRu, section.titleKk)}
-              </span>
-              {isRecommended && (
-                <span
-                  className={`rounded-full px-1.5 py-0.5 text-[10px] font-bold leading-none text-coral ${
-                    isActive ? 'bg-white' : 'bg-coral/10'
-                  }`}
-                >
-                  {loc(language, RECOMMENDED)}
+        {(() => {
+          // Running per-band ordinal (1-based position within its band),
+          // computed once per render in section order.
+          let bandOrdinal = 0;
+          let lastBand: LevelBand | null = null;
+          return sections.map((section, idx) => {
+            const status = statuses[idx] ?? 'open';
+            const isActive = idx === activeIdx;
+            const isLocked = status === 'locked';
+            const isRecommended = idx === recommendedIdx;
+            const fullTitle = pickLangField(
+              language,
+              section.title,
+              section.titleRu,
+              section.titleKk,
+            );
+            const band = bandForIndex(idx, sections.length);
+            if (band !== lastBand) {
+              lastBand = band;
+              bandOrdinal = 1;
+            } else {
+              bandOrdinal += 1;
+            }
+            const RankIcon = BAND_RANK[band].icon;
+            return (
+              <button
+                key={`${section.title}-${idx}`}
+                type="button"
+                role="tab"
+                aria-selected={isActive}
+                data-level-idx={idx}
+                onClick={() => onSelect(idx)}
+                className={`${FOCUS_RING} inline-flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-full border px-3.5 py-2 text-xs font-semibold transition-colors ${
+                  isActive
+                    ? 'border-teal bg-teal text-white shadow-[0_4px_12px_rgba(33,159,162,0.25)]'
+                    : isLocked
+                      ? 'border-line/40 bg-mist/30 text-slateink/70 hover:border-line/70'
+                      : 'border-line/60 bg-white text-slateink hover:border-teal/40 hover:text-teal-dark'
+                }`}
+              >
+                {isLocked && <Lock className="h-3 w-3 shrink-0" aria-hidden="true" />}
+                {isAcademic ? (
+                  <span>
+                    {loc(language, LEVEL_WORD)} {idx + 1} ·{' '}
+                  </span>
+                ) : (
+                  <span
+                    className="inline-flex shrink-0 items-center gap-1"
+                    title={loc(language, BAND_RANK[band].name)}
+                  >
+                    <RankIcon className="h-3 w-3 shrink-0" aria-hidden="true" />
+                    {loc(language, BAND_LABEL[band])} {bandOrdinal} ·
+                  </span>
+                )}
+                <span className="max-w-48 truncate sm:max-w-64" title={fullTitle}>
+                  {fullTitle}
                 </span>
-              )}
-            </button>
-          );
-        })}
+                {isRecommended && (
+                  <span
+                    className={`rounded-full px-1.5 py-0.5 text-[10px] font-bold leading-none text-coral ${
+                      isActive ? 'bg-white' : 'bg-coral/10'
+                    }`}
+                  >
+                    {loc(language, RECOMMENDED)}
+                  </span>
+                )}
+              </button>
+            );
+          });
+        })()}
       </div>
       <NavArrow
         direction="next"
@@ -249,6 +318,9 @@ interface LevelStepPillsProps {
       Урок → Уровень пройден, same as before. */
   testState?: LevelStepState;
   doneState: LevelStepState;
+  /** Called when the Урок pill is clicked — opens the level's lesson. Stays
+      wired up when 'done' too, so a finished lesson can be re-read. */
+  onLessonClick?: () => void;
   /** Called when the Тест pill is clicked; only wired up while it's 'active'. */
   onTestClick?: () => void;
 }
@@ -259,6 +331,7 @@ export const LevelStepPills: React.FC<LevelStepPillsProps> = ({
   lessonState,
   testState,
   doneState,
+  onLessonClick,
   onTestClick,
 }) => {
   const { language } = useLanguage();
@@ -268,7 +341,7 @@ export const LevelStepPills: React.FC<LevelStepPillsProps> = ({
     state: LevelStepState;
     onClick?: () => void;
   }> = [
-    { key: 'lesson', label: STEP_LESSON, state: lessonState },
+    { key: 'lesson', label: STEP_LESSON, state: lessonState, onClick: onLessonClick },
     ...(testState !== undefined
       ? [
           {

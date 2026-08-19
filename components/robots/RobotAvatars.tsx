@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 
+/* Small avatar variants nov1/nov2/nov3 represent Академик/Практик/Кибер — the
+   direction robots displayed as NOV-01/02/03 after the rebrand. */
 export type RobotId = 'nov1' | 'nov2' | 'nov3';
-/** Mentor robots for the /learn picker: Академик, Практик, Кибер. */
+/** Mentor robots for the /learn picker: Академик, Практик, Кибер. Internal
+    keys nov4/nov5/nov6 stay unchanged (the career module depends on them) and
+    remain the /learn mentor-picker art for the same NOV-01/02/03 robots. */
 export type MentorRobotId = 'nov4' | 'nov5' | 'nov6';
 type AnyRobotId = RobotId | MentorRobotId;
 

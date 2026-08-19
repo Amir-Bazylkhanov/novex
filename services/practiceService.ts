@@ -1,5 +1,5 @@
 /**
- * Practice-session assembly + scoring for /practice (NOV-02 Наставник).
+ * Practice-session assembly + scoring for /practice (NOV-01 Академик).
  *
  * Pure logic, no React. The question pool combines the full placement-
  * diagnostic bank (ALL_DIAGNOSTIC_QUESTIONS in constants/diagnosticData.ts —
@@ -35,6 +35,8 @@ export interface PracticeConfig {
   difficulty: PracticeDifficultyFilter;
   /** Seconds for the whole attempt; null = untimed. */
   timedSeconds: number | null;
+  /** Narrow the subject's pool to these topic slugs; empty/undefined = whole subject. */
+  topics?: string[];
 }
 
 // A question frozen into a session: options are already shuffled and
@@ -42,6 +44,8 @@ export interface PracticeConfig {
 export interface PracticeSessionQuestion {
   id: string;
   subject: DiagnosticSubject;
+  /** Topic slug (diagnostic topic id or lesson topic) — used to link a lesson. */
+  topic?: string;
   topicLabel: Localized;
   question: Localized;
   options: Localized[];
@@ -85,6 +89,7 @@ export interface PracticeResult {
 interface PoolQuestion {
   id: string;
   subject: DiagnosticSubject;
+  topic: string;
   topicLabel: Localized;
   question: Localized;
   options: Localized[];
@@ -108,6 +113,7 @@ const normalizeDifficulty = (
 const DIAGNOSTIC_POOL: PoolQuestion[] = ALL_DIAGNOSTIC_QUESTIONS.map((q) => ({
   id: q.id,
   subject: q.subject,
+  topic: q.topic,
   topicLabel: q.topicLabel,
   question: q.question,
   options: [...q.options],
@@ -122,6 +128,7 @@ const LESSON_POOL: PoolQuestion[] = LESSONS.filter((l) => l.available).flatMap((
   lesson.questions.map((q) => ({
     id: `${lesson.slug}:${q.id}`,
     subject: lesson.subject,
+    topic: lesson.topic,
     topicLabel: q.topicLabel,
     question: q.question,
     options: [...q.options],
@@ -135,12 +142,17 @@ const POOL: PoolQuestion[] = [...DIAGNOSTIC_POOL, ...LESSON_POOL];
 const POOL_IDS = new Set(POOL.map((q) => q.id));
 const VALID_SUBJECTS = new Set<string>(DIAGNOSTIC_SUBJECTS.map((s) => s.slug));
 
-/** Filter the pool by subject + difficulty. Pure. */
+/** Filter the pool by subject + difficulty, optionally narrowed to a set of topics. Pure. */
 export function filterQuestions(
   subject: PracticeSubject,
   difficulty: PracticeDifficultyFilter,
+  topics?: string[],
 ): PoolQuestion[] {
   let list = POOL.filter((q) => q.subject === subject);
+  if (topics && topics.length > 0) {
+    const wanted = new Set(topics);
+    list = list.filter((q) => wanted.has(q.topic));
+  }
   if (difficulty !== 'any') list = list.filter((q) => q.difficulty === difficulty);
   return list;
 }
@@ -149,8 +161,34 @@ export function filterQuestions(
 export function availableCount(
   subject: PracticeSubject,
   difficulty: PracticeDifficultyFilter,
+  topics?: string[],
 ): number {
-  return filterQuestions(subject, difficulty).length;
+  return filterQuestions(subject, difficulty, topics).length;
+}
+
+export interface PracticeTopic {
+  topic: string;
+  label: Localized;
+  count: number;
+}
+
+/**
+ * Distinct topics within a subject's pool (diagnostic + lesson questions
+ * combined), each with its question count — feeds the picker's topic chips
+ * so a topic is never offered with zero questions behind it.
+ */
+export function topicsForSubject(subject: PracticeSubject): PracticeTopic[] {
+  const byTopic = new Map<string, PracticeTopic>();
+  for (const q of POOL) {
+    if (q.subject !== subject) continue;
+    const existing = byTopic.get(q.topic);
+    if (existing) {
+      existing.count += 1;
+    } else {
+      byTopic.set(q.topic, { topic: q.topic, label: q.topicLabel, count: 1 });
+    }
+  }
+  return [...byTopic.values()];
 }
 
 // mulberry32: tiny seeded PRNG. Deterministic for a given seed, so a frozen
@@ -203,7 +241,7 @@ function shuffledOrder(n: number): number[] {
  * The result is frozen — persist and restore it verbatim.
  */
 export function assembleSession(config: PracticeConfig): PracticeSession {
-  const pool = filterQuestions(config.subject, config.difficulty);
+  const pool = filterQuestions(config.subject, config.difficulty, config.topics);
   const pickOrder = shuffledOrder(pool.length);
   const chosen = pickOrder.slice(0, Math.min(config.count, pool.length)).map((i) => pool[i]);
 
@@ -212,6 +250,7 @@ export function assembleSession(config: PracticeConfig): PracticeSession {
     return {
       id: q.id,
       subject: q.subject,
+      topic: q.topic,
       topicLabel: q.topicLabel,
       question: q.question,
       options: shuffled.options,
@@ -299,11 +338,20 @@ export function isValidStoredSession(s: unknown): s is PracticeSession {
     return false;
   }
   if (cfg.timedSeconds !== null && typeof cfg.timedSeconds !== 'number') return false;
+  // topics is newer than stored sessions may be — tolerate its absence.
+  if (
+    cfg.topics !== undefined &&
+    (!Array.isArray(cfg.topics) || !cfg.topics.every((t) => typeof t === 'string'))
+  ) {
+    return false;
+  }
   const seenIds = new Set<string>();
   for (const q of session.questions) {
     if (!q || typeof q.id !== 'string' || !POOL_IDS.has(q.id)) return false;
     if (seenIds.has(q.id)) return false;
     seenIds.add(q.id);
+    // topic is newer than stored sessions may be — tolerate its absence.
+    if (q.topic !== undefined && typeof q.topic !== 'string') return false;
     if (!isLocalized(q.question) || !isLocalized(q.topicLabel)) return false;
     if (q.explanation !== undefined && !isLocalized(q.explanation)) return false;
     if (!Array.isArray(q.options) || q.options.length < 2) return false;

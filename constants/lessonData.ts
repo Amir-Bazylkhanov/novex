@@ -1,7 +1,7 @@
 import type { Localized } from '../utils/i18n.ts';
 
 /**
- * NOV-02 Наставник — lesson catalogue for the /learn module.
+ * NOV-01 Академик — lesson catalogue for the /learn module.
  *
  * Five real, fully-written lessons (`available: true`) plus locked placeholder
  * cards (`available: false`) that render muted in the catalogue and never

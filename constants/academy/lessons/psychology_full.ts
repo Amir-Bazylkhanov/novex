@@ -4,8 +4,8 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
   "Psychology & Social Intelligence_8": {
     planetName: "Psychology & Social Intelligence",
     introduction: {
-      en: "Welcome to Psychology & Social Intelligence for Grade 8! You will learn to identify and understand your emotions, build empathy, strengthen friendships, manage anger, and develop self-esteem. These foundational skills will help you navigate school, home, and social life with confidence.",
-      ru: "Добро пожаловать в Психологию и социальный интеллект для 8 класса! Вы научитесь определять и понимать свои эмоции, развивать эмпатию, укреплять дружбу, управлять гневом и повышать самооценку. Эти базовые навыки помогут вам уверенно ориентироваться в школе, дома и в обществе."
+      en: "Welcome to Psychology & Social Intelligence! You will learn to identify and understand your emotions, build empathy, strengthen friendships, manage anger, and develop self-esteem. These foundational skills will help you navigate school, home, and social life with confidence.",
+      ru: "Добро пожаловать в Психологию и социальный интеллект! Вы научитесь определять и понимать свои эмоции, развивать эмпатию, укреплять дружбу, управлять гневом и повышать самооценку. Эти базовые навыки помогут вам уверенно ориентироваться в школе, дома и в обществе."
     },
     sections: [
       {
@@ -18,12 +18,16 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Ekman's 6 Basic Emotions: Happiness, Sadness, Anger, Fear, Surprise, Disgust",
+            formulaRu: "6 базовых эмоций Экмана: Радость, Грусть, Гнев, Страх, Удивление, Отвращение",
+            formulaKk: "Экманның 6 базалық эмоциясы: Қуаныш, Мұң, Ашу, Қорқыныш, Таңғалу, Жиіркену",
             description: "Six universal emotions identified across all cultures",
             descriptionRu: "Шесть универсальных эмоций, выявленных во всех культурах",
             descriptionKk: "Барлық мәдениеттерде анықталған алты әмбебап эмоция"
           },
           {
             formula: "Emotion Cycle: Trigger → Thought → Feeling → Behavior",
+            formulaRu: "Цикл эмоций: Триггер → Мысль → Чувство → Поведение",
+            formulaKk: "Эмоция циклі: Триггер → Ой → Сезім → Мінез-құлық",
             description: "How an emotion develops from an event to an action",
             descriptionRu: "Как эмоция развивается от события до действия",
             descriptionKk: "Эмоция оқиғадан іс-әрекетке дейін қалай дамиды"
@@ -95,12 +99,16 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Cognitive Empathy: Understanding another's perspective",
+            formulaRu: "Когнитивная эмпатия: Понимание точки зрения другого",
+            formulaKk: "Танымдық эмпатия: Басқа адамның көзқарасын түсіну",
             description: "Thinking about what someone else might be thinking or experiencing",
             descriptionRu: "Размышление о том, что другой человек может думать или переживать",
             descriptionKk: "Басқа адамның не ойлайтынын немесе не сезетінін ойлау"
           },
           {
             formula: "Affective Empathy: Sharing another's emotional state",
+            formulaRu: "Аффективная эмпатия: Разделение эмоционального состояния другого",
+            formulaKk: "Аффективті эмпатия: Басқа адамның эмоционалдық күйін бөлісу",
             description: "Actually feeling the emotions that another person is experiencing",
             descriptionRu: "Реальное ощущение эмоций, которые испытывает другой человек",
             descriptionKk: "Басқа адамның сезіп жатқан эмоцияларын шынымен сезіну"
@@ -172,12 +180,16 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Trust Equation: Reliability + Honesty + Vulnerability = Trust",
+            formulaRu: "Уравнение доверия: Надёжность + Честность + Уязвимость = Доверие",
+            formulaKk: "Сенім теңдеуі: Сенімділік + Адалдық + Осалдық = Сенім",
             description: "The three building blocks of trust in any friendship",
             descriptionRu: "Три строительных блока доверия в любой дружбе",
             descriptionKk: "Кез келген достықтағы сенімнің үш құрылыс блогы"
           },
           {
             formula: "Friendship Maintenance: Regular contact + Support in hard times + Celebrating wins",
+            formulaRu: "Поддержание дружбы: Регулярное общение + Поддержка в трудные времена + Празднование успехов",
+            formulaKk: "Достықты сақтау: Тұрақты байланыс + Қиын кезде қолдау + Жетістіктерді атап өту",
             description: "How to keep friendships strong over time",
             descriptionRu: "Как поддерживать дружбу крепкой со временем",
             descriptionKk: "Достықты уақыт өте берік ұстау жолы"
@@ -249,12 +261,16 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "STOP Technique: Stop → Think → Options → Proceed",
+            formulaRu: "Техника STOP: Стоп → Подумай → Варианты → Действуй",
+            formulaKk: "STOP техникасы: Тоқта → Ойлан → Нұсқалар → Әрекет ет",
             description: "A four-step method to manage anger before reacting",
             descriptionRu: "Четырёхшаговый метод управления гневом перед реакцией",
             descriptionKk: "Реакциядан бұрын ашуды басқарудың төрт қадамдық әдісі"
           },
           {
             formula: "Anger Escalation Ladder: Annoyance → Frustration → Anger → Rage",
+            formulaRu: "Лестница эскалации гнева: Раздражение → Фрустрация → Гнев → Ярость",
+            formulaKk: "Ашудың өршу сатысы: Тітіркену → Фрустрация → Ашу → Қаһар",
             description: "Anger builds in stages — intervene early for best results",
             descriptionRu: "Гнев нарастает поэтапно — вмешивайтесь рано для лучшего результата",
             descriptionKk: "Ашу кезеңдермен өседі — ең жақсы нәтиже үшін ерте араласыңыз"
@@ -326,12 +342,16 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Self-Esteem = Achievements ÷ Expectations (William James)",
+            formulaRu: "Самооценка = Достижения ÷ Ожидания (Уильям Джеймс)",
+            formulaKk: "Өзін-өзі бағалау = Жетістіктер ÷ Күтулер (Уильям Джеймс)",
             description: "Your self-esteem depends on the gap between what you achieve and what you expect",
             descriptionRu: "Ваша самооценка зависит от разрыва между достижениями и ожиданиями",
             descriptionKk: "Өзін-өзі бағалау жетістіктер мен күтулер арасындағы алшақтыққа байланысты"
           },
           {
             formula: "Positive Self-Talk: Replace 'I can't' with 'I can't yet'",
+            formulaRu: "Позитивный внутренний диалог: Замени 'Я не могу' на 'Я пока не могу'",
+            formulaKk: "Оң ішкі диалог: 'Мен алмаймын' дегенді 'Мен әлі алмаймын' дегенге ауыстыр",
             description: "Reframing negative thoughts into growth-oriented statements",
             descriptionRu: "Переформулирование негативных мыслей в ориентированные на рост утверждения",
             descriptionKk: "Теріс ойларды өсуге бағытталған мәлімдемелерге қайта құру"
@@ -403,12 +423,16 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Types of Bullying: Physical, Verbal, Social (exclusion/rumors), Cyber",
+            formulaRu: "Виды буллинга: Физический, Вербальный, Социальный (исключение/слухи), Кибербуллинг",
+            formulaKk: "Буллинг түрлері: Физикалық, Вербалды, Әлеуметтік (оқшаулау/өсек), Кибербуллинг",
             description: "The four main categories of bullying behavior",
             descriptionRu: "Четыре основных категории буллинга",
             descriptionKk: "Буллинг мінез-құлқының төрт негізгі санаты"
           },
           {
             formula: "Upstander Model: Notice → Assess safety → Act (support victim, report, distract bully)",
+            formulaRu: "Модель защитника (upstander): Заметь → Оцени безопасность → Действуй (поддержи жертву, сообщи, отвлеки обидчика)",
+            formulaKk: "Қорғаушы моделі: Байқа → Қауіпсіздікті бағала → Әрекет ет (құрбанды қолда, хабарла, қорлаушының назарын аудар)",
             description: "How to safely intervene when witnessing bullying",
             descriptionRu: "Как безопасно вмешаться, став свидетелем буллинга",
             descriptionKk: "Буллингке куә болғанда қауіпсіз араласу жолы"
@@ -480,12 +504,16 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Gratitude Journal: Write 3 things you are grateful for each day",
+            formulaRu: "Дневник благодарности: Записывай 3 вещи, за которые ты благодарен, каждый день",
+            formulaKk: "Алғыс күнделігі: Күн сайын алғыс айтатын 3 нәрсені жаз",
             description: "A daily practice shown to increase happiness by up to 25%",
             descriptionRu: "Ежедневная практика, повышающая уровень счастья до 25%",
             descriptionKk: "Бақытты 25%-ға дейін арттыратын күнделікті тәжірибе"
           },
           {
             formula: "Gratitude Letter: Write and deliver a thank-you letter to someone important",
+            formulaRu: "Письмо благодарности: Напиши и вручи благодарственное письмо важному для тебя человеку",
+            formulaKk: "Алғыс хаты: Өзің үшін маңызды адамға алғыс хатын жазып, тапсыр",
             description: "A powerful one-time exercise that boosts well-being for both writer and recipient",
             descriptionRu: "Мощное разовое упражнение, повышающее благополучие и пишущего, и получающего",
             descriptionKk: "Жазушы мен алушының әл-ауқатын арттыратын күшті бір реттік жаттығу"
@@ -557,12 +585,16 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "I-Statement: 'I feel [emotion] when [situation] because [reason]'",
+            formulaRu: "Я-высказывание: 'Я чувствую [эмоция], когда [ситуация], потому что [причина]'",
+            formulaKk: "Мен-хабарламасы: 'Мен [жағдай] кезінде [эмоция] сезінемін, себебі [себеп]'",
             description: "A communication formula that expresses feelings without blaming others",
             descriptionRu: "Формула коммуникации, выражающая чувства без обвинений",
             descriptionKk: "Басқаларды кінәламай сезімдерді білдіретін коммуникация формуласы"
           },
           {
             formula: "Gottman Ratio: 5 positive interactions : 1 negative interaction",
+            formulaRu: "Соотношение Готтмана: 5 позитивных взаимодействий на 1 негативное",
+            formulaKk: "Готтман қатынасы: 5 оң қарым-қатынасқа 1 теріс қарым-қатынас",
             description: "The minimum ratio of positive to negative interactions in healthy relationships",
             descriptionRu: "Минимальное соотношение позитивных и негативных взаимодействий в здоровых отношениях",
             descriptionKk: "Сау қарым-қатынастардағы оң және теріс әрекеттердің ең аз қатынасы"
@@ -634,12 +666,16 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Cultural Iceberg: Visible (10%) — language, food, dress | Hidden (90%) — values, beliefs, norms",
+            formulaRu: "Культурный айсберг: Видимое (10%) — язык, еда, одежда | Скрытое (90%) — ценности, убеждения, нормы",
+            formulaKk: "Мәдени айсберг: Көрінетін бөлік (10%) — тіл, тағам, киім | Жасырын бөлік (90%) — құндылықтар, наным-сенімдер, нормалар",
             description: "Most cultural differences are invisible and lie below the surface",
             descriptionRu: "Большинство культурных различий невидимы и скрыты под поверхностью",
             descriptionKk: "Мәдени айырмашылықтардың көпшілігі көрінбейді және бет астында жатыр"
           },
           {
             formula: "Perspective-Taking: Pause → Ask → Listen → Learn",
+            formulaRu: "Принятие чужой точки зрения: Пауза → Спроси → Слушай → Учись",
+            formulaKk: "Басқаның көзқарасын қабылдау: Кідір → Сұра → Тыңда → Үйрен",
             description: "A process for understanding someone from a different background",
             descriptionRu: "Процесс понимания человека из другой среды",
             descriptionKk: "Басқа ортадағы адамды түсіну процесі"
@@ -711,12 +747,16 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "5-4-3-2-1 Grounding: 5 things you see, 4 you touch, 3 you hear, 2 you smell, 1 you taste",
+            formulaRu: "Заземление 5-4-3-2-1: 5 вещей, которые ты видишь, 4 — трогаешь, 3 — слышишь, 2 — чувствуешь по запаху, 1 — на вкус",
+            formulaKk: "5-4-3-2-1 жерге бекіту: 5 көрінетін зат, 4 ұстайтын зат, 3 естілетін дыбыс, 2 иіс, 1 дәм",
             description: "A sensory technique to bring attention back to the present moment",
             descriptionRu: "Сенсорная техника для возвращения внимания к настоящему моменту",
             descriptionKk: "Назарды қазіргі сәтке қайтарудың сенсорлық техникасы"
           },
           {
             formula: "Mindful Breathing: Inhale 4 counts → Hold 4 counts → Exhale 4 counts",
+            formulaRu: "Осознанное дыхание: Вдох на 4 счёта → Задержка на 4 счёта → Выдох на 4 счёта",
+            formulaKk: "Зейінді тыныс алу: 4 санағанда дем ал → 4 санағанда ұста → 4 санағанда дем шығар",
             description: "A box breathing pattern that activates the calm response in your nervous system",
             descriptionRu: "Паттерн дыхания, активирующий реакцию спокойствия в нервной системе",
             descriptionKk: "Жүйке жүйесіндегі тыныштық реакциясын іске қосатын тыныс алу үлгісі"
@@ -783,8 +823,8 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
   "Psychology & Social Intelligence_9": {
     planetName: "Psychology & Social Intelligence",
     introduction: {
-      en: "Welcome to Psychology & Social Intelligence for Grade 9! You will deepen your self-awareness, learn to regulate emotions, resist peer pressure, resolve conflicts, and build resilience through a growth mindset. These skills prepare you for the social complexities of adolescence.",
-      ru: "Добро пожаловать в Психологию и социальный интеллект для 9 класса! Вы углубите самосознание, научитесь регулировать эмоции, противостоять давлению сверстников, разрешать конфликты и строить устойчивость через мышление роста. Эти навыки подготовят вас к социальным сложностям подросткового возраста."
+      en: "Welcome to Psychology & Social Intelligence! You will deepen your self-awareness, learn to regulate emotions, resist peer pressure, resolve conflicts, and build resilience through a growth mindset. These skills prepare you for the social complexities of adolescence.",
+      ru: "Добро пожаловать в Психологию и социальный интеллект! Вы углубите самосознание, научитесь регулировать эмоции, противостоять давлению сверстников, разрешать конфликты и строить устойчивость через мышление роста. Эти навыки подготовят вас к социальным сложностям подросткового возраста."
     },
     sections: [
       {
@@ -797,12 +837,16 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Johari Window: Open (known to self & others), Blind (known to others only), Hidden (known to self only), Unknown",
+            formulaRu: "Окно Джохари: Открытая зона (известно себе и другим), Слепая зона (известно только другим), Скрытая зона (известно только себе), Неизвестная зона",
+            formulaKk: "Джохари терезесі: Ашық аймақ (өзіне және басқаларға белгілі), Соқыр аймақ (тек басқаларға белгілі), Жасырын аймақ (тек өзіне белгілі), Белгісіз аймақ",
             description: "A model for understanding self-awareness through four quadrants",
             descriptionRu: "Модель понимания самосознания через четыре квадранта",
             descriptionKk: "Өзін-өзі тануды төрт квадрант арқылы түсіну моделі"
           },
           {
             formula: "Self-Reflection Loop: Experience → Observe → Analyze → Adjust",
+            formulaRu: "Цикл саморефлексии: Опыт → Наблюдение → Анализ → Корректировка",
+            formulaKk: "Өзіндік рефлексия циклі: Тәжірибе → Бақылау → Талдау → Түзету",
             description: "A cyclical process for building deeper self-awareness over time",
             descriptionRu: "Циклический процесс для углубления самосознания со временем",
             descriptionKk: "Уақыт өте өзін-өзі тануды тереңдетудің циклдік процесі"
@@ -874,12 +918,16 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Gross's Process Model: Situation Selection → Situation Modification → Attention Deployment → Cognitive Reappraisal → Response Modulation",
+            formulaRu: "Процессуальная модель Гросса: Выбор ситуации → Изменение ситуации → Направление внимания → Когнитивная переоценка → Модуляция реакции",
+            formulaKk: "Гросстың процестік моделі: Жағдайды таңдау → Жағдайды өзгерту → Назарды бағыттау → Танымдық қайта бағалау → Реакцияны реттеу",
             description: "Five intervention points for regulating emotions, from earliest to latest",
             descriptionRu: "Пять точек вмешательства для регуляции эмоций, от ранних к поздним",
             descriptionKk: "Эмоцияларды реттеудің бес араласу нүктесі, ертеден кешке дейін"
           },
           {
             formula: "Cognitive Reappraisal: 'This is terrible' → 'This is challenging but I can learn from it'",
+            formulaRu: "Когнитивная переоценка: 'Это ужасно' → 'Это сложно, но я могу этому научиться'",
+            formulaKk: "Танымдық қайта бағалау: 'Бұл сұмдық' → 'Бұл қиын, бірақ мен бұдан үйрене аламын'",
             description: "Reframing a negative interpretation into a more balanced one",
             descriptionRu: "Переосмысление негативной интерпретации в более сбалансированную",
             descriptionKk: "Теріс түсіндірмені теңгерімді түсіндірмеге қайта құру"
@@ -951,12 +999,16 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Refusal Skills Model: Say No clearly → Give a reason → Suggest alternative → Walk away if needed",
+            formulaRu: "Модель навыков отказа: Скажи 'нет' чётко → Объясни причину → Предложи альтернативу → Уйди, если нужно",
+            formulaKk: "Бас тарту дағдысының моделі: Анық 'жоқ' де → Себебін түсіндір → Балама ұсын → Қажет болса, кет",
             description: "A four-step approach to resisting peer pressure assertively",
             descriptionRu: "Четырёхшаговый подход к ассертивному сопротивлению давлению",
             descriptionKk: "Құрдастар қысымына батыл қарсы тұрудың төрт қадамдық тәсілі"
           },
           {
             formula: "Direct vs. Indirect Pressure: Direct = explicit request | Indirect = unspoken expectation",
+            formulaRu: "Прямое и косвенное давление: Прямое = явная просьба | Косвенное = невысказанное ожидание",
+            formulaKk: "Тікелей және жанама қысым: Тікелей = ашық сұраныс | Жанама = айтылмаған күту",
             description: "Two forms of peer pressure that require different responses",
             descriptionRu: "Две формы давления сверстников, требующие разных ответов",
             descriptionKk: "Әртүрлі жауаптарды қажет ететін құрдастар қысымының екі формасы"
@@ -1028,12 +1080,16 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Thomas-Kilmann 5 Styles: Competing, Accommodating, Avoiding, Compromising, Collaborating",
+            formulaRu: "5 стилей Томаса-Килманна: Соперничество, Приспособление, Избегание, Компромисс, Сотрудничество",
+            formulaKk: "Томас-Килманның 5 стилі: Бәсекелестік, Бейімделу, Аулақ болу, Ымыраға келу, Ынтымақтастық",
             description: "Five approaches to conflict based on assertiveness and cooperativeness",
             descriptionRu: "Пять подходов к конфликту на основе настойчивости и кооперативности",
             descriptionKk: "Батылдық пен ынтымақтастыққа негізделген жанжалға бес тәсіл"
           },
           {
             formula: "WIN Method: What do I want? → Identify what they want → Navigate to a shared solution",
+            formulaRu: "Метод WIN: Чего хочу я? → Определи, чего хотят они → Найди общее решение",
+            formulaKk: "WIN әдісі: Мен не қалаймын? → Олар не қалайтынын анықта → Ортақ шешімге жет",
             description: "A simple framework for approaching any conflict collaboratively",
             descriptionRu: "Простой подход к совместному разрешению любого конфликта",
             descriptionKk: "Кез келген жанжалды бірлесіп шешудің қарапайым тәсілі"
@@ -1105,12 +1161,16 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Active Listening SOLER: Sit squarely, Open posture, Lean forward, Eye contact, Relax",
+            formulaRu: "Активное слушание SOLER: Сядь прямо, Открытая поза, Наклонись вперёд, Зрительный контакт, Расслабься",
+            formulaKk: "SOLER белсенді тыңдау: Тік отыр, Ашық дене қалпы, Алға еңкей, Көзбен байланыс орнат, Босаңс",
             description: "Five body language elements that show you are actively listening",
             descriptionRu: "Пять элементов языка тела, показывающих активное слушание",
             descriptionKk: "Белсенді тыңдауды көрсететін дене тілінің бес элементі"
           },
           {
             formula: "Paraphrase Formula: 'So what you're saying is...' + repeat key point in your own words",
+            formulaRu: "Формула перефразирования: 'То есть ты говоришь, что...' + повтори главную мысль своими словами",
+            formulaKk: "Қайта тұжырымдау формуласы: 'Яғни сен айтқың келгені...' + негізгі ойды өз сөзіңмен қайтала",
             description: "A verbal technique to confirm understanding and show engagement",
             descriptionRu: "Вербальная техника для подтверждения понимания и вовлечённости",
             descriptionKk: "Түсінуді растау және қатысуды көрсетудің вербалды техникасы"
@@ -1182,12 +1242,16 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Selye's GAS: Alarm → Resistance → Exhaustion",
+            formulaRu: "GAS Селье: Тревога → Сопротивление → Истощение",
+            formulaKk: "Селье GAS-ы: Дабыл → Қарсылық → Сарқылу",
             description: "The three stages the body goes through during prolonged stress",
             descriptionRu: "Три стадии, через которые проходит тело при длительном стрессе",
             descriptionKk: "Ұзақ стресс кезінде дене өтетін үш кезең"
           },
           {
             formula: "Coping: Problem-Focused (fix the cause) vs. Emotion-Focused (manage the feeling)",
+            formulaRu: "Копинг: Проблемно-ориентированный (устранить причину) против Эмоционально-ориентированного (справиться с чувством)",
+            formulaKk: "Копинг: Мәселеге бағытталған (себебін жою) және Эмоцияға бағытталған (сезімді басқару)",
             description: "Two fundamental approaches to dealing with stress",
             descriptionRu: "Два фундаментальных подхода к борьбе со стрессом",
             descriptionKk: "Стресспен күресудің екі іргелі тәсілі"
@@ -1259,12 +1323,16 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Fixed Mindset: 'I'm bad at this' | Growth Mindset: 'I'm not good at this YET'",
+            formulaRu: "Фиксированное мышление: 'У меня это плохо получается' | Мышление роста: 'У меня это ПОКА не очень хорошо получается'",
+            formulaKk: "Тұрақты ойлау: 'Маған бұл жаман шығады' | Даму ойлауы: 'Маған бұл ӘЛІ жақсы шықпайды'",
             description: "The power of adding 'yet' to transform a limiting belief",
             descriptionRu: "Сила добавления «пока» для трансформации ограничивающего убеждения",
             descriptionKk: "Шектеуші сенімді өзгерту үшін «әлі» қосудың күші"
           },
           {
             formula: "Effort → Struggle → Learning → Mastery (the growth path)",
+            formulaRu: "Усилие → Трудность → Обучение → Мастерство (путь роста)",
+            formulaKk: "Күш салу → Қиындық → Үйрену → Шеберлік (даму жолы)",
             description: "The natural progression from beginner to expert through persistent effort",
             descriptionRu: "Естественное продвижение от новичка к эксперту через настойчивые усилия",
             descriptionKk: "Тұрақты күш-жігер арқылы жаңа бастаушыдан сарапшыға дейінгі табиғи ілгерілеу"
@@ -1336,12 +1404,16 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Social Comparison Theory (Festinger): Upward comparison (to 'better' people) → decreased self-esteem",
+            formulaRu: "Теория социального сравнения (Фестингер): Сравнение вверх (с 'лучшими' людьми) → снижение самооценки",
+            formulaKk: "Әлеуметтік салыстыру теориясы (Фестингер): Жоғары қарай салыстыру ('жақсырақ' адамдармен) → өзін-өзі бағалаудың төмендеуі",
             description: "Comparing yourself to people who seem more successful lowers your mood",
             descriptionRu: "Сравнение с теми, кто кажется успешнее, снижает настроение",
             descriptionKk: "Табысты көрінетін адамдармен салыстыру көңіл-күйді төмендетеді"
           },
           {
             formula: "Digital Wellness Plan: Set time limits → Curate your feed → Schedule offline time",
+            formulaRu: "План цифрового благополучия: Установи лимиты времени → Курируй свою ленту → Запланируй время офлайн",
+            formulaKk: "Цифрлық әл-ауқат жоспары: Уақыт шектерін орнат → Лентаңды сұрыпта → Офлайн уақытты жоспарла",
             description: "A three-step approach to healthier social media habits",
             descriptionRu: "Трёхшаговый подход к здоровым привычкам в соцсетях",
             descriptionKk: "Әлеуметтік желілердегі сау әдеттерге үш қадамдық тәсіл"
@@ -1413,12 +1485,16 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Mehrabian's Rule: 7% words + 38% tone + 55% body language = 100% of emotional message",
+            formulaRu: "Правило Мехрабиана: 7% слова + 38% тон + 55% язык тела = 100% эмоционального сообщения",
+            formulaKk: "Мехрабиан ережесі: 7% сөздер + 38% дауыс тоны + 55% дене тілі = эмоционалдық хабардың 100%",
             description: "In emotional contexts, how you say it matters far more than what you say",
             descriptionRu: "В эмоциональных контекстах то, как вы говорите, важнее того, что вы говорите",
             descriptionKk: "Эмоциялық контексттерде не айтатыныңыздан гөрі қалай айтатыныңыз маңыздырақ"
           },
           {
             formula: "Open vs. Closed Body Language: Open (uncrossed arms, eye contact, leaning in) vs. Closed (crossed arms, looking away, leaning back)",
+            formulaRu: "Открытый и закрытый язык тела: Открытый (нескрещенные руки, зрительный контакт, наклон вперёд) против Закрытого (скрещенные руки, взгляд в сторону, наклон назад)",
+            formulaKk: "Ашық және жабық дене тілі: Ашық (қолдары айқаспаған, көзбен байланыс, алға еңкею) және Жабық (қолдары айқасқан, көзді алып қашу, артқа шегіну)",
             description: "Two contrasting sets of nonverbal signals indicating receptivity or defensiveness",
             descriptionRu: "Два набора невербальных сигналов: открытость или защита",
             descriptionKk: "Қабылдауды немесе қорғанысты білдіретін екі контрасты бейвербалды сигнал жиыны"
@@ -1490,12 +1566,16 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Maister's Trust Equation: Trust = (Credibility + Reliability + Intimacy) ÷ Self-Orientation",
+            formulaRu: "Уравнение доверия Майстера: Доверие = (Авторитетность + Надёжность + Близость) ÷ Самоориентация",
+            formulaKk: "Майстердің сенім теңдеуі: Сенім = (Беделділік + Сенімділік + Жақындық) ÷ Өзіне бағытталу",
             description: "Trust increases with competence, consistency, and closeness, but decreases when someone is self-focused",
             descriptionRu: "Доверие растёт с компетентностью, последовательностью и близостью, но падает при эгоцентричности",
             descriptionKk: "Сенім құзыреттілік, тұрақтылық және жақындықпен өседі, бірақ эгоцентрлікте төмендейді"
           },
           {
             formula: "Trust Repair: Acknowledge → Apologize → Make amends → Consistent change over time",
+            formulaRu: "Восстановление доверия: Признай → Извинись → Возмести ущерб → Последовательные изменения со временем",
+            formulaKk: "Сенімді қалпына келтіру: Мойында → Кешірім сұра → Өтемін өтеу → Уақыт өте келе тұрақты өзгеру",
             description: "The process for rebuilding trust after it has been broken",
             descriptionRu: "Процесс восстановления доверия после его нарушения",
             descriptionKk: "Бұзылған сенімді қалпына келтіру процесі"
@@ -1562,8 +1642,8 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
   "Psychology & Social Intelligence_10": {
     planetName: "Psychology & Social Intelligence",
     introduction: {
-      en: "Welcome to Psychology & Social Intelligence for Grade 10! You will explore cognitive biases, motivation theory, persuasion principles, group dynamics, decision making, memory, habits, and emotional intelligence assessment. These tools will sharpen your critical thinking and interpersonal effectiveness.",
-      ru: "Добро пожаловать в Психологию и социальный интеллект для 10 класса! Вы изучите когнитивные искажения, теорию мотивации, принципы убеждения, групповую динамику, принятие решений, память, привычки и оценку эмоционального интеллекта. Эти инструменты улучшат ваше критическое мышление и межличностную эффективность."
+      en: "Welcome to Psychology & Social Intelligence! You will explore cognitive biases, motivation theory, persuasion principles, group dynamics, decision making, memory, habits, and emotional intelligence assessment. These tools will sharpen your critical thinking and interpersonal effectiveness.",
+      ru: "Добро пожаловать в Психологию и социальный интеллект! Вы изучите когнитивные искажения, теорию мотивации, принципы убеждения, групповую динамику, принятие решений, память, привычки и оценку эмоционального интеллекта. Эти инструменты улучшат ваше критическое мышление и межличностную эффективность."
     },
     sections: [
       {
@@ -1576,12 +1656,16 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Dual-Process Theory: System 1 (fast, intuitive, automatic) vs System 2 (slow, deliberate, analytical)",
+            formulaRu: "Теория двух процессов: Система 1 (быстрая, интуитивная, автоматическая) против Системы 2 (медленная, обдуманная, аналитическая)",
+            formulaKk: "Қос процесс теориясы: 1-жүйе (жылдам, интуитивті, автоматты) және 2-жүйе (баяу, ойластырылған, талдамалы)",
             description: "Kahneman's two modes of thinking that explain how biases arise",
             descriptionRu: "Два режима мышления Канемана, объясняющие возникновение искажений",
             descriptionKk: "Канеманның бұрмалаулардың пайда болуын түсіндіретін екі ойлау режимі"
           },
           {
             formula: "Bias Detection: Pause → Identify the bias → Apply System 2 → Decide rationally",
+            formulaRu: "Обнаружение предвзятости: Пауза → Определи предвзятость → Включи Систему 2 → Реши рационально",
+            formulaKk: "Біржақтылықты анықтау: Кідір → Біржақтылықты тап → 2-жүйені қос → Ақылмен шеш",
             description: "A simple framework for catching cognitive biases before they affect decisions",
             descriptionRu: "Простая схема для выявления когнитивных искажений до принятия решений",
             descriptionKk: "Шешімдерге әсер етпес бұрын когнитивті бұрмалауларды анықтау схемасы"
@@ -1653,6 +1737,8 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Confirmation Bias Loop: Belief → Selective Search → Biased Interpretation → Reinforced Belief",
+            formulaRu: "Цикл подтверждения предвзятости: Убеждение → Избирательный поиск → Предвзятая интерпретация → Укреплённое убеждение",
+            formulaKk: "Растау біржақтылығының циклі: Наным → Іріктеп іздеу → Біржақты түсіндіру → Нығайған наным",
             description: "How confirmation bias creates a self-reinforcing cycle",
             descriptionRu: "Как предвзятость подтверждения создаёт самоподкрепляющийся цикл",
             descriptionKk: "Растау бұрмалауы өзін-өзі нығайтатын циклді қалай жасайды"
@@ -1724,12 +1810,16 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Maslow's Hierarchy (bottom to top): Physiological → Safety → Love/Belonging → Esteem → Self-Actualization",
+            formulaRu: "Иерархия Маслоу (снизу вверх): Физиологические → Безопасность → Любовь/Принадлежность → Уважение → Самоактуализация",
+            formulaKk: "Маслоу иерархиясы (төменнен жоғары қарай): Физиологиялық → Қауіпсіздік → Махаббат/Тиесілік → Құрмет → Өзін-өзі жүзеге асыру",
             description: "Five levels of human needs from most basic to highest",
             descriptionRu: "Пять уровней потребностей человека от базовых до высших",
             descriptionKk: "Адам қажеттіліктерінің бес деңгейі, базалықтан жоғарыға дейін"
           },
           {
             formula: "Deficit Needs (D-needs) vs Growth Needs (B-needs): Levels 1-4 are deficit needs; Level 5 is a growth need",
+            formulaRu: "Дефицитарные потребности (D-потребности) против Потребностей роста (B-потребностей): Уровни 1-4 — дефицитарные, Уровень 5 — потребность роста",
+            formulaKk: "Тапшылық қажеттіліктер (D-қажеттіліктер) және Даму қажеттіліктері (B-қажеттіліктер): 1-4 деңгейлер — тапшылық қажеттіліктер, 5-деңгей — даму қажеттілігі",
             description: "Deficit needs arise from deprivation; growth needs arise from desire to develop",
             descriptionRu: "Дефицитные потребности возникают от нехватки; потребности роста — от желания развиваться",
             descriptionKk: "Тапшылық қажеттіліктер жетіспеушіліктен, өсу қажеттіліктері даму тілегінен туады"
@@ -1801,12 +1891,16 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Self-Determination Theory: Autonomy + Competence + Relatedness = Intrinsic Motivation",
+            formulaRu: "Теория самодетерминации: Автономия + Компетентность + Связанность = Внутренняя мотивация",
+            formulaKk: "Өзін-өзі анықтау теориясы: Автономия + Құзыреттілік + Байланыстылық = Ішкі мотивация",
             description: "Three psychological needs that fuel sustainable inner motivation",
             descriptionRu: "Три психологические потребности, питающие устойчивую внутреннюю мотивацию",
             descriptionKk: "Тұрақты ішкі мотивацияны қамтамасыз ететін үш психологиялық қажеттілік"
           },
           {
             formula: "Motivation Spectrum: Amotivation → External → Introjected → Identified → Integrated → Intrinsic",
+            formulaRu: "Спектр мотивации: Амотивация → Внешняя → Интроецированная → Идентифицированная → Интегрированная → Внутренняя",
+            formulaKk: "Мотивация спектрі: Амотивация → Сыртқы → Интроекцияланған → Сәйкестендірілген → Интеграцияланған → Ішкі",
             description: "The continuum from no motivation to fully internalized motivation",
             descriptionRu: "Континуум от отсутствия мотивации до полностью интернализированной мотивации",
             descriptionKk: "Мотивация болмаудан толық ішкі мотивацияға дейінгі континуум"
@@ -1878,6 +1972,8 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Cialdini's 6 Principles: Reciprocity, Commitment/Consistency, Social Proof, Authority, Liking, Scarcity",
+            formulaRu: "6 принципов Чалдини: Взаимность, Обязательство/Последовательность, Социальное доказательство, Авторитет, Симпатия, Дефицит",
+            formulaKk: "Чалдинидің 6 қағидасы: Өзара алмасу, Міндеттеме/Тұрақтылық, Әлеуметтік дәлел, Беделділік, Ұнату, Тапшылық",
             description: "Six evidence-based principles that drive human compliance and persuasion",
             descriptionRu: "Шесть научно обоснованных принципов, управляющих согласием и убеждением",
             descriptionKk: "Адамның келісімі мен сендіруін басқаратын алты ғылыми негізделген принцип"
@@ -1949,12 +2045,16 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Tuckman's Stages: Forming → Storming → Norming → Performing",
+            formulaRu: "Стадии Такмана: Формирование → Конфликт → Нормирование → Выполнение",
+            formulaKk: "Такман кезеңдері: Қалыптасу → Қақтығыс → Нормалану → Орындау",
             description: "Four stages teams go through as they develop from strangers to high performers",
             descriptionRu: "Четыре стадии развития команды от незнакомцев до высокоэффективной группы",
             descriptionKk: "Топтың бейтаныстардан жоғары нәтижелі топқа дейін дамуының төрт кезеңі"
           },
           {
             formula: "Groupthink Warning Signs: Illusion of invulnerability, Collective rationalization, Pressure on dissenters, Self-censorship",
+            formulaRu: "Признаки группового мышления: Иллюзия неуязвимости, Коллективная рационализация, Давление на несогласных, Самоцензура",
+            formulaKk: "Топтық ойлау белгілері: Жарақатсыздық иллюзиясы, Ұжымдық ақтау, Келіспегендерге қысым, Өзіндік цензура",
             description: "Red flags indicating a group is suppressing critical thinking",
             descriptionRu: "Тревожные признаки подавления группой критического мышления",
             descriptionKk: "Топтың сыни ойлауды басып жатқанын көрсететін қауіп белгілері"
@@ -2026,12 +2126,16 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "WRAP Model: Widen options → Reality-test assumptions → Attain distance → Prepare to be wrong",
+            formulaRu: "Модель WRAP: Расширь варианты → Проверь предположения реальностью → Отстранись → Будь готов ошибиться",
+            formulaKk: "WRAP моделі: Нұсқаларды кеңейт → Болжамдарды шындықпен тексер → Қашықтан қара → Қателесуге дайын бол",
             description: "A four-step framework for making better decisions",
             descriptionRu: "Четырёхшаговая модель для принятия лучших решений",
             descriptionKk: "Жақсырақ шешімдер қабылдаудың төрт қадамдық моделі"
           },
           {
             formula: "10/10/10 Rule: How will I feel about this decision in 10 minutes? 10 months? 10 years?",
+            formulaRu: "Правило 10/10/10: Как я буду относиться к этому решению через 10 минут? 10 месяцев? 10 лет?",
+            formulaKk: "10/10/10 ережесі: Бұл шешімге 10 минуттан кейін қалай қараймын? 10 айдан кейін? 10 жылдан кейін?",
             description: "A time-perspective tool for attaining emotional distance from a decision",
             descriptionRu: "Инструмент временной перспективы для эмоциональной дистанции от решения",
             descriptionKk: "Шешімнен эмоциялық арақашықтық алу үшін уақыт перспективасы құралы"
@@ -2103,12 +2207,16 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Ebbinghaus Forgetting Curve: Retention drops ~70% within 24 hours without review",
+            formulaRu: "Кривая забывания Эббингауза: Удержание информации падает на ~70% за 24 часа без повторения",
+            formulaKk: "Эббингауздың ұмыту қисығы: Қайталамасаң, ақпаратты есте сақтау 24 сағатта ~70%-ға төмендейді",
             description: "How rapidly we forget new information without reinforcement",
             descriptionRu: "Как быстро мы забываем новую информацию без подкрепления",
             descriptionKk: "Нығайтусыз жаңа ақпаратты қаншалықты тез ұмытатынымыз"
           },
           {
             formula: "Spaced Repetition Schedule: Review at 1 day → 3 days → 7 days → 14 days → 30 days",
+            formulaRu: "График интервального повторения: Повторение через 1 день → 3 дня → 7 дней → 14 дней → 30 дней",
+            formulaKk: "Аралық қайталау кестесі: Қайталау 1 күннен → 3 күннен → 7 күннен → 14 күннен → 30 күннен кейін",
             description: "Optimal review intervals for transferring information to long-term memory",
             descriptionRu: "Оптимальные интервалы повторения для переноса информации в долговременную память",
             descriptionKk: "Ақпаратты ұзақ мерзімді жадқа ауыстыру үшін оңтайлы қайталау аралықтары"
@@ -2180,12 +2288,16 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Habit Loop: Cue → Routine → Reward",
+            formulaRu: "Цикл привычки: Сигнал → Действие → Награда",
+            formulaKk: "Әдет циклі: Сигнал → Әрекет → Марапат",
             description: "The three-part cycle that drives all habitual behavior",
             descriptionRu: "Трёхчастный цикл, управляющий всем привычным поведением",
             descriptionKk: "Барлық әдетті мінез-құлықты басқаратын үш бөлімді цикл"
           },
           {
             formula: "4 Laws of Behavior Change: (1) Make it Obvious (2) Make it Attractive (3) Make it Easy (4) Make it Satisfying",
+            formulaRu: "4 закона изменения поведения: (1) Сделай очевидным (2) Сделай привлекательным (3) Сделай лёгким (4) Сделай приятным",
+            formulaKk: "Мінез-құлықты өзгертудің 4 заңы: (1) Байқалатындай ет (2) Тартымды ет (3) Оңай ет (4) Ұнамды ет",
             description: "James Clear's framework for building good habits and breaking bad ones",
             descriptionRu: "Фреймворк Клира для создания хороших привычек и устранения плохих",
             descriptionKk: "Жақсы әдеттер қалыптастыру және жаман әдеттерден арылу үшін Клирдің шеңбері"
@@ -2257,12 +2369,16 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Goleman's EQ Model: Self-Awareness + Self-Regulation + Motivation + Empathy + Social Skills",
+            formulaRu: "Модель EQ Гоулмана: Самосознание + Саморегуляция + Мотивация + Эмпатия + Социальные навыки",
+            formulaKk: "Гоулманның EQ моделі: Өзіндік сана + Өзін-өзі реттеу + Мотивация + Эмпатия + Әлеуметтік дағдылар",
             description: "Five components of emotional intelligence that predict personal and professional success",
             descriptionRu: "Пять компонентов эмоционального интеллекта, предсказывающих личный и профессиональный успех",
             descriptionKk: "Жеке және кәсіби табысты болжайтын эмоциялық интеллекттің бес компоненті"
           },
           {
             formula: "EQ Development Cycle: Assess → Set Goal → Practice → Reflect → Reassess",
+            formulaRu: "Цикл развития EQ: Оценка → Постановка цели → Практика → Рефлексия → Переоценка",
+            formulaKk: "EQ дамыту циклі: Бағалау → Мақсат қою → Тәжірибе → Рефлексия → Қайта бағалау",
             description: "A continuous improvement loop for developing emotional intelligence",
             descriptionRu: "Цикл непрерывного улучшения для развития эмоционального интеллекта",
             descriptionKk: "Эмоциялық интеллектті дамыту үшін үздіксіз жақсарту циклі"
@@ -2329,8 +2445,8 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
   "Psychology & Social Intelligence_11": {
     planetName: "Psychology & Social Intelligence",
     introduction: {
-      en: "Welcome to Psychology & Social Intelligence for Grade 11! You will master negotiation tactics, leadership psychology, cross-cultural understanding, cognitive-behavioral techniques, resilience building, and advanced conflict resolution. These skills prepare you for real-world leadership and professional success.",
-      ru: "Добро пожаловать в Психологию и социальный интеллект для 11 класса! Вы освоите тактики переговоров, психологию лидерства, межкультурное понимание, когнитивно-поведенческие техники, развитие устойчивости и продвинутое управление конфликтами. Эти навыки подготовят вас к лидерству и профессиональному успеху."
+      en: "Welcome to Psychology & Social Intelligence! You will master negotiation tactics, leadership psychology, cross-cultural understanding, cognitive-behavioral techniques, resilience building, and advanced conflict resolution. These skills prepare you for real-world leadership and professional success.",
+      ru: "Добро пожаловать в Психологию и социальный интеллект! Вы освоите тактики переговоров, психологию лидерства, межкультурное понимание, когнитивно-поведенческие техники, развитие устойчивости и продвинутое управление конфликтами. Эти навыки подготовят вас к лидерству и профессиональному успеху."
     },
     sections: [
       {
@@ -2343,12 +2459,16 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "BATNA: Best Alternative to a Negotiated Agreement — your walkaway option",
+            formulaRu: "BATNA: Лучшая альтернатива переговорному соглашению — твой вариант отказа от сделки",
+            formulaKk: "BATNA: Келіссөз келісіміне ең жақсы балама — мәмілеге бармаудың жолы",
             description: "Your fallback plan if negotiation fails, determines your leverage",
             descriptionRu: "Ваш запасной план при провале переговоров, определяет вашу силу",
             descriptionKk: "Келіссөз сәтсіз болған жағдайдағы сіздің резервтік жоспарыңыз"
           },
           {
             formula: "Anchoring Effect: First Offer → Sets the Negotiation Range",
+            formulaRu: "Эффект якоря: Первое предложение → задаёт диапазон переговоров",
+            formulaKk: "Якорь әсері: Бірінші ұсыныс → келіссөз ауқымын белгілейді",
             description: "The first number mentioned disproportionately influences the final outcome",
             descriptionRu: "Первое названное число непропорционально влияет на итоговый результат",
             descriptionKk: "Алғаш аталған сан соңғы нәтижеге шамадан тыс әсер етеді"
@@ -2420,6 +2540,8 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Harvard Method: Separate People from Problem → Focus on Interests → Generate Options → Use Objective Criteria",
+            formulaRu: "Гарвардский метод: Отдели людей от проблемы → Сосредоточься на интересах → Генерируй варианты → Используй объективные критерии",
+            formulaKk: "Гарвард әдісі: Адамдарды мәселеден бөл → Мүдделерге назар аудар → Нұсқалар тудыр → Объективті өлшемдерді қолдан",
             description: "Four principles of principled negotiation for win-win outcomes",
             descriptionRu: "Четыре принципа для достижения взаимовыгодного результата",
             descriptionKk: "Өзара тиімді нәтижеге қол жеткізудің төрт принципі"
@@ -2491,12 +2613,16 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Transformational Leadership: Idealized Influence + Inspirational Motivation + Intellectual Stimulation + Individualized Consideration",
+            formulaRu: "Трансформационное лидерство: Идеализированное влияние + Вдохновляющая мотивация + Интеллектуальная стимуляция + Индивидуальный подход",
+            formulaKk: "Трансформациялық көшбасшылық: Идеалды әсер + Шабыттандырушы мотивация + Интеллектуалдық ынталандыру + Жеке көзқарас",
             description: "Four components that elevate followers beyond self-interest",
             descriptionRu: "Четыре компонента, которые поднимают последователей выше личных интересов",
             descriptionKk: "Ізбасарларды жеке мүдделерден жоғары көтеретін төрт компонент"
           },
           {
             formula: "Situational Leadership: Style = f(Follower Competence, Follower Commitment)",
+            formulaRu: "Ситуационное лидерство: Стиль = f(Компетентность последователя, Приверженность последователя)",
+            formulaKk: "Жағдаяттық көшбасшылық: Стиль = f(Ізбасардың құзыреттілігі, Ізбасардың берілгендігі)",
             description: "Leaders adapt between directing, coaching, supporting, and delegating based on follower readiness",
             descriptionRu: "Лидеры адаптируют стиль между направлением, коучингом, поддержкой и делегированием",
             descriptionKk: "Көшбасшылар ізбасардың дайындығына байланысты стильді бейімдейді"
@@ -2568,6 +2694,8 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Cialdini's 6 Principles: Reciprocity, Commitment, Social Proof, Authority, Liking, Scarcity",
+            formulaRu: "6 принципов Чалдини: Взаимность, Обязательство, Социальное доказательство, Авторитет, Симпатия, Дефицит",
+            formulaKk: "Чалдинидің 6 қағидасы: Өзара алмасу, Міндеттеме, Әлеуметтік дәлел, Беделділік, Ұнату, Тапшылық",
             description: "Six evidence-based principles that drive human compliance and persuasion",
             descriptionRu: "Шесть научно обоснованных принципов, управляющих убеждением",
             descriptionKk: "Адамның сенімін және көндіруін басқаратын алты ғылыми негізделген принцип"
@@ -2639,6 +2767,8 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Google's Project Aristotle: Psychological Safety > Dependability > Structure > Meaning > Impact",
+            formulaRu: "Проект Aristotle от Google: Психологическая безопасность > Надёжность > Структура > Смысл > Влияние",
+            formulaKk: "Google-дың Aristotle жобасы: Психологиялық қауіпсіздік > Сенімділік > Құрылым > Мағына > Әсер",
             description: "Five key dynamics of effective teams, ranked by importance",
             descriptionRu: "Пять ключевых динамик эффективных команд в порядке важности",
             descriptionKk: "Тиімді командалардың маңыздылық бойынша бес негізгі динамикасы"
@@ -2710,12 +2840,16 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Hofstede's 6 Cultural Dimensions: Individualism/Collectivism, Power Distance, Uncertainty Avoidance, Masculinity/Femininity, Long/Short-Term Orientation, Indulgence/Restraint",
+            formulaRu: "6 культурных измерений Хофстеде: Индивидуализм/Коллективизм, Дистанция власти, Избегание неопределённости, Маскулинность/Феминность, Долгосрочная/Краткосрочная ориентация, Потворство/Сдержанность",
+            formulaKk: "Хофстеденің 6 мәдени өлшемі: Индивидуализм/Коллективизм, Билік қашықтығы, Белгісіздіктен қашу, Маскулиндік/Фемининдік, Ұзақ мерзімді/Қысқа мерзімді бағдар, Еркіндік/Тежемдік",
             description: "Framework for comparing cultural values across societies",
             descriptionRu: "Фреймворк для сравнения культурных ценностей между обществами",
             descriptionKk: "Қоғамдар арасындағы мәдени құндылықтарды салыстыру құрылымы"
           },
           {
             formula: "Cultural Intelligence (CQ): CQ Drive + CQ Knowledge + CQ Strategy + CQ Action",
+            formulaRu: "Культурный интеллект (CQ): CQ-мотивация + CQ-знание + CQ-стратегия + CQ-действие",
+            formulaKk: "Мәдени интеллект (CQ): CQ-мотивация + CQ-білім + CQ-стратегия + CQ-әрекет",
             description: "Four capabilities for effective functioning in culturally diverse settings",
             descriptionRu: "Четыре способности для эффективной работы в межкультурной среде",
             descriptionKk: "Мәдени алуан түрлі ортада тиімді жұмыс істеуге арналған төрт қабілет"
@@ -2787,12 +2921,16 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "ABC Model: Activating Event → Belief → Consequence (Emotional/Behavioral)",
+            formulaRu: "Модель ABC: Активирующее событие → Убеждение → Последствие (эмоциональное/поведенческое)",
+            formulaKk: "ABC моделі: Іске қосушы оқиға → Наным → Салдар (эмоционалдық/мінез-құлықтық)",
             description: "It is not events that upset us but our beliefs about them",
             descriptionRu: "Нас расстраивают не события, а наши убеждения о них",
             descriptionKk: "Бізді оқиғалар емес, олар туралы сенімдеріміз ренжітеді"
           },
           {
             formula: "Common Cognitive Distortions: Catastrophizing, All-or-Nothing Thinking, Mind Reading, Overgeneralization, Personalization",
+            formulaRu: "Распространённые когнитивные искажения: Катастрофизация, Мышление 'всё или ничего', Чтение мыслей, Сверхобобщение, Персонализация",
+            formulaKk: "Кең тараған танымдық бұрмалаулар: Апаттандыру, 'Бәрі немесе ешнәрсе' ойлауы, Ойды оқу, Шамадан тыс жалпылау, Дараландыру",
             description: "Thinking errors that amplify negative emotions beyond what evidence supports",
             descriptionRu: "Ошибки мышления, усиливающие негативные эмоции сверх подтверждённого",
             descriptionKk: "Жағымсыз эмоцияларды дәлелдерден тыс күшейтетін ойлау қателері"
@@ -2864,6 +3002,8 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Resilience = Protective Factors (Relationships + Self-Regulation + Purpose) / Risk Factors",
+            formulaRu: "Устойчивость = Защитные факторы (Отношения + Саморегуляция + Цель) / Факторы риска",
+            formulaKk: "Төзімділік = Қорғаныш факторлары (Қарым-қатынас + Өзін-өзі реттеу + Мақсат) / Тәуекел факторлары",
             description: "Resilience increases when protective factors outweigh risk factors",
             descriptionRu: "Устойчивость растёт, когда защитные факторы превышают факторы риска",
             descriptionKk: "Қорғаныш факторлары тәуекел факторларынан басым болғанда төзімділік артады"
@@ -2935,12 +3075,16 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Thomas-Kilmann Model: Competing (high assertiveness, low cooperation) | Collaborating (high both) | Compromising (moderate both) | Avoiding (low both) | Accommodating (low assertiveness, high cooperation)",
+            formulaRu: "Модель Томаса-Килманна: Соперничество (высокая настойчивость, низкое сотрудничество) | Сотрудничество (высокие оба) | Компромисс (умеренные оба) | Избегание (низкие оба) | Приспособление (низкая настойчивость, высокое сотрудничество)",
+            formulaKk: "Томас-Килманн моделі: Бәсекелестік (жоғары табандылық, төмен ынтымақтастық) | Ынтымақтастық (екеуі де жоғары) | Ымыраға келу (екеуі де орташа) | Аулақ болу (екеуі де төмен) | Бейімделу (төмен табандылық, жоғары ынтымақтастық)",
             description: "Five conflict styles mapped on assertiveness and cooperativeness axes",
             descriptionRu: "Пять стилей конфликта на осях настойчивости и сотрудничества",
             descriptionKk: "Бес қақтығыс стилі белсенділік және ынтымақтастық осьтерінде"
           },
           {
             formula: "Restorative Justice: What happened → Who was affected → What needs to happen to repair harm",
+            formulaRu: "Восстановительное правосудие: Что случилось → Кто пострадал → Что нужно сделать, чтобы исправить вред",
+            formulaKk: "Қалпына келтіруші әділет: Не болды → Кім зардап шекті → Зиянды түзету үшін не істеу керек",
             description: "A three-question framework that shifts focus from punishment to healing",
             descriptionRu: "Три вопроса, переключающие фокус с наказания на исцеление",
             descriptionKk: "Фокусты жазалаудан емделуге ауыстыратын үш сұрақ"
@@ -3012,12 +3156,16 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Grit = Passion (consistency of interest) × Perseverance (effort despite setbacks)",
+            formulaRu: "Настойчивость (grit) = Страсть (постоянство интереса) × Упорство (усилие несмотря на неудачи)",
+            formulaKk: "Табандылық (grit) = Құштарлық (қызығушылықтың тұрақтылығы) × Табандылық (сәтсіздіктерге қарамастан күш салу)",
             description: "Duckworth's formula showing success depends on sustained effort toward long-term goals",
             descriptionRu: "Формула Дакворт: успех зависит от устойчивого усилия к долгосрочным целям",
             descriptionKk: "Дакворт формуласы: табыс ұзақ мерзімді мақсаттарға тұрақты күшке байланысты"
           },
           {
             formula: "Flow State: Skill Level ≈ Challenge Level (both high) → Complete Absorption",
+            formulaRu: "Состояние потока: Уровень навыка ≈ Уровень сложности (оба высокие) → Полное погружение",
+            formulaKk: "Ағын күйі: Дағды деңгейі ≈ Қиындық деңгейі (екеуі де жоғары) → Толық сіңу",
             description: "Flow occurs when high skill meets high challenge, producing peak performance",
             descriptionRu: "Поток возникает при соответствии высокого навыка и высокого вызова",
             descriptionKk: "Ағын жоғары дағды мен жоғары сынақ сәйкес келгенде пайда болады"
@@ -3084,8 +3232,8 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
   "Psychology & Social Intelligence_12": {
     planetName: "Psychology & Social Intelligence",
     introduction: {
-      en: "Welcome to Psychology & Social Intelligence for Grade 12! You will explore behavioral economics, nudge theory, ethical influence, psychometrics, personality theories, landmark social psychology experiments, therapeutic communication, applied psychology, and build your own EQ portfolio. These capstone topics integrate everything you have learned into professional-level psychological literacy.",
-      ru: "Добро пожаловать в Психологию и социальный интеллект для 12 класса! Вы изучите поведенческую экономику, теорию подталкивания, этическое влияние, психометрику, теории личности, знаковые эксперименты социальной психологии, терапевтическую коммуникацию, прикладную психологию и создадите собственное портфолио EQ. Эти завершающие темы объединяют все знания в профессиональную психологическую грамотность."
+      en: "Welcome to Psychology & Social Intelligence! You will explore behavioral economics, nudge theory, ethical influence, psychometrics, personality theories, landmark social psychology experiments, therapeutic communication, applied psychology, and build your own EQ portfolio. These capstone topics integrate everything you have learned into professional-level psychological literacy.",
+      ru: "Добро пожаловать в Психологию и социальный интеллект! Вы изучите поведенческую экономику, теорию подталкивания, этическое влияние, психометрику, теории личности, знаковые эксперименты социальной психологии, терапевтическую коммуникацию, прикладную психологию и создадите собственное портфолио EQ. Эти завершающие темы объединяют все знания в профессиональную психологическую грамотность."
     },
     sections: [
       {
@@ -3098,12 +3246,16 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Prospect Theory: Pain of Loss ≈ 2× Pleasure of Equivalent Gain",
+            formulaRu: "Теория перспектив: Боль от потери ≈ 2× удовольствие от равноценного выигрыша",
+            formulaKk: "Перспектива теориясы: Жоғалтудан болатын ауырсыну ≈ тең жетістіктен алатын қуаныштан 2× көп",
             description: "People are more motivated to avoid losing $100 than to gain $100",
             descriptionRu: "Люди больше мотивированы избежать потери $100, чем получить $100",
             descriptionKk: "Адамдар $100 жоғалтпауға $100 алудан гөрі көбірек ынталанады"
           },
           {
             formula: "Dual Process: System 1 (Fast, Automatic, Emotional) vs System 2 (Slow, Deliberate, Logical)",
+            formulaRu: "Двойной процесс: Система 1 (Быстрая, Автоматическая, Эмоциональная) против Системы 2 (Медленная, Обдуманная, Логическая)",
+            formulaKk: "Қос процесс: 1-жүйе (Жылдам, Автоматты, Эмоционалды) және 2-жүйе (Баяу, Ойластырылған, Логикалық)",
             description: "Two modes of thinking that explain decision-making shortcuts and errors",
             descriptionRu: "Два режима мышления, объясняющие ошибки при принятии решений",
             descriptionKk: "Шешім қабылдаудағы қателерді түсіндіретін ойлаудың екі режимі"
@@ -3175,6 +3327,8 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Choice Architecture: Default Option + Framing + Social Norms → Predictable Behavior Change",
+            formulaRu: "Архитектура выбора: Опция по умолчанию + Фрейминг + Социальные нормы → Предсказуемое изменение поведения",
+            formulaKk: "Таңдау архитектурасы: Әдепкі нұсқа + Фрейминг + Әлеуметтік нормалар → Мінез-құлықтың болжамды өзгеруі",
             description: "How the presentation of choices shapes decisions without force or bans",
             descriptionRu: "Как представление выбора формирует решения без принуждения",
             descriptionKk: "Таңдаудың ұсынылу тәсілі шешімдерді мәжбүрлеусіз қалай қалыптастырады"
@@ -3246,6 +3400,8 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Dark Triad: Narcissism (grandiosity + need for admiration) + Machiavellianism (strategic manipulation) + Psychopathy (low empathy + impulsivity)",
+            formulaRu: "Тёмная триада: Нарциссизм (грандиозность + потребность в восхищении) + Макиавеллизм (стратегическая манипуляция) + Психопатия (низкая эмпатия + импульсивность)",
+            formulaKk: "Қара үштік: Нарциссизм (кемелдік + таңдану қажеттілігі) + Макиавеллизм (стратегиялық манипуляция) + Психопатия (төмен эмпатия + импульсивтілік)",
             description: "Three personality traits associated with exploitative interpersonal behavior",
             descriptionRu: "Три черты личности, связанные с эксплуатативным межличностным поведением",
             descriptionKk: "Пайдаланушы тұлғааралық мінез-құлыққа байланысты үш тұлға қасиеті"
@@ -3317,6 +3473,8 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "ETHICS Framework: Empathy + Transparency + Honesty + Informed consent + Consequences considered + Serve the other",
+            formulaRu: "Модель ETHICS: Эмпатия + Прозрачность + Честность + Осознанное согласие + Учёт последствий + Служение другому",
+            formulaKk: "ETHICS моделі: Эмпатия + Ашықтық + Адалдық + Хабардар келісім + Салдарларды ескеру + Басқаға қызмет ету",
             description: "Six-point checklist distinguishing ethical persuasion from manipulation",
             descriptionRu: "Шесть критериев, отличающих этичное убеждение от манипуляции",
             descriptionKk: "Этикалық сендіруді манипуляциядан ажыратудың алты критерийі"
@@ -3388,12 +3546,16 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Test Quality: Reliability (consistency) + Validity (accuracy) = Trustworthy Measurement",
+            formulaRu: "Качество теста: Надёжность (согласованность) + Валидность (точность) = Достоверное измерение",
+            formulaKk: "Тест сапасы: Сенімділік (тұрақтылық) + Валидтілік (дәлдік) = Сенімді өлшем",
             description: "Both reliability and validity are required — a test can be reliable but not valid",
             descriptionRu: "Нужны оба: тест может быть надёжным, но невалидным",
             descriptionKk: "Екеуі де қажет: тест сенімді, бірақ валидті емес болуы мүмкін"
           },
           {
             formula: "Big Five (OCEAN): Openness, Conscientiousness, Extraversion, Agreeableness, Neuroticism",
+            formulaRu: "Большая пятёрка (OCEAN): Открытость, Добросовестность, Экстраверсия, Доброжелательность, Нейротизм",
+            formulaKk: "Үлкен бестік (OCEAN): Ашықтық, Саналылық, Экстраверсия, Ізгілік, Нейротизм",
             description: "Five broad personality dimensions supported by cross-cultural research",
             descriptionRu: "Пять широких измерений личности, подтверждённых кросс-культурными исследованиями",
             descriptionKk: "Мәдениетаралық зерттеулермен расталған бес кең тұлға өлшемі"
@@ -3465,12 +3627,16 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Reciprocal Determinism (Bandura): Person ↔ Behavior ↔ Environment (all three continuously influence each other)",
+            formulaRu: "Взаимный детерминизм (Бандура): Личность ↔ Поведение ↔ Среда (все три постоянно влияют друг на друга)",
+            formulaKk: "Өзара детерминизм (Бандура): Тұлға ↔ Мінез-құлық ↔ Орта (үшеуі бір-біріне үздіксіз әсер етеді)",
             description: "Personality is shaped by the ongoing interaction of internal traits, actions, and context",
             descriptionRu: "Личность формируется взаимодействием внутренних черт, действий и контекста",
             descriptionKk: "Тұлға ішкі қасиеттер, іс-әрекеттер және контексттің өзара әрекеті арқылы қалыптасады"
           },
           {
             formula: "Freud's Structure: Id (pleasure principle) + Ego (reality principle) + Superego (morality principle)",
+            formulaRu: "Структура Фрейда: Ид (принцип удовольствия) + Эго (принцип реальности) + Суперэго (принцип морали)",
+            formulaKk: "Фрейд құрылымы: Ид (ләззат принципі) + Эго (шындық принципі) + Супер-эго (моральдық принцип)",
             description: "Three components of personality in psychodynamic theory",
             descriptionRu: "Три компонента личности в психодинамической теории",
             descriptionKk: "Психодинамикалық теориядағы тұлғаның үш компоненті"
@@ -3542,12 +3708,16 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Milgram's Finding: 65% obedience rate to harmful authority commands in ordinary people",
+            formulaRu: "Открытие Милгрэма: 65% обычных людей подчинялись вредным приказам авторитета",
+            formulaKk: "Милгрэм ашқан заңдылық: Қарапайым адамдардың 65%-ы билік беретін зиянды бұйрықтарға бағынды",
             description: "Situational authority can override personal morality in the majority of people",
             descriptionRu: "Ситуационный авторитет может преодолеть личную мораль у большинства",
             descriptionKk: "Ситуациялық билік көпшіліктің жеке моралін басып кете алады"
           },
           {
             formula: "Asch Conformity: ~33% conformity rate to obviously wrong group answers",
+            formulaRu: "Конформизм по Ашу: ~33% людей соглашались с явно неверными ответами группы",
+            formulaKk: "Аш бойынша конформизм: адамдардың ~33%-ы топтың айқын қате жауаптарымен келісті",
             description: "Social pressure causes people to deny their own perception one-third of the time",
             descriptionRu: "Социальное давление заставляет отрицать собственное восприятие в трети случаев",
             descriptionKk: "Әлеуметтік қысым адамдарды уақыттың үштен бірінде өз қабылдауынан бас тартуға мәжбүрлейді"
@@ -3619,6 +3789,8 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Rogers' Core Conditions: Unconditional Positive Regard + Empathy + Congruence = Therapeutic Relationship",
+            formulaRu: "Ключевые условия Роджерса: Безусловное позитивное отношение + Эмпатия + Конгруэнтность = Терапевтические отношения",
+            formulaKk: "Роджерстің негізгі шарттары: Шартсыз оң қарым-қатынас + Эмпатия + Үйлесімділік = Терапевтік қарым-қатынас",
             description: "Three conditions necessary for creating a safe, growth-promoting relationship",
             descriptionRu: "Три условия для безопасных, способствующих росту отношений",
             descriptionKk: "Қауіпсіз, өсуге ықпал ететін қарым-қатынас үшін үш шарт"
@@ -3690,6 +3862,8 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Applied Psychology Branches: I/O (workplace) + Health (wellness) + Forensic (legal) + Educational (learning) + Clinical (treatment)",
+            formulaRu: "Отрасли прикладной психологии: I/O (рабочее место) + Здоровье (благополучие) + Судебная (право) + Образовательная (обучение) + Клиническая (лечение)",
+            formulaKk: "Қолданбалы психология салалары: I/O (жұмыс орны) + Денсаулық (әл-ауқат) + Сот-психологиялық (құқық) + Білім беру (оқу) + Клиникалық (емдеу)",
             description: "Five major applied branches that translate research into practice",
             descriptionRu: "Пять основных прикладных направлений, переводящих исследования в практику",
             descriptionKk: "Зерттеулерді тәжірибеге аударатын бес негізгі қолданбалы бағыт"
@@ -3761,12 +3935,16 @@ export const PSYCHOLOGY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "EQ Portfolio Components: Self-Assessment + Growth Evidence + Reflection Journal + Development Plan + Peer Feedback",
+            formulaRu: "Компоненты портфолио EQ: Самооценка + Доказательства роста + Дневник рефлексии + План развития + Обратная связь от сверстников",
+            formulaKk: "EQ портфолиосының құрамдастары: Өзін-өзі бағалау + Даму дәлелдері + Рефлексия күнделігі + Даму жоспары + Құрдастардың кері байланысы",
             description: "Five elements that create a comprehensive emotional intelligence development record",
             descriptionRu: "Пять элементов комплексного документирования развития эмоционального интеллекта",
             descriptionKk: "Эмоциялық интеллект дамуын жан-жақты құжаттайтын бес элемент"
           },
           {
             formula: "Goleman's 5 EQ Domains: Self-Awareness + Self-Regulation + Motivation + Empathy + Social Skills",
+            formulaRu: "5 областей EQ по Гоулману: Самосознание + Саморегуляция + Мотивация + Эмпатия + Социальные навыки",
+            formulaKk: "Гоулман бойынша EQ-нің 5 саласы: Өзіндік сана + Өзін-өзі реттеу + Мотивация + Эмпатия + Әлеуметтік дағдылар",
             description: "Five domains of emotional intelligence that form the portfolio structure",
             descriptionRu: "Пять доменов эмоционального интеллекта, формирующих структуру портфолио",
             descriptionKk: "Портфолио құрылымын қалыптастыратын эмоциялық интеллекттің бес домені"

@@ -4,8 +4,8 @@ export const PROGRAMMING_FULL: Record<string, LessonContent> = {
   "Programming & AI_8": {
     planetName: "Programming & AI",
     introduction: {
-      en: "Welcome to Programming & AI for Grade 8! You will learn what programming is, how algorithms work, and write your very first programs using Scratch and Python.",
-      ru: "Добро пожаловать в Программирование и ИИ для 8 класса! Вы узнаете, что такое программирование, как работают алгоритмы, и напишете свои первые программы на Scratch и Python."
+      en: "Welcome to Programming & AI! You will learn what programming is, how algorithms work, and write your very first programs using Scratch and Python.",
+      ru: "Добро пожаловать в Программирование и ИИ! Вы узнаете, что такое программирование, как работают алгоритмы, и напишете свои первые программы на Scratch и Python."
     },
     sections: [
       {
@@ -89,12 +89,16 @@ export const PROGRAMMING_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "START → Process → Decision(Yes/No) → END",
+            formulaRu: "НАЧАЛО → Обработка → Решение(Да/Нет) → КОНЕЦ",
+            formulaKk: "БАСТАУ → Өңдеу → Шешім(Иә/Жоқ) → АЯҚТАУ",
             description: "Basic flowchart structure with decision branching",
             descriptionRu: "Базовая структура блок-схемы с ветвлением решений",
             descriptionKk: "Шешім тармақталуы бар блок-схеманың негізгі құрылымы"
           },
           {
             formula: "Algorithm = Input → Process → Output",
+            formulaRu: "Алгоритм = Ввод → Обработка → Вывод",
+            formulaKk: "Алгоритм = Кіріс → Өңдеу → Шығыс",
             description: "Every algorithm receives input, processes it, and produces output",
             descriptionRu: "Каждый алгоритм получает вход, обрабатывает и выдаёт результат",
             descriptionKk: "Әр алгоритм кіріс алады, өңдейді және нәтиже шығарады"
@@ -243,12 +247,16 @@ export const PROGRAMMING_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "name = input('Enter your name: ')",
+            formulaRu: "name = input('Введите ваше имя: ')",
+            formulaKk: "name = input('Атыңызды енгізіңіз: ')",
             description: "Reads user keyboard input and stores it as a string",
             descriptionRu: "Считывает ввод пользователя с клавиатуры и сохраняет как строку",
             descriptionKk: "Пайдаланушының пернетақта енгізуін оқиды және жол ретінде сақтайды"
           },
           {
             formula: "num = int(input('Enter a number: '))",
+            formulaRu: "num = int(input('Введите число: '))",
+            formulaKk: "num = int(input('Санды енгізіңіз: '))",
             description: "Reads input and converts the string to an integer",
             descriptionRu: "Считывает ввод и преобразует строку в целое число",
             descriptionKk: "Енгізуді оқиды және жолды бүтін санға түрлендіреді"
@@ -391,12 +399,16 @@ export const PROGRAMMING_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "for i in range(n):\\n    # repeats n times",
+            formulaRu: "for i in range(n):\\n    # повторяется n раз",
+            formulaKk: "for i in range(n):\\n    # n рет қайталанады",
             description: "For loop repeats code n times, with i going from 0 to n-1",
             descriptionRu: "Цикл for повторяет код n раз, i идёт от 0 до n-1",
             descriptionKk: "for циклі кодты n рет қайталайды, i 0-ден n-1-ге дейін жүреді"
           },
           {
             formula: "while condition:\\n    # repeats while True",
+            formulaRu: "while condition:\\n    # повторяется, пока True",
+            formulaKk: "while condition:\\n    # True болғанша қайталанады",
             description: "While loop repeats as long as the condition is True",
             descriptionRu: "Цикл while повторяется, пока условие истинно",
             descriptionKk: "while циклі шарт True болғанша қайталанады"
@@ -539,6 +551,8 @@ export const PROGRAMMING_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "print(variable) # debug by printing values",
+            formulaRu: "print(variable) # отладка через вывод значений",
+            formulaKk: "print(variable) # мәндерді шығару арқылы жөндеу",
             description: "Insert print statements to check variable values at different points",
             descriptionRu: "Вставляйте print для проверки значений переменных в разных местах",
             descriptionKk: "Әр түрлі жерлерде айнымалы мәндерін тексеру үшін print қосыңыз"
@@ -687,12 +701,16 @@ export const PROGRAMMING_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "# This is a comment — Python ignores it",
+            formulaRu: "# Это комментарий — Python его игнорирует",
+            formulaKk: "# Бұл түсініктеме — Python оны елемейді",
             description: "Comments document your code for human readers",
             descriptionRu: "Комментарии документируют код для читателей",
             descriptionKk: "Түсініктемелер кодты оқырмандар үшін құжаттайды"
           },
           {
             formula: "f'Hello, {name}! You are {age} years old.'",
+            formulaRu: "f'Привет, {name}! Тебе {age} лет.'",
+            formulaKk: "f'Сәлем, {name}! Сен {age} жастасың.'",
             description: "F-strings let you embed variables directly inside text",
             descriptionRu: "F-строки позволяют вставлять переменные прямо в текст",
             descriptionKk: "F-жолдар айнымалыларды мәтін ішіне тікелей енгізуге мүмкіндік береді"
@@ -760,8 +778,8 @@ export const PROGRAMMING_FULL: Record<string, LessonContent> = {
   "Programming & AI_9": {
     planetName: "Programming & AI",
     introduction: {
-      en: "Welcome to Programming & AI for Grade 9! You will deepen your Python skills by mastering data structures, functions, file handling, and building complete applications like games and calculators.",
-      ru: "Добро пожаловать в Программирование и ИИ для 9 класса! Вы углубите навыки Python, освоив структуры данных, функции, работу с файлами и создание полноценных приложений — игр и калькуляторов."
+      en: "Welcome to Programming & AI! You will deepen your Python skills by mastering data structures, functions, file handling, and building complete applications like games and calculators.",
+      ru: "Добро пожаловать в Программирование и ИИ! Вы углубите навыки Python, освоив структуры данных, функции, работу с файлами и создание полноценных приложений — игр и калькуляторов."
     },
     sections: [
       {
@@ -780,6 +798,8 @@ export const PROGRAMMING_FULL: Record<string, LessonContent> = {
           },
           {
             formula: "int() / float() / str() / bool() — type casting",
+            formulaRu: "int() / float() / str() / bool() — приведение типов",
+            formulaKk: "int() / float() / str() / bool() — типті түрлендіру",
             description: "Convert between data types explicitly",
             descriptionRu: "Явное преобразование между типами данных",
             descriptionKk: "Деректер түрлері арасында нақты түрлендіру"
@@ -934,6 +954,8 @@ export const PROGRAMMING_FULL: Record<string, LessonContent> = {
           },
           {
             formula: "len(collection) → number of items",
+            formulaRu: "len(collection) → количество элементов",
+            formulaKk: "len(collection) → элементтер саны",
             description: "Returns the number of elements in a list or tuple",
             descriptionRu: "Возвращает количество элементов в списке или кортеже",
             descriptionKk: "Тізім немесе кортеждегі элементтер санын қайтарады"
@@ -1437,6 +1459,8 @@ export const PROGRAMMING_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "eval() — avoid! Use explicit operations instead",
+            formulaRu: "eval() — избегайте! Используйте явные операции вместо этого",
+            formulaKk: "eval() — қолданбаңыз! Оның орнына нақты амалдарды пайдаланыңыз",
             description: "Never use eval() for user input — it is a security risk; use if/elif for operations",
             descriptionRu: "Никогда не используйте eval() для пользовательского ввода — это риск безопасности; используйте if/elif",
             descriptionKk: "Пайдаланушы енгізуі үшін eval() ешқашан пайдаланбаңыз — бұл қауіпсіздік тәуекелі; if/elif пайдаланыңыз"
@@ -1504,8 +1528,8 @@ export const PROGRAMMING_FULL: Record<string, LessonContent> = {
   "Programming & AI_10": {
     planetName: "Programming & AI",
     introduction: {
-      en: "Welcome to Programming & AI for Grade 10! You will learn object-oriented programming, web development with HTML/CSS/JavaScript, working with APIs and databases, and using Git for version control.",
-      ru: "Добро пожаловать в Программирование и ИИ для 10 класса! Вы изучите объектно-ориентированное программирование, веб-разработку с HTML/CSS/JavaScript, работу с API и базами данных, а также Git для управления версиями."
+      en: "Welcome to Programming & AI! You will learn object-oriented programming, web development with HTML/CSS/JavaScript, working with APIs and databases, and using Git for version control.",
+      ru: "Добро пожаловать в Программирование и ИИ! Вы изучите объектно-ориентированное программирование, веб-разработку с HTML/CSS/JavaScript, работу с API и базами данных, а также Git для управления версиями."
     },
     sections: [
       {
@@ -1524,6 +1548,8 @@ export const PROGRAMMING_FULL: Record<string, LessonContent> = {
           },
           {
             formula: "Encapsulation → Abstraction → Inheritance → Polymorphism",
+            formulaRu: "Инкапсуляция → Абстракция → Наследование → Полиморфизм",
+            formulaKk: "Инкапсуляция → Абстракция → Мұрагерлік → Полиморфизм",
             description: "The four pillars of object-oriented programming",
             descriptionRu: "Четыре столпа объектно-ориентированного программирования",
             descriptionKk: "Объектіге бағытталған программалаудың төрт тірегі"
@@ -1595,6 +1621,8 @@ export const PROGRAMMING_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "class Dog:\\n    def __init__(self, name):\\n        self.name = name\\n    def bark(self):\\n        return f'{self.name} says Woof!'",
+            formulaRu: "class Dog:\\n    def __init__(self, name):\\n        self.name = name\\n    def bark(self):\\n        return f'{self.name} говорит: Гав-гав!'",
+            formulaKk: "class Dog:\\n    def __init__(self, name):\\n        self.name = name\\n    def bark(self):\\n        return f'{self.name} Ав-ав дейді!'",
             description: "Complete class definition with constructor and method",
             descriptionRu: "Полное определение класса с конструктором и методом",
             descriptionKk: "Конструкторы мен әдісі бар толық класс анықтамасы"
@@ -2181,6 +2209,8 @@ export const PROGRAMMING_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Plan → Wireframe → Build → Test → Deploy",
+            formulaRu: "План → Каркас → Разработка → Тестирование → Развёртывание",
+            formulaKk: "Жоспар → Қаңқа → Әзірлеу → Тестілеу → Іске қосу",
             description: "Standard web development project lifecycle",
             descriptionRu: "Стандартный жизненный цикл проекта веб-разработки",
             descriptionKk: "Стандартты веб-әзірлеу жобасының өмірлік циклі"
@@ -2248,8 +2278,8 @@ export const PROGRAMMING_FULL: Record<string, LessonContent> = {
   "Programming & AI_11": {
     planetName: "Programming & AI",
     introduction: {
-      en: "Welcome to Programming & AI for Grade 11! You will master data structures and algorithms — the core of computer science — including sorting, searching, recursion, trees, graphs, and get your first introduction to AI and machine learning.",
-      ru: "Добро пожаловать в Программирование и ИИ для 11 класса! Вы освоите структуры данных и алгоритмы — основу информатики — включая сортировку, поиск, рекурсию, деревья, графы, а также получите первое введение в ИИ и машинное обучение."
+      en: "Welcome to Programming & AI! You will master data structures and algorithms — the core of computer science — including sorting, searching, recursion, trees, graphs, and get your first introduction to AI and machine learning.",
+      ru: "Добро пожаловать в Программирование и ИИ! Вы освоите структуры данных и алгоритмы — основу информатики — включая сортировку, поиск, рекурсию, деревья, графы, а также получите первое введение в ИИ и машинное обучение."
     },
     sections: [
       {
@@ -2262,12 +2292,16 @@ export const PROGRAMMING_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Array access: O(1) | Search: O(n) | Insert/Delete: O(n)",
+            formulaRu: "Доступ к массиву: O(1) | Поиск: O(n) | Вставка/Удаление: O(n)",
+            formulaKk: "Массивке қатынау: O(1) | Іздеу: O(n) | Қосу/Жою: O(n)",
             description: "Time complexity of basic array operations",
             descriptionRu: "Временная сложность базовых операций массива",
             descriptionKk: "Массивтің негізгі амалдарының уақыттық күрделілігі"
           },
           {
             formula: "Hash Map: O(1) average for get/set/delete",
+            formulaRu: "Хэш-таблица: O(1) в среднем для get/set/delete",
+            formulaKk: "Хэш-кесте: get/set/delete үшін орта есеппен O(1)",
             description: "Hash maps provide constant-time average access by key",
             descriptionRu: "Хеш-таблицы обеспечивают доступ по ключу за константное время в среднем",
             descriptionKk: "Хеш-кестелер кілт бойынша орташа тұрақты уақыттық қол жеткізуді қамтамасыз етеді"
@@ -2339,12 +2373,16 @@ export const PROGRAMMING_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Stack: push(item) / pop() — LIFO",
+            formulaRu: "Стек: push(item) / pop() — LIFO",
+            formulaKk: "Стек: push(item) / pop() — LIFO",
             description: "Stack operations: push adds to top, pop removes from top",
             descriptionRu: "Операции стека: push добавляет наверх, pop удаляет сверху",
             descriptionKk: "Стек амалдары: push жоғарыға қосады, pop жоғарыдан жояды"
           },
           {
             formula: "Queue: enqueue(item) / dequeue() — FIFO",
+            formulaRu: "Очередь: enqueue(item) / dequeue() — FIFO",
+            formulaKk: "Кезек: enqueue(item) / dequeue() — FIFO",
             description: "Queue operations: enqueue adds to back, dequeue removes from front",
             descriptionRu: "Операции очереди: enqueue добавляет в конец, dequeue удаляет из начала",
             descriptionKk: "Кезек амалдары: enqueue соңына қосады, dequeue басынан жояды"
@@ -2487,6 +2525,8 @@ export const PROGRAMMING_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Bubble Sort: O(n^2) | Merge Sort: O(n log n) | Quick Sort: O(n log n) avg",
+            formulaRu: "Пузырьковая сортировка: O(n^2) | Сортировка слиянием: O(n log n) | Быстрая сортировка: O(n log n) в среднем",
+            formulaKk: "Көпіршікті сұрыптау: O(n^2) | Қосу арқылы сұрыптау: O(n log n) | Жылдам сұрыптау: орта есеппен O(n log n)",
             description: "Time complexities of common sorting algorithms",
             descriptionRu: "Временные сложности популярных алгоритмов сортировки",
             descriptionKk: "Танымал сұрыптау алгоритмдерінің уақыттық күрделіліктері"
@@ -2558,6 +2598,8 @@ export const PROGRAMMING_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Linear: O(n) | Binary: O(log n) — requires sorted data",
+            formulaRu: "Линейный: O(n) | Бинарный: O(log n) — требует отсортированных данных",
+            formulaKk: "Сызықтық: O(n) | Бинарлық: O(log n) — сұрыпталған деректерді талап етеді",
             description: "Time complexities of linear and binary search",
             descriptionRu: "Временные сложности линейного и бинарного поиска",
             descriptionKk: "Сызықтық және екілік іздеудің уақыттық күрделіліктері"
@@ -2700,6 +2742,8 @@ export const PROGRAMMING_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "def factorial(n):\\n    if n <= 1: return 1  # base case\\n    return n * factorial(n - 1)  # recursive case",
+            formulaRu: "def factorial(n):\\n    if n <= 1: return 1  # базовый случай\\n    return n * factorial(n - 1)  # рекурсивный случай",
+            formulaKk: "def factorial(n):\\n    if n <= 1: return 1  # негізгі жағдай\\n    return n * factorial(n - 1)  # рекурсиялық жағдай",
             description: "Recursive factorial with base case and recursive case",
             descriptionRu: "Рекурсивный факториал с базовым и рекурсивным случаями",
             descriptionKk: "Негізгі және рекурсивті жағдайлары бар рекурсивті факториал"
@@ -2771,6 +2815,8 @@ export const PROGRAMMING_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "BFS uses a Queue | DFS uses a Stack (or recursion)",
+            formulaRu: "BFS использует очередь | DFS использует стек (или рекурсию)",
+            formulaKk: "BFS кезекті қолданады | DFS стекті (немесе рекурсияны) қолданады",
             description: "Breadth-first search explores level by level; depth-first goes deep first",
             descriptionRu: "BFS обходит уровень за уровнем; DFS углубляется сначала",
             descriptionKk: "BFS деңгей-деңгеймен аралайды; DFS алдымен тереңге барады"
@@ -2842,6 +2888,8 @@ export const PROGRAMMING_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "AI ⊃ ML ⊃ Deep Learning ⊃ Neural Networks",
+            formulaRu: "AI ⊃ ML ⊃ Глубокое обучение ⊃ Нейронные сети",
+            formulaKk: "AI ⊃ ML ⊃ Терең оқыту ⊃ Нейрондық желілер",
             description: "AI is the broadest field; ML, deep learning, and neural networks are nested subsets",
             descriptionRu: "ИИ — самая широкая область; ML, глубокое обучение и нейросети — вложенные подмножества",
             descriptionKk: "ЖИ — ең кең сала; ML, терең оқыту және нейрожелілер — кірістірілген ішкі жиындар"
@@ -2980,8 +3028,8 @@ export const PROGRAMMING_FULL: Record<string, LessonContent> = {
   "Programming & AI_12": {
     planetName: "Programming & AI",
     introduction: {
-      en: "Welcome to Programming & AI for Grade 12! You will tackle advanced topics: dynamic programming, graph algorithms, system design, machine learning pipelines, NLP, computer vision, AI ethics, cloud deployment, technical interviews, and building a portfolio project.",
-      ru: "Добро пожаловать в Программирование и ИИ для 12 класса! Вы освоите продвинутые темы: динамическое программирование, алгоритмы на графах, проектирование систем, ML-пайплайны, NLP, компьютерное зрение, этику ИИ, облачное развёртывание, технические собеседования и создание портфолио-проекта."
+      en: "Welcome to Programming & AI! You will tackle advanced topics: dynamic programming, graph algorithms, system design, machine learning pipelines, NLP, computer vision, AI ethics, cloud deployment, technical interviews, and building a portfolio project.",
+      ru: "Добро пожаловать в Программирование и ИИ! Вы освоите продвинутые темы: динамическое программирование, алгоритмы на графах, проектирование систем, ML-пайплайны, NLP, компьютерное зрение, этику ИИ, облачное развёртывание, технические собеседования и создание портфолио-проекта."
     },
     sections: [
       {
@@ -3000,6 +3048,8 @@ export const PROGRAMMING_FULL: Record<string, LessonContent> = {
           },
           {
             formula: "dp[i] = dp[i-1] + dp[i-2]  # bottom-up",
+            formulaRu: "dp[i] = dp[i-1] + dp[i-2]  # снизу вверх",
+            formulaKk: "dp[i] = dp[i-1] + dp[i-2]  # төменнен жоғары қарай",
             description: "Bottom-up tabulation builds the answer from base cases upward",
             descriptionRu: "Табуляция снизу вверх строит ответ от базовых случаев",
             descriptionKk: "Төменнен жоғарыға табуляция жауапты негізгі жағдайлардан бастап құрады"
@@ -3071,6 +3121,8 @@ export const PROGRAMMING_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Dijkstra: O((V + E) log V) with priority queue",
+            formulaRu: "Dijkstra: O((V + E) log V) с приоритетной очередью",
+            formulaKk: "Dijkstra: басымдық кезегімен O((V + E) log V)",
             description: "Dijkstra's shortest path algorithm complexity using a min-heap",
             descriptionRu: "Сложность алгоритма Дейкстры с приоритетной очередью",
             descriptionKk: "Басымдық кезегі бар Дейкстра алгоритмінің күрделілігі"
@@ -3142,6 +3194,8 @@ export const PROGRAMMING_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Client → Load Balancer → Server(s) → Cache → Database",
+            formulaRu: "Клиент → Балансировщик нагрузки → Сервер(ы) → Кэш → База данных",
+            formulaKk: "Клиент → Жүктемені теңгеруші → Сервер(лер) → Кэш → Дерекқор",
             description: "Typical web application architecture layers",
             descriptionRu: "Типичные слои архитектуры веб-приложения",
             descriptionKk: "Веб-қосымша архитектурасының типтік қабаттары"
@@ -3213,12 +3267,16 @@ export const PROGRAMMING_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Data → Clean → Features → Train/Test Split → Model → Evaluate → Deploy",
+            formulaRu: "Данные → Очистка → Признаки → Разделение на обучающую/тестовую выборки → Модель → Оценка → Развёртывание",
+            formulaKk: "Деректер → Тазалау → Белгілер → Оқыту/тест жиынтығына бөлу → Модель → Бағалау → Іске қосу",
             description: "Standard ML pipeline stages from data to deployment",
             descriptionRu: "Стандартные этапы ML-пайплайна от данных до развёртывания",
             descriptionKk: "Деректерден орналастыруға дейінгі стандартты ML құбыр кезеңдері"
           },
           {
             formula: "Accuracy = correct / total | F1 = 2 * (P * R) / (P + R)",
+            formulaRu: "Точность = верно / всего | F1 = 2 * (P * R) / (P + R)",
+            formulaKk: "Дәлдік = дұрыс / барлығы | F1 = 2 * (P * R) / (P + R)",
             description: "Key metrics for evaluating classification models",
             descriptionRu: "Ключевые метрики для оценки моделей классификации",
             descriptionKk: "Классификация модельдерін бағалау үшін негізгі метрикалар"
@@ -3290,6 +3348,8 @@ export const PROGRAMMING_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Text → Tokenize → Remove Stopwords → Stem/Lemmatize → Vectorize → Model",
+            formulaRu: "Текст → Токенизация → Удаление стоп-слов → Стемминг/Лемматизация → Векторизация → Модель",
+            formulaKk: "Мәтін → Токенизация → Стоп-сөздерді алып тастау → Стемминг/Лемматизация → Векторлау → Модель",
             description: "Standard NLP text preprocessing pipeline",
             descriptionRu: "Стандартный конвейер предобработки текста NLP",
             descriptionKk: "Стандартты NLP мәтін алдын ала өңдеу құбыры"
@@ -3361,6 +3421,8 @@ export const PROGRAMMING_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Input Image → Conv Layer → Pooling → Conv → Pooling → Flatten → Dense → Output",
+            formulaRu: "Входное изображение → Свёрточный слой → Пулинг → Свёртка → Пулинг → Уплощение → Полносвязный слой → Выход",
+            formulaKk: "Кіріс сурет → Конволюциялық қабат → Пулинг → Конволюция → Пулинг → Тегістеу → Толық байланысқан қабат → Шығыс",
             description: "Typical CNN architecture for image classification",
             descriptionRu: "Типичная архитектура CNN для классификации изображений",
             descriptionKk: "Кескінді жіктеу үшін типтік CNN архитектурасы"
@@ -3432,6 +3494,8 @@ export const PROGRAMMING_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Fairness + Transparency + Privacy + Accountability = Ethical AI",
+            formulaRu: "Справедливость + Прозрачность + Приватность + Подотчётность = Этичный AI",
+            formulaKk: "Әділдік + Ашықтық + Құпиялылық + Есептілік = Этикалық AI",
             description: "Core principles of responsible AI development",
             descriptionRu: "Основные принципы ответственной разработки ИИ",
             descriptionKk: "Жауапты ЖИ әзірлеудің негізгі принциптері"
@@ -3503,6 +3567,8 @@ export const PROGRAMMING_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Code → Build → Test → Deploy → Monitor (CI/CD pipeline)",
+            formulaRu: "Код → Сборка → Тестирование → Развёртывание → Мониторинг (CI/CD пайплайн)",
+            formulaKk: "Код → Құрастыру → Тестілеу → Іске қосу → Мониторинг (CI/CD пайплайны)",
             description: "Continuous Integration / Continuous Deployment workflow",
             descriptionRu: "Рабочий процесс непрерывной интеграции / развёртывания",
             descriptionKk: "Үздіксіз интеграция / үздіксіз орналастыру жұмыс ағыны"
@@ -3574,6 +3640,8 @@ export const PROGRAMMING_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Clarify → Brute Force → Optimize → Code → Test",
+            formulaRu: "Уточнение → Полный перебор → Оптимизация → Код → Тестирование",
+            formulaKk: "Нақтылау → Толық іздеу → Оңтайландыру → Код → Тестілеу",
             description: "Step-by-step approach to solving coding interview problems",
             descriptionRu: "Пошаговый подход к решению задач на собеседовании",
             descriptionKk: "Кодтау сұхбат есептерін шешудің қадамдық тәсілі"
@@ -3645,6 +3713,8 @@ export const PROGRAMMING_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Idea → Plan → Build → Test → Document → Deploy → Share",
+            formulaRu: "Идея → План → Разработка → Тестирование → Документирование → Развёртывание → Публикация",
+            formulaKk: "Идея → Жоспар → Әзірлеу → Тестілеу → Құжаттау → Іске қосу → Тарату",
             description: "Portfolio project development lifecycle",
             descriptionRu: "Жизненный цикл разработки портфолио-проекта",
             descriptionKk: "Портфолио жобасын әзірлеудің өмірлік циклі"

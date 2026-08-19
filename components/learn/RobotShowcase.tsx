@@ -9,13 +9,14 @@ import { RobotModel, type RobotModelVariant } from '../robots/RobotModels.tsx';
 /* --- content --- */
 
 const OPEN_MENTOR: Localized = {
-  ru: 'Открыть уроки наставника',
-  kk: 'Тәлімгердің сабақтарын ашу',
-  en: 'Open mentor lessons',
+  ru: 'Открыть уроки робота',
+  kk: 'Роботтың сабақтарын ашу',
+  en: 'Open robot lessons',
 };
 
 /* Language-independent scene details: math notation, binary and the planning
-   mantra words NOV-05 «Жизненные навыки» cycles through in its speech bubble. */
+   mantra words NOV-02 «Жизненные навыки» (internal variant nov05) cycles
+   through in its speech bubble. */
 const FORMULA_BITS = [
   { text: 'x²', left: '-10%', top: '6%', duration: 6.5, delay: 0 },
   { text: 'π', left: '92%', top: '14%', duration: 7.5, delay: 0.6 },
@@ -28,9 +29,14 @@ const BINARY_BITS = [
   { text: '0110', left: '82%', top: '40%', duration: 3.9, delay: 1.2 },
   { text: '1101', left: '48%', top: '18%', duration: 3.6, delay: 2.1 },
 ] as const;
-const PLAN_WORDS = ['Планируй', 'Действуй', 'Рефлексируй'] as const;
+const PLAN_WORDS: Localized[] = [
+  { ru: 'Планируй', kk: 'Жоспарла', en: 'Plan' },
+  { ru: 'Действуй', kk: 'Әрекет ет', en: 'Act' },
+  { ru: 'Рефлексируй', kk: 'Рефлексия жаса', en: 'Reflect' },
+];
 
-/* Picker ids → full-body model variants. */
+/* Picker ids → full-body model variants. The displayed codes are
+   NOV-01/02/03; the internal variant keys nov04/nov05/nov06 stay unchanged. */
 const MODEL_VARIANT: Record<MentorRobotId, RobotModelVariant> = {
   nov4: 'nov04',
   nov5: 'nov05',
@@ -76,7 +82,7 @@ const SHOWCASE_CSS = `
 .rm-scene-animated .rm-slot:hover .rm-head,
 .rm-scene-animated .rm-slot:focus-visible .rm-head { animation: rm-head-tilt 0.8s ease-in-out; }
 
-/* hover: NOV-05 waves its raised right arm (shoulder pivot is set inline by RobotModel) — two wags */
+/* hover: NOV-02 (internal variant nov05) waves its raised right arm (shoulder pivot is set inline by RobotModel) — two wags */
 @keyframes rm-wave {
   0% { transform: rotate(0deg); }
   20% { transform: rotate(-16deg); }
@@ -88,7 +94,7 @@ const SHOWCASE_CSS = `
 .rm-scene-animated .rm-slot:hover .rm-slot-nov05 .rm-arm-r,
 .rm-scene-animated .rm-slot:focus-visible .rm-slot-nov05 .rm-arm-r { animation: rm-wave 0.9s ease-in-out; }
 
-/* NOV-06: light bar sweeping across the visor (element lives in RobotModels) */
+/* NOV-03 (internal variant nov06): light bar sweeping across the visor (element lives in RobotModels) */
 @keyframes rm-visor-scan {
   0% { transform: translateX(0); opacity: 0; }
   12% { opacity: 0.55; }
@@ -132,11 +138,15 @@ interface EyeOffset {
   y: number;
 }
 
-/** NOV-05 «Жизненные навыки»'s HTML speech bubble: types «Планируй» → «Действуй» → «Рефлексируй» in a loop. */
+/** NOV-02 «Жизненные навыки» (internal variant nov05)'s HTML speech bubble: types the localized
+   plan/act/reflect words in a loop. */
 const GreetingBubble: React.FC<{ reduced: boolean }> = ({ reduced }) => {
+  const { language } = useLanguage();
+  const words = useMemo(() => PLAN_WORDS.map((w) => loc(language, w)), [language]);
   const [text, setText] = useState('');
   useEffect(() => {
     if (reduced) return;
+    setText('');
     let alive = true;
     let word = 0;
     let len = 0;
@@ -144,7 +154,7 @@ const GreetingBubble: React.FC<{ reduced: boolean }> = ({ reduced }) => {
     let timer = 0;
     const step = () => {
       if (!alive) return;
-      const full = PLAN_WORDS[word];
+      const full = words[word];
       let wait = 80; // ~80ms per character while typing
       if (phase === 'typing') {
         len += 1;
@@ -161,7 +171,7 @@ const GreetingBubble: React.FC<{ reduced: boolean }> = ({ reduced }) => {
         setText(full.slice(0, len));
         wait = 60;
         if (len <= 0) {
-          word = (word + 1) % PLAN_WORDS.length;
+          word = (word + 1) % words.length;
           phase = 'typing';
           wait = 350;
         }
@@ -173,12 +183,12 @@ const GreetingBubble: React.FC<{ reduced: boolean }> = ({ reduced }) => {
       alive = false;
       window.clearTimeout(timer);
     };
-  }, [reduced]);
+  }, [reduced, words]);
 
   return (
     <div className="pointer-events-none absolute -right-3 -top-4 z-10 flex items-center rounded-xl border border-teal/30 bg-white px-2.5 py-1 shadow-[0_2px_10px_rgba(17,26,42,0.08)]">
       <span className="font-mono text-xs font-semibold text-teal-dark">
-        {reduced ? PLAN_WORDS.join(' → ') : text}
+        {reduced ? words.join(' → ') : text}
       </span>
       {!reduced && (
         <span className="ml-0.5 inline-block h-3.5 w-[2px] animate-pulse bg-teal" aria-hidden="true" />
@@ -278,7 +288,7 @@ const RobotSlot: React.FC<RobotSlotProps> = ({
               />
             </div>
 
-            {/* NOV-04 «Академическая база»: formula glyphs drifting around the robot */}
+            {/* NOV-01 «Академическая база» (internal picker id nov4): formula glyphs drifting around the robot */}
             {robot.id === 'nov4' &&
               FORMULA_BITS.map((f) => (
                 <motion.span
@@ -298,10 +308,10 @@ const RobotSlot: React.FC<RobotSlotProps> = ({
                 </motion.span>
               ))}
 
-            {/* NOV-05 «Жизненные навыки»: typing speech bubble */}
+            {/* NOV-02 «Жизненные навыки» (internal picker id nov5): typing speech bubble */}
             {robot.id === 'nov5' && <GreetingBubble reduced={reduced} />}
 
-            {/* NOV-06 «Навыки будущего»: binary strings drifting upward */}
+            {/* NOV-03 «Навыки будущего» (internal picker id nov6): binary strings drifting upward */}
             {robot.id === 'nov6' &&
               BINARY_BITS.map((b) => (
                 <motion.span

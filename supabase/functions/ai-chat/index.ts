@@ -1,4 +1,4 @@
-// ai-chat — NOVEX edge function for the NOV-02 tutor chat.
+// ai-chat — NOVEX edge function for the NOV-01 tutor chat.
 //
 // browser -> this function (validates the NOVEX user JWT)
 //         -> Locus 'novex-ai' (validates the shared secret, holds the keys)

@@ -33,9 +33,9 @@ import {
 
 const WORDMARK: Localized = { ru: 'Novex', kk: 'Novex', en: 'Novex' };
 const ROBOT_LABEL: Localized = {
-  ru: 'NOV-02 · Наставник',
-  kk: 'NOV-02 · Тәлімгер',
-  en: 'NOV-02 · Tutor',
+  ru: 'NOV-01 · Академик',
+  kk: 'NOV-01 · Академик',
+  en: 'NOV-01 · Academic',
 };
 const BACK: Localized = {
   ru: 'Ко всем модулям',
@@ -217,7 +217,7 @@ const PageChrome: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   );
 };
 
-/** One lesson: theory blocks, then scored practice with NOV-02 explanations. */
+/** One lesson: theory blocks, then scored practice with NOV-01 explanations. */
 const LessonRunner: React.FC<{ lesson: Lesson }> = ({ lesson }) => {
   const { language } = useLanguage();
   const { user } = useAuth();
@@ -423,7 +423,7 @@ const LessonRunner: React.FC<{ lesson: Lesson }> = ({ lesson }) => {
     <section id="lesson" aria-labelledby="lesson-heading">
       {/* lesson header — visible in every phase */}
       <div className="flex items-start gap-4">
-        <RobotAvatar robot="nov2" className="h-12 w-12 shrink-0 sm:h-14 sm:w-14" />
+        <RobotAvatar robot="nov1" className="h-12 w-12 shrink-0 sm:h-14 sm:w-14" />
         <div className="min-w-0">
           <p className="font-mono text-[11px] font-medium uppercase tracking-widest text-teal-dark">
             {loc(language, ROBOT_LABEL)}
@@ -621,7 +621,7 @@ const LessonRunner: React.FC<{ lesson: Lesson }> = ({ lesson }) => {
                   className="mt-5 rounded-xl border border-teal/25 bg-mist/15 p-4"
                 >
                   <div className="flex items-start gap-3">
-                    <RobotAvatar robot="nov2" className="h-10 w-10 shrink-0" />
+                    <RobotAvatar robot="nov1" className="h-10 w-10 shrink-0" />
                     <div className="min-w-0">
                       <p className="font-mono text-[11px] font-medium uppercase tracking-widest text-teal-dark">
                         {loc(language, ROBOT_LABEL)}

@@ -101,9 +101,9 @@ const REMOVE_PHOTO: Localized = {
 };
 
 const ROBOT_LABEL: Localized = {
-  ru: 'NOV-01 · Диагност',
-  kk: 'NOV-01 · Диагност',
-  en: 'NOV-01 · Diagnostician',
+  ru: 'NOV-01 · Академик',
+  kk: 'NOV-01 · Академик',
+  en: 'NOV-01 · Academic',
 };
 const LEARNING_HEADING: Localized = {
   ru: 'Учебный профиль',
@@ -111,9 +111,9 @@ const LEARNING_HEADING: Localized = {
   en: 'Learning profile',
 };
 const LEARNING_DESC: Localized = {
-  ru: 'NOV-01 Диагност использует эти данные, чтобы определить твой уровень и программу.',
-  kk: 'NOV-01 Диагност деңгейің мен бағдарламаңды анықтау үшін осы деректерді пайдаланады.',
-  en: 'NOV-01 Diagnostician uses these details to work out your level and programme.',
+  ru: 'NOV-01 Академик использует эти данные, чтобы определить твой уровень и программу.',
+  kk: 'NOV-01 Академик деңгейің мен бағдарламаңды анықтау үшін осы деректерді пайдаланады.',
+  en: 'NOV-01 the Academic uses these details to work out your level and programme.',
 };
 
 const GRADE_LABEL: Localized = { ru: 'Класс', kk: 'Сынып', en: 'Grade' };
@@ -161,9 +161,9 @@ const EXAMS_HEADING: Localized = {
   en: 'Exams and scores',
 };
 const EXAMS_DESC: Localized = {
-  ru: 'Текущие баллы — необязательно. Наставник и Куратор учтут их в рекомендациях.',
-  kk: 'Ағымдағы баллдар — міндетті емес. Тәлімгер мен Куратор оларды ұсыныстарда ескереді.',
-  en: 'Current scores — optional. The Tutor and the Curator will factor them into recommendations.',
+  ru: 'Текущие баллы — необязательно. Академик учтёт их в рекомендациях.',
+  kk: 'Ағымдағы баллдар — міндетті емес. Академик оларды ұсыныстарда ескереді.',
+  en: 'Current scores are optional — the Academic will factor them into recommendations.',
 };
 const ENT_SCORE_LABEL: Localized = {
   ru: 'Текущий балл ЕНТ',
@@ -190,14 +190,14 @@ const IELTS_SCORE_ERROR: Localized = {
 };
 
 const MODEL_HEADING: Localized = {
-  ru: 'ИИ-наставник',
-  kk: 'ИИ-тәлімгер',
-  en: 'AI tutor',
+  ru: 'Академик',
+  kk: 'Академик',
+  en: 'Academic',
 };
 const MODEL_DESC: Localized = {
-  ru: 'Модель, которой Наставник отвечает в чате. Цена за сообщение: 1–5 ⚙ Новасов.',
-  kk: 'Тәлімгер чатта жауап беретін модель. Бір хабарламаның бағасы: 1–5 ⚙ Новас.',
-  en: 'The model the Tutor answers with in chat. Price per message: 1–5 ⚙ Novas.',
+  ru: 'Модель, которой Академик отвечает в чате. Цена за сообщение: 1–5 ⚙ Новасов.',
+  kk: 'Академик чатта жауап беретін модель. Бір хабарламаның бағасы: 1–5 ⚙ Новас.',
+  en: 'The model the Academic answers with in chat. Price per message: 1–5 ⚙ Novas.',
 };
 const MODEL_SELECT_LABEL: Localized = { ru: 'Модель', kk: 'Модель', en: 'Model' };
 const MODEL_DEFAULT_OPTION: Localized = {
@@ -445,8 +445,7 @@ const CHIP_OFF = 'border-line bg-white text-ink hover:border-teal/60 hover:text-
 
 const FADE_UP = {
   initial: { opacity: 0, y: 24 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, margin: '-80px' },
+  animate: { opacity: 1, y: 0 },
   transition: { duration: 0.5 },
 };
 
@@ -455,7 +454,7 @@ const ProfilePage: React.FC = () => {
   const { language } = useLanguage();
   const reduceMotion = useReducedMotion();
   const motionProps = reduceMotion
-    ? { ...FADE_UP, initial: { opacity: 0 }, whileInView: { opacity: 1 } }
+    ? { ...FADE_UP, initial: { opacity: 0 }, animate: { opacity: 1 } }
     : FADE_UP;
 
   const [form, setForm] = useState<FormState>({

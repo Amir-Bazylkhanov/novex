@@ -4,8 +4,8 @@ export const CAREER_FULL: Record<string, LessonContent> = {
   "Career Exploration_8": {
     planetName: "Career Exploration",
     introduction: {
-      en: "Welcome to Career Exploration for Grade 8! You will discover your interests, build a skills inventory, learn about different career types, and start connecting your hobbies to future career paths through hands-on activities like job shadowing and volunteering.",
-      ru: "Добро пожаловать в Исследование карьеры для 8 класса! Вы откроете свои интересы, составите инвентарь навыков, узнаете о различных типах карьер и начнёте связывать свои хобби с будущими карьерными путями через практические занятия, такие как наблюдение за работой и волонтёрство."
+      en: "Welcome to Career Exploration! You will discover your interests, build a skills inventory, learn about different career types, and start connecting your hobbies to future career paths through hands-on activities like job shadowing and volunteering.",
+      ru: "Добро пожаловать в Исследование карьеры! Вы откроете свои интересы, составите инвентарь навыков, узнаете о различных типах карьер и начнёте связывать свои хобби с будущими карьерными путями через практические занятия, такие как наблюдение за работой и волонтёрство."
     },
     sections: [
       {
@@ -18,12 +18,16 @@ export const CAREER_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Interest Discovery: List activities you enjoy → Identify patterns → Match to career fields",
+            formulaRu: "Открытие интересов: Перечислите занятия, которые вам нравятся → Определите закономерности → Сопоставьте с карьерными сферами",
+            formulaKk: "Қызығушылықты анықтау: Ұнайтын әрекеттеріңізді тізіңіз → Заңдылықтарды анықтаңыз → Мамандық салаларына сәйкестендіріңіз",
             description: "A three-step process to connect daily interests to potential career areas",
             descriptionRu: "Трёхэтапный процесс для связи ежедневных интересов с потенциальными карьерными областями",
             descriptionKk: "Күнделікті қызығушылықтарды мансап салаларымен байланыстырудың үш қадамдық процесі"
           },
           {
             formula: "Passion + Curiosity = Interest Signal",
+            formulaRu: "Страсть + Любопытство = Сигнал интереса",
+            formulaKk: "Құштарлық + Қызығушылық = Қызығушылық белгісі",
             description: "When you feel both enjoyment and a desire to learn more, that is a strong interest signal",
             descriptionRu: "Когда вы чувствуете и удовольствие, и желание узнать больше — это сильный сигнал интереса",
             descriptionKk: "Ләззат пен көбірек білуге деген құштарлықты сезгенде, бұл күшті қызығушылық сигналы"
@@ -95,12 +99,16 @@ export const CAREER_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Hard Skills + Soft Skills = Complete Skills Profile",
+            formulaRu: "Профессиональные навыки + Гибкие навыки = Полный профиль навыков",
+            formulaKk: "Кәсіби дағдылар + Икемді дағдылар = Толық дағдылар профилі",
             description: "A well-rounded career candidate has both technical abilities and interpersonal qualities",
             descriptionRu: "Хорошо подготовленный кандидат обладает как техническими способностями, так и межличностными качествами",
             descriptionKk: "Жан-жақты дайындалған үміткер техникалық қабілеттер мен тұлғааралық қасиеттерге ие"
           },
           {
             formula: "Skills Audit: List 10 things you can do → Label each Hard or Soft → Rate confidence 1-5",
+            formulaRu: "Аудит навыков: Перечислите 10 вещей, которые вы умеете → Обозначьте каждый как профессиональный или гибкий → Оцените уверенность от 1 до 5",
+            formulaKk: "Дағдылар аудиті: Істей алатын 10 нәрсені тізіңіз → Әрқайсысын кәсіби немесе икемді деп белгілеңіз → Сенімділікті 1-ден 5-ке дейін бағалаңыз",
             description: "A structured exercise to assess your current skill level and identify growth areas",
             descriptionRu: "Структурированное упражнение для оценки текущего уровня навыков и определения областей для роста",
             descriptionKk: "Ағымдағы дағды деңгейін бағалау және өсу салаларын анықтау үшін құрылымдалған жаттығу"
@@ -172,12 +180,16 @@ export const CAREER_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Career Clusters: STEM | Creative Arts | Healthcare | Business | Education | Skilled Trades",
+            formulaRu: "Карьерные кластеры: STEM | Творческие искусства | Здравоохранение | Бизнес | Образование | Рабочие профессии",
+            formulaKk: "Мамандық кластерлері: STEM | Шығармашылық өнер | Денсаулық сақтау | Бизнес | Білім беру | Қолөнер мамандықтары",
             description: "Six broad career clusters that organize hundreds of specific careers into manageable groups",
             descriptionRu: "Шесть широких карьерных кластеров, организующих сотни конкретных карьер в группы",
             descriptionKk: "Жүздеген нақты мансаптарды басқарылатын топтарға ұйымдастыратын алты кең мансап кластері"
           },
           {
             formula: "White Collar vs Blue Collar vs New Collar",
+            formulaRu: "Белые воротнички против Синих воротничков против Новых воротничков",
+            formulaKk: "Ақ жағалылар мен Көк жағалылар мен Жаңа жағалылар",
             description: "White collar = office/professional work; Blue collar = manual/skilled labor; New collar = tech skills without traditional degrees",
             descriptionRu: "Белые воротнички = офис; Синие воротнички = ручной труд; Новые воротнички = технавыки без диплома",
             descriptionKk: "Ақ жағалы = кеңсе жұмысы; Көк жағалы = қол еңбегі; Жаңа жағалы = дипломсыз техникалық дағдылар"
@@ -249,6 +261,8 @@ export const CAREER_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Hobby → Skill Extraction → Career Mapping",
+            formulaRu: "Хобби → Выделение навыков → Построение карьерного пути",
+            formulaKk: "Хобби → Дағдыларды анықтау → Мансап жолын құру",
             description: "Break down any hobby into its component skills, then find careers that use those same skills professionally",
             descriptionRu: "Разложите любое хобби на составляющие навыки, затем найдите карьеры, использующие эти навыки профессионально",
             descriptionKk: "Кез келген хоббиді құрамдас дағдыларға бөліңіз, содан кейін сол дағдыларды кәсіби пайдаланатын мансаптарды табыңыз"
@@ -320,6 +334,8 @@ export const CAREER_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Service Career Framework: Identify Need → Develop Skills → Serve Community → Create Impact",
+            formulaRu: "Модель карьеры служения: Определите потребность → Развейте навыки → Служите сообществу → Создайте влияние",
+            formulaKk: "Қызмет мамандығы моделі: Қажеттілікті анықтаңыз → Дағдыларды дамытыңыз → Қоғамға қызмет етіңіз → Әсер қалдырыңыз",
             description: "Service-oriented careers follow a path from recognizing a community need to making a real difference",
             descriptionRu: "Карьеры в сфере обслуживания следуют пути от осознания потребности сообщества до реального вклада",
             descriptionKk: "Қызмет көрсетуге бағытталған мансаптар қоғамдастық қажеттілігін танудан нақты өзгеріс жасауға дейінгі жолды ұстанады"
@@ -391,6 +407,8 @@ export const CAREER_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Job Shadow Plan: Choose Career → Find Professional → Prepare Questions → Observe → Reflect",
+            formulaRu: "План профессиональной стажировки: Выберите карьеру → Найдите специалиста → Подготовьте вопросы → Наблюдайте → Проанализируйте",
+            formulaKk: "Мамандықты бақылау жоспары: Мамандықты таңдаңыз → Маманды табыңыз → Сұрақтар дайындаңыз → Бақылаңыз → Талдаңыз",
             description: "Five steps to plan and get the most out of a job shadowing experience",
             descriptionRu: "Пять шагов для планирования и максимальной пользы от наблюдения за работой",
             descriptionKk: "Жұмысты бақылау тәжірибесін жоспарлау және одан барынша пайда алудың бес қадамы"
@@ -462,6 +480,8 @@ export const CAREER_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Volunteer Impact Formula: Time Invested + Skills Applied = Experience Gained + Community Benefit",
+            formulaRu: "Формула волонтёрского влияния: Вложенное время + Применённые навыки = Полученный опыт + Польза для сообщества",
+            formulaKk: "Еріктілер әсерінің формуласы: Жұмсалған уақыт + Қолданылған дағдылар = Алынған тәжірибе + Қоғамға пайда",
             description: "Volunteering creates a win-win: you gain experience while making a positive impact",
             descriptionRu: "Волонтёрство создаёт взаимную выгоду: вы получаете опыт, внося позитивный вклад",
             descriptionKk: "Еріктілік өзара тиімділік жасайды: оң әсер ете отырып тәжірибе аласыз"
@@ -533,12 +553,16 @@ export const CAREER_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Team Roles: Leader, Organizer, Creator, Communicator, Analyst",
+            formulaRu: "Роли в команде: Лидер, Организатор, Создатель, Коммуникатор, Аналитик",
+            formulaKk: "Командадағы рөлдер: Көшбасшы, Ұйымдастырушы, Жасаушы, Коммуникатор, Аналитик",
             description: "Every effective team needs people filling different roles based on their strengths",
             descriptionRu: "Каждая эффективная команда нуждается в людях, выполняющих разные роли по своим сильным сторонам",
             descriptionKk: "Әр тиімді командаға күшті жақтарына қарай әртүрлі рөлдерді атқаратын адамдар қажет"
           },
           {
             formula: "Active Listening: Hear → Process → Respond → Confirm Understanding",
+            formulaRu: "Активное слушание: Услышать → Обработать → Ответить → Подтвердить понимание",
+            formulaKk: "Белсенді тыңдау: Есту → Өңдеу → Жауап беру → Түсінгенді растау",
             description: "Four steps to ensure clear communication in any team setting",
             descriptionRu: "Четыре шага для обеспечения чёткой коммуникации в командной работе",
             descriptionKk: "Кез келген командалық жағдайда анық қарым-қатынасты қамтамасыз етудің төрт қадамы"
@@ -610,12 +634,16 @@ export const CAREER_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "SMART Goals: Specific, Measurable, Achievable, Relevant, Time-bound",
+            formulaRu: "Цели SMART: Конкретные, Измеримые, Достижимые, Актуальные, Ограниченные во времени",
+            formulaKk: "SMART мақсаттары: Нақты, Өлшенетін, Қолжетімді, Өзекті, Уақыты шектелген",
             description: "A framework for setting goals that are clear and actionable rather than vague wishes",
             descriptionRu: "Структура для постановки чётких и выполнимых целей, а не расплывчатых желаний",
             descriptionKk: "Анық емес тілектер емес, нақты және орындалатын мақсаттарды қою құрылымы"
           },
           {
             formula: "Goal Timeline: Short-term (0-6 months) → Medium-term (1-3 years) → Long-term (5+ years)",
+            formulaRu: "Временная шкала целей: Краткосрочные (0-6 месяцев) → Среднесрочные (1-3 года) → Долгосрочные (5+ лет)",
+            formulaKk: "Мақсат мерзімі: Қысқа мерзімді (0-6 ай) → Орта мерзімді (1-3 жыл) → Ұзақ мерзімді (5+ жыл)",
             description: "Breaking goals into timeframes makes them less overwhelming and more manageable",
             descriptionRu: "Разделение целей на временные рамки делает их менее подавляющими и более управляемыми",
             descriptionKk: "Мақсаттарды уақыт аралықтарына бөлу оларды аз қорқытады және басқарылатын етеді"
@@ -687,6 +715,8 @@ export const CAREER_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Journal Entry Template: Date → Experience/Activity → What I Learned → How I Feel → Next Steps",
+            formulaRu: "Шаблон дневниковой записи: Дата → Опыт/Занятие → Что я узнал → Что я чувствую → Следующие шаги",
+            formulaKk: "Күнделік жазбасының үлгісі: Күні → Тәжірибе/Әрекет → Нені үйрендім → Қалай сезінемін → Келесі қадамдар",
             description: "A structured format for consistent and reflective journal entries",
             descriptionRu: "Структурированный формат для последовательных и рефлексивных записей в дневнике",
             descriptionKk: "Жүйелі және рефлексивті күнделік жазбалары үшін құрылымдалған формат"
@@ -753,8 +783,8 @@ export const CAREER_FULL: Record<string, LessonContent> = {
   "Career Exploration_9": {
     planetName: "Career Exploration",
     introduction: {
-      en: "In Grade 9, you will deepen your career exploration by learning about career clusters, education pathways, and strategic planning. You will practice informational interviews, build your first resume, develop a volunteering strategy, and create a career vision board to guide your next steps.",
-      ru: "В 9 классе вы углубите исследование карьеры, изучая карьерные кластеры, образовательные пути и стратегическое планирование. Вы попрактикуетесь в информационных интервью, составите первое резюме, разработаете стратегию волонтёрства и создадите доску карьерного видения."
+      en: "You will deepen your career exploration by learning about career clusters, education pathways, and strategic planning. You will practice informational interviews, build your first resume, develop a volunteering strategy, and create a career vision board to guide your next steps.",
+      ru: "Вы углубите исследование карьеры, изучая карьерные кластеры, образовательные пути и стратегическое планирование. Вы попрактикуетесь в информационных интервью, составите первое резюме, разработаете стратегию волонтёрства и создадите доску карьерного видения."
     },
     sections: [
       {
@@ -767,12 +797,16 @@ export const CAREER_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Career Cluster → Career Pathway → Specific Occupation",
+            formulaRu: "Карьерный кластер → Карьерный путь → Конкретная профессия",
+            formulaKk: "Мамандық кластері → Мамандық жолы → Нақты мамандық",
             description: "Clusters narrow down to pathways and then to specific jobs, like a funnel from broad to specific",
             descriptionRu: "Кластеры сужаются до путей и конкретных профессий, как воронка от широкого к конкретному",
             descriptionKk: "Кластерлер жолдарға, содан кейін нақты мамандықтарға тарылады, кеңнен нақтыға дейінгі шұңқыр сияқты"
           },
           {
             formula: "Transferable Skills Map: Identify Core Skills → Find Matching Clusters → Explore Pathways",
+            formulaRu: "Карта переносимых навыков: Определите основные навыки → Найдите подходящие кластеры → Изучите пути",
+            formulaKk: "Ауыспалы дағдылар картасы: Негізгі дағдыларды анықтаңыз → Сәйкес кластерлерді табыңыз → Жолдарды зерттеңіз",
             description: "Map your existing skills to multiple career clusters to discover the widest range of opportunities",
             descriptionRu: "Сопоставьте свои навыки с несколькими кластерами, чтобы обнаружить самый широкий спектр возможностей",
             descriptionKk: "Мүмкіндіктердің ең кең ауқымын табу үшін бар дағдыларыңызды бірнеше мансап кластерімен сәйкестендіріңіз"
@@ -844,6 +878,8 @@ export const CAREER_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Education Pathways: University (4yr) | Community College (2yr) | Vocational/Trade School | Apprenticeship | Bootcamp | Self-taught",
+            formulaRu: "Образовательные пути: Университет (4 года) | Колледж (2 года) | Профессионально-техническое училище | Ученичество | Буткемп | Самообразование",
+            formulaKk: "Білім жолдары: Университет (4 жыл) | Колледж (2 жыл) | Кәсіптік-техникалық училище | Тағылымдама | Буткемп | Өзіндік білім алу",
             description: "Six main pathways to career readiness, each with different time commitments and costs",
             descriptionRu: "Шесть основных путей к карьерной готовности с разными временными затратами и стоимостью",
             descriptionKk: "Мансапқа дайындықтың алты негізгі жолы, әрқайсысының уақыт пен шығын талаптары әртүрлі"
@@ -915,6 +951,8 @@ export const CAREER_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Informational Interview Process: Research → Request → Prepare Questions → Listen → Follow Up",
+            formulaRu: "Процесс информационного интервью: Исследование → Запрос → Подготовка вопросов → Слушание → Последующий контакт",
+            formulaKk: "Ақпараттық сұхбат процесі: Зерттеу → Сұрау → Сұрақтар дайындау → Тыңдау → Кейінгі байланыс",
             description: "Five steps to conduct a professional and productive informational interview",
             descriptionRu: "Пять шагов для проведения профессионального и продуктивного информационного интервью",
             descriptionKk: "Кәсіби және нәтижелі ақпараттық сұхбат жүргізудің бес қадамы"
@@ -986,6 +1024,8 @@ export const CAREER_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Spike Strategy: 1-2 Deep Commitments + 2-3 Supporting Activities = Strong Profile",
+            formulaRu: "Стратегия \"спайк\": 1-2 глубоких обязательства + 2-3 поддерживающие активности = Сильный профиль",
+            formulaKk: "\"Спайк\" стратегиясы: 1-2 терең қатысу + 2-3 қосымша әрекет = Мықты профиль",
             description: "Focus deeply on one or two areas that match your career interests, then add complementary activities",
             descriptionRu: "Глубоко сфокусируйтесь на одной-двух областях, соответствующих карьерным интересам, затем добавьте дополняющие занятия",
             descriptionKk: "Мансап қызығушылықтарыңызға сәйкес бір немесе екі салаға терең назар аударыңыз, содан кейін толықтырушы іс-шараларды қосыңыз"
@@ -1057,12 +1097,16 @@ export const CAREER_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Resume Sections: Contact Info → Education → Experience → Skills → Activities → Awards",
+            formulaRu: "Разделы резюме: Контактная информация → Образование → Опыт → Навыки → Деятельность → Награды",
+            formulaKk: "Түйіндеме бөлімдері: Байланыс ақпараты → Білім → Тәжірибе → Дағдылар → Іс-әрекеттер → Марапаттар",
             description: "Standard resume sections ordered from most to least important for a student",
             descriptionRu: "Стандартные разделы резюме, упорядоченные от наиболее к наименее важным для ученика",
             descriptionKk: "Оқушы үшін ең маңыздысынан ең аз маңыздысына дейін реттелген стандартты түйіндеме бөлімдері"
           },
           {
             formula: "Action Verb + Task + Result = Strong Bullet Point",
+            formulaRu: "Глагол действия + Задача + Результат = Сильный пункт резюме",
+            formulaKk: "Әрекет етістігі + Тапсырма + Нәтиже = Мықты түйіндеме тармағы",
             description: "Use this formula to write impactful resume bullet points (e.g., 'Organized a charity event that raised $500 for the local shelter')",
             descriptionRu: "Используйте эту формулу для написания впечатляющих пунктов резюме (например, «Организовал благотворительное мероприятие, собравшее $500 для приюта»)",
             descriptionKk: "Әсерлі түйіндеме нүктелерін жазу үшін осы формуланы пайдаланыңыз (мысалы, «Жергілікті баспана үшін $500 жинаған қайырымдылық іс-шарасын ұйымдастырды»)"
@@ -1134,6 +1178,8 @@ export const CAREER_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Strategic Volunteer Selection: Career Interest → Related Organizations → Available Roles → Skills You Will Gain",
+            formulaRu: "Стратегический выбор волонтёрства: Карьерный интерес → Связанные организации → Доступные роли → Навыки, которые вы получите",
+            formulaKk: "Еріктілікті стратегиялық таңдау: Мамандыққа қызығушылық → Байланысты ұйымдар → Қолжетімді рөлдер → Алатын дағдылар",
             description: "Choose volunteer work by starting from your career goals and working backward to find relevant opportunities",
             descriptionRu: "Выбирайте волонтёрство, начиная с карьерных целей и находя соответствующие возможности",
             descriptionKk: "Мансап мақсаттарыңыздан бастап, тиісті мүмкіндіктерді табу арқылы еріктілік жұмысын таңдаңыз"
@@ -1205,6 +1251,8 @@ export const CAREER_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Digital Footprint Audit: Search Your Name → Review All Profiles → Remove/Adjust Unprofessional Content → Create Professional Profiles",
+            formulaRu: "Аудит цифрового следа: Найдите своё имя → Просмотрите все профили → Удалите/скорректируйте непрофессиональный контент → Создайте профессиональные профили",
+            formulaKk: "Цифрлық іздің аудиті: Атыңызды іздеңіз → Барлық профильдерді қараңыз → Кәсіби емес мазмұнды жойыңыз/түзетіңіз → Кәсіби профильдер жасаңыз",
             description: "Four steps to clean up and improve your online presence",
             descriptionRu: "Четыре шага для очистки и улучшения онлайн-присутствия",
             descriptionKk: "Онлайн қатысуыңызды тазалау және жақсартудың төрт қадамы"
@@ -1276,6 +1324,8 @@ export const CAREER_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Role Model Analysis: Who → What They Achieved → How They Got There → What I Can Learn → How I Apply It",
+            formulaRu: "Анализ образца для подражания: Кто → Чего они достигли → Как они этого добились → Чему я могу научиться → Как я это применю",
+            formulaKk: "Үлгі тұлғаны талдау: Кім → Неге қол жеткізді → Қалай қол жеткізді → Мен неден үйрене аламын → Мен мұны қалай қолданамын",
             description: "A structured approach to learning from role models rather than just admiring them",
             descriptionRu: "Структурированный подход к обучению у ролевых моделей, а не просто восхищению ими",
             descriptionKk: "Үлгі тұлғаларды тек ғана тамашалау емес, олардан үйренудің құрылымдалған тәсілі"
@@ -1347,6 +1397,8 @@ export const CAREER_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Summer Program Selection: Interest Alignment + Reputation + Cost/Aid + Application Deadline = Best Fit",
+            formulaRu: "Выбор летней программы: Соответствие интересам + Репутация + Стоимость/помощь + Срок подачи заявки = Лучший вариант",
+            formulaKk: "Жазғы бағдарламаны таңдау: Қызығушылыққа сәйкестік + Беделі + Құны/көмек + Өтінім мерзімі = Ең қолайлы нұсқа",
             description: "Evaluate summer programs on four key factors to find the best match for your goals and situation",
             descriptionRu: "Оценивайте летние программы по четырём факторам для нахождения лучшего соответствия вашим целям",
             descriptionKk: "Мақсаттарыңызға ең жақсы сәйкестікті табу үшін жазғы бағдарламаларды төрт негізгі фактор бойынша бағалаңыз"
@@ -1418,6 +1470,8 @@ export const CAREER_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Vision Board Elements: Central Goal + Supporting Images + Timeline + Action Steps + Motivational Quotes",
+            formulaRu: "Элементы доски визуализации: Главная цель + Дополняющие изображения + Временная шкала + Шаги действий + Мотивирующие цитаты",
+            formulaKk: "Мақсаттар тақтасының элементтері: Басты мақсат + Қосымша суреттер + Уақыт кестесі + Әрекет қадамдары + Ынталандырушы сөздер",
             description: "Five essential elements that make a vision board actionable rather than just decorative",
             descriptionRu: "Пять элементов, делающих доску видения действенной, а не просто декоративной",
             descriptionKk: "Визия тақтасын тек безендіру емес, іске асырылатын ететін бес маңызды элемент"
@@ -1484,8 +1538,8 @@ export const CAREER_FULL: Record<string, LessonContent> = {
   "Career Exploration_10": {
     planetName: "Career Exploration",
     introduction: {
-      en: "In Grade 10, you will build professional skills essential for entering the workforce. From writing resumes and cover letters to building a LinkedIn profile and personal brand, you will learn how to present yourself effectively and begin exploring internships and college majors.",
-      ru: "В 10 классе вы освоите профессиональные навыки, необходимые для выхода на рынок труда. От написания резюме и сопроводительных писем до создания профиля LinkedIn и личного бренда — вы научитесь эффективно представлять себя и начнёте изучать стажировки и специальности."
+      en: "You will build professional skills essential for entering the workforce. From writing resumes and cover letters to building a LinkedIn profile and personal brand, you will learn how to present yourself effectively and begin exploring internships and college majors.",
+      ru: "Вы освоите профессиональные навыки, необходимые для выхода на рынок труда. От написания резюме и сопроводительных писем до создания профиля LinkedIn и личного бренда — вы научитесь эффективно представлять себя и начнёте изучать стажировки и специальности."
     },
     sections: [
       {
@@ -1498,12 +1552,16 @@ export const CAREER_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Resume Structure: Contact Info → Objective → Education → Experience → Skills",
+            formulaRu: "Структура резюме: Контактная информация → Цель → Образование → Опыт → Навыки",
+            formulaKk: "Түйіндеме құрылымы: Байланыс ақпараты → Мақсат → Білім → Тәжірибе → Дағдылар",
             description: "The standard sections of a professional resume in order of importance for students",
             descriptionRu: "Стандартные разделы профессионального резюме в порядке важности для студентов",
             descriptionKk: "Студенттер үшін маңыздылық ретімен кәсіби түйіндеменің стандартты бөлімдері"
           },
           {
             formula: "Action Verb + Task + Result = Strong Bullet Point",
+            formulaRu: "Глагол действия + Задача + Результат = Сильный пункт резюме",
+            formulaKk: "Әрекет етістігі + Тапсырма + Нәтиже = Мықты түйіндеме тармағы",
             description: "Each experience entry should start with an action verb and include measurable results",
             descriptionRu: "Каждый пункт опыта должен начинаться с глагола действия и включать измеримые результаты",
             descriptionKk: "Әрбір тәжірибе жазбасы іс-әрекет етістігімен басталып, өлшенетін нәтижелерді қамтуы керек"
@@ -1575,6 +1633,8 @@ export const CAREER_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Cover Letter Structure: Hook → Why This Company → Why Me → Call to Action",
+            formulaRu: "Структура сопроводительного письма: Зацепка → Почему эта компания → Почему я → Призыв к действию",
+            formulaKk: "Ілеспе хат құрылымы: Қызықтырушы бөлім → Неге дәл осы компания → Неге мен → Әрекетке шақыру",
             description: "Four paragraphs that guide the reader from interest to a meeting request",
             descriptionRu: "Четыре абзаца, которые ведут читателя от интереса до запроса на встречу",
             descriptionKk: "Оқырманды қызығушылықтан кездесу сұрауына дейін жетектейтін төрт абзац"
@@ -1646,6 +1706,8 @@ export const CAREER_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "LinkedIn Essentials: Professional Photo + Compelling Headline + Detailed Summary + Experience + Skills",
+            formulaRu: "Основы LinkedIn: Профессиональное фото + Привлекательный заголовок + Подробное описание + Опыт + Навыки",
+            formulaKk: "LinkedIn негіздері: Кәсіби фото + Тартымды тақырып + Толық сипаттама + Тәжірибе + Дағдылар",
             description: "The five key elements that make a LinkedIn profile stand out to recruiters",
             descriptionRu: "Пять ключевых элементов, которые выделяют профиль LinkedIn для рекрутеров",
             descriptionKk: "LinkedIn профилін рекрутерлер үшін ерекшелендіретін бес негізгі элемент"
@@ -1717,6 +1779,8 @@ export const CAREER_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Networking Cycle: Identify → Connect → Engage → Follow Up → Maintain",
+            formulaRu: "Цикл нетворкинга: Определить → Установить контакт → Взаимодействовать → Поддержать связь → Сохранить отношения",
+            formulaKk: "Нетворкинг циклі: Анықтау → Байланыс орнату → Қарым-қатынас жасау → Байланысты жалғастыру → Қарым-қатынасты сақтау",
             description: "The five stages of building and sustaining a professional relationship",
             descriptionRu: "Пять этапов построения и поддержания профессиональных отношений",
             descriptionKk: "Кәсіби қарым-қатынас құру мен сақтаудың бес кезеңі"
@@ -1788,6 +1852,8 @@ export const CAREER_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Internship Search: Identify Interests → Research Companies → Prepare Materials → Apply → Follow Up",
+            formulaRu: "Поиск стажировки: Определите интересы → Изучите компании → Подготовьте материалы → Подайте заявку → Свяжитесь повторно",
+            formulaKk: "Тағылымдама іздеу: Қызығушылықты анықтаңыз → Компанияларды зерттеңіз → Материалдарды дайындаңыз → Өтінім беріңіз → Қайта байланысыңыз",
             description: "A systematic approach to finding and securing internship opportunities",
             descriptionRu: "Систематический подход к поиску и получению стажировки",
             descriptionKk: "Тағылымдама мүмкіндіктерін табу мен алудың жүйелі тәсілі"
@@ -1859,6 +1925,8 @@ export const CAREER_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Personal Brand = Unique Skills + Core Values + Consistent Presentation",
+            formulaRu: "Личный бренд = Уникальные навыки + Основные ценности + Последовательная подача",
+            formulaKk: "Жеке бренд = Ерекше дағдылар + Негізгі құндылықтар + Тұрақты таныстыру",
             description: "Your brand is the intersection of what you do well, what you believe, and how you show up consistently",
             descriptionRu: "Ваш бренд — это пересечение того, что вы делаете хорошо, во что верите и как постоянно себя представляете",
             descriptionKk: "Сіздің брендіңіз — жақсы істейтініңіздің, сенетініңіздің және өзіңізді тұрақты көрсетуіңіздің қиылысы"
@@ -1930,6 +1998,8 @@ export const CAREER_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Email Structure: Clear Subject → Professional Greeting → Purpose → Details → Call to Action → Sign-off",
+            formulaRu: "Структура письма: Чёткая тема → Профессиональное приветствие → Цель → Детали → Призыв к действию → Подпись",
+            formulaKk: "Хат құрылымы: Нақты тақырып → Кәсіби сәлемдесу → Мақсат → Толық ақпарат → Әрекетке шақыру → Қол қою",
             description: "The six components of an effective professional email",
             descriptionRu: "Шесть компонентов эффективного профессионального письма",
             descriptionKk: "Тиімді кәсіби электрондық хаттың алты құрамдас бөлігі"
@@ -2001,6 +2071,8 @@ export const CAREER_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Portfolio = Best Work Samples + Context Description + Reflection on Learning",
+            formulaRu: "Портфолио = Лучшие образцы работ + Описание контекста + Рефлексия об обучении",
+            formulaKk: "Портфолио = Ең жақсы жұмыс үлгілері + Мазмұн сипаттамасы + Оқуға рефлексия",
             description: "Each portfolio piece should include the work itself, a description of the project, and what you learned",
             descriptionRu: "Каждая работа в портфолио должна включать саму работу, описание проекта и извлечённые уроки",
             descriptionKk: "Портфолиодағы әр жұмыс жұмыстың өзін, жоба сипаттамасын және үйренгенді қамтуы керек"
@@ -2072,6 +2144,8 @@ export const CAREER_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Major Exploration: Self-Assessment → Research Fields → Talk to Professionals → Try Courses → Decide",
+            formulaRu: "Исследование специальности: Самооценка → Изучение областей → Разговор с профессионалами → Пробные курсы → Принятие решения",
+            formulaKk: "Мамандықты зерттеу: Өзін-өзі бағалау → Салаларды зерттеу → Мамандармен әңгімелесу → Курстарды сынап көру → Шешім қабылдау",
             description: "A five-step process for making an informed decision about your college major",
             descriptionRu: "Пятиэтапный процесс для принятия обоснованного решения о специальности",
             descriptionKk: "Колледж мамандығы туралы негізделген шешім қабылдаудың бес қадамдық процесі"
@@ -2143,12 +2217,16 @@ export const CAREER_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Industry Analysis: Market Size → Growth Rate → Key Players → Required Skills → Future Outlook",
+            formulaRu: "Анализ отрасли: Размер рынка → Темп роста → Ключевые игроки → Необходимые навыки → Перспективы",
+            formulaKk: "Сала талдауы: Нарық көлемі → Өсу қарқыны → Негізгі ойыншылар → Қажетті дағдылар → Болашақ перспективалары",
             description: "Five dimensions for evaluating any industry's potential for your career",
             descriptionRu: "Пять измерений для оценки потенциала отрасли для вашей карьеры",
             descriptionKk: "Мансабыңыз үшін кез келген саланың әлеуетін бағалаудың бес өлшемі"
           },
           {
             formula: "Emerging Industries = Technology + Societal Needs + Policy Support",
+            formulaRu: "Развивающиеся отрасли = Технологии + Общественные потребности + Государственная поддержка",
+            formulaKk: "Дамып келе жатқан салалар = Технологиялар + Қоғамдық қажеттіліктер + Мемлекеттік қолдау",
             description: "New industries emerge when technology meets unmet needs and receives government or market support",
             descriptionRu: "Новые отрасли возникают, когда технологии встречают нереализованные потребности и получают поддержку",
             descriptionKk: "Технология қанағаттандырылмаған қажеттіліктерге жауап беріп, қолдау алған кезде жаңа салалар пайда болады"
@@ -2215,8 +2293,8 @@ export const CAREER_FULL: Record<string, LessonContent> = {
   "Career Exploration_11": {
     planetName: "Career Exploration",
     introduction: {
-      en: "In Grade 11, you will master advanced career preparation skills including interview techniques, salary research, and building professional references. You will practice the STAR method, attend networking events, craft elevator pitches, and explore internship applications, gap year planning, and meaningful work experience.",
-      ru: "В 11 классе вы освоите продвинутые навыки подготовки к карьере: техники интервью, исследование зарплат и построение профессиональных рекомендаций. Вы будете практиковать метод STAR, посещать нетворкинг-мероприятия, создавать лифтовые презентации и изучать стажировки, планирование gap year и значимый рабочий опыт."
+      en: "You will master advanced career preparation skills including interview techniques, salary research, and building professional references. You will practice the STAR method, attend networking events, craft elevator pitches, and explore internship applications, gap year planning, and meaningful work experience.",
+      ru: "Вы освоите продвинутые навыки подготовки к карьере: техники интервью, исследование зарплат и построение профессиональных рекомендаций. Вы будете практиковать метод STAR, посещать нетворкинг-мероприятия, создавать лифтовые презентации и изучать стажировки, планирование gap year и значимый рабочий опыт."
     },
     sections: [
       {
@@ -2229,12 +2307,16 @@ export const CAREER_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "STAR: Situation (context) → Task (your responsibility) → Action (what you did) → Result (outcome with metrics)",
+            formulaRu: "STAR: Ситуация (контекст) → Задача (ваша ответственность) → Действие (что вы сделали) → Результат (итог с показателями)",
+            formulaKk: "STAR: Жағдай (контекст) → Тапсырма (сіздің жауапкершілігіңіз) → Әрекет (не істедіңіз) → Нәтиже (көрсеткіштермен қорытынды)",
             description: "A four-part structure that turns any experience into a compelling interview answer",
             descriptionRu: "Четырёхчастная структура, превращающая любой опыт в убедительный ответ на интервью",
             descriptionKk: "Кез келген тәжірибені сұхбаттағы сенімді жауапқа айналдыратын төрт бөлімді құрылым"
           },
           {
             formula: "Strong Result = Quantifiable Outcome + Lesson Learned",
+            formulaRu: "Сильный результат = Измеримый итог + Извлечённый урок",
+            formulaKk: "Мықты нәтиже = Өлшенетін қорытынды + Алынған сабақ",
             description: "Always end your STAR answer with a measurable result and what you took away from the experience",
             descriptionRu: "Всегда завершайте ответ STAR измеримым результатом и извлечённым уроком",
             descriptionKk: "STAR жауабыңызды әрқашан өлшенетін нәтижемен және алған сабағыңызбен аяқтаңыз"
@@ -2306,6 +2388,8 @@ export const CAREER_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Story Bank: Prepare 6-8 stories covering Teamwork, Leadership, Problem-Solving, Failure, Initiative, and Adaptability",
+            formulaRu: "Банк историй: Подготовьте 6-8 историй, охватывающих Командную работу, Лидерство, Решение проблем, Неудачи, Инициативу и Адаптивность",
+            formulaKk: "Әңгімелер банкі: Топтық жұмыс, Көшбасшылық, Мәселені шешу, Сәтсіздік, Бастамашылдық және Бейімделу тақырыптарын қамтитын 6-8 әңгіме дайындаңыз",
             description: "A prepared bank of personal stories that can be adapted to answer most behavioral questions",
             descriptionRu: "Подготовленный банк историй, которые можно адаптировать к большинству поведенческих вопросов",
             descriptionKk: "Көптеген мінез-құлықтық сұрақтарға бейімделуге болатын дайындалған жеке әңгімелер банкі"
@@ -2377,6 +2461,8 @@ export const CAREER_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Mock Interview Cycle: Prepare Answers → Practice Aloud → Get Feedback → Refine → Repeat",
+            formulaRu: "Цикл тренировочного собеседования: Подготовьте ответы → Отработайте вслух → Получите обратную связь → Доработайте → Повторите",
+            formulaKk: "Жаттығу сұхбатының циклі: Жауаптарды дайындаңыз → Дауыстап жаттығыңыз → Кері байланыс алыңыз → Жетілдіріңіз → Қайталаңыз",
             description: "An iterative process for improving interview performance through deliberate practice",
             descriptionRu: "Итеративный процесс улучшения интервью через осознанную практику",
             descriptionKk: "Мақсатты жаттығу арқылы сұхбат өнімділігін жақсартудың қайталанатын процесі"
@@ -2448,6 +2534,8 @@ export const CAREER_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Salary Research: Role Title + Location + Experience Level + Industry → Salary Range",
+            formulaRu: "Исследование зарплаты: Название должности + Локация + Уровень опыта + Отрасль → Диапазон зарплаты",
+            formulaKk: "Жалақыны зерттеу: Лауазым атауы + Орналасқан жері + Тәжірибе деңгейі + Сала → Жалақы диапазоны",
             description: "Four factors that determine the salary range for any position",
             descriptionRu: "Четыре фактора, определяющие диапазон зарплат для любой должности",
             descriptionKk: "Кез келген лауазымның жалақы диапазонын анықтайтын төрт фактор"
@@ -2519,6 +2607,8 @@ export const CAREER_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Event Success: Research Attendees → Prepare Introduction → Engage Genuinely → Exchange Contacts → Follow Up Within 48 Hours",
+            formulaRu: "Успех на мероприятии: Изучите участников → Подготовьте самопрезентацию → Общайтесь искренне → Обменяйтесь контактами → Свяжитесь в течение 48 часов",
+            formulaKk: "Іс-шарадағы табыс: Қатысушыларды зерттеңіз → Өзіңізді таныстыруды дайындаңыз → Шынайы қарым-қатынас жасаңыз → Байланыстарды алмасыңыз → 48 сағат ішінде хабарласыңыз",
             description: "A five-step approach to maximizing the value of any networking event",
             descriptionRu: "Пятиэтапный подход к максимизации ценности любого нетворкинг-мероприятия",
             descriptionKk: "Кез келген желілік байланыс іс-шарасының құндылығын арттырудың бес қадамдық тәсілі"
@@ -2590,6 +2680,8 @@ export const CAREER_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Reference Selection: Relevance to Role + Depth of Relationship + Their Communication Skills = Strong Reference",
+            formulaRu: "Выбор рекомендателя: Соответствие должности + Глубина отношений + Их коммуникативные навыки = Сильная рекомендация",
+            formulaKk: "Ұсыныс беруші таңдау: Лауазымға сәйкестігі + Қарым-қатынас тереңдігі + Олардың қарым-қатынас дағдылары = Мықты ұсыныс",
             description: "Choose references who know your work well, relate to the position, and can articulate your strengths clearly",
             descriptionRu: "Выбирайте рекомендателей, знающих вашу работу, связанных с позицией и умеющих чётко описать ваши сильные стороны",
             descriptionKk: "Жұмысыңызды жақсы білетін, лауазымға қатысты және күшті жақтарыңызды анық айта алатын ұсыныс берушілерді таңдаңыз"
@@ -2661,6 +2753,8 @@ export const CAREER_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Elevator Pitch: Hook + Who You Are + What You Do + Your Unique Value + Call to Action",
+            formulaRu: "Питч в лифте: Зацепка + Кто вы + Чем вы занимаетесь + Ваша уникальная ценность + Призыв к действию",
+            formulaKk: "Лифт питчі: Қызықтырушы бөлім + Сіз кімсіз + Немен айналысасыз + Сіздің ерекше құндылығыңыз + Әрекетке шақыру",
             description: "Five components that create a memorable and effective self-introduction in under 60 seconds",
             descriptionRu: "Пять компонентов для запоминающегося и эффективного представления менее чем за 60 секунд",
             descriptionKk: "60 секундтан аз уақытта есте қаларлық және тиімді өзін-өзі таныстырудың бес құрамдас бөлігі"
@@ -2732,6 +2826,8 @@ export const CAREER_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Strong Application = Tailored Resume + Customized Cover Letter + Prepared References + Professional Online Presence",
+            formulaRu: "Сильная заявка = Адаптированное резюме + Персонализированное сопроводительное письмо + Подготовленные рекомендации + Профессиональное присутствие онлайн",
+            formulaKk: "Мықты өтінім = Бейімделген түйіндеме + Жекелендірілген ілеспе хат + Дайындалған ұсыныстар + Кәсіби онлайн қатысу",
             description: "The four components of a competitive internship application package",
             descriptionRu: "Четыре компонента конкурентоспособного пакета заявки на стажировку",
             descriptionKk: "Бәсекеге қабілетті тағылымдама өтінім пакетінің төрт құрамдас бөлігі"
@@ -2803,6 +2899,8 @@ export const CAREER_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Effective Gap Year = Clear Goals + Structured Activities + Skill Building + Reflection + College Readiness",
+            formulaRu: "Эффективный академический отпуск = Чёткие цели + Структурированные активности + Развитие навыков + Рефлексия + Готовность к вузу",
+            formulaKk: "Тиімді академиялық демалыс = Нақты мақсаттар + Құрылымдалған әрекеттер + Дағды дамыту + Рефлексия + ЖОО-ға дайындық",
             description: "Five elements that distinguish a productive gap year from unstructured time off",
             descriptionRu: "Пять элементов, отличающих продуктивный gap year от неструктурированного отдыха",
             descriptionKk: "Нәтижелі gap year-ды құрылымсыз демалыстан ажырататын бес элемент"
@@ -2874,6 +2972,8 @@ export const CAREER_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Work Experience Value = Technical Skills + Soft Skills + Professional Network + Self-Knowledge",
+            formulaRu: "Ценность рабочего опыта = Технические навыки + Гибкие навыки + Профессиональная сеть контактов + Самопознание",
+            formulaKk: "Жұмыс тәжірибесінің құндылығы = Техникалық дағдылар + Икемді дағдылар + Кәсіби байланыстар желісі + Өзін-өзі тану",
             description: "Every work experience provides four types of value regardless of the role or industry",
             descriptionRu: "Каждый рабочий опыт предоставляет четыре типа ценности независимо от роли или отрасли",
             descriptionKk: "Кез келген жұмыс тәжірибесі рөлге немесе салаға қарамастан төрт түрлі құндылық береді"
@@ -2940,8 +3040,8 @@ export const CAREER_FULL: Record<string, LessonContent> = {
   "Career Exploration_12": {
     planetName: "Career Exploration",
     introduction: {
-      en: "In Grade 12, you will prepare for the transition from school to the professional world. You will master job search strategies, salary negotiation, and workplace skills while exploring options like remote work, freelancing, and graduate school. This is your launch pad — every lesson brings you closer to a successful career start.",
-      ru: "В 12 классе вы подготовитесь к переходу из школы в профессиональный мир. Вы освоите стратегии поиска работы, переговоры о зарплате и навыки работы, изучая удалённую работу, фриланс и магистратуру. Это ваш стартовый плацдарм — каждый урок приближает вас к успешному началу карьеры."
+      en: "You will prepare for the transition from school to the professional world. You will master job search strategies, salary negotiation, and workplace skills while exploring options like remote work, freelancing, and graduate school. This is your launch pad — every lesson brings you closer to a successful career start.",
+      ru: "Вы подготовитесь к переходу из школы в профессиональный мир. Вы освоите стратегии поиска работы, переговоры о зарплате и навыки работы, изучая удалённую работу, фриланс и магистратуру. Это ваш стартовый плацдарм — каждый урок приближает вас к успешному началу карьеры."
     },
     sections: [
       {
@@ -2954,12 +3054,16 @@ export const CAREER_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Job Search Mix: 40% Networking + 30% Targeted Applications + 20% Job Boards + 10% Recruiters",
+            formulaRu: "Комплекс поиска работы: 40% нетворкинг + 30% целевые заявки + 20% сайты вакансий + 10% рекрутеры",
+            formulaKk: "Жұмыс іздеу кешені: 40% нетворкинг + 30% мақсатты өтінімдер + 20% жұмыс сайттары + 10% рекрутерлер",
             description: "The optimal allocation of job search effort across different channels",
             descriptionRu: "Оптимальное распределение усилий по поиску работы по разным каналам",
             descriptionKk: "Жұмыс іздеу күшін әртүрлі арналар бойынша оңтайлы бөлу"
           },
           {
             formula: "Target Company List: Industry Interest + Company Culture + Growth Potential + Location = Top 20 Targets",
+            formulaRu: "Список целевых компаний: Интерес к отрасли + Культура компании + Потенциал роста + Локация = Топ-20 целей",
+            formulaKk: "Мақсатты компаниялар тізімі: Салаға қызығушылық + Компания мәдениеті + Өсу әлеуеті + Орналасқан жері = Топ-20 мақсат",
             description: "Create a focused list of companies to research deeply rather than applying broadly",
             descriptionRu: "Создайте фокусированный список компаний для глубокого исследования вместо широкой подачи заявок",
             descriptionKk: "Кеңінен өтінім берудің орнына тереңірек зерттеу үшін компаниялардың фокусталған тізімін жасаңыз"
@@ -3031,6 +3135,8 @@ export const CAREER_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Tracking System: Company + Role + Date Applied + Contact Person + Status + Follow-Up Date + Notes",
+            formulaRu: "Система отслеживания: Компания + Должность + Дата подачи + Контактное лицо + Статус + Дата следующего контакта + Заметки",
+            formulaKk: "Бақылау жүйесі: Компания + Лауазым + Өтінім берген күні + Байланыс тұлғасы + Мәртебе + Келесі байланыс күні + Ескертпелер",
             description: "Seven essential columns for an effective job application tracking spreadsheet",
             descriptionRu: "Семь основных столбцов для эффективной таблицы отслеживания заявок",
             descriptionKk: "Тиімді жұмыс өтінімін бақылау кестесінің жеті маңызды бағаны"
@@ -3102,6 +3208,8 @@ export const CAREER_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Negotiation Prep: Research Market Rate → Know Your Value → Set Target + Floor → Practice Delivery → Negotiate Confidently",
+            formulaRu: "Подготовка к переговорам: Изучите рыночную ставку → Осознайте свою ценность → Определите цель + минимум → Отрепетируйте подачу → Ведите переговоры уверенно",
+            formulaKk: "Келіссөзге дайындық: Нарықтық мөлшерлемені зерттеңіз → Құндылығыңызды біліңіз → Мақсат пен минимумды белгілеңіз → Айтылымды жаттықтырыңыз → Сенімді келіссөз жүргізіңіз",
             description: "Five-step preparation process that transforms negotiation from scary to strategic",
             descriptionRu: "Пятиэтапная подготовка, превращающая переговоры из страшных в стратегические",
             descriptionKk: "Келіссөздерді қорқынышты процестен стратегиялыққа айналдыратын бес қадамдық дайындық"
@@ -3173,6 +3281,8 @@ export const CAREER_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "First Day Success: Arrive Early + Dress Professionally + Listen More Than Talk + Take Notes + Ask Thoughtful Questions",
+            formulaRu: "Успех в первый день: Приходите раньше + Одевайтесь профессионально + Слушайте больше, чем говорите + Делайте заметки + Задавайте продуманные вопросы",
+            formulaKk: "Бірінші күндегі табыс: Ерте келіңіз + Кәсіби киініңіз + Сөйлегеннен гөрі көбірек тыңдаңыз + Жазып алыңыз + Ойластырылған сұрақтар қойыңыз",
             description: "Five rules that ensure a strong first impression on your first day at any job",
             descriptionRu: "Пять правил для сильного первого впечатления в первый рабочий день",
             descriptionKk: "Кез келген жұмыстағы бірінші күні күшті бірінші әсер қалдыруды қамтамасыз ететін бес ереже"
@@ -3244,6 +3354,8 @@ export const CAREER_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Professional Growth = Formal Learning + On-the-Job Experience + Mentorship + Self-Directed Study",
+            formulaRu: "Профессиональный рост = Формальное обучение + Опыт на рабочем месте + Наставничество + Самостоятельное обучение",
+            formulaKk: "Кәсіби өсу = Ресми оқыту + Жұмыс орнындағы тәжірибе + Тәлімгерлік + Өз бетінше оқу",
             description: "Four channels of professional development that create well-rounded career growth",
             descriptionRu: "Четыре канала профессионального развития для всестороннего карьерного роста",
             descriptionKk: "Жан-жақты мансаптық өсуді қамтамасыз ететін кәсіби дамудың төрт арнасы"
@@ -3315,6 +3427,8 @@ export const CAREER_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Remote Success: Dedicated Workspace + Structured Schedule + Overcommunication + Boundary Setting + Self-Accountability",
+            formulaRu: "Успех в удалённой работе: Выделенное рабочее место + Структурированный график + Активная коммуникация + Установление границ + Личная ответственность",
+            formulaKk: "Қашықтан жұмыстағы табыс: Арнайы жұмыс орны + Құрылымдалған кесте + Белсенді байланыс + Шекара белгілеу + Жеке жауапкершілік",
             description: "Five pillars of productive and sustainable remote work",
             descriptionRu: "Пять столпов продуктивной и устойчивой удалённой работы",
             descriptionKk: "Нәтижелі және тұрақты қашықтан жұмыстың бес тірегі"
@@ -3386,6 +3500,8 @@ export const CAREER_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Freelance Rate = (Desired Annual Salary + Business Costs + Taxes) ÷ Billable Hours Per Year",
+            formulaRu: "Ставка фрилансера = (Желаемая годовая зарплата + Бизнес-расходы + Налоги) ÷ Оплачиваемые часы в год",
+            formulaKk: "Фрилансер бағасы = (Қалаған жылдық жалақы + Бизнес шығындары + Салықтар) ÷ Жылдағы төленетін сағаттар",
             description: "A formula for calculating your freelance hourly rate that accounts for all real costs of self-employment",
             descriptionRu: "Формула для расчёта почасовой ставки фрилансера, учитывающая все реальные расходы самозанятости",
             descriptionKk: "Өзін-өзі жұмыспен қамтудың барлық нақты шығындарын ескеретін фриланс сағаттық мөлшерлемені есептеу формуласы"
@@ -3457,6 +3573,8 @@ export const CAREER_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Grad School Decision: Career Requirement + ROI Analysis + Personal Goals + Timing = Informed Decision",
+            formulaRu: "Решение о магистратуре: Требование карьеры + Анализ окупаемости + Личные цели + Сроки = Осознанное решение",
+            formulaKk: "Магистратура туралы шешім: Мамандық талабы + Тиімділікті талдау + Жеке мақсаттар + Уақыт = Саналы шешім",
             description: "Four factors to evaluate when deciding whether graduate school is right for you",
             descriptionRu: "Четыре фактора для оценки при решении о магистратуре",
             descriptionKk: "Магистратура сізге сәйкес келетінін шешу кезінде бағалайтын төрт фактор"
@@ -3528,12 +3646,16 @@ export const CAREER_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "50/30/20 Budget Rule: 50% Needs + 30% Wants + 20% Savings/Debt Repayment",
+            formulaRu: "Правило бюджета 50/30/20: 50% Потребности + 30% Желания + 20% Сбережения/Погашение долга",
+            formulaKk: "50/30/20 бюджет ережесі: 50% Қажеттіліктер + 30% Қалаулар + 20% Жинақтар/Қарызды өтеу",
             description: "A simple framework for managing your income that balances necessities, lifestyle, and future security",
             descriptionRu: "Простая система управления доходом, балансирующая необходимость, стиль жизни и будущую безопасность",
             descriptionKk: "Қажеттіліктерді, өмір салтын және болашақ қауіпсіздікті теңестіретін кірісті басқарудың қарапайым шеңбері"
           },
           {
             formula: "Emergency Fund = 3-6 Months of Essential Expenses",
+            formulaRu: "Резервный фонд = 3-6 месяцев основных расходов",
+            formulaKk: "Төтенше жағдай қоры = 3-6 айлық негізгі шығындар",
             description: "A financial safety net that protects you from unexpected events like job loss or medical emergencies",
             descriptionRu: "Финансовая подушка безопасности, защищающая от непредвиденных событий — потеря работы или медицинские экстренности",
             descriptionKk: "Жұмыстан шығу немесе медициналық шұғыл жағдайлар сияқты күтпеген оқиғалардан қорғайтын қаржылық қауіпсіздік торы"
@@ -3605,12 +3727,16 @@ export const CAREER_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Career Launch Plan: 90-Day Goals + 1-Year Vision + 5-Year Direction + Action Steps + Review Schedule",
+            formulaRu: "План старта карьеры: Цели на 90 дней + Видение на 1 год + Направление на 5 лет + Шаги действий + График пересмотра",
+            formulaKk: "Мансап бастау жоспары: 90 күндік мақсаттар + 1 жылдық көзқарас + 5 жылдық бағыт + Әрекет қадамдары + Қайта қарау кестесі",
             description: "A multi-timeframe planning structure that balances immediate actions with long-term direction",
             descriptionRu: "Многовременная структура планирования, балансирующая немедленные действия с долгосрочным направлением",
             descriptionKk: "Жедел әрекеттерді ұзақ мерзімді бағытпен теңестіретін көп уақытты жоспарлау құрылымы"
           },
           {
             formula: "Success = Preparation + Opportunity + Persistence",
+            formulaRu: "Успех = Подготовка + Возможность + Настойчивость",
+            formulaKk: "Табыс = Дайындық + Мүмкіндік + Табандылық",
             description: "Career success comes from being prepared when opportunities arise and never giving up during setbacks",
             descriptionRu: "Карьерный успех приходит от подготовленности к возможностям и настойчивости при неудачах",
             descriptionKk: "Мансаптық табыс мүмкіндіктер пайда болған кезде дайын болудан және сәтсіздіктер кезінде ешқашан бас тартпаудан келеді"

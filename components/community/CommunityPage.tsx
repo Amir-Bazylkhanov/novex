@@ -1,11 +1,17 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
-import { AlertCircle, Hash, Loader2, MessagesSquare } from 'lucide-react';
+import { AlertCircle, Hash, Loader2, MessagesSquare, Plus, Trash2 } from 'lucide-react';
 import { loc, type Localized } from '../../utils/i18n.ts';
 import { useLanguage } from '../../context/LanguageContext.tsx';
+import { useAuth } from '../../context/AuthContext.tsx';
 import RobotBackdrop from '../RobotBackdrop.tsx';
 import ChannelView from './ChannelView.tsx';
-import { fetchChannels, type CommunityChannel } from '../../services/communityService.ts';
+import CreateChannelModal from './CreateChannelModal.tsx';
+import {
+  deleteChannel,
+  fetchChannels,
+  type CommunityChannel,
+} from '../../services/communityService.ts';
 
 const KICKER: Localized = {
   ru: 'Сообщество Novex',
@@ -57,17 +63,44 @@ const EMPTY_SELECT: Localized = {
   kk: 'Сөйлесуді бастау үшін сол жақтан арнаны таңдаңыз.',
   en: 'Pick a channel on the left to start chatting.',
 };
+const CREATE_CHANNEL: Localized = {
+  ru: 'Создать канал',
+  kk: 'Арна құру',
+  en: 'Create a channel',
+};
+const DELETE_CHANNEL: Localized = {
+  ru: 'Удалить канал',
+  kk: 'Арнаны жою',
+  en: 'Delete channel',
+};
+const DELETE_CHANNEL_CONFIRM: Localized = {
+  ru: 'Удалить канал? Все его сообщения тоже будут удалены.',
+  kk: 'Арнаны жою керек пе? Барлық хабарламалары да жойылады.',
+  en: 'Delete this channel? All its messages will be removed too.',
+};
+const DELETE_YES: Localized = { ru: 'Удалить', kk: 'Жою', en: 'Delete' };
+const CANCEL: Localized = { ru: 'Отмена', kk: 'Бас тарту', en: 'Cancel' };
+const DELETE_ERROR: Localized = {
+  ru: 'Не удалось удалить канал.',
+  kk: 'Арнаны жою сәтсіз аяқталды.',
+  en: 'Could not delete the channel.',
+};
 
 const FOCUS_RING =
   'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2 focus-visible:ring-offset-canvas';
 
 const CommunityPage: React.FC = () => {
   const { language } = useLanguage();
+  const { user } = useAuth();
   const reducedMotion = useReducedMotion();
   const [channels, setChannels] = useState<CommunityChannel[]>([]);
   const [activeId, setActiveId] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
+  const [createOpen, setCreateOpen] = useState(false);
+  const [confirmDeleteId, setConfirmDeleteId] = useState<string | null>(null);
+  const [deletingId, setDeletingId] = useState<string | null>(null);
+  const [deleteError, setDeleteError] = useState(false);
 
   const load = useCallback(async () => {
     setLoading(true);
@@ -90,6 +123,27 @@ const CommunityPage: React.FC = () => {
   }, [load]);
 
   const active = channels.find((c) => c.id === activeId) ?? null;
+
+  const handleCreated = useCallback((channel: CommunityChannel) => {
+    setChannels((prev) => (prev.some((c) => c.id === channel.id) ? prev : [...prev, channel]));
+    setActiveId(channel.id);
+  }, []);
+
+  const handleDeleteChannel = async (channelId: string) => {
+    setDeletingId(channelId);
+    setDeleteError(false);
+    try {
+      await deleteChannel(channelId);
+      const remaining = channels.filter((c) => c.id !== channelId);
+      setChannels(remaining);
+      if (activeId === channelId) setActiveId(remaining[0]?.id ?? null);
+      setConfirmDeleteId(null);
+    } catch {
+      setDeleteError(true);
+    } finally {
+      setDeletingId(null);
+    }
+  };
 
   const fadeUp = {
     initial: reducedMotion ? { opacity: 0 } : { opacity: 0, y: 24 },
@@ -149,8 +203,18 @@ const CommunityPage: React.FC = () => {
                 </button>
               </div>
             ) : channels.length === 0 ? (
-              <div className="flex h-64 items-center justify-center rounded-2xl border border-line/60 bg-white/80 px-6 text-center">
+              <div className="flex h-64 flex-col items-center justify-center gap-3 rounded-2xl border border-line/60 bg-white/80 px-6 text-center">
                 <p className="text-sm text-slateink">{loc(language, EMPTY_CHANNELS)}</p>
+                {user && (
+                  <button
+                    type="button"
+                    onClick={() => setCreateOpen(true)}
+                    className={`${FOCUS_RING} inline-flex items-center gap-1.5 rounded-xl bg-teal px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-teal-dark`}
+                  >
+                    <Plus className="h-4 w-4" aria-hidden="true" />
+                    {loc(language, CREATE_CHANNEL)}
+                  </button>
+                )}
               </div>
             ) : (
               <div className="flex flex-col gap-4 lg:flex-row">
@@ -185,13 +249,56 @@ const CommunityPage: React.FC = () => {
                     <ul className="space-y-1">
                       {channels.map((c) => {
                         const isActive = c.id === activeId;
+                        const isOwner = !!user && c.created_by === user.id;
+                        if (confirmDeleteId === c.id) {
+                          return (
+                            <li
+                              key={c.id}
+                              className="rounded-xl border border-coral/40 bg-coral/5 px-3 py-2.5"
+                            >
+                              <p className="text-xs font-medium text-ink">
+                                {loc(language, DELETE_CHANNEL_CONFIRM)}
+                              </p>
+                              {deleteError && (
+                                <p role="alert" className="mt-1 text-xs text-coral">
+                                  {loc(language, DELETE_ERROR)}
+                                </p>
+                              )}
+                              <div className="mt-2 flex items-center gap-2">
+                                <button
+                                  type="button"
+                                  onClick={() => void handleDeleteChannel(c.id)}
+                                  disabled={deletingId === c.id}
+                                  className={`${FOCUS_RING} inline-flex items-center gap-1 rounded-lg bg-coral px-2.5 py-1 text-xs font-semibold text-white transition-opacity hover:opacity-90 disabled:opacity-50`}
+                                >
+                                  {deletingId === c.id && (
+                                    <Loader2 className="h-3 w-3 animate-spin" aria-hidden="true" />
+                                  )}
+                                  {loc(language, DELETE_YES)}
+                                </button>
+                                <button
+                                  type="button"
+                                  onClick={() => {
+                                    setConfirmDeleteId(null);
+                                    setDeleteError(false);
+                                  }}
+                                  className={`${FOCUS_RING} rounded-lg px-2.5 py-1 text-xs font-semibold text-slateink transition-colors hover:bg-mist/40`}
+                                >
+                                  {loc(language, CANCEL)}
+                                </button>
+                              </div>
+                            </li>
+                          );
+                        }
                         return (
-                          <li key={c.id}>
+                          <li key={c.id} className="group relative">
                             <button
                               type="button"
                               onClick={() => setActiveId(c.id)}
                               aria-current={isActive ? 'page' : undefined}
                               className={`${FOCUS_RING} w-full rounded-xl px-3 py-2.5 text-left transition-colors ${
+                                isOwner ? 'pr-9' : ''
+                              } ${
                                 isActive
                                   ? 'bg-teal/10 text-teal-dark'
                                   : 'text-ink hover:bg-mist/30'
@@ -210,10 +317,34 @@ const CommunityPage: React.FC = () => {
                                 </span>
                               )}
                             </button>
+                            {isOwner && (
+                              <button
+                                type="button"
+                                onClick={() => {
+                                  setConfirmDeleteId(c.id);
+                                  setDeleteError(false);
+                                }}
+                                aria-label={loc(language, DELETE_CHANNEL)}
+                                title={loc(language, DELETE_CHANNEL)}
+                                className={`${FOCUS_RING} absolute right-2 top-2.5 rounded-md p-1 text-slateink opacity-0 transition-all hover:bg-coral/10 hover:text-coral focus-visible:opacity-100 group-hover:opacity-100`}
+                              >
+                                <Trash2 className="h-4 w-4" aria-hidden="true" />
+                              </button>
+                            )}
                           </li>
                         );
                       })}
                     </ul>
+                    {user && (
+                      <button
+                        type="button"
+                        onClick={() => setCreateOpen(true)}
+                        className={`${FOCUS_RING} mt-2 flex w-full items-center gap-2 rounded-xl border-t border-line/60 px-3 pb-1 pt-3 text-left text-sm font-semibold text-teal-dark transition-colors hover:bg-mist/30`}
+                      >
+                        <Plus className="h-4 w-4 shrink-0" aria-hidden="true" />
+                        {loc(language, CREATE_CHANNEL)}
+                      </button>
+                    )}
                   </div>
                 </aside>
 
@@ -235,6 +366,11 @@ const CommunityPage: React.FC = () => {
           </motion.div>
         </section>
       </div>
+      <CreateChannelModal
+        open={createOpen}
+        onClose={() => setCreateOpen(false)}
+        onCreated={handleCreated}
+      />
     </main>
   );
 };

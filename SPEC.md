@@ -387,15 +387,15 @@ thin-stroke outline motifs**, never as chunky metal cogwheels.
 
 ### 6.1 The three robots
 
-Each robot is one AI helper owning one stage of the learning journey. This mapping is the point —
+Each robot is one AI helper owning one direction of the learning journey. This mapping is the point —
 it turns "powered by AI" into three concrete, demonstrable jobs, which is exactly what the
 20-point *depth of AI usage* criterion rewards.
 
 | Unit | Name | Job | Maps to MVP req. | Accent |
 |---|---|---|---|---|
-| `NOV-01` | **Диагност** / Диагност / Diagnostician | Runs the placement test, builds the student's knowledge map, finds weak topics | **B** diagnostics | `teal-dark` |
-| `NOV-02` | **Наставник** / Тәлімгер / Tutor | Explains step by step, answers questions in RU/KK/EN, adapts task difficulty live | **C** + **E** personalization & feedback | `teal` |
-| `NOV-03` | **Куратор** / Куратор / Curator | Builds the roadmap to ЕНТ/olympiad, tracks deadlines, sends reminders, reports to the teacher | **D** + **F** dashboard & teacher panel | `coral` |
+| `NOV-01` | **Академик** / Академик / Academic | Leads 'Академическая база': runs the placement test, builds the knowledge map, explains step by step in RU/KK/EN, adapts task difficulty, builds the roadmap to ЕНТ/olympiad, chats as the AI tutor | **B** + **C** + **D** + **E** | `teal-dark` |
+| `NOV-02` | **Практик** / Практик / Practitioner | Leads 'Жизненные навыки' (finance, communication, psychology, productivity) | — | `teal` |
+| `NOV-03` | **Кибер** / Кибер / Cyber | Leads 'Навыки будущего' (programming, entrepreneurship, creativity, career) | — | `coral` |
 
 Kazakh and English names must be real translations, same rule as all other copy.
 Unit codes (`NOV-01`) are always rendered in `font-mono uppercase tracking-widest`.
@@ -439,14 +439,14 @@ export const CircuitTrace: React.FC<{ className?: string }>;
   `teal-light/40` with a small LED dot in the corner. Keep this restrained; not every card needs it.
 - **Step chips** in HowItWorks use small outline gear glyphs behind the step number.
 - **Micro-labels:** `font-mono` uppercase `tracking-widest` `text-[11px]` for things like
-  `NOV-02 · ТЬЮТОР`, `СТАТУС: АКТИВЕН`, `УРОВЕНЬ 7`. Use sparingly — they are seasoning.
+  `NOV-01 · АКАДЕМИК`, `СТАТУС: АКТИВЕН`, `УРОВЕНЬ 7`. Use sparingly — they are seasoning.
 - **The AI section (§3 item 4)** now attributes each of its four pipeline stages to a robot:
-  Диагностика → `NOV-01`, Карта знаний → `NOV-01`, Адаптация → `NOV-02`,
-  Объяснение → `NOV-02`, with `NOV-03` owning the roadmap/deadline follow-through.
+  Диагностика → `NOV-01`, Карта знаний → `NOV-01`, Адаптация → `NOV-01`,
+  Объяснение → `NOV-01`, with `NOV-01` owning the roadmap/deadline follow-through.
   Show the relevant `RobotAvatar` next to each stage.
-- **The AI feedback mock** is framed as a message *from* `NOV-02 Наставник`, with its avatar.
-- **The teacher panel mock** shows `NOV-03` surfacing "these 4 students need help".
-- **Hero** gets `NOV-02` as a friendly presence near the product mock, plus a faint gear/circuit
+- **The AI feedback mock** is framed as a message *from* `NOV-01 Академик`, with its avatar.
+- **The teacher panel mock** shows `NOV-01` surfacing "these 4 students need help".
+- **Hero** gets `NOV-01` as a friendly presence near the product mock, plus a faint gear/circuit
   field behind it.
 - **Footer** gets the three robots as a small row of avatars.
 

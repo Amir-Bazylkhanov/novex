@@ -31,10 +31,13 @@ import { CREATIVITY_FULL } from './lessons/creativity_full.ts';
 import { CAREER_FULL } from './lessons/career_full.ts';
 
 /* The Locus Academy curriculum ported into Novex: three directions (the three
-   mentor robots) with four planets each. Every planet carries the full
+   mentor robots) with four modules each. Every module carries the full
    grade-keyed LessonContent records copied from Locus — content itself lives
    in ./lessons and is not modified here. */
 
+/* Internal ids stay 'nov04'|'nov05'|'nov06' for compatibility (career module,
+   ProfilePage); the displayed codes are NOV-01 Академик / NOV-02 Практик /
+   NOV-03 Кибер. */
 export type AcademyDirectionId = 'nov04' | 'nov05' | 'nov06';
 
 export interface AcademyDirection {
@@ -62,7 +65,7 @@ export const ACADEMY_DIRECTIONS: AcademyDirection[] = [
 ];
 
 export const ACADEMY_PLANETS: AcademyPlanet[] = [
-  // NOV-04 · Академическая база
+  // NOV-01 · Академическая база
   {
     slug: 'core_sciences',
     directionId: 'nov04',
@@ -95,7 +98,7 @@ export const ACADEMY_PLANETS: AcademyPlanet[] = [
     icon: FlaskConical,
     lessons: RESEARCH_FULL,
   },
-  // NOV-05 · Жизненные навыки
+  // NOV-02 · Жизненные навыки
   {
     slug: 'finance',
     directionId: 'nov05',
@@ -128,7 +131,7 @@ export const ACADEMY_PLANETS: AcademyPlanet[] = [
     icon: Timer,
     lessons: PRODUCTIVITY_FULL,
   },
-  // NOV-06 · Навыки будущего
+  // NOV-03 · Навыки будущего
   {
     slug: 'programming',
     directionId: 'nov06',
@@ -161,6 +164,27 @@ export const ACADEMY_PLANETS: AcademyPlanet[] = [
 
 export const planetBySlug = (slug: string): AcademyPlanet | undefined =>
   ACADEMY_PLANETS.find((p) => p.slug === slug);
+
+/** True for the Академическая база direction (core sciences, AP/IB, admission
+    exams, research) — the only modules where grade-style level framing (8–12
+    класс) is used. Every module under Жизненные навыки / Навыки будущего is
+    non-academic and presents levels as beginner/intermediate/advanced bands
+    instead (see `LevelBand` / `bandForIndex` below). */
+export const isAcademicPlanet = (planet: AcademyPlanet): boolean => planet.directionId === 'nov04';
+
+export type LevelBand = 'beginner' | 'intermediate' | 'advanced';
+
+/** Splits a module's N sections into three even bands (thirds) — the
+    presentation-layer grouping non-academic modules use in place of grade
+    framing. Section content itself is untouched; this only decides which
+    band label a given section index falls under. */
+export const bandForIndex = (index: number, total: number): LevelBand => {
+  if (total <= 1) return 'beginner';
+  const third = total / 3;
+  if (index < third) return 'beginner';
+  if (index < third * 2) return 'intermediate';
+  return 'advanced';
+};
 
 export const planetsByRobot = (robot: MentorRobotId): AcademyPlanet[] => {
   const direction = ACADEMY_DIRECTIONS.find((d) => d.robot === robot);

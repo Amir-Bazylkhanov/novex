@@ -4,8 +4,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
   "Productivity & Learning Systems_8": {
     planetName: "Productivity & Learning Systems",
     introduction: {
-      en: "Welcome to Productivity & Learning Systems for Grade 8! Build foundational habits for homework, note-taking, reading, and test preparation that will set you up for academic success.",
-      ru: "Добро пожаловать в Продуктивность и системы обучения для 8 класса! Сформируйте базовые привычки для домашних заданий, конспектирования, чтения и подготовки к тестам, которые обеспечат вам академический успех."
+      en: "Welcome to Productivity & Learning Systems! Build foundational habits for homework, note-taking, reading, and test preparation that will set you up for academic success.",
+      ru: "Добро пожаловать в Продуктивность и системы обучения! Сформируйте базовые привычки для домашних заданий, конспектирования, чтения и подготовки к тестам, которые обеспечат вам академический успех."
     },
     sections: [
       {
@@ -18,12 +18,16 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Fixed Time + Fixed Place + Task List = Automatic Study Habit",
+            formulaRu: "Фиксированное время + Фиксированное место + Список задач = Автоматическая привычка учиться",
+            formulaKk: "Тұрақты уақыт + Тұрақты орын + Тапсырмалар тізімі = Автоматты оқу дағдысы",
             description: "The three pillars of a homework routine",
             descriptionRu: "Три столпа режима домашних заданий",
             descriptionKk: "Үй тапсырмасы тәртібінің үш тірегі"
           },
           {
             formula: "Hardest First → Easiest Last",
+            formulaRu: "Сначала самое сложное → Потом самое лёгкое",
+            formulaKk: "Алдымен ең қиыны → Соңында ең жеңілі",
             description: "Do demanding work when energy is highest",
             descriptionRu: "Выполняйте сложную работу при максимальной энергии",
             descriptionKk: "Энергия жоғары кезде қиын жұмысты орындаңыз"
@@ -95,6 +99,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Clear Desk + Phone Away = Focused Mind",
+            formulaRu: "Чистый стол + Телефон подальше = Сосредоточенный ум",
+            formulaKk: "Таза үстел + Телефон алыста = Шоғырланған ой",
             description: "Minimize visual and digital distractions",
             descriptionRu: "Минимизируйте визуальные и цифровые отвлечения",
             descriptionKk: "Визуалды және цифрлық алаңдауды азайтыңыз"
@@ -166,12 +172,16 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Listen → Process → Write in Own Words",
+            formulaRu: "Слушай → Осмысли → Запиши своими словами",
+            formulaKk: "Тыңда → Ойлан → Өз сөзіңмен жаз",
             description: "Active note-taking cycle that aids memory",
             descriptionRu: "Цикл активного конспектирования для улучшения памяти",
             descriptionKk: "Есте сақтауды жақсартатын белсенді жазба жасау циклі"
           },
           {
             formula: "Headings + Bullets + Key Terms = Scannable Notes",
+            formulaRu: "Заголовки + Маркированные списки + Ключевые термины = Легко просматриваемые записи",
+            formulaKk: "Тақырыптар + Тізім белгілері + Негізгі терминдер = Оңай шолынатын жазбалар",
             description: "Structured format makes review efficient",
             descriptionRu: "Структурированный формат делает повторение эффективным",
             descriptionKk: "Құрылымдалған пішім қайталауды тиімді етеді"
@@ -243,6 +253,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "One Question per Card + Shuffle Each Session = Effective Recall",
+            formulaRu: "Один вопрос на карточку + Перемешивание на каждой сессии = Эффективное запоминание",
+            formulaKk: "Карточкаға бір сұрақ + Әр сессияда араластыру = Тиімді есте сақтау",
             description: "Flashcard best practices for memory",
             descriptionRu: "Лучшие практики карточек для памяти",
             descriptionKk: "Есте сақтау үшін карточканың ең жақсы тәжірибесі"
@@ -314,6 +326,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Preview → Read → Pause → Summarize = Deep Comprehension",
+            formulaRu: "Просмотр → Чтение → Пауза → Резюме = Глубокое понимание",
+            formulaKk: "Алдын ала қарау → Оқу → Тоқтау → Қорытындылау = Терең түсіну",
             description: "Four-step active reading cycle",
             descriptionRu: "Четырёхшаговый цикл активного чтения",
             descriptionKk: "Белсенді оқудың төрт қадамдық циклі"
@@ -385,6 +399,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "5-Minute Evening Plan: List Tasks → Number by Importance → Check Off Next Day",
+            formulaRu: "5-минутный вечерний план: Составь список задач → Пронумеруй по важности → Отмечай на следующий день",
+            formulaKk: "5 минуттық кешкі жоспар: Тапсырмалар тізімін жаса → Маңыздылығына қарай нөмірле → Келесі күні белгіле",
             description: "Simple daily planning routine",
             descriptionRu: "Простой ежедневный ритуал планирования",
             descriptionKk: "Қарапайым күнделікті жоспарлау тәртібі"
@@ -456,12 +472,16 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "2-Minute Rule: Just start for 2 minutes → Momentum carries you forward",
+            formulaRu: "Правило 2 минут: Просто начни на 2 минуты → Инерция понесёт тебя дальше",
+            formulaKk: "2 минут ережесі: Жай ғана 2 минутқа баста → Қозғалыс серпіні алға жетелейді",
             description: "Overcoming the initial resistance to starting",
             descriptionRu: "Преодоление начального сопротивления",
             descriptionKk: "Бастаудағы бастапқы қарсылықты жеңу"
           },
           {
             formula: "Big Task → Small Steps → Less Intimidation",
+            formulaRu: "Большая задача → Маленькие шаги → Меньше страха",
+            formulaKk: "Үлкен тапсырма → Кішкентай қадамдар → Аз қорқыныш",
             description: "Breaking tasks down reduces procrastination",
             descriptionRu: "Разбивка задач уменьшает прокрастинацию",
             descriptionKk: "Тапсырмаларды бөлу кейінге қалдыруды азайтады"
@@ -533,6 +553,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Spread Study Over Days > Cram in One Night",
+            formulaRu: "Учёба, растянутая на дни > Зубрёжка за одну ночь",
+            formulaKk: "Оқуды бірнеше күнге бөлу > Бір түнде жаттап алу",
             description: "Distributed practice beats cramming for long-term retention",
             descriptionRu: "Распределённая практика лучше зубрёжки для долгосрочного запоминания",
             descriptionKk: "Бөлінген тәжірибе ұзақ мерзімді есте сақтау үшін зубрежкадан жақсы"
@@ -604,6 +626,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "8–9 Hours of Sleep + Study Before Bed = Stronger Memory",
+            formulaRu: "8–9 часов сна + Учёба перед сном = Более крепкая память",
+            formulaKk: "8–9 сағат ұйқы + Ұйықтар алдында оқу = Мықтырақ есте сақтау",
             description: "Sleep consolidates learning into long-term memory",
             descriptionRu: "Сон закрепляет обучение в долговременной памяти",
             descriptionKk: "Ұйқы оқуды ұзақ мерзімді есте сақтауға бекітеді"
@@ -675,6 +699,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Look Back + Look Ahead + Identify Gaps = Weekly Review",
+            formulaRu: "Оглянись назад + Загляни вперёд + Найди пробелы = Еженедельный обзор",
+            formulaKk: "Артқа қара + Алдыға қара + Кемшіліктерді тап = Апталық шолу",
             description: "Three components of an effective weekly review",
             descriptionRu: "Три компонента эффективного еженедельного обзора",
             descriptionKk: "Тиімді апталық шолудың үш компоненті"
@@ -741,8 +767,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
   "Productivity & Learning Systems_9": {
     planetName: "Productivity & Learning Systems",
     introduction: {
-      en: "Welcome to Productivity & Learning Systems for Grade 9! Level up your study skills with time management, the Pomodoro Technique, advanced note-taking, and memory techniques that top students use.",
-      ru: "Добро пожаловать в Продуктивность и системы обучения для 9 класса! Повысьте свои учебные навыки с помощью тайм-менеджмента, техники Помодоро, продвинутого конспектирования и техник запоминания лучших учеников."
+      en: "Welcome to Productivity & Learning Systems! Level up your study skills with time management, the Pomodoro Technique, advanced note-taking, and memory techniques that top students use.",
+      ru: "Добро пожаловать в Продуктивность и системы обучения! Повысьте свои учебные навыки с помощью тайм-менеджмента, техники Помодоро, продвинутого конспектирования и техник запоминания лучших учеников."
     },
     sections: [
       {
@@ -755,12 +781,16 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Track Time → Find Wasters → Redirect Hours to Goals",
+            formulaRu: "Отслеживай время → Найди пожирателей времени → Перенаправь часы на цели",
+            formulaKk: "Уақытты бақыла → Уақыт жегіштерін тап → Сағаттарды мақсаттарға бағытта",
             description: "Three-step time management process",
             descriptionRu: "Трёхшаговый процесс управления временем",
             descriptionKk: "Уақытты басқарудың үш қадамдық процесі"
           },
           {
             formula: "24 hours − Sleep − School − Activities = Available Study Time",
+            formulaRu: "24 часа − Сон − Школа − Занятия = Доступное время на учёбу",
+            formulaKk: "24 сағат − Ұйқы − Мектеп − Іс-шаралар = Оқуға бос уақыт",
             description: "Calculate your real available time each day",
             descriptionRu: "Рассчитайте реальное доступное время каждый день",
             descriptionKk: "Күн сайынғы нақты бос уақытыңызды есептеңіз"
@@ -832,6 +862,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "25 min work + 5 min break = 1 Pomodoro. After 4 Pomodoros → 15–30 min long break",
+            formulaRu: "25 мин работы + 5 мин перерыва = 1 Помодоро. После 4 Помодоро → длинный перерыв 15–30 мин",
+            formulaKk: "25 мин жұмыс + 5 мин үзіліс = 1 Помодоро. 4 Помодородан кейін → 15–30 мин ұзақ үзіліс",
             description: "The standard Pomodoro cycle",
             descriptionRu: "Стандартный цикл Помодоро",
             descriptionKk: "Стандартты Помодоро циклі"
@@ -903,6 +935,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Write It Down Immediately + Monthly View + Daily View = No Missed Deadlines",
+            formulaRu: "Записывай сразу + Месячный вид + Дневной вид = Никаких пропущенных дедлайнов",
+            formulaKk: "Дереу жаз + Айлық көрініс + Күндізгі көрініс = Өткізіп алған мерзім жоқ",
             description: "Calendar system that catches everything",
             descriptionRu: "Система календаря, которая ничего не упускает",
             descriptionKk: "Ештеңені жіберіп алмайтын күнтізбе жүйесі"
@@ -974,6 +1008,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "A (Must Do Today) → B (Should Do Soon) → C (Can Wait)",
+            formulaRu: "A (Нужно сделать сегодня) → B (Стоит сделать скоро) → C (Может подождать)",
+            formulaKk: "A (Бүгін орындау керек) → B (Жақында орындаған жөн) → C (Күте тұра алады)",
             description: "ABC prioritization method",
             descriptionRu: "Метод приоритизации ABC",
             descriptionKk: "ABC басымдық қою әдісі"
@@ -1045,6 +1081,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Left Column (Cues) + Right Column (Notes) + Bottom (Summary) = Cornell System",
+            formulaRu: "Левая колонка (Подсказки) + Правая колонка (Записи) + Низ (Резюме) = Система Корнелла",
+            formulaKk: "Сол баған (Белгілер) + Оң баған (Жазбалар) + Төмен (Қорытынды) = Корнелл жүйесі",
             description: "Three zones of the Cornell note page",
             descriptionRu: "Три зоны страницы конспекта Корнелла",
             descriptionKk: "Корнелл жазба бетінің үш аймағы"
@@ -1116,6 +1154,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Question → Read → Highlight Key Phrases → Explain Without Looking",
+            formulaRu: "Вопрос → Чтение → Выдели ключевые фразы → Объясни, не подглядывая",
+            formulaKk: "Сұрақ → Оқу → Негізгі тіркестерді белгіле → Қарамай түсіндір",
             description: "Four-step active reading process",
             descriptionRu: "Четырёхшаговый процесс активного чтения",
             descriptionKk: "Белсенді оқудың төрт қадамдық процесі"
@@ -1187,12 +1227,16 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Abstract Fact + Vivid Image = Memorable Association",
+            formulaRu: "Абстрактный факт + Яркий образ = Запоминающаяся ассоциация",
+            formulaKk: "Дерексіз факт + Жарқын бейне = Есте қалатын ассоциация",
             description: "Core principle of mnemonics",
             descriptionRu: "Основной принцип мнемоник",
             descriptionKk: "Мнемониканың негізгі қағидасы"
           },
           {
             formula: "Method of Loci: Place each item in a room of your imaginary house",
+            formulaRu: "Метод локусов: Размести каждый элемент в комнате воображаемого дома",
+            formulaKk: "Локустар әдісі: Әр элементті қиялдағы үйдің бір бөлмесіне орналастыр",
             description: "Spatial memory technique for ordered lists",
             descriptionRu: "Техника пространственной памяти для упорядоченных списков",
             descriptionKk: "Реттелген тізімдер үшін кеңістіктік есте сақтау техникасы"
@@ -1264,6 +1308,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "3–4 People + Agenda + Teach Each Other = Effective Study Group",
+            formulaRu: "3–4 человека + Повестка + Обучайте друг друга = Эффективная учебная группа",
+            formulaKk: "3–4 адам + Күн тәртібі + Бір-біріне үйрет = Тиімді оқу тобы",
             description: "Three rules for productive group study",
             descriptionRu: "Три правила продуктивной групповой учёбы",
             descriptionKk: "Өнімді топтық оқудың үш ережесі"
@@ -1335,6 +1381,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Subject Folders + Clear File Names + Cloud Backup = Digital Organization",
+            formulaRu: "Папки по предметам + Понятные названия файлов + Резервная копия в облаке = Цифровая организация",
+            formulaKk: "Пәндер бойынша қалталар + Түсінікті файл атаулары + Бұлттағы сақтық көшірме = Цифрлық ұйымдастыру",
             description: "Three pillars of digital file management",
             descriptionRu: "Три столпа цифрового управления файлами",
             descriptionKk: "Цифрлық файлдарды басқарудың үш тірегі"
@@ -1406,6 +1454,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Vague Goal → Specific + Measurable + Deadline = Effective Goal",
+            formulaRu: "Расплывчатая цель → Конкретность + Измеримость + Срок = Эффективная цель",
+            formulaKk: "Бұлыңғыр мақсат → Нақтылық + Өлшенгіштік + Мерзім = Тиімді мақсат",
             description: "Transform wishes into actionable targets",
             descriptionRu: "Превратите желания в действенные цели",
             descriptionKk: "Тілектерді іс-қимылды мақсаттарға айналдырыңыз"
@@ -1472,8 +1522,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
   "Productivity & Learning Systems_10": {
     planetName: "Productivity & Learning Systems",
     introduction: {
-      en: "Welcome to Productivity & Learning Systems for Grade 10! Master advanced learning techniques like spaced repetition, deep work, and strategic planning that will transform how you study and manage your time.",
-      ru: "Добро пожаловать в Продуктивность и системы обучения для 10 класса! Освойте продвинутые техники обучения: интервальное повторение, глубокую работу и стратегическое планирование, которые преобразят вашу учёбу и управление временем."
+      en: "Welcome to Productivity & Learning Systems! Master advanced learning techniques like spaced repetition, deep work, and strategic planning that will transform how you study and manage your time.",
+      ru: "Добро пожаловать в Продуктивность и системы обучения! Освойте продвинутые техники обучения: интервальное повторение, глубокую работу и стратегическое планирование, которые преобразят вашу учёбу и управление временем."
     },
     sections: [
       {
@@ -1486,12 +1536,16 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Review at Day 1 → Day 3 → Day 7 → Day 21 → Day 60",
+            formulaRu: "Повторение на 1-й день → 3-й день → 7-й день → 21-й день → 60-й день",
+            formulaKk: "1-күні → 3-күні → 7-күні → 21-күні → 60-күні қайталау",
             description: "Optimal spaced repetition intervals for long-term retention",
             descriptionRu: "Оптимальные интервалы повторения для долговременного запоминания",
             descriptionKk: "Ұзақ мерзімді есте сақтау үшін оңтайлы қайталау аралықтары"
           },
           {
             formula: "Forgetting Curve + Timely Review = Permanent Memory",
+            formulaRu: "Кривая забывания + Своевременное повторение = Долговременная память",
+            formulaKk: "Ұмыту қисығы + Уақтылы қайталау = Тұрақты есте сақтау",
             description: "Review just before forgetting to maximize retention",
             descriptionRu: "Повторяйте перед забыванием для максимального запоминания",
             descriptionKk: "Есте сақтауды барынша арттыру үшін ұмытар алдында қайталаңыз"
@@ -1563,6 +1617,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Close Book → Write What You Remember → Check → Repeat Gaps",
+            formulaRu: "Закрой книгу → Напиши, что помнишь → Проверь → Повтори пробелы",
+            formulaKk: "Кітапты жап → Есіңде қалғанды жаз → Тексер → Кемшіліктерді қайтала",
             description: "The four-step active recall cycle",
             descriptionRu: "Четырёхэтапный цикл активного воспроизведения",
             descriptionKk: "Белсенді еске түсірудің төрт қадамды циклі"
@@ -1634,6 +1690,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Choose Concept → Explain Simply → Find Gaps → Simplify Again",
+            formulaRu: "Выбери понятие → Объясни просто → Найди пробелы → Упрости снова",
+            formulaKk: "Ұғымды таңда → Қарапайым түсіндір → Кемшіліктерді тап → Қайта ықшамда",
             description: "The four steps of the Feynman Technique",
             descriptionRu: "Четыре шага техники Фейнмана",
             descriptionKk: "Фейнман техникасының төрт қадамы"
@@ -1705,6 +1763,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Central Topic → Main Branches → Sub-branches → Keywords + Colors",
+            formulaRu: "Центральная тема → Основные ветви → Подветви → Ключевые слова + Цвета",
+            formulaKk: "Орталық тақырып → Негізгі бұтақтар → Қосалқы бұтақтар → Түйінді сөздер + Түстер",
             description: "The structure of an effective mind map",
             descriptionRu: "Структура эффективной ментальной карты",
             descriptionKk: "Тиімді ойлау картасының құрылымы"
@@ -1776,6 +1836,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "No Distractions + Focused Task + Time Block = Deep Work",
+            formulaRu: "Никаких отвлечений + Сфокусированная задача + Блок времени = Глубокая работа",
+            formulaKk: "Алаңдатпайтын орта + Шоғырланған тапсырма + Уақыт блогы = Терең жұмыс",
             description: "The three requirements for a deep work session",
             descriptionRu: "Три требования для сессии глубокой работы",
             descriptionKk: "Терең жұмыс сеансы үшін үш талап"
@@ -1847,6 +1909,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Q1: Urgent + Important = Do Now | Q2: Important + Not Urgent = Schedule | Q3: Urgent + Not Important = Delegate | Q4: Not Urgent + Not Important = Eliminate",
+            formulaRu: "Q1: Срочно + Важно = Делай сейчас | Q2: Важно + Не срочно = Запланируй | Q3: Срочно + Не важно = Делегируй | Q4: Не срочно + Не важно = Исключи",
+            formulaKk: "Q1: Шұғыл + Маңызды = Қазір істе | Q2: Маңызды + Шұғыл емес = Жоспарла | Q3: Шұғыл + Маңызды емес = Тапсыр | Q4: Шұғыл емес + Маңызды емес = Алып таста",
             description: "The four quadrants of the Eisenhower Matrix",
             descriptionRu: "Четыре квадранта матрицы Эйзенхауэра",
             descriptionKk: "Эйзенхауэр матрицасының төрт квадранты"
@@ -1918,12 +1982,16 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Cue → Routine → Reward = Habit Loop",
+            formulaRu: "Сигнал → Действие → Награда = Цикл привычки",
+            formulaKk: "Сигнал → Әрекет → Марапат = Дағды циклі",
             description: "The three components of any habit",
             descriptionRu: "Три компонента любой привычки",
             descriptionKk: "Кез келген дағдының үш компоненті"
           },
           {
             formula: "Start with 2 Minutes → Build Gradually → 66 Days to Automaticity",
+            formulaRu: "Начни с 2 минут → Наращивай постепенно → 66 дней до автоматизма",
+            formulaKk: "2 минуттан баста → Бірте-бірте ұлғайт → Автоматизмге дейін 66 күн",
             description: "The path to sustainable habit formation",
             descriptionRu: "Путь к устойчивому формированию привычек",
             descriptionKk: "Тұрақты дағды қалыптастыру жолы"
@@ -1995,6 +2063,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Peak Focus (25-90 min) → Strategic Break (5-20 min) → Reset → Repeat",
+            formulaRu: "Пик концентрации (25-90 мин) → Стратегический перерыв (5-20 мин) → Перезагрузка → Повтор",
+            formulaKk: "Шоғырланудың шыңы (25-90 мин) → Стратегиялық үзіліс (5-20 мин) → Қалпына келтіру → Қайталау",
             description: "The focus-rest cycle for sustained performance",
             descriptionRu: "Цикл фокус-отдых для устойчивой продуктивности",
             descriptionKk: "Тұрақты өнімділік үшін зейін-демалыс циклі"
@@ -2066,6 +2136,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Due Date → Work Backward → Set Milestones → Add Buffer Time",
+            formulaRu: "Срок сдачи → Работай в обратном порядке → Установи вехи → Добавь запас времени",
+            formulaKk: "Тапсыру мерзімі → Кері бағытта жоспарла → Кезеңдерді белгіле → Қосымша уақыт қос",
             description: "The backward planning method for projects",
             descriptionRu: "Метод обратного планирования проектов",
             descriptionKk: "Жобаларды кері жоспарлау әдісі"
@@ -2137,6 +2209,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Study Plan (weeks before) → Active Review (days before) → Exam Day Protocol → Post-Exam Reflection",
+            formulaRu: "План учёбы (за недели) → Активное повторение (за дни) → Протокол дня экзамена → Рефлексия после экзамена",
+            formulaKk: "Оқу жоспары (апталар бұрын) → Белсенді қайталау (күндер бұрын) → Емтихан күні хаттамасы → Емтиханнан кейінгі талдау",
             description: "The complete exam preparation cycle",
             descriptionRu: "Полный цикл подготовки к экзамену",
             descriptionKk: "Емтиханға дайындықтың толық циклі"
@@ -2203,8 +2277,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
   "Productivity & Learning Systems_11": {
     planetName: "Productivity & Learning Systems",
     introduction: {
-      en: "Welcome to Productivity & Learning Systems for Grade 11! Build sophisticated systems for goal-setting, energy management, and strategic planning that will prepare you for university-level demands and beyond.",
-      ru: "Добро пожаловать в Продуктивность и системы обучения для 11 класса! Постройте продвинутые системы целеполагания, управления энергией и стратегического планирования, которые подготовят вас к университетским требованиям и не только."
+      en: "Welcome to Productivity & Learning Systems! Build sophisticated systems for goal-setting, energy management, and strategic planning that will prepare you for university-level demands and beyond.",
+      ru: "Добро пожаловать в Продуктивность и системы обучения! Постройте продвинутые системы целеполагания, управления энергией и стратегического планирования, которые подготовят вас к университетским требованиям и не только."
     },
     sections: [
       {
@@ -2217,6 +2291,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "S (Specific) + M (Measurable) + A (Achievable) + R (Relevant) + T (Time-bound) = Effective Goal",
+            formulaRu: "S (Конкретная) + M (Измеримая) + A (Достижимая) + R (Актуальная) + T (Ограниченная по времени) = Эффективная цель",
+            formulaKk: "S (Нақты) + M (Өлшенетін) + A (Қолжетімді) + R (Маңызды) + T (Уақыты шектелген) = Тиімді мақсат",
             description: "The five components of a SMART goal",
             descriptionRu: "Пять компонентов цели SMART",
             descriptionKk: "SMART мақсаттың бес компоненті"
@@ -2288,6 +2364,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "After I [CURRENT HABIT], I will [NEW HABIT]",
+            formulaRu: "После того как я [ТЕКУЩАЯ ПРИВЫЧКА], я буду [НОВАЯ ПРИВЫЧКА]",
+            formulaKk: "Мен [ҚАЗІРГІ ӘДЕТ] жасағаннан кейін, [ЖАҢА ӘДЕТ] жасаймын",
             description: "The habit stacking formula",
             descriptionRu: "Формула стыковки привычек",
             descriptionKk: "Дағдыларды тізбектеу формуласы"
@@ -2359,6 +2437,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Every Hour Gets a Task → No Open Gaps → Decision Fatigue Eliminated",
+            formulaRu: "У каждого часа есть задача → Нет пустых промежутков → Усталость от принятия решений исключена",
+            formulaKk: "Әр сағатта тапсырма бар → Бос уақыт жоқ → Шешім қабылдау шаршауы жойылады",
             description: "The core principle of time blocking",
             descriptionRu: "Основной принцип блокировки времени",
             descriptionKk: "Уақытты блоктаудың негізгі принципі"
@@ -2430,6 +2510,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "One Idea per Note → Link to Related Notes → Discover Connections Over Time",
+            formulaRu: "Одна идея на заметку → Ссылка на связанные заметки → Со временем открывай связи",
+            formulaKk: "Жазбаға бір идея → Байланысты жазбаларға сілтеме → Уақыт өте байланыстарды аш",
             description: "The core principles of Zettelkasten",
             descriptionRu: "Основные принципы Цеттелькастен",
             descriptionKk: "Цеттелькастеннің негізгі принциптері"
@@ -2501,6 +2583,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Capture → Organize (PARA) → Distill → Express",
+            formulaRu: "Захват → Организация (PARA) → Дистилляция → Выражение",
+            formulaKk: "Жинау → Ұйымдастыру (PARA) → Сүзу → Білдіру",
             description: "The CODE method for building a Second Brain",
             descriptionRu: "Метод CODE для построения Второго мозга",
             descriptionKk: "Екінші миды құрудың CODE әдісі"
@@ -2572,6 +2656,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "High Energy + Hard Tasks | Low Energy + Easy Tasks = Maximum Output",
+            formulaRu: "Высокая энергия + Сложные задачи | Низкая энергия + Лёгкие задачи = Максимальная продуктивность",
+            formulaKk: "Жоғары энергия + Күрделі тапсырмалар | Төмен энергия + Жеңіл тапсырмалар = Максималды өнімділік",
             description: "Match task difficulty to energy levels",
             descriptionRu: "Совмещайте сложность задач с уровнем энергии",
             descriptionKk: "Тапсырма қиындығын энергия деңгейімен сәйкестендіріңіз"
@@ -2643,6 +2729,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Group Similar Tasks → Single Session → No Context Switching = Saved Time",
+            formulaRu: "Группируй похожие задачи → Одна сессия → Без переключения контекста = Экономия времени",
+            formulaKk: "Ұқсас тапсырмаларды топта → Бір сессия → Контекст ауыспайды = Уақыт үнемделеді",
             description: "The batch processing efficiency principle",
             descriptionRu: "Принцип эффективности пакетной обработки",
             descriptionKk: "Топтамалық өңдеудің тиімділік принципі"
@@ -2714,6 +2802,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "20% of Topics → 80% of Exam Questions | Find the Vital Few → Focus There",
+            formulaRu: "20% тем → 80% вопросов экзамена | Найди жизненно важные темы → Сосредоточься на них",
+            formulaKk: "Тақырыптардың 20% → Емтихан сұрақтарының 80% | Ең маңызды бөлікті тап → Соған шоғырлан",
             description: "Apply the Pareto Principle to studying",
             descriptionRu: "Применение принципа Парето к учёбе",
             descriptionKk: "Парето принципін оқуға қолдану"
@@ -2785,6 +2875,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Public Commitment + Regular Check-ins + Consequences = High Follow-through",
+            formulaRu: "Публичное обязательство + Регулярные отчёты + Последствия = Высокая доводимость до конца",
+            formulaKk: "Жария міндеттеме + Тұрақты есеп беру + Салдарлар = Жоғары аяғына дейін жеткізу",
             description: "The three elements of effective accountability",
             descriptionRu: "Три элемента эффективной подотчётности",
             descriptionKk: "Тиімді есеп берудің үш элементі"
@@ -2856,6 +2948,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "All Syllabi → One Master Calendar → Weekly Breakdown → Daily Actions",
+            formulaRu: "Все учебные программы → Один общий календарь → Разбивка по неделям → Ежедневные действия",
+            formulaKk: "Барлық оқу бағдарламалары → Бір жалпы күнтізбе → Апталық бөлу → Күнделікті әрекеттер",
             description: "The top-down approach to semester planning",
             descriptionRu: "Нисходящий подход к планированию семестра",
             descriptionKk: "Семестрді жоспарлаудың жоғарыдан төменге тәсілі"
@@ -2922,8 +3016,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
   "Productivity & Learning Systems_12": {
     planetName: "Productivity & Learning Systems",
     introduction: {
-      en: "Welcome to Productivity & Learning Systems for Grade 12! Master professional-grade systems for knowledge management, life design, automation, and lifelong learning that will serve you through university and your entire career.",
-      ru: "Добро пожаловать в Продуктивность и системы обучения для 12 класса! Освойте профессиональные системы управления знаниями, проектирования жизни, автоматизации и непрерывного обучения, которые будут служить вам в университете и на протяжении всей карьеры."
+      en: "Welcome to Productivity & Learning Systems! Master professional-grade systems for knowledge management, life design, automation, and lifelong learning that will serve you through university and your entire career.",
+      ru: "Добро пожаловать в Продуктивность и системы обучения! Освойте профессиональные системы управления знаниями, проектирования жизни, автоматизации и непрерывного обучения, которые будут служить вам в университете и на протяжении всей карьеры."
     },
     sections: [
       {
@@ -2936,12 +3030,16 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Capture → Process → Connect → Create → Share",
+            formulaRu: "Захват → Обработка → Связь → Создание → Обмен",
+            formulaKk: "Жинау → Өңдеу → Байланыстыру → Жасау → Бөлісу",
             description: "The five stages of personal knowledge management",
             descriptionRu: "Пять этапов управления личными знаниями",
             descriptionKk: "Жеке білімді басқарудың бес кезеңі"
           },
           {
             formula: "Knowledge Compounding: Each New Idea × Existing Connections = Exponential Growth",
+            formulaRu: "Накопление знаний: Каждая новая идея × Существующие связи = Экспоненциальный рост",
+            formulaKk: "Білімнің жинақталуы: Әр жаңа идея × Бар байланыстар = Экспоненциалды өсу",
             description: "Why PKM becomes more powerful over time",
             descriptionRu: "Почему PKM становится мощнее со временем",
             descriptionKk: "PKM неліктен уақыт өте келе күштірек болады"
@@ -3013,6 +3111,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Capture → Clarify → Organize → Reflect → Engage",
+            formulaRu: "Захват → Уточнение → Организация → Рефлексия → Действие",
+            formulaKk: "Жинау → Нақтылау → Ұйымдастыру → Ой елегінен өткізу → Әрекет ету",
             description: "The five steps of the GTD workflow",
             descriptionRu: "Пять шагов процесса GTD",
             descriptionKk: "GTD жұмыс процесінің бес қадамы"
@@ -3084,6 +3184,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Annual Vision → Quarterly Goals → Monthly Milestones → Weekly Actions",
+            formulaRu: "Годовое видение → Квартальные цели → Месячные вехи → Еженедельные действия",
+            formulaKk: "Жылдық көзқарас → Тоқсандық мақсаттар → Айлық кезеңдер → Апталық әрекеттер",
             description: "The cascade from yearly vision to daily execution",
             descriptionRu: "Каскад от годового видения к ежедневному выполнению",
             descriptionKk: "Жылдық көзқарастан күнделікті орындауға дейінгі каскад"
@@ -3155,6 +3257,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Create 3 Odyssey Plans → Prototype Each → Gather Data → Choose Based on Experience",
+            formulaRu: "Создай 3 плана «Одиссея» → Опробуй каждый → Собери данные → Выбери на основе опыта",
+            formulaKk: "3 «Одиссея» жоспарын жаса → Әрқайсысын сынап көр → Деректер жина → Тәжірибе негізінде таңда",
             description: "The life design approach to major decisions",
             descriptionRu: "Подход проектирования жизни к важным решениям",
             descriptionKk: "Маңызды шешімдерге өмірді жобалау тәсілі"
@@ -3226,6 +3330,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Task Manager + Calendar + Notes App + Communication Tool = Complete Productivity Stack",
+            formulaRu: "Менеджер задач + Календарь + Приложение для заметок + Инструмент общения = Полный набор продуктивности",
+            formulaKk: "Тапсырмалар менеджері + Күнтізбе + Жазбалар қосымшасы + Байланыс құралы = Толық өнімділік жиынтығы",
             description: "The minimal tech stack for productivity",
             descriptionRu: "Минимальный технологический набор для продуктивности",
             descriptionKk: "Өнімділік үшін минималды технологиялық жинақ"
@@ -3297,6 +3403,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "If Done 3+ Times → Create Template or Automation → Save Cumulative Hours",
+            formulaRu: "Если сделано 3+ раз → Создай шаблон или автоматизацию → Экономь накопленные часы",
+            formulaKk: "3+ рет жасалса → Үлгі немесе автоматтандыру жаса → Жинақталған сағаттарды үнемде",
             description: "The automation decision rule",
             descriptionRu: "Правило принятия решения об автоматизации",
             descriptionKk: "Автоматтандыру шешім ережесі"
@@ -3368,6 +3476,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "List Options → Define Criteria → Weight Criteria → Score Each Option → Choose Highest",
+            formulaRu: "Составь список вариантов → Определи критерии → Взвесь критерии → Оцени каждый вариант → Выбери лучший",
+            formulaKk: "Нұсқалар тізімін жаса → Критерийлерді анықта → Критерийлерге салмақ бер → Әр нұсқаны бағала → Ең жақсысын таңда",
             description: "The weighted decision matrix framework",
             descriptionRu: "Фреймворк взвешенной матрицы решений",
             descriptionKk: "Салмақталған шешім матрицасы фреймворкі"
@@ -3439,6 +3549,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Intentional Rest + Protected Social Time + Physical Activity = Sustainable High Performance",
+            formulaRu: "Осознанный отдых + Защищённое время для общения + Физическая активность = Устойчивая высокая продуктивность",
+            formulaKk: "Саналы демалыс + Қорғалған қарым-қатынас уақыты + Дене белсенділігі = Тұрақты жоғары өнімділік",
             description: "The three pillars of work-life balance",
             descriptionRu: "Три столпа баланса работы и жизни",
             descriptionKk: "Жұмыс-өмір балансының үш тірегі"
@@ -3510,6 +3622,8 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Goals = What You Want | Systems = What You Do Daily → Systems Win Long-term",
+            formulaRu: "Цели = То, чего ты хочешь | Системы = То, что ты делаешь ежедневно → Системы побеждают в долгосрочной перспективе",
+            formulaKk: "Мақсаттар = Сен қалайтын нәрсе | Жүйелер = Сен күнделікті жасайтын нәрсе → Жүйелер ұзақ мерзімде жеңеді",
             description: "Why systems outperform goals",
             descriptionRu: "Почему системы превосходят цели",
             descriptionKk: "Жүйелер неліктен мақсаттардан озады"
@@ -3581,12 +3695,16 @@ export const PRODUCTIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Curiosity + Deliberate Practice + Reflection = Continuous Growth",
+            formulaRu: "Любознательность + Осознанная практика + Рефлексия = Непрерывный рост",
+            formulaKk: "Қызығушылық + Саналы жаттығу + Ой елегінен өткізу = Үздіксіз даму",
             description: "The three engines of lifelong learning",
             descriptionRu: "Три двигателя непрерывного обучения",
             descriptionKk: "Өмір бойы оқудың үш қозғалтқышы"
           },
           {
             formula: "Learn → Apply → Teach → Learn Deeper",
+            formulaRu: "Учись → Применяй → Обучай → Учись глубже",
+            formulaKk: "Үйрен → Қолдан → Үйрет → Тереңірек үйрен",
             description: "The learning cycle that compounds knowledge",
             descriptionRu: "Цикл обучения, накапливающий знания",
             descriptionKk: "Білімді жинақтайтын оқу циклі"

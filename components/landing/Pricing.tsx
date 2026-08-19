@@ -45,7 +45,7 @@ const PLANS: Plan[] = [
     features: [
       { ru: 'Диагностика уровня по предметам', kk: 'Пәндер бойынша деңгей диагностикасы', en: 'Level diagnostics by subject' },
       { ru: 'Базовые модули и мини-тесты', kk: 'Негізгі модульдер мен шағын тесттер', en: 'Core modules and mini-tests' },
-      { ru: 'ИИ-наставник с дневным лимитом', kk: 'Күндік лимиті бар ИИ-тәлімгер', en: 'AI tutor with a daily limit' },
+      { ru: 'ИИ-чат с дневным лимитом', kk: 'Күндік лимиті бар ИИ-чат', en: 'AI chat with a daily limit' },
       { ru: '100 ⚙ Новасов на старте + заработок за уроки', kk: 'Стартта 100 ⚙ Новас + сабақтар үшін табыс', en: '100 ⚙ Novas to start + earnings from lessons' },
       { ru: 'Прогресс по темам в кабинете', kk: 'Кабинетте тақырыптар бойынша үдеріс', en: 'Topic progress in the dashboard' },
     ],
@@ -62,10 +62,10 @@ const PLANS: Plan[] = [
       en: 'Full UNT and olympiad preparation',
     },
     features: [
-      { ru: 'Безлимитный ИИ-наставник NOV-02', kk: 'Шексіз ИИ-тәлімгер NOV-02', en: 'Unlimited AI tutor NOV-02' },
+      { ru: 'Безлимитный ИИ-чат с NOV-01', kk: 'NOV-01-мен шексіз ИИ-чат', en: 'Unlimited AI chat with NOV-01' },
       { ru: '+500 ⚙ Новасов каждый месяц', kk: 'Ай сайын +500 ⚙ Новас', en: '+500 ⚙ Novas every month' },
       { ru: 'Полная подготовка к ЕНТ и олимпиадам', kk: 'ҰБТ мен олимпиадаларға толық дайындық', en: 'Full UNT and olympiad prep' },
-      { ru: 'Персональный план от NOV-03', kk: 'NOV-03-тен жеке дайындық жоспары', en: 'Personal roadmap from NOV-03' },
+      { ru: 'Персональный план от NOV-01', kk: 'NOV-01-ден жеке дайындық жоспары', en: 'Personal roadmap from NOV-01' },
       { ru: 'Разбор каждой ошибки шаг за шагом', kk: 'Әр қатені қадамдап талдау', en: 'Step-by-step review of every mistake' },
     ],
     cta: { ru: 'Выбрать Про', kk: 'Про таңдау', en: 'Choose Pro' },

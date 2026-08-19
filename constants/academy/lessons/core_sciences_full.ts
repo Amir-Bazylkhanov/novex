@@ -113,6 +113,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "(+) × (+) = (+) and (−) × (−) = (+)",
+            formulaRu: "(+) × (+) = (+) и (−) × (−) = (+)",
+            formulaKk: "(+) × (+) = (+) және (−) × (−) = (+)",
             tex: "(+) \\times (+) = (+),\\quad (-) \\times (-) = (+)",
             description: "Same signs → positive product/quotient",
             descriptionRu: "Одинаковые знаки → положительный результат",
@@ -120,6 +122,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
           },
           {
             formula: "(+) × (−) = (−) and (−) × (+) = (−)",
+            formulaRu: "(+) × (−) = (−) и (−) × (+) = (−)",
+            formulaKk: "(+) × (−) = (−) және (−) × (+) = (−)",
             tex: "(+) \\times (-) = (-),\\quad (-) \\times (+) = (-)",
             description: "Different signs → negative product/quotient",
             descriptionRu: "Разные знаки → отрицательный результат",
@@ -312,6 +316,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "PEMDAS: Parentheses → Exponents → Multiplication/Division → Addition/Subtraction",
+            formulaRu: "PEMDAS: Скобки → Степени → Умножение/Деление → Сложение/Вычитание",
+            formulaKk: "PEMDAS: Жақша → Дәреже → Көбейту/Бөлу → Қосу/Азайту",
             description: "Order of operations rule",
             descriptionRu: "Правило порядка действий",
             descriptionKk: "Амалдар реті ережесі"
@@ -396,6 +402,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
           },
           {
             formula: "a/b = a ÷ b (decimal form)",
+            formulaRu: "a/b = a ÷ b (десятичная форма)",
+            formulaKk: "a/b = a ÷ b (ондық түрі)",
             description: "Convert a fraction to a decimal by dividing",
             descriptionRu: "Перевод дроби в десятичную — делением",
             descriptionKk: "Бөлшекті ондыққа айналдыру — бөлу арқылы"
@@ -540,12 +548,16 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Sum of angles in a triangle = 180°",
+            formulaRu: "Сумма углов треугольника = 180°",
+            formulaKk: "Үшбұрыш бұрыштарының қосындысы = 180°",
             description: "Triangle angle sum property",
             descriptionRu: "Свойство суммы углов треугольника",
             descriptionKk: "Үшбұрыш бұрыштары қосындысының қасиеті"
           },
           {
             formula: "Sum of angles in a quadrilateral = 360°",
+            formulaRu: "Сумма углов четырёхугольника = 360°",
+            formulaKk: "Төртбұрыш бұрыштарының қосындысы = 360°",
             description: "Quadrilateral angle sum property",
             descriptionRu: "Свойство суммы углов четырёхугольника",
             descriptionKk: "Төртбұрыш бұрыштары қосындысының қасиеті"
@@ -696,6 +708,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "If x = 4, then 3x + 5 = 3(4) + 5 = 17",
+            formulaRu: "Если x = 4, то 3x + 5 = 3(4) + 5 = 17",
+            formulaKk: "Егер x = 4 болса, онда 3x + 5 = 3(4) + 5 = 17",
             description: "Substituting a value into an expression",
             descriptionRu: "Подстановка значения в выражение",
             descriptionKk: "Өрнекке мән қою"
@@ -912,6 +926,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Solid → (melting) → Liquid → (boiling) → Gas",
+            formulaRu: "Твёрдое тело → (плавление) → Жидкость → (кипение) → Газ",
+            formulaKk: "Қатты дене → (балқу) → Сұйықтық → (қайнау) → Газ",
             description: "Phase transitions with increasing temperature",
             descriptionRu: "Фазовые переходы при повышении температуры",
             descriptionKk: "Температура жоғарылағандағы фазалық ауысулар"
@@ -984,6 +1000,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Cell → Tissue → Organ → Organ System → Organism",
+            formulaRu: "Клетка → Ткань → Орган → Система органов → Организм",
+            formulaKk: "Жасуша → Тін → Мүше → Мүшелер жүйесі → Ағза",
             description: "Levels of biological organization",
             descriptionRu: "Уровни биологической организации",
             descriptionKk: "Биологиялық ұйымдасу деңгейлері"
@@ -1141,6 +1159,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "If a > b and c < 0, then a×c < b×c",
+            formulaRu: "Если a > b и c < 0, то a×c < b×c",
+            formulaKk: "Егер a > b және c < 0 болса, онда a×c < b×c",
             description: "Multiplying by a negative flips the inequality sign",
             descriptionRu: "Умножение на отрицательное число меняет знак неравенства",
             descriptionKk: "Теріс санға көбейту теңсіздік белгісін аударады"
@@ -1213,12 +1233,16 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Substitution: solve one equation for y, plug into the other",
+            formulaRu: "Подстановка: выразите y из одного уравнения и подставьте в другое",
+            formulaKk: "Алмастыру: бір теңдеуден y-ті тауып, екіншісіне қойыңыз",
             description: "Substitution method for solving systems",
             descriptionRu: "Метод подстановки для решения систем",
             descriptionKk: "Жүйелерді шешудің қою әдісі"
           },
           {
             formula: "Elimination: add/subtract equations to cancel one variable",
+            formulaRu: "Исключение: сложите или вычтите уравнения, чтобы убрать одну переменную",
+            formulaKk: "Жою әдісі: бір айнымалыны жою үшін теңдеулерді қосыңыз немесе азайтыңыз",
             description: "Elimination method for solving systems",
             descriptionRu: "Метод исключения для решения систем",
             descriptionKk: "Жүйелерді шешудің жою әдісі"
@@ -1587,6 +1611,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Mass number = protons + neutrons; Atomic number = protons",
+            formulaRu: "Массовое число = протоны + нейтроны; Атомный номер = протоны",
+            formulaKk: "Масса саны = протондар + нейтрондар; Атомдық нөмір = протондар",
             description: "Relationship between atomic and mass numbers",
             descriptionRu: "Связь между атомным номером и массовым числом",
             descriptionKk: "Атомдық нөмір мен массалық санның байланысы"
@@ -1659,6 +1685,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Reactants → Products (atoms are conserved)",
+            formulaRu: "Реагенты → Продукты (атомы сохраняются)",
+            formulaKk: "Реагенттер → Өнімдер (атомдар сақталады)",
             description: "Law of conservation of mass in chemical reactions",
             descriptionRu: "Закон сохранения массы в химических реакциях",
             descriptionKk: "Химиялық реакциялардағы масса сақталу заңы"
@@ -1731,6 +1759,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Mitosis: 1 cell → 2 identical cells (2n); Meiosis: 1 cell → 4 unique cells (n)",
+            formulaRu: "Митоз: 1 клетка → 2 идентичные клетки (2n); Мейоз: 1 клетка → 4 уникальные клетки (n)",
+            formulaKk: "Митоз: 1 жасуша → 2 бірдей жасуша (2n); Мейоз: 1 жасуша → 4 бірегей жасуша (n)",
             description: "Outcomes of mitosis vs meiosis",
             descriptionRu: "Результаты митоза и мейоза",
             descriptionKk: "Митоз бен мейоздың нәтижелері"
@@ -1974,6 +2004,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "y = mx + b (slope-intercept form)",
+            formulaRu: "y = mx + b (уравнение с угловым коэффициентом)",
+            formulaKk: "y = mx + b (бұрыштық коэффициентті түрі)",
             description: "Linear function where m is slope and b is y-intercept",
             descriptionRu: "Линейная функция, где m — наклон, b — пересечение с осью y",
             descriptionKk: "Сызықтық функция, мұнда m — еңіс, b — y-ке қиылысу"
@@ -2346,6 +2378,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "n = m / M (moles = mass / molar mass)",
+            formulaRu: "n = m / M (количество вещества = масса / молярная масса)",
+            formulaKk: "n = m / M (зат мөлшері = масса / молярлық масса)",
             description: "Converting mass to moles",
             descriptionRu: "Перевод массы в моли",
             descriptionKk: "Массаны мольге ауыстыру"
@@ -2418,6 +2452,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Acid + Base → Salt + Water",
+            formulaRu: "Кислота + Основание → Соль + Вода",
+            formulaKk: "Қышқыл + Негіз → Тұз + Су",
             description: "Neutralization reaction",
             descriptionRu: "Реакция нейтрализации",
             descriptionKk: "Бейтараптандыру реакциясы"
@@ -2496,6 +2532,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "A pairs with T; C pairs with G",
+            formulaRu: "A спаривается с T; C спаривается с G",
+            formulaKk: "A Т-мен жұптасады; C G-мен жұптасады",
             description: "DNA base pairing rules (complementary bases)",
             descriptionRu: "Правила комплементарности оснований ДНК",
             descriptionKk: "ДНҚ негіздерінің жұптасу ережелері"
@@ -2581,6 +2619,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "f(x) = a·bˣ; Compound interest: A = P(1 + r/n)^(nt)",
+            formulaRu: "f(x) = a·bˣ; Сложные проценты: A = P(1 + r/n)^(nt)",
+            formulaKk: "f(x) = a·bˣ; Күрделі пайыз: A = P(1 + r/n)^(nt)",
             description: "General exponential function and compound interest formula",
             descriptionRu: "Общая экспоненциальная функция и формула сложных процентов",
             descriptionKk: "Жалпы экспоненциалдық функция және күрделі пайыз формуласы"
@@ -2731,12 +2771,16 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Arithmetic: aₙ = a₁ + (n−1)d; Sₙ = n(a₁ + aₙ)/2",
+            formulaRu: "Арифметическая: aₙ = a₁ + (n−1)d; Sₙ = n(a₁ + aₙ)/2",
+            formulaKk: "Арифметикалық: aₙ = a₁ + (n−1)d; Sₙ = n(a₁ + aₙ)/2",
             description: "nth term and sum of arithmetic sequence",
             descriptionRu: "n-й член и сумма арифметической прогрессии",
             descriptionKk: "Арифметикалық тізбектің n-ші мүшесі мен қосындысы"
           },
           {
             formula: "Geometric: aₙ = a₁·rⁿ⁻¹; Sₙ = a₁(1−rⁿ)/(1−r)",
+            formulaRu: "Геометрическая: aₙ = a₁·rⁿ⁻¹; Sₙ = a₁(1−rⁿ)/(1−r)",
+            formulaKk: "Геометриялық: aₙ = a₁·rⁿ⁻¹; Sₙ = a₁(1−rⁿ)/(1−r)",
             description: "nth term and sum of geometric sequence",
             descriptionRu: "n-й член и сумма геометрической прогрессии",
             descriptionKk: "Геометриялық тізбектің n-ші мүшесі мен қосындысы"
@@ -2815,6 +2859,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
           },
           {
             formula: "Vertex of parabola: x = −b/(2a)",
+            formulaRu: "Вершина параболы: x = −b/(2a)",
+            formulaKk: "Параболаның төбесі: x = −b/(2a)",
             description: "x-coordinate of the vertex of y = ax² + bx + c",
             descriptionRu: "x-координата вершины параболы y = ax² + bx + c",
             descriptionKk: "y = ax² + bx + c параболасы төбесінің x-координатасы"
@@ -2887,12 +2933,16 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "P(event) = favorable / total",
+            formulaRu: "P(событие) = благоприятные / всего",
+            formulaKk: "P(оқиға) = қолайлы / барлығы",
             description: "Basic probability formula",
             descriptionRu: "Основная формула вероятности",
             descriptionKk: "Негізгі ықтималдық формуласы"
           },
           {
             formula: "Mean = Σx / n",
+            formulaRu: "Среднее = Σx / n",
+            formulaKk: "Орташа мән = Σx / n",
             description: "Arithmetic mean (average)",
             descriptionRu: "Среднее арифметическое",
             descriptionKk: "Арифметикалық орташа"
@@ -3115,6 +3165,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Alkanes: CₙH₂ₙ₊₂; Alkenes: CₙH₂ₙ; Alkynes: CₙH₂ₙ₋₂",
+            formulaRu: "Алканы: CₙH₂ₙ₊₂; Алкены: CₙH₂ₙ; Алкины: CₙH₂ₙ₋₂",
+            formulaKk: "Алкандар: CₙH₂ₙ₊₂; Алкендер: CₙH₂ₙ; Алкиндер: CₙH₂ₙ₋₂",
             description: "General formulas for hydrocarbons",
             descriptionRu: "Общие формулы углеводородов",
             descriptionKk: "Көмірсутектердің жалпы формулалары"
@@ -3187,6 +3239,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Energy transfer ≈ 10% per trophic level",
+            formulaRu: "Передача энергии ≈ 10% на трофический уровень",
+            formulaKk: "Энергия берілуі ≈ трофикалық деңгей сайын 10%",
             description: "The 10% rule of energy transfer in food chains",
             descriptionRu: "Правило 10% передачи энергии в пищевых цепях",
             descriptionKk: "Тағам тізбектеріндегі 10% энергия беру ережесі"
@@ -3259,6 +3313,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Natural Selection: Variation → Selection → Reproduction → Adaptation",
+            formulaRu: "Естественный отбор: Изменчивость → Отбор → Размножение → Адаптация",
+            formulaKk: "Табиғи сұрыпталу: Өзгергіштік → Сұрыпталу → Көбею → Бейімделу",
             description: "The four stages of natural selection",
             descriptionRu: "Четыре этапа естественного отбора",
             descriptionKk: "Табиғи сұрыптаудың төрт кезеңі"
@@ -3431,6 +3487,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
           },
           {
             formula: "d/dx[f·g] = f'g + fg' (product rule)",
+            formulaRu: "d/dx[f·g] = f'g + fg' (правило произведения)",
+            formulaKk: "d/dx[f·g] = f'g + fg' (көбейтінді ережесі)",
             tex: "\\dfrac{d}{dx}\\bigl[f\\cdot g\\bigr] = f' g + f g'",
             description: "Product rule for derivatives",
             descriptionRu: "Правило произведения",
@@ -3728,6 +3786,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "F = kq₁q₂/r² (Coulomb's law)",
+            formulaRu: "F = kq₁q₂/r² (закон Кулона)",
+            formulaKk: "F = kq₁q₂/r² (Кулон заңы)",
             description: "Force between two electric charges",
             descriptionRu: "Сила между двумя электрическими зарядами",
             descriptionKk: "Екі электр заряды арасындағы күш"
@@ -3878,6 +3938,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "rate = k[A]ᵐ[B]ⁿ",
+            formulaRu: "скорость = k[A]ᵐ[B]ⁿ",
+            formulaKk: "жылдамдық = k[A]ᵐ[B]ⁿ",
             description: "Rate law — rate as a function of reactant concentrations",
             descriptionRu: "Закон скорости — скорость как функция концентраций реагентов",
             descriptionKk: "Жылдамдық заңы — реагент концентрацияларының функциясы ретіндегі жылдамдық"
@@ -4022,6 +4084,8 @@ export const CORE_SCIENCES_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Heart: Right side → Lungs (pulmonary); Left side → Body (systemic)",
+            formulaRu: "Сердце: Правая сторона → Лёгкие (малый круг); Левая сторона → Тело (большой круг)",
+            formulaKk: "Жүрек: Оң жақ → Өкпе (кіші қан айналымы); Сол жақ → Дене (үлкен қан айналымы)",
             description: "Double circulation: pulmonary and systemic circuits",
             descriptionRu: "Двойное кровообращение: малый и большой круги",
             descriptionKk: "Қос қан айналымы: кіші және үлкен шеңберлер"

@@ -1,9 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import {
   ArrowLeft,
+  BookOpen,
   Check,
   CheckCircle2,
+  ChevronDown,
   ChevronRight,
   Clock,
   Play,
@@ -13,9 +16,15 @@ import {
 } from 'lucide-react';
 import { loc, type Lang, type Localized } from '../../utils/i18n.ts';
 import { useLanguage } from '../../context/LanguageContext.tsx';
-import { RobotAvatar } from '../robots/RobotAvatars.tsx';
+import { RobotAvatar, type MentorRobotId } from '../robots/RobotAvatars.tsx';
 import RobotBackdrop from '../RobotBackdrop.tsx';
-import { DIAGNOSTIC_SUBJECTS, type DiagnosticSubject } from '../../constants/diagnosticData.ts';
+import {
+  DIAGNOSTIC_SUBJECTS,
+  TOPIC_LESSON_SLUGS,
+  type DiagnosticSubject,
+} from '../../constants/diagnosticData.ts';
+import { LEARN_DIRECTIONS, directionForSubject } from '../../constants/learnDirections.ts';
+import { planetsByRobot } from '../../constants/academy/catalog.ts';
 import {
   assembleSession,
   availableCount,
@@ -24,6 +33,7 @@ import {
   isValidStoredSession,
   scoreSession,
   secondsRemaining,
+  topicsForSubject,
   type PracticeConfig,
   type PracticeCount,
   type PracticeDifficultyFilter,
@@ -35,18 +45,46 @@ import {
 /* --- content --- */
 
 const ROBOT_LABEL: Localized = {
-  ru: 'NOV-02 · Наставник',
-  kk: 'NOV-02 · Тәлімгер',
-  en: 'NOV-02 · Tutor',
+  ru: 'NOV-01 · Академик',
+  kk: 'NOV-01 · Академик',
+  en: 'NOV-01 · Academic',
 };
 const PAGE_TITLE: Localized = { ru: 'Практика', kk: 'Практика', en: 'Practice' };
 const PAGE_SUBTITLE: Localized = {
-  ru: 'Собери тренировку под себя: выбери предмет, сложность и число вопросов. NOV-02 проверит ответы и объяснит ошибки.',
-  kk: 'Жаттығуды өзіңе бейімде: пәнді, қиындық деңгейін және сұрақ санын таңда. NOV-02 жауаптарды тексеріп, қателерді түсіндіреді.',
-  en: 'Build a workout that fits you: pick a subject, difficulty, and question count. NOV-02 checks your answers and explains mistakes.',
+  ru: 'Собери тренировку под себя: выбери предмет, сложность и число вопросов. NOV-01 проверит ответы и объяснит ошибки.',
+  kk: 'Жаттығуды өзіңе бейімде: пәнді, қиындық деңгейін және сұрақ санын таңда. NOV-01 жауаптарды тексеріп, қателерді түсіндіреді.',
+  en: 'Build a workout that fits you: pick a subject, difficulty, and question count. NOV-01 checks your answers and explains mistakes.',
 };
 
 const SUBJECT_LABEL: Localized = { ru: 'Предмет', kk: 'Пән', en: 'Subject' };
+const TOPICS_LABEL: Localized = { ru: 'Темы', kk: 'Тақырыптар', en: 'Topics' };
+const SOON_PILL: Localized = { ru: 'Скоро', kk: 'Жақында', en: 'Soon' };
+
+/* Direction cards mirror /learn's mentor picker but own their content locally
+   (no cross-file content imports) — only the direction/subject grouping data
+   comes from constants/learnDirections.ts. */
+const DIRECTION_CODE: Record<MentorRobotId, Localized> = {
+  nov4: { ru: 'NOV-01 · АКАДЕМИК', kk: 'NOV-01 · АКАДЕМИК', en: 'NOV-01 · ACADEMIC' },
+  nov5: { ru: 'NOV-02 · ПРАКТИК', kk: 'NOV-02 · ПРАКТИК', en: 'NOV-02 · PRACTITIONER' },
+  nov6: { ru: 'NOV-03 · КИБЕР', kk: 'NOV-03 · КИБЕР', en: 'NOV-03 · CYBER' },
+};
+const DIRECTION_TAGLINE: Record<MentorRobotId, Localized> = {
+  nov4: {
+    ru: 'Школьные предметы и подготовка к экзаменам',
+    kk: 'Мектеп пәндері және емтиханға дайындық',
+    en: 'School subjects and exam prep',
+  },
+  nov5: {
+    ru: 'Навыки для реальной жизни',
+    kk: 'Нақты өмірге арналған дағдылар',
+    en: 'Skills for real life',
+  },
+  nov6: {
+    ru: 'Код, ИИ и мышление будущего',
+    kk: 'Код, ЖИ және болашақ ойлау',
+    en: 'Code, AI and future thinking',
+  },
+};
 const COUNT_LABEL: Localized = { ru: 'Число вопросов', kk: 'Сұрақ саны', en: 'Question count' };
 const DIFFICULTY_LABEL: Localized = {
   ru: 'Сложность',
@@ -79,6 +117,17 @@ const INCORRECT_LABEL: Localized = {
   ru: 'Неверно — сейчас разберём',
   kk: 'Қате — қазір талдаймыз',
   en: 'Not quite — let’s break it down',
+};
+// Used when the question has NO explanation to break down — never promise one.
+const INCORRECT_NO_EXPLANATION: Localized = {
+  ru: 'Неверно. Правильный ответ ниже — разберём эту тему на уроке.',
+  kk: 'Қате. Дұрыс жауап төменде — бұл тақырыпты сабақта талдаймыз.',
+  en: 'Not quite. The correct answer is below — we’ll cover this topic in a lesson.',
+};
+const OPEN_LESSON_LINK: Localized = {
+  ru: 'Открыть урок по теме',
+  kk: 'Тақырып бойынша сабақты ашу',
+  en: 'Open the lesson on this topic',
 };
 const NEXT_BTN: Localized = { ru: 'Дальше', kk: 'Келесі', en: 'Next' };
 const FINISH_BTN: Localized = { ru: 'Завершить', kk: 'Аяқтау', en: 'Finish' };
@@ -116,6 +165,16 @@ const difficultyLine = (lang: Lang, d: number): string => {
   return `Сложность: ${d}`;
 };
 
+const correctAnswerLine = (lang: Lang, optionText: string): string => {
+  if (lang === 'kk') return `Дұрыс жауап: ${optionText}`;
+  if (lang === 'en') return `Correct answer: ${optionText}`;
+  return `Правильный ответ: ${optionText}`;
+};
+
+/** Diagnostic subjects grouped under a direction robot, via directionForSubject. */
+const subjectsForDirection = (robot: MentorRobotId) =>
+  DIAGNOSTIC_SUBJECTS.filter((s) => directionForSubject(s.slug).robot === robot);
+
 /* --- shared classes --- */
 
 const FOCUS_RING =
@@ -149,9 +208,17 @@ const PracticePage: React.FC = () => {
 
   // Config state.
   const [subject, setSubject] = useState<DiagnosticSubject>('math');
+  const [selectedTopics, setSelectedTopics] = useState<string[]>([]);
   const [count, setCount] = useState<PracticeCount>(10);
   const [difficulty, setDifficulty] = useState<PracticeDifficultyFilter>('any');
   const [timed, setTimed] = useState(false);
+
+  // Picker expand state: which direction cards and which subjects' topic
+  // lists are open. Multiple directions/subjects can be expanded at once.
+  const [expandedDirections, setExpandedDirections] = useState<Set<MentorRobotId>>(
+    () => new Set([directionForSubject('math').robot]),
+  );
+  const [expandedSubjects, setExpandedSubjects] = useState<Set<DiagnosticSubject>>(new Set());
 
   // Active attempt state.
   const [phase, setPhase] = useState<Phase>('config');
@@ -239,6 +306,8 @@ const PracticePage: React.FC = () => {
 
     const cfg = stored.session.config;
     setSubject(cfg.subject);
+    setSelectedTopics(cfg.topics ?? []);
+    setExpandedDirections(new Set([directionForSubject(cfg.subject).robot]));
     setCount(cfg.count);
     setDifficulty(cfg.difficulty);
     setTimed(isTimed);
@@ -293,7 +362,8 @@ const PracticePage: React.FC = () => {
     return () => document.removeEventListener('visibilitychange', onVisible);
   }, [phase, deadlineMs]);
 
-  const available = availableCount(subject, difficulty);
+  const activeTopics = selectedTopics.length > 0 ? selectedTopics : undefined;
+  const available = availableCount(subject, difficulty, activeTopics);
 
   const handleStart = () => {
     const config: PracticeConfig = {
@@ -301,6 +371,7 @@ const PracticePage: React.FC = () => {
       count,
       difficulty,
       timedSeconds: timed ? TIMED_SECONDS : null,
+      topics: activeTopics,
     };
     const s = assembleSession(config);
     setSession(s);
@@ -342,6 +413,63 @@ const PracticePage: React.FC = () => {
         : 'border-line bg-white text-slateink hover:border-teal/60 hover:text-ink'
     }`;
 
+  const topicChipClass = (active: boolean): string =>
+    `${FOCUS_RING} inline-flex items-center gap-1 rounded-lg border px-2.5 py-1.5 text-xs font-semibold transition-colors ${
+      active
+        ? 'border-teal bg-teal/10 text-teal-dark'
+        : 'border-line bg-white text-slateink hover:border-teal/60 hover:text-ink'
+    }`;
+
+  const toggleDirection = (robot: MentorRobotId) => {
+    setExpandedDirections((prev) => {
+      const next = new Set(prev);
+      if (next.has(robot)) next.delete(robot);
+      else next.add(robot);
+      return next;
+    });
+  };
+
+  const toggleSubjectExpand = (s: DiagnosticSubject) => {
+    setExpandedSubjects((prev) => {
+      const next = new Set(prev);
+      if (next.has(s)) next.delete(s);
+      else next.add(s);
+      return next;
+    });
+  };
+
+  // Selecting the subject row scopes the whole subject — matches the legacy
+  // flat-picker behaviour exactly (topics reset to "any").
+  const handleSelectSubject = (s: DiagnosticSubject) => {
+    setSubject(s);
+    setSelectedTopics([]);
+  };
+
+  // A topic chip both picks its subject (if not already active) and toggles
+  // itself into the topic scope; multiple topics within one subject can mix.
+  const handleToggleTopic = (s: DiagnosticSubject, topic: string) => {
+    if (s !== subject) {
+      setSubject(s);
+      setSelectedTopics([topic]);
+      return;
+    }
+    setSelectedTopics((prev) =>
+      prev.includes(topic) ? prev.filter((t) => t !== topic) : [...prev, topic],
+    );
+  };
+
+  const expandVariants = reducedMotion
+    ? {
+        initial: { opacity: 0 },
+        animate: { opacity: 1 },
+        exit: { opacity: 0 },
+      }
+    : {
+        initial: { height: 0, opacity: 0 },
+        animate: { height: 'auto', opacity: 1 },
+        exit: { height: 0, opacity: 0 },
+      };
+
   const fadeUp = {
     initial: reducedMotion ? { opacity: 0 } : { opacity: 0, y: 24 },
     whileInView: { opacity: 1, y: 0 },
@@ -351,15 +479,23 @@ const PracticePage: React.FC = () => {
 
   const currentQuestion = session?.questions[current] ?? null;
   const isLastQuestion = session !== null && current === session.questions.length - 1;
+  const answeredCorrectly =
+    currentQuestion !== null &&
+    answers[currentQuestion.id] !== undefined &&
+    answers[currentQuestion.id] === currentQuestion.correctIndex;
+  // Real lesson covering this question's topic, if TOPIC_LESSON_SLUGS maps one.
+  const currentLessonSlug = currentQuestion?.topic
+    ? TOPIC_LESSON_SLUGS[currentQuestion.topic]
+    : undefined;
 
   return (
     <main className="relative min-h-screen bg-canvas font-sans text-ink">
       <RobotBackdrop density="subtle" />
       <div className="relative z-10 mx-auto w-full max-w-3xl px-5 py-8 sm:px-6 md:py-12 lg:px-8">
         <section id="practice" aria-labelledby="practice-heading">
-          {/* NOV-02 header — visible in every phase */}
+          {/* NOV-01 header — visible in every phase */}
           <div className="flex items-start gap-4">
-            <RobotAvatar robot="nov2" className="h-12 w-12 shrink-0 sm:h-14 sm:w-14" />
+            <RobotAvatar robot="nov1" className="h-12 w-12 shrink-0 sm:h-14 sm:w-14" />
             <div className="min-w-0">
               <p className="font-mono text-[11px] font-medium uppercase tracking-widest text-teal-dark">
                 {loc(language, ROBOT_LABEL)}
@@ -379,23 +515,162 @@ const PracticePage: React.FC = () => {
           {/* --- config --- */}
           {phase === 'config' && (
             <div className="mt-6 space-y-4">
-              <motion.div {...fadeUp} className={CARD}>
+              <motion.div {...fadeUp} className="space-y-3">
                 <h2 className="font-mono text-[11px] font-medium uppercase tracking-widest text-teal-dark">
                   {loc(language, SUBJECT_LABEL)}
                 </h2>
-                <div className="mt-3 flex flex-wrap gap-2">
-                  {DIAGNOSTIC_SUBJECTS.map((s) => (
-                    <button
-                      key={s.slug}
-                      type="button"
-                      aria-pressed={subject === s.slug}
-                      onClick={() => setSubject(s.slug)}
-                      className={pillClass(subject === s.slug)}
-                    >
-                      {loc(language, s.label)}
-                    </button>
-                  ))}
-                </div>
+                {LEARN_DIRECTIONS.map((direction) => {
+                  const directionSubjects = subjectsForDirection(direction.robot);
+                  const directionPlanets = planetsByRobot(direction.robot);
+                  const isExpanded = expandedDirections.has(direction.robot);
+                  const selectionCount = directionSubjects.some((s) => s.slug === subject)
+                    ? selectedTopics.length > 0
+                      ? selectedTopics.length
+                      : 1
+                    : 0;
+                  return (
+                    <div key={direction.robot} className={CARD}>
+                      <button
+                        type="button"
+                        aria-expanded={isExpanded}
+                        onClick={() => toggleDirection(direction.robot)}
+                        className={`${FOCUS_RING} flex w-full items-start gap-4 rounded-xl text-left`}
+                      >
+                        <RobotAvatar
+                          robot={direction.robot}
+                          className="h-14 w-14 shrink-0 sm:h-16 sm:w-16"
+                        />
+                        <div className="min-w-0 flex-1">
+                          <p className="font-mono text-[11px] font-medium uppercase tracking-widest text-teal-dark">
+                            {loc(language, DIRECTION_CODE[direction.robot])}
+                          </p>
+                          <div className="mt-0.5 flex flex-wrap items-center gap-2">
+                            <h3 className="font-display text-base font-bold tracking-tight text-ink sm:text-lg">
+                              {loc(language, direction.name)}
+                            </h3>
+                            {selectionCount > 0 && (
+                              <span className="rounded-full bg-teal/10 px-2 py-0.5 text-xs font-semibold tabular-nums text-teal-dark">
+                                {selectionCount}
+                              </span>
+                            )}
+                          </div>
+                          <p className="mt-1 text-sm text-slateink">
+                            {loc(language, DIRECTION_TAGLINE[direction.robot])}
+                          </p>
+                        </div>
+                        <ChevronDown
+                          className={`mt-2 h-5 w-5 shrink-0 text-slateink transition-transform duration-200 ${
+                            isExpanded ? 'rotate-180' : ''
+                          }`}
+                          aria-hidden="true"
+                        />
+                      </button>
+
+                      <AnimatePresence initial={false}>
+                        {isExpanded && (
+                          <motion.div
+                            {...expandVariants}
+                            transition={{ duration: 0.25 }}
+                            className="overflow-hidden"
+                          >
+                            <div className="mt-4 space-y-2 border-t border-line/40 pt-4">
+                              {directionSubjects.map((s) => {
+                                const subjectActive = subject === s.slug;
+                                const subjectTopics = topicsForSubject(s.slug);
+                                const topicsOpen = expandedSubjects.has(s.slug);
+                                return (
+                                  <div
+                                    key={s.slug}
+                                    className="rounded-xl border border-line/50 bg-canvas/60 p-3"
+                                  >
+                                    <div className="flex items-center justify-between gap-2">
+                                      <button
+                                        type="button"
+                                        aria-pressed={subjectActive}
+                                        onClick={() => handleSelectSubject(s.slug)}
+                                        className={pillClass(subjectActive)}
+                                      >
+                                        {loc(language, s.label)}
+                                      </button>
+                                      {subjectTopics.length > 0 && (
+                                        <button
+                                          type="button"
+                                          aria-expanded={topicsOpen}
+                                          onClick={() => toggleSubjectExpand(s.slug)}
+                                          className={`${FOCUS_RING} rounded-lg p-1.5 text-slateink transition-colors hover:text-teal`}
+                                        >
+                                          <span className="sr-only">
+                                            {loc(language, TOPICS_LABEL)}
+                                          </span>
+                                          <ChevronDown
+                                            className={`h-4 w-4 transition-transform duration-200 ${
+                                              topicsOpen ? 'rotate-180' : ''
+                                            }`}
+                                            aria-hidden="true"
+                                          />
+                                        </button>
+                                      )}
+                                    </div>
+                                    <AnimatePresence initial={false}>
+                                      {topicsOpen && subjectTopics.length > 0 && (
+                                        <motion.div
+                                          {...expandVariants}
+                                          transition={{ duration: 0.25 }}
+                                          className="overflow-hidden"
+                                        >
+                                          <div className="mt-3 flex flex-wrap gap-1.5">
+                                            {subjectTopics.map((t) => {
+                                              const topicActive =
+                                                subjectActive && selectedTopics.includes(t.topic);
+                                              return (
+                                                <button
+                                                  key={t.topic}
+                                                  type="button"
+                                                  aria-pressed={topicActive}
+                                                  onClick={() => handleToggleTopic(s.slug, t.topic)}
+                                                  className={topicChipClass(topicActive)}
+                                                >
+                                                  {topicActive && (
+                                                    <Check className="h-3 w-3" aria-hidden="true" />
+                                                  )}
+                                                  {loc(language, t.label)}
+                                                </button>
+                                              );
+                                            })}
+                                          </div>
+                                        </motion.div>
+                                      )}
+                                    </AnimatePresence>
+                                  </div>
+                                );
+                              })}
+                            </div>
+
+                            {directionPlanets.length > 0 && (
+                              <div className="mt-4 flex flex-wrap gap-2 border-t border-line/40 pt-4">
+                                {directionPlanets.map((planet) => {
+                                  const Icon = planet.icon;
+                                  return (
+                                    <span
+                                      key={planet.slug}
+                                      className="inline-flex items-center gap-1.5 rounded-xl border border-line/40 bg-line/10 px-3.5 py-2 text-sm font-medium text-slateink/70"
+                                    >
+                                      <Icon className="h-4 w-4" aria-hidden="true" />
+                                      {loc(language, planet.name)}
+                                      <span className="ml-1 rounded-full bg-teal/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-teal-dark">
+                                        {loc(language, SOON_PILL)}
+                                      </span>
+                                    </span>
+                                  );
+                                })}
+                              </div>
+                            )}
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  );
+                })}
               </motion.div>
 
               <div className="grid gap-4 sm:grid-cols-3">
@@ -593,29 +868,49 @@ const PracticePage: React.FC = () => {
                       className="mt-5 rounded-xl border border-teal/25 bg-mist/15 p-4"
                     >
                       <div className="flex items-start gap-3">
-                        <RobotAvatar robot="nov2" className="h-10 w-10 shrink-0" />
+                        <RobotAvatar robot="nov1" className="h-10 w-10 shrink-0" />
                         <div className="min-w-0">
                           <p className="font-mono text-[11px] font-medium uppercase tracking-widest text-teal-dark">
                             {loc(language, ROBOT_LABEL)}
                           </p>
                           <p
                             className={`mt-0.5 text-sm font-bold ${
-                              answers[currentQuestion.id] === currentQuestion.correctIndex
-                                ? 'text-teal-dark'
-                                : 'text-coral'
+                              answeredCorrectly ? 'text-teal-dark' : 'text-coral'
                             }`}
                           >
                             {loc(
                               language,
-                              answers[currentQuestion.id] === currentQuestion.correctIndex
+                              answeredCorrectly
                                 ? CORRECT_LABEL
-                                : INCORRECT_LABEL,
+                                : currentQuestion.explanation
+                                  ? INCORRECT_LABEL
+                                  : INCORRECT_NO_EXPLANATION,
                             )}
                           </p>
+                          {!answeredCorrectly && (
+                            <p className="mt-1.5 text-sm font-semibold text-teal-dark">
+                              {correctAnswerLine(
+                                language,
+                                loc(
+                                  language,
+                                  currentQuestion.options[currentQuestion.correctIndex],
+                                ),
+                              )}
+                            </p>
+                          )}
                           {currentQuestion.explanation && (
                             <p className="mt-1.5 text-sm leading-relaxed text-ink">
                               {loc(language, currentQuestion.explanation)}
                             </p>
+                          )}
+                          {!answeredCorrectly && !currentQuestion.explanation && currentLessonSlug && (
+                            <Link
+                              to={`/learn/${currentLessonSlug}`}
+                              className={`${FOCUS_RING} mt-2 inline-flex items-center gap-1.5 rounded-lg text-sm font-semibold text-teal-dark underline decoration-teal/40 underline-offset-2 transition-colors hover:text-teal hover:decoration-teal`}
+                            >
+                              <BookOpen className="h-4 w-4" aria-hidden="true" />
+                              {loc(language, OPEN_LESSON_LINK)}
+                            </Link>
                           )}
                         </div>
                       </div>
@@ -713,10 +1008,34 @@ const PracticePage: React.FC = () => {
                     {r.explanation && (
                       <div className="mt-3 rounded-xl border border-teal/25 bg-mist/15 p-3 sm:ml-8">
                         <div className="flex items-start gap-2.5">
-                          <RobotAvatar robot="nov2" className="h-8 w-8 shrink-0" />
+                          <RobotAvatar robot="nov1" className="h-8 w-8 shrink-0" />
                           <p className="min-w-0 text-sm leading-relaxed text-ink">
                             {loc(language, r.explanation)}
                           </p>
+                        </div>
+                      </div>
+                    )}
+                    {!r.correct && !r.explanation && (
+                      <div className="mt-3 rounded-xl border border-teal/25 bg-mist/15 p-3 sm:ml-8">
+                        <div className="flex items-start gap-2.5">
+                          <RobotAvatar robot="nov1" className="h-8 w-8 shrink-0" />
+                          <div className="min-w-0">
+                            <p className="text-sm font-semibold text-teal-dark">
+                              {correctAnswerLine(language, loc(language, r.options[r.correctIndex]))}
+                            </p>
+                            <p className="mt-1 text-sm leading-relaxed text-ink">
+                              {loc(language, INCORRECT_NO_EXPLANATION)}
+                            </p>
+                            {r.topic && TOPIC_LESSON_SLUGS[r.topic] && (
+                              <Link
+                                to={`/learn/${TOPIC_LESSON_SLUGS[r.topic]}`}
+                                className={`${FOCUS_RING} mt-1.5 inline-flex items-center gap-1.5 rounded-lg text-sm font-semibold text-teal-dark underline decoration-teal/40 underline-offset-2 transition-colors hover:text-teal hover:decoration-teal`}
+                              >
+                                <BookOpen className="h-4 w-4" aria-hidden="true" />
+                                {loc(language, OPEN_LESSON_LINK)}
+                              </Link>
+                            )}
+                          </div>
                         </div>
                       </div>
                     )}

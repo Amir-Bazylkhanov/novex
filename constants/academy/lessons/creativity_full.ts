@@ -4,8 +4,8 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
   "Digital Creativity_8": {
     planetName: "Digital Creativity",
     introduction: {
-      en: "Welcome to Digital Creativity! In Grade 8 you will explore the foundations of digital art — from color theory and pixel art to photo editing, typography, and building your first digital portfolio.",
-      ru: "Добро пожаловать в Цифровое Творчество! В 8 классе вы изучите основы цифрового искусства — от теории цвета и пиксель-арта до редактирования фотографий, типографики и создания первого цифрового портфолио."
+      en: "Welcome to Digital Creativity! You will explore the foundations of digital art — from color theory and pixel art to photo editing, typography, and building your first digital portfolio.",
+      ru: "Добро пожаловать в Цифровое Творчество! Вы изучите основы цифрового искусства — от теории цвета и пиксель-арта до редактирования фотографий, типографики и создания первого цифрового портфолио."
     },
     sections: [
       {
@@ -18,12 +18,16 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Resolution = Width (px) × Height (px)",
+            formulaRu: "Разрешение = Ширина (px) × Высота (px)",
+            formulaKk: "Ажыратымдылық = Ені (px) × Биіктігі (px)",
             description: "Total pixel count determines image detail level",
             descriptionRu: "Общее количество пикселей определяет уровень детализации изображения",
             descriptionKk: "Жалпы пиксель саны кескіннің деталдану деңгейін анықтайды"
           },
           {
             formula: "DPI (Dots Per Inch) — Screen: 72-96 DPI, Print: 300 DPI",
+            formulaRu: "DPI (точек на дюйм) — Экран: 72-96 DPI, Печать: 300 DPI",
+            formulaKk: "DPI (дюймдегі нүкте саны) — Экран: 72-96 DPI, Баспа: 300 DPI",
             description: "DPI determines how sharp an image appears in different media",
             descriptionRu: "DPI определяет, насколько чётким выглядит изображение в разных средах",
             descriptionKk: "DPI кескіннің әртүрлі ортада қаншалықты анық көрінетінін анықтайды"
@@ -92,12 +96,16 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Complementary pair = colors 180° apart on the color wheel",
+            formulaRu: "Комплементарная пара = цвета на расстоянии 180° на цветовом круге",
+            formulaKk: "Комплементарлы жұп = түс шеңберінде бір-бірінен 180° қашықтықтағы түстер",
             description: "Maximum contrast color pairing",
             descriptionRu: "Максимальная контрастная цветовая пара",
             descriptionKk: "Максималды контрастты түс жұбы"
           },
           {
             formula: "HSB: Hue (0-360°), Saturation (0-100%), Brightness (0-100%)",
+            formulaRu: "HSB: Оттенок (0-360°), Насыщенность (0-100%), Яркость (0-100%)",
+            formulaKk: "HSB: Реңк (0-360°), Қанықтық (0-100%), Жарықтық (0-100%)",
             description: "Three-axis model for defining any digital color",
             descriptionRu: "Трёхосевая модель для определения любого цифрового цвета",
             descriptionKk: "Кез келген сандық түсті анықтау үшін үш осьті модель"
@@ -166,6 +174,8 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Canvas size: 16×16 (icon), 32×32 (sprite), 64×64 (detailed sprite)",
+            formulaRu: "Размер холста: 16×16 (иконка), 32×32 (спрайт), 64×64 (детализированный спрайт)",
+            formulaKk: "Кенеп өлшемі: 16×16 (иконка), 32×32 (спрайт), 64×64 (толық спрайт)",
             description: "Common pixel art canvas dimensions for different purposes",
             descriptionRu: "Распространённые размеры холста пиксель-арта для разных целей",
             descriptionKk: "Әртүрлі мақсаттарға арналған пиксель-өнер кенебінің кең таралған өлшемдері"
@@ -234,6 +244,8 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Rule of Thirds: divide frame into 3×3 grid, place subjects on intersections",
+            formulaRu: "Правило третей: разделите кадр на сетку 3×3, размещайте объекты на пересечениях",
+            formulaKk: "Үштік ереже: кадрды 3×3 торға бөліп, нысандарды қиылысу нүктелеріне орналастырыңыз",
             description: "Composition guideline for visually appealing photo crops",
             descriptionRu: "Правило композиции для визуально привлекательного кадрирования",
             descriptionKk: "Визуалды тартымды фотосурет қию үшін композиция нұсқаулығы"
@@ -302,6 +314,8 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Social media sizes: Instagram 1080×1080, Story 1080×1920, YouTube thumbnail 1280×720",
+            formulaRu: "Размеры для соцсетей: Instagram 1080×1080, Сторис 1080×1920, превью YouTube 1280×720",
+            formulaKk: "Әлеуметтік желі өлшемдері: Instagram 1080×1080, Стори 1080×1920, YouTube мұқабасы 1280×720",
             description: "Standard canvas dimensions for common social media platforms",
             descriptionRu: "Стандартные размеры холста для популярных социальных сетей",
             descriptionKk: "Танымал әлеуметтік желілер үшін стандартты кенеп өлшемдері"
@@ -370,12 +384,16 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Body text: 16-18px, Line height: 1.4-1.6× font size",
+            formulaRu: "Основной текст: 16-18px, Межстрочный интервал: 1.4-1.6× размера шрифта",
+            formulaKk: "Негізгі мәтін: 16-18px, Жол аралығы: қаріп өлшемінің 1.4-1.6×",
             description: "Optimal reading sizes for screen text",
             descriptionRu: "Оптимальные размеры для чтения текста с экрана",
             descriptionKk: "Экрандағы мәтінді оқу үшін оңтайлы өлшемдер"
           },
           {
             formula: "Heading: 2-3× body size; Subheading: 1.25-1.5× body size",
+            formulaRu: "Заголовок: 2-3× от основного текста; Подзаголовок: 1.25-1.5× от основного текста",
+            formulaKk: "Тақырып: негізгі мәтіннің 2-3×; Кіші тақырып: негізгі мәтіннің 1.25-1.5×",
             description: "Size ratios for creating clear typographic hierarchy",
             descriptionRu: "Пропорции размеров для создания чёткой типографической иерархии",
             descriptionKk: "Анық типографиялық иерархия жасау үшін өлшем пропорциялары"
@@ -444,6 +462,8 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Total frames = Duration (seconds) × FPS",
+            formulaRu: "Общее количество кадров = Длительность (в секундах) × FPS",
+            formulaKk: "Жалпы кадр саны = Ұзақтық (секунд) × FPS",
             description: "Calculate how many frames are needed for an animation",
             descriptionRu: "Вычислите, сколько кадров нужно для анимации",
             descriptionKk: "Анимация үшін қанша кадр қажет екенін есептеңіз"
@@ -512,12 +532,16 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Rule of Thirds: 3×3 grid, place subjects at intersection points",
+            formulaRu: "Правило третей: сетка 3×3, размещайте объекты в точках пересечения",
+            formulaKk: "Үштік ереже: 3×3 тор, нысандарды қиылысу нүктелеріне орналастырыңыз",
             description: "Core composition technique for balanced layouts",
             descriptionRu: "Основная техника композиции для сбалансированных макетов",
             descriptionKk: "Теңдестірілген макеттер үшін негізгі композиция техникасы"
           },
           {
             formula: "Visual hierarchy: Size > Color > Contrast > Position",
+            formulaRu: "Визуальная иерархия: Размер > Цвет > Контраст > Положение",
+            formulaKk: "Көрнекілік иерархиясы: Өлшем > Түс > Контраст > Орналасу",
             description: "Order of factors that draw the eye from most to least impactful",
             descriptionRu: "Порядок факторов, привлекающих внимание, от наиболее до наименее влиятельного",
             descriptionKk: "Көзді тартатын факторлардың ең әсерлісінен ең аз әсерліге дейінгі реті"
@@ -586,6 +610,8 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Meme structure: Setup (image context) + Punchline (text surprise)",
+            formulaRu: "Структура мема: Завязка (контекст изображения) + Панчлайн (текстовый твист)",
+            formulaKk: "Мем құрылымы: Кіріспе (сурет контексі) + Панчлайн (мәтіндік тосынсый)",
             description: "The fundamental humor formula for meme creation",
             descriptionRu: "Фундаментальная формула юмора для создания мемов",
             descriptionKk: "Мем жасау үшін юмордың іргелі формуласы"
@@ -654,6 +680,8 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Portfolio piece = Title + Image + Description + Tools + Lesson learned",
+            formulaRu: "Работа для портфолио = Название + Изображение + Описание + Инструменты + Извлечённый урок",
+            formulaKk: "Портфолио жұмысы = Атауы + Сурет + Сипаттама + Құралдар + Алынған сабақ",
             description: "The five components every portfolio entry should contain",
             descriptionRu: "Пять компонентов, которые должна содержать каждая запись портфолио",
             descriptionKk: "Әр портфолио жазбасында болуы керек бес компонент"
@@ -717,8 +745,8 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
   "Digital Creativity_9": {
     planetName: "Digital Creativity",
     introduction: {
-      en: "In Grade 9 you advance into graphic design — learning principles of logo creation, poster layout, advanced typography, brand colors, and social media graphics. You will also explore infographics, photo manipulation, and how to give and receive design critique.",
-      ru: "В 9 классе вы переходите к графическому дизайну — изучаете принципы создания логотипов, макеты плакатов, продвинутую типографику, фирменные цвета и графику для социальных сетей. Вы также изучите инфографику, фотоманипуляцию и как давать и принимать критику дизайна."
+      en: "You advance into graphic design — learning principles of logo creation, poster layout, advanced typography, brand colors, and social media graphics. You will also explore infographics, photo manipulation, and how to give and receive design critique.",
+      ru: "Вы переходите к графическому дизайну — изучаете принципы создания логотипов, макеты плакатов, продвинутую типографику, фирменные цвета и графику для социальных сетей. Вы также изучите инфографику, фотоманипуляцию и как давать и принимать критику дизайна."
     },
     sections: [
       {
@@ -731,6 +759,8 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "CRAP: Contrast, Repetition, Alignment, Proximity",
+            formulaRu: "CRAP: Контраст, Повтор, Выравнивание, Близость",
+            formulaKk: "CRAP: Контраст, Қайталау, Туралау, Жақындық",
             description: "The four fundamental principles of graphic design layout",
             descriptionRu: "Четыре фундаментальных принципа макета графического дизайна",
             descriptionKk: "Графикалық дизайн макетінің төрт іргелі принципі"
@@ -799,6 +829,8 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "5 logo rules: Simple, Memorable, Timeless, Versatile, Appropriate",
+            formulaRu: "5 правил логотипа: Простой, Запоминающийся, Вневременной, Универсальный, Уместный",
+            formulaKk: "Логотиптің 5 ережесі: Қарапайым, Есте қаларлық, Уақытсыз, Әмбебап, Орынды",
             description: "Criteria for evaluating effective logo design",
             descriptionRu: "Критерии оценки эффективного дизайна логотипа",
             descriptionKk: "Тиімді логотип дизайнын бағалау критерийлері"
@@ -867,6 +899,8 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Poster hierarchy: Headline (40%) > Visual (30%) > Details (20%) > Fine print (10%)",
+            formulaRu: "Иерархия постера: Заголовок (40%) > Изображение (30%) > Детали (20%) > Мелкий текст (10%)",
+            formulaKk: "Постер иерархиясы: Тақырып (40%) > Сурет (30%) > Егжей-тегжей (20%) > Ұсақ мәтін (10%)",
             description: "Approximate space allocation for a balanced poster layout",
             descriptionRu: "Примерное распределение пространства для сбалансированного макета постера",
             descriptionKk: "Теңдестірілген постер макеті үшін кеңістікті шамамен бөлу"
@@ -935,6 +969,8 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Kerning: adjust space between specific letter pairs (e.g., AV, To, WA)",
+            formulaRu: "Кернинг: настройка расстояния между конкретными парами букв (например, AV, To, WA)",
+            formulaKk: "Кернинг: белгілі бір әріп жұптары арасындағы қашықтықты реттеу (мысалы, AV, To, WA)",
             description: "Fine-tuning individual letter spacing for visual balance",
             descriptionRu: "Тонкая настройка расстояния между отдельными буквами для визуального баланса",
             descriptionKk: "Визуалды тепе-теңдік үшін жеке әріп аралығын дәл реттеу"
@@ -1003,6 +1039,8 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Negative space ratio: aim for 40-60% empty space in clean designs",
+            formulaRu: "Соотношение негативного пространства: стремитесь к 40-60% пустого места в чистом дизайне",
+            formulaKk: "Теріс кеңістік қатынасы: таза дизайнда 40-60% бос орынға ұмтылыңыз",
             description: "Breathing room prevents visual clutter",
             descriptionRu: "Свободное пространство предотвращает визуальный беспорядок",
             descriptionKk: "Бос кеңістік визуалды тәртіпсіздікті болдырмайды"
@@ -1071,6 +1109,8 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "60-30-10 rule: 60% primary, 30% secondary, 10% accent",
+            formulaRu: "Правило 60-30-10: 60% основной цвет, 30% второстепенный, 10% акцент",
+            formulaKk: "60-30-10 ережесі: 60% негізгі түс, 30% қосымша, 10% акцент",
             description: "Color distribution ratio for balanced brand application",
             descriptionRu: "Пропорция распределения цветов для сбалансированного применения бренда",
             descriptionKk: "Теңдестірілген бренд қолдану үшін түс бөлу пропорциясы"
@@ -1139,6 +1179,8 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Social media text rule: <20% of image area should be text",
+            formulaRu: "Правило текста в соцсетях: текст должен занимать менее 20% площади изображения",
+            formulaKk: "Әлеуметтік желідегі мәтін ережесі: мәтін сурет ауданының 20%-нан аз болуы керек",
             description: "Less text increases engagement and avoids platform penalties",
             descriptionRu: "Меньше текста увеличивает вовлечённость и избегает штрафов платформы",
             descriptionKk: "Аз мәтін қатысуды арттырады және платформа айыппұлдарынан аулақтайды"
@@ -1207,6 +1249,8 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Chart choice: Bar (comparison), Pie (proportion), Line (trend over time)",
+            formulaRu: "Выбор диаграммы: Столбчатая (сравнение), Круговая (доли), Линейная (тренд во времени)",
+            formulaKk: "Диаграмма таңдау: Бағаналы (салыстыру), Дөңгелек (үлес), Сызықты (уақыт бойынша тренд)",
             description: "Selecting the right chart type based on the data story",
             descriptionRu: "Выбор правильного типа диаграммы в зависимости от истории данных",
             descriptionKk: "Деректер тарихына негізделген дұрыс диаграмма түрін таңдау"
@@ -1275,6 +1319,8 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Composite = Base image + Masked elements + Color matching + Shadow matching",
+            formulaRu: "Композит = Базовое изображение + Элементы с маской + Согласование цвета + Согласование теней",
+            formulaKk: "Композит = Негізгі сурет + Маскаланған элементтер + Түсті сәйкестендіру + Көлеңкені сәйкестендіру",
             description: "The four steps for convincing photo compositing",
             descriptionRu: "Четыре шага для убедительной фотокомпоновки",
             descriptionKk: "Сенімді фото компоновка үшін төрт қадам"
@@ -1343,6 +1389,8 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Feedback sandwich: Positive observation → Constructive suggestion → Positive encouragement",
+            formulaRu: "Сэндвич обратной связи: Позитивное наблюдение → Конструктивное предложение → Позитивная поддержка",
+            formulaKk: "Кері байланыс сэндвичі: Оң байқау → Сындарлы ұсыныс → Оң қолдау",
             description: "Structure for delivering effective, balanced design critique",
             descriptionRu: "Структура для предоставления эффективной, сбалансированной критики дизайна",
             descriptionKk: "Тиімді, теңдестірілген дизайн сынын беру құрылымы"
@@ -1406,8 +1454,8 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
   "Digital Creativity_10": {
     planetName: "Digital Creativity",
     introduction: {
-      en: "In Grade 10 you step into video production and multimedia — learning storyboarding, filming, editing, audio design, and content strategy for platforms like YouTube.",
-      ru: "В 10 классе вы переходите к видеопроизводству и мультимедиа — изучаете раскадровку, съёмку, монтаж, звуковой дизайн и контент-стратегию для платформ вроде YouTube."
+      en: "You step into video production and multimedia — learning storyboarding, filming, editing, audio design, and content strategy for platforms like YouTube.",
+      ru: "Вы переходите к видеопроизводству и мультимедиа — изучаете раскадровку, съёмку, монтаж, звуковой дизайн и контент-стратегию для платформ вроде YouTube."
     },
     sections: [
       {
@@ -1420,6 +1468,8 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Shot list = Scene number + Shot type + Description + Duration",
+            formulaRu: "Раскадровка = Номер сцены + Тип кадра + Описание + Длительность",
+            formulaKk: "Түсіру тізімі = Көрініс нөмірі + Кадр түрі + Сипаттама + Ұзақтығы",
             description: "Organize each shot with clear details for efficient filming",
             descriptionRu: "Организуйте каждый кадр с чёткими деталями для эффективной съёмки",
             descriptionKk: "Тиімді түсіру үшін әрбір кадрды нақты мәліметтермен ұйымдастырыңыз"
@@ -1488,12 +1538,16 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Rule of Thirds: divide frame into 3×3 grid, place subjects on intersections",
+            formulaRu: "Правило третей: разделите кадр на сетку 3×3, размещайте объекты на пересечениях",
+            formulaKk: "Үштік ереже: кадрды 3×3 торға бөліп, нысандарды қиылысу нүктелеріне орналастырыңыз",
             description: "Creates visually balanced and engaging compositions",
             descriptionRu: "Создаёт визуально сбалансированные и привлекательные композиции",
             descriptionKk: "Визуалды теңдестірілген және тартымды композициялар жасайды"
           },
           {
             formula: "Three-point lighting = Key light + Fill light + Back light",
+            formulaRu: "Трёхточечное освещение = Рисующий свет + Заполняющий свет + Контровой свет",
+            formulaKk: "Үш нүктелі жарықтандыру = Негізгі жарық + Толықтырушы жарық + Артқы жарық",
             description: "Standard lighting setup for professional-quality video",
             descriptionRu: "Стандартная схема освещения для профессионального видео",
             descriptionKk: "Кәсіби сапалы бейне үшін стандартты жарықтандыру схемасы"
@@ -1562,6 +1616,8 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "J-cut: audio from next clip starts before its video appears",
+            formulaRu: "J-cut: звук следующего клипа начинается раньше, чем появляется его видео",
+            formulaKk: "J-cut: келесі клиптің дыбысы оның видеосы шыққанға дейін басталады",
             description: "Creates anticipation and smooth scene transitions",
             descriptionRu: "Создаёт ожидание и плавные переходы между сценами",
             descriptionKk: "Күтуді және тегіс сахна ауысуларын жасайды"
@@ -1630,6 +1686,8 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Voice audio level: -12 dB to -6 dB; Music bed: -20 dB to -15 dB",
+            formulaRu: "Уровень голоса: от -12 дБ до -6 дБ; Музыкальная подложка: от -20 дБ до -15 дБ",
+            formulaKk: "Дауыс деңгейі: -12 дБ - -6 дБ; Музыкалық фон: -20 дБ - -15 дБ",
             description: "Standard audio levels ensure voice is always clearly heard above background music",
             descriptionRu: "Стандартные уровни аудио обеспечивают, что голос всегда чётко слышен над фоновой музыкой",
             descriptionKk: "Стандартты аудио деңгейлері дауыстың фондық музыкадан әрқашан анық естілуін қамтамасыз етеді"
@@ -1698,6 +1756,8 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "CTR = (Clicks ÷ Impressions) × 100%",
+            formulaRu: "CTR = (Клики ÷ Показы) × 100%",
+            formulaKk: "CTR = (Кликтер ÷ Көрсетілімдер) × 100%",
             description: "Measures how effectively your thumbnail and title attract clicks",
             descriptionRu: "Измеряет, насколько эффективно ваш превью и заголовок привлекают клики",
             descriptionKk: "Нобайыңыз бен тақырыбыңыздың кликтерді қаншалықты тиімді тартатынын өлшейді"
@@ -1766,6 +1826,8 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Mesh = Vertices + Edges + Faces",
+            formulaRu: "Меш = Вершины + Рёбра + Грани",
+            formulaKk: "Меш = Төбелер + Қырлар + Беттер",
             description: "The three building blocks of every 3D model",
             descriptionRu: "Три строительных блока каждой 3D-модели",
             descriptionKk: "Әрбір 3D модельдің үш құрылыс блогы"
@@ -1834,6 +1896,8 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Keyframe animation: Start state (time A) → End state (time B) → Software interpolates",
+            formulaRu: "Анимация по ключевым кадрам: Начальное состояние (время A) → Конечное состояние (время B) → Программа интерполирует",
+            formulaKk: "Кілт кадрлы анимация: Бастапқы күй (A уақыты) → Соңғы күй (B уақыты) → Бағдарлама интерполяциялайды",
             description: "The fundamental principle behind all motion graphics animation",
             descriptionRu: "Фундаментальный принцип всей анимации в моушн-графике",
             descriptionKk: "Барлық моушн-графика анимациясының негізгі принципі"
@@ -1902,6 +1966,8 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "File size ≈ Resolution × Frame rate × Duration × Bitrate factor",
+            formulaRu: "Размер файла ≈ Разрешение × Частота кадров × Длительность × Коэффициент битрейта",
+            formulaKk: "Файл өлшемі ≈ Ажыратымдылық × Кадр жиілігі × Ұзақтық × Битрейт коэффициенті",
             description: "Higher resolution and frame rate produce larger files that need more storage",
             descriptionRu: "Более высокое разрешение и частота кадров создают файлы большего размера",
             descriptionKk: "Жоғары ажыратымдылық пен кадр жиілігі көбірек жад қажет ететін үлкен файлдар жасайды"
@@ -1970,6 +2036,8 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "YouTube thumbnail: 1280 × 720 px, 16:9 ratio, max 2 MB",
+            formulaRu: "Превью YouTube: 1280 × 720 px, соотношение 16:9, максимум 2 МБ",
+            formulaKk: "YouTube мұқабасы: 1280 × 720 px, 16:9 арақатынасы, ең көбі 2 МБ",
             description: "Standard thumbnail specifications for optimal display across all devices",
             descriptionRu: "Стандартные спецификации превью для оптимального отображения на всех устройствах",
             descriptionKk: "Барлық құрылғыларда оңтайлы көрсету үшін стандартты нобай сипаттамалары"
@@ -2038,12 +2106,16 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "80/20 Rule: 80% value content, 20% promotional content",
+            formulaRu: "Правило 80/20: 80% ценного контента, 20% рекламного",
+            formulaKk: "80/20 ережесі: 80% құнды контент, 20% жарнамалық контент",
             description: "Maintains audience trust while still achieving business goals",
             descriptionRu: "Поддерживает доверие аудитории, одновременно достигая бизнес-целей",
             descriptionKk: "Бизнес мақсаттарына қол жеткізе отырып, аудиторияның сенімін сақтайды"
           },
           {
             formula: "Content Calendar = Topics + Formats + Dates + Platforms",
+            formulaRu: "Контент-календарь = Темы + Форматы + Даты + Платформы",
+            formulaKk: "Контент-күнтізбе = Тақырыптар + Форматтар + Күндер + Платформалар",
             description: "Structured planning prevents last-minute scrambling and ensures consistency",
             descriptionRu: "Структурированное планирование предотвращает спешку и обеспечивает последовательность",
             descriptionKk: "Құрылымдық жоспарлау соңғы минуттағы асығуды болдырмайды және дәйектілікті қамтамасыз етеді"
@@ -2107,8 +2179,8 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
   "Digital Creativity_11": {
     planetName: "Digital Creativity",
     introduction: {
-      en: "In Grade 11 you dive into product design and advanced media production — mastering UI/UX design, prototyping in Figma, user testing, advanced video editing, VFX, podcast production, and brand identity.",
-      ru: "В 11 классе вы погружаетесь в продуктовый дизайн и продвинутое медиапроизводство — осваиваете UI/UX-дизайн, прототипирование в Figma, тестирование, продвинутый монтаж, VFX, подкасты и фирменный стиль."
+      en: "You dive into product design and advanced media production — mastering UI/UX design, prototyping in Figma, user testing, advanced video editing, VFX, podcast production, and brand identity.",
+      ru: "Вы погружаетесь в продуктовый дизайн и продвинутое медиапроизводство — осваиваете UI/UX-дизайн, прототипирование в Figma, тестирование, продвинутый монтаж, VFX, подкасты и фирменный стиль."
     },
     sections: [
       {
@@ -2121,12 +2193,16 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Visual hierarchy: Size > Color > Contrast > Position",
+            formulaRu: "Визуальная иерархия: Размер > Цвет > Контраст > Положение",
+            formulaKk: "Көрнекілік иерархиясы: Өлшем > Түс > Контраст > Орналасу",
             description: "Elements higher in the hierarchy attract attention first",
             descriptionRu: "Элементы выше в иерархии привлекают внимание первыми",
             descriptionKk: "Иерархиядағы жоғары элементтер назарды бірінші тартады"
           },
           {
             formula: "8px grid system: all spacing in multiples of 8 (8, 16, 24, 32, 48, 64)",
+            formulaRu: "Сетка 8px: все отступы кратны 8 (8, 16, 24, 32, 48, 64)",
+            formulaKk: "8px тор жүйесі: барлық аралықтар 8-ге еселік (8, 16, 24, 32, 48, 64)",
             description: "Creates consistent rhythm and alignment across the entire interface",
             descriptionRu: "Создаёт последовательный ритм и выравнивание по всему интерфейсу",
             descriptionKk: "Бүкіл интерфейс бойынша дәйекті ырғақ пен туралауды жасайды"
@@ -2195,6 +2271,8 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Empathy Map: Says | Thinks | Feels | Does",
+            formulaRu: "Карта эмпатии: Говорит | Думает | Чувствует | Делает",
+            formulaKk: "Эмпатия картасы: Айтады | Ойлайды | Сезінеді | Істейді",
             description: "Four-quadrant framework for understanding user behavior and motivations",
             descriptionRu: "Четырёхквадрантная структура для понимания поведения и мотивации пользователей",
             descriptionKk: "Пайдаланушы мінез-құлқы мен мотивациясын түсінуге арналған төрт квадрантты құрылым"
@@ -2263,6 +2341,8 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Fidelity levels: Sketch (paper) → Low-fi wireframe → Mid-fi wireframe → High-fi mockup → Prototype",
+            formulaRu: "Уровни детализации: Скетч (бумага) → Низкодетальный вайрфрейм → Среднедетальный вайрфрейм → Высокодетальный макет → Прототип",
+            formulaKk: "Дәлдік деңгейлері: Скетч (қағаз) → Төмен дәлдікті вайрфрейм → Орта дәлдікті вайрфрейм → Жоғары дәлдікті макет → Прототип",
             description: "Design progresses from rough concepts to detailed, interactive versions",
             descriptionRu: "Дизайн прогрессирует от черновых концепций к детальным интерактивным версиям",
             descriptionKk: "Дизайн қарапайым тұжырымдамалардан егжей-тегжейлі интерактивті нұсқаларға дейін ілгерілейді"
@@ -2331,6 +2411,8 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Component = Base design + Variants (states, sizes, themes)",
+            formulaRu: "Компонент = Базовый дизайн + Варианты (состояния, размеры, темы)",
+            formulaKk: "Компонент = Негізгі дизайн + Нұсқалар (күйлер, өлшемдер, тақырыптар)",
             description: "One source of truth for repeated UI elements across the entire design",
             descriptionRu: "Единый источник истины для повторяющихся UI-элементов во всём дизайне",
             descriptionKk: "Бүкіл дизайн бойынша қайталанатын UI элементтері үшін бірыңғай ақиқат көзі"
@@ -2399,6 +2481,8 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "5-user rule: testing with 5 users finds ~85% of usability issues",
+            formulaRu: "Правило 5 пользователей: тестирование с 5 пользователями выявляет ~85% проблем юзабилити",
+            formulaKk: "5 пайдаланушы ережесі: 5 пайдаланушымен тестілеу қолданушылық мәселелердің ~85%-ын анықтайды",
             description: "Diminishing returns make large-scale testing unnecessary for most design iterations",
             descriptionRu: "Убывающая отдача делает масштабное тестирование ненужным для большинства итераций",
             descriptionKk: "Азайған қайтарым көптеген дизайн итерациялары үшін ауқымды тестілеуді қажетсіз етеді"
@@ -2467,6 +2551,8 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Color grading: Shadows (dark areas) + Midtones (middle range) + Highlights (bright areas)",
+            formulaRu: "Цветокоррекция: Тени (тёмные участки) + Полутона (средний диапазон) + Света (яркие участки)",
+            formulaKk: "Түс коррекциясы: Көлеңкелер (қою аймақтар) + Жартылай тондар (орта диапазон) + Жарық аймақтар (ашық жерлер)",
             description: "Adjusting these three ranges independently gives full control over the image mood",
             descriptionRu: "Независимая настройка трёх диапазонов даёт полный контроль над настроением изображения",
             descriptionKk: "Осы үш диапазонды дербес реттеу кескін көңіл-күйін толық бақылауға мүмкіндік береді"
@@ -2535,6 +2621,8 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Chroma key: Uniform green/blue background + Even lighting = Clean key extraction",
+            formulaRu: "Хромакей: Однородный зелёный/синий фон + Равномерное освещение = Чистое удаление фона",
+            formulaKk: "Хромакей: Біркелкі жасыл/көк фон + Біркелкі жарықтандыру = Фонды таза алып тастау",
             description: "Consistent background color and lighting are essential for removing the background cleanly",
             descriptionRu: "Однородный цвет фона и равномерное освещение необходимы для чистого удаления фона",
             descriptionKk: "Фонды таза алып тастау үшін біркелкі фон түсі мен біркелкі жарықтандыру қажет"
@@ -2603,6 +2691,8 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Podcast structure: Hook (30s) → Intro (30s) → Content segments → Outro (30s)",
+            formulaRu: "Структура подкаста: Крючок (30с) → Вступление (30с) → Основные блоки → Заключение (30с)",
+            formulaKk: "Подкаст құрылымы: Ілмек (30с) → Кіріспе (30с) → Негізгі блоктар → Қорытынды (30с)",
             description: "Consistent structure helps listeners know what to expect and improves retention",
             descriptionRu: "Постоянная структура помогает слушателям знать, чего ожидать, и улучшает удержание",
             descriptionKk: "Тұрақты құрылым тыңдаушыларға не күтуге болатынын білуге көмектеседі және ұстап тұруды жақсартады"
@@ -2671,6 +2761,8 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Brand identity = Logo + Colors + Typography + Imagery + Voice + Guidelines",
+            formulaRu: "Айдентика бренда = Логотип + Цвета + Типографика + Визуальные образы + Голос бренда + Гайдлайны",
+            formulaKk: "Бренд айдентикасы = Логотип + Түстер + Типографика + Бейнелер + Бренд дауысы + Нұсқаулықтар",
             description: "The complete system that ensures consistent brand recognition across all materials",
             descriptionRu: "Полная система, обеспечивающая единообразное узнавание бренда во всех материалах",
             descriptionKk: "Барлық материалдарда дәйекті бренд танылуын қамтамасыз ететін толық жүйе"
@@ -2739,6 +2831,8 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Design Thinking: Empathize → Define → Ideate → Prototype → Test → (repeat)",
+            formulaRu: "Дизайн-мышление: Эмпатия → Определение → Генерация идей → Прототип → Тестирование → (повтор)",
+            formulaKk: "Дизайн-ойлау: Эмпатия → Анықтау → Идея генерациясы → Прототип → Тестілеу → (қайталау)",
             description: "Five-stage iterative process for human-centered problem solving",
             descriptionRu: "Пятиэтапный итеративный процесс для решения проблем, ориентированного на человека",
             descriptionKk: "Адамға бағытталған мәселе шешуге арналған бес кезеңді итеративті процесс"
@@ -2802,8 +2896,8 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
   "Digital Creativity_12": {
     planetName: "Digital Creativity",
     introduction: {
-      en: "In Grade 12 you prepare for a professional creative career — building portfolios, mastering advanced tools, exploring AR/VR, learning freelance business skills, and developing creative direction capabilities.",
-      ru: "В 12 классе вы готовитесь к профессиональной творческой карьере — создаёте портфолио, осваиваете продвинутые инструменты, изучаете AR/VR, фриланс-бизнес и развиваете навыки креативного руководства."
+      en: "You prepare for a professional creative career — building portfolios, mastering advanced tools, exploring AR/VR, learning freelance business skills, and developing creative direction capabilities.",
+      ru: "Вы готовитесь к профессиональной творческой карьере — создаёте портфолио, осваиваете продвинутые инструменты, изучаете AR/VR, фриланс-бизнес и развиваете навыки креативного руководства."
     },
     sections: [
       {
@@ -2816,6 +2910,8 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Case study format: Problem → Process → Solution → Results",
+            formulaRu: "Формат кейс-стади: Проблема → Процесс → Решение → Результаты",
+            formulaKk: "Кейс-стади форматы: Мәселе → Процесс → Шешім → Нәтижелер",
             description: "Shows clients and employers not just what you made, but how you think",
             descriptionRu: "Показывает клиентам и работодателям не только что вы сделали, но и как вы думаете",
             descriptionKk: "Клиенттер мен жұмыс берушілерге тек не жасағаныңызды емес, қалай ойлайтыныңызды көрсетеді"
@@ -2884,6 +2980,8 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Squash & Stretch: exaggerate deformation to convey weight and flexibility",
+            formulaRu: "Squash & Stretch: преувеличивайте деформацию, чтобы передать вес и гибкость",
+            formulaKk: "Squash & Stretch: салмақ пен серпімділікті жеткізу үшін деформацияны әсірелеңіз",
             description: "The most important of the 12 animation principles — gives life to any object",
             descriptionRu: "Самый важный из 12 принципов анимации — оживляет любой объект",
             descriptionKk: "12 анимация принципінің ең маңыздысы — кез келген объектіге жан береді"
@@ -2952,6 +3050,8 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "PBR Material = Base Color + Metallic + Roughness + Normal Map",
+            formulaRu: "PBR-материал = Базовый цвет + Металличность + Шероховатость + Карта нормалей",
+            formulaKk: "PBR материалы = Негізгі түс + Металдылық + Кедір-бұдырлық + Норма картасы",
             description: "Four core properties define how any surface looks under realistic lighting",
             descriptionRu: "Четыре основных свойства определяют, как любая поверхность выглядит при реалистичном освещении",
             descriptionKk: "Төрт негізгі қасиет кез келген беттің шынайы жарықтандыруда қалай көрінетінін анықтайды"
@@ -3020,6 +3120,8 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "AR = Real world + Digital overlay; VR = Fully digital immersive environment",
+            formulaRu: "AR = Реальный мир + Цифровое наложение; VR = Полностью цифровая иммерсивная среда",
+            formulaKk: "AR = Нақты әлем + Цифрлық қабат; VR = Толығымен цифрлық иммерсивті орта",
             description: "AR enhances reality while VR replaces it entirely",
             descriptionRu: "AR дополняет реальность, а VR полностью заменяет её",
             descriptionKk: "AR шындықты толықтырады, ал VR оны толығымен ауыстырады"
@@ -3088,6 +3190,8 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Hourly rate = (Target annual income + Expenses) ÷ Billable hours per year",
+            formulaRu: "Почасовая ставка = (Целевой годовой доход + Расходы) ÷ Оплачиваемые часы в год",
+            formulaKk: "Сағаттық баға = (Мақсатты жылдық табыс + Шығындар) ÷ Жылдағы төленетін сағаттар",
             description: "Ensures your rate covers both income goals and business costs",
             descriptionRu: "Гарантирует, что ставка покрывает как целевой доход, так и бизнес-расходы",
             descriptionKk: "Ставкаңыз табыс мақсаттарын да, бизнес шығындарын да жабатынына кепілдік береді"
@@ -3156,6 +3260,8 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Design presentation = What you did + Why you did it + How it solves the problem",
+            formulaRu: "Презентация дизайна = Что вы сделали + Почему вы это сделали + Как это решает проблему",
+            formulaKk: "Дизайн презентациясы = Не істедіңіз + Неге істедіңіз + Бұл мәселені қалай шешеді",
             description: "Framing design decisions as solutions prevents subjective 'I like/dislike' feedback",
             descriptionRu: "Представление дизайн-решений как решений проблем предотвращает субъективную обратную связь «нравится/не нравится»",
             descriptionKk: "Дизайн шешімдерін шешімдер ретінде көрсету субъективті «ұнайды/ұнамайды» кері байланыстың алдын алады"
@@ -3224,6 +3330,8 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Design system = Component library + Design tokens + Documentation + Governance",
+            formulaRu: "Дизайн-система = Библиотека компонентов + Дизайн-токены + Документация + Управление",
+            formulaKk: "Дизайн-жүйе = Компоненттер кітапханасы + Дизайн-токендер + Құжаттама + Басқару",
             description: "The four pillars that make a design system effective and maintainable",
             descriptionRu: "Четыре столпа, которые делают дизайн-систему эффективной и поддерживаемой",
             descriptionKk: "Дизайн жүйесін тиімді және қолдауға ыңғайлы ететін төрт тірек"
@@ -3292,6 +3400,8 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Figma Variables: Mode A (Light) + Mode B (Dark) → one design, two themes",
+            formulaRu: "Figma Variables: Режим A (Светлый) + Режим B (Тёмный) → один дизайн, две темы",
+            formulaKk: "Figma Variables: A режимі (Ашық) + B режимі (Күңгірт) → бір дизайн, екі тақырып",
             description: "Variables eliminate the need to maintain separate light and dark design files",
             descriptionRu: "Переменные устраняют необходимость поддерживать отдельные файлы для светлой и тёмной тем",
             descriptionKk: "Айнымалылар ашық және қараңғы дизайн файлдарын бөлек қолдау қажеттілігін жояды"
@@ -3360,12 +3470,16 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Creative brief = Objective + Audience + Key message + Tone + Deliverables + Timeline",
+            formulaRu: "Креативный бриф = Цель + Аудитория + Ключевое сообщение + Тон + Результаты + Сроки",
+            formulaKk: "Креативті бриф = Мақсат + Аудитория + Негізгі хабарлама + Тон + Нәтижелер + Мерзімдер",
             description: "The foundational document that aligns the entire team on creative goals",
             descriptionRu: "Фундаментальный документ, согласующий всю команду с творческими целями",
             descriptionKk: "Бүкіл топты шығармашылық мақсаттармен сәйкестендіретін негізгі құжат"
           },
           {
             formula: "Mood board = Visual references + Color palette + Typography samples + Texture/pattern examples",
+            formulaRu: "Мудборд = Визуальные референсы + Цветовая палитра + Образцы типографики + Примеры текстур/паттернов",
+            formulaKk: "Мудборд = Көрнекілік үлгілер + Түс палитрасы + Типография үлгілері + Текстура/өрнек мысалдары",
             description: "Communicates the aesthetic direction more effectively than written descriptions alone",
             descriptionRu: "Передаёт эстетическое направление эффективнее, чем только текстовые описания",
             descriptionKk: "Эстетикалық бағытты тек жазбаша сипаттамалардан гөрі тиімдірек жеткізеді"
@@ -3434,6 +3548,8 @@ export const CREATIVITY_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Career portfolio = Technical skills + Soft skills + Network + Online presence",
+            formulaRu: "Карьерное портфолио = Технические навыки + Гибкие навыки + Нетворкинг + Присутствие онлайн",
+            formulaKk: "Мансаптық портфолио = Техникалық дағдылар + Икемді дағдылар + Байланыс желісі + Онлайн қатысу",
             description: "All four elements are needed for a successful creative career",
             descriptionRu: "Все четыре элемента необходимы для успешной творческой карьеры",
             descriptionKk: "Табысты шығармашылық мансап үшін барлық төрт элемент қажет"

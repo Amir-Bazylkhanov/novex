@@ -16,8 +16,8 @@ export const RESEARCH_FULL: Record<string, LessonContent> = {
         contentRu: "Хороший исследовательский вопрос должен быть конкретным, сфокусированным и таким, на который можно ответить путём исследования. Расплывчатые вопросы вроде «Почему природа важна?» нужно сузить до чего-то измеримого, например «Как вырубка лесов влияет на качество воздуха в Алматы?»",
         contentKk: "Жақсы зерттеу сұрағы нақты, бағытталған және зерттеу арқылы жауап беруге болатын болуы керек. «Табиғат неге маңызды?» сияқты анық емес сұрақтарды «Алматыда ормандарды кесу ауа сапасына қалай әсер етеді?» сияқты өлшенетін нәрсеге дейін тарылту керек.",
         keyFormulas: [
-          { formula: "5W1H: Who, What, When, Where, Why, How", description: "Framework for generating focused research questions", descriptionRu: "Система для создания целенаправленных исследовательских вопросов", descriptionKk: "Бағытталған зерттеу сұрақтарын құру құрылымы" },
-          { formula: "Broad Topic → Narrow Focus → Specific Question", description: "Three-step funnel to refine a research question", descriptionRu: "Трёхступенчатая воронка для уточнения исследовательского вопроса", descriptionKk: "Зерттеу сұрағын нақтылаудың үш қадамды тәсілі" }
+          { formula: "5W1H: Who, What, When, Where, Why, How", formulaRu: "5W1H: Кто, Что, Когда, Где, Почему, Как", formulaKk: "5W1H: Кім, Не, Қашан, Қайда, Неге, Қалай", description: "Framework for generating focused research questions", descriptionRu: "Система для создания целенаправленных исследовательских вопросов", descriptionKk: "Бағытталған зерттеу сұрақтарын құру құрылымы" },
+          { formula: "Broad Topic → Narrow Focus → Specific Question", formulaRu: "Широкая тема → Узкий фокус → Конкретный вопрос", formulaKk: "Кең тақырып → Тар фокус → Нақты сұрақ", description: "Three-step funnel to refine a research question", descriptionRu: "Трёхступенчатая воронка для уточнения исследовательского вопроса", descriptionKk: "Зерттеу сұрағын нақтылаудың үш қадамды тәсілі" }
         ],
         solvedExamples: [
           {
@@ -47,8 +47,8 @@ export const RESEARCH_FULL: Record<string, LessonContent> = {
         contentRu: "Надёжные источники включают рецензируемые журналы, учебники, государственные базы данных и интервью с экспертами. Тест CRAAP помогает оценить любой источник, проверяя его актуальность, релевантность, авторитетность, точность и цель.",
         contentKk: "Сенімді дереккөздерге рецензияланған журналдар, оқулықтар, мемлекеттік деректер базалары және сарапшылармен сұхбаттар жатады. CRAAP тесті кез келген дереккөзді өзектілігін, сәйкестігін, беделін, дәлдігін және мақсатын тексеру арқылы бағалауға көмектеседі.",
         keyFormulas: [
-          { formula: "CRAAP: Currency, Relevance, Authority, Accuracy, Purpose", description: "Five criteria for evaluating source reliability", descriptionRu: "Пять критериев оценки надёжности источника", descriptionKk: "Дереккөз сенімділігін бағалаудың бес критерийі" },
-          { formula: "Primary Sources vs Secondary Sources", description: "Firsthand evidence versus analysis of evidence by others", descriptionRu: "Первичные данные против анализа данных другими", descriptionKk: "Бастапқы деректер мен басқалардың талдауы" }
+          { formula: "CRAAP: Currency, Relevance, Authority, Accuracy, Purpose", formulaRu: "CRAAP: Актуальность, Релевантность, Авторитетность, Точность, Цель", formulaKk: "CRAAP: Өзектілік, Сәйкестік, Беделділік, Дәлдік, Мақсат", description: "Five criteria for evaluating source reliability", descriptionRu: "Пять критериев оценки надёжности источника", descriptionKk: "Дереккөз сенімділігін бағалаудың бес критерийі" },
+          { formula: "Primary Sources vs Secondary Sources", formulaRu: "Первичные источники против Вторичных источников", formulaKk: "Біріншілік дереккөздер мен Екіншілік дереккөздер", description: "Firsthand evidence versus analysis of evidence by others", descriptionRu: "Первичные данные против анализа данных другими", descriptionKk: "Бастапқы деректер мен басқалардың талдауы" }
         ],
         solvedExamples: [
           {
@@ -78,8 +78,8 @@ export const RESEARCH_FULL: Record<string, LessonContent> = {
         contentRu: "Эффективное конспектирование помогает запоминать и систематизировать информацию из источников. Метод Корнелла делит страницу на три области: узкую левую колонку для ключевых слов, широкую правую для подробных записей и нижнюю часть для итога. Другой полезный подход — интеллект-карта, которая визуально связывает идеи вокруг центральной темы.",
         contentKk: "Тиімді жазба жасау дереккөздерден ақпаратты есте сақтауға және реттеуге көмектеседі. Корнелл әдісі бетті үш аймаққа бөледі: кілт сөздер үшін тар сол жақ баған, егжей-тегжейлі жазбалар үшін кең оң жақ баған және қорытынды үшін төменгі бөлім. Тағы бір пайдалы тәсіл — орталық тақырыптың айналасында байланысты идеяларды көрнекі түрде байланыстыратын ақыл картасы.",
         keyFormulas: [
-          { formula: "Cornell Method: Cues | Notes | Summary", description: "Three-section page layout for structured note-taking", descriptionRu: "Трёхсекционная разметка страницы для структурированного конспектирования", descriptionKk: "Құрылымды жазба жасау үшін бетті үш бөлікке бөлу" },
-          { formula: "Mind Map: Central Idea → Branches → Details", description: "Visual diagram connecting main topic to subtopics", descriptionRu: "Визуальная диаграмма, связывающая главную тему с подтемами", descriptionKk: "Негізгі тақырыпты қосалқы тақырыптармен байланыстыратын көрнекі диаграмма" }
+          { formula: "Cornell Method: Cues | Notes | Summary", formulaRu: "Метод Корнелла: Подсказки | Заметки | Резюме", formulaKk: "Корнелл әдісі: Кеңестер | Жазбалар | Қорытынды", description: "Three-section page layout for structured note-taking", descriptionRu: "Трёхсекционная разметка страницы для структурированного конспектирования", descriptionKk: "Құрылымды жазба жасау үшін бетті үш бөлікке бөлу" },
+          { formula: "Mind Map: Central Idea → Branches → Details", formulaRu: "Интеллект-карта: Центральная идея → Ветви → Детали", formulaKk: "Ой картасы: Негізгі идея → Тармақтар → Детальдар", description: "Visual diagram connecting main topic to subtopics", descriptionRu: "Визуальная диаграмма, связывающая главную тему с подтемами", descriptionKk: "Негізгі тақырыпты қосалқы тақырыптармен байланыстыратын көрнекі диаграмма" }
         ],
         solvedExamples: [
           {
@@ -109,8 +109,8 @@ export const RESEARCH_FULL: Record<string, LessonContent> = {
         contentRu: "Факт — это утверждение, которое можно доказать с помощью данных, например «Вода кипит при 100°C на уровне моря». Мнение — это личное убеждение, которое нельзя объективно проверить, например «Лето — лучшее время года». Различение фактов и мнений необходимо для оценки источников и построения аргументов.",
         contentKk: "Факт — деректермен дәлелденетін мәлімдеме, мысалы «Су теңіз деңгейінде 100°C-та қайнайды». Пікір — объективті тексеруге болмайтын жеке сенім, мысалы «Жаз — ең жақсы мезгіл». Фактілерді пікірлерден ажырату дереккөздерді бағалау және күшті дәлелдер құру үшін маңызды.",
         keyFormulas: [
-          { formula: "Fact = Verifiable + Evidence-based", description: "A fact can be checked and proven with data", descriptionRu: "Факт можно проверить и доказать данными", descriptionKk: "Фактіні деректермен тексеріп, дәлелдеуге болады" },
-          { formula: "Opinion = Subjective + Judgment-based", description: "An opinion reflects personal beliefs and cannot be objectively proven", descriptionRu: "Мнение отражает личные убеждения и не может быть объективно доказано", descriptionKk: "Пікір жеке сенімдерді көрсетеді және объективті дәлелденбейді" }
+          { formula: "Fact = Verifiable + Evidence-based", formulaRu: "Факт = Проверяемое + Основанное на доказательствах", formulaKk: "Факт = Тексерілетін + Дәлелдерге негізделген", description: "A fact can be checked and proven with data", descriptionRu: "Факт можно проверить и доказать данными", descriptionKk: "Фактіні деректермен тексеріп, дәлелдеуге болады" },
+          { formula: "Opinion = Subjective + Judgment-based", formulaRu: "Мнение = Субъективное + Основанное на суждении", formulaKk: "Пікір = Субъективті + Пайымдауға негізделген", description: "An opinion reflects personal beliefs and cannot be objectively proven", descriptionRu: "Мнение отражает личные убеждения и не может быть объективно доказано", descriptionKk: "Пікір жеке сенімдерді көрсетеді және объективті дәлелденбейді" }
         ],
         solvedExamples: [
           {
@@ -140,8 +140,8 @@ export const RESEARCH_FULL: Record<string, LessonContent> = {
         contentRu: "Простой исследовательский отчёт состоит из трёх частей: введение (тема и вопрос), основная часть (результаты, организованные по подтемам) и заключение (итог и ответ на исследовательский вопрос). Перед написанием составьте план для логической организации идей.",
         contentKk: "Қарапайым зерттеу есебінің үш бөлігі бар: кіріспе (тақырып пен сұрақты көрсету), негізгі бөлім (қосалқы тақырыптар бойынша ұйымдастырылған нәтижелер) және қорытынды (негізгі нәтижелерді жинақтау және зерттеу сұрағына жауап беру). Жазбас бұрын идеяларыңызды логикалық ұйымдастыру үшін жоспар жасаңыз.",
         keyFormulas: [
-          { formula: "Report = Introduction + Body + Conclusion", description: "Basic three-part structure for research reports", descriptionRu: "Базовая трёхчастная структура исследовательского отчёта", descriptionKk: "Зерттеу есебінің негізгі үш бөлікті құрылымы" },
-          { formula: "Outline → Draft → Revise → Final", description: "Four-step writing process", descriptionRu: "Четырёхступенчатый процесс написания", descriptionKk: "Жазудың төрт қадамды процесі" }
+          { formula: "Report = Introduction + Body + Conclusion", formulaRu: "Отчёт = Введение + Основная часть + Заключение", formulaKk: "Есеп = Кіріспе + Негізгі бөлім + Қорытынды", description: "Basic three-part structure for research reports", descriptionRu: "Базовая трёхчастная структура исследовательского отчёта", descriptionKk: "Зерттеу есебінің негізгі үш бөлікті құрылымы" },
+          { formula: "Outline → Draft → Revise → Final", formulaRu: "План → Черновик → Правка → Итог", formulaKk: "Жоспар → Қара нұсқа → Түзету → Соңғы нұсқа", description: "Four-step writing process", descriptionRu: "Четырёхступенчатый процесс написания", descriptionKk: "Жазудың төрт қадамды процесі" }
         ],
         solvedExamples: [
           {
@@ -171,8 +171,8 @@ export const RESEARCH_FULL: Record<string, LessonContent> = {
         contentRu: "Хорошо структурированный абзац следует формату TEE: тематическое предложение (главная идея), объяснение (раскрытие идеи) и доказательство (подтверждение фактами или примерами). Каждый абзац должен быть посвящён одной основной идее и плавно переходить к следующему.",
         contentKk: "Жақсы құрылымдалған абзац TEE форматына сүйенеді: тақырыптық сөйлем (негізгі идея), түсіндірме (идеяны ашу) және дәлелдеме (фактілермен немесе мысалдармен растау). Әрбір абзац бір негізгі идеяға арналуы және келесіге тегіс ауысуы керек.",
         keyFormulas: [
-          { formula: "TEE: Topic sentence + Explanation + Evidence", description: "Standard paragraph structure framework", descriptionRu: "Стандартная структура абзаца", descriptionKk: "Абзацтың стандартты құрылымы" },
-          { formula: "Transition words: However, Furthermore, In addition, Therefore", description: "Words that connect paragraphs and ideas smoothly", descriptionRu: "Слова, плавно связывающие абзацы и идеи", descriptionKk: "Абзацтар мен идеяларды тегіс байланыстыратын сөздер" }
+          { formula: "TEE: Topic sentence + Explanation + Evidence", formulaRu: "TEE: Тематическое предложение + Объяснение + Доказательство", formulaKk: "TEE: Тақырыптық сөйлем + Түсіндірме + Дәлел", description: "Standard paragraph structure framework", descriptionRu: "Стандартная структура абзаца", descriptionKk: "Абзацтың стандартты құрылымы" },
+          { formula: "Transition words: However, Furthermore, In addition, Therefore", formulaRu: "Переходные слова: Однако, Более того, Кроме того, Следовательно", formulaKk: "Байланыстырушы сөздер: Дегенмен, Сонымен қатар, Оған қоса, Сондықтан", description: "Words that connect paragraphs and ideas smoothly", descriptionRu: "Слова, плавно связывающие абзацы и идеи", descriptionKk: "Абзацтар мен идеяларды тегіс байланыстыратын сөздер" }
         ],
         solvedExamples: [
           {
@@ -202,8 +202,8 @@ export const RESEARCH_FULL: Record<string, LessonContent> = {
         contentRu: "Доказательства делают аргументы убедительными. К сильным доказательствам относятся статистика, цитаты экспертов, результаты исследований и реальные примеры. Всегда объясняйте, как доказательство подтверждает ваш тезис — не вставляйте цитату или статистику без связи с аргументом.",
         contentKk: "Дәлелдемелер аргументтеріңізді сенімді етеді. Күшті дәлелдемелерге статистика, сарапшы сөздері, зерттеу нәтижелері және нақты мысалдар жатады. Дәлелдемені қолданғанда, оның сіздің тұжырымыңызды қалай растайтынын әрқашан түсіндіріңіз — сөзді немесе статистиканы аргументке байланыстырмай қоймаңыз.",
         keyFormulas: [
-          { formula: "Point → Evidence → Explanation (PEE)", description: "Framework for integrating evidence into arguments", descriptionRu: "Система для интеграции доказательств в аргументы", descriptionKk: "Дәлелдемелерді аргументтерге біріктіру құрылымы" },
-          { formula: "Sandwich Method: Your words → Quote → Your analysis", description: "Technique for embedding quotes naturally into text", descriptionRu: "Техника естественного встраивания цитат в текст", descriptionKk: "Сөз тіркестерін мәтінге табиғи енгізу техникасы" }
+          { formula: "Point → Evidence → Explanation (PEE)", formulaRu: "Тезис → Доказательство → Объяснение (PEE)", formulaKk: "Тезис → Дәлел → Түсіндірме (PEE)", description: "Framework for integrating evidence into arguments", descriptionRu: "Система для интеграции доказательств в аргументы", descriptionKk: "Дәлелдемелерді аргументтерге біріктіру құрылымы" },
+          { formula: "Sandwich Method: Your words → Quote → Your analysis", formulaRu: "Метод сэндвича: Свои слова → Цитата → Свой анализ", formulaKk: "Сэндвич әдісі: Өз сөзің → Дәйексөз → Өз талдауың", description: "Technique for embedding quotes naturally into text", descriptionRu: "Техника естественного встраивания цитат в текст", descriptionKk: "Сөз тіркестерін мәтінге табиғи енгізу техникасы" }
         ],
         solvedExamples: [
           {
@@ -233,8 +233,8 @@ export const RESEARCH_FULL: Record<string, LessonContent> = {
         contentRu: "Ссылки на источники отдают должное авторам и позволяют читателям проверить информацию. На базовом уровне указывайте имя автора, название работы и год публикации. Внутритекстовые ссылки кратко указывают источник в абзаце, а библиография перечисляет все источники в конце отчёта.",
         contentKk: "Дереккөздерге сілтеме жасау авторларға құрмет көрсетеді және оқырмандарға ақпаратты тексеруге мүмкіндік береді. Негізгі деңгейде автордың аты-жөнін, жұмыстың атауын және жарияланған жылын көрсетіңіз. Мәтін ішіндегі сілтемелер абзац ішінде дереккөзді қысқаша анықтайды, ал библиография есептің соңында барлық дереккөздерді тізімдейді.",
         keyFormulas: [
-          { formula: "In-text: (Author, Year)", description: "Basic in-text citation format", descriptionRu: "Базовый формат внутритекстовой ссылки", descriptionKk: "Мәтін ішіндегі сілтеменің негізгі форматы" },
-          { formula: "Bibliography: Author. Title. Publisher, Year.", description: "Basic bibliography entry format", descriptionRu: "Базовый формат записи в библиографии", descriptionKk: "Библиография жазбасының негізгі форматы" }
+          { formula: "In-text: (Author, Year)", formulaRu: "Внутритекстовая: (Автор, Год)", formulaKk: "Мәтін ішінде: (Автор, Жыл)", description: "Basic in-text citation format", descriptionRu: "Базовый формат внутритекстовой ссылки", descriptionKk: "Мәтін ішіндегі сілтеменің негізгі форматы" },
+          { formula: "Bibliography: Author. Title. Publisher, Year.", formulaRu: "Библиография: Автор. Название. Издательство, Год.", formulaKk: "Библиография: Автор. Атауы. Баспа, Жыл.", description: "Basic bibliography entry format", descriptionRu: "Базовый формат записи в библиографии", descriptionKk: "Библиография жазбасының негізгі форматы" }
         ],
         solvedExamples: [
           {
@@ -264,8 +264,8 @@ export const RESEARCH_FULL: Record<string, LessonContent> = {
         contentRu: "Эффективная презентация результатов исследования требует чёткой организации, наглядных пособий и уверенной подачи. Используйте слайды или постеры для выделения ключевых моментов, минимизируйте текст — пусть графики и изображения выполняют основную работу. Репетируйте презентацию, чтобы уложиться во время и говорить чётко.",
         contentKk: "Зерттеу нәтижелерін тиімді ұсыну нақты ұйымдастыруды, көрнекі құралдарды және сенімді жеткізуді талап етеді. Негізгі тұжырымдарды бөлектеу үшін слайдтар немесе постерлер қолданыңыз, мәтінді азайтыңыз — диаграммалар мен суреттер негізгі жұмысты атқарсын. Уақыт шегіне сыйып, анық сөйлеу үшін презентацияңызды жаттығыңыз.",
         keyFormulas: [
-          { formula: "10-20-30 Rule: 10 slides, 20 minutes, 30pt font minimum", description: "Guideline for effective presentations", descriptionRu: "Руководство для эффективных презентаций", descriptionKk: "Тиімді презентациялар үшін нұсқаулық" },
-          { formula: "Tell them what you'll say → Say it → Tell them what you said", description: "Classic three-part presentation structure", descriptionRu: "Классическая трёхчастная структура презентации", descriptionKk: "Классикалық үш бөлікті презентация құрылымы" }
+          { formula: "10-20-30 Rule: 10 slides, 20 minutes, 30pt font minimum", formulaRu: "Правило 10-20-30: 10 слайдов, 20 минут, шрифт не менее 30pt", formulaKk: "10-20-30 ережесі: 10 слайд, 20 минут, кемінде 30pt қаріп", description: "Guideline for effective presentations", descriptionRu: "Руководство для эффективных презентаций", descriptionKk: "Тиімді презентациялар үшін нұсқаулық" },
+          { formula: "Tell them what you'll say → Say it → Tell them what you said", formulaRu: "Скажи, что скажешь → Скажи это → Скажи, что сказал", formulaKk: "Айтатыныңды айт → Айт → Айтқаныңды қайтала", description: "Classic three-part presentation structure", descriptionRu: "Классическая трёхчастная структура презентации", descriptionKk: "Классикалық үш бөлікті презентация құрылымы" }
         ],
         solvedExamples: [
           {
@@ -295,8 +295,8 @@ export const RESEARCH_FULL: Record<string, LessonContent> = {
         contentRu: "Мини-исследовательский проект объединяет все навыки: формулирование вопроса, поиск источников, конспектирование, различение фактов и мнений, написание структурированного отчёта с доказательствами и ссылками, а также представление результатов. Это итоговое упражнение готовит вас к более крупным проектам.",
         contentKk: "Шағын зерттеу жобасы барлық дағдыларды біріктіреді: сұрақ қою, дереккөздер табу, жазба жасау, фактілерді пікірлерден ажырату, дәлелдемелер мен сілтемелері бар құрылымдалған есеп жазу және нәтижелерді ұсыну. Бұл қорытынды жаттығу сізді болашақ сыныптардағы ірі жобаларға дайындайды.",
         keyFormulas: [
-          { formula: "Project Phases: Question → Research → Draft → Revise → Present", description: "Five stages of a complete research project", descriptionRu: "Пять этапов полного исследовательского проекта", descriptionKk: "Толық зерттеу жобасының бес кезеңі" },
-          { formula: "Checklist: Question ✓ Sources ✓ Notes ✓ Outline ✓ Draft ✓ Citations ✓ Presentation ✓", description: "Quality control checklist for research projects", descriptionRu: "Контрольный список качества для исследовательских проектов", descriptionKk: "Зерттеу жобалары үшін сапаны бақылау тізімі" }
+          { formula: "Project Phases: Question → Research → Draft → Revise → Present", formulaRu: "Этапы проекта: Вопрос → Исследование → Черновик → Правка → Презентация", formulaKk: "Жоба кезеңдері: Сұрақ → Зерттеу → Қара нұсқа → Түзету → Таныстырылым", description: "Five stages of a complete research project", descriptionRu: "Пять этапов полного исследовательского проекта", descriptionKk: "Толық зерттеу жобасының бес кезеңі" },
+          { formula: "Checklist: Question ✓ Sources ✓ Notes ✓ Outline ✓ Draft ✓ Citations ✓ Presentation ✓", formulaRu: "Чек-лист: Вопрос ✓ Источники ✓ Заметки ✓ План ✓ Черновик ✓ Цитаты ✓ Презентация ✓", formulaKk: "Тексеру тізімі: Сұрақ ✓ Дереккөздер ✓ Жазбалар ✓ Жоспар ✓ Қара нұсқа ✓ Дәйексөздер ✓ Таныстырылым ✓", description: "Quality control checklist for research projects", descriptionRu: "Контрольный список качества для исследовательских проектов", descriptionKk: "Зерттеу жобалары үшін сапаны бақылау тізімі" }
         ],
         solvedExamples: [
           {
@@ -335,8 +335,8 @@ export const RESEARCH_FULL: Record<string, LessonContent> = {
         contentRu: "Научный метод — это систематический процесс исследования вопросов о мире. Он следует циклу: наблюдение, вопрос, гипотеза, эксперимент, анализ данных и вывод. Этот метод гарантирует, что результаты объективны, воспроизводимы и основаны на доказательствах.",
         contentKk: "Ғылыми әдіс — табиғи әлем туралы сұрақтарды зерттеудің жүйелі процесі. Ол циклді ұстанады: бақылау, сұрақ, гипотеза, эксперимент, деректерді талдау және қорытынды. Бұл әдіс нәтижелердің объективті, қайталанатын және дәлелдемелерге негізделуін қамтамасыз етеді.",
         keyFormulas: [
-          { formula: "Observation → Question → Hypothesis → Experiment → Analysis → Conclusion", description: "Six steps of the scientific method", descriptionRu: "Шесть шагов научного метода", descriptionKk: "Ғылыми әдістің алты қадамы" },
-          { formula: "If [independent variable changes], then [dependent variable will...], because [reasoning]", description: "Template for writing a testable hypothesis", descriptionRu: "Шаблон для написания проверяемой гипотезы", descriptionKk: "Тексерілетін гипотеза жазу шаблоны" }
+          { formula: "Observation → Question → Hypothesis → Experiment → Analysis → Conclusion", formulaRu: "Наблюдение → Вопрос → Гипотеза → Эксперимент → Анализ → Заключение", formulaKk: "Бақылау → Сұрақ → Гипотеза → Эксперимент → Талдау → Қорытынды", description: "Six steps of the scientific method", descriptionRu: "Шесть шагов научного метода", descriptionKk: "Ғылыми әдістің алты қадамы" },
+          { formula: "If [independent variable changes], then [dependent variable will...], because [reasoning]", formulaRu: "Если [независимая переменная меняется], то [зависимая переменная будет...], потому что [обоснование]", formulaKk: "Егер [тәуелсіз айнымалы өзгерсе], онда [тәуелді айнымалы...], себебі [негіздеме]", description: "Template for writing a testable hypothesis", descriptionRu: "Шаблон для написания проверяемой гипотезы", descriptionKk: "Тексерілетін гипотеза жазу шаблоны" }
         ],
         solvedExamples: [
           {
@@ -366,8 +366,8 @@ export const RESEARCH_FULL: Record<string, LessonContent> = {
         contentRu: "Гипотеза — это проверяемое предсказание о связи между переменными. Сильная гипотеза определяет независимую переменную (что вы меняете), зависимую (что измеряете) и контролируемые переменные (что остаётся неизменным). Она должна быть достаточно конкретной, чтобы её можно было подтвердить или опровергнуть.",
         contentKk: "Гипотеза — айнымалылар арасындағы байланыс туралы тексерілетін болжам. Күшті гипотеза тәуелсіз айнымалыны (нені өзгертесіз), тәуелді айнымалыны (нені өлшейсіз) және бақыланатын айнымалыларды (не өзгеріссіз қалады) анықтайды. Ол эксперимент арқылы дұрыс немесе бұрыс екенін дәлелдеуге жеткілікті нақты болуы керек.",
         keyFormulas: [
-          { formula: "IV (Independent Variable) → DV (Dependent Variable), with CV (Controlled Variables) held constant", description: "Variable relationship framework for hypothesis design", descriptionRu: "Схема связи переменных для разработки гипотезы", descriptionKk: "Гипотеза жасау үшін айнымалылар байланысының құрылымы" },
-          { formula: "Null Hypothesis (H₀): No effect; Alternative Hypothesis (H₁): There is an effect", description: "Two types of hypotheses in scientific testing", descriptionRu: "Два типа гипотез в научном тестировании", descriptionKk: "Ғылыми тестілеудегі гипотезаның екі түрі" }
+          { formula: "IV (Independent Variable) → DV (Dependent Variable), with CV (Controlled Variables) held constant", formulaRu: "IV (независимая переменная) → DV (зависимая переменная), при постоянных CV (контролируемые переменные)", formulaKk: "IV (тәуелсіз айнымалы) → DV (тәуелді айнымалы), CV (бақыланатын айнымалылар) тұрақты болғанда", description: "Variable relationship framework for hypothesis design", descriptionRu: "Схема связи переменных для разработки гипотезы", descriptionKk: "Гипотеза жасау үшін айнымалылар байланысының құрылымы" },
+          { formula: "Null Hypothesis (H₀): No effect; Alternative Hypothesis (H₁): There is an effect", formulaRu: "Нулевая гипотеза (H₀): Нет эффекта; Альтернативная гипотеза (H₁): Есть эффект", formulaKk: "Нөлдік гипотеза (H₀): Әсер жоқ; Балама гипотеза (H₁): Әсер бар", description: "Two types of hypotheses in scientific testing", descriptionRu: "Два типа гипотез в научном тестировании", descriptionKk: "Ғылыми тестілеудегі гипотезаның екі түрі" }
         ],
         solvedExamples: [
           {
@@ -397,8 +397,8 @@ export const RESEARCH_FULL: Record<string, LessonContent> = {
         contentRu: "Хороший план эксперимента обеспечивает достоверность и надёжность результатов. Каждый эксперимент требует экспериментальной группы (получает воздействие) и контрольной группы (не получает). Контролируемые переменные должны оставаться постоянными, чтобы любое изменение результатов можно было отнести к независимой переменной.",
         contentKk: "Жақсы эксперимент жоспары нәтижелердің жарамды және сенімді болуын қамтамасыз етеді. Әр эксперименттің тәжірибелік тобы (әсер алады) және бақылау тобы (алмайды) болуы керек. Бақыланатын айнымалылар тұрақты болуы керек, сонда нәтижелердегі кез келген өзгерісті тәуелсіз айнымалыға ғана жатқызуға болады.",
         keyFormulas: [
-          { formula: "Experimental Group vs Control Group", description: "Comparison framework for isolating the effect of the independent variable", descriptionRu: "Схема сравнения для выделения эффекта независимой переменной", descriptionKk: "Тәуелсіз айнымалының әсерін оқшаулау үшін салыстыру құрылымы" },
-          { formula: "Validity = measuring what you intend; Reliability = consistent results when repeated", description: "Two key qualities of a well-designed experiment", descriptionRu: "Два ключевых качества хорошо спланированного эксперимента", descriptionKk: "Жақсы жоспарланған эксперименттің екі негізгі сапасы" }
+          { formula: "Experimental Group vs Control Group", formulaRu: "Экспериментальная группа против Контрольной группы", formulaKk: "Эксперименттік топ пен Бақылау тобы", description: "Comparison framework for isolating the effect of the independent variable", descriptionRu: "Схема сравнения для выделения эффекта независимой переменной", descriptionKk: "Тәуелсіз айнымалының әсерін оқшаулау үшін салыстыру құрылымы" },
+          { formula: "Validity = measuring what you intend; Reliability = consistent results when repeated", formulaRu: "Валидность = измерение того, что задумано; Надёжность = стабильные результаты при повторении", formulaKk: "Валидтілік = ойға алғанды өлшеу; Сенімділік = қайталағанда тұрақты нәтиже", description: "Two key qualities of a well-designed experiment", descriptionRu: "Два ключевых качества хорошо спланированного эксперимента", descriptionKk: "Жақсы жоспарланған эксперименттің екі негізгі сапасы" }
         ],
         solvedExamples: [
           {
@@ -428,8 +428,8 @@ export const RESEARCH_FULL: Record<string, LessonContent> = {
         contentRu: "Сбор данных — это систематический процесс получения информации для ответа на исследовательский вопрос. Количественные данные включают числа (измерения, подсчёты, проценты), а качественные — описания (наблюдения, интервью, открытые ответы). Хороший сбор данных требует последовательных методов и тщательной записи.",
         contentKk: "Деректер жинау — зерттеу сұрағына жауап беру үшін ақпаратты жүйелі түрде жинау процесі. Сандық деректер сандарды (өлшемдер, санау, пайыздар), ал сапалық деректер сипаттамаларды (бақылаулар, сұхбаттар, ашық жауаптар) қамтиды. Жақсы деректер жинау дәйекті әдістер мен мұқият жазуды талап етеді.",
         keyFormulas: [
-          { formula: "Quantitative = Numbers; Qualitative = Descriptions", description: "Two main categories of research data", descriptionRu: "Две основные категории исследовательских данных", descriptionKk: "Зерттеу деректерінің екі негізгі санаты" },
-          { formula: "Data Table: Variable | Trial 1 | Trial 2 | Trial 3 | Average", description: "Standard format for recording experimental data", descriptionRu: "Стандартный формат записи экспериментальных данных", descriptionKk: "Эксперименталдық деректерді жазудың стандартты форматы" }
+          { formula: "Quantitative = Numbers; Qualitative = Descriptions", formulaRu: "Количественное = Числа; Качественное = Описания", formulaKk: "Сандық = Сандар; Сапалық = Сипаттамалар", description: "Two main categories of research data", descriptionRu: "Две основные категории исследовательских данных", descriptionKk: "Зерттеу деректерінің екі негізгі санаты" },
+          { formula: "Data Table: Variable | Trial 1 | Trial 2 | Trial 3 | Average", formulaRu: "Таблица данных: Переменная | Опыт 1 | Опыт 2 | Опыт 3 | Среднее", formulaKk: "Деректер кестесі: Айнымалы | Тәжірибе 1 | Тәжірибе 2 | Тәжірибе 3 | Орташа", description: "Standard format for recording experimental data", descriptionRu: "Стандартный формат записи экспериментальных данных", descriptionKk: "Эксперименталдық деректерді жазудың стандартты форматы" }
         ],
         solvedExamples: [
           {
@@ -459,8 +459,8 @@ export const RESEARCH_FULL: Record<string, LessonContent> = {
         contentRu: "Библиотечное исследование включает использование каталогов, баз данных и справочных материалов для поиска научной информации. Современные библиотеки предлагают физические и цифровые ресурсы, включая онлайн-базы данных (JSTOR, Google Scholar, национальные архивы). Эффективные стратегии поиска включают ключевые слова, булевы операторы (AND, OR, NOT) и фильтры.",
         contentKk: "Кітапхана зерттеуі ғылыми ақпаратты табу үшін каталогтарды, деректер базаларын және анықтамалық материалдарды пайдалануды қамтиды. Заманауи кітапханалар физикалық және цифрлық ресурстарды ұсынады, оның ішінде JSTOR, Google Scholar және ұлттық мұрағаттар сияқты онлайн деректер базалары. Тиімді іздеу стратегиялары кілт сөздерді, Буль операторларын (AND, OR, NOT) және тақырып сүзгілерін қолдануды қамтиды.",
         keyFormulas: [
-          { formula: "Boolean: AND (narrows), OR (broadens), NOT (excludes)", description: "Logical operators for refining database searches", descriptionRu: "Логические операторы для уточнения поиска в базах данных", descriptionKk: "Деректер базасында іздеуді нақтылаудың логикалық операторлары" },
-          { formula: "Keyword → Synonym → Broader/Narrower terms", description: "Strategy for expanding or refining search terms", descriptionRu: "Стратегия расширения или уточнения поисковых терминов", descriptionKk: "Іздеу терминдерін кеңейту немесе нақтылау стратегиясы" }
+          { formula: "Boolean: AND (narrows), OR (broadens), NOT (excludes)", formulaRu: "Булевы операторы: AND (сужает), OR (расширяет), NOT (исключает)", formulaKk: "Логикалық: AND (тарылтады), OR (кеңейтеді), NOT (алып тастайды)", description: "Logical operators for refining database searches", descriptionRu: "Логические операторы для уточнения поиска в базах данных", descriptionKk: "Деректер базасында іздеуді нақтылаудың логикалық операторлары" },
+          { formula: "Keyword → Synonym → Broader/Narrower terms", formulaRu: "Ключевое слово → Синоним → Более широкие/узкие термины", formulaKk: "Кілт сөз → Синоним → Кеңірек/тарырақ терминдер", description: "Strategy for expanding or refining search terms", descriptionRu: "Стратегия расширения или уточнения поисковых терминов", descriptionKk: "Іздеу терминдерін кеңейту немесе нақтылау стратегиясы" }
         ],
         solvedExamples: [
           {
@@ -490,8 +490,8 @@ export const RESEARCH_FULL: Record<string, LessonContent> = {
         contentRu: "Эссе из пяти абзацев — базовая структура академического письма: введение с тезисом, три основных абзаца с аргументами и заключение, которое повторяет тезис и подводит итоги. Каждый основной абзац должен следовать структуре TEE, изученной в 8 классе.",
         contentKk: "Бес абзацты эссе — академиялық жазудың негізгі құрылымы: тезисі бар кіріспе, әрқайсысында дәлелдеуші аргументі бар үш негізгі абзац және тезисті қайталайтын және негізгі тұжырымдарды жинақтайтын қорытынды. Әрбір негізгі абзац 8-сыныпта үйренілген TEE құрылымына сүйенуі керек.",
         keyFormulas: [
-          { formula: "Intro (thesis) → Body 1 (argument + evidence) → Body 2 → Body 3 → Conclusion (restate thesis)", description: "Standard 5-paragraph essay structure", descriptionRu: "Стандартная структура эссе из 5 абзацев", descriptionKk: "5 абзацты эссенің стандартты құрылымы" },
-          { formula: "Thesis = Topic + Position + 3 Reasons", description: "Formula for a strong thesis statement", descriptionRu: "Формула сильного тезисного утверждения", descriptionKk: "Күшті тезис мәлімдемесінің формуласы" }
+          { formula: "Intro (thesis) → Body 1 (argument + evidence) → Body 2 → Body 3 → Conclusion (restate thesis)", formulaRu: "Введение (тезис) → Основная часть 1 (аргумент + доказательство) → Основная часть 2 → Основная часть 3 → Заключение (повтор тезиса)", formulaKk: "Кіріспе (тезис) → Негізгі бөлім 1 (аргумент + дәлел) → Негізгі бөлім 2 → Негізгі бөлім 3 → Қорытынды (тезисті қайталау)", description: "Standard 5-paragraph essay structure", descriptionRu: "Стандартная структура эссе из 5 абзацев", descriptionKk: "5 абзацты эссенің стандартты құрылымы" },
+          { formula: "Thesis = Topic + Position + 3 Reasons", formulaRu: "Тезис = Тема + Позиция + 3 Причины", formulaKk: "Тезис = Тақырып + Позиция + 3 Себеп", description: "Formula for a strong thesis statement", descriptionRu: "Формула сильного тезисного утверждения", descriptionKk: "Күшті тезис мәлімдемесінің формуласы" }
         ],
         solvedExamples: [
           {
@@ -521,8 +521,8 @@ export const RESEARCH_FULL: Record<string, LessonContent> = {
         contentRu: "MLA (Modern Language Association) — стиль цитирования, используемый в гуманитарных науках. Внутритекстовые ссылки MLA используют фамилию автора и номер страницы в скобках. Страница «Works Cited» в конце перечисляет все источники в алфавитном порядке с определёнными правилами форматирования.",
         contentKk: "MLA (Modern Language Association) — гуманитарлық ғылымдарда жиі қолданылатын сілтеме жасау стилі. MLA мәтін ішіндегі сілтемелері жақша ішінде автордың тегі мен бет нөмірін пайдаланады. Соңындағы «Works Cited» беті барлық дереккөздерді алфавиттік ретпен нақты пішімдеу ережелерімен тізімдейді.",
         keyFormulas: [
-          { formula: "MLA In-text: (Author LastName PageNumber) — e.g., (Smith 45)", description: "MLA parenthetical citation format", descriptionRu: "Формат скобочной ссылки MLA", descriptionKk: "MLA жақшалы сілтеме форматы" },
-          { formula: "Works Cited: LastName, FirstName. Title. Publisher, Year.", description: "Basic MLA bibliography format for books", descriptionRu: "Базовый формат библиографии MLA для книг", descriptionKk: "Кітаптар үшін MLA библиография форматының негізі" }
+          { formula: "MLA In-text: (Author LastName PageNumber) — e.g., (Smith 45)", formulaRu: "Внутритекстовая MLA: (Фамилия автора Номер страницы) — напр., (Smith 45)", formulaKk: "MLA мәтін ішінде: (Автордың тегі Бет нөмірі) — мыс., (Smith 45)", description: "MLA parenthetical citation format", descriptionRu: "Формат скобочной ссылки MLA", descriptionKk: "MLA жақшалы сілтеме форматы" },
+          { formula: "Works Cited: LastName, FirstName. Title. Publisher, Year.", formulaRu: "Список цитирования: Фамилия, Имя. Название. Издательство, Год.", formulaKk: "Дәйексөз тізімі: Тегі, Аты. Атауы. Баспа, Жыл.", description: "Basic MLA bibliography format for books", descriptionRu: "Базовый формат библиографии MLA для книг", descriptionKk: "Кітаптар үшін MLA библиография форматының негізі" }
         ],
         solvedExamples: [
           {
@@ -552,8 +552,8 @@ export const RESEARCH_FULL: Record<string, LessonContent> = {
         contentRu: "Плагиат — это представление чужих слов или идей как своих, намеренно или случайно. Чтобы избежать плагиата, всегда перефразируйте (излагайте идеи своими словами), используйте кавычки для прямых цитат и цитируйте каждый источник. Самоплагиат — повторная сдача собственной работы — тоже считается нарушением.",
         contentKk: "Плагиат — басқа біреудің сөздерін немесе идеяларын қасақана немесе кездейсоқ өзіңіздікі ретінде ұсыну. Плагиаттан аулақ болу үшін әрқашан перифраз жасаңыз (идеяларды өз сөздеріңізбен жазыңыз), тікелей сөздер үшін тырнақша қолданыңыз және әрбір дереккөзге сілтеме жасаңыз. Өзін-өзі плагиаттау — бұрынғы жұмысыңызды қайта тапсыру — да академиялық бұзушылық болып есептеледі.",
         keyFormulas: [
-          { formula: "Paraphrase = Read → Close source → Rewrite in own words → Cite", description: "Four-step process for proper paraphrasing", descriptionRu: "Четырёхступенчатый процесс правильного перефразирования", descriptionKk: "Дұрыс перифраз жасаудың төрт қадамды процесі" },
-          { formula: "Direct Quote: \"exact words\" (Author, Year, Page)", description: "Format for using someone's exact words", descriptionRu: "Формат использования точных слов автора", descriptionKk: "Біреудің нақты сөздерін пайдалану форматы" }
+          { formula: "Paraphrase = Read → Close source → Rewrite in own words → Cite", formulaRu: "Перефразирование = Читай → Закрой источник → Перепиши своими словами → Процитируй", formulaKk: "Перифраз = Оқы → Дереккөзді жап → Өз сөзіңмен қайта жаз → Дәйек келтір", description: "Four-step process for proper paraphrasing", descriptionRu: "Четырёхступенчатый процесс правильного перефразирования", descriptionKk: "Дұрыс перифраз жасаудың төрт қадамды процесі" },
+          { formula: "Direct Quote: \"exact words\" (Author, Year, Page)", formulaRu: "Прямая цитата: «точные слова» (Автор, Год, Страница)", formulaKk: "Тікелей дәйексөз: «нақты сөздер» (Автор, Жыл, Бет)", description: "Format for using someone's exact words", descriptionRu: "Формат использования точных слов автора", descriptionKk: "Біреудің нақты сөздерін пайдалану форматы" }
         ],
         solvedExamples: [
           {
@@ -583,8 +583,8 @@ export const RESEARCH_FULL: Record<string, LessonContent> = {
         contentRu: "Рецензирование — это процесс, при котором одноклассники или коллеги оценивают вашу работу перед финальной сдачей. Хороший рецензент проверяет ясность, логику, качество доказательств, правильность цитирования и грамматику. Конструктивная обратная связь должна быть конкретной, уважительной и предлагать улучшения, а не просто указывать на недостатки.",
         contentKk: "Пікірлестік шолу — соңғы тапсырудан бұрын сыныптастар немесе әріптестер сіздің жұмысыңызды бағалау процесі. Жақсы пікірші анықтықты, логиканы, дәлелдеме сапасын, дұрыс сілтеме жасауды және грамматиканы тексереді. Конструктивті кері байланыс беру нақты, құрметті болуды және тек кемшіліктерді көрсетудің орнына жақсартулар ұсынуды білдіреді.",
         keyFormulas: [
-          { formula: "Praise → Question → Suggest (PQS)", description: "Framework for giving constructive peer feedback", descriptionRu: "Система конструктивной обратной связи", descriptionKk: "Конструктивті кері байланыс беру құрылымы" },
-          { formula: "Checklist: Thesis clear? Evidence strong? Citations correct? Grammar clean? Structure logical?", description: "Five-point peer review checklist", descriptionRu: "Пятипунктовый чек-лист рецензирования", descriptionKk: "Бес тармақты пікірлестік шолу тізімі" }
+          { formula: "Praise → Question → Suggest (PQS)", formulaRu: "Похвала → Вопрос → Предложение (PQS)", formulaKk: "Мақтау → Сұрақ → Ұсыныс (PQS)", description: "Framework for giving constructive peer feedback", descriptionRu: "Система конструктивной обратной связи", descriptionKk: "Конструктивті кері байланыс беру құрылымы" },
+          { formula: "Checklist: Thesis clear? Evidence strong? Citations correct? Grammar clean? Structure logical?", formulaRu: "Чек-лист: Тезис ясен? Доказательства сильные? Цитаты верные? Грамматика чистая? Структура логична?", formulaKk: "Тексеру тізімі: Тезис анық па? Дәлелдер күшті ме? Дәйексөздер дұрыс па? Грамматика таза ма? Құрылым логикалы ма?", description: "Five-point peer review checklist", descriptionRu: "Пятипунктовый чек-лист рецензирования", descriptionKk: "Бес тармақты пікірлестік шолу тізімі" }
         ],
         solvedExamples: [
           {
@@ -614,8 +614,8 @@ export const RESEARCH_FULL: Record<string, LessonContent> = {
         contentRu: "Академические олимпиады проверяют глубокие знания и творческое решение задач. Типичные задания включают аналитические эссе, кейсы, интерпретацию данных и логические головоломки. Для успеха нужны не только знания, но и умение применять концепции к незнакомым ситуациям в условиях ограниченного времени.",
         contentKk: "Академиялық олимпиадалар тереңдетілген білім мен шығармашылық есеп шығаруды тексереді. Жиі кездесетін есеп түрлеріне аналитикалық эсселер, кейс-стадилер, деректерді түсіндіру және логикалық ойлау жұмбақтары жатады. Табысқа жету үшін тек білім ғана емес, уақыт қысымында бейтаныс жағдайларға тұжырымдамаларды қолдану қабілеті қажет.",
         keyFormulas: [
-          { formula: "Read → Identify type → Plan → Solve → Check", description: "Five-step approach to olympiad problems", descriptionRu: "Пятишаговый подход к олимпиадным задачам", descriptionKk: "Олимпиада есептеріне бес қадамды тәсіл" },
-          { formula: "Time Budget: 60% solving, 20% planning, 20% checking", description: "Recommended time allocation for competition problems", descriptionRu: "Рекомендуемое распределение времени для конкурсных задач", descriptionKk: "Жарыс есептері үшін ұсынылатын уақыт бөлу" }
+          { formula: "Read → Identify type → Plan → Solve → Check", formulaRu: "Читай → Определи тип → Планируй → Решай → Проверь", formulaKk: "Оқы → Түрін анықта → Жоспарла → Шығар → Тексер", description: "Five-step approach to olympiad problems", descriptionRu: "Пятишаговый подход к олимпиадным задачам", descriptionKk: "Олимпиада есептеріне бес қадамды тәсіл" },
+          { formula: "Time Budget: 60% solving, 20% planning, 20% checking", formulaRu: "Бюджет времени: 60% решение, 20% планирование, 20% проверка", formulaKk: "Уақыт бюджеті: 60% шығару, 20% жоспарлау, 20% тексеру", description: "Recommended time allocation for competition problems", descriptionRu: "Рекомендуемое распределение времени для конкурсных задач", descriptionKk: "Жарыс есептері үшін ұсынылатын уақыт бөлу" }
         ],
         solvedExamples: [
           {
@@ -654,8 +654,8 @@ export const RESEARCH_FULL: Record<string, LessonContent> = {
         contentRu: "Обзор литературы анализирует существующие исследования по теме, выявляя, что уже известно, где есть пробелы и как ваше исследование вписывается в общий контекст. Он синтезирует источники, а не просто пересказывает их, показывая связи и противоречия между исследованиями.",
         contentKk: "Әдебиеттерге шолу тақырып бойынша бар зерттеулерді зерделеп, не белгілі екенін, қандай олқылықтар бар екенін және сіздің зерттеуіңіздің жалпы контекстке қалай сәйкес келетінін анықтайды. Ол дереккөздерді жай қайталамай, зерттеулер арасындағы байланыстар мен қайшылықтарды көрсетіп синтездейді.",
         keyFormulas: [
-          { formula: "Search → Screen → Read → Synthesize → Write", description: "Five-step literature review process", descriptionRu: "Пятишаговый процесс обзора литературы", descriptionKk: "Әдебиеттерге шолудың бес қадамды процесі" },
-          { formula: "Thematic Organization: Group by theme, not by author", description: "Organize review by themes to show patterns across studies", descriptionRu: "Организация по темам для выявления закономерностей", descriptionKk: "Зерттеулер арасындағы заңдылықтарды көрсету үшін тақырып бойынша ұйымдастыру" }
+          { formula: "Search → Screen → Read → Synthesize → Write", formulaRu: "Поиск → Отбор → Чтение → Синтез → Написание", formulaKk: "Іздеу → Іріктеу → Оқу → Синтездеу → Жазу", description: "Five-step literature review process", descriptionRu: "Пятишаговый процесс обзора литературы", descriptionKk: "Әдебиеттерге шолудың бес қадамды процесі" },
+          { formula: "Thematic Organization: Group by theme, not by author", formulaRu: "Тематическая организация: Группируй по темам, а не по авторам", formulaKk: "Тақырыптық ұйымдастыру: Автор бойынша емес, тақырып бойынша топтастыр", description: "Organize review by themes to show patterns across studies", descriptionRu: "Организация по темам для выявления закономерностей", descriptionKk: "Зерттеулер арасындағы заңдылықтарды көрсету үшін тақырып бойынша ұйымдастыру" }
         ],
         solvedExamples: [
           {
@@ -685,8 +685,8 @@ export const RESEARCH_FULL: Record<string, LessonContent> = {
         contentRu: "Количественное исследование использует числа и статистический анализ для измерения переменных. Качественное исследование изучает опыт и перспективы через интервью и наблюдения. Выбор метода зависит от исследовательского вопроса.",
         contentKk: "Сандық зерттеу айнымалыларды өлшеу үшін сандар мен статистикалық талдауды қолданады. Сапалық зерттеу сұхбаттар мен бақылаулар арқылы тәжірибелер мен көзқарастарды зерделейді. Дұрыс әдісті таңдау зерттеу сұрағыңызға байланысты.",
         keyFormulas: [
-          { formula: "Quantitative: How much / How many → Numbers → Statistics", description: "Quantitative research measures and counts", descriptionRu: "Количественное исследование измеряет и считает", descriptionKk: "Сандық зерттеу өлшейді және санайды" },
-          { formula: "Qualitative: How / Why → Words → Themes", description: "Qualitative research explores meanings and experiences", descriptionRu: "Качественное исследование изучает смыслы и опыт", descriptionKk: "Сапалық зерттеу мағыналар мен тәжірибелерді зерделейді" }
+          { formula: "Quantitative: How much / How many → Numbers → Statistics", formulaRu: "Количественное: Сколько / Как много → Числа → Статистика", formulaKk: "Сандық: Қанша / Қаншама → Сандар → Статистика", description: "Quantitative research measures and counts", descriptionRu: "Количественное исследование измеряет и считает", descriptionKk: "Сандық зерттеу өлшейді және санайды" },
+          { formula: "Qualitative: How / Why → Words → Themes", formulaRu: "Качественное: Как / Почему → Слова → Темы", formulaKk: "Сапалық: Қалай / Неге → Сөздер → Тақырыптар", description: "Qualitative research explores meanings and experiences", descriptionRu: "Качественное исследование изучает смыслы и опыт", descriptionKk: "Сапалық зерттеу мағыналар мен тәжірибелерді зерделейді" }
         ],
         solvedExamples: [
           {
@@ -716,8 +716,8 @@ export const RESEARCH_FULL: Record<string, LessonContent> = {
         contentRu: "Хорошо составленные анкеты собирают надёжные данные через чёткие, непредвзятые вопросы. Типы: закрытые (множественный выбор, шкала Лайкерта) и открытые. Хорошие анкеты избегают наводящих и двойных вопросов.",
         contentKk: "Жақсы құрастырылған сауалнамалар анық, бейтарап сұрақтар арқылы сенімді деректер жинайды. Сұрақ түрлері: жабық (көп таңдаулы, Лайкерт шкаласы) және ашық. Жақсы сауалнамалар бағыттаушы және қос мағыналы сұрақтардан аулақ болады.",
         keyFormulas: [
-          { formula: "Clear language + One idea per question + Neutral wording = Good survey question", description: "Three rules for effective survey questions", descriptionRu: "Три правила эффективных вопросов анкеты", descriptionKk: "Тиімді сауалнама сұрақтарының үш ережесі" },
-          { formula: "Likert Scale: Strongly Disagree (1) → Strongly Agree (5)", description: "Standard 5-point attitude scale", descriptionRu: "Стандартная 5-балльная шкала", descriptionKk: "Стандартты 5-балдық шкала" }
+          { formula: "Clear language + One idea per question + Neutral wording = Good survey question", formulaRu: "Ясный язык + Одна идея на вопрос + Нейтральная формулировка = Хороший вопрос анкеты", formulaKk: "Анық тіл + Әр сұраққа бір идея + Бейтарап тұжырым = Жақсы сауалнама сұрағы", description: "Three rules for effective survey questions", descriptionRu: "Три правила эффективных вопросов анкеты", descriptionKk: "Тиімді сауалнама сұрақтарының үш ережесі" },
+          { formula: "Likert Scale: Strongly Disagree (1) → Strongly Agree (5)", formulaRu: "Шкала Лайкерта: Полностью не согласен (1) → Полностью согласен (5)", formulaKk: "Лайкерт шкаласы: Мүлдем келіспеймін (1) → Толық келісемін (5)", description: "Standard 5-point attitude scale", descriptionRu: "Стандартная 5-балльная шкала", descriptionKk: "Стандартты 5-балдық шкала" }
         ],
         solvedExamples: [
           {
@@ -747,7 +747,7 @@ export const RESEARCH_FULL: Record<string, LessonContent> = {
         contentRu: "Анализ данных превращает необработанные данные в значимые результаты. Для количественных данных — это меры центральной тенденции (среднее, медиана, мода) и разброса (размах, стандартное отклонение). Чёткое представление в таблицах и графиках необходимо.",
         contentKk: "Деректерді талдау шикі деректерді мағыналы нәтижелерге айналдырады. Сандық деректер үшін орталық тенденция өлшемдерін (орташа, медиана, мода) және таралу өлшемдерін (ауқым, стандартты ауытқу) есептеуді қамтиды. Кестелер мен диаграммалар арқылы анық көрсету маңызды.",
         keyFormulas: [
-          { formula: "Mean = Σx / n; Median = middle value; Mode = most frequent", description: "Three measures of central tendency", descriptionRu: "Три меры центральной тенденции", descriptionKk: "Орталық тенденцияның үш өлшемі" },
+          { formula: "Mean = Σx / n; Median = middle value; Mode = most frequent", formulaRu: "Среднее = Σx / n; Медиана = среднее значение; Мода = наиболее частое", formulaKk: "Орташа = Σx / n; Медиана = ортаңғы мән; Мода = жиі кездесетін", description: "Three measures of central tendency", descriptionRu: "Три меры центральной тенденции", descriptionKk: "Орталық тенденцияның үш өлшемі" },
           { formula: "Range = Max − Min; SD = √(Σ(x−x̄)² / n)", description: "Measures of data spread", descriptionRu: "Меры разброса данных", descriptionKk: "Деректер таралуының өлшемдері" }
         ],
         solvedExamples: [
@@ -778,8 +778,8 @@ export const RESEARCH_FULL: Record<string, LessonContent> = {
         contentRu: "APA широко используется в социальных науках. Требует внутритекстовых ссылок с автором и годом, а также списка литературы. Правильное цитирование отдаёт должное авторам и позволяет проверить источники.",
         contentKk: "APA әлеуметтік ғылымдарда кеңінен қолданылады. Автор мен жылы бар мәтін ішіндегі сілтемелерді және пайдаланылған әдебиеттер тізімін талап етеді. Дұрыс цитаталау авторларға құрмет көрсетіп, дереккөздерді тексеруге мүмкіндік береді.",
         keyFormulas: [
-          { formula: "In-text: (Author, Year) or Author (Year)", description: "Two APA in-text citation formats", descriptionRu: "Два формата внутритекстовых ссылок APA", descriptionKk: "APA мәтін ішіндегі сілтемелердің екі форматы" },
-          { formula: "Reference: Author, A. A. (Year). Title. Publisher/URL.", description: "Basic APA reference entry format", descriptionRu: "Базовый формат записи APA", descriptionKk: "APA жазбасының негізгі форматы" }
+          { formula: "In-text: (Author, Year) or Author (Year)", formulaRu: "Внутритекстовая: (Автор, Год) или Автор (Год)", formulaKk: "Мәтін ішінде: (Автор, Жыл) немесе Автор (Жыл)", description: "Two APA in-text citation formats", descriptionRu: "Два формата внутритекстовых ссылок APA", descriptionKk: "APA мәтін ішіндегі сілтемелердің екі форматы" },
+          { formula: "Reference: Author, A. A. (Year). Title. Publisher/URL.", formulaRu: "Список литературы: Автор, А. А. (Год). Название. Издательство/URL.", formulaKk: "Дереккөздер тізімі: Автор, А. А. (Жыл). Атауы. Баспа/URL.", description: "Basic APA reference entry format", descriptionRu: "Базовый формат записи APA", descriptionKk: "APA жазбасының негізгі форматы" }
         ],
         solvedExamples: [
           {
@@ -809,8 +809,8 @@ export const RESEARCH_FULL: Record<string, LessonContent> = {
         contentRu: "Аргументативное эссе представляет тезис, подкреплённый доказательствами, и рассматривает контраргументы. Структура: введение с тезисом, абзацы с аргументами, контраргумент и заключение.",
         contentKk: "Дәлелді эссе дәлелдемелермен қолдаудағы тезисті ұсынып, қарсы дәлелдерді қарастырады. Құрылымы: тезисі бар кіріспе, дәлелдері бар абзацтар, қарсы дәлел және қорытынды.",
         keyFormulas: [
-          { formula: "Thesis → Claim + Evidence + Reasoning → Counterargument → Rebuttal → Conclusion", description: "Standard argumentative essay structure", descriptionRu: "Стандартная структура аргументативного эссе", descriptionKk: "Дәлелді эсседің стандартты құрылымы" },
-          { formula: "PEEL: Point, Evidence, Explain, Link", description: "Paragraph structure for argumentative writing", descriptionRu: "Структура абзаца для аргументативного письма", descriptionKk: "Дәлелді жазу үшін абзац құрылымы" }
+          { formula: "Thesis → Claim + Evidence + Reasoning → Counterargument → Rebuttal → Conclusion", formulaRu: "Тезис → Утверждение + Доказательство + Обоснование → Контраргумент → Опровержение → Заключение", formulaKk: "Тезис → Тұжырым + Дәлел + Негіздеме → Қарсы аргумент → Жоққа шығару → Қорытынды", description: "Standard argumentative essay structure", descriptionRu: "Стандартная структура аргументативного эссе", descriptionKk: "Дәлелді эсседің стандартты құрылымы" },
+          { formula: "PEEL: Point, Evidence, Explain, Link", formulaRu: "PEEL: Тезис, Доказательство, Объяснение, Связь", formulaKk: "PEEL: Тезис, Дәлел, Түсіндіру, Байланыс", description: "Paragraph structure for argumentative writing", descriptionRu: "Структура абзаца для аргументативного письма", descriptionKk: "Дәлелді жазу үшін абзац құрылымы" }
         ],
         solvedExamples: [
           {
@@ -840,8 +840,8 @@ export const RESEARCH_FULL: Record<string, LessonContent> = {
         contentRu: "Исследовательское предложение описывает, что вы планируете изучить, почему это важно и как будете проводить исследование. Основные разделы: введение, обзор литературы, методология и сроки.",
         contentKk: "Зерттеу ұсынысы нені зерттемекші екеніңізді, маңыздылығын және әдістемесін сипаттайды. Негізгі бөлімдер: кіріспе, әдебиеттерге шолу, әдістеме және кесте.",
         keyFormulas: [
-          { formula: "What → Why → How → When: Question, Significance, Methods, Timeline", description: "Four essential components of a research proposal", descriptionRu: "Четыре основных компонента предложения", descriptionKk: "Зерттеу ұсынысының төрт негізгі компоненті" },
-          { formula: "SMART Goals: Specific, Measurable, Achievable, Relevant, Time-bound", description: "Framework for research objectives", descriptionRu: "Структура для целей исследования", descriptionKk: "Зерттеу мақсаттарын анықтау құрылымы" }
+          { formula: "What → Why → How → When: Question, Significance, Methods, Timeline", formulaRu: "Что → Зачем → Как → Когда: Вопрос, Значимость, Методы, Сроки", formulaKk: "Не → Неге → Қалай → Қашан: Сұрақ, Маңыздылық, Әдістер, Мерзімдер", description: "Four essential components of a research proposal", descriptionRu: "Четыре основных компонента предложения", descriptionKk: "Зерттеу ұсынысының төрт негізгі компоненті" },
+          { formula: "SMART Goals: Specific, Measurable, Achievable, Relevant, Time-bound", formulaRu: "Цели SMART: Конкретные, Измеримые, Достижимые, Актуальные, Ограниченные во времени", formulaKk: "SMART мақсаттар: Нақты, Өлшенетін, Қолжетімді, Өзекті, Уақытпен шектелген", description: "Framework for research objectives", descriptionRu: "Структура для целей исследования", descriptionKk: "Зерттеу мақсаттарын анықтау құрылымы" }
         ],
         solvedExamples: [
           {
@@ -871,8 +871,8 @@ export const RESEARCH_FULL: Record<string, LessonContent> = {
         contentRu: "Академический словарный запас — формальные слова научного письма. Владение ими улучшает ясность и понимание текстов. Категории: связки, язык смягчения, глаголы цитирования.",
         contentKk: "Академиялық сөздік қор — ғылыми жазудағы ресми сөздер. Оларды меңгеру жазу анықтығын және мәтіндерді түсінуді жақсартады. Категориялар: байланыстырушылар, жұмсартушы тіл, цитаталау етістіктері.",
         keyFormulas: [
-          { formula: "Informal → Academic: 'shows' → 'demonstrates'; 'a lot' → 'significantly'; 'but' → 'however'", description: "Common informal-to-academic substitutions", descriptionRu: "Распространённые замены разговорных слов", descriptionKk: "Жиі кездесетін ауызекі-академиялық ауыстырулар" },
-          { formula: "Hedging: may, might, suggests, appears to, tends to", description: "Cautious language for claims without absolute certainty", descriptionRu: "Осторожный язык для утверждений без уверенности", descriptionKk: "Абсолютті сенімсіз тұжырымдар үшін сақ тіл" }
+          { formula: "Informal → Academic: 'shows' → 'demonstrates'; 'a lot' → 'significantly'; 'but' → 'however'", formulaRu: "Неформальный → Академический: 'показывает' → 'демонстрирует'; 'много' → 'значительно'; 'но' → 'однако'", formulaKk: "Бейресми → Академиялық: 'көрсетеді' → 'дәлелдейді'; 'көп' → 'айтарлықтай'; 'бірақ' → 'дегенмен'", description: "Common informal-to-academic substitutions", descriptionRu: "Распространённые замены разговорных слов", descriptionKk: "Жиі кездесетін ауызекі-академиялық ауыстырулар" },
+          { formula: "Hedging: may, might, suggests, appears to, tends to", formulaRu: "Смягчение утверждений: может, вероятно, предполагает, по-видимому, склонно", formulaKk: "Жұмсарту тілі: мүмкін, ықтимал, болжайды, көрінеді, бейім", description: "Cautious language for claims without absolute certainty", descriptionRu: "Осторожный язык для утверждений без уверенности", descriptionKk: "Абсолютті сенімсіз тұжырымдар үшін сақ тіл" }
         ],
         solvedExamples: [
           {
@@ -902,8 +902,8 @@ export const RESEARCH_FULL: Record<string, LessonContent> = {
         contentRu: "Логические ошибки — ошибки в рассуждениях, ослабляющие аргументы. Их распознавание помогает критически оценивать источники. Типы: ad hominem, подмена тезиса, ложная дилемма.",
         contentKk: "Логикалық қателіктер — дәлелдерді әлсірететін пайымдау қателері. Оларды тану дереккөздерді сыни бағалауға көмектеседі. Түрлері: ad hominem, бұрмалау, жалған дилемма.",
         keyFormulas: [
-          { formula: "Ad Hominem: Attacks person, not argument | Straw Man: Misrepresents opponent's view", description: "Two common fallacies targeting the arguer", descriptionRu: "Две ошибки, направленные на оппонента", descriptionKk: "Дәлелдеушіге бағытталған екі қателік" },
-          { formula: "False Dilemma: Only A or B | Slippery Slope: A inevitably leads to Z", description: "Fallacies that limit or exaggerate outcomes", descriptionRu: "Ошибки, ограничивающие или преувеличивающие исходы", descriptionKk: "Нәтижелерді шектейтін немесе асыра көрсететін қателіктер" }
+          { formula: "Ad Hominem: Attacks person, not argument | Straw Man: Misrepresents opponent's view", formulaRu: "Ad Hominem: Атакует человека, а не аргумент | Straw Man: Искажает позицию оппонента", formulaKk: "Ad Hominem: Аргументке емес, адамға шабуыл жасайды | Straw Man: Қарсыласының пікірін бұрмалайды", description: "Two common fallacies targeting the arguer", descriptionRu: "Две ошибки, направленные на оппонента", descriptionKk: "Дәлелдеушіге бағытталған екі қателік" },
+          { formula: "False Dilemma: Only A or B | Slippery Slope: A inevitably leads to Z", formulaRu: "Ложная дилемма: Только A или B | Скользкий путь: A неизбежно ведёт к Z", formulaKk: "Жалған дилемма: Тек A немесе B | Сырғанақ жол: A сөзсіз Z-ге әкеледі", description: "Fallacies that limit or exaggerate outcomes", descriptionRu: "Ошибки, ограничивающие или преувеличивающие исходы", descriptionKk: "Нәтижелерді шектейтін немесе асыра көрсететін қателіктер" }
         ],
         solvedExamples: [
           {
@@ -933,8 +933,8 @@ export const RESEARCH_FULL: Record<string, LessonContent> = {
         contentRu: "Олимпиадные задачи требуют творческого решения. Стратегии: работа с конца, поиск закономерностей, крайние случаи, принцип Дирихле. Успех — через практику и быстрое распознавание типов.",
         contentKk: "Олимпиада есептері шығармашылық шешімді талап етеді. Стратегиялар: соңынан жұмыс істеу, заңдылықтарды табу, шеткі жағдайлар, Дирихле принципі. Табысқа жүйелі жаттығу арқылы жетуге болады.",
         keyFormulas: [
-          { formula: "Pigeonhole: n+1 items in n boxes → at least one box has ≥2", description: "Fundamental counting principle for existence proofs", descriptionRu: "Принцип для доказательств существования", descriptionKk: "Бар екендігін дәлелдеу принципі" },
-          { formula: "Invariant: Find a quantity unchanged by operations", description: "Properties preserved through transformations", descriptionRu: "Свойства, сохраняющиеся при преобразованиях", descriptionKk: "Түрлендірулер кезінде сақталатын қасиеттер" }
+          { formula: "Pigeonhole: n+1 items in n boxes → at least one box has ≥2", formulaRu: "Принцип Дирихле: n+1 предметов в n ящиках → хотя бы в одном ящике ≥2", formulaKk: "Дирихле принципі: n қорапта n+1 зат → кемінде бір қорапта ≥2", description: "Fundamental counting principle for existence proofs", descriptionRu: "Принцип для доказательств существования", descriptionKk: "Бар екендігін дәлелдеу принципі" },
+          { formula: "Invariant: Find a quantity unchanged by operations", formulaRu: "Инвариант: Найди величину, не меняющуюся при операциях", formulaKk: "Инвариант: Амалдар кезінде өзгермейтін шаманы тап", description: "Properties preserved through transformations", descriptionRu: "Свойства, сохраняющиеся при преобразованиях", descriptionKk: "Түрлендірулер кезінде сақталатын қасиеттер" }
         ],
         solvedExamples: [
           {
@@ -973,8 +973,8 @@ export const RESEARCH_FULL: Record<string, LessonContent> = {
         contentRu: "Продвинутый дизайн исследований включает выбор между экспериментальным, квазиэкспериментальным и наблюдательным подходами. Экспериментальный дизайн использует случайное распределение для установления причинности, а наблюдательный изучает естественные вариации. Внутренняя и внешняя валидность определяют достоверность и обобщаемость результатов.",
         contentKk: "Жетілдірілген зерттеу дизайны сұрағыңызға байланысты эксперименттік, квазиэксперименттік және бақылау тәсілдерін таңдауды қамтиды. Эксперименттік дизайн себептілікті анықтау үшін кездейсоқ бөлуді қолданады, ал бақылау дизайны табиғи вариацияны зерделейді. Ішкі және сыртқы валидтілік нәтижелеріңіздің сенімділігі мен жалпылануын анықтайды.",
         keyFormulas: [
-          { formula: "Experimental: Random assignment + Control group + Treatment group", description: "Gold standard for establishing cause-and-effect", descriptionRu: "Золотой стандарт для установления причинности", descriptionKk: "Себеп-салдарды анықтаудың алтын стандарты" },
-          { formula: "Validity: Internal (did X cause Y?) + External (does it generalize?)", description: "Two dimensions of research quality", descriptionRu: "Два измерения качества исследования", descriptionKk: "Зерттеу сапасының екі өлшемі" }
+          { formula: "Experimental: Random assignment + Control group + Treatment group", formulaRu: "Экспериментальный: Случайное распределение + Контрольная группа + Экспериментальная группа", formulaKk: "Эксперименттік: Кездейсоқ бөлу + Бақылау тобы + Әсер ету тобы", description: "Gold standard for establishing cause-and-effect", descriptionRu: "Золотой стандарт для установления причинности", descriptionKk: "Себеп-салдарды анықтаудың алтын стандарты" },
+          { formula: "Validity: Internal (did X cause Y?) + External (does it generalize?)", formulaRu: "Валидность: Внутренняя (X вызвал Y?) + Внешняя (обобщается ли это?)", formulaKk: "Валидтілік: Ішкі (X, Y-ті тудырды ма?) + Сыртқы (жалпыланады ма?)", description: "Two dimensions of research quality", descriptionRu: "Два измерения качества исследования", descriptionKk: "Зерттеу сапасының екі өлшемі" }
         ],
         solvedExamples: [
           {
@@ -1004,7 +1004,7 @@ export const RESEARCH_FULL: Record<string, LessonContent> = {
         contentRu: "Статистический анализ использует математические методы для выводов из данных. Описательная статистика обобщает данные, а инференциальная проверяет гипотезы с помощью p-значений и доверительных интервалов. Понимание статистической значимости помогает отличить реальные эффекты от случайности.",
         contentKk: "Статистикалық талдау деректерден қорытынды жасау үшін математикалық әдістерді қолданады. Сипаттамалық статистика деректерді жинақтайды, ал қорытындылық статистика p-мәндер мен сенімділік аралықтары арқылы гипотезаларды тексереді. Статистикалық маңыздылықты түсіну нақты әсерлерді кездейсоқтықтан ажыратуға көмектеседі.",
         keyFormulas: [
-          { formula: "p-value < 0.05 → statistically significant (reject null hypothesis)", description: "Standard threshold for determining statistical significance", descriptionRu: "Стандартный порог статистической значимости", descriptionKk: "Статистикалық маңыздылықты анықтаудың стандартты шегі" },
+          { formula: "p-value < 0.05 → statistically significant (reject null hypothesis)", formulaRu: "p-значение < 0.05 → статистически значимо (отклонить нулевую гипотезу)", formulaKk: "p-мәні < 0.05 → статистикалық маңызды (нөлдік гипотезаны қабылдамау)", description: "Standard threshold for determining statistical significance", descriptionRu: "Стандартный порог статистической значимости", descriptionKk: "Статистикалық маңыздылықты анықтаудың стандартты шегі" },
           { formula: "95% CI: x̄ ± 1.96 × (SD/√n)", description: "Confidence interval formula for large samples", descriptionRu: "Формула доверительного интервала для больших выборок", descriptionKk: "Үлкен іріктемелер үшін сенімділік аралығы формуласы" }
         ],
         solvedExamples: [
@@ -1035,8 +1035,8 @@ export const RESEARCH_FULL: Record<string, LessonContent> = {
         contentRu: "Корреляция означает, что две переменные изменяются вместе, но не доказывает причинность. Скрытые переменные, обратная причинность и совпадения создают ложные корреляции. Для установления причинности нужны контролируемые эксперименты.",
         contentKk: "Корреляция екі айнымалының бірге өзгеретінін білдіреді, бірақ біреуі екіншісін тудыратынын дәлелдемейді. Жасырын айнымалылар, кері себептілік және кездейсоқтық жаңылыстыратын корреляциялар жасай алады. Себептілікті анықтау бақыланатын эксперименттерді талап етеді.",
         keyFormulas: [
-          { formula: "Correlation ≠ Causation: A↔B does not mean A→B", description: "Fundamental principle of research interpretation", descriptionRu: "Фундаментальный принцип интерпретации", descriptionKk: "Зерттеу түсіндірудің негізгі принципі" },
-          { formula: "Confounding Variable: C → A and C → B creates false A↔B", description: "Third variable that creates a spurious correlation", descriptionRu: "Третья переменная, создающая ложную корреляцию", descriptionKk: "Жалған корреляция жасайтын үшінші айнымалы" }
+          { formula: "Correlation ≠ Causation: A↔B does not mean A→B", formulaRu: "Корреляция ≠ Причинность: A↔B не значит A→B", formulaKk: "Корреляция ≠ Себеп-салдар: A↔B A→B дегенді білдірмейді", description: "Fundamental principle of research interpretation", descriptionRu: "Фундаментальный принцип интерпретации", descriptionKk: "Зерттеу түсіндірудің негізгі принципі" },
+          { formula: "Confounding Variable: C → A and C → B creates false A↔B", formulaRu: "Смешивающая переменная: C → A и C → B создаёт ложную A↔B", formulaKk: "Шатастырушы айнымалы: C → A және C → B жалған A↔B тудырады", description: "Third variable that creates a spurious correlation", descriptionRu: "Третья переменная, создающая ложную корреляцию", descriptionKk: "Жалған корреляция жасайтын үшінші айнымалы" }
         ],
         solvedExamples: [
           {
@@ -1066,8 +1066,8 @@ export const RESEARCH_FULL: Record<string, LessonContent> = {
         contentRu: "Сильный тезис — основа научной статьи. Он формулирует конкретное, аргументируемое утверждение, которое подкрепляется доказательствами. Хороший тезис не просто констатирует факт — он занимает позицию и предваряет структуру аргумента.",
         contentKk: "Күшті тезис кез келген зерттеу жұмысының негізі. Ол бүкіл жұмысыңыз дәлелдемелермен қолдайтын нақты, дәлелденетін тұжырым жасайды. Жақсы тезис фактіні айту ғана емес — ақылды адамдар келіспеуі мүмкін позиция алып, дәлел құрылымын алдын ала көрсетеді.",
         keyFormulas: [
-          { formula: "Topic + Position + Reasons = Strong Thesis", description: "Three-part formula for thesis statements", descriptionRu: "Трёхчастная формула для тезиса", descriptionKk: "Тезис тұжырымының үш бөлімді формуласы" },
-          { formula: "Weak: 'X is important.' → Strong: 'X should be Y because A, B, and C.'", description: "Converting vague statements into arguable theses", descriptionRu: "Превращение расплывчатых утверждений в аргументируемые тезисы", descriptionKk: "Анық емес тұжырымдарды дәлелденетін тезистерге айналдыру" }
+          { formula: "Topic + Position + Reasons = Strong Thesis", formulaRu: "Тема + Позиция + Причины = Сильный тезис", formulaKk: "Тақырып + Позиция + Себептер = Күшті тезис", description: "Three-part formula for thesis statements", descriptionRu: "Трёхчастная формула для тезиса", descriptionKk: "Тезис тұжырымының үш бөлімді формуласы" },
+          { formula: "Weak: 'X is important.' → Strong: 'X should be Y because A, B, and C.'", formulaRu: "Слабый: 'X важен.' → Сильный: 'X должен быть Y, потому что A, B и C.'", formulaKk: "Әлсіз: 'X маңызды.' → Күшті: 'X - Y болуы керек, себебі A, B және C.'", description: "Converting vague statements into arguable theses", descriptionRu: "Превращение расплывчатых утверждений в аргументируемые тезисы", descriptionKk: "Анық емес тұжырымдарды дәлелденетін тезистерге айналдыру" }
         ],
         solvedExamples: [
           {
@@ -1097,8 +1097,8 @@ export const RESEARCH_FULL: Record<string, LessonContent> = {
         contentRu: "Научные статьи следуют структуре IMRaD: Введение, Методы, Результаты, Обсуждение. Введение формулирует проблему, Методы описывают проведение, Результаты представляют данные, Обсуждение интерпретирует и связывает с литературой.",
         contentKk: "Зерттеу мақалалары IMRaD құрылымын ұстанады: Кіріспе, Әдістер, Нәтижелер, Талқылау. Кіріспе мәселені айтады, Әдістер зерттеу жүргізуді сипаттайды, Нәтижелер деректерді ұсынады, Талқылау түсіндіреді және әдебиеттермен байланыстырады.",
         keyFormulas: [
-          { formula: "IMRaD: Introduction → Methods → Results → Discussion", description: "Standard structure for research papers", descriptionRu: "Стандартная структура научных статей", descriptionKk: "Зерттеу мақалаларының стандартты құрылымы" },
-          { formula: "Hourglass Model: Broad → Narrow → Narrow → Broad", description: "Introduction starts broad, methods/results are specific, discussion broadens again", descriptionRu: "Введение широкое, методы узкие, обсуждение снова широкое", descriptionKk: "Кіріспе кең, әдістер тар, талқылау қайта кеңейеді" }
+          { formula: "IMRaD: Introduction → Methods → Results → Discussion", formulaRu: "IMRaD: Введение → Методы → Результаты → Обсуждение", formulaKk: "IMRaD: Кіріспе → Әдістер → Нәтижелер → Талқылау", description: "Standard structure for research papers", descriptionRu: "Стандартная структура научных статей", descriptionKk: "Зерттеу мақалаларының стандартты құрылымы" },
+          { formula: "Hourglass Model: Broad → Narrow → Narrow → Broad", formulaRu: "Модель песочных часов: Широко → Узко → Узко → Широко", formulaKk: "Құм сағат моделі: Кең → Тар → Тар → Кең", description: "Introduction starts broad, methods/results are specific, discussion broadens again", descriptionRu: "Введение широкое, методы узкие, обсуждение снова широкое", descriptionKk: "Кіріспе кең, әдістер тар, талқылау қайта кеңейеді" }
         ],
         solvedExamples: [
           {
@@ -1128,8 +1128,8 @@ export const RESEARCH_FULL: Record<string, LessonContent> = {
         contentRu: "Аннотация — краткое резюме (150-300 слов) всей статьи: цель, методы, ключевые результаты и выводы. Хорошая аннотация позволяет быстро решить, стоит ли читать статью, и часто единственное, что отображается в базах данных.",
         contentKk: "Аңдатпа — бүкіл зерттеу жұмысының қысқаша түйіндемесі (150-300 сөз): мақсат, әдістер, негізгі нәтижелер және қорытындылар. Жақсы аңдатпа оқырмандарға мақаланы оқу керек пе, соны тез шешуге мүмкіндік береді.",
         keyFormulas: [
-          { formula: "Abstract = Purpose + Methods + Results + Conclusion (in ~200 words)", description: "Four-part abstract structure mirroring IMRaD", descriptionRu: "Четырёхчастная структура, отражающая IMRaD", descriptionKk: "IMRaD-ты көрсететін төрт бөлімді құрылым" },
-          { formula: "Write the abstract LAST — after the full paper is complete", description: "Abstracts summarize what you found, not what you planned", descriptionRu: "Аннотация — итог, а не план", descriptionKk: "Аңдатпа — нәтиже, жоспар емес" }
+          { formula: "Abstract = Purpose + Methods + Results + Conclusion (in ~200 words)", formulaRu: "Аннотация = Цель + Методы + Результаты + Заключение (~200 слов)", formulaKk: "Аңдатпа = Мақсат + Әдістер + Нәтижелер + Қорытынды (~200 сөз)", description: "Four-part abstract structure mirroring IMRaD", descriptionRu: "Четырёхчастная структура, отражающая IMRaD", descriptionKk: "IMRaD-ты көрсететін төрт бөлімді құрылым" },
+          { formula: "Write the abstract LAST — after the full paper is complete", formulaRu: "Пиши аннотацию ПОСЛЕДНЕЙ — после завершения всей работы", formulaKk: "Аңдатпаны ЕҢ СОҢЫНДА жаз — толық жұмыс аяқталғаннан кейін", description: "Abstracts summarize what you found, not what you planned", descriptionRu: "Аннотация — итог, а не план", descriptionKk: "Аңдатпа — нәтиже, жоспар емес" }
         ],
         solvedExamples: [
           {
@@ -1159,8 +1159,8 @@ export const RESEARCH_FULL: Record<string, LessonContent> = {
         contentRu: "Презентация на конференции требует перевода сложных результатов в понятные доклады. Эффективные презентации следуют логической структуре, разумно используют визуальные средства и предвидят вопросы. Главное — рассказать историю исследования, а не читать статью вслух.",
         contentKk: "Конференцияда зерттеуді ұсыну күрделі нәтижелерді анық, тартымды баяндамаларға аударуды талап етеді. Тиімді презентациялар логикалық құрылымды ұстанады, көрнекі құралдарды ақылды пайдаланады және аудитория сұрақтарын алдын ала ойластырады. Негізгісі — мақалаңызды оқу емес, зерттеуіңіз туралы тартымды әңгіме айту.",
         keyFormulas: [
-          { formula: "10-20-30 Rule: 10 slides, 20 minutes, 30pt minimum font", description: "Guy Kawasaki's guideline for effective presentations", descriptionRu: "Правило для эффективных презентаций", descriptionKk: "Тиімді презентациялар ережесі" },
-          { formula: "Hook → Problem → Method → Results → So What? → Questions", description: "Six-part presentation flow", descriptionRu: "Шестичастная структура доклада", descriptionKk: "Алты бөлімді баяндама құрылымы" }
+          { formula: "10-20-30 Rule: 10 slides, 20 minutes, 30pt minimum font", formulaRu: "Правило 10-20-30: 10 слайдов, 20 минут, шрифт не менее 30pt", formulaKk: "10-20-30 ережесі: 10 слайд, 20 минут, кемінде 30pt қаріп", description: "Guy Kawasaki's guideline for effective presentations", descriptionRu: "Правило для эффективных презентаций", descriptionKk: "Тиімді презентациялар ережесі" },
+          { formula: "Hook → Problem → Method → Results → So What? → Questions", formulaRu: "Зацепка → Проблема → Метод → Результаты → И что? → Вопросы", formulaKk: "Қызықтыру → Мәселе → Әдіс → Нәтижелер → Не үшін? → Сұрақтар", description: "Six-part presentation flow", descriptionRu: "Шестичастная структура доклада", descriptionKk: "Алты бөлімді баяндама құрылымы" }
         ],
         solvedExamples: [
           {
@@ -1190,8 +1190,8 @@ export const RESEARCH_FULL: Record<string, LessonContent> = {
         contentRu: "Рецензирование — процесс оценки вашей работы другими исследователями перед публикацией. Конструктивная обратная связь сочетает положительные наблюдения с конкретными предложениями. Открытое восприятие критики укрепляет навыки исследования и письма.",
         contentKk: "Пікір алмасу — жарияланар алдында жұмысыңызды басқа зерттеушілердің бағалау процесі. Конструктивті кері байланыс оң байқаулар мен нақты, орындалатын ұсыныстарды теңестіруді талап етеді. Кері байланысты ашық қабылдау зерттеу және жазу дағдыларыңызды нығайтады.",
         keyFormulas: [
-          { formula: "Constructive Feedback = Strength + Specific Issue + Suggested Fix", description: "Three-part formula for helpful peer reviews", descriptionRu: "Трёхчастная формула полезной рецензии", descriptionKk: "Пайдалы пікір алмасудың үш бөлімді формуласы" },
-          { formula: "Review Criteria: Clarity, Evidence, Logic, Originality, Methods", description: "Five dimensions to evaluate in peer review", descriptionRu: "Пять аспектов оценки при рецензировании", descriptionKk: "Пікір алмасуда бағалайтын бес аспект" }
+          { formula: "Constructive Feedback = Strength + Specific Issue + Suggested Fix", formulaRu: "Конструктивная обратная связь = Сильная сторона + Конкретная проблема + Предложенное решение", formulaKk: "Құрылымды кері байланыс = Күшті жақ + Нақты мәселе + Ұсынылған шешім", description: "Three-part formula for helpful peer reviews", descriptionRu: "Трёхчастная формула полезной рецензии", descriptionKk: "Пайдалы пікір алмасудың үш бөлімді формуласы" },
+          { formula: "Review Criteria: Clarity, Evidence, Logic, Originality, Methods", formulaRu: "Критерии рецензии: Ясность, Доказательства, Логика, Оригинальность, Методы", formulaKk: "Пікір критерийлері: Анықтық, Дәлелдер, Логика, Түпнұсқалық, Әдістер", description: "Five dimensions to evaluate in peer review", descriptionRu: "Пять аспектов оценки при рецензировании", descriptionKk: "Пікір алмасуда бағалайтын бес аспект" }
         ],
         solvedExamples: [
           {
@@ -1221,8 +1221,8 @@ export const RESEARCH_FULL: Record<string, LessonContent> = {
         contentRu: "Научные олимпиады проверяют глубокие знания через экспериментальный дизайн, анализ данных и решение реальных задач. Соревнования включают создание устройств, идентификацию образцов и аналитические задачи. Успех требует мастерства в содержании и стратегической подготовки.",
         contentKk: "Ғылыми олимпиадалар эксперименттік дизайн, деректерді талдау және нақты мәселелерді шешу арқылы терең білімді тексереді. Жарыстар құрылғылар жасаудан бастап, үлгілерді анықтауға және күрделі аналитикалық есептерді шығаруға дейін. Табысқа мазмұнды меңгеру мен стратегиялық дайындық арқылы жетуге болады.",
         keyFormulas: [
-          { formula: "Experimental Design: Hypothesis → Variables (IV, DV, CV) → Procedure → Data → Conclusion", description: "Standard framework for science olympiad experimental events", descriptionRu: "Стандартная рамка для экспериментальных заданий", descriptionKk: "Эксперименттік тапсырмалардың стандартты құрылымы" },
-          { formula: "Error Analysis: |Measured − Actual| / Actual × 100%", description: "Percent error formula for evaluating experimental accuracy", descriptionRu: "Формула процентной ошибки для оценки точности", descriptionKk: "Дәлдікті бағалау үшін пайыздық қателік формуласы" }
+          { formula: "Experimental Design: Hypothesis → Variables (IV, DV, CV) → Procedure → Data → Conclusion", formulaRu: "Экспериментальный дизайн: Гипотеза → Переменные (IV, DV, CV) → Процедура → Данные → Заключение", formulaKk: "Эксперименттік дизайн: Гипотеза → Айнымалылар (IV, DV, CV) → Процедура → Деректер → Қорытынды", description: "Standard framework for science olympiad experimental events", descriptionRu: "Стандартная рамка для экспериментальных заданий", descriptionKk: "Эксперименттік тапсырмалардың стандартты құрылымы" },
+          { formula: "Error Analysis: |Measured − Actual| / Actual × 100%", formulaRu: "Анализ ошибки: |Измеренное − Фактическое| / Фактическое × 100%", formulaKk: "Қателік талдауы: |Өлшенген − Нақты| / Нақты × 100%", description: "Percent error formula for evaluating experimental accuracy", descriptionRu: "Формула процентной ошибки для оценки точности", descriptionKk: "Дәлдікті бағалау үшін пайыздық қателік формуласы" }
         ],
         solvedExamples: [
           {
@@ -1252,8 +1252,8 @@ export const RESEARCH_FULL: Record<string, LessonContent> = {
         contentRu: "Написание грантов — навык запроса финансирования путём убедительного представления важности, осуществимости и влияния проекта. Успешные заявки чётко формулируют проблему, методологию, бюджет и квалификацию команды.",
         contentKk: "Грант жазу — жобаңыздың маңыздылығын, орындалуын және әсерін сенімді түрде көрсету арқылы қаржыландыру сұрау дағдысы. Табысты грант ұсыныстары мәселені, әдістемені, бюджетті және команданың біліктілігін нақты көрсетеді.",
         keyFormulas: [
-          { formula: "Grant = Problem Statement + Objectives + Methods + Budget + Impact", description: "Five essential sections of a grant proposal", descriptionRu: "Пять основных разделов грантовой заявки", descriptionKk: "Грант ұсынысының бес негізгі бөлімі" },
-          { formula: "FINER Criteria: Feasible, Interesting, Novel, Ethical, Relevant", description: "Checklist for evaluating whether a project is fundable", descriptionRu: "Контрольный список оценки проекта", descriptionKk: "Жобаны бағалаудың тексеру тізімі" }
+          { formula: "Grant = Problem Statement + Objectives + Methods + Budget + Impact", formulaRu: "Грант = Постановка проблемы + Цели + Методы + Бюджет + Влияние", formulaKk: "Грант = Мәселені тұжырымдау + Мақсаттар + Әдістер + Бюджет + Әсер", description: "Five essential sections of a grant proposal", descriptionRu: "Пять основных разделов грантовой заявки", descriptionKk: "Грант ұсынысының бес негізгі бөлімі" },
+          { formula: "FINER Criteria: Feasible, Interesting, Novel, Ethical, Relevant", formulaRu: "Критерии FINER: Выполнимо, Интересно, Ново, Этично, Актуально", formulaKk: "FINER критерийлері: Орындалатын, Қызықты, Жаңа, Этикалық, Өзекті", description: "Checklist for evaluating whether a project is fundable", descriptionRu: "Контрольный список оценки проекта", descriptionKk: "Жобаны бағалаудың тексеру тізімі" }
         ],
         solvedExamples: [
           {
@@ -1292,8 +1292,8 @@ export const RESEARCH_FULL: Record<string, LessonContent> = {
         contentRu: "Самостоятельное исследование — проект, где вы формулируете свой вопрос, проектируете методологию, собираете и анализируете данные и представляете оригинальные результаты. Оно демонстрирует интеллектуальную зрелость и высоко ценится при поступлении. Управление проектом требует планирования и консультаций.",
         contentKk: "Дербес зерттеу — өз сұрағыңызды қалыптастырып, әдістемені жоспарлап, деректер жинап талдап, түпнұсқа нәтижелерді ұсынатын өзіңіз басқаратын ғылыми жоба. Ол интеллектуалдық жетілуді көрсетеді және университетке түсуде жоғары бағаланады. Ұзақ мерзімді жобаны басқару мұқият жоспарлауды талап етеді.",
         keyFormulas: [
-          { formula: "Gantt Chart: Tasks × Timeline with milestones and deadlines", description: "Visual project management tool for tracking research progress", descriptionRu: "Визуальный инструмент управления проектом", descriptionKk: "Зерттеу барысын бақылаудың визуалды жоба басқару құралы" },
-          { formula: "Research Journal: Date + Activity + Findings + Reflections", description: "Daily log for documenting your research process", descriptionRu: "Ежедневный журнал для документирования процесса", descriptionKk: "Зерттеу процесін құжаттаудың күнделікті журналы" }
+          { formula: "Gantt Chart: Tasks × Timeline with milestones and deadlines", formulaRu: "Диаграмма Ганта: Задачи × Временная шкала с этапами и сроками", formulaKk: "Гантт диаграммасы: Тапсырмалар × Уақыт шкаласы, кезеңдер мен мерзімдермен", description: "Visual project management tool for tracking research progress", descriptionRu: "Визуальный инструмент управления проектом", descriptionKk: "Зерттеу барысын бақылаудың визуалды жоба басқару құралы" },
+          { formula: "Research Journal: Date + Activity + Findings + Reflections", formulaRu: "Исследовательский журнал: Дата + Действие + Выводы + Рефлексия", formulaKk: "Зерттеу күнделігі: Күні + Әрекет + Қорытынды + Рефлексия", description: "Daily log for documenting your research process", descriptionRu: "Ежедневный журнал для документирования процесса", descriptionKk: "Зерттеу процесін құжаттаудың күнделікті журналы" }
         ],
         solvedExamples: [
           {
@@ -1323,8 +1323,8 @@ export const RESEARCH_FULL: Record<string, LessonContent> = {
         contentRu: "Смешанные методы объединяют количественные и качественные подходы для полного понимания проблемы. Количественная часть измеряет «что» и «сколько», качественная объясняет «почему». Основные дизайны: конвергентный (одновременно), последовательный объяснительный (сначала количественный), последовательный разведывательный (сначала качественный).",
         contentKk: "Аралас әдістер зерттеу мәселесін толық түсіну үшін сандық және сапалық тәсілдерді біріктіреді. Сандық бөлім «не» және «қанша» өлшейді, ал сапалық бөлім «неге» және «қалай» түсіндіреді. Негізгі дизайндар: конвергентті (бір мезгілде), түсіндірмелі бірізді (алдымен сандық), зерделеу бірізді (алдымен сапалық).",
         keyFormulas: [
-          { formula: "Convergent: QUAN + QUAL → Compare/Merge → Interpretation", description: "Collect both types simultaneously, then compare", descriptionRu: "Собирать оба типа одновременно, затем сравнивать", descriptionKk: "Екі түрін бір уақытта жинап, салыстыру" },
-          { formula: "Explanatory Sequential: QUAN → qual → Interpretation", description: "Quantitative results inform qualitative follow-up", descriptionRu: "Количественные результаты направляют качественное продолжение", descriptionKk: "Сандық нәтижелер сапалық жалғасуды бағыттайды" }
+          { formula: "Convergent: QUAN + QUAL → Compare/Merge → Interpretation", formulaRu: "Конвергентный: QUAN + QUAL → Сравнение/Слияние → Интерпретация", formulaKk: "Конвергентті: QUAN + QUAL → Салыстыру/Біріктіру → Түсіндіру", description: "Collect both types simultaneously, then compare", descriptionRu: "Собирать оба типа одновременно, затем сравнивать", descriptionKk: "Екі түрін бір уақытта жинап, салыстыру" },
+          { formula: "Explanatory Sequential: QUAN → qual → Interpretation", formulaRu: "Объяснительный последовательный: QUAN → qual → Интерпретация", formulaKk: "Түсіндірмелі тізбекті: QUAN → qual → Түсіндіру", description: "Quantitative results inform qualitative follow-up", descriptionRu: "Количественные результаты направляют качественное продолжение", descriptionKk: "Сандық нәтижелер сапалық жалғасуды бағыттайды" }
         ],
         solvedExamples: [
           {
@@ -1354,8 +1354,8 @@ export const RESEARCH_FULL: Record<string, LessonContent> = {
         contentRu: "Процесс публикации превращает исследования в рецензируемые статьи. Понимание процесса — от выбора журнала до работы с правками — необходимо для серьёзных исследователей. Этапы: подготовка рукописи, выбор журнала, подача, рецензирование, доработка, публикация.",
         contentKk: "Академиялық жариялау процесі зерттеулерді рецензияланған мақалаларға айналдырады. Журнал таңдаудан бастап түзетулерге дейін — бұл процесті түсіну маңызды. Кезеңдер: қолжазба дайындау, журнал таңдау, жіберу, рецензиялау, қайта өңдеу, жариялау.",
         keyFormulas: [
-          { formula: "Submit → Desk Review → Peer Review → Revise & Resubmit → Accept/Reject", description: "Standard academic publication pipeline", descriptionRu: "Стандартный процесс публикации", descriptionKk: "Стандартты жариялау процесі" },
-          { formula: "Impact Factor = Citations in Year X / Articles published in Years X-1 and X-2", description: "Measure of a journal's influence in its field", descriptionRu: "Мера влиятельности журнала в своей области", descriptionKk: "Журналдың өз саласындағы ықпалын өлшеу" }
+          { formula: "Submit → Desk Review → Peer Review → Revise & Resubmit → Accept/Reject", formulaRu: "Подача → Предварительная проверка → Рецензирование → Правка и повторная подача → Принятие/Отклонение", formulaKk: "Тапсыру → Алдын ала тексеру → Пікір алмасу → Түзету және қайта тапсыру → Қабылдау/Қабылдамау", description: "Standard academic publication pipeline", descriptionRu: "Стандартный процесс публикации", descriptionKk: "Стандартты жариялау процесі" },
+          { formula: "Impact Factor = Citations in Year X / Articles published in Years X-1 and X-2", formulaRu: "Импакт-фактор = Цитирования в году X / Статьи, опубликованные в годах X-1 и X-2", formulaKk: "Импакт-фактор = X жылындағы дәйексөздер / X-1 және X-2 жылдарында жарияланған мақалалар", description: "Measure of a journal's influence in its field", descriptionRu: "Мера влиятельности журнала в своей области", descriptionKk: "Журналдың өз саласындағы ықпалын өлшеу" }
         ],
         solvedExamples: [
           {
@@ -1385,8 +1385,8 @@ export const RESEARCH_FULL: Record<string, LessonContent> = {
         contentRu: "Расширенное эссе IB — исследовательская работа на 4000 слов для диплома IB. Требует углублённого исследования, критического мышления и академических стандартов IB. Сильное EE имеет чёткий исследовательский вопрос, структурированную аргументацию и правильное цитирование.",
         contentKk: "IB кеңейтілген эссесі — IB дипломы үшін қажет 4000 сөздік дербес зерттеу жұмысы. Ол тақырыпты тереңдетіп зерттеуді, сыни ойлауды және IB академиялық стандарттарын ұстануды талап етеді. Күшті EE нақты зерттеу сұрағы, құрылымдалған дәлел және дұрыс цитаталау бар.",
         keyFormulas: [
-          { formula: "EE Structure: Introduction (RQ) → Body (argument + evidence) → Conclusion → Bibliography", description: "Standard structure for the Extended Essay", descriptionRu: "Стандартная структура расширенного эссе", descriptionKk: "Кеңейтілген эссенің стандартты құрылымы" },
-          { formula: "IB Criteria: Focus (6) + Knowledge (6) + Critical Thinking (12) + Presentation (4) + Engagement (6) = 34 marks", description: "Five assessment criteria and their weightings", descriptionRu: "Пять критериев оценки и их вес", descriptionKk: "Бес бағалау критерийі және олардың салмағы" }
+          { formula: "EE Structure: Introduction (RQ) → Body (argument + evidence) → Conclusion → Bibliography", formulaRu: "Структура EE: Введение (RQ) → Основная часть (аргумент + доказательство) → Заключение → Библиография", formulaKk: "EE құрылымы: Кіріспе (RQ) → Негізгі бөлім (аргумент + дәлел) → Қорытынды → Библиография", description: "Standard structure for the Extended Essay", descriptionRu: "Стандартная структура расширенного эссе", descriptionKk: "Кеңейтілген эссенің стандартты құрылымы" },
+          { formula: "IB Criteria: Focus (6) + Knowledge (6) + Critical Thinking (12) + Presentation (4) + Engagement (6) = 34 marks", formulaRu: "Критерии IB: Фокус (6) + Знание (6) + Критическое мышление (12) + Презентация (4) + Вовлечённость (6) = 34 балла", formulaKk: "IB критерийлері: Фокус (6) + Білім (6) + Сыни ойлау (12) + Таныстырылым (4) + Тартылу (6) = 34 балл", description: "Five assessment criteria and their weightings", descriptionRu: "Пять критериев оценки и их вес", descriptionKk: "Бес бағалау критерийі және олардың салмағы" }
         ],
         solvedExamples: [
           {
@@ -1416,8 +1416,8 @@ export const RESEARCH_FULL: Record<string, LessonContent> = {
         contentRu: "Систематический обзор — строгий метод синтеза всех доступных исследований по вопросу. В отличие от обычного обзора, он следует протоколу, использует явные стратегии поиска и критерии включения/исключения. Систематические обзоры на вершине иерархии доказательств.",
         contentKk: "Жүйелі шолу — нақты сұрақ бойынша барлық қолжетімді зерттеулерді синтездеудің қатаң, құрылымдалған әдісі. Кәдімгі шолудан айырмашылығы — ол алдын ала анықталған хаттамаға сүйенеді, нақты іздеу стратегияларын қолданады және зерттеу сапасын бағалайды. Жүйелі шолулар дәлелдер иерархиясының шыңында тұрады.",
         keyFormulas: [
-          { formula: "PRISMA Flow: Identified → Screened → Eligible → Included", description: "Standard reporting framework for systematic reviews", descriptionRu: "Стандартная схема отчётности систематического обзора", descriptionKk: "Жүйелі шолудың стандартты есеп беру құрылымы" },
-          { formula: "PICO: Population, Intervention, Comparison, Outcome", description: "Framework for formulating a systematic review question", descriptionRu: "Рамка для формулирования вопроса обзора", descriptionKk: "Шолу сұрағын қалыптастыру құрылымы" }
+          { formula: "PRISMA Flow: Identified → Screened → Eligible → Included", formulaRu: "Поток PRISMA: Найдено → Отобрано → Подходит → Включено", formulaKk: "PRISMA ағыны: Табылды → Іріктелді → Сәйкес келеді → Енгізілді", description: "Standard reporting framework for systematic reviews", descriptionRu: "Стандартная схема отчётности систематического обзора", descriptionKk: "Жүйелі шолудың стандартты есеп беру құрылымы" },
+          { formula: "PICO: Population, Intervention, Comparison, Outcome", formulaRu: "PICO: Популяция, Вмешательство, Сравнение, Результат", formulaKk: "PICO: Популяция, Араласу, Салыстыру, Нәтиже", description: "Framework for formulating a systematic review question", descriptionRu: "Рамка для формулирования вопроса обзора", descriptionKk: "Шолу сұрағын қалыптастыру құрылымы" }
         ],
         solvedExamples: [
           {
@@ -1447,8 +1447,8 @@ export const RESEARCH_FULL: Record<string, LessonContent> = {
         contentRu: "Академическая честность — это честное и этичное проведение и представление исследований: правильное цитирование, избежание плагиата, точная отчётность и признание вклада других. Нарушения: фабрикация, фальсификация, плагиат и самоплагиат.",
         contentKk: "Академиялық адалдық — зерттеулерді адал және этикалық жүргізу мен ұсынуды білдіреді: дұрыс цитаталау, плагиаттан аулақ болу, деректерді дәл есеп беру және басқалардың үлестерін мойындау. Бұзушылықтар: фабрикация, фальсификация, плагиат және өзін-өзі плагиат.",
         keyFormulas: [
-          { formula: "Plagiarism Types: Copy-paste | Paraphrase without citation | Self-plagiarism | Mosaic plagiarism", description: "Four forms of academic dishonesty involving others' work", descriptionRu: "Четыре формы нечестности с чужими работами", descriptionKk: "Басқалардың жұмыстарына қатысты адалсыздықтың төрт түрі" },
-          { formula: "Proper Paraphrase = New words + New structure + Citation", description: "How to use others' ideas ethically", descriptionRu: "Как этично использовать чужие идеи", descriptionKk: "Басқалардың идеяларын этикалық қолдану" }
+          { formula: "Plagiarism Types: Copy-paste | Paraphrase without citation | Self-plagiarism | Mosaic plagiarism", formulaRu: "Виды плагиата: Копипаст | Перефраз без цитирования | Самоплагиат | Мозаичный плагиат", formulaKk: "Плагиат түрлері: Көшіру-қою | Дәйексіз перифраз | Өзін-өзі плагиаттау | Мозаикалық плагиат", description: "Four forms of academic dishonesty involving others' work", descriptionRu: "Четыре формы нечестности с чужими работами", descriptionKk: "Басқалардың жұмыстарына қатысты адалсыздықтың төрт түрі" },
+          { formula: "Proper Paraphrase = New words + New structure + Citation", formulaRu: "Правильный перефраз = Новые слова + Новая структура + Цитирование", formulaKk: "Дұрыс перифраз = Жаңа сөздер + Жаңа құрылым + Дәйексөз", description: "How to use others' ideas ethically", descriptionRu: "Как этично использовать чужие идеи", descriptionKk: "Басқалардың идеяларын этикалық қолдану" }
         ],
         solvedExamples: [
           {
@@ -1478,8 +1478,8 @@ export const RESEARCH_FULL: Record<string, LessonContent> = {
         contentRu: "Исследовательская этика регулирует проведение исследований для защиты участников и доверия к науке. Основные принципы: информированное согласие, конфиденциальность, минимизация вреда, право на отказ. Исследования с людьми требуют одобрения этического комитета.",
         contentKk: "Зерттеу этикасы қатысушыларды қорғау, әділдікті қамтамасыз ету және ғылымға сенімді сақтау үшін зерттеулерді жүргізуді реттейді. Негізгі принциптер: хабардар келісім, құпиялылық, зиянды азайту, бас тарту құқығы. Адамдарды зерттеу этикалық комитеттің мақұлдауын талап етеді.",
         keyFormulas: [
-          { formula: "Belmont Principles: Respect for Persons + Beneficence + Justice", description: "Three foundational ethical principles for human subjects research", descriptionRu: "Три фундаментальных этических принципа", descriptionKk: "Адамдарды зерттеудің үш негізгі этикалық принципі" },
-          { formula: "Informed Consent = Purpose + Procedures + Risks + Benefits + Voluntary + Right to Withdraw", description: "Required elements in a consent form", descriptionRu: "Обязательные элементы формы согласия", descriptionKk: "Келісім формасының міндетті элементтері" }
+          { formula: "Belmont Principles: Respect for Persons + Beneficence + Justice", formulaRu: "Принципы Бельмонта: Уважение к личности + Благодеяние + Справедливость", formulaKk: "Бельмонт принциптері: Тұлғаны құрметтеу + Игілік жасау + Әділдік", description: "Three foundational ethical principles for human subjects research", descriptionRu: "Три фундаментальных этических принципа", descriptionKk: "Адамдарды зерттеудің үш негізгі этикалық принципі" },
+          { formula: "Informed Consent = Purpose + Procedures + Risks + Benefits + Voluntary + Right to Withdraw", formulaRu: "Информированное согласие = Цель + Процедуры + Риски + Выгоды + Добровольность + Право отказа", formulaKk: "Хабардар келісім = Мақсат + Процедуралар + Тәуекелдер + Пайдалар + Ерікті болу + Бас тарту құқығы", description: "Required elements in a consent form", descriptionRu: "Обязательные элементы формы согласия", descriptionKk: "Келісім формасының міндетті элементтері" }
         ],
         solvedExamples: [
           {
@@ -1509,8 +1509,8 @@ export const RESEARCH_FULL: Record<string, LessonContent> = {
         contentRu: "Визуализация данных превращает числа в истории, раскрывающие закономерности и связи. Выбор типа диаграммы критичен: столбчатые для сравнений, линейные для трендов, точечные для связей, круговые для пропорций. Эффективные визуализации следуют принципам ясности и точности.",
         contentKk: "Деректерді визуализациялау сандарды заңдылықтар, трендтер мен байланыстарды көрсететін визуалды әңгімелерге айналдырады. Дұрыс диаграмма түрін таңдау маңызды: бағаналы — салыстыру, сызықтық — уақыт трендтері, нүктелік — айнымалылар арасындағы байланыс, дөңгелек — пропорциялар.",
         keyFormulas: [
-          { formula: "Comparison → Bar chart | Trend → Line graph | Relationship → Scatter plot | Proportion → Pie chart", description: "Matching data type to visualization type", descriptionRu: "Соответствие типа данных типу визуализации", descriptionKk: "Деректер түрін визуализация түріне сәйкестендіру" },
-          { formula: "Tufte's Data-Ink Ratio = Data ink / Total ink → Maximize this ratio", description: "Principle of minimizing non-data elements in charts", descriptionRu: "Принцип минимизации нефункциональных элементов", descriptionKk: "Диаграммалардағы деректер емес элементтерді азайту принципі" }
+          { formula: "Comparison → Bar chart | Trend → Line graph | Relationship → Scatter plot | Proportion → Pie chart", formulaRu: "Сравнение → Столбчатая диаграмма | Тренд → Линейный график | Взаимосвязь → Точечная диаграмма | Доля → Круговая диаграмма", formulaKk: "Салыстыру → Бағаналы диаграмма | Тренд → Сызықтық график | Байланыс → Нүктелік диаграмма | Үлес → Дөңгелек диаграмма", description: "Matching data type to visualization type", descriptionRu: "Соответствие типа данных типу визуализации", descriptionKk: "Деректер түрін визуализация түріне сәйкестендіру" },
+          { formula: "Tufte's Data-Ink Ratio = Data ink / Total ink → Maximize this ratio", formulaRu: "Коэффициент данных-чернил Тафти = Чернила данных / Все чернила → Максимизируй это соотношение", formulaKk: "Тафтидің дерек-сия қатынасы = Дерек сиясы / Жалпы сия → Бұл қатынасты барынша арттыр", description: "Principle of minimizing non-data elements in charts", descriptionRu: "Принцип минимизации нефункциональных элементов", descriptionKk: "Диаграммалардағы деректер емес элементтерді азайту принципі" }
         ],
         solvedExamples: [
           {
@@ -1540,8 +1540,8 @@ export const RESEARCH_FULL: Record<string, LessonContent> = {
         contentRu: "Международные олимпиады (IMO, IPhO, IOI, IChO, IBO) — высший уровень довузовских соревнований. Подготовка требует освоения материала за рамками программы, стратегий для соревнований и психологической устойчивости для многораундового отбора.",
         contentKk: "Халықаралық олимпиадалар (IMO, IPhO, IOI, IChO, IBO) университетке дейінгі академиялық жарыстардың ең жоғары деңгейі. Дайындық мектеп бағдарламасынан тыс материалды меңгеруді, жарыс стратегияларын дамытуды және көп раундты іріктеу үшін психологиялық төзімділікті талап етеді.",
         keyFormulas: [
-          { formula: "Selection Pipeline: School → City → National → Training Camp → International", description: "Typical olympiad selection stages in Kazakhstan", descriptionRu: "Типичные этапы отбора в Казахстане", descriptionKk: "Қазақстандағы олимпиада іріктеуінің типтік кезеңдері" },
-          { formula: "Deliberate Practice: Study → Solve → Review errors → Target weaknesses → Repeat", description: "Structured approach to olympiad preparation", descriptionRu: "Структурированный подход к подготовке", descriptionKk: "Олимпиадаға дайындықтың құрылымдалған тәсілі" }
+          { formula: "Selection Pipeline: School → City → National → Training Camp → International", formulaRu: "Путь отбора: Школа → Город → Республика → Учебный сбор → Международный", formulaKk: "Іріктеу жолы: Мектеп → Қала → Республика → Дайындық лагері → Халықаралық", description: "Typical olympiad selection stages in Kazakhstan", descriptionRu: "Типичные этапы отбора в Казахстане", descriptionKk: "Қазақстандағы олимпиада іріктеуінің типтік кезеңдері" },
+          { formula: "Deliberate Practice: Study → Solve → Review errors → Target weaknesses → Repeat", formulaRu: "Целенаправленная практика: Изучай → Решай → Разбирай ошибки → Работай над слабостями → Повторяй", formulaKk: "Мақсатты жаттығу: Үйрен → Шығар → Қателерді талда → Осал тұстарды жетілдір → Қайтала", description: "Structured approach to olympiad preparation", descriptionRu: "Структурированный подход к подготовке", descriptionKk: "Олимпиадаға дайындықтың құрылымдалған тәсілі" }
         ],
         solvedExamples: [
           {
@@ -1571,8 +1571,8 @@ export const RESEARCH_FULL: Record<string, LessonContent> = {
         contentRu: "Исследовательское портфолио — подборка лучших академических работ для демонстрации интеллектуального роста приёмным комиссиям или стипендиальным комитетам. Оно показывает не только что вы узнали, но и как вы мыслите и вносите вклад в знания.",
         contentKk: "Зерттеу портфолиосы — университетке түсу комиссияларына немесе стипендия комитеттеріне интеллектуалдық өсуіңізді көрсетуге арналған ең жақсы академиялық жұмыстарыңыздың жинағы. Ол тек не үйренгеніңізді емес, қалай ойлайтыныңызды, зерттейтініңізді және білімге қалай үлес қосатыныңызды көрсетеді.",
         keyFormulas: [
-          { formula: "Portfolio = Cover Letter + CV + Research Samples + Reflections + References", description: "Five components of a strong research portfolio", descriptionRu: "Пять компонентов сильного портфолио", descriptionKk: "Күшті портфолионың бес компоненті" },
-          { formula: "STAR Method: Situation, Task, Action, Result — for describing research experiences", description: "Framework for narrating your research journey", descriptionRu: "Рамка для описания исследовательского опыта", descriptionKk: "Зерттеу тәжірибеңізді сипаттау құрылымы" }
+          { formula: "Portfolio = Cover Letter + CV + Research Samples + Reflections + References", formulaRu: "Портфолио = Сопроводительное письмо + Резюме + Образцы исследований + Рефлексии + Рекомендации", formulaKk: "Портфолио = Ілеспе хат + Түйіндеме + Зерттеу үлгілері + Рефлексиялар + Ұсыныстар", description: "Five components of a strong research portfolio", descriptionRu: "Пять компонентов сильного портфолио", descriptionKk: "Күшті портфолионың бес компоненті" },
+          { formula: "STAR Method: Situation, Task, Action, Result — for describing research experiences", formulaRu: "Метод STAR: Ситуация, Задача, Действие, Результат — для описания исследовательского опыта", formulaKk: "STAR әдісі: Жағдай, Тапсырма, Әрекет, Нәтиже — зерттеу тәжірибесін сипаттау үшін", description: "Framework for narrating your research journey", descriptionRu: "Рамка для описания исследовательского опыта", descriptionKk: "Зерттеу тәжірибеңізді сипаттау құрылымы" }
         ],
         solvedExamples: [
           {

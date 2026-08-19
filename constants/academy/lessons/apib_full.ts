@@ -18,12 +18,16 @@ export const APIB_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "AP Score: 1-5 scale (3+ = passing)",
+            formulaRu: "Балл AP: шкала 1-5 (3+ = зачёт)",
+            formulaKk: "AP баллы: 1-5 шкаласы (3+ = өту)",
             description: "AP exams are scored from 1 to 5; most colleges accept 3 or higher for credit",
             descriptionRu: "Экзамены AP оцениваются от 1 до 5; большинство вузов принимают 3 и выше для зачёта",
             descriptionKk: "AP емтихандары 1-ден 5-ке дейін бағаланады; көптеген университеттер 3 және одан жоғарыны сынақ ретінде қабылдайды"
           },
           {
             formula: "IB Score: 24/45 minimum for diploma",
+            formulaRu: "Балл IB: минимум 24/45 для диплома",
+            formulaKk: "IB баллы: дипломға минимум 24/45",
             description: "IB diploma requires at least 24 out of 45 total points",
             descriptionRu: "Диплом IB требует минимум 24 из 45 баллов",
             descriptionKk: "IB дипломы жалпы 45 балдан кемінде 24 балл алуды талап етеді"
@@ -172,6 +176,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Observation → Hypothesis → Experiment → Analysis → Conclusion",
+            formulaRu: "Наблюдение → Гипотеза → Эксперимент → Анализ → Вывод",
+            formulaKk: "Бақылау → Гипотеза → Тәжірибе → Талдау → Қорытынды",
             description: "The five core steps of the scientific method",
             descriptionRu: "Пять основных шагов научного метода",
             descriptionKk: "Ғылыми әдістің бес негізгі қадамы"
@@ -243,6 +249,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "SOAPSTone: Speaker, Occasion, Audience, Purpose, Subject, Tone",
+            formulaRu: "SOAPSTone: Автор, Повод, Аудитория, Цель, Тема, Тон",
+            formulaKk: "SOAPSTone: Автор, Себеп, Аудитория, Мақсат, Тақырып, Тон",
             description: "Framework for analyzing rhetorical texts",
             descriptionRu: "Рамка для анализа риторических текстов",
             descriptionKk: "Риторикалық мәтіндерді талдау шеңбері"
@@ -314,6 +322,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "WHMIS symbols: Flame, Oxidizer, Corrosion, Skull, Exclamation, Health Hazard",
+            formulaRu: "Символы WHMIS: Пламя, Окислитель, Коррозия, Череп, Восклицательный знак, Опасность для здоровья",
+            formulaKk: "WHMIS таңбалары: Жалын, Тотықтырғыш, Коррозия, Бас сүйек, Леп белгісі, Денсаулыққа қауіп",
             description: "Standard hazard symbols found on chemical labels",
             descriptionRu: "Стандартные символы опасности на этикетках химических веществ",
             descriptionKk: "Химиялық заттар белгілеріндегі стандартты қауіп белгілері"
@@ -385,12 +395,16 @@ export const APIB_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Percent Error = |Experimental − Theoretical| / Theoretical × 100%",
+            formulaRu: "Процентная ошибка = |Экспериментальное − Теоретическое| / Теоретическое × 100%",
+            formulaKk: "Пайыздық қате = |Тәжірибелік − Теориялық| / Теориялық × 100%",
             description: "Measures how far your result is from the accepted value",
             descriptionRu: "Измеряет, насколько ваш результат отличается от принятого значения",
             descriptionKk: "Нәтижеңіздің қабылданған мәннен қаншалықты алыс екенін өлшейді"
           },
           {
             formula: "Mean = Σx / n",
+            formulaRu: "Среднее значение = Σx / n",
+            formulaKk: "Орташа мән = Σx / n",
             description: "Average of a set of measurements",
             descriptionRu: "Среднее значение набора измерений",
             descriptionKk: "Өлшемдер жиынтығының орташа мәні"
@@ -462,6 +476,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Slope of graph = Δy / Δx = (y₂ − y₁) / (x₂ − x₁)",
+            formulaRu: "Наклон графика = Δy / Δx = (y₂ − y₁) / (x₂ − x₁)",
+            formulaKk: "Графиктің көлбеуі = Δy / Δx = (y₂ − y₁) / (x₂ − x₁)",
             description: "Rate of change between two points on a graph",
             descriptionRu: "Скорость изменения между двумя точками на графике",
             descriptionKk: "Графиктегі екі нүкте арасындағы өзгеру жылдамдығы"
@@ -533,6 +549,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Pomodoro: 25 min focus + 5 min break × 4 = 1 long break (15-30 min)",
+            formulaRu: "Помодоро: 25 мин концентрации + 5 мин перерыва × 4 = 1 длинный перерыв (15-30 мин)",
+            formulaKk: "Помодоро: 25 мин шоғырлану + 5 мин үзіліс × 4 = 1 ұзақ үзіліс (15-30 мин)",
             description: "Time management technique for sustained study sessions",
             descriptionRu: "Техника управления временем для длительных учебных сессий",
             descriptionKk: "Ұзақ оқу сессиялары үшін уақытты басқару техникасы"
@@ -604,6 +622,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Claim → Evidence → Reasoning (CER)",
+            formulaRu: "Утверждение → Доказательство → Рассуждение (CER)",
+            formulaKk: "Тұжырым → Айғақ → Пайымдау (CER)",
             description: "Framework for constructing scientific arguments",
             descriptionRu: "Рамка для построения научных аргументов",
             descriptionKk: "Ғылыми дәлелдер құру шеңбері"
@@ -675,6 +695,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "AP GPA Boost: A in AP = 5.0 (vs 4.0 in regular)",
+            formulaRu: "Повышение GPA за AP: оценка A по AP = 5.0 (против 4.0 на обычном курсе)",
+            formulaKk: "AP курсы бойынша GPA өсуі: AP-дегі A бағасы = 5.0 (әдеттегі курста 4.0-ге қарсы)",
             description: "Many schools weight AP courses higher in GPA calculations",
             descriptionRu: "Многие школы присваивают повышенный вес курсам AP при расчёте GPA",
             descriptionKk: "Көптеген мектептер GPA есептеуінде AP курстарына жоғары салмақ береді"
@@ -756,6 +778,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Surface Area to Volume Ratio = SA / V",
+            formulaRu: "Отношение площади поверхности к объёму = SA / V",
+            formulaKk: "Беттік аудан мен көлемнің қатынасы = SA / V",
             description: "As cells grow larger, SA:V ratio decreases, limiting nutrient exchange",
             descriptionRu: "По мере увеличения клетки соотношение SA:V уменьшается, ограничивая обмен веществ",
             descriptionKk: "Жасуша ұлғайған сайын SA:V қатынасы азаяды, қоректік алмасуды шектейді"
@@ -827,6 +851,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "6CO₂ + 6H₂O + light → C₆H₁₂O₆ + 6O₂",
+            formulaRu: "6CO₂ + 6H₂O + свет → C₆H₁₂O₆ + 6O₂",
+            formulaKk: "6CO₂ + 6H₂O + жарық → C₆H₁₂O₆ + 6O₂",
             description: "Overall equation for photosynthesis",
             descriptionRu: "Общее уравнение фотосинтеза",
             descriptionKk: "Фотосинтездің жалпы теңдеуі"
@@ -898,12 +924,16 @@ export const APIB_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Mass number (A) = Protons (Z) + Neutrons (N)",
+            formulaRu: "Массовое число (A) = Протоны (Z) + Нейтроны (N)",
+            formulaKk: "Масса саны (A) = Протондар (Z) + Нейтрондар (N)",
             description: "Relationship between mass number, protons, and neutrons",
             descriptionRu: "Связь между массовым числом, протонами и нейтронами",
             descriptionKk: "Массалық сан, протондар және нейтрондар арасындағы байланыс"
           },
           {
             formula: "Electrons in neutral atom = Protons (Z)",
+            formulaRu: "Электроны в нейтральном атоме = Протоны (Z)",
+            formulaKk: "Бейтарап атомдағы электрондар = Протондар (Z)",
             description: "In a neutral atom, electron count equals proton count",
             descriptionRu: "В нейтральном атоме число электронов равно числу протонов",
             descriptionKk: "Бейтарап атомда электрон саны протон санына тең"
@@ -975,12 +1005,16 @@ export const APIB_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Atomic radius: ← increases across period | ↓ increases down group",
+            formulaRu: "Атомный радиус: ← увеличивается вдоль периода | ↓ увеличивается вниз по группе",
+            formulaKk: "Атом радиусы: ← период бойымен артады | ↓ топ бойымен төмен қарай артады",
             description: "Atomic radius trend across the periodic table",
             descriptionRu: "Тенденция атомного радиуса в периодической таблице",
             descriptionKk: "Периодтық кестедегі атомдық радиус үрдісі"
           },
           {
             formula: "Electronegativity: → increases across period | ↑ increases up group",
+            formulaRu: "Электроотрицательность: → увеличивается вдоль периода | ↑ увеличивается вверх по группе",
+            formulaKk: "Электртерістігі: → период бойымен артады | ↑ топ бойымен жоғары қарай артады",
             description: "Electronegativity trend (Fluorine is the most electronegative)",
             descriptionRu: "Тенденция электроотрицательности (фтор — самый электроотрицательный)",
             descriptionKk: "Электртерістік үрдісі (фтор — ең электртеріс)"
@@ -1129,6 +1163,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Slope of x-t graph = velocity; Slope of v-t graph = acceleration",
+            formulaRu: "Наклон графика x-t = скорость; Наклон графика v-t = ускорение",
+            formulaKk: "x-t графигінің көлбеуі = жылдамдық; v-t графигінің көлбеуі = үдеу",
             description: "Key relationships between motion graph slopes and physical quantities",
             descriptionRu: "Ключевые связи между наклонами графиков движения и физическими величинами",
             descriptionKk: "Қозғалыс графиктерінің көлбеулері мен физикалық шамалар арасындағы негізгі байланыстар"
@@ -1271,6 +1307,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "PEE: Point → Evidence → Explanation",
+            formulaRu: "PEE: Тезис → Доказательство → Объяснение",
+            formulaKk: "PEE: Тезис → Айғақ → Түсіндіру",
             description: "Structure for literary analysis paragraphs",
             descriptionRu: "Структура абзацев литературного анализа",
             descriptionKk: "Әдеби талдау параграфтарының құрылымы"
@@ -1342,12 +1380,16 @@ export const APIB_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Population Density = Population / Area",
+            formulaRu: "Плотность населения = Население / Площадь",
+            formulaKk: "Халық тығыздығы = Халық саны / Аудан",
             description: "Average number of people per unit of area",
             descriptionRu: "Среднее количество людей на единицу площади",
             descriptionKk: "Бір аудан бірлігіне орташа адам саны"
           },
           {
             formula: "Natural Increase Rate = Birth Rate − Death Rate",
+            formulaRu: "Коэффициент естественного прироста = Коэффициент рождаемости − Коэффициент смертности",
+            formulaKk: "Табиғи өсім коэффициенті = Туу коэффициенті − Өлім коэффициенті",
             description: "Population growth rate excluding migration",
             descriptionRu: "Темп роста населения без учёта миграции",
             descriptionKk: "Көші-қонсыз халық өсу жылдамдығы"
@@ -1419,6 +1461,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Recommended AP load: Grade 9-10 (1-2), Grade 11 (3-4), Grade 12 (4-5)",
+            formulaRu: "Рекомендуемая нагрузка AP: 9-10 класс (1-2), 11 класс (3-4), 12 класс (4-5)",
+            formulaKk: "Ұсынылатын AP жүктемесі: 9-10 сынып (1-2), 11 сынып (3-4), 12 сынып (4-5)",
             description: "Suggested number of AP courses by grade level",
             descriptionRu: "Рекомендуемое количество курсов AP по классам",
             descriptionKk: "Сыныптар бойынша ұсынылатын AP курстарының саны"
@@ -1500,6 +1544,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "f(g(x)) — composite function; f⁻¹(x) — inverse function",
+            formulaRu: "f(g(x)) — сложная функция; f⁻¹(x) — обратная функция",
+            formulaKk: "f(g(x)) — күрделі функция; f⁻¹(x) — кері функция",
             description: "Composition combines two functions; inverse reverses the mapping",
             descriptionRu: "Композиция объединяет две функции; обратная функция меняет соответствие",
             descriptionKk: "Композиция екі функцияны біріктіреді; кері функция сәйкестікті өзгертеді"
@@ -1577,6 +1623,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
           },
           {
             formula: "lim(x→a) [f(x)/g(x)] where both → 0: factor and simplify",
+            formulaRu: "lim(x→a) [f(x)/g(x)], если обе части → 0: разложите на множители и упростите",
+            formulaKk: "lim(x→a) [f(x)/g(x)], екеуі де → 0 болса: көбейткіштерге жіктеп, ықшамдаңыз",
             description: "The 0/0 indeterminate form requires algebraic manipulation",
             descriptionRu: "Неопределённость 0/0 требует алгебраического преобразования",
             descriptionKk: "0/0 анықталмаған формасы алгебралық түрлендіруді талап етеді"
@@ -1725,12 +1773,16 @@ export const APIB_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "ΣF = ma (Newton's Second Law)",
+            formulaRu: "ΣF = ma (Второй закон Ньютона)",
+            formulaKk: "ΣF = ma (Ньютонның екінші заңы)",
             description: "Net force equals mass times acceleration",
             descriptionRu: "Результирующая сила равна произведению массы на ускорение",
             descriptionKk: "Қорытқы күш массаның үдеуге көбейтіндісіне тең"
           },
           {
             formula: "W = mg (Weight)",
+            formulaRu: "W = mg (Вес)",
+            formulaKk: "W = mg (Салмақ)",
             description: "Weight is mass times gravitational acceleration",
             descriptionRu: "Вес равен произведению массы на ускорение свободного падения",
             descriptionKk: "Салмақ массаның еркін түсу үдеуіне көбейтіндісіне тең"
@@ -1802,12 +1854,16 @@ export const APIB_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "n = m / M (moles = mass / molar mass)",
+            formulaRu: "n = m / M (моли = масса / молярная масса)",
+            formulaKk: "n = m / M (мольдер = масса / молярлық масса)",
             description: "Converting between grams and moles",
             descriptionRu: "Перевод между граммами и молями",
             descriptionKk: "Грамм мен моль арасындағы түрлендіру"
           },
           {
             formula: "1 mol = 6.022 × 10²³ particles (Avogadro's number)",
+            formulaRu: "1 моль = 6.022 × 10²³ частиц (число Авогадро)",
+            formulaKk: "1 моль = 6.022 × 10²³ бөлшек (Авогадро саны)",
             description: "Number of particles in one mole of any substance",
             descriptionRu: "Число частиц в одном моле любого вещества",
             descriptionKk: "Кез келген заттың бір моліндегі бөлшектер саны"
@@ -1879,12 +1935,16 @@ export const APIB_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "PV = nRT (Ideal Gas Law)",
+            formulaRu: "PV = nRT (Уравнение состояния идеального газа)",
+            formulaKk: "PV = nRT (Идеал газ заңы)",
             description: "R = 0.0821 L·atm/(mol·K) or 8.314 J/(mol·K)",
             descriptionRu: "R = 0,0821 л·атм/(моль·К) или 8,314 Дж/(моль·К)",
             descriptionKk: "R = 0,0821 л·атм/(моль·К) немесе 8,314 Дж/(моль·К)"
           },
           {
             formula: "P₁V₁/T₁ = P₂V₂/T₂ (Combined Gas Law)",
+            formulaRu: "P₁V₁/T₁ = P₂V₂/T₂ (Объединённый газовый закон)",
+            formulaKk: "P₁V₁/T₁ = P₂V₂/T₂ (Біріктірілген газ заңы)",
             description: "Relates initial and final states of a gas",
             descriptionRu: "Связывает начальное и конечное состояния газа",
             descriptionKk: "Газдың бастапқы және соңғы күйлерін байланыстырады"
@@ -1956,6 +2016,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Monohybrid cross: Aa × Aa → 1 AA : 2 Aa : 1 aa (genotype 1:2:1; phenotype 3:1)",
+            formulaRu: "Моногибридное скрещивание: Aa × Aa → 1 AA : 2 Aa : 1 aa (генотип 1:2:1; фенотип 3:1)",
+            formulaKk: "Моногибридті будандастыру: Aa × Aa → 1 AA : 2 Aa : 1 aa (генотип 1:2:1; фенотип 3:1)",
             description: "Expected ratios from crossing two heterozygous parents",
             descriptionRu: "Ожидаемые соотношения при скрещивании двух гетерозиготных родителей",
             descriptionKk: "Екі гетерозиготалы ата-ананы будандастыру кезіндегі күтілетін қатынастар"
@@ -2098,6 +2160,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Knowledge Claim → Justification → Evidence → Evaluation",
+            formulaRu: "Утверждение знания → Обоснование → Доказательство → Оценка",
+            formulaKk: "Білім тұжырымы → Негіздеу → Айғақ → Бағалау",
             description: "Framework for evaluating knowledge claims in TOK",
             descriptionRu: "Рамка для оценки утверждений о знании в TOK",
             descriptionKk: "TOK-та білім талаптарын бағалау шеңбері"
@@ -2169,6 +2233,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "EE Structure: Introduction → Body (argument/analysis) → Conclusion → Bibliography",
+            formulaRu: "Структура EE: Введение → Основная часть (аргумент/анализ) → Заключение → Библиография",
+            formulaKk: "EE құрылымы: Кіріспе → Негізгі бөлім (дәлел/талдау) → Қорытынды → Библиография",
             description: "Standard structure of the IB Extended Essay",
             descriptionRu: "Стандартная структура расширенного эссе IB",
             descriptionKk: "IB кеңейтілген эссесінің стандартты құрылымы"
@@ -2250,12 +2316,16 @@ export const APIB_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Power Rule: d/dx [xⁿ] = nxⁿ⁻¹",
+            formulaRu: "Степенное правило: d/dx [xⁿ] = nxⁿ⁻¹",
+            formulaKk: "Дәрежелік ереже: d/dx [xⁿ] = nxⁿ⁻¹",
             description: "Derivative of x raised to any power",
             descriptionRu: "Производная x в любой степени",
             descriptionKk: "Кез келген дәрежедегі x-тің туындысы"
           },
           {
             formula: "Chain Rule: d/dx [f(g(x))] = f'(g(x)) · g'(x)",
+            formulaRu: "Правило цепочки: d/dx [f(g(x))] = f'(g(x)) · g'(x)",
+            formulaKk: "Тізбек ережесі: d/dx [f(g(x))] = f'(g(x)) · g'(x)",
             description: "Derivative of a composite function",
             descriptionRu: "Производная составной функции",
             descriptionKk: "Құрама функцияның туындысы"
@@ -2327,6 +2397,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "f'(x) = 0 at critical points; f''(x) > 0 → minimum, f''(x) < 0 → maximum",
+            formulaRu: "f'(x) = 0 в критических точках; f''(x) > 0 → минимум, f''(x) < 0 → максимум",
+            formulaKk: "f'(x) = 0 критикалық нүктелерде; f''(x) > 0 → минимум, f''(x) < 0 → максимум",
             description: "Second derivative test for classifying extrema",
             descriptionRu: "Тест второй производной для классификации экстремумов",
             descriptionKk: "Экстремумдарды жіктеу үшін екінші туынды тесті"
@@ -2558,6 +2630,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
           },
           {
             formula: "ΔH°rxn = ΣΔH°f(products) − ΣΔH°f(reactants)",
+            formulaRu: "ΔH°реакции = ΣΔH°f(продукты) − ΣΔH°f(реагенты)",
+            formulaKk: "ΔH°реакциясы = ΣΔH°f(өнімдер) − ΣΔH°f(реагенттер)",
             description: "Enthalpy of reaction from standard enthalpies of formation",
             descriptionRu: "Энтальпия реакции из стандартных энтальпий образования",
             descriptionKk: "Стандартты түзілу энтальпияларынан реакция энтальпиясы"
@@ -2629,6 +2703,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "K = [Products]ⁿ / [Reactants]ᵐ",
+            formulaRu: "K = [Продукты]ⁿ / [Реагенты]ᵐ",
+            formulaKk: "K = [Өнімдер]ⁿ / [Реагенттер]ᵐ",
             description: "Equilibrium constant expression (concentrations at equilibrium)",
             descriptionRu: "Выражение константы равновесия (концентрации при равновесии)",
             descriptionKk: "Тепе-теңдік константасының өрнегі (тепе-теңдіктегі концентрациялар)"
@@ -2700,12 +2776,16 @@ export const APIB_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "DNA → (transcription) → mRNA → (translation) → Protein",
+            formulaRu: "ДНК → (транскрипция) → мРНК → (трансляция) → Белок",
+            formulaKk: "ДНҚ → (транскрипция) → мРНҚ → (трансляция) → Ақуыз",
             description: "The central dogma of molecular biology",
             descriptionRu: "Центральная догма молекулярной биологии",
             descriptionKk: "Молекулалық биологияның орталық догмасы"
           },
           {
             formula: "Codon = 3 nucleotides → 1 amino acid",
+            formulaRu: "Кодон = 3 нуклеотида → 1 аминокислота",
+            formulaKk: "Кодон = 3 нуклеотид → 1 амин қышқылы",
             description: "Each group of three mRNA bases codes for one amino acid",
             descriptionRu: "Каждая тройка оснований мРНК кодирует одну аминокислоту",
             descriptionKk: "мРНҚ негіздерінің әр үштігі бір амин қышқылын кодтайды"
@@ -2777,6 +2857,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Energy transfer ≈ 10% between trophic levels",
+            formulaRu: "Передача энергии ≈ 10% между трофическими уровнями",
+            formulaKk: "Энергия берілуі ≈ трофикалық деңгейлер арасында 10%",
             description: "Only ~10% of energy passes from one trophic level to the next",
             descriptionRu: "Только ~10% энергии передаётся с одного трофического уровня на следующий",
             descriptionKk: "Бір трофикалық деңгейден келесіге энергияның тек ~10% беріледі"
@@ -2848,6 +2930,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Variables: IV (what you change) → DV (what you measure) → CV (what you keep constant)",
+            formulaRu: "Переменные: IV (что вы меняете) → DV (что вы измеряете) → CV (что вы оставляете постоянным)",
+            formulaKk: "Айнымалылар: IV (сіз өзгертетін нәрсе) → DV (сіз өлшейтін нәрсе) → CV (сіз тұрақты ұстайтын нәрсе)",
             description: "The three types of variables in experimental design",
             descriptionRu: "Три типа переменных в экспериментальном дизайне",
             descriptionKk: "Эксперименттік жобалаудағы айнымалылардың үш түрі"
@@ -2919,6 +3003,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "AP Score = Multiple Choice (50%) + Free Response (50%) → curved to 1-5",
+            formulaRu: "Балл AP = Тест с выбором ответа (50%) + Задания со свободным ответом (50%) → приводится к шкале 1-5",
+            formulaKk: "AP баллы = Таңдаулы жауап тесті (50%) + Еркін жауап тапсырмалары (50%) → 1-5 шкаласына келтіріледі",
             description: "Typical AP exam scoring structure (varies by subject)",
             descriptionRu: "Типичная структура оценивания AP экзаменов (зависит от предмета)",
             descriptionKk: "AP емтихандарының типтік бағалау құрылымы (пәнге байланысты)"
@@ -3005,6 +3091,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
           },
           {
             formula: "∫₁^∞ 1/xᵖ dx converges if p > 1",
+            formulaRu: "∫₁^∞ 1/xᵖ dx сходится, если p > 1",
+            formulaKk: "∫₁^∞ 1/xᵖ dx жинақталады, егер p > 1 болса",
             description: "p-series convergence test for improper integrals",
             descriptionRu: "Тест сходимости p-ряда для несобственных интегралов",
             descriptionKk: "Меншіксіз интегралдар үшін p-қатар жинақтылық тесті"
@@ -3076,6 +3164,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Ratio Test: L = lim |aₙ₊₁/aₙ| → converges if L < 1, diverges if L > 1",
+            formulaRu: "Признак Даламбера: L = lim |aₙ₊₁/aₙ| → сходится, если L < 1, расходится, если L > 1",
+            formulaKk: "Даламбер белгісі: L = lim |aₙ₊₁/aₙ| → L < 1 болса жинақталады, L > 1 болса алшақтайды",
             description: "The ratio test determines convergence by examining the limit of consecutive term ratios",
             descriptionRu: "Признак Даламбера определяет сходимость по пределу отношения последовательных членов",
             descriptionKk: "Қатынас тесті қатар жинақтылығын қатарлас мүшелер қатынасының шегі арқылы анықтайды"
@@ -3153,6 +3243,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "F = k·q₁·q₂/r² where k = 8.99×10⁹ N·m²/C²",
+            formulaRu: "F = k·q₁·q₂/r², где k = 8.99×10⁹ N·m²/C²",
+            formulaKk: "F = k·q₁·q₂/r², мұндағы k = 8.99×10⁹ N·m²/C²",
             description: "Coulomb's law — electrostatic force between two point charges",
             descriptionRu: "Закон Кулона — электростатическая сила между двумя точечными зарядами",
             descriptionKk: "Кулон заңы — екі нүктелік заряд арасындағы электростатикалық күш"
@@ -3230,12 +3322,16 @@ export const APIB_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "V = IR (Ohm's Law); Series: R_total = R₁+R₂; Parallel: 1/R_total = 1/R₁+1/R₂",
+            formulaRu: "V = IR (Закон Ома); Последовательное соединение: R_total = R₁+R₂; Параллельное соединение: 1/R_total = 1/R₁+1/R₂",
+            formulaKk: "V = IR (Ом заңы); Тізбектей қосылу: R_total = R₁+R₂; Параллель қосылу: 1/R_total = 1/R₁+1/R₂",
             description: "Ohm's law and resistor combination rules for DC circuits",
             descriptionRu: "Закон Ома и правила соединения резисторов для цепей постоянного тока",
             descriptionKk: "Ом заңы және тұрақты ток тізбектері үшін резисторларды қосу ережелері"
           },
           {
             formula: "τ = RC; V_c(t) = V₀(1 − e^(−t/τ)) charging; V_c(t) = V₀·e^(−t/τ) discharging",
+            formulaRu: "τ = RC; V_c(t) = V₀(1 − e^(−t/τ)) при зарядке; V_c(t) = V₀·e^(−t/τ) при разрядке",
+            formulaKk: "τ = RC; V_c(t) = V₀(1 − e^(−t/τ)) зарядталу кезінде; V_c(t) = V₀·e^(−t/τ) разрядталу кезінде",
             description: "RC circuit time constant and voltage equations for charging/discharging",
             descriptionRu: "Постоянная времени RC-цепи и уравнения напряжения для зарядки/разрядки",
             descriptionKk: "RC тізбегінің уақыт тұрақтысы және зарядтау/разрядтау кернеу теңдеулері"
@@ -3307,12 +3403,16 @@ export const APIB_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "E°cell = E°cathode − E°anode; spontaneous if E°cell > 0",
+            formulaRu: "E°cell = E°cathode − E°anode; самопроизвольная реакция, если E°cell > 0",
+            formulaKk: "E°cell = E°cathode − E°anode; E°cell > 0 болса, өздігінен жүретін реакция",
             description: "Standard cell potential — determines whether a redox reaction is spontaneous",
             descriptionRu: "Стандартный потенциал ячейки — определяет самопроизвольность окислительно-восстановительной реакции",
             descriptionKk: "Стандартты ұяшық потенциалы — тотығу-тотықсыздану реакциясының спонтандылығын анықтайды"
           },
           {
             formula: "E = E° − (RT/nF)ln(Q) or E = E° − (0.0592/n)log(Q) at 25°C",
+            formulaRu: "E = E° − (RT/nF)ln(Q) или E = E° − (0.0592/n)log(Q) при 25°C",
+            formulaKk: "E = E° − (RT/nF)ln(Q) немесе E = E° − (0.0592/n)log(Q), 25°C кезінде",
             description: "Nernst equation — adjusts cell potential for non-standard concentrations",
             descriptionRu: "Уравнение Нернста — корректирует потенциал ячейки для нестандартных концентраций",
             descriptionKk: "Нернст теңдеуі — стандартты емес концентрациялар үшін ұяшық потенциалын түзетеді"
@@ -3384,6 +3484,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "CₙH₂ₙ₊₂ (alkane); CₙH₂ₙ (alkene); CₙH₂ₙ₋₂ (alkyne)",
+            formulaRu: "CₙH₂ₙ₊₂ (алкан); CₙH₂ₙ (алкен); CₙH₂ₙ₋₂ (алкин)",
+            formulaKk: "CₙH₂ₙ₊₂ (алкан); CₙH₂ₙ (алкен); CₙH₂ₙ₋₂ (алкин)",
             description: "General formulas for hydrocarbons — each double/triple bond reduces hydrogen count",
             descriptionRu: "Общие формулы углеводородов — каждая кратная связь уменьшает число атомов водорода",
             descriptionKk: "Көмірсутектердің жалпы формулалары — әр еселік байланыс сутегі санын азайтады"
@@ -3455,6 +3557,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Stimulus → Receptor → Afferent nerve → CNS → Efferent nerve → Effector → Response",
+            formulaRu: "Стимул → Рецептор → Афферентный нерв → ЦНС → Эфферентный нерв → Эффектор → Реакция",
+            formulaKk: "Тітіркендіргіш → Рецептор → Афферентті жүйке → ОЖЖ → Эфферентті жүйке → Эффектор → Жауап",
             description: "Nervous system reflex arc — the pathway for rapid involuntary responses",
             descriptionRu: "Рефлекторная дуга нервной системы — путь быстрых непроизвольных ответов",
             descriptionKk: "Жүйке жүйесінің рефлекторлық доғасы — жылдам ерікті емес жауаптардың жолы"
@@ -3526,6 +3630,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "EE Structure: Introduction → Body (analysis) → Conclusion → Bibliography (4,000 words max)",
+            formulaRu: "Структура EE: Введение → Основная часть (анализ) → Заключение → Библиография (максимум 4000 слов)",
+            formulaKk: "EE құрылымы: Кіріспе → Негізгі бөлім (талдау) → Қорытынды → Библиография (ең көбі 4000 сөз)",
             description: "Standard Extended Essay structure — must include a clear research question and sustained argument",
             descriptionRu: "Стандартная структура Расширенного эссе — должна включать чёткий исследовательский вопрос и последовательный аргумент",
             descriptionKk: "Кеңейтілген эссенің стандартты құрылымы — нақты зерттеу сұрағы мен тұрақты дәлелді қамтуы керек"
@@ -3597,6 +3703,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "AP 5 threshold ≈ 60-70% composite (varies by subject and year)",
+            formulaRu: "Порог для AP 5 ≈ 60-70% совокупного балла (варьируется по предмету и году)",
+            formulaKk: "AP 5 шегі ≈ жиынтық баллдың 60-70% (пән мен жылға байланысты өзгереді)",
             description: "You typically need only 60-70% of total raw points to score a 5 — perfection is not required",
             descriptionRu: "Для 5 обычно нужно лишь 60-70% сырых баллов — совершенство не требуется",
             descriptionKk: "5 алу үшін әдетте жалпы шикі балдың тек 60-70% қажет — мінсіздік талап етілмейді"
@@ -3668,6 +3776,8 @@ export const APIB_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Credit savings ≈ (credits earned) × (cost per credit hour) — can save $3,000-$15,000+ per course",
+            formulaRu: "Экономия на кредитах ≈ (полученные кредиты) × (стоимость кредит-часа) — можно сэкономить $3,000-$15,000+ за курс",
+            formulaKk: "Кредиттен үнемдеу ≈ (алынған кредиттер) × (кредит-сағат құны) — курс сайын $3,000-$15,000+ үнемдеуге болады",
             description: "Financial value of AP/IB credit — varies dramatically by institution",
             descriptionRu: "Финансовая ценность кредитов AP/IB — сильно зависит от учебного заведения",
             descriptionKk: "AP/IB кредиттерінің қаржылық құндылығы — оқу орнына байланысты айтарлықтай өзгереді"

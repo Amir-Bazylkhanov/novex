@@ -18,6 +18,8 @@ export const COMMUNICATION_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "HEAR: Halt → Engage → Anticipate → Replay",
+            formulaRu: "HEAR: Остановись → Включись → Предугадай → Повтори",
+            formulaKk: "HEAR: Тоқта → Қатыс → Болжа → Қайтала",
             description: "Four-step active listening framework",
             descriptionRu: "Четырёхшаговая модель активного слушания",
             descriptionKk: "Белсенді тыңдаудың төрт қадамдық моделі"
@@ -89,6 +91,8 @@ export const COMMUNICATION_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "PREP: Point → Reason → Example → Point (restate)",
+            formulaRu: "PREP: Тезис → Причина → Пример → Тезис (повтор)",
+            formulaKk: "PREP: Тезис → Себеп → Мысал → Тезис (қайталау)",
             description: "Framework for structuring a clear verbal message",
             descriptionRu: "Модель для структурирования чёткого устного сообщения",
             descriptionKk: "Анық ауызша хабарды құрылымдау моделі"
@@ -157,12 +161,16 @@ export const COMMUNICATION_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Message = Words (7%) + Tone (38%) + Body Language (55%)",
+            formulaRu: "Сообщение = Слова (7%) + Тон (38%) + Язык тела (55%)",
+            formulaKk: "Хабарлама = Сөздер (7%) + Дауыс сазы (38%) + Дене тілі (55%)",
             description: "Mehrabian's communication model showing non-verbal dominance",
             descriptionRu: "Модель Меграбяна, показывающая доминирование невербального общения",
             descriptionKk: "Мехрабиан моделі — вербалды емес қатынастың басымдығын көрсетеді"
           },
           {
             formula: "OPEN posture: O(riented toward speaker) P(osture relaxed) E(ye contact) N(od occasionally)",
+            formulaRu: "Поза OPEN: O(риентирована на собеседника) P(оза расслаблена) E(контакт глаз) N(кивки время от времени)",
+            formulaKk: "OPEN позасы: O(сөйлеушіге бағытталған) P(поза еркін) E(көзбен байланыс) N(кейде бас изеу)",
             description: "Framework for approachable body language",
             descriptionRu: "Модель доступного языка тела",
             descriptionKk: "Қолжетімді дене тілінің моделі"
@@ -234,6 +242,8 @@ export const COMMUNICATION_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Elevator Pitch: Who you are + What you do/care about + Why it matters here",
+            formulaRu: "Питч-визитка: Кто вы + Чем вы занимаетесь/что цените + Почему это важно здесь",
+            formulaKk: "Лифт-питч: Сіз кімсіз + Немен айналысасыз/нені бағалайсыз + Бұл неге маңызды",
             description: "Three-part structure for a 30-second self-introduction",
             descriptionRu: "Трёхчастная структура 30-секундного представления",
             descriptionKk: "30 секундтық таныстырудың үш бөлімді құрылымы"
@@ -305,12 +315,16 @@ export const COMMUNICATION_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Open vs Closed: 'What do you think about...?' (open) vs 'Did you like it?' (closed)",
+            formulaRu: "Открытые и закрытые: «Что вы думаете о...?» (открытый) против «Вам понравилось?» (закрытый)",
+            formulaKk: "Ашық және жабық: «...туралы не ойлайсыз?» (ашық) және «Ұнады ма?» (жабық)",
             description: "Open questions invite discussion; closed questions get yes/no answers",
             descriptionRu: "Открытые вопросы приглашают к дискуссии; закрытые требуют ответа да/нет",
             descriptionKk: "Ашық сұрақтар талқылауға шақырады; жабық сұрақтар иә/жоқ жауап алады"
           },
           {
             formula: "5W1H: Who, What, Where, When, Why, How",
+            formulaRu: "5W1H: Кто, Что, Где, Когда, Почему, Как",
+            formulaKk: "5W1H: Кім, Не, Қайда, Қашан, Неге, Қалай",
             description: "Six question types to explore any topic thoroughly",
             descriptionRu: "Шесть типов вопросов для полного изучения любой темы",
             descriptionKk: "Кез келген тақырыпты толық зерттеу үшін алты сұрақ түрі"
@@ -382,6 +396,8 @@ export const COMMUNICATION_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Round Robin: Each person speaks in turn for a set time before open discussion",
+            formulaRu: "Round Robin: Каждый говорит по очереди в течение заданного времени перед открытым обсуждением",
+            formulaKk: "Round Robin: Ашық талқылауға дейін әрбір адам белгілі уақыт бойы кезекпен сөйлейді",
             description: "Structured turn-taking technique ensuring equal participation",
             descriptionRu: "Техника структурированной очерёдности, обеспечивающая равное участие",
             descriptionKk: "Тең қатысуды қамтамасыз ететін құрылымдық кезектілік техникасы"
@@ -453,12 +469,16 @@ export const COMMUNICATION_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Feedback Sandwich: Positive → Constructive criticism → Positive",
+            formulaRu: "Сэндвич обратной связи: Позитив → Конструктивная критика → Позитив",
+            formulaKk: "Кері байланыс сэндвичі: Оң пікір → Сындарлы сын → Оң пікір",
             description: "Structure for delivering criticism in a supportive way",
             descriptionRu: "Структура для подачи критики в поддерживающей форме",
             descriptionKk: "Сынды қолдау түрінде беру құрылымы"
           },
           {
             formula: "SBI: Situation → Behavior → Impact",
+            formulaRu: "SBI: Ситуация → Поведение → Влияние",
+            formulaKk: "SBI: Жағдай → Мінез-құлық → Әсер",
             description: "Framework for specific, non-personal feedback",
             descriptionRu: "Модель для конкретной, безличной обратной связи",
             descriptionKk: "Нақты, жеке емес кері байланыс моделі"
@@ -530,6 +550,8 @@ export const COMMUNICATION_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Story Arc: Setup (character + setting) → Conflict (challenge) → Resolution (outcome + lesson)",
+            formulaRu: "Сюжетная арка: Завязка (герой + место действия) → Конфликт (испытание) → Развязка (итог + урок)",
+            formulaKk: "Сюжеттік арка: Бастама (кейіпкер + орта) → Қақтығыс (сын-қатер) → Шешім (нәтиже + сабақ)",
             description: "Three-part narrative structure for any story",
             descriptionRu: "Трёхчастная нарративная структура для любой истории",
             descriptionKk: "Кез келген әңгіме үшін үш бөлімді баяндау құрылымы"
@@ -601,6 +623,8 @@ export const COMMUNICATION_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "CLEAR writing: C(oncise) L(ogical) E(rror-free) A(udience-aware) R(eadable)",
+            formulaRu: "Письмо CLEAR: C(лаконично) L(огично) E(без ошибок) A(с учётом аудитории) R(читабельно)",
+            formulaKk: "CLEAR жазу: C(қысқа) L(логикалы) E(қатесіз) A(аудиторияны ескерген) R(оқуға ыңғайлы)",
             description: "Five qualities of effective written communication",
             descriptionRu: "Пять качеств эффективной письменной коммуникации",
             descriptionKk: "Тиімді жазбаша қарым-қатынастың бес сапасы"
@@ -672,6 +696,8 @@ export const COMMUNICATION_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "THINK: T(rue?) H(elpful?) I(nspiring?) N(ecessary?) K(ind?)",
+            formulaRu: "THINK: T (Правда?) H (Полезно?) I (Вдохновляет?) N (Необходимо?) K (Доброжелательно?)",
+            formulaKk: "THINK: T (Ақиқат па?) H (Пайдалы ма?) I (Шабыттандыра ма?) N (Қажет пе?) K (Мейірімді ме?)",
             description: "Five-question filter before posting or sending any message online",
             descriptionRu: "Пять вопросов-фильтров перед публикацией или отправкой сообщения",
             descriptionKk: "Кез келген хабарды жібермес бұрын бес сұрақ-сүзгі"
@@ -752,6 +778,8 @@ export const COMMUNICATION_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Aristotle's Triangle: Ethos (credibility) + Pathos (emotion) + Logos (logic)",
+            formulaRu: "Треугольник Аристотеля: Этос (доверие) + Пафос (эмоции) + Логос (логика)",
+            formulaKk: "Аристотель үшбұрышы: Этос (сенім) + Пафос (эмоция) + Логос (логика)",
             description: "Three modes of persuasion for any argument",
             descriptionRu: "Три способа убеждения для любого аргумента",
             descriptionKk: "Кез келген аргумент үшін сендірудің үш тәсілі"
@@ -823,6 +851,8 @@ export const COMMUNICATION_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "ARE model: Assertion → Reasoning → Evidence",
+            formulaRu: "Модель ARE: Утверждение → Обоснование → Доказательство",
+            formulaKk: "ARE моделі: Тұжырым → Негіздеме → Дәлел",
             description: "Three-step structure for building any debate argument",
             descriptionRu: "Трёхшаговая структура для построения аргумента в дебатах",
             descriptionKk: "Дебат аргументін құрудың үш қадамдық құрылымы"
@@ -894,6 +924,8 @@ export const COMMUNICATION_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Toulmin Model: Claim + Grounds (evidence) + Warrant (logical link)",
+            formulaRu: "Модель Тулмина: Тезис + Основания (доказательства) + Обоснование (логическая связь)",
+            formulaKk: "Тулмин моделі: Тұжырым + Негіздер (дәлелдер) + Байланыс (логикалық негіздеме)",
             description: "Framework for constructing airtight arguments",
             descriptionRu: "Модель для построения безупречных аргументов",
             descriptionKk: "Мықты аргументтер құру моделі"
@@ -965,6 +997,8 @@ export const COMMUNICATION_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Hook → 3 Key Points → Call to Action",
+            formulaRu: "Крючок → 3 ключевые мысли → Призыв к действию",
+            formulaKk: "Ілмек → 3 негізгі ой → Әрекетке шақыру",
             description: "Simple presentation structure that keeps audiences engaged",
             descriptionRu: "Простая структура презентации, удерживающая внимание аудитории",
             descriptionKk: "Аудитория назарын ұстайтын қарапайым презентация құрылымы"
@@ -1036,6 +1070,8 @@ export const COMMUNICATION_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "6x6 Rule: Maximum 6 lines per slide, maximum 6 words per line",
+            formulaRu: "Правило 6x6: Максимум 6 строк на слайде, максимум 6 слов в строке",
+            formulaKk: "6x6 ережесі: Слайдта ең көбі 6 жол, жолда ең көбі 6 сөз",
             description: "Guideline for keeping presentation slides clean and readable",
             descriptionRu: "Правило для поддержания слайдов чистыми и читабельными",
             descriptionKk: "Слайдтарды таза және оқылатын ұстау ережесі"
@@ -1107,6 +1143,8 @@ export const COMMUNICATION_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "BRIEF: Background → Reason → Information → End → Follow-up",
+            formulaRu: "BRIEF: Предыстория → Причина → Информация → Итог → Дальнейшие шаги",
+            formulaKk: "BRIEF: Алғышарт → Себеп → Ақпарат → Қорытынды → Келесі қадам",
             description: "Five-part structure for professional emails",
             descriptionRu: "Пятичастная структура профессионального письма",
             descriptionKk: "Кәсіби электрондық хаттың бес бөлімді құрылымы"
@@ -1178,6 +1216,8 @@ export const COMMUNICATION_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Belbin Roles: Coordinator (organizes) + Implementer (executes) + Creative (generates ideas) + Evaluator (analyzes)",
+            formulaRu: "Роли Белбина: Координатор (организует) + Исполнитель (реализует) + Генератор идей (придумывает) + Аналитик (оценивает)",
+            formulaKk: "Белбин рөлдері: Үйлестіруші (ұйымдастырады) + Орындаушы (іске асырады) + Идея генераторы (ойлап табады) + Талдаушы (бағалайды)",
             description: "Four key team roles from Belbin's model",
             descriptionRu: "Четыре ключевые роли команды по модели Белбина",
             descriptionKk: "Белбин моделі бойынша төрт негізгі команда рөлі"
@@ -1249,6 +1289,8 @@ export const COMMUNICATION_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "DESC: Describe (situation) → Express (feelings) → Specify (solution) → Consequences (positive outcome)",
+            formulaRu: "DESC: Опиши (ситуацию) → Выскажи (чувства) → Уточни (решение) → Последствия (позитивный итог)",
+            formulaKk: "DESC: Сипатта (жағдайды) → Біл (сезімді) → Нақтыла (шешімді) → Салдары (оң нәтиже)",
             description: "Four-step framework for addressing disagreements assertively",
             descriptionRu: "Четырёхшаговая модель для настойчивого разрешения разногласий",
             descriptionKk: "Келіспеушіліктерді батыл шешудің төрт қадамдық моделі"
@@ -1320,6 +1362,8 @@ export const COMMUNICATION_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "STAR: Situation → Task → Action → Result",
+            formulaRu: "STAR: Ситуация → Задача → Действие → Результат",
+            formulaKk: "STAR: Жағдай → Тапсырма → Әрекет → Нәтиже",
             description: "Framework for answering behavioral interview questions with a structured story",
             descriptionRu: "Модель для ответа на поведенческие вопросы с помощью структурированной истории",
             descriptionKk: "Мінез-құлық сұрақтарына құрылымдық әңгімемен жауап беру моделі"
@@ -1391,6 +1435,8 @@ export const COMMUNICATION_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Digital Footprint Check: Would I want my teacher, future employer, or grandmother to see this?",
+            formulaRu: "Проверка цифрового следа: Хотел бы я, чтобы это увидели мой учитель, будущий работодатель или бабушка?",
+            formulaKk: "Цифрлық ізді тексеру: Мұны мұғалімім, болашақ жұмыс берушім немесе әжем көргенін қалар едім бе?",
             description: "Quick filter for deciding what to post online",
             descriptionRu: "Быстрый фильтр для принятия решения о публикации",
             descriptionKk: "Онлайн не жариялау керектігін шешудің жылдам сүзгісі"
@@ -1471,6 +1517,8 @@ export const COMMUNICATION_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "STAGE: Structure → Tone → Audience → Gesture → Energy",
+            formulaRu: "STAGE: Структура → Тон → Аудитория → Жесты → Энергия",
+            formulaKk: "STAGE: Құрылым → Дауыс сазы → Аудитория → Ым-ишара → Энергия",
             description: "Five pillars of effective public speaking",
             descriptionRu: "Пять столпов эффективного публичного выступления",
             descriptionKk: "Тиімді көпшілік алдында сөйлеудің бес тірегі"
@@ -1542,12 +1590,16 @@ export const COMMUNICATION_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Ethos (credibility) + Pathos (emotion) + Logos (logic) = Persuasion",
+            formulaRu: "Этос (доверие) + Пафос (эмоции) + Логос (логика) = Убеждение",
+            formulaKk: "Этос (сенім) + Пафос (эмоция) + Логос (логика) = Сендіру",
             description: "Aristotle's three rhetorical appeals",
             descriptionRu: "Три риторических приёма Аристотеля",
             descriptionKk: "Аристотельдің үш риторикалық тәсілі"
           },
           {
             formula: "CLAIM → EVIDENCE → REASONING → COUNTERARGUMENT → REBUTTAL",
+            formulaRu: "ТЕЗИС → ДОКАЗАТЕЛЬСТВО → ОБОСНОВАНИЕ → КОНТРАРГУМЕНТ → ОПРОВЕРЖЕНИЕ",
+            formulaKk: "ТҰЖЫРЫМ → ДӘЛЕЛ → НЕГІЗДЕМЕ → ҚАРСЫ ДӘЛЕЛ → ЖОҚҚА ШЫҒАРУ",
             description: "Five-step persuasive argument structure",
             descriptionRu: "Пятишаговая структура убедительного аргумента",
             descriptionKk: "Сендіру дәлелінің бес қадамдық құрылымы"
@@ -1619,6 +1671,8 @@ export const COMMUNICATION_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "STORY Arc: Situation → Tension → Outcome → Reflection → Your takeaway",
+            formulaRu: "Арка STORY: Ситуация → Напряжение → Итог → Рефлексия → Твой вывод",
+            formulaKk: "STORY арка: Жағдай → Шиеленіс → Нәтиже → Рефлексия → Сенің қорытындың",
             description: "Five-part narrative structure for impactful storytelling",
             descriptionRu: "Пятичастная структура повествования для сторителлинга",
             descriptionKk: "Әсерлі әңгімелеу үшін бес бөлімді баяндау құрылымы"
@@ -1690,12 +1744,16 @@ export const COMMUNICATION_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "ARE: Assertion → Reasoning → Evidence",
+            formulaRu: "ARE: Утверждение → Обоснование → Доказательство",
+            formulaKk: "ARE: Тұжырым → Негіздеме → Дәлел",
             description: "Three-step framework for building a debate argument",
             descriptionRu: "Трёхшаговая модель построения аргумента в дебатах",
             descriptionKk: "Пікірталас дәлелін құрудың үш қадамдық моделі"
           },
           {
             formula: "REBUT: Restate → Expose flaw → Back with evidence → Undermine → Tie back",
+            formulaRu: "REBUT: Повтори тезис → Укажи на изъян → Подкрепи доказательством → Ослабь довод → Верни к теме",
+            formulaKk: "REBUT: Тезисті қайтала → Кемшілікті көрсет → Дәлелмен растa → Дәйекті әлсірет → Тақырыпқа орал",
             description: "Framework for effective rebuttal in debates",
             descriptionRu: "Модель эффективного опровержения в дебатах",
             descriptionKk: "Пікірталаста тиімді қарсылық білдіру моделі"
@@ -1767,6 +1825,8 @@ export const COMMUNICATION_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "PEACE: Pause → Each side speaks → Acknowledge feelings → Create options → Establish agreement",
+            formulaRu: "PEACE: Пауза → Каждая сторона высказывается → Признай чувства → Найди варианты → Достигни договорённости",
+            formulaKk: "PEACE: Үзіліс → Әр тарап сөйлейді → Сезімді мойында → Нұсқа тап → Келісімге кел",
             description: "Five-step conflict mediation framework",
             descriptionRu: "Пятишаговая модель посредничества в конфликтах",
             descriptionKk: "Жанжалда делдалдықтың бес қадамдық моделі"
@@ -1838,6 +1898,8 @@ export const COMMUNICATION_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "SBI: Situation → Behavior → Impact",
+            formulaRu: "SBI: Ситуация → Поведение → Влияние",
+            formulaKk: "SBI: Жағдай → Мінез-құлық → Әсер",
             description: "Framework for delivering specific, non-personal feedback",
             descriptionRu: "Модель конкретной, неличной обратной связи",
             descriptionKk: "Нақты, жеке емес кері байланыс моделі"
@@ -1909,6 +1971,8 @@ export const COMMUNICATION_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "ADAPT: Awareness → Don't assume → Ask respectfully → Perspective-take → Tailor your style",
+            formulaRu: "ADAPT: Осознанность → Не додумывай → Уважительно спрашивай → Смотри с другой стороны → Подстраивай свой стиль",
+            formulaKk: "ADAPT: Аңғарымпаздық → Болжама жасама → Құрметпен сұра → Басқа көзқараспен қара → Стиліңді бейімде",
             description: "Framework for navigating cross-cultural interactions",
             descriptionRu: "Модель навигации в межкультурных взаимодействиях",
             descriptionKk: "Мәдениетаралық қарым-қатынаста бағдарлау моделі"
@@ -1980,6 +2044,8 @@ export const COMMUNICATION_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "CLEAR: Concise → Logical → Error-free → Audience-aware → Respectful",
+            formulaRu: "CLEAR: Лаконично → Логично → Без ошибок → С учётом аудитории → Уважительно",
+            formulaKk: "CLEAR: Қысқа → Логикалы → Қатесіз → Аудиторияны ескерген → Құрметті",
             description: "Five principles of professional writing",
             descriptionRu: "Пять принципов делового письма",
             descriptionKk: "Кәсіби жазудың бес қағидасы"
@@ -2051,6 +2117,8 @@ export const COMMUNICATION_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "LEAD: Layout agenda → Engage everyone → Allocate time → Document decisions",
+            formulaRu: "LEAD: Составь повестку → Вовлеки всех → Распредели время → Зафиксируй решения",
+            formulaKk: "LEAD: Күн тәртібін құр → Барлығын тарт → Уақытты бөл → Шешімдерді тіркеп қой",
             description: "Four-step meeting facilitation framework",
             descriptionRu: "Четырёхшаговая модель фасилитации собраний",
             descriptionKk: "Жиналысты басқарудың төрт қадамдық моделі"
@@ -2122,6 +2190,8 @@ export const COMMUNICATION_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "BRAND: Beliefs → Results → Audience → Narrative → Digital presence",
+            formulaRu: "BRAND: Убеждения → Результаты → Аудитория → Нарратив → Цифровое присутствие",
+            formulaKk: "BRAND: Наным-сенімдер → Нәтижелер → Аудитория → Баяндау → Цифрлық қатысу",
             description: "Five-element personal brand building framework",
             descriptionRu: "Пятиэлементная модель построения личного бренда",
             descriptionKk: "Жеке бренд құрудың бес элементті моделі"
@@ -2202,12 +2272,16 @@ export const COMMUNICATION_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "FLEX: Feel the situation → Lead with purpose → Engage the team → eXecute and adapt",
+            formulaRu: "FLEX: Почувствуй ситуацию → Веди с целью → Вовлеки команду → Действуй и адаптируйся",
+            formulaKk: "FLEX: Жағдайды сезін → Мақсатпен жетекші бол → Топты тарт → Әрекет ет және бейімдел",
             description: "Framework for adaptive leadership across situations",
             descriptionRu: "Модель адаптивного лидерства в разных ситуациях",
             descriptionKk: "Әр түрлі жағдайларда бейімделгіш көшбасшылық моделі"
           },
           {
             formula: "6 Styles: Visionary → Coaching → Affiliative → Democratic → Pacesetting → Commanding",
+            formulaRu: "6 стилей: Визионерский → Коучинговый → Аффилиативный → Демократичный → Задающий темп → Директивный",
+            formulaKk: "6 стиль: Көрегендік → Коучингтік → Топтастырушы → Демократиялық → Қарқын белгілеуші → Бұйрықшыл",
             description: "Goleman's six leadership styles spectrum",
             descriptionRu: "Шесть стилей лидерства по Гоулману",
             descriptionKk: "Голманның алты көшбасшылық стилі"
@@ -2279,6 +2353,8 @@ export const COMMUNICATION_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "SERVE: Support → Empower → Remove obstacles → Value people → Elevate others",
+            formulaRu: "SERVE: Поддерживай → Наделяй полномочиями → Устраняй препятствия → Цени людей → Возвышай других",
+            formulaKk: "SERVE: Қолда → Өкілеттік бер → Кедергілерді жой → Адамдарды бағала → Басқаларды биіктет",
             description: "Five principles of servant leadership",
             descriptionRu: "Пять принципов служащего лидерства",
             descriptionKk: "Қызмет көрсетуші көшбасшылықтың бес қағидасы"
@@ -2350,6 +2426,8 @@ export const COMMUNICATION_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "TEAM: Tasks aligned → Expectations clear → Accountability shared → Milestones tracked",
+            formulaRu: "TEAM: Задачи согласованы → Ожидания ясны → Ответственность разделена → Этапы отслеживаются",
+            formulaKk: "TEAM: Тапсырмалар келісілген → Күтулер анық → Жауапкершілік бөлінген → Кезеңдер бақыланады",
             description: "Four pillars of effective team management",
             descriptionRu: "Четыре столпа эффективного управления командой",
             descriptionKk: "Тиімді команданы басқарудың төрт тірегі"
@@ -2421,6 +2499,8 @@ export const COMMUNICATION_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "DRIVE: Discovery of purpose → Recognition → Intrinsic connection → Vision sharing → Encouragement",
+            formulaRu: "DRIVE: Осознание цели → Признание → Внутренняя связь → Общее видение → Поддержка",
+            formulaKk: "DRIVE: Мақсатты түсіну → Мойындау → Ішкі байланыс → Ортақ көзқарас → Қолдау",
             description: "Five-element motivation framework for leaders",
             descriptionRu: "Пятиэлементная модель мотивации для лидеров",
             descriptionKk: "Көшбасшылар үшін бес элементті мотивация моделі"
@@ -2492,6 +2572,8 @@ export const COMMUNICATION_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "CALM: Contain → Acknowledge → Lead with facts → Move to action",
+            formulaRu: "CALM: Сдержи → Признай → Опирайся на факты → Переходи к действию",
+            formulaKk: "CALM: Ұста → Мойында → Фактіге сүйен → Әрекетке көш",
             description: "Four-step crisis communication framework",
             descriptionRu: "Четырёхшаговая модель кризисной коммуникации",
             descriptionKk: "Дағдарыстық қарым-қатынастың төрт қадамдық моделі"
@@ -2563,6 +2645,8 @@ export const COMMUNICATION_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "WIN: What do I want → Interests (theirs & mine) → Negotiate for mutual gain",
+            formulaRu: "WIN: Чего я хочу → Интересы (их и мои) → Договаривайся о взаимной выгоде",
+            formulaKk: "WIN: Мен нені қалаймын → Мүдделер (олардікі және менікі) → Өзара пайда үшін келіс",
             description: "Three-phase negotiation communication framework",
             descriptionRu: "Трёхфазная модель коммуникации в переговорах",
             descriptionKk: "Келіссөз қарым-қатынасының үш фазалы моделі"
@@ -2634,6 +2718,8 @@ export const COMMUNICATION_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "CONNECT: Curiosity → Offer value → Note details → Nurture over time → Express gratitude → Come Through on promises",
+            formulaRu: "CONNECT: Любопытство → Предложи ценность → Замечай детали → Развивай отношения со временем → Выражай благодарность → Выполняй обещания",
+            formulaKk: "CONNECT: Қызығушылық → Құндылық ұсын → Егжей-тегжейді байқа → Уақыт өте дамыт → Алғыс біл → Уәдеңді орында",
             description: "Six-step networking relationship framework",
             descriptionRu: "Шестишаговая модель построения сетевых отношений",
             descriptionKk: "Желілік қарым-қатынас құрудың алты қадамдық моделі"
@@ -2705,6 +2791,8 @@ export const COMMUNICATION_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "POISE: Posture → Ownership of message → Intentional pauses → Steady voice → Eye contact",
+            formulaRu: "POISE: Осанка → Владение сообщением → Осознанные паузы → Уверенный голос → Зрительный контакт",
+            formulaKk: "POISE: Дене қалпы → Хабарламаны меңгеру → Саналы үзілістер → Сенімді дауыс → Көзбен байланыс",
             description: "Five elements of executive presence in communication",
             descriptionRu: "Пять элементов харизмы руководителя в коммуникации",
             descriptionKk: "Қарым-қатынаста басшы харизмасының бес элементі"
@@ -2776,6 +2864,8 @@ export const COMMUNICATION_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "HEART: Hook emotionally → Empathize → Amplify with story → Relate to audience → Transition to action",
+            formulaRu: "HEART: Зацепи эмоционально → Прояви эмпатию → Усиль историей → Найди отклик у аудитории → Переходи к действию",
+            formulaKk: "HEART: Эмоционалды тарт → Эмпатия таныт → Оқиғамен күшейт → Аудиториямен үндес → Әрекетке көш",
             description: "Five-step ethical emotional appeal framework",
             descriptionRu: "Пятишаговая модель этичного эмоционального обращения",
             descriptionKk: "Этикалық эмоционалды үндеудің бес қадамдық моделі"
@@ -2847,6 +2937,8 @@ export const COMMUNICATION_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "REMOTE: Rituals for connection → Over-communicate → Measure outcomes not hours → Optimize tools → Trust and empower",
+            formulaRu: "REMOTE: Ритуалы для связи → Общайся с избытком → Оценивай результат, а не часы → Оптимизируй инструменты → Доверяй и наделяй полномочиями",
+            formulaKk: "REMOTE: Байланыс рәсімдері → Артық қарым-қатынас жаса → Сағатты емес, нәтижені өлше → Құралдарды оңтайланд → Сен және өкілеттік бер",
             description: "Five principles for leading effective remote teams",
             descriptionRu: "Пять принципов руководства эффективными удалёнными командами",
             descriptionKk: "Тиімді қашықтағы командаларды басқарудың бес қағидасы"
@@ -2927,6 +3019,8 @@ export const COMMUNICATION_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "SCOPE: Stakeholders → Channel → Objective → Positioning → Evaluation",
+            formulaRu: "SCOPE: Заинтересованные стороны → Канал → Цель → Позиционирование → Оценка",
+            formulaKk: "SCOPE: Мүдделі тараптар → Арна → Мақсат → Позициялау → Бағалау",
             description: "Five-step strategic communication planning framework",
             descriptionRu: "Пятишаговая модель планирования стратегической коммуникации",
             descriptionKk: "Стратегиялық қарым-қатынасты жоспарлаудың бес қадамдық моделі"
@@ -2998,6 +3092,8 @@ export const COMMUNICATION_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "VISION: Values → Inspire → Structure → Iterate → Own the culture",
+            formulaRu: "VISION: Ценности → Вдохновляй → Структура → Итерации → Владей культурой",
+            formulaKk: "VISION: Құндылықтар → Шабыттандыр → Құрылым → Қайталап жетілдіру → Мәдениетке ие бол",
             description: "Five-step organizational leadership framework",
             descriptionRu: "Пятишаговая модель организационного лидерства",
             descriptionKk: "Ұйымдастырушылық көшбасшылықтың бес қадамдық моделі"
@@ -3069,6 +3165,8 @@ export const COMMUNICATION_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "SHIFT: Story of why → Hear concerns → Involve early → First wins → Track and adjust",
+            formulaRu: "SHIFT: История «почему» → Выслушай опасения → Вовлекай заранее → Первые победы → Отслеживай и корректируй",
+            formulaKk: "SHIFT: «Неге» тарихы → Алаңдаушылықты тыңда → Ерте тарт → Алғашқы жетістіктер → Бақыла және түзет",
             description: "Five-step change management communication framework",
             descriptionRu: "Пятишаговая модель коммуникации при управлении изменениями",
             descriptionKk: "Өзгерістерді басқару қарым-қатынасының бес қадамдық моделі"
@@ -3140,6 +3238,8 @@ export const COMMUNICATION_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "IMAGE: Identify audience → Message craft → Amplify through channels → Gauge reaction → Evolve strategy",
+            formulaRu: "IMAGE: Определи аудиторию → Создай сообщение → Усиль через каналы → Оцени реакцию → Развивай стратегию",
+            formulaKk: "IMAGE: Аудиторияны анықта → Хабарлама құра → Арналар арқылы күшейт → Реакцияны бағала → Стратегияны дамыт",
             description: "Five-step public relations management framework",
             descriptionRu: "Пятишаговая модель управления связями с общественностью",
             descriptionKk: "Қоғаммен байланысты басқарудың бес қадамдық моделі"
@@ -3211,6 +3311,8 @@ export const COMMUNICATION_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "BRIDGE: Brief answer → Redirect → Illustrate with key message → Deliver soundbite → Guide back to agenda",
+            formulaRu: "BRIDGE: Краткий ответ → Перенаправь → Проиллюстрируй ключевым сообщением → Дай яркую фразу → Верни к повестке",
+            formulaKk: "BRIDGE: Қысқа жауап → Бағытты өзгерт → Негізгі хабарламамен көрсет → Жарқын сөйлем айт → Күн тәртібіне қайтар",
             description: "Five-step media interview response framework",
             descriptionRu: "Пятишаговая модель ответов в медиа-интервью",
             descriptionKk: "Медиа сұхбат жауабының бес қадамдық моделі"
@@ -3282,6 +3384,8 @@ export const COMMUNICATION_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "BRIEF: Bottom line first → Rationale → Impact data → Feasibility → Executive ask",
+            formulaRu: "BRIEF: Сначала суть → Обоснование → Данные о влиянии → Реализуемость → Запрос к руководству",
+            formulaKk: "BRIEF: Алдымен мәні → Негіздеме → Әсер деректері → Іске асырымдылық → Басшылыққа сұраныс",
             description: "Five-part board presentation structure",
             descriptionRu: "Пятичастная структура презентации для правления",
             descriptionKk: "Басқарма ұсынысының бес бөлімді құрылымы"
@@ -3353,6 +3457,8 @@ export const COMMUNICATION_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "VOICE: Value-driven content → Original perspective → Insight sharing → Consistent output → Engage community",
+            formulaRu: "VOICE: Ценностный контент → Оригинальный взгляд → Обмен инсайтами → Постоянство публикаций → Вовлечение сообщества",
+            formulaKk: "VOICE: Құндылыққа негізделген контент → Өзіндік көзқарас → Түйсікпен бөлісу → Тұрақты жариялау → Қауымдастықты тарту",
             description: "Five pillars of thought leadership building",
             descriptionRu: "Пять столпов построения экспертного лидерства",
             descriptionKk: "Сараптамалық көшбасшылық құрудың бес тірегі"
@@ -3424,6 +3530,8 @@ export const COMMUNICATION_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "GROW: Goal → Reality → Options → Will (commitment)",
+            formulaRu: "GROW: Цель → Реальность → Варианты → Воля (обязательство)",
+            formulaKk: "GROW: Мақсат → Шындық → Нұсқалар → Ерік (міндеттеме)",
             description: "Classic coaching conversation framework",
             descriptionRu: "Классическая модель коучинговой беседы",
             descriptionKk: "Классикалық коучинг әңгіме моделі"
@@ -3495,6 +3603,8 @@ export const COMMUNICATION_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "GLOBE: Global awareness → Local sensitivity → Open mindset → Bridge cultures → Ethical leadership",
+            formulaRu: "GLOBE: Глобальная осознанность → Чуткость к местному → Открытое мышление → Соединяй культуры → Этичное лидерство",
+            formulaKk: "GLOBE: Жаһандық аңғарымпаздық → Жергілікті сезімталдық → Ашық ойлау → Мәдениеттерді жақындастыр → Этикалық көшбасшылық",
             description: "Five dimensions of global leadership",
             descriptionRu: "Пять измерений глобального лидерства",
             descriptionKk: "Жаһандық көшбасшылықтың бес өлшемі"
@@ -3566,6 +3676,8 @@ export const COMMUNICATION_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "SHOWCASE: Select best work → Highlight growth → Organize by skill → Write reflections → Curate for audience → Evolve continuously",
+            formulaRu: "SHOWCASE: Выбери лучшие работы → Покажи рост → Организуй по навыкам → Напиши рефлексию → Подбери для аудитории → Постоянно развивайся",
+            formulaKk: "SHOWCASE: Ең үздік жұмыстарды таңда → Өсуді көрсет → Дағды бойынша реттеу → Рефлексия жаз → Аудиторияға іріктеп бер → Үздіксіз дамы",
             description: "Six-step portfolio building framework",
             descriptionRu: "Шестишаговая модель создания портфолио",
             descriptionKk: "Портфолио құрудың алты қадамдық моделі"

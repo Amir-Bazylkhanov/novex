@@ -25,7 +25,7 @@ export type {
 } from './diagnostic/types.ts';
 
 /**
- * NOV-01 Диагност — aggregation layer for the placement-diagnostic bank.
+ * NOV-01 Академик — aggregation layer for the placement-diagnostic bank.
  *
  * The questions themselves live in per-subject files under
  * constants/diagnostic/ (math.ts, physics.ts, …), each ordered easy → hard

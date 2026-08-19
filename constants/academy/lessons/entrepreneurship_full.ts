@@ -18,6 +18,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Business = Problem + Solution + Customer",
+            formulaRu: "Бизнес = Проблема + Решение + Клиент",
+            formulaKk: "Бизнес = Мәселе + Шешім + Тұтынушы",
             description: "Every business starts by solving a problem for someone",
             descriptionRu: "Каждый бизнес начинается с решения чьей-то проблемы",
             descriptionKk: "Әрбір бизнес біреудің мәселесін шешуден басталады"
@@ -86,12 +88,16 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Profit = Revenue - Costs",
+            formulaRu: "Прибыль = Выручка - Затраты",
+            formulaKk: "Пайда = Кіріс - Шығындар",
             description: "The fundamental equation of every business",
             descriptionRu: "Основное уравнение каждого бизнеса",
             descriptionKk: "Әрбір бизнестің негізгі теңдеуі"
           },
           {
             formula: "Revenue = Price × Quantity Sold",
+            formulaRu: "Выручка = Цена × Проданное количество",
+            formulaKk: "Кіріс = Баға × Сатылған саны",
             description: "Total income from selling products or services",
             descriptionRu: "Общий доход от продажи товаров или услуг",
             descriptionKk: "Өнімдер немесе қызметтер сатудан түскен жалпы табыс"
@@ -160,12 +166,16 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "High Demand + Low Supply = Higher Prices",
+            formulaRu: "Высокий спрос + Низкое предложение = Более высокие цены",
+            formulaKk: "Жоғары сұраныс + Төмен ұсыныс = Жоғары бағалар",
             description: "Scarcity drives prices up",
             descriptionRu: "Дефицит повышает цены",
             descriptionKk: "Тапшылық бағаларды көтереді"
           },
           {
             formula: "Low Demand + High Supply = Lower Prices",
+            formulaRu: "Низкий спрос + Высокое предложение = Более низкие цены",
+            formulaKk: "Төмен сұраныс + Жоғары ұсыныс = Төмен бағалар",
             description: "Surplus drives prices down",
             descriptionRu: "Избыток снижает цены",
             descriptionKk: "Артықшылық бағаларды түсіреді"
@@ -231,6 +241,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Target Market = Demographics + Needs + Buying Power",
+            formulaRu: "Целевой рынок = Демография + Потребности + Покупательная способность",
+            formulaKk: "Мақсатты нарық = Демография + Қажеттіліктер + Сатып алу қабілеті",
             description: "Define your ideal customer by combining who they are with what they need",
             descriptionRu: "Определите идеального клиента, объединив его характеристики с потребностями",
             descriptionKk: "Тұтынушының кім екенін қажеттіліктерімен біріктіріп анықтаңыз"
@@ -296,12 +308,16 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Minimum Price = Cost per Unit + Desired Profit per Unit",
+            formulaRu: "Минимальная цена = Себестоимость единицы + Желаемая прибыль на единицу",
+            formulaKk: "Ең төменгі баға = Бірлік құны + Бірлікке қажетті пайда",
             description: "The lowest price you should charge to make money",
             descriptionRu: "Минимальная цена для получения прибыли",
             descriptionKk: "Ақша табу үшін белгілеуге болатын ең төменгі баға"
           },
           {
             formula: "Markup % = (Selling Price - Cost) / Cost × 100",
+            formulaRu: "Наценка % = (Цена продажи - Себестоимость) / Себестоимость × 100",
+            formulaKk: "Үстеме баға % = (Сату бағасы - Құны) / Құны × 100",
             description: "How much you add above your cost as a percentage",
             descriptionRu: "Насколько процентов вы увеличиваете цену над себестоимостью",
             descriptionKk: "Өзіндік құнға қанша пайыз қосатыныңыз"
@@ -370,6 +386,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "4 Ps = Product + Price + Place + Promotion",
+            formulaRu: "4 Ps = Продукт + Цена + Место + Продвижение",
+            formulaKk: "4 Ps = Өнім + Баға + Орын + Жылжыту",
             description: "The four key elements of any marketing strategy",
             descriptionRu: "Четыре ключевых элемента маркетинговой стратегии",
             descriptionKk: "Кез келген маркетинг стратегиясының төрт негізгі элементі"
@@ -435,6 +453,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Good Idea = Real Problem + Feasible Solution + Willing Customers",
+            formulaRu: "Хорошая идея = Реальная проблема + Реализуемое решение + Готовые клиенты",
+            formulaKk: "Жақсы идея = Нақты мәселе + Жүзеге асырылатын шешім + Дайын тұтынушылар",
             description: "Three ingredients needed for a viable business idea",
             descriptionRu: "Три компонента жизнеспособной бизнес-идеи",
             descriptionKk: "Жарамды бизнес идея үшін қажет үш компонент"
@@ -500,6 +520,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Team Success = Clear Roles + Communication + Shared Goals",
+            formulaRu: "Успех команды = Чёткие роли + Коммуникация + Общие цели",
+            formulaKk: "Команда табысы = Нақты рөлдер + Коммуникация + Ортақ мақсаттар",
             description: "The key elements that make a business team work well together",
             descriptionRu: "Ключевые элементы успешной командной работы",
             descriptionKk: "Бизнес команданы жақсы жұмыс істететін негізгі элементтер"
@@ -565,6 +587,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Competitive Advantage = What You Do Better Than Others",
+            formulaRu: "Конкурентное преимущество = То, что вы делаете лучше других",
+            formulaKk: "Бәсекелестік артықшылық = Сіздің басқалардан жақсы істейтініңіз",
             description: "The unique strength that sets your business apart from competitors",
             descriptionRu: "Уникальное преимущество, отличающее вас от конкурентов",
             descriptionKk: "Бизнесіңізді бәсекелестерден ерекшелейтін бірегей артықшылық"
@@ -630,12 +654,16 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Expected Profit = (Price × Expected Sales) - Total Costs",
+            formulaRu: "Ожидаемая прибыль = (Цена × Ожидаемые продажи) - Общие затраты",
+            formulaKk: "Күтілетін пайда = (Баға × Күтілетін сату) - Жалпы шығындар",
             description: "Predict your profit before starting the business",
             descriptionRu: "Прогнозируйте прибыль до начала бизнеса",
             descriptionKk: "Бизнесті бастамас бұрын пайданы болжаңыз"
           },
           {
             formula: "Break-even Point = Total Fixed Costs / (Price - Variable Cost per Unit)",
+            formulaRu: "Точка безубыточности = Общие постоянные затраты / (Цена - Переменные затраты на единицу)",
+            formulaKk: "Шығынсыздық нүктесі = Жалпы тұрақты шығындар / (Баға - Бірлікке айнымалы шығын)",
             description: "How many units you must sell to cover all costs",
             descriptionRu: "Сколько единиц нужно продать, чтобы покрыть затраты",
             descriptionKk: "Барлық шығындарды жабу үшін қанша бірлік сату керек"
@@ -714,6 +742,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Business Model = Value Creation + Value Delivery + Value Capture",
+            formulaRu: "Бизнес-модель = Создание ценности + Доставка ценности + Захват ценности",
+            formulaKk: "Бизнес-модель = Құндылық жасау + Құндылықты жеткізу + Құндылықты алу",
             description: "The three components that define how a business works",
             descriptionRu: "Три компонента, определяющие работу бизнеса",
             descriptionKk: "Бизнестің қалай жұмыс істейтінін анықтайтын үш компонент"
@@ -779,6 +809,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Value Proposition = Target Customer + Problem Solved + Unique Benefit",
+            formulaRu: "Ценностное предложение = Целевой клиент + Решённая проблема + Уникальная выгода",
+            formulaKk: "Құндылық ұсынысы = Мақсатты тұтынушы + Шешілген мәселе + Бірегей пайда",
             description: "The formula for crafting a compelling value proposition",
             descriptionRu: "Формула для создания убедительного ценностного предложения",
             descriptionKk: "Тартымды құндылық ұсынысын жасау формуласы"
@@ -844,6 +876,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Customer Discovery = Problem Interviews + Solution Interviews",
+            formulaRu: "Исследование клиентов = Интервью о проблеме + Интервью о решении",
+            formulaKk: "Тұтынушыны зерттеу = Мәселе туралы сұхбат + Шешім туралы сұхбат",
             description: "First understand the problem, then test your solution",
             descriptionRu: "Сначала поймите проблему, затем проверьте решение",
             descriptionKk: "Алдымен мәселені түсініңіз, содан кейін шешімді тексеріңіз"
@@ -909,6 +943,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Total Revenue = Stream₁ + Stream₂ + Stream₃ + ...",
+            formulaRu: "Общая выручка = Поток₁ + Поток₂ + Поток₃ + ...",
+            formulaKk: "Жалпы кіріс = Ағын₁ + Ағын₂ + Ағын₃ + ...",
             description: "A business can combine multiple revenue sources",
             descriptionRu: "Бизнес может объединять несколько источников дохода",
             descriptionKk: "Бизнес бірнеше табыс көзін біріктіре алады"
@@ -974,12 +1010,16 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Total Costs = Fixed Costs + (Variable Cost per Unit × Quantity)",
+            formulaRu: "Общие затраты = Постоянные затраты + (Переменные затраты на единицу × Количество)",
+            formulaKk: "Жалпы шығындар = Тұрақты шығындар + (Бірлікке айнымалы шығын × Саны)",
             description: "Calculate total business expenses",
             descriptionRu: "Расчёт общих расходов бизнеса",
             descriptionKk: "Бизнестің жалпы шығыстарын есептеу"
           },
           {
             formula: "Break-even Quantity = Fixed Costs / (Price - Variable Cost per Unit)",
+            formulaRu: "Точка безубыточности (количество) = Постоянные затраты / (Цена - Переменные затраты на единицу)",
+            formulaKk: "Шығынсыздық көлемі = Тұрақты шығындар / (Баға - Бірлікке айнымалы шығын)",
             description: "Number of units needed to cover all costs",
             descriptionRu: "Количество единиц для покрытия всех затрат",
             descriptionKk: "Барлық шығындарды жабу үшін қажет бірлік саны"
@@ -1048,6 +1088,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "SWOT = Strengths + Weaknesses + Opportunities + Threats",
+            formulaRu: "SWOT = Сильные стороны + Слабые стороны + Возможности + Угрозы",
+            formulaKk: "SWOT = Күшті жақтар + Әлсіз жақтар + Мүмкіндіктер + Қауіптер",
             description: "A framework for analyzing your business position relative to competitors",
             descriptionRu: "Инструмент анализа позиции бизнеса относительно конкурентов",
             descriptionKk: "Бизнесіңіздің бәсекелестерге қатысты позициясын талдау құрылымы"
@@ -1113,6 +1155,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Brand = Name + Logo + Colors + Voice + Customer Perception",
+            formulaRu: "Бренд = Название + Логотип + Цвета + Голос + Восприятие клиентов",
+            formulaKk: "Бренд = Атау + Логотип + Түстер + Дауыс + Тұтынушының қабылдауы",
             description: "The key elements that form a brand identity",
             descriptionRu: "Ключевые элементы, формирующие идентичность бренда",
             descriptionKk: "Бренд сәйкестілігін қалыптастыратын негізгі элементтер"
@@ -1178,6 +1222,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Engagement Rate = (Likes + Comments + Shares) / Followers × 100%",
+            formulaRu: "Уровень вовлечённости = (Лайки + Комментарии + Репосты) / Подписчики × 100%",
+            formulaKk: "Тартылу деңгейі = (Лайктар + Пікірлер + Бөлісулер) / Жазылушылар × 100%",
             description: "Measures how actively your audience interacts with your content",
             descriptionRu: "Измеряет, насколько активно аудитория взаимодействует с контентом",
             descriptionKk: "Аудиторияңыздың мазмұнмен қаншалықты белсенді әрекеттесетінін өлшейді"
@@ -1246,6 +1292,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "NPS = % Promoters - % Detractors",
+            formulaRu: "NPS = % Промоутеров - % Критиков",
+            formulaKk: "NPS = % Насихаттаушылар - % Сынаушылар",
             description: "Net Promoter Score measures customer satisfaction and loyalty",
             descriptionRu: "Индекс лояльности клиентов измеряет удовлетворённость",
             descriptionKk: "Таза промоутер көрсеткіші тұтынушы қанағаттанушылығы мен адалдығын өлшейді"
@@ -1314,6 +1362,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Business Plan = Executive Summary + Problem + Solution + Market + Revenue + Financials",
+            formulaRu: "Бизнес-план = Резюме проекта + Проблема + Решение + Рынок + Выручка + Финансы",
+            formulaKk: "Бизнес-жоспар = Жоба қорытындысы + Мәселе + Шешім + Нарық + Кіріс + Қаржы",
             description: "The core sections of a basic business plan",
             descriptionRu: "Основные разделы базового бизнес-плана",
             descriptionKk: "Негізгі бизнес-жоспардың негізгі бөлімдері"
@@ -1389,6 +1439,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Build → Measure → Learn → Repeat",
+            formulaRu: "Создать → Измерить → Изучить → Повторить",
+            formulaKk: "Жасау → Өлшеу → Үйрену → Қайталау",
             description: "The Lean Startup feedback loop for continuous improvement",
             descriptionRu: "Цикл обратной связи бережливого стартапа для непрерывного улучшения",
             descriptionKk: "Үздіксіз жақсарту үшін үнемді стартаптың кері байланыс циклі"
@@ -1454,6 +1506,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "MVP = Core Feature + Feedback Mechanism",
+            formulaRu: "MVP = Ключевая функция + Механизм обратной связи",
+            formulaKk: "MVP = Негізгі функция + Кері байланыс тетігі",
             description: "Build only what is essential to test and learn",
             descriptionRu: "Создайте только необходимое для тестирования и обучения",
             descriptionKk: "Тексеру және үйрену үшін тек қажеттіні жасаңыз"
@@ -1584,6 +1638,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Validation = Willingness to Pay (not just interest)",
+            formulaRu: "Валидация = Готовность платить (а не просто интерес)",
+            formulaKk: "Валидация = Төлеуге дайын болу (жай қызығушылық емес)",
             description: "True validation requires actual payment or strong commitment",
             descriptionRu: "Настоящая валидация требует реальной оплаты или твёрдого обязательства",
             descriptionKk: "Нағыз растау нақты төлемді немесе берік міндеттемені талап етеді"
@@ -1649,6 +1705,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Idea → Prototype → Test → Iterate → Launch",
+            formulaRu: "Идея → Прототип → Тест → Итерация → Запуск",
+            formulaKk: "Идея → Прототип → Тест → Итерация → Іске қосу",
             description: "The product development pipeline from concept to market",
             descriptionRu: "Путь разработки продукта от концепции до рынка",
             descriptionKk: "Тұжырымдамадан нарыққа дейінгі өнім әзірлеу жолы"
@@ -1714,6 +1772,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Conversion Rate = (Conversions / Total Visitors) × 100%",
+            formulaRu: "Коэффициент конверсии = (Конверсии / Общее число посетителей) × 100%",
+            formulaKk: "Конверсия коэффициенті = (Конверсиялар / Жалпы келушілер саны) × 100%",
             description: "Percentage of visitors who take a desired action",
             descriptionRu: "Процент посетителей, совершивших целевое действие",
             descriptionKk: "Қалаған әрекетті жасайтын кірушілердің пайызы"
@@ -1782,6 +1842,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Sales Funnel: Awareness → Interest → Decision → Action (AIDA)",
+            formulaRu: "Воронка продаж: Осведомлённость → Интерес → Решение → Действие (AIDA)",
+            formulaKk: "Сату воронкасы: Хабардар болу → Қызығушылық → Шешім → Әрекет (AIDA)",
             description: "The stages a customer goes through before buying",
             descriptionRu: "Этапы, которые проходит клиент перед покупкой",
             descriptionKk: "Тұтынушы сатып алмас бұрын өтетін кезеңдер"
@@ -1850,12 +1912,16 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Monthly Profit = Monthly Revenue - Monthly Expenses",
+            formulaRu: "Месячная прибыль = Месячная выручка - Месячные расходы",
+            formulaKk: "Айлық пайда = Айлық кіріс - Айлық шығыстар",
             description: "Basic monthly profitability calculation",
             descriptionRu: "Базовый расчёт ежемесячной прибыльности",
             descriptionKk: "Ай сайынғы пайдалылықтың негізгі есебі"
           },
           {
             formula: "Annual Revenue = Monthly Revenue × 12 (adjusted for growth)",
+            formulaRu: "Годовая выручка = Месячная выручка × 12 (с учётом роста)",
+            formulaKk: "Жылдық кіріс = Айлық кіріс × 12 (өсімді ескере отырып)",
             description: "Project yearly earnings from monthly data",
             descriptionRu: "Прогноз годового дохода на основе ежемесячных данных",
             descriptionKk: "Ай сайынғы деректерден жылдық табысты болжау"
@@ -1924,6 +1990,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "IP Protection = Trademark (brand) + Copyright (content) + Patent (invention)",
+            formulaRu: "Защита интеллектуальной собственности = Товарный знак (бренд) + Авторское право (контент) + Патент (изобретение)",
+            formulaKk: "Зияткерлік меншікті қорғау = Тауар белгісі (бренд) + Авторлық құқық (контент) + Патент (өнертабыс)",
             description: "Three main types of intellectual property protection",
             descriptionRu: "Три основных вида защиты интеллектуальной собственности",
             descriptionKk: "Зияткерлік меншікті қорғаудың үш негізгі түрі"
@@ -1989,6 +2057,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Pitch Deck = Problem + Solution + Market + Model + Traction + Team + Ask",
+            formulaRu: "Питч-дек = Проблема + Решение + Рынок + Модель + Тяга + Команда + Запрос",
+            formulaKk: "Питч-дек = Мәселе + Шешім + Нарық + Модель + Серпін + Команда + Сұраныс",
             description: "The essential slides in any startup pitch deck",
             descriptionRu: "Основные слайды любого стартап-питча",
             descriptionKk: "Кез келген стартап питч-дектің негізгі слайдтары"
@@ -2064,6 +2134,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Elevator Pitch = Hook + Problem + Solution + Ask (under 60 seconds)",
+            formulaRu: "Питч-презентация = Зацепка + Проблема + Решение + Запрос (менее 60 секунд)",
+            formulaKk: "Лифт-питч = Қызықтырушы сәт + Мәселе + Шешім + Сұраныс (60 секундтан аз)",
             description: "The structure for a concise pitch that captures attention quickly",
             descriptionRu: "Структура краткого питча, который быстро захватывает внимание",
             descriptionKk: "Назарды тез аударатын қысқа питч құрылымы"
@@ -2132,12 +2204,16 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Post-Money Valuation = Pre-Money Valuation + Investment Amount",
+            formulaRu: "Оценка после инвестиций = Оценка до инвестиций + Сумма инвестиций",
+            formulaKk: "Инвестициядан кейінгі баға = Инвестицияға дейінгі баға + Инвестиция сомасы",
             description: "How company value is calculated after receiving an investment",
             descriptionRu: "Как рассчитывается стоимость компании после получения инвестиций",
             descriptionKk: "Инвестиция алғаннан кейін компания құны қалай есептеледі"
           },
           {
             formula: "Investor Ownership % = Investment / Post-Money Valuation × 100",
+            formulaRu: "Доля инвестора % = Инвестиции / Оценка после инвестиций × 100",
+            formulaKk: "Инвестор үлесі % = Инвестиция / Инвестициядан кейінгі баға × 100",
             description: "The percentage of the company the investor receives",
             descriptionRu: "Процент компании, который получает инвестор",
             descriptionKk: "Инвестор алатын компания пайызы"
@@ -2206,6 +2282,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Unit Profit = Revenue per Unit - Cost per Unit",
+            formulaRu: "Прибыль на единицу = Выручка на единицу - Себестоимость единицы",
+            formulaKk: "Бірлік пайдасы = Бірлік кірісі - Бірлік құны",
             description: "The profit earned from selling one unit of product or serving one customer",
             descriptionRu: "Прибыль от продажи одной единицы продукта или обслуживания одного клиента",
             descriptionKk: "Бір бірлік өнім сатудан немесе бір тұтынушыға қызмет көрсетуден түскен пайда"
@@ -2274,12 +2352,16 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "CAC = Total Marketing Spend / Number of New Customers Acquired",
+            formulaRu: "CAC = Общие расходы на маркетинг / Количество привлечённых новых клиентов",
+            formulaKk: "CAC = Жалпы маркетинг шығыны / Тартылған жаңа тұтынушылар саны",
             description: "The cost to acquire one new customer",
             descriptionRu: "Стоимость привлечения одного нового клиента",
             descriptionKk: "Бір жаңа тұтынушыны тарту құны"
           },
           {
             formula: "LTV = Average Revenue per Customer × Average Customer Lifespan",
+            formulaRu: "LTV = Средняя выручка на клиента × Средний срок жизни клиента",
+            formulaKk: "LTV = Клиентке орташа кіріс × Клиенттің орташа өмір сүру мерзімі",
             description: "Total revenue expected from a single customer over time",
             descriptionRu: "Ожидаемый общий доход от одного клиента за всё время",
             descriptionKk: "Уақыт бойы бір тұтынушыдан күтілетін жалпы табыс"
@@ -2348,12 +2430,16 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "MRR = Number of Paying Customers × Average Revenue per Customer",
+            formulaRu: "MRR = Количество платящих клиентов × Средняя выручка на клиента",
+            formulaKk: "MRR = Төлеуші тұтынушылар саны × Клиентке орташа кіріс",
             description: "Total predictable recurring revenue each month",
             descriptionRu: "Общий предсказуемый регулярный доход каждый месяц",
             descriptionKk: "Ай сайынғы болжамды тұрақты табыс"
           },
           {
             formula: "Churn Rate = (Customers Lost in Period / Customers at Start) × 100",
+            formulaRu: "Отток клиентов = (Потерянные клиенты за период / Клиенты на начало периода) × 100",
+            formulaKk: "Тұтынушылардың кетуі = (Кезеңде жоғалтылған тұтынушылар / Кезең басындағы тұтынушылар) × 100",
             description: "Percentage of customers who stop using your product",
             descriptionRu: "Процент клиентов, прекративших использование продукта",
             descriptionKk: "Өніміңізді пайдалануды тоқтатқан тұтынушылар пайызы"
@@ -2422,6 +2508,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Strong Team = Complementary Skills + Shared Vision + Trust",
+            formulaRu: "Сильная команда = Взаимодополняющие навыки + Общее видение + Доверие",
+            formulaKk: "Мықты команда = Бір-бірін толықтыратын дағдылар + Ортақ көзқарас + Сенім",
             description: "The foundation of any successful startup team",
             descriptionRu: "Основа любой успешной стартап-команды",
             descriptionKk: "Кез келген табысты стартап командасының негізі"
@@ -2490,12 +2578,16 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Ownership % = (Your Shares / Total Shares) × 100",
+            formulaRu: "Доля владения % = (Ваши акции / Общее количество акций) × 100",
+            formulaKk: "Меншік үлесі % = (Сіздің акцияларыңыз / Жалпы акциялар саны) × 100",
             description: "Your percentage ownership of the company",
             descriptionRu: "Ваш процент владения компанией",
             descriptionKk: "Компаниядағы сіздің меншік пайызыңыз"
           },
           {
             formula: "4-Year Vesting: 25% after Year 1 (cliff), then ~2.08% per month for 36 months",
+            formulaRu: "4-летний вестинг: 25% после 1 года (клиф), затем ~2,08% в месяц в течение 36 месяцев",
+            formulaKk: "4 жылдық вестинг: 1 жылдан кейін 25% (клиф), одан кейін 36 ай бойы айына ~2,08%",
             description: "Standard vesting schedule for startup equity",
             descriptionRu: "Стандартный график вестинга для стартапов",
             descriptionKk: "Стартап үлесі үшін стандартты вестинг кестесі"
@@ -2564,6 +2656,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Runway (months) = Cash in Bank / Monthly Burn Rate",
+            formulaRu: "Запас прочности (месяцы) = Деньги в банке / Месячные расходы",
+            formulaKk: "Қаржы қоры (ай) = Банктегі ақша / Айлық шығын қарқыны",
             description: "How many months your startup can survive with current funds",
             descriptionRu: "Сколько месяцев стартап может существовать с текущими средствами",
             descriptionKk: "Стартап ағымдағы қаражатпен қанша ай өмір сүре алады"
@@ -2632,6 +2726,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Strong Culture = Clear Values + Consistent Actions + Open Communication",
+            formulaRu: "Сильная культура = Чёткие ценности + Последовательные действия + Открытое общение",
+            formulaKk: "Мықты мәдениет = Нақты құндылықтар + Тұрақты әрекеттер + Ашық қарым-қатынас",
             description: "The elements that build a lasting startup culture",
             descriptionRu: "Элементы, формирующие устойчивую культуру стартапа",
             descriptionKk: "Тұрақты стартап мәдениетін қалыптастыратын элементтер"
@@ -2700,6 +2796,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Startup Success Pattern = Problem-Market Fit + Rapid Iteration + Strong Team + Right Timing",
+            formulaRu: "Модель успеха стартапа = Соответствие проблемы и рынка + Быстрые итерации + Сильная команда + Правильный момент",
+            formulaKk: "Стартап табысының үлгісі = Мәселе мен нарықтың сәйкестігі + Жылдам итерациялар + Мықты команда + Дұрыс уақыт",
             description: "Common elements found across successful tech startups",
             descriptionRu: "Общие элементы успешных технологических стартапов",
             descriptionKk: "Табысты технологиялық стартаптарда кездесетін ортақ элементтер"
@@ -2778,6 +2876,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Scalability Ratio = Revenue Growth Rate / Cost Growth Rate",
+            formulaRu: "Коэффициент масштабируемости = Темп роста выручки / Темп роста затрат",
+            formulaKk: "Масштабтау коэффициенті = Кіріс өсу қарқыны / Шығын өсу қарқыны",
             description: "A ratio above 1 means the business scales efficiently",
             descriptionRu: "Показатель выше 1 означает, что бизнес масштабируется эффективно",
             descriptionKk: "1-ден жоғары көрсеткіш бизнестің тиімді масштабталатынын білдіреді"
@@ -2846,6 +2946,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Viral Coefficient (K) = Invites per User × Conversion Rate",
+            formulaRu: "Вирусный коэффициент (K) = Приглашения на пользователя × Коэффициент конверсии",
+            formulaKk: "Вирустық коэффициент (K) = Пайдаланушыға шақыру саны × Конверсия коэффициенті",
             description: "When K > 1, each user brings in more than one new user — viral growth",
             descriptionRu: "Когда K > 1, каждый пользователь привлекает более одного нового — вирусный рост",
             descriptionKk: "K > 1 болғанда, әр пайдаланушы бірден артық жаңа пайдаланушы тартады — вирусты өсу"
@@ -2914,12 +3016,16 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Dilution per Round = New Shares Issued / (Existing Shares + New Shares) × 100",
+            formulaRu: "Разводнение за раунд = Выпущенные новые акции / (Существующие акции + Новые акции) × 100",
+            formulaKk: "Раунд бойынша сұйылту = Шығарылған жаңа акциялар / (Бар акциялар + Жаңа акциялар) × 100",
             description: "How much existing owners' percentage decreases in each funding round",
             descriptionRu: "Насколько уменьшается доля существующих владельцев в каждом раунде",
             descriptionKk: "Әр раундта бар иелердің пайызы қаншаға азаяды"
           },
           {
             formula: "Typical Dilution: Series A ~20-25%, Series B ~15-20%, Series C ~10-15%",
+            formulaRu: "Типичное разводнение: Series A ~20-25%, Series B ~15-20%, Series C ~10-15%",
+            formulaKk: "Әдеттегі сұйылту: Series A ~20-25%, Series B ~15-20%, Series C ~10-15%",
             description: "Standard equity ranges investors receive at each stage",
             descriptionRu: "Стандартные доли, которые инвесторы получают на каждом этапе",
             descriptionKk: "Инвесторлардың әр кезеңде алатын стандартты үлестері"
@@ -2988,6 +3094,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "TAM (new market) = Target Population × Adoption Rate × Price Point",
+            formulaRu: "TAM (новый рынок) = Целевое население × Уровень принятия × Цена",
+            formulaKk: "TAM (жаңа нарық) = Мақсатты халық × Қабылдау деңгейі × Баға",
             description: "Estimating the total addressable market in a new country",
             descriptionRu: "Оценка общего целевого рынка в новой стране",
             descriptionKk: "Жаңа елдегі жалпы мақсатты нарықты бағалау"
@@ -3056,6 +3164,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Return on Investment (ROI) = (Exit Value - Total Investment) / Total Investment × 100",
+            formulaRu: "Рентабельность инвестиций (ROI) = (Стоимость выхода - Общие инвестиции) / Общие инвестиции × 100",
+            formulaKk: "Инвестиция қайтарымы (ROI) = (Шығу құны - Жалпы инвестиция) / Жалпы инвестиция × 100",
             description: "How much return investors earn from an exit event",
             descriptionRu: "Сколько прибыли инвесторы получают от события выхода",
             descriptionKk: "Инвесторлар шығу оқиғасынан қанша қайтарым алады"
@@ -3124,6 +3234,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "IPO Valuation = Share Price × Total Shares Outstanding",
+            formulaRu: "Оценка при IPO = Цена акции × Общее количество акций в обращении",
+            formulaKk: "IPO кезіндегі баға = Акция бағасы × Айналымдағы акциялардың жалпы саны",
             description: "The market capitalization of the company at IPO",
             descriptionRu: "Рыночная капитализация компании на момент IPO",
             descriptionKk: "IPO кезіндегі компанияның нарықтық капитализациясы"
@@ -3192,6 +3304,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Acquisition Premium = (Offer Price - Current Market Price) / Current Market Price × 100",
+            formulaRu: "Премия за поглощение = (Цена предложения - Текущая рыночная цена) / Текущая рыночная цена × 100",
+            formulaKk: "Сатып алу сыйақысы = (Ұсыныс бағасы - Ағымдағы нарықтық баға) / Ағымдағы нарықтық баға × 100",
             description: "The percentage above market value that an acquirer pays",
             descriptionRu: "Процент сверх рыночной стоимости, который платит покупатель",
             descriptionKk: "Сатып алушы нарықтық құннан тыс төлейтін пайыз"
@@ -3260,6 +3374,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Board Structure = Independent Directors + Executive Directors + Chair",
+            formulaRu: "Структура совета директоров = Независимые директора + Исполнительные директора + Председатель",
+            formulaKk: "Директорлар кеңесінің құрылымы = Тәуелсіз директорлар + Атқарушы директорлар + Төраға",
             description: "A balanced board includes both inside and outside perspectives",
             descriptionRu: "Сбалансированный совет включает внутренние и внешние перспективы",
             descriptionKk: "Теңдестірілген кеңес ішкі және сыртқы көзқарастарды қамтиды"
@@ -3328,6 +3444,8 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Social Impact = People Reached × Depth of Impact × Duration",
+            formulaRu: "Социальное воздействие = Охваченные люди × Глубина воздействия × Продолжительность",
+            formulaKk: "Әлеуметтік әсер = Қамтылған адамдар × Әсер тереңдігі × Ұзақтығы",
             description: "A framework for measuring social enterprise effectiveness",
             descriptionRu: "Рамка для измерения эффективности социального предприятия",
             descriptionKk: "Әлеуметтік кәсіпорын тиімділігін өлшеу құрылымы"
@@ -3396,12 +3514,16 @@ export const ENTREPRENEURSHIP_FULL: Record<string, LessonContent> = {
         keyFormulas: [
           {
             formula: "Startup Plan = Problem + Solution + Market + Model + Financials + Team + Milestones",
+            formulaRu: "План стартапа = Проблема + Решение + Рынок + Модель + Финансы + Команда + Вехи",
+            formulaKk: "Стартап жоспары = Мәселе + Шешім + Нарық + Модель + Қаржы + Команда + Кезеңдер",
             description: "The seven essential sections of any startup plan",
             descriptionRu: "Семь основных разделов любого стартап-плана",
             descriptionKk: "Кез келген стартап жоспарының жеті негізгі бөлімі"
           },
           {
             formula: "Break-Even Point = Fixed Costs / (Price per Unit - Variable Cost per Unit)",
+            formulaRu: "Точка безубыточности = Постоянные затраты / (Цена за единицу - Переменные затраты на единицу)",
+            formulaKk: "Шығынсыздық нүктесі = Тұрақты шығындар / (Бірлік бағасы - Бірлікке айнымалы шығын)",
             description: "How many units you need to sell to cover all costs",
             descriptionRu: "Сколько единиц нужно продать, чтобы покрыть все затраты",
             descriptionKk: "Барлық шығындарды жабу үшін қанша бірлік сату керек"

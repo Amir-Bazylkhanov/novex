@@ -26,6 +26,9 @@ export interface LessonContent {
     contentKk: string;
     keyFormulas?: Array<{
       formula: string;
+      /** Only present when the formula contains English prose (pure math stays single-variant). */
+      formulaRu?: string;
+      formulaKk?: string;
       /** Optional explicit LaTeX. When present, overrides the auto-converter. */
       tex?: string;
       description: string;

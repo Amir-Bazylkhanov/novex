@@ -327,9 +327,9 @@ const CHART_SCORE_COL: Localized = {
 };
 
 const CURATOR_LABEL: Localized = {
-  ru: 'NOV-03 · КУРАТОР',
-  kk: 'NOV-03 · КУРАТОР',
-  en: 'NOV-03 · CURATOR',
+  ru: 'NOV-01 · АКАДЕМИК',
+  kk: 'NOV-01 · АКАДЕМИК',
+  en: 'NOV-01 · ACADEMIC',
 };
 const CURATOR_HEADING: Localized = {
   ru: 'Требуют внимания',
@@ -520,7 +520,7 @@ const formatDate = (lang: Lang, iso: string): string => {
   return date.toLocaleDateString(locale, { day: 'numeric', month: 'long', year: 'numeric' });
 };
 
-/** Localized NOV-03 sentence: «Эти N учеников отстают по теме X: names». */
+/** Localized NOV-01 sentence: «Эти N учеников отстают по теме X: names». */
 const curatorMessage = (
   lang: Lang,
   count: number,
@@ -720,7 +720,7 @@ const TeacherPage: React.FC = () => {
     [],
   );
 
-  /* NOV-03 insight: topic with the most struggling students, derived from data */
+  /* NOV-01 insight: topic with the most struggling students, derived from data */
   const curatorInsight = useMemo(() => {
     const byTopic = new Map<string, TeacherStudent[]>();
     for (const student of TEACHER_STUDENTS) {
@@ -2143,10 +2143,10 @@ const TeacherPage: React.FC = () => {
             </div>
           </section>
 
-          {/* NOV-03 curator insight */}
+          {/* NOV-01 curator insight */}
           <section aria-labelledby="curator-heading" className={CARD}>
             <div className="flex items-start gap-4">
-              <RobotAvatar robot="nov3" className="h-14 w-14 shrink-0" />
+              <RobotAvatar robot="nov1" className="h-14 w-14 shrink-0" />
               <div className="min-w-0">
                 <p className="font-mono text-[11px] font-semibold uppercase tracking-widest text-coral">
                   {loc(language, CURATOR_LABEL)}

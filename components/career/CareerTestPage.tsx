@@ -6,7 +6,9 @@ import {
   Briefcase,
   Compass,
   Loader2,
+  MessageSquareText,
   RotateCcw,
+  SkipForward,
   Sparkles,
   Target,
 } from 'lucide-react';
@@ -14,15 +16,21 @@ import { loc, type Localized } from '../../utils/i18n.ts';
 import { useLanguage } from '../../context/LanguageContext.tsx';
 import { useAuth } from '../../context/AuthContext.tsx';
 import { supabase } from '../../services/supabaseClient.ts';
+import { askTutor } from '../../services/aiService.ts';
 import { RobotAvatar } from '../robots/RobotAvatars.tsx';
 import { LESSON_SUBJECTS, type LessonSubject } from '../../constants/lessonData.ts';
 
 /* --- content --- */
 
+// NOV-01 · Академик — the direction-robot rename in progress elsewhere in the
+// app maps this persona onto RobotAvatar's MentorRobotId variant 'nov4'
+// (components/robots/RobotAvatars.tsx). The rename agent working on the
+// robots files may realias/rename that id further; do not edit robots files
+// here — this component only consumes the variant value.
 const ROBOT_LABEL: Localized = {
-  ru: 'NOV-01 · Навигатор',
-  kk: 'NOV-01 · Навигатор',
-  en: 'NOV-01 · Navigator',
+  ru: 'NOV-01 · Академик',
+  kk: 'NOV-01 · Академик',
+  en: 'NOV-01 · Academic',
 };
 const LOADING: Localized = {
   ru: 'Загружаем…',
@@ -36,14 +44,14 @@ const INTRO_TITLE: Localized = {
   en: 'Career orientation test',
 };
 const INTRO_SUB: Localized = {
-  ru: '18 утверждений о том, что тебе нравится и что у тебя получается. NOV-01 разложит ответы по шести направлениям и покажет твой профиль: подходящие профессии и предметы, на которые стоит опереться.',
-  kk: 'Неміне қызығатының мен неге жақсы берілетінің туралы 18 тұжырым. NOV-01 жауаптарды алты бағытқа бөліп, сенің профиліңді көрсетеді: сәйкес мамандықтар мен сүйенуге болатын пәндер.',
-  en: '18 statements about what you enjoy and what you are good at. NOV-01 maps your answers onto six dimensions and shows your profile: fitting professions and the subjects worth leaning on.',
+  ru: '18 утверждений и несколько открытых вопросов о том, что тебе нравится и что у тебя получается. NOV-01 разложит ответы по шести направлениям, а затем разберёт твои развёрнутые ответы и покажет профиль: подходящие профессии и предметы, на которые стоит опереться.',
+  kk: 'Неміне қызығатының мен неге жақсы берілетінің туралы 18 тұжырым және бірнеше ашық сұрақ. NOV-01 жауаптарды алты бағытқа бөліп, сенің толық жауаптарыңды талдап, профиліңді көрсетеді: сәйкес мамандықтар мен сүйенуге болатын пәндер.',
+  en: '18 statements plus a few open questions about what you enjoy and what you are good at. NOV-01 maps your answers onto six dimensions, reads your written answers, and shows your profile: fitting professions and the subjects worth leaning on.',
 };
 const INTRO_META: Localized = {
-  ru: '5–7 минут · без правильных и неправильных ответов',
-  kk: '5–7 минут · дұрыс немесе қате жауаптар жоқ',
-  en: '5–7 minutes · no right or wrong answers',
+  ru: '7–10 минут · без правильных и неправильных ответов',
+  kk: '7–10 минут · дұрыс немесе қате жауаптар жоқ',
+  en: '7–10 minutes · no right or wrong answers',
 };
 const INTRO_RESUME: Localized = {
   ru: 'У тебя есть незавершённая попытка — продолжим с того места, где ты остановился.',
@@ -65,6 +73,107 @@ const counterLine = (lang: 'ru' | 'kk' | 'en', current: number, total: number): 
   if (lang === 'kk') return `Тұжырым ${current} / ${total}`;
   if (lang === 'en') return `Statement ${current} of ${total}`;
   return `Утверждение ${current} из ${total}`;
+};
+
+const openCounterLine = (lang: 'ru' | 'kk' | 'en', current: number, total: number): string => {
+  if (lang === 'kk') return `Ашық сұрақ ${current} / ${total}`;
+  if (lang === 'en') return `Open question ${current} of ${total}`;
+  return `Открытый вопрос ${current} из ${total}`;
+};
+
+/* --- open questions: free-text anchors, interleaved after the 18 scale
+      statements. Mirrors the depth of Locus Guide's open anchors (a moment
+      that clicked / a task that absorbs you / a self-projection question)
+      without copying its country-fit or major-matching scope. --- */
+
+const OPEN_INTRO: Localized = {
+  ru: 'Ещё несколько вопросов своими словами — они помогут NOV-01 понять тебя точнее, чем шкала.',
+  kk: 'Тағы бірнеше сұрақ өз сөзіңмен — олар NOV-01-ге сені шкаладан дәлірек түсінуге көмектеседі.',
+  en: 'A few more questions in your own words — they help NOV-01 understand you more precisely than the scale.',
+};
+
+const OPEN_MIN_HINT: Localized = {
+  ru: 'Минимум 20 символов, чтобы продолжить — или пропусти вопрос.',
+  kk: 'Жалғастыру үшін кемінде 20 таңба керек — немесе сұрақты өткізіп жібер.',
+  en: 'At least 20 characters to continue — or skip the question.',
+};
+
+const OPEN_CONTINUE_BTN: Localized = {
+  ru: 'Продолжить',
+  kk: 'Жалғастыру',
+  en: 'Continue',
+};
+
+const OPEN_SKIP_BTN: Localized = {
+  ru: 'Пропустить',
+  kk: 'Өткізіп жіберу',
+  en: 'Skip',
+};
+
+interface OpenQuestion {
+  id: string;
+  prompt: Localized;
+  placeholder: Localized;
+}
+
+const OPEN_QUESTIONS: readonly OpenQuestion[] = [
+  {
+    id: 'open1',
+    prompt: {
+      ru: 'Опиши задачу, за которую ты взялся бы с удовольствием — даже без оценки за неё.',
+      kk: 'Баға қойылмаса да, ықыласпен кірісетін тапсырманы сипатта.',
+      en: 'Describe a task you would take on with pleasure — even without a grade for it.',
+    },
+    placeholder: {
+      ru: 'Например: собрать и настроить свой первый сайт, разобрать, как работает старый радиоприёмник…',
+      kk: 'Мысалы: алғашқы сайтыңды құрастырып баптау, ескі радионың қалай жұмыс істейтінін түсіну…',
+      en: 'For example: building and configuring your first website, taking apart an old radio to see how it works…',
+    },
+  },
+  {
+    id: 'open2',
+    prompt: {
+      ru: 'Какие школьные темы тебе интереснее всего и почему?',
+      kk: 'Мектептегі қай тақырыптар саған ең қызық және неге?',
+      en: 'Which school topics interest you most, and why?',
+    },
+    placeholder: {
+      ru: 'Назови конкретные темы, а не просто предмет, и объясни, что в них цепляет.',
+      kk: 'Жай пәнді емес, нақты тақырыптарды атап, олардың немен қызықтыратынын түсіндір.',
+      en: 'Name specific topics, not just a subject, and explain what draws you in.',
+    },
+  },
+  {
+    id: 'open3',
+    prompt: {
+      ru: 'Кем ты видишь себя через 10 лет?',
+      kk: '10 жылдан кейін өзіңді кім болып көресің?',
+      en: 'Where do you see yourself in 10 years?',
+    },
+    placeholder: {
+      ru: 'Опиши день из этой жизни: чем занимаешься, с кем, что тебя радует.',
+      kk: 'Сол өмірден бір күнді сипатта: немен айналысасың, кіммен, не қуантады.',
+      en: 'Describe a day in that life: what you do, with whom, what makes it satisfying.',
+    },
+  },
+];
+
+const AI_HEADING: Localized = {
+  ru: 'Разбор от NOV-01',
+  kk: 'NOV-01 талдауы',
+  en: "NOV-01's analysis",
+};
+const AI_LOADING: Localized = {
+  ru: 'NOV-01 читает твои ответы…',
+  kk: 'NOV-01 жауаптарыңды оқуда…',
+  en: 'NOV-01 is reading your answers…',
+};
+
+/** Explicit language names for the AI prompt, so the reply matches the UI language. */
+const LANGUAGE_NAMES: Record<'ru' | 'kk' | 'en', string> = {
+  ru: 'Russian',
+  kk: 'Kazakh',
+  en: 'English',
 };
 
 const RESULT_TITLE: Localized = {
@@ -436,11 +545,16 @@ interface CareerResult {
   scores: Scores;
   top: [CareerDimension, CareerDimension];
   finishedAt: string;
+  /** Verbatim free-text answers, parallel to OPEN_QUESTIONS (empty string = skipped). */
+  openAnswers: string[];
+  /** NOV-01's personalized read of the open answers. Null until the (free) AI call resolves or fails. */
+  aiAnalysis: string | null;
 }
 
 const DRAFT_KEY = 'novex.career.draft';
 const RESULT_KEY = 'novex.career.result';
 const MAX_SCORE = 3 * 4; // 3 questions × max 4 points
+const OPEN_MIN_CHARS = 20;
 
 const emptyScores = (): Scores => ({
   analyst: 0,
@@ -454,17 +568,40 @@ const emptyScores = (): Scores => ({
 const isDimension = (value: unknown): value is CareerDimension =>
   typeof value === 'string' && DIMENSIONS.some((d) => d.key === value);
 
-const readDraft = (): number[] => {
+/** In-progress draft: scale answers (1..4) plus open-text answers, autosaved as each question is answered. */
+interface CareerDraft {
+  answers: number[];
+  open: string[];
+}
+
+const emptyDraft = (): CareerDraft => ({ answers: [], open: [] });
+
+const readDraft = (): CareerDraft => {
   try {
     const raw = localStorage.getItem(DRAFT_KEY);
-    if (!raw) return [];
+    if (!raw) return emptyDraft();
     const parsed: unknown = JSON.parse(raw);
-    if (!Array.isArray(parsed)) return [];
-    return parsed.filter(
-      (v): v is number => typeof v === 'number' && v >= 1 && v <= 4,
-    );
+    // migrate the old draft shape (a bare number[]) written before open
+    // questions existed
+    if (Array.isArray(parsed)) {
+      return {
+        answers: parsed.filter((v): v is number => typeof v === 'number' && v >= 1 && v <= 4),
+        open: [],
+      };
+    }
+    if (parsed && typeof parsed === 'object') {
+      const obj = parsed as Partial<CareerDraft>;
+      const answers = Array.isArray(obj.answers)
+        ? obj.answers.filter((v): v is number => typeof v === 'number' && v >= 1 && v <= 4)
+        : [];
+      const open = Array.isArray(obj.open)
+        ? obj.open.filter((v): v is string => typeof v === 'string')
+        : [];
+      return { answers, open };
+    }
+    return emptyDraft();
   } catch {
-    return [];
+    return emptyDraft();
   }
 };
 
@@ -482,13 +619,21 @@ const readResult = (): CareerResult | null => {
     ) {
       return null;
     }
-    return parsed as CareerResult;
+    return {
+      scores: parsed.scores as Scores,
+      top: parsed.top as [CareerDimension, CareerDimension],
+      finishedAt: parsed.finishedAt ?? new Date().toISOString(),
+      openAnswers: Array.isArray(parsed.openAnswers)
+        ? parsed.openAnswers.filter((v): v is string => typeof v === 'string')
+        : [],
+      aiAnalysis: typeof parsed.aiAnalysis === 'string' ? parsed.aiAnalysis : null,
+    };
   } catch {
     return null;
   }
 };
 
-const scoreAnswers = (answers: number[]): CareerResult => {
+const scoreAnswers = (answers: number[], openAnswers: string[]): CareerResult => {
   const scores = emptyScores();
   QUESTIONS.forEach((q, i) => {
     scores[q.dimension] += answers[i] ?? 0;
@@ -498,11 +643,20 @@ const scoreAnswers = (answers: number[]): CareerResult => {
     scores,
     top: [ranked[0].key, ranked[1].key],
     finishedAt: new Date().toISOString(),
+    openAnswers,
+    aiAnalysis: null,
   };
 };
 
 /* --- Supabase persistence (career_results is the source of truth,
-      localStorage stays as an offline cache) --- */
+      localStorage stays as an offline cache).
+
+      The `scores` jsonb column packs { dimensions, open_answers, ai_analysis }
+      so the deterministic dimension scores, the student's free-text answers
+      and NOV-01's analysis all travel together without a migration. The
+      `top` text[] column keeps its original flat shape. Older rows written
+      before this change store the flat dimensions object directly in
+      `scores` (no `dimensions` wrapper) — rowToResult tolerates both. --- */
 
 interface CareerResultRow {
   scores: unknown;
@@ -510,23 +664,44 @@ interface CareerResultRow {
   updated_at?: string | null;
 }
 
-const rowToResult = (row: CareerResultRow | null): CareerResult | null => {
-  if (!row) return null;
-  const top = Array.isArray(row.top) ? row.top : [];
-  if (!row.scores || typeof row.scores !== 'object') return null;
-  const rawScores = row.scores as Record<string, unknown>;
+const parseScores = (raw: unknown): Scores | null => {
+  if (!raw || typeof raw !== 'object') return null;
+  const rawScores = raw as Record<string, unknown>;
   const scores = emptyScores();
   for (const d of DIMENSIONS) {
     const value = rawScores[d.key];
     if (typeof value !== 'number' || value < 0) return null;
     scores[d.key] = value;
   }
+  return scores;
+};
+
+const rowToResult = (row: CareerResultRow | null): CareerResult | null => {
+  if (!row) return null;
+  const top = Array.isArray(row.top) ? row.top : [];
   if (top.length < 2 || !isDimension(top[0]) || !isDimension(top[1])) return null;
+  if (!row.scores || typeof row.scores !== 'object') return null;
+  const rawScores = row.scores as Record<string, unknown>;
+
+  // new shape: { dimensions, open_answers, ai_analysis }
+  const nested = parseScores(rawScores.dimensions);
+  // old shape: the flat dimensions object stored directly as `scores`
+  const flat = nested ? null : parseScores(rawScores);
+  const scores = nested ?? flat;
+  if (!scores) return null;
+
+  const openAnswers = Array.isArray(rawScores.open_answers)
+    ? rawScores.open_answers.filter((v): v is string => typeof v === 'string')
+    : [];
+  const aiAnalysis = typeof rawScores.ai_analysis === 'string' ? rawScores.ai_analysis : null;
+
   return {
     scores,
     top: [top[0], top[1]],
     finishedAt:
       typeof row.updated_at === 'string' ? row.updated_at : new Date().toISOString(),
+    openAnswers,
+    aiAnalysis,
   };
 };
 
@@ -536,7 +711,11 @@ const saveResultToDb = (userId: string, result: CareerResult): void => {
     .upsert(
       {
         user_id: userId,
-        scores: result.scores,
+        scores: {
+          dimensions: result.scores,
+          open_answers: result.openAnswers,
+          ai_analysis: result.aiAnalysis,
+        },
         top: result.top,
         updated_at: new Date().toISOString(),
       },
@@ -565,20 +744,45 @@ type Phase = 'intro' | 'quiz' | 'result';
 
 const CareerTestPage: React.FC = () => {
   const { language } = useLanguage();
-  const { user, loading } = useAuth();
+  const { user, profile, loading } = useAuth();
   const reducedMotion = useReducedMotion();
 
   const [phase, setPhase] = useState<Phase>(() => (readResult() ? 'result' : 'intro'));
   const [answers, setAnswers] = useState<number[]>([]);
+  const [openAnswers, setOpenAnswers] = useState<string[]>([]);
+  const [openDraft, setOpenDraft] = useState('');
   const [draftAvailable, setDraftAvailable] = useState(false);
   const [result, setResult] = useState<CareerResult | null>(() => readResult());
   const questionHeadingRef = useRef<HTMLHeadingElement | null>(null);
+  // Mirror of `phase` for effects that must not capture a stale value: the
+  // DB-load effect re-fires when the auth context re-emits `user` (token
+  // refresh, tab refocus) and must never yank an in-progress quiz to 'result'.
+  const phaseRef = useRef(phase);
+  phaseRef.current = phase;
+  // Set once the student discards their result via «Пройти заново», so the
+  // DB-load effect can't restore the row they just dismissed.
+  const dismissedResultRef = useRef(false);
+
+  // AI layer state — NOV-01's read of the open answers, requested once the
+  // deterministic result is available. This call is intentionally FREE for
+  // the student — do NOT call spendNovas here.
+  const [aiText, setAiText] = useState<string | null>(null);
+  const [aiLoading, setAiLoading] = useState(false);
+  const aiRequestedRef = useRef(false);
 
   const index = answers.length;
-  const currentQuestion = QUESTIONS[index] ?? null;
+  const currentQuestion = index < QUESTIONS.length ? (QUESTIONS[index] ?? null) : null;
+  const openIndex = openAnswers.length;
+  const currentOpen =
+    index >= QUESTIONS.length && openIndex < OPEN_QUESTIONS.length
+      ? (OPEN_QUESTIONS[openIndex] ?? null)
+      : null;
+  const combinedTotal = QUESTIONS.length + OPEN_QUESTIONS.length;
+  const combinedIndex = index + openIndex;
 
   useEffect(() => {
-    setDraftAvailable(readDraft().length > 0);
+    const draft = readDraft();
+    setDraftAvailable(draft.answers.length > 0 || draft.open.length > 0);
   }, []);
 
   // Load the DB row first — it is the source of truth and survives device
@@ -594,6 +798,10 @@ const CareerTestPage: React.FC = () => {
         .eq('user_id', user.id)
         .maybeSingle();
       if (cancelled) return;
+      // Never hijack an active attempt: the student may be mid-quiz (or
+      // reading the intro after «Пройти заново») when the auth context
+      // re-emits and this effect re-runs.
+      if (phaseRef.current === 'quiz' || dismissedResultRef.current) return;
       const fromDb = error ? null : rowToResult((data ?? null) as CareerResultRow | null);
       if (fromDb) {
         setResult(fromDb);
@@ -614,12 +822,72 @@ const CareerTestPage: React.FC = () => {
     };
   }, [user]);
 
-  // move focus to the statement whenever it changes
+  // move focus to the statement/open question whenever it changes
   useEffect(() => {
-    if (phase === 'quiz' && currentQuestion) {
+    if (phase === 'quiz' && (currentQuestion || currentOpen)) {
       questionHeadingRef.current?.focus();
     }
-  }, [phase, currentQuestion]);
+  }, [phase, currentQuestion, currentOpen]);
+
+  // AI layer: once the deterministic result is ready, ask NOV-01 to read the
+  // open answers and add a personalized 4-6 sentence analysis. Guarded by a
+  // ref so it fires at most once per completed result; if a cached result
+  // already carries an ai_analysis (loaded from the DB or localStorage), it
+  // is reused instead of calling the AI again.
+  useEffect(() => {
+    if (phase !== 'result' || !result || aiRequestedRef.current) return;
+    aiRequestedRef.current = true;
+
+    if (result.aiAnalysis) {
+      setAiText(result.aiAnalysis);
+      setAiLoading(false);
+      return;
+    }
+
+    const top = dimensionMeta(result.top[0]);
+    const second = dimensionMeta(result.top[1]);
+    const dimensionLines = DIMENSIONS.map(
+      (d) => `${d.key}: ${result.scores[d.key]}/${MAX_SCORE}`,
+    ).join(', ');
+    const openLines = OPEN_QUESTIONS.map((q, i) => {
+      const answerText = result.openAnswers[i]?.trim();
+      return `Q: ${loc('en', q.prompt)}\nA: ${answerText || '(skipped)'}`;
+    }).join('\n\n');
+    const prompt = `You are NOV-01, a friendly career-orientation robot mentor on the Novex platform for Kazakhstani school students.
+A student just finished a career-orientation test.
+Grade: ${profile?.grade ?? 'unknown'}. Goals: ${profile?.goals?.length ? profile.goals.join(', ') : 'not set'}.
+Six-dimension scores (out of ${MAX_SCORE} each): ${dimensionLines}.
+Top two dimensions: ${top.key} and ${second.key}.
+Open-ended answers, verbatim in the student's own words:
+${openLines}
+Give a personalized 4-6 sentence career analysis that connects the dimension scores with specifics from the open answers — reference at least one concrete detail the student wrote. Write entirely in ${LANGUAGE_NAMES[language]}. Plain text only — no markdown, no lists, no headings.`;
+
+    setAiLoading(true);
+    const run = async () => {
+      const { text, error } = await askTutor({
+        model: 'gpt-5.6-terra',
+        messages: [{ role: 'user', content: prompt }],
+      });
+      if (error || !text) {
+        // hide the card silently — the deterministic result already covers the user
+        setAiText(null);
+        setAiLoading(false);
+        return;
+      }
+      setAiText(text);
+      setAiLoading(false);
+      const updated: CareerResult = { ...result, aiAnalysis: text };
+      setResult(updated);
+      try {
+        localStorage.setItem(RESULT_KEY, JSON.stringify(updated));
+      } catch {
+        /* cache write is best-effort */
+      }
+      if (user) saveResultToDb(user.id, updated);
+    };
+    void run();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [phase]);
 
   if (loading) {
     return (
@@ -631,8 +899,10 @@ const CareerTestPage: React.FC = () => {
   }
 
   const startQuiz = (resume: boolean) => {
-    const draft = resume ? readDraft() : [];
-    setAnswers(draft);
+    const draft = resume ? readDraft() : emptyDraft();
+    setAnswers(draft.answers);
+    setOpenAnswers(draft.open);
+    setOpenDraft('');
     setPhase('quiz');
   };
 
@@ -640,29 +910,46 @@ const CareerTestPage: React.FC = () => {
     if (!currentQuestion) return;
     const next = [...answers, value];
     setAnswers(next);
-    if (next.length < QUESTIONS.length) {
-      // autosave the in-progress draft
-      try {
-        localStorage.setItem(DRAFT_KEY, JSON.stringify(next));
-      } catch {
-        /* storage may be unavailable; the test still works in-memory */
-      }
-    } else {
-      const scored = scoreAnswers(next);
-      try {
-        localStorage.setItem(RESULT_KEY, JSON.stringify(scored));
-        localStorage.removeItem(DRAFT_KEY);
-      } catch {
-        /* storage may be unavailable; the result still renders in-memory */
-      }
-      if (user) saveResultToDb(user.id, scored);
-      setResult(scored);
-      setDraftAvailable(false);
-      setPhase('result');
+    // autosave the in-progress draft (scale statements always finish before
+    // the open questions start, so the open half of the draft is untouched)
+    try {
+      localStorage.setItem(DRAFT_KEY, JSON.stringify({ answers: next, open: openAnswers }));
+    } catch {
+      /* storage may be unavailable; the test still works in-memory */
     }
   };
 
+  const submitOpen = (text: string) => {
+    if (!currentOpen) return;
+    const next = [...openAnswers, text];
+    setOpenAnswers(next);
+    setOpenDraft('');
+    if (next.length < OPEN_QUESTIONS.length) {
+      // autosave the in-progress draft
+      try {
+        localStorage.setItem(DRAFT_KEY, JSON.stringify({ answers, open: next }));
+      } catch {
+        /* storage may be unavailable; the test still works in-memory */
+      }
+      return;
+    }
+    const scored = scoreAnswers(answers, next);
+    try {
+      localStorage.setItem(RESULT_KEY, JSON.stringify(scored));
+      localStorage.removeItem(DRAFT_KEY);
+    } catch {
+      /* storage may be unavailable; the result still renders in-memory */
+    }
+    if (user) saveResultToDb(user.id, scored);
+    setResult(scored);
+    setDraftAvailable(false);
+    setPhase('result');
+  };
+
+  const skipOpen = () => submitOpen('');
+
   const retake = () => {
+    dismissedResultRef.current = true;
     try {
       localStorage.removeItem(RESULT_KEY);
       localStorage.removeItem(DRAFT_KEY);
@@ -671,6 +958,11 @@ const CareerTestPage: React.FC = () => {
     }
     setResult(null);
     setAnswers([]);
+    setOpenAnswers([]);
+    setOpenDraft('');
+    setAiText(null);
+    setAiLoading(false);
+    aiRequestedRef.current = false;
     setDraftAvailable(false);
     setPhase('intro');
   };
@@ -702,7 +994,7 @@ const CareerTestPage: React.FC = () => {
           {phase === 'intro' && (
             <div className={CARD}>
               <div className="flex items-start gap-4">
-                <RobotAvatar robot="nov1" className="h-14 w-14 shrink-0 sm:h-16 sm:w-16" />
+                <RobotAvatar robot="nov4" className="h-14 w-14 shrink-0 sm:h-16 sm:w-16" />
                 <div>
                   <p className="font-mono text-[11px] font-medium uppercase tracking-widest text-teal-dark">
                     {loc(language, ROBOT_LABEL)}
@@ -747,11 +1039,13 @@ const CareerTestPage: React.FC = () => {
             </div>
           )}
 
-          {phase === 'quiz' && currentQuestion && (
+          {phase === 'quiz' && (currentQuestion || currentOpen) && (
             <div>
               <div className="flex items-center justify-between gap-3">
                 <p aria-live="polite" className="text-sm font-semibold text-ink">
-                  {counterLine(language, index + 1, QUESTIONS.length)}
+                  {currentQuestion
+                    ? counterLine(language, index + 1, QUESTIONS.length)
+                    : openCounterLine(language, openIndex + 1, OPEN_QUESTIONS.length)}
                 </p>
                 <p className="font-mono text-[11px] font-medium uppercase tracking-widest text-teal-dark">
                   {loc(language, ROBOT_LABEL)}
@@ -761,52 +1055,113 @@ const CareerTestPage: React.FC = () => {
                 className="mt-2 h-1.5 w-full overflow-hidden rounded-full bg-mist/40"
                 role="progressbar"
                 aria-valuemin={0}
-                aria-valuemax={QUESTIONS.length}
-                aria-valuenow={index}
+                aria-valuemax={combinedTotal}
+                aria-valuenow={combinedIndex}
               >
                 <div
                   className="h-full rounded-full bg-teal transition-all duration-300"
-                  style={{ width: `${Math.round((index / QUESTIONS.length) * 100)}%` }}
+                  style={{ width: `${Math.round((combinedIndex / combinedTotal) * 100)}%` }}
                 />
               </div>
 
               <AnimatePresence mode="wait" initial={false}>
-                <motion.div
-                  key={currentQuestion.id}
-                  initial={reducedMotion ? { opacity: 0 } : { opacity: 0, x: 24 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={reducedMotion ? { opacity: 0 } : { opacity: 0, x: -24 }}
-                  transition={{ duration: 0.25 }}
-                  className={`${CARD} mt-5`}
-                >
-                  <div className="flex items-start gap-4">
-                    <RobotAvatar robot="nov1" className="h-10 w-10 shrink-0" />
-                    <p className="font-mono text-[11px] font-medium uppercase tracking-widest text-slateink">
-                      {loc(language, dimensionMeta(currentQuestion.dimension).label)}
-                    </p>
-                  </div>
-
-                  <h2
-                    ref={questionHeadingRef}
-                    tabIndex={-1}
-                    className="mt-4 font-display text-xl font-bold tracking-tight text-ink focus:outline-none sm:text-2xl"
+                {currentQuestion ? (
+                  <motion.div
+                    key={currentQuestion.id}
+                    initial={reducedMotion ? { opacity: 0 } : { opacity: 0, x: 24 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={reducedMotion ? { opacity: 0 } : { opacity: 0, x: -24 }}
+                    transition={{ duration: 0.25 }}
+                    className={`${CARD} mt-5`}
                   >
-                    {loc(language, currentQuestion.statement)}
-                  </h2>
+                    <div className="flex items-start gap-4">
+                      <RobotAvatar robot="nov4" className="h-10 w-10 shrink-0" />
+                      <p className="font-mono text-[11px] font-medium uppercase tracking-widest text-slateink">
+                        {loc(language, dimensionMeta(currentQuestion.dimension).label)}
+                      </p>
+                    </div>
 
-                  <div className="mt-5 space-y-2.5" role="group" aria-labelledby="career-heading">
-                    {SCALE.map((option) => (
+                    <h2
+                      ref={questionHeadingRef}
+                      tabIndex={-1}
+                      className="mt-4 font-display text-xl font-bold tracking-tight text-ink focus:outline-none sm:text-2xl"
+                    >
+                      {loc(language, currentQuestion.statement)}
+                    </h2>
+
+                    <div
+                      className="mt-5 space-y-2.5"
+                      role="group"
+                      aria-labelledby="career-heading"
+                    >
+                      {SCALE.map((option) => (
+                        <button
+                          key={option.value}
+                          type="button"
+                          onClick={() => answer(option.value)}
+                          className={`${FOCUS_RING} flex w-full items-center rounded-xl border border-line bg-white px-4 py-3 text-left text-sm font-medium text-ink transition-colors hover:border-teal/60 hover:bg-teal/5`}
+                        >
+                          {loc(language, option.label)}
+                        </button>
+                      ))}
+                    </div>
+                  </motion.div>
+                ) : currentOpen ? (
+                  <motion.div
+                    key={currentOpen.id}
+                    initial={reducedMotion ? { opacity: 0 } : { opacity: 0, x: 24 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={reducedMotion ? { opacity: 0 } : { opacity: 0, x: -24 }}
+                    transition={{ duration: 0.25 }}
+                    className={`${CARD} mt-5`}
+                  >
+                    <div className="flex items-start gap-4">
+                      <RobotAvatar robot="nov4" className="h-10 w-10 shrink-0" />
+                      <p className="font-mono text-[11px] font-medium uppercase tracking-widest text-slateink">
+                        {openIndex === 0 ? loc(language, OPEN_INTRO) : ''}
+                      </p>
+                    </div>
+
+                    <h2
+                      ref={questionHeadingRef}
+                      tabIndex={-1}
+                      className="mt-4 font-display text-xl font-bold tracking-tight text-ink focus:outline-none sm:text-2xl"
+                    >
+                      {loc(language, currentOpen.prompt)}
+                    </h2>
+
+                    <textarea
+                      value={openDraft}
+                      onChange={(e) => setOpenDraft(e.target.value)}
+                      placeholder={loc(language, currentOpen.placeholder)}
+                      rows={5}
+                      className={`${FOCUS_RING} mt-5 w-full resize-none rounded-xl border border-line bg-white px-4 py-3 text-sm text-ink placeholder:text-slateink/70`}
+                    />
+                    <p className="mt-2 flex items-center gap-1.5 text-xs text-slateink">
+                      <MessageSquareText className="h-3.5 w-3.5" aria-hidden="true" />
+                      {loc(language, OPEN_MIN_HINT)}
+                    </p>
+
+                    <div className="mt-5 flex flex-wrap items-center gap-3">
                       <button
-                        key={option.value}
                         type="button"
-                        onClick={() => answer(option.value)}
-                        className={`${FOCUS_RING} flex w-full items-center rounded-xl border border-line bg-white px-4 py-3 text-left text-sm font-medium text-ink transition-colors hover:border-teal/60 hover:bg-teal/5`}
+                        onClick={() => submitOpen(openDraft.trim())}
+                        disabled={openDraft.trim().length < OPEN_MIN_CHARS}
+                        className={`${TEAL_BTN} disabled:cursor-not-allowed disabled:opacity-40`}
                       >
-                        {loc(language, option.label)}
+                        {loc(language, OPEN_CONTINUE_BTN)}
                       </button>
-                    ))}
-                  </div>
-                </motion.div>
+                      <button
+                        type="button"
+                        onClick={skipOpen}
+                        className={`${FOCUS_RING} inline-flex items-center gap-1.5 text-sm font-medium text-slateink transition-colors hover:text-teal-dark`}
+                      >
+                        {loc(language, OPEN_SKIP_BTN)}
+                        <SkipForward className="h-3.5 w-3.5" aria-hidden="true" />
+                      </button>
+                    </div>
+                  </motion.div>
+                ) : null}
               </AnimatePresence>
             </div>
           )}
@@ -820,7 +1175,7 @@ const CareerTestPage: React.FC = () => {
                 className={CARD}
               >
                 <div className="flex items-start gap-4">
-                  <RobotAvatar robot="nov1" className="h-14 w-14 shrink-0 sm:h-16 sm:w-16" />
+                  <RobotAvatar robot="nov4" className="h-14 w-14 shrink-0 sm:h-16 sm:w-16" />
                   <div>
                     <p className="font-mono text-[11px] font-medium uppercase tracking-widest text-teal-dark">
                       {loc(language, ROBOT_LABEL)}
@@ -930,6 +1285,37 @@ const CareerTestPage: React.FC = () => {
                   })}
                 </div>
               </motion.div>
+
+              {/* AI layer — NOV-01's read of the open answers, hidden silently on error */}
+              {(aiLoading || aiText) && (
+                <motion.div
+                  {...fadeUp}
+                  transition={{ duration: 0.5, delay: 0.15 }}
+                  viewport={{ once: true, margin: '-80px' }}
+                  className="mt-5 rounded-2xl border border-teal-light bg-white p-6 shadow-[0_1px_3px_rgba(17,26,42,0.04)] sm:p-8"
+                >
+                  <div className="flex items-start gap-4">
+                    <RobotAvatar robot="nov4" className="h-10 w-10 shrink-0" />
+                    <div className="min-w-0 flex-1">
+                      <h2 className="font-display text-base font-bold tracking-tight text-ink">
+                        {loc(language, AI_HEADING)}
+                      </h2>
+                      {aiLoading ? (
+                        <div className="mt-3 space-y-2" role="status">
+                          <span className="sr-only">{loc(language, AI_LOADING)}</span>
+                          <div className="h-3 w-full animate-pulse rounded-full bg-mist/40" />
+                          <div className="h-3 w-11/12 animate-pulse rounded-full bg-mist/40" />
+                          <div className="h-3 w-2/3 animate-pulse rounded-full bg-mist/40" />
+                        </div>
+                      ) : (
+                        <p className="mt-2 text-sm leading-relaxed text-ink sm:text-base">
+                          {aiText}
+                        </p>
+                      )}
+                    </div>
+                  </div>
+                </motion.div>
+              )}
             </div>
           )}
         </section>

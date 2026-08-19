@@ -49,9 +49,9 @@ const SPEND_HEADING: Localized = {
 };
 
 const SPEND_MENTOR: Localized = {
-  ru: 'Вопросы Наставнику в ИИ-чате (1–5 ⚙ за сообщение в зависимости от модели)',
-  kk: 'ЖИ-чаттағы Тәлімгерге сұрақтар (модельге байланысты бір хабарламаға 1–5 ⚙)',
-  en: 'Questions to the Mentor in the AI chat (1–5 ⚙ per message depending on the model)',
+  ru: 'Вопросы Академику в ИИ-чате (1–5 ⚙ за сообщение в зависимости от модели)',
+  kk: 'ЖИ-чаттағы Академикке сұрақтар (модельге байланысты бір хабарламаға 1–5 ⚙)',
+  en: 'Questions to the Academic in the AI chat (1–5 ⚙ per message depending on the model)',
 };
 
 const PRICING_HINT: Localized = {

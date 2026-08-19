@@ -9,8 +9,10 @@ import {
   fetchAuthors,
   fetchMessages,
   fetchReactionsFor,
+  IMAGE_FALLBACK_CONTENT,
   sendMessage,
   toggleReaction,
+  uploadCommunityImage,
   withReaction,
   type CommunityAuthor,
   type CommunityChannel,
@@ -168,6 +170,15 @@ const ChannelView: React.FC<ChannelViewProps> = ({ channel }) => {
       )
       .on(
         'postgres_changes',
+        { event: 'DELETE', schema: 'public', table: 'community_messages' },
+        (payload) => {
+          const old = payload.old as { id?: string };
+          if (!old.id) return;
+          setMessages((prev) => prev.filter((m) => m.id !== old.id));
+        },
+      )
+      .on(
+        'postgres_changes',
         { event: 'DELETE', schema: 'public', table: 'community_reactions' },
         () => {
           const ids = messagesRef.current.map((m) => m.id);
@@ -200,17 +211,20 @@ const ChannelView: React.FC<ChannelViewProps> = ({ channel }) => {
   }, [messages.length]);
 
   // Optimistic append, reconciled with the inserted row on success and
-  // rolled back on failure.
+  // rolled back on failure. `content` may be empty when an image is attached;
+  // the DB requires 1..2000 chars, so a '📷' placeholder stands in.
   const handleSend = useCallback(
-    async (content: string) => {
+    async (content: string, image: File | null) => {
       if (!user) return;
       setSendFailed(false);
+      const finalContent = content || IMAGE_FALLBACK_CONTENT;
       const optimistic: CommunityMessage = {
         id: `optimistic-${Date.now()}`,
         channel_id: channel.id,
         user_id: user.id,
-        content,
+        content: finalContent,
         reply_to_id: replyTo?.id ?? null,
+        image_url: null,
         created_at: new Date().toISOString(),
         author: myAuthor,
         reply_to: replyTo,
@@ -219,7 +233,14 @@ const ChannelView: React.FC<ChannelViewProps> = ({ channel }) => {
       setMessages((prev) => [...prev, optimistic]);
       setReplyTo(null);
       try {
-        const saved = await sendMessage(channel.id, user.id, content, optimistic.reply_to_id);
+        const imageUrl = image ? await uploadCommunityImage(image, user.id) : null;
+        const saved = await sendMessage(
+          channel.id,
+          user.id,
+          finalContent,
+          optimistic.reply_to_id,
+          imageUrl,
+        );
         setMessages((prev) =>
           prev.map((m) =>
             m.id === optimistic.id

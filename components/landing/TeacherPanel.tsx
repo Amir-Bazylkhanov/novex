@@ -62,9 +62,9 @@ const FEATURES: Array<{
       en: 'Every student in view',
     },
     desc: {
-      ru: 'NOV-03 Куратор отмечает, кому нужна помощь, и по какой именно теме.',
-      kk: 'NOV-03 Куратор кімге және қай тақырып бойынша көмек керегін белгілейді.',
-      en: 'NOV-03 the Curator flags who needs help and on which exact topic.',
+      ru: 'NOV-01 Академик отмечает, кому нужна помощь, и по какой именно теме.',
+      kk: 'NOV-01 Академик кімге және қай тақырып бойынша көмек керегін белгілейді.',
+      en: 'NOV-01 the Academic flags who needs help and on which exact topic.',
     },
   },
   {
@@ -108,9 +108,9 @@ const MOCK_AVG_LABEL: Localized = {
   en: 'Class average',
 };
 const MOCK_CURATOR_LABEL: Localized = {
-  ru: 'NOV-03 · КУРАТОР',
-  kk: 'NOV-03 · КУРАТОР',
-  en: 'NOV-03 · CURATOR',
+  ru: 'NOV-01 · АКАДЕМИК',
+  kk: 'NOV-01 · АКАДЕМИК',
+  en: 'NOV-01 · ACADEMIC',
 };
 const MOCK_CURATOR_TITLE: Localized = {
   ru: 'Нужна помощь: 4 ученика',
@@ -305,7 +305,7 @@ const TeacherPanel: React.FC = () => {
                   </p>
                 </div>
                 <div className="flex items-center gap-3 rounded-xl border border-coral/30 bg-coral/10 px-3.5 py-3">
-                  <RobotAvatar robot="nov3" className="h-10 w-10 shrink-0" />
+                  <RobotAvatar robot="nov1" className="h-10 w-10 shrink-0" />
                   <div className="min-w-0">
                     <span className="font-mono text-[10px] font-semibold uppercase tracking-widest text-coral">
                       {loc(language, MOCK_CURATOR_LABEL)}

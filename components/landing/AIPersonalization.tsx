@@ -42,28 +42,28 @@ const TITLE_AFTER: Localized = {
 };
 
 const SUBTITLE: Localized = {
-  ru: 'Никакой магии: диагностика измеряет уровень, карта знаний хранит его по темам, а Наставник меняет сложность и объясняет ошибки. Вот весь конвейер — этап за этапом.',
-  kk: 'Ешбір сыйқыр емес: диагностика деңгейді өлшейді, білім картасы оны тақырыптар бойынша сақтайды, ал Тәлімгер күрделілікті өзгертіп, қателерді түсіндіреді. Міне, бүкіл конвейер — кезең-кезеңімен.',
-  en: 'No magic: diagnostics measures the level, the knowledge map stores it per topic, and the Tutor changes difficulty and explains mistakes. Here is the whole pipeline, stage by stage.',
+  ru: 'Никакой магии: диагностика измеряет уровень, карта знаний хранит его по темам, а Академик меняет сложность и объясняет ошибки. Вот весь конвейер — этап за этапом.',
+  kk: 'Ешбір сыйқыр емес: диагностика деңгейді өлшейді, білім картасы оны тақырыптар бойынша сақтайды, ал Академик күрделілікті өзгертіп, қателерді түсіндіреді. Міне, бүкіл конвейер — кезең-кезеңімен.',
+  en: 'No magic: diagnostics measures the level, the knowledge map stores it per topic, and the Academic changes difficulty and explains mistakes. Here is the whole pipeline, stage by stage.',
 };
 
 /* --- pipeline stages --- */
 
 const ROBOT_LABELS: Record<RobotId, Localized> = {
   nov1: {
-    ru: 'NOV-01 · ДИАГНОСТ',
-    kk: 'NOV-01 · ДИАГНОСТ',
-    en: 'NOV-01 · DIAGNOSTICIAN',
+    ru: 'NOV-01 · АКАДЕМИК',
+    kk: 'NOV-01 · АКАДЕМИК',
+    en: 'NOV-01 · ACADEMIC',
   },
   nov2: {
-    ru: 'NOV-02 · НАСТАВНИК',
-    kk: 'NOV-02 · ТӘЛІМГЕР',
-    en: 'NOV-02 · TUTOR',
+    ru: 'NOV-01 · АКАДЕМИК',
+    kk: 'NOV-01 · АКАДЕМИК',
+    en: 'NOV-01 · ACADEMIC',
   },
   nov3: {
-    ru: 'NOV-03 · КУРАТОР',
-    kk: 'NOV-03 · КУРАТОР',
-    en: 'NOV-03 · CURATOR',
+    ru: 'NOV-01 · АКАДЕМИК',
+    kk: 'NOV-01 · АКАДЕМИК',
+    en: 'NOV-01 · ACADEMIC',
   },
 };
 
@@ -96,7 +96,7 @@ const STAGES: Stage[] = [
     },
   },
   {
-    robot: 'nov2',
+    robot: 'nov1',
     icon: SlidersHorizontal,
     title: { ru: 'Адаптация', kk: 'Бейімдеу', en: 'Adaptation' },
     desc: {
@@ -106,7 +106,7 @@ const STAGES: Stage[] = [
     },
   },
   {
-    robot: 'nov2',
+    robot: 'nov1',
     icon: MessageSquare,
     title: { ru: 'Объяснение', kk: 'Түсіндіру', en: 'Explanation' },
     desc: {
@@ -118,9 +118,9 @@ const STAGES: Stage[] = [
 ];
 
 const HANDOFF_TEXT: Localized = {
-  ru: 'А дальше в работу вступает Куратор: строит дорожную карту до цели и следит за каждым дедлайном.',
-  kk: 'Әрі қарай іске Куратор кіріседі: мақсатқа дейінгі жол картасын құрып, әр мерзімді қадағалайды.',
-  en: 'Then the Curator takes over: it builds the roadmap to the goal and tracks every deadline.',
+  ru: 'А дальше в работу вступает Академик: строит дорожную карту до цели и следит за каждым дедлайном.',
+  kk: 'Әрі қарай іске Академик кіріседі: мақсатқа дейінгі жол картасын құрып, әр мерзімді қадағалайды.',
+  en: 'Then the Academic takes over: it builds the roadmap to the goal and tracks every deadline.',
 };
 
 /* --- AI feedback mock strings --- */
@@ -204,9 +204,9 @@ const CHIPS: Array<{
 ];
 
 const CHAT_TITLE: Localized = {
-  ru: 'ИИ-чат с Наставником',
-  kk: 'Тәлімгермен ИИ-чат',
-  en: 'Chat with the Tutor',
+  ru: 'ИИ-чат с Академиком',
+  kk: 'Академикпен ИИ-чат',
+  en: 'Chat with the Academic',
 };
 const CHAT_DESC: Localized = {
   ru: 'Вопрос можно задать в любой момент — прямо из задания, на своём языке.',
@@ -327,12 +327,12 @@ const AIPersonalization: React.FC = () => {
           })}
         </div>
 
-        {/* NOV-03 handoff strip */}
+        {/* NOV-01 handoff strip */}
         <motion.div
           {...fu(0.2)}
           className="mt-6 flex items-center gap-4 rounded-2xl border border-line/50 bg-white p-4 shadow-[0_1px_3px_rgba(17,26,42,0.04)]"
         >
-          <RobotAvatar robot="nov3" className="h-12 w-12 shrink-0" />
+          <RobotAvatar robot="nov1" className="h-12 w-12 shrink-0" />
           <div className="min-w-0">
             <span className="font-mono text-[11px] font-semibold uppercase tracking-widest text-coral">
               {loc(language, ROBOT_LABELS.nov3)}
@@ -382,10 +382,10 @@ const AIPersonalization: React.FC = () => {
                 </span>
               </div>
 
-              {/* NOV-02 message */}
+              {/* NOV-01 message */}
               <div className="mt-4 rounded-2xl rounded-tl-md border border-teal/25 bg-mist/25 p-4">
                 <div className="flex items-center gap-2.5">
-                  <RobotAvatar robot="nov2" className="h-9 w-9 shrink-0" />
+                  <RobotAvatar robot="nov1" className="h-9 w-9 shrink-0" />
                   <span className="font-mono text-[11px] font-semibold uppercase tracking-widest text-teal">
                     {loc(language, ROBOT_LABELS.nov2)}
                   </span>
@@ -422,7 +422,7 @@ const AIPersonalization: React.FC = () => {
             className="rounded-2xl border border-line/50 bg-white p-5 shadow-[0_1px_3px_rgba(17,26,42,0.04)]"
           >
             <div className="flex items-center gap-3">
-              <RobotAvatar robot="nov2" className="h-12 w-12 shrink-0" />
+              <RobotAvatar robot="nov1" className="h-12 w-12 shrink-0" />
               <div>
                 <h3 className="font-display text-base font-bold text-ink">
                   {loc(language, CHAT_TITLE)}

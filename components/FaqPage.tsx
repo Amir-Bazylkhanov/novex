@@ -10,9 +10,9 @@ import FAQ from './landing/FAQ.tsx';
 /* --- content --- */
 
 const CTA_TEXT: Localized = {
-  ru: 'Не нашли ответ? Спросите Наставника NOV-02 в чате — он отвечает 24/7.',
-  kk: 'Жауап таба алмадыңыз ба? Чатта NOV-02 Тәлімгерден сұраңыз — ол тәулік бойы жауап береді.',
-  en: 'Didn’t find an answer? Ask NOV-02 the Tutor in the chat — it replies 24/7.',
+  ru: 'Не нашли ответ? Спросите Академика NOV-01 в чате — он отвечает 24/7.',
+  kk: 'Жауап таба алмадыңыз ба? Чатта NOV-01 Академиктен сұраңыз — ол тәулік бойы жауап береді.',
+  en: 'Didn’t find an answer? Ask NOV-01 the Academic in the chat — it replies 24/7.',
 };
 const CTA_START: Localized = {
   ru: 'Начать бесплатно',

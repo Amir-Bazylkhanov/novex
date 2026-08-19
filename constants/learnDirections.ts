@@ -7,6 +7,10 @@ import type { LessonSubject } from './lessonData.ts';
  * for direction names and the school subjects each direction owns: /learn
  * builds its mentor cards from here, /plan derives its hierarchy labels from
  * here at render time, and the academy catalog reuses the same names.
+ *
+ * Rebrand note: robots nov4/nov5/nov6 are displayed as NOV-01 Академик /
+ * NOV-02 Практик / NOV-03 Кибер. The internal keys are kept for compatibility
+ * with the career module — no displayed codes live in this file.
  */
 export interface LearnDirection {
   /** Mentor robot that leads this direction on /learn. */

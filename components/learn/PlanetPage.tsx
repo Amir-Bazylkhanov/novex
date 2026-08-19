@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useParams, useSearchParams } from 'react-router-dom';
+import { Link, useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import {
   ArrowLeft,
@@ -14,7 +14,9 @@ import { useLanguage } from '../../context/LanguageContext.tsx';
 import { useAuth } from '../../context/AuthContext.tsx';
 import RobotBackdrop from '../RobotBackdrop.tsx';
 import {
+  bandForIndex,
   directionById,
+  isAcademicPlanet,
   pickGradeContent,
   pickLangField,
   planetBySlug,
@@ -42,15 +44,22 @@ const BACK: Localized = {
   en: 'All tracks',
 };
 const NOT_FOUND_TITLE: Localized = {
-  ru: 'Планета не найдена',
-  kk: 'Планета табылмады',
-  en: 'Planet not found',
+  ru: 'Модуль не найден',
+  kk: 'Модуль табылмады',
+  en: 'Module not found',
 };
 const NOT_FOUND_SUB: Localized = {
-  ru: 'Такой планеты нет в каталоге академии. Вернись к списку направлений.',
-  kk: 'Академия каталогында мұндай планета жоқ. Бағыттар тізіміне орал.',
-  en: 'There is no such planet in the academy catalogue. Head back to the track list.',
+  ru: 'Такого модуля нет в каталоге академии. Вернись к списку направлений.',
+  kk: 'Академия каталогында мұндай модуль жоқ. Бағыттар тізіміне орал.',
+  en: 'There is no such module in the academy catalogue. Head back to the track list.',
 };
+/* Displayed direction codes were renumbered NOV-04/05/06 → NOV-01/02/03;
+   internal AcademyDirectionId keys stay 'nov04'|'nov05'|'nov06'. */
+const DIRECTION_CODE = {
+  nov04: 'NOV-01',
+  nov05: 'NOV-02',
+  nov06: 'NOV-03',
+} as const;
 const BANNER_TITLE: Localized = {
   ru: 'Уже знаете часть материала?',
   kk: 'Бұл тақырыптарды білесіз бе?',
@@ -122,6 +131,7 @@ const PlanetPage: React.FC = () => {
   const { language } = useLanguage();
   const { profile } = useAuth();
   const reducedMotion = useReducedMotion();
+  const navigate = useNavigate();
 
   const planet = planetSlug ? planetBySlug(planetSlug) : undefined;
   const direction = planet ? directionById(planet.directionId) : undefined;
@@ -193,7 +203,8 @@ const PlanetPage: React.FC = () => {
   }
 
   const Icon = planet.icon;
-  const directionLine = `NOV-${direction.id.slice(3)} · ${loc(language, direction.name)}`;
+  const academic = isAcademicPlanet(planet);
+  const directionLine = `${DIRECTION_CODE[direction.id]} · ${loc(language, direction.name)}`;
 
   const safeActiveIdx = Math.max(0, Math.min(activeIdx, content.sections.length - 1));
   const statuses: PlanetLevelStatus[] = content.sections.map((_, i) =>
@@ -231,6 +242,12 @@ const PlanetPage: React.FC = () => {
       .split(/\n\s*\n/)
       .map((p) => p.trim())
       .filter((p) => p.length > 0)[0] ?? '';
+  const activeTitle = pickLangField(
+    language,
+    activeSection.title,
+    activeSection.titleRu,
+    activeSection.titleKk,
+  );
   const prevSection = safeActiveIdx > 0 ? content.sections[safeActiveIdx - 1] : undefined;
   const skipTestAvailable =
     activeStatus === 'locked' &&
@@ -310,6 +327,7 @@ const PlanetPage: React.FC = () => {
               statuses={statuses}
               activeIdx={safeActiveIdx}
               recommendedIdx={firstIncomplete}
+              isAcademic={academic}
               onSelect={setActiveIdx}
             />
           </div>
@@ -435,13 +453,11 @@ const PlanetPage: React.FC = () => {
                         )}
                       </span>
                       <span className="min-w-0 flex-1">
-                        <span className="block truncate text-sm font-semibold text-ink group-hover:text-teal-dark">
-                          {pickLangField(
-                            language,
-                            activeSection.title,
-                            activeSection.titleRu,
-                            activeSection.titleKk,
-                          )}
+                        <span
+                          className="block truncate text-sm font-semibold text-ink group-hover:text-teal-dark"
+                          title={activeTitle}
+                        >
+                          {activeTitle}
                         </span>
                         <span className="mt-0.5 block text-[10px] font-semibold uppercase tracking-wider text-slateink">
                           {loc(language, LESSON_WORD)} 1
@@ -455,6 +471,7 @@ const PlanetPage: React.FC = () => {
                       lessonState={lessonStepState}
                       testState={activeSectionHasTest ? testStepState : undefined}
                       doneState={doneStepState}
+                      onLessonClick={() => navigate(lessonPath)}
                       onTestClick={
                         testStepState === 'active' ? () => setLevelTestFor(safeActiveIdx) : undefined
                       }
@@ -501,6 +518,8 @@ const PlanetPage: React.FC = () => {
         <PlanetSkipTest
           section={prevSection}
           allSections={content.sections}
+          academic={academic}
+          band={bandForIndex(skipTestFor, content.sections.length)}
           onPass={handleSkipPass}
           onClose={() => setSkipTestFor(null)}
         />
@@ -512,6 +531,8 @@ const PlanetPage: React.FC = () => {
           mode="level"
           section={content.sections[levelTestFor]}
           allSections={content.sections}
+          academic={academic}
+          band={bandForIndex(levelTestFor, content.sections.length)}
           onPass={handleLevelTestPass}
           onClose={() => setLevelTestFor(null)}
         />
@@ -521,7 +542,8 @@ const PlanetPage: React.FC = () => {
       {placementTestOpen && (
         <PlanetPlacementTest
           sections={content.sections}
-          directionCode={`NOV-${direction.id.slice(3)}`}
+          directionCode={DIRECTION_CODE[direction.id]}
+          academic={academic}
           onPlaced={handlePlacementResult}
           onClose={() => setPlacementTestOpen(false)}
         />

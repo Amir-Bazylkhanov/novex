@@ -11,12 +11,28 @@ import { supabase } from './supabaseClient.ts';
 
 export const MAX_MESSAGE_LENGTH = 2000;
 export const MESSAGE_PAGE_SIZE = 50;
+export const MAX_COMMUNITY_IMAGE_BYTES = 5 * 1024 * 1024;
+/**
+ * Placeholder written to community_messages.content when a message carries
+ * only an image — the DB requires content of 1..2000 chars even then.
+ * MessageItem skips rendering this exact value alongside an image.
+ */
+export const IMAGE_FALLBACK_CONTENT = '📷';
+
+const ALLOWED_IMAGE_MIME = new Set(['image/png', 'image/jpeg', 'image/webp', 'image/gif']);
+const EXT_BY_MIME: Record<string, string> = {
+  'image/png': 'png',
+  'image/jpeg': 'jpg',
+  'image/webp': 'webp',
+  'image/gif': 'gif',
+};
 
 export interface CommunityChannel {
   id: string;
   slug: string;
   name: string;
   description: string | null;
+  created_by: string | null;
 }
 
 export interface CommunityAuthor {
@@ -39,6 +55,7 @@ export interface CommunityMessageRow {
   user_id: string;
   content: string;
   reply_to_id: string | null;
+  image_url: string | null;
   created_at: string;
 }
 
@@ -100,7 +117,7 @@ export function withReaction(
 export async function fetchChannels(): Promise<CommunityChannel[]> {
   const { data, error } = await supabase
     .from('community_channels')
-    .select('id, slug, name, description')
+    .select('id, slug, name, description, created_by')
     .order('created_at', { ascending: true });
   if (error) throw error;
   return (data ?? []) as CommunityChannel[];
@@ -142,7 +159,7 @@ export async function fetchReactionsFor(
   return map;
 }
 
-const MESSAGE_COLUMNS = 'id, channel_id, user_id, content, reply_to_id, created_at';
+const MESSAGE_COLUMNS = 'id, channel_id, user_id, content, reply_to_id, image_url, created_at';
 
 /** Newest MESSAGE_PAGE_SIZE messages of a channel, oldest first, with authors,
  *  reactions and reply targets resolved. */
@@ -204,10 +221,17 @@ export async function sendMessage(
   userId: string,
   content: string,
   replyToId: string | null,
+  imageUrl: string | null = null,
 ): Promise<CommunityMessageRow> {
   const { data, error } = await supabase
     .from('community_messages')
-    .insert({ channel_id: channelId, user_id: userId, content, reply_to_id: replyToId })
+    .insert({
+      channel_id: channelId,
+      user_id: userId,
+      content,
+      reply_to_id: replyToId,
+      image_url: imageUrl,
+    })
     .select(MESSAGE_COLUMNS)
     .single();
   if (error) throw error;
@@ -247,5 +271,86 @@ export async function reportMessage(
   const { error } = await supabase
     .from('community_reports')
     .insert({ message_id: messageId, reporter_id: reporterId, reason });
+  if (error) throw error;
+}
+
+/** Client-side pre-check mirroring the bucket's mime allowlist. */
+export function isCommunityImageAllowed(file: File): boolean {
+  return ALLOWED_IMAGE_MIME.has(file.type);
+}
+
+/**
+ * Upload an image to the public `community` storage bucket. The bucket policy
+ * only accepts inserts under the uploader's own uid folder, so the path must
+ * start with `${userId}/`.
+ */
+export async function uploadCommunityImage(file: File, userId: string): Promise<string> {
+  if (!ALLOWED_IMAGE_MIME.has(file.type)) throw new Error('unsupported-image-type');
+  if (file.size > MAX_COMMUNITY_IMAGE_BYTES) throw new Error('image-too-large');
+  const ext = EXT_BY_MIME[file.type] ?? 'png';
+  const path = `${userId}/${crypto.randomUUID()}.${ext}`;
+  const { error } = await supabase.storage.from('community').upload(path, file, {
+    cacheControl: '3600',
+    upsert: false,
+    contentType: file.type,
+  });
+  if (error) throw error;
+  const { data } = supabase.storage.from('community').getPublicUrl(path);
+  return data.publicUrl;
+}
+
+// Cyrillic → Latin for channel slugs. Kazakh-specific letters come first in
+// the table; the rest covers Russian.
+const CYRILLIC_TO_LATIN: Record<string, string> = {
+  'ә': 'a', 'ғ': 'g', 'қ': 'q', 'ң': 'n', 'ө': 'o', 'ұ': 'u', 'ү': 'u', 'һ': 'h', 'і': 'i',
+  'а': 'a', 'б': 'b', 'в': 'v', 'г': 'g', 'д': 'd', 'е': 'e', 'ё': 'yo', 'ж': 'zh',
+  'з': 'z', 'и': 'i', 'й': 'i', 'к': 'k', 'л': 'l', 'м': 'm', 'н': 'n', 'о': 'o',
+  'п': 'p', 'р': 'r', 'с': 's', 'т': 't', 'у': 'u', 'ф': 'f', 'х': 'h', 'ц': 'ts',
+  'ч': 'ch', 'ш': 'sh', 'щ': 'sch', 'ъ': '', 'ы': 'y', 'ь': '', 'э': 'e', 'ю': 'yu', 'я': 'ya',
+};
+
+/** Transliterate a channel name into a slug: lowercase latin, digits, hyphens. */
+export function slugifyChannelName(name: string): string {
+  let out = '';
+  for (const ch of name.toLowerCase().trim()) {
+    out += CYRILLIC_TO_LATIN[ch] ?? ch;
+  }
+  return out
+    .replace(/['"`]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+    .slice(0, 40)
+    .replace(/-+$/g, '');
+}
+
+export const CHANNEL_NAME_MIN = 2;
+export const CHANNEL_NAME_MAX = 80;
+export const CHANNEL_SLUG_MIN = 2;
+
+/** Insert a channel owned by `userId`; retries once with a random slug suffix
+ *  when the generated slug is already taken. */
+export async function createChannel(
+  name: string,
+  description: string | null,
+  slug: string,
+  userId: string,
+): Promise<CommunityChannel> {
+  const suffix = Math.random().toString(36).slice(2, 6);
+  for (const candidate of [slug, `${slug}-${suffix}`]) {
+    const { data, error } = await supabase
+      .from('community_channels')
+      .insert({ name, description: description ?? '', slug: candidate, created_by: userId })
+      .select('id, slug, name, description, created_by')
+      .single();
+    if (!error) return data as CommunityChannel;
+    // 23505 = unique violation on the slug — retry with the random suffix.
+    if (error.code !== '23505') throw error;
+  }
+  throw new Error('slug-collision');
+}
+
+/** Deletes the channel; messages cascade on the DB side. */
+export async function deleteChannel(channelId: string): Promise<void> {
+  const { error } = await supabase.from('community_channels').delete().eq('id', channelId);
   if (error) throw error;
 }

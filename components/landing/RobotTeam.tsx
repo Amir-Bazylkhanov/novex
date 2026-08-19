@@ -19,9 +19,9 @@ const TITLE: Localized = {
 };
 
 const SUBTITLE: Localized = {
-  ru: 'Три направления обучения покрывают весь путь ученика: школьную программу, навыки для жизни и компетенции будущего. Каждое ведёт свой робот-наставник.',
-  kk: 'Үш оқу бағыты оқушының бүкіл жолын қамтиды: мектеп бағдарламасы, өмірлік дағдылар және болашақ құзыреттер. Әр бағытты жеке робот-тәлімгер жетекшилейді.',
-  en: 'Three learning directions cover the whole student journey: the school curriculum, life skills, and future-ready competencies. Each is led by its own mentor robot.',
+  ru: 'Три направления обучения покрывают весь путь ученика: школьную программу, навыки для жизни и компетенции будущего. Каждое ведёт свой робот.',
+  kk: 'Үш оқу бағыты оқушының бүкіл жолын қамтиды: мектеп бағдарламасы, өмірлік дағдылар және болашақ құзыреттер. Әр бағытты жеке робот жетекшилейді.',
+  en: 'Three learning directions cover the whole student journey: the school curriculum, life skills, and future-ready competencies. Each is led by its own robot.',
 };
 
 interface RobotCardData {
@@ -41,7 +41,7 @@ interface RobotCardData {
 const CARDS: RobotCardData[] = [
   {
     id: 'nov4',
-    code: 'NOV-04',
+    code: 'NOV-01',
     text: 'text-teal-dark',
     border: 'border-teal-dark/40',
     hoverBorder: 'hover:border-teal-dark/60',
@@ -55,9 +55,9 @@ const CARDS: RobotCardData[] = [
     },
     bullets: [
       {
-        ru: '4 планеты: точные науки, AP/IB, экзамены, исследования',
-        kk: '4 планета: нақты ғылымдар, AP/IB, емтихандар, зерттеулер',
-        en: '4 planets: exact sciences, AP/IB, exams, research',
+        ru: '4 модуля: точные науки, AP/IB, экзамены, исследования',
+        kk: '4 модуль: нақты ғылымдар, AP/IB, емтихандар, зерттеулер',
+        en: '4 modules: exact sciences, AP/IB, exams, research',
       },
       {
         ru: 'Уроки с теорией, примерами и практикой',
@@ -73,7 +73,7 @@ const CARDS: RobotCardData[] = [
   },
   {
     id: 'nov5',
-    code: 'NOV-05',
+    code: 'NOV-02',
     text: 'text-teal',
     border: 'border-teal/40',
     hoverBorder: 'hover:border-teal/60',
@@ -105,7 +105,7 @@ const CARDS: RobotCardData[] = [
   },
   {
     id: 'nov6',
-    code: 'NOV-06',
+    code: 'NOV-03',
     text: 'text-coral',
     border: 'border-coral/40',
     hoverBorder: 'hover:border-coral/60',

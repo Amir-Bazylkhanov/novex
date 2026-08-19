@@ -11,9 +11,9 @@ export type TutorModel =
   | 'gpt-5.6-sol';
 
 const ERR_NOT_SIGNED_IN: Localized = {
-  ru: 'Чтобы общаться с Наставником, войдите в аккаунт.',
-  kk: 'Тәлімгермен сөйлесу үшін аккаунтыңызға кіріңіз.',
-  en: 'Sign in to chat with the Tutor.',
+  ru: 'Чтобы общаться с Академиком, войдите в аккаунт.',
+  kk: 'Академикпен сөйлесу үшін аккаунтыңызға кіріңіз.',
+  en: 'Sign in to chat with the Academic.',
 };
 
 const ERR_NETWORK: Localized = {
@@ -29,9 +29,9 @@ const ERR_RATE_LIMITED: Localized = {
 };
 
 const ERR_GENERIC: Localized = {
-  ru: 'Наставник сейчас недоступен. Попробуйте ещё раз чуть позже.',
-  kk: 'Тәлімгер қазір қолжетімсіз. Сәл кейінірек қайта көріңіз.',
-  en: 'The Tutor is unavailable right now. Please try again in a moment.',
+  ru: 'Академик сейчас недоступен. Попробуйте ещё раз чуть позже.',
+  kk: 'Академик қазір қолжетімсіз. Сәл кейінірек қайта көріңіз.',
+  en: 'The Academic is unavailable right now. Please try again in a moment.',
 };
 
 /** Active UI language, read the same way LanguageContext initializes it. */

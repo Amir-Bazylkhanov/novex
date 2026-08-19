@@ -49,7 +49,11 @@ const TX_DIAGNOSTIC: Localized = {
   en: 'Diagnostic completed',
 };
 const TX_LESSON: Localized = { ru: 'Урок пройден', kk: 'Сабақ аяқталды', en: 'Lesson completed' };
-const TX_TUTOR: Localized = { ru: 'Чат с Наставником', kk: 'Тәлімгермен чат', en: 'Tutor chat' };
+const TX_TUTOR: Localized = {
+  ru: 'Чат с Академиком',
+  kk: 'Академикпен чат',
+  en: 'Chat with the Academic',
+};
 const TX_REFUND: Localized = {
   ru: 'Возврат Новасов',
   kk: 'Новас қайтарылды',

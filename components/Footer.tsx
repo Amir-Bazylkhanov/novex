@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { loc, type Localized } from '../utils/i18n.ts';
 import { useLanguage } from '../context/LanguageContext.tsx';
-import { RobotAvatar } from './robots/RobotAvatars.tsx';
 
 const TAGLINE: Localized = {
   ru: 'Персональное образование для каждого ученика Казахстана',
@@ -61,11 +60,6 @@ const Footer: React.FC = () => {
               {loc(language, TAGLINE)}
             </p>
             <p className="mt-2 max-w-xs text-sm text-canvas/70">{loc(language, MISSION)}</p>
-            <div className="mt-5 flex items-center gap-2.5">
-              <RobotAvatar robot="nov1" className="h-9 w-9" />
-              <RobotAvatar robot="nov2" className="h-9 w-9" />
-              <RobotAvatar robot="nov3" className="h-9 w-9" />
-            </div>
           </div>
 
           <nav aria-label="Footer" className="md:justify-self-end lg:mt-14">

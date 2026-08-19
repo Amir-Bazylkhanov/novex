@@ -116,14 +116,14 @@ const MOCK_DEADLINE_CTA: Localized = {
   en: 'Prep roadmap ready',
 };
 const MOCK_AI_CHIP: Localized = {
-  ru: 'ИИ-наставник разобрал твою ошибку',
-  kk: 'ИИ-тәлімгер қатеңді талдап қойды',
-  en: 'Your AI tutor reviewed your mistake',
+  ru: 'Академик разобрал твою ошибку',
+  kk: 'Академик қатеңді талдап шықты',
+  en: 'The Academic broke down your mistake',
 };
 const MOCK_ROBOT_LABEL: Localized = {
-  ru: 'NOV-02 · НАСТАВНИК',
-  kk: 'NOV-02 · ТӘЛІМГЕР',
-  en: 'NOV-02 · TUTOR',
+  ru: 'NOV-01 · АКАДЕМИК',
+  kk: 'NOV-01 · АКАДЕМИК',
+  en: 'NOV-01 · ACADEMIC',
 };
 
 const FOCUS_RING =
@@ -345,7 +345,7 @@ const Hero: React.FC = () => {
 
           {/* floating AI chip */}
           <div className="absolute -right-3 -top-5 hidden items-center gap-2.5 rounded-xl border border-line/50 bg-white px-3.5 py-2.5 shadow-[0_8px_30px_rgba(33,159,162,0.15)] md:flex lg:-right-6">
-            <RobotAvatar robot="nov2" className="h-11 w-11 shrink-0" />
+            <RobotAvatar robot="nov1" className="h-11 w-11 shrink-0" />
             <span>
               <span className="block font-mono text-[10px] font-medium uppercase tracking-widest text-teal-dark">
                 {loc(language, MOCK_ROBOT_LABEL)}
