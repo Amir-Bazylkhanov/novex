@@ -21,6 +21,25 @@ interface Option {
 
 const normalize = (s: string): string => s.trim().toLowerCase().replace(/ё/g, 'е');
 
+/* Cyrillic → Latin, so Latin queries («Nazarbayev», «bilim») match the
+   Cyrillic dataset. Both query and haystack go through the same canon form. */
+const TRANSLIT: Record<string, string> = {
+  а: 'a', б: 'b', в: 'v', г: 'g', д: 'd', е: 'e', ж: 'zh', з: 'z', и: 'i',
+  й: 'y', к: 'k', л: 'l', м: 'm', н: 'n', о: 'o', п: 'p', р: 'r', с: 's',
+  т: 't', у: 'u', ф: 'f', х: 'h', ц: 'ts', ч: 'ch', ш: 'sh', щ: 'sch',
+  ъ: '', ы: 'y', ь: '', э: 'e', ю: 'yu', я: 'ya',
+  ә: 'a', ғ: 'g', қ: 'k', ң: 'n', ө: 'o', ұ: 'u', ү: 'u', һ: 'h', і: 'i',
+};
+
+// Dropping «y» collapses romanization variants (Nazarbayev/Nazarbaev,
+// Almaty/Алматы) onto one spelling on both sides of the comparison.
+const canon = (s: string): string =>
+  normalize(s)
+    .split('')
+    .map((ch) => TRANSLIT[ch] ?? ch)
+    .join('')
+    .replace(/y/g, '');
+
 /* Students search by the network abbreviations everyone actually uses, while
    the dataset stores official full names — so matching also runs against the
    well-known aliases of the big school networks. */
@@ -49,7 +68,7 @@ const SchoolAutocomplete: React.FC<SchoolAutocompleteProps> = ({
   const listboxId = `${id}-listbox`;
 
   const options = useMemo<Option[]>(() => {
-    const q = normalize(value);
+    const q = canon(value);
     if (q.length < 2) return [];
 
     const seen = new Set<string>();
@@ -58,7 +77,7 @@ const SchoolAutocomplete: React.FC<SchoolAutocompleteProps> = ({
     for (const name of extraSchools ?? []) {
       const norm = normalize(name);
       if (seen.has(norm)) continue;
-      if (norm.includes(q)) {
+      if (canon(name).includes(q)) {
         seen.add(norm);
         result.push({ key: `extra:${name}`, label: name, value: name });
       }
@@ -71,9 +90,9 @@ const SchoolAutocomplete: React.FC<SchoolAutocompleteProps> = ({
       const norm = `${normalize(school.name)}|${normalize(school.city)}`;
       if (seen.has(norm)) continue;
       if (
-        normalize(school.name).includes(q) ||
-        normalize(school.city).includes(q) ||
-        aliasFor(school.name).includes(q)
+        canon(school.name).includes(q) ||
+        canon(school.city).includes(q) ||
+        canon(aliasFor(school.name)).includes(q)
       ) {
         seen.add(norm);
         result.push({

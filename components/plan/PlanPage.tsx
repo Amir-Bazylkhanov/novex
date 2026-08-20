@@ -52,11 +52,18 @@ const ROBOT_LABEL: Localized = {
   kk: 'NOV-01 · Академик',
   en: 'NOV-01 · Academic',
 };
-const TITLE: Localized = {
-  ru: 'Твой план подготовки',
-  kk: 'Сенің дайындық жоспарың',
-  en: 'Your study plan',
-};
+const TITLE = (name: string | null): Localized =>
+  name
+    ? {
+        ru: `${name}, твой персональный роадмап`,
+        kk: `${name}, сенің жеке жол картаң`,
+        en: `${name}, your personal roadmap`,
+      }
+    : {
+        ru: 'Твой персональный роадмап',
+        kk: 'Сенің жеке жол картаң',
+        en: 'Your personal roadmap',
+      };
 const SUB: Localized = {
   ru: 'NOV-01 Академик собрал маршрут по неделям: сначала закрываем слабые темы, потом новые уроки, в конце — повторение и пробный тест.',
   kk: 'NOV-01 Академик апталық бағыт құрды: алдымен әлсіз тақырыптар жабылады, содан кейін жаңа сабақтар, соңында қайталау мен байқама тестісі.',
@@ -1154,8 +1161,9 @@ const PlanWizard: React.FC<PlanWizardProps> = ({
 
 const PlanPage: React.FC = () => {
   const { language } = useLanguage();
-  const { user, loading: authLoading } = useAuth();
+  const { user, profile, loading: authLoading } = useAuth();
   const reducedMotion = useReducedMotion();
+  const firstName = profile?.full_name?.trim().split(/\s+/)[0] || null;
 
   const [source, setSource] = useState<PlanSource | null>(null);
   const [plan, setPlan] = useState<StudyPlanJson | null>(null);
@@ -1326,7 +1334,7 @@ const PlanPage: React.FC = () => {
                   id="plan-heading"
                   className="mt-0.5 font-display text-2xl font-extrabold tracking-tight text-ink sm:text-3xl md:text-4xl"
                 >
-                  {loc(language, TITLE)}
+                  {loc(language, TITLE(firstName))}
                 </h1>
                 <p className="mt-1 max-w-2xl text-sm text-slateink sm:text-base">
                   {loc(language, SUB)}

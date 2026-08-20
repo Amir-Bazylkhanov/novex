@@ -86,7 +86,7 @@ interface Plan {
 const PAID_PLANS: Plan[] = [
   {
     name: { ru: 'Старт', kk: 'Старт', en: 'Start' },
-    price: { ru: '1 490 ₸', kk: '1 490 ₸', en: '1 490 ₸' },
+    price: { ru: '3 000 ₸', kk: '3 000 ₸', en: '3 000 ₸' },
     priceNote: { ru: 'в месяц · отмена в любой момент', kk: 'айына · кез келген уақытта тоқтатуға болады', en: 'per month · cancel anytime' },
     description: {
       ru: 'Для тех, кто занимается сам',
@@ -105,7 +105,7 @@ const PAID_PLANS: Plan[] = [
   },
   {
     name: { ru: 'Про', kk: 'Про', en: 'Pro' },
-    price: { ru: '2 990 ₸', kk: '2 990 ₸', en: '2 990 ₸' },
+    price: { ru: '7 500 ₸', kk: '7 500 ₸', en: '7 500 ₸' },
     priceNote: { ru: 'в месяц · отмена в любой момент', kk: 'айына · кез келген уақытта тоқтатуға болады', en: 'per month · cancel anytime' },
     description: {
       ru: 'Полная подготовка к ЕНТ и олимпиадам',
@@ -124,7 +124,7 @@ const PAID_PLANS: Plan[] = [
   },
   {
     name: { ru: 'Максимум', kk: 'Максимум', en: 'Maximum' },
-    price: { ru: '5 990 ₸', kk: '5 990 ₸', en: '5 990 ₸' },
+    price: { ru: '20 000 ₸', kk: '20 000 ₸', en: '20 000 ₸' },
     priceNote: { ru: 'в месяц · отмена в любой момент', kk: 'айына · кез келген уақытта тоқтатуға болады', en: 'per month · cancel anytime' },
     description: {
       ru: 'Максимум ИИ и приоритет',
