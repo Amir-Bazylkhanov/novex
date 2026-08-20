@@ -50,7 +50,7 @@ const APP_NAV_LINKS: Array<{
   },
   {
     to: '/plan',
-    label: { ru: 'План', kk: 'Жоспар', en: 'Plan' },
+    label: { ru: 'Роадмап', kk: 'Жол картасы', en: 'Roadmap' },
     icon: Map,
   },
   {

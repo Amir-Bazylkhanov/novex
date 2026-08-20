@@ -22,6 +22,7 @@ import { useAuth } from '../../context/AuthContext.tsx';
 import { supabase } from '../../services/supabaseClient.ts';
 import { RobotAvatar } from '../robots/RobotAvatars.tsx';
 import RobotBackdrop from '../RobotBackdrop.tsx';
+import SchoolAutocomplete from '../SchoolAutocomplete.tsx';
 import {
   CLASS_SUBJECT_PERFORMANCE,
   CLASS_TOPIC_PERFORMANCE,
@@ -1372,17 +1373,14 @@ const TeacherPage: React.FC = () => {
                 <label htmlFor="class-school" className="block text-sm font-semibold text-ink">
                   {loc(language, FIELD_SCHOOL)}
                 </label>
-                <input
+                <SchoolAutocomplete
                   id="class-school"
-                  type="text"
                   value={classForm.school}
-                  onChange={(e) =>
-                    setClassForm((f) => ({ ...f, school: e.target.value }))
-                  }
+                  onChange={(v) => setClassForm((f) => ({ ...f, school: v }))}
                   placeholder={loc(language, FIELD_SCHOOL_PLACEHOLDER)}
-                  aria-invalid={Boolean(classFormErrors.school)}
-                  aria-describedby={classFormErrors.school ? 'class-school-error' : undefined}
-                  className={`${INPUT} mt-1.5`}
+                  ariaInvalid={Boolean(classFormErrors.school)}
+                  ariaDescribedBy={classFormErrors.school ? 'class-school-error' : undefined}
+                  inputClassName={`${INPUT} mt-1.5`}
                 />
                 {classFormErrors.school && (
                   <p id="class-school-error" role="alert" className="mt-1.5 text-xs font-medium text-coral">

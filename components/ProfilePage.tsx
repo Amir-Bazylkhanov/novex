@@ -30,6 +30,7 @@ import type { TutorModel } from '../services/aiService.ts';
 import { supabase } from '../services/supabaseClient.ts';
 import { ACADEMY_DIRECTIONS, ACADEMY_PLANETS } from '../constants/academy/catalog.ts';
 import { RobotAvatar } from './robots/RobotAvatars.tsx';
+import SchoolAutocomplete from './SchoolAutocomplete.tsx';
 
 /* --- content --- */
 
@@ -551,6 +552,13 @@ const ProfilePage: React.FC = () => {
     return groups;
   }, [classOptions, classQuery]);
 
+  // unique school names among classes that actually have an active class,
+  // so they rank first in the autocomplete dropdown
+  const classSchoolNames = useMemo(
+    () => Array.from(new Set(classOptions.map((c) => c.school))),
+    [classOptions],
+  );
+
   const myClass = myClassId ? (classOptions.find((c) => c.id === myClassId) ?? null) : null;
 
   const saveClass = async (nextClassId: string | null) => {
@@ -1005,19 +1013,19 @@ const ProfilePage: React.FC = () => {
                 <label htmlFor="profile-school" className={LABEL}>
                   {loc(language, SCHOOL_LABEL)}
                 </label>
-                <div className="relative mt-1.5">
-                  <School
-                    className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-slateink"
-                    aria-hidden="true"
-                  />
-                  <input
+                <div className="mt-1.5">
+                  <SchoolAutocomplete
                     id="profile-school"
-                    type="text"
-                    autoComplete="organization"
                     value={form.school}
-                    onChange={(e) => setForm((f) => ({ ...f, school: e.target.value }))}
+                    onChange={(v) => setForm((f) => ({ ...f, school: v }))}
                     placeholder={loc(language, SCHOOL_PLACEHOLDER)}
-                    className={`${INPUT} pl-10`}
+                    leadingIcon={
+                      <School
+                        className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-slateink"
+                        aria-hidden="true"
+                      />
+                    }
+                    inputClassName={`${INPUT} pl-10`}
                   />
                 </div>
               </div>
@@ -1241,18 +1249,20 @@ const ProfilePage: React.FC = () => {
                 <label htmlFor="class-search" className={LABEL}>
                   {loc(language, CLASS_SEARCH_LABEL)}
                 </label>
-                <div className="relative mt-1.5">
-                  <Search
-                    className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-slateink"
-                    aria-hidden="true"
-                  />
-                  <input
+                <div className="mt-1.5">
+                  <SchoolAutocomplete
                     id="class-search"
-                    type="text"
                     value={classQuery}
-                    onChange={(e) => setClassQuery(e.target.value)}
+                    onChange={setClassQuery}
                     placeholder={loc(language, CLASS_SEARCH_PLACEHOLDER)}
-                    className={`${INPUT} pl-10`}
+                    extraSchools={classSchoolNames}
+                    leadingIcon={
+                      <Search
+                        className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-slateink"
+                        aria-hidden="true"
+                      />
+                    }
+                    inputClassName={`${INPUT} pl-10`}
                   />
                 </div>
                 <div className="mt-3 max-h-72 space-y-4 overflow-y-auto pr-1">
