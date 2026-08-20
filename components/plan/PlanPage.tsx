@@ -1177,17 +1177,25 @@ const PlanPage: React.FC = () => {
     async (planJson: StudyPlanJson, goal: string | null, examDate: string | null): Promise<boolean> => {
       if (!user) return false;
       try {
-        const { error } = await supabase.from('study_plans').upsert(
-          {
-            user_id: user.id,
-            goal,
-            exam_date: examDate,
-            plan: planJson,
-            updated_at: new Date().toISOString(),
-          },
-          { onConflict: 'user_id' },
-        );
-        return !error;
+        const row = {
+          user_id: user.id,
+          goal,
+          exam_date: examDate,
+          plan: planJson,
+          updated_at: new Date().toISOString(),
+        };
+        const { error } = await supabase.from('study_plans').upsert(row, { onConflict: 'user_id' });
+        if (!error) return true;
+        // A stale access token in a long-open tab is the usual cause here, so
+        // refresh the session and retry once before surfacing the error.
+        console.error('study_plans upsert failed', error);
+        const { error: refreshError } = await supabase.auth.refreshSession();
+        if (refreshError) return false;
+        const { error: retryError } = await supabase
+          .from('study_plans')
+          .upsert(row, { onConflict: 'user_id' });
+        if (retryError) console.error('study_plans retry failed', retryError);
+        return !retryError;
       } catch {
         return false;
       }
