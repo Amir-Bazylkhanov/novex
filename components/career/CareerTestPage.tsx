@@ -517,7 +517,7 @@ const QUESTIONS: readonly CareerQuestion[] = [
   },
 ];
 
-/* 4-point agreement scale, values 1..4 */
+/* 5-point agreement scale, values 1..5 */
 const SCALE: readonly { value: number; label: Localized }[] = [
   {
     value: 1,
@@ -529,10 +529,14 @@ const SCALE: readonly { value: number; label: Localized }[] = [
   },
   {
     value: 3,
-    label: { ru: 'Скорее про меня', kk: 'Көбіне мен туралы', en: 'Mostly me' },
+    label: { ru: 'Нейтрально', kk: 'Бейтарап', en: 'Neutral' },
   },
   {
     value: 4,
+    label: { ru: 'Скорее про меня', kk: 'Көбіне мен туралы', en: 'Mostly me' },
+  },
+  {
+    value: 5,
     label: { ru: 'Точно про меня', kk: 'Дәл мен туралы', en: 'Definitely me' },
   },
 ];
@@ -553,7 +557,7 @@ interface CareerResult {
 
 const DRAFT_KEY = 'novex.career.draft';
 const RESULT_KEY = 'novex.career.result';
-const MAX_SCORE = 3 * 4; // 3 questions × max 4 points
+const MAX_SCORE = 3 * 5; // 3 questions × max 5 points
 const OPEN_MIN_CHARS = 20;
 
 const emptyScores = (): Scores => ({
@@ -568,7 +572,7 @@ const emptyScores = (): Scores => ({
 const isDimension = (value: unknown): value is CareerDimension =>
   typeof value === 'string' && DIMENSIONS.some((d) => d.key === value);
 
-/** In-progress draft: scale answers (1..4) plus open-text answers, autosaved as each question is answered. */
+/** In-progress draft: scale answers (1..5) plus open-text answers, autosaved as each question is answered. */
 interface CareerDraft {
   answers: number[];
   open: string[];
@@ -585,14 +589,14 @@ const readDraft = (): CareerDraft => {
     // questions existed
     if (Array.isArray(parsed)) {
       return {
-        answers: parsed.filter((v): v is number => typeof v === 'number' && v >= 1 && v <= 4),
+        answers: parsed.filter((v): v is number => typeof v === 'number' && v >= 1 && v <= 5),
         open: [],
       };
     }
     if (parsed && typeof parsed === 'object') {
       const obj = parsed as Partial<CareerDraft>;
       const answers = Array.isArray(obj.answers)
-        ? obj.answers.filter((v): v is number => typeof v === 'number' && v >= 1 && v <= 4)
+        ? obj.answers.filter((v): v is number => typeof v === 'number' && v >= 1 && v <= 5)
         : [];
       const open = Array.isArray(obj.open)
         ? obj.open.filter((v): v is string => typeof v === 'string')

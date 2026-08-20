@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { loc, type Localized } from '../../utils/i18n.ts';
 import { useLanguage } from '../../context/LanguageContext.tsx';
@@ -77,13 +78,13 @@ const FinalCTA: React.FC = () => {
           </p>
 
           <div className="mt-8 flex justify-center">
-            <a
-              href="#top"
+            <Link
+              to="/onboarding"
               className={`${FOCUS_RING_TEAL_BAND} inline-flex items-center justify-center gap-2 rounded-xl bg-white px-6 py-3.5 text-base font-semibold text-teal-dark shadow-[0_8px_30px_rgba(17,26,42,0.18)] transition-colors hover:bg-canvas`}
             >
               {loc(language, CTA_PRIMARY)}
               <ArrowRight className="h-5 w-5" aria-hidden="true" />
-            </a>
+            </Link>
           </div>
 
           <p className="mt-6 text-sm text-white/75">{loc(language, REASSURANCE)}</p>

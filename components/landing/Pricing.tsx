@@ -68,7 +68,7 @@ const TEACHER_PLAN: TeacherPlan = {
     { ru: 'Аналитика: кому нужна помощь', kk: 'Аналитика: кімге көмек керек', en: 'Analytics: who needs help' },
     { ru: 'Создание собственных уроков', kk: 'Өз сабақтарын құру', en: 'Create your own lessons' },
     { ru: 'Напоминания о сроках', kk: 'Мерзім еске салғыштары', en: 'Deadline reminders' },
-    { ru: '+150 ⚙ Новасов каждому ученику ежемесячно', kk: 'Әр оқушыға ай сайын +150 ⚙ Новас', en: '+150 ⚙ Novas per student every month' },
+    { ru: '+150 ⚙ Новасов', kk: '+150 ⚙ Новас', en: '+150 ⚙ Novas' },
   ],
   cta: { ru: 'Начать как учитель', kk: 'Мұғалім ретінде бастау', en: 'Start as a teacher' },
 };
@@ -95,7 +95,7 @@ const PAID_PLANS: Plan[] = [
     },
     features: [
       { ru: 'Всё из бесплатного тарифа', kk: 'Тегін тарифтің бәрі', en: 'Everything from the free plan' },
-      { ru: '+200 ⚙ Новасов каждый месяц', kk: 'Ай сайын +200 ⚙ Новас', en: '+200 ⚙ Novas every month' },
+      { ru: '+500 ⚙ Новасов каждый месяц', kk: 'Ай сайын +500 ⚙ Новас', en: '+500 ⚙ Novas every month' },
       { ru: 'Расширенный дневной лимит ИИ-чата', kk: 'ИИ-чаттың кеңейтілген күндік лимиті', en: 'Extended daily AI chat limit' },
       { ru: 'Полная практика по всем темам', kk: 'Барлық тақырып бойынша толық практика', en: 'Full practice across all topics' },
       { ru: 'Напоминания о целях', kk: 'Мақсаттар туралы еске салғыштар', en: 'Goal reminders' },
@@ -114,7 +114,7 @@ const PAID_PLANS: Plan[] = [
     },
     features: [
       { ru: 'Безлимитный ИИ-чат с NOV-01', kk: 'NOV-01-мен шексіз ИИ-чат', en: 'Unlimited AI chat with NOV-01' },
-      { ru: '+500 ⚙ Новасов каждый месяц', kk: 'Ай сайын +500 ⚙ Новас', en: '+500 ⚙ Novas every month' },
+      { ru: '+1 200 ⚙ Новасов каждый месяц', kk: 'Ай сайын +1 200 ⚙ Новас', en: '+1,200 ⚙ Novas every month' },
       { ru: 'Полная подготовка к ЕНТ и олимпиадам', kk: 'ҰБТ мен олимпиадаларға толық дайындық', en: 'Full UNT and olympiad prep' },
       { ru: 'Персональный план от NOV-01', kk: 'NOV-01-ден жеке дайындық жоспары', en: 'Personal roadmap from NOV-01' },
       { ru: 'Разбор каждой ошибки шаг за шагом', kk: 'Әр қатені қадамдап талдау', en: 'Step-by-step review of every mistake' },
@@ -133,7 +133,7 @@ const PAID_PLANS: Plan[] = [
     },
     features: [
       { ru: 'Всё из Про', kk: 'Про тарифінің бәрі', en: 'Everything from Pro' },
-      { ru: '+1 200 ⚙ Новасов каждый месяц', kk: 'Ай сайын +1 200 ⚙ Новас', en: '+1,200 ⚙ Novas every month' },
+      { ru: '+2 400 ⚙ Новасов каждый месяц', kk: 'Ай сайын +2 400 ⚙ Новас', en: '+2,400 ⚙ Novas every month' },
       { ru: 'Доступ к Opus 5 в ИИ-чате', kk: 'ИИ-чатта Opus 5-ке қолжетімділік', en: 'Access to Opus 5 in the AI chat' },
       { ru: 'Приоритетная проверка открытых ответов', kk: 'Ашық жауаптарды басым тексеру', en: 'Priority review of open-ended answers' },
       { ru: 'Ранний доступ к новым модулям', kk: 'Жаңа модульдерге ерте қолжетімділік', en: 'Early access to new modules' },

@@ -13,6 +13,7 @@ import {
   RotateCcw,
   X,
   XCircle,
+  type LucideIcon,
 } from 'lucide-react';
 import { loc, type Lang, type Localized } from '../../utils/i18n.ts';
 import { useLanguage } from '../../context/LanguageContext.tsx';
@@ -21,7 +22,6 @@ import RobotBackdrop from '../RobotBackdrop.tsx';
 import {
   DIAGNOSTIC_SUBJECTS,
   TOPIC_LESSON_SLUGS,
-  type DiagnosticSubject,
 } from '../../constants/diagnosticData.ts';
 import { LEARN_DIRECTIONS, directionForSubject } from '../../constants/learnDirections.ts';
 import { planetsByRobot } from '../../constants/academy/catalog.ts';
@@ -39,6 +39,7 @@ import {
   type PracticeDifficultyFilter,
   type PracticeResult,
   type PracticeSession,
+  type PracticeSubject,
   type StoredPractice,
 } from '../../services/practiceService.ts';
 
@@ -58,7 +59,6 @@ const PAGE_SUBTITLE: Localized = {
 
 const SUBJECT_LABEL: Localized = { ru: 'Предмет', kk: 'Пән', en: 'Subject' };
 const TOPICS_LABEL: Localized = { ru: 'Темы', kk: 'Тақырыптар', en: 'Topics' };
-const SOON_PILL: Localized = { ru: 'Скоро', kk: 'Жақында', en: 'Soon' };
 
 /* Direction cards mirror /learn's mentor picker but own their content locally
    (no cross-file content imports) — only the direction/subject grouping data
@@ -207,7 +207,7 @@ const PracticePage: React.FC = () => {
   const reducedMotion = useReducedMotion();
 
   // Config state.
-  const [subject, setSubject] = useState<DiagnosticSubject>('math');
+  const [subject, setSubject] = useState<PracticeSubject>('math');
   const [selectedTopics, setSelectedTopics] = useState<string[]>([]);
   const [count, setCount] = useState<PracticeCount>(10);
   const [difficulty, setDifficulty] = useState<PracticeDifficultyFilter>('any');
@@ -216,7 +216,7 @@ const PracticePage: React.FC = () => {
   // Picker expand state: which direction cards and which subjects' topic
   // lists are open. Multiple directions/subjects can be expanded at once.
   const [expandedDirections, setExpandedDirections] = useState<Set<MentorRobotId>>(new Set());
-  const [expandedSubjects, setExpandedSubjects] = useState<Set<DiagnosticSubject>>(new Set());
+  const [expandedSubjects, setExpandedSubjects] = useState<Set<PracticeSubject>>(new Set());
 
   // Active attempt state.
   const [phase, setPhase] = useState<Phase>('config');
@@ -426,7 +426,7 @@ const PracticePage: React.FC = () => {
     });
   };
 
-  const toggleSubjectExpand = (s: DiagnosticSubject) => {
+  const toggleSubjectExpand = (s: PracticeSubject) => {
     setExpandedSubjects((prev) => {
       const next = new Set(prev);
       if (next.has(s)) next.delete(s);
@@ -437,14 +437,14 @@ const PracticePage: React.FC = () => {
 
   // Selecting the subject row scopes the whole subject — matches the legacy
   // flat-picker behaviour exactly (topics reset to "any").
-  const handleSelectSubject = (s: DiagnosticSubject) => {
+  const handleSelectSubject = (s: PracticeSubject) => {
     setSubject(s);
     setSelectedTopics([]);
   };
 
   // A topic chip both picks its subject (if not already active) and toggles
   // itself into the topic scope; multiple topics within one subject can mix.
-  const handleToggleTopic = (s: DiagnosticSubject, topic: string) => {
+  const handleToggleTopic = (s: PracticeSubject, topic: string) => {
     if (s !== subject) {
       setSubject(s);
       setSelectedTopics([topic]);
@@ -517,10 +517,26 @@ const PracticePage: React.FC = () => {
                   {loc(language, SUBJECT_LABEL)}
                 </h2>
                 {LEARN_DIRECTIONS.map((direction) => {
-                  const directionSubjects = subjectsForDirection(direction.robot);
-                  const directionPlanets = planetsByRobot(direction.robot);
+                  // Unified selectable rows: diagnostic subjects first, then
+                  // this direction's academy planets — every planet is
+                  // practicable, nothing is "soon".
+                  const directionItems: {
+                    slug: PracticeSubject;
+                    label: Localized;
+                    icon?: LucideIcon;
+                  }[] = [
+                    ...subjectsForDirection(direction.robot).map((s) => ({
+                      slug: s.slug as PracticeSubject,
+                      label: s.label,
+                    })),
+                    ...planetsByRobot(direction.robot).map((planet) => ({
+                      slug: planet.slug,
+                      label: planet.name,
+                      icon: planet.icon,
+                    })),
+                  ];
                   const isExpanded = expandedDirections.has(direction.robot);
-                  const selectionCount = directionSubjects.some((s) => s.slug === subject)
+                  const selectionCount = directionItems.some((item) => item.slug === subject)
                     ? selectedTopics.length > 0
                       ? selectedTopics.length
                       : 1
@@ -571,29 +587,36 @@ const PracticePage: React.FC = () => {
                             className="overflow-hidden"
                           >
                             <div className="mt-4 space-y-2 border-t border-line/40 pt-4">
-                              {directionSubjects.map((s) => {
-                                const subjectActive = subject === s.slug;
-                                const subjectTopics = topicsForSubject(s.slug);
-                                const topicsOpen = expandedSubjects.has(s.slug);
+                              {directionItems.map((item) => {
+                                const subjectActive = subject === item.slug;
+                                const subjectTopics = topicsForSubject(item.slug);
+                                const topicsOpen = expandedSubjects.has(item.slug);
+                                const ItemIcon = item.icon;
                                 return (
                                   <div
-                                    key={s.slug}
+                                    key={item.slug}
                                     className="rounded-xl border border-line/50 bg-canvas/60 p-3"
                                   >
                                     <div className="flex items-center justify-between gap-2">
                                       <button
                                         type="button"
                                         aria-pressed={subjectActive}
-                                        onClick={() => handleSelectSubject(s.slug)}
+                                        onClick={() => handleSelectSubject(item.slug)}
                                         className={pillClass(subjectActive)}
                                       >
-                                        {loc(language, s.label)}
+                                        {ItemIcon && (
+                                          <ItemIcon
+                                            className="mr-1.5 inline h-4 w-4 align-[-2px]"
+                                            aria-hidden="true"
+                                          />
+                                        )}
+                                        {loc(language, item.label)}
                                       </button>
                                       {subjectTopics.length > 0 && (
                                         <button
                                           type="button"
                                           aria-expanded={topicsOpen}
-                                          onClick={() => toggleSubjectExpand(s.slug)}
+                                          onClick={() => toggleSubjectExpand(item.slug)}
                                           className={`${FOCUS_RING} rounded-lg p-1.5 text-slateink transition-colors hover:text-teal`}
                                         >
                                           <span className="sr-only">
@@ -624,7 +647,7 @@ const PracticePage: React.FC = () => {
                                                   key={t.topic}
                                                   type="button"
                                                   aria-pressed={topicActive}
-                                                  onClick={() => handleToggleTopic(s.slug, t.topic)}
+                                                  onClick={() => handleToggleTopic(item.slug, t.topic)}
                                                   className={topicChipClass(topicActive)}
                                                 >
                                                   {topicActive && (
@@ -642,26 +665,6 @@ const PracticePage: React.FC = () => {
                                 );
                               })}
                             </div>
-
-                            {directionPlanets.length > 0 && (
-                              <div className="mt-4 flex flex-wrap gap-2 border-t border-line/40 pt-4">
-                                {directionPlanets.map((planet) => {
-                                  const Icon = planet.icon;
-                                  return (
-                                    <span
-                                      key={planet.slug}
-                                      className="inline-flex items-center gap-1.5 rounded-xl border border-line/40 bg-line/10 px-3.5 py-2 text-sm font-medium text-slateink/70"
-                                    >
-                                      <Icon className="h-4 w-4" aria-hidden="true" />
-                                      {loc(language, planet.name)}
-                                      <span className="ml-1 rounded-full bg-teal/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-teal-dark">
-                                        {loc(language, SOON_PILL)}
-                                      </span>
-                                    </span>
-                                  );
-                                })}
-                              </div>
-                            )}
                           </motion.div>
                         )}
                       </AnimatePresence>

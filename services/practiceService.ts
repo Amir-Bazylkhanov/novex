@@ -4,9 +4,12 @@
  * Pure logic, no React. The question pool combines the full placement-
  * diagnostic bank (ALL_DIAGNOSTIC_QUESTIONS in constants/diagnosticData.ts —
  * all eight subjects) with the practice questions inside the real lessons
- * (constants/lessonData.ts) where the subject has them. Both banks hand-
- * verify their answer keys; lesson questions additionally carry step-by-step
- * explanations, which are preserved into the session and shown in the review.
+ * (constants/lessonData.ts) where the subject has them, plus every academy
+ * planet (constants/academy/catalog.ts): planet sections' free-text
+ * practiceProblems are converted to MCQs with deterministically sampled
+ * distractors. The diagnostic and lesson banks hand-verify their answer keys;
+ * lesson questions additionally carry step-by-step explanations, which are
+ * preserved into the session and shown in the review.
  *
  * Sessions are frozen on assembly: question order AND option order are
  * shuffled once, so a session persisted to sessionStorage restores with the
@@ -17,15 +20,21 @@
 import {
   ALL_DIAGNOSTIC_QUESTIONS,
   DIAGNOSTIC_SUBJECTS,
-  type DiagnosticSubject,
 } from '../constants/diagnosticData.ts';
 import {
   LESSONS,
   type QuestionDifficulty,
 } from '../constants/lessonData.ts';
+import {
+  ACADEMY_PLANETS,
+  pickLangFieldOptional,
+} from '../constants/academy/catalog.ts';
+import { flattenPlanetSections } from '../constants/academy/subjects.ts';
 import type { Localized } from '../utils/i18n.ts';
 
-export type PracticeSubject = DiagnosticSubject;
+// Widened from DiagnosticSubject: academy planet slugs (core_sciences,
+// finance, …) are also valid practice subjects.
+export type PracticeSubject = string;
 export type PracticeDifficultyFilter = 'any' | QuestionDifficulty;
 export type PracticeCount = 5 | 10 | 15;
 
@@ -43,7 +52,7 @@ export interface PracticeConfig {
 // correctIndex is remapped to the shuffled order, so scoring stays reliable.
 export interface PracticeSessionQuestion {
   id: string;
-  subject: DiagnosticSubject;
+  subject: PracticeSubject;
   /** Topic slug (diagnostic topic id or lesson topic) — used to link a lesson. */
   topic?: string;
   topicLabel: Localized;
@@ -88,7 +97,7 @@ export interface PracticeResult {
 
 interface PoolQuestion {
   id: string;
-  subject: DiagnosticSubject;
+  subject: PracticeSubject;
   topic: string;
   topicLabel: Localized;
   question: Localized;
@@ -138,9 +147,86 @@ const LESSON_POOL: PoolQuestion[] = LESSONS.filter((l) => l.available).flatMap((
   })),
 );
 
-const POOL: PoolQuestion[] = [...DIAGNOSTIC_POOL, ...LESSON_POOL];
+/* Academy planets feed the pool too: their sections' practiceProblems are
+   free-text answers, so each is converted to an MCQ here — the correct answer
+   plus up to 3 distractor answers sampled from OTHER problems of the SAME
+   planet (same section first, then other sections), deduped against the
+   correct answer and each other by their en (or ru fallback) text,
+   case-insensitively. Sampling is deterministic (mulberry32 seeded by
+   flatIndex*31+pIdx), so the pool is identical across page loads and the
+   question ids `${slug}:${flatIndex}:${pIdx}` stay stable. */
+const localizedOptional = (en: string, ru?: string, kk?: string): Localized => ({
+  en,
+  ru: pickLangFieldOptional('ru', en, ru, kk),
+  kk: pickLangFieldOptional('kk', en, ru, kk),
+});
+
+const dedupKey = (en: string, ru: string): string => (en.trim() || ru).toLowerCase();
+
+const ACADEMY_POOL: PoolQuestion[] = ACADEMY_PLANETS.flatMap((planet) => {
+  const flat = flattenPlanetSections(planet);
+  const out: PoolQuestion[] = [];
+  for (const { flatIndex, section } of flat) {
+    section.practiceProblems.forEach((p, pIdx) => {
+      const answer = p.answer.trim();
+      if (answer.length === 0) return;
+      const seed = flatIndex * 31 + pIdx;
+      const rand = mulberry32(seed);
+      // Distractor candidates: other problems' answers, same section first.
+      const sameSection: Localized[] = [];
+      const foreign: Localized[] = [];
+      for (const other of flat) {
+        other.section.practiceProblems.forEach((op, opIdx) => {
+          if (other.flatIndex === flatIndex && opIdx === pIdx) return;
+          if (op.answer.trim().length === 0) return;
+          const option = localizedOptional(op.answer, op.answerRu, op.answerKk);
+          if (other.flatIndex === flatIndex) sameSection.push(option);
+          else foreign.push(option);
+        });
+      }
+      const shuffle = (arr: Localized[]): Localized[] => {
+        for (let i = arr.length - 1; i > 0; i--) {
+          const j = Math.floor(rand() * (i + 1));
+          [arr[i], arr[j]] = [arr[j], arr[i]];
+        }
+        return arr;
+      };
+      shuffle(sameSection);
+      shuffle(foreign);
+      const correct = localizedOptional(answer, p.answerRu, p.answerKk);
+      const seen = new Set<string>([dedupKey(correct.en, correct.ru)]);
+      const distractors: Localized[] = [];
+      for (const option of [...sameSection, ...foreign]) {
+        if (distractors.length >= 3) break;
+        const key = dedupKey(option.en, option.ru);
+        if (seen.has(key)) continue;
+        seen.add(key);
+        distractors.push(option);
+      }
+      // Not even one distractor → no MCQ can be assembled; skip the problem.
+      if (distractors.length === 0) return;
+      const shuffled = shuffleOptions([correct, ...distractors], 0, seed);
+      out.push({
+        id: `${planet.slug}:${flatIndex}:${pIdx}`,
+        subject: planet.slug,
+        topic: section.title,
+        topicLabel: localizedOptional(section.title, section.titleRu, section.titleKk),
+        question: localizedOptional(p.question, p.questionRu, p.questionKk),
+        options: shuffled.options,
+        correctIndex: shuffled.correctIndex,
+        difficulty: normalizeDifficulty(p.difficulty),
+      });
+    });
+  }
+  return out;
+});
+
+const POOL: PoolQuestion[] = [...DIAGNOSTIC_POOL, ...LESSON_POOL, ...ACADEMY_POOL];
 const POOL_IDS = new Set(POOL.map((q) => q.id));
-const VALID_SUBJECTS = new Set<string>(DIAGNOSTIC_SUBJECTS.map((s) => s.slug));
+const VALID_SUBJECTS = new Set<string>([
+  ...DIAGNOSTIC_SUBJECTS.map((s) => s.slug),
+  ...ACADEMY_PLANETS.map((p) => p.slug),
+]);
 
 /** Filter the pool by subject + difficulty, optionally narrowed to a set of topics. Pure. */
 export function filterQuestions(
