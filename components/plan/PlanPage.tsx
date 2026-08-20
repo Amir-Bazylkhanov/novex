@@ -39,6 +39,10 @@ import {
   planetBySlug,
   planetsByRobot,
 } from '../../constants/academy/catalog.ts';
+import {
+  flattenPlanetSections,
+  hasSubjects,
+} from '../../constants/academy/subjects.ts';
 import { topicName } from '../../constants/diagnosticData.ts';
 
 /* --- content --- */
@@ -564,13 +568,34 @@ const buildPlan = (
       }
     } else {
       const planet = planetBySlug(subject);
-      const sections = planet ? (pickGradeContent(planet.lessons, profileRow.grade)?.sections ?? []) : [];
-      sections.forEach((_, sectionIndex) => {
-        const ref = `${subject}::${sectionIndex}`;
-        if (seenTopics.has(ref)) return;
-        seenTopics.add(ref);
-        subjectPool.push({ kind: 'academy', ref, subject });
-      });
+      if (planet && hasSubjects(planet.slug)) {
+        // Multi-subject planets: refs/hrefs address the FLAT index (the planet
+        // page's subject ladders use those), but the pool still matches the
+        // student's grade — the lowest grade present when theirs isn't.
+        const flat = flattenPlanetSections(planet);
+        const grades = flat
+          .map((f) => f.grade)
+          .filter((g): g is number => g !== null);
+        const targetGrade =
+          profileRow.grade !== null && grades.includes(profileRow.grade)
+            ? profileRow.grade
+            : Math.min(...grades);
+        for (const entry of flat) {
+          if (entry.grade !== targetGrade) continue;
+          const ref = `${subject}::${entry.flatIndex}`;
+          if (seenTopics.has(ref)) continue;
+          seenTopics.add(ref);
+          subjectPool.push({ kind: 'academy', ref, subject });
+        }
+      } else {
+        const sections = planet ? (pickGradeContent(planet.lessons, profileRow.grade)?.sections ?? []) : [];
+        sections.forEach((_, sectionIndex) => {
+          const ref = `${subject}::${sectionIndex}`;
+          if (seenTopics.has(ref)) return;
+          seenTopics.add(ref);
+          subjectPool.push({ kind: 'academy', ref, subject });
+        });
+      }
     }
     // Each subject's own pool is shuffled independently (subject blocks stay in pick order; only
     // the topics inside each block reorder) so a rebuild visibly varies the sequence.
@@ -716,7 +741,13 @@ const ThemeRow: React.FC<{ item: PlanItemJson; reviewWeek: boolean; grade: numbe
     const [planetSlug, sectionIndexRaw] = (item.ref ?? '').split('::');
     const planet = planetBySlug(planetSlug);
     const sectionIndex = Number(sectionIndexRaw);
-    const section = planet ? pickGradeContent(planet.lessons, grade)?.sections[sectionIndex] : undefined;
+    // Multi-subject planets store flat indices in refs (see buildPlan);
+    // everyone else keeps grade-picked section indices.
+    const section = planet
+      ? hasSubjects(planet.slug)
+        ? flattenPlanetSections(planet)[sectionIndex]?.section
+        : pickGradeContent(planet.lessons, grade)?.sections[sectionIndex]
+      : undefined;
     if (!planet || !section) return null;
     title = pickLangField(language, section.title, section.titleRu, section.titleKk);
     lessonHref = `/learn/p/${planet.slug}/${sectionIndex}`;

@@ -21,6 +21,11 @@ import {
   pickLangField,
   planetBySlug,
 } from '../../constants/academy/catalog.ts';
+import {
+  flattenPlanetSections,
+  ladderForSubject,
+  PLANET_SUBJECTS,
+} from '../../constants/academy/subjects.ts';
 import PlanetLevels, {
   LevelStepPills,
   loadPlanetProgress,
@@ -111,6 +116,13 @@ const TESTED_OUT: Localized = {
   kk: 'Тестпен расталды',
   en: 'Tested out',
 };
+const SUBJECT_WORD: Localized = { ru: 'Предмет', kk: 'Пән', en: 'Subject' };
+
+const gradeChipLabel = (language: 'ru' | 'kk' | 'en', grade: number): string => {
+  if (language === 'kk') return `${grade}-сынып`;
+  if (language === 'en') return `Grade ${grade}`;
+  return `${grade} класс`;
+};
 
 const problemsLine = (language: 'ru' | 'kk' | 'en', total: number): string => {
   if (language === 'kk') return `Тапсырмалар: ${total}`;
@@ -150,8 +162,26 @@ const PlanetPage: React.FC = () => {
   const [placementTestOpen, setPlacementTestOpen] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
 
-  // Re-sync progress + land on the first incomplete level per planet, or on
-  // the level named by ?test= (set by the lesson page's "К тесту уровня").
+  /* Multi-subject planets: the level strip shows the ACTIVE SUBJECT's ladder
+     (its sections across all grades), and progress/route indices are flat
+     indices across the whole planet. activeIdx/skipTestFor/levelTestFor stay
+     LADDER positions — they map to flatIndex only at the storage/route edge. */
+  const planetSubjects = planet ? PLANET_SUBJECTS[planet.slug] : undefined;
+  const subjectParam = searchParams.get('subject');
+  const activeSubject = planetSubjects
+    ? (planetSubjects.find((s) => s.id === subjectParam) ?? planetSubjects[0])
+    : undefined;
+  const ladder =
+    planet && activeSubject ? ladderForSubject(planet, activeSubject.id) : undefined;
+  /** Displayed sections: the subject ladder for multi-subject planets, the
+      grade-picked sections for everyone else. */
+  const sections = ladder ? ladder.map((entry) => entry.section) : content?.sections;
+  /** Ladder position → flat index (identity for non-subject planets). */
+  const flatIndexAt = (idx: number): number => (ladder ? ladder[idx].flatIndex : idx);
+
+  // Re-sync progress + land on the first incomplete level per planet/subject,
+  // or on the level named by ?test= (set by the lesson page's "К тесту уровня"
+  // — a flat index for subject planets, a section index otherwise).
   useEffect(() => {
     const loaded = loadPlanetProgress(planetSlug ?? '');
     setProgress(loaded);
@@ -160,6 +190,33 @@ const PlanetPage: React.FC = () => {
 
     const testParam = searchParams.get('test');
     const testIdx = testParam !== null ? Number.parseInt(testParam, 10) : Number.NaN;
+
+    if (planet && activeSubject && ladder) {
+      if (Number.isInteger(testIdx)) {
+        const flat = flattenPlanetSections(planet)[testIdx];
+        if (flat && flat.subjectId !== activeSubject.id) {
+          // The test belongs to another subject — retarget the switcher and
+          // let the re-run open it at its ladder position.
+          setSearchParams(
+            { subject: flat.subjectId, test: String(testIdx) },
+            { replace: true },
+          );
+          return;
+        }
+        const ladderPos = flat ? ladder.findIndex((f) => f.flatIndex === testIdx) : -1;
+        if (ladderPos >= 0) {
+          setActiveIdx(ladderPos);
+          setLevelTestFor(ladderPos);
+        }
+        setSearchParams({ subject: activeSubject.id }, { replace: true });
+        return;
+      }
+      const firstIncomplete = ladder.findIndex(
+        (f) => !loaded.completedSections.includes(f.flatIndex),
+      );
+      setActiveIdx(firstIncomplete >= 0 ? firstIncomplete : 0);
+      return;
+    }
 
     if (content) {
       if (Number.isInteger(testIdx) && testIdx >= 0 && testIdx < content.sections.length) {
@@ -175,11 +232,11 @@ const PlanetPage: React.FC = () => {
     } else {
       setActiveIdx(0);
     }
-    // Only re-run on planet/content change — ?test= is consumed once, on mount.
+    // Only re-run on planet/content/subject change — ?test= is consumed once, on mount.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [planetSlug, content]);
+  }, [planetSlug, content, activeSubject?.id]);
 
-  if (!planet || !direction || !content) {
+  if (!planet || !direction || !content || !sections) {
     return (
       <main className="relative min-h-screen bg-canvas font-sans text-ink">
         <RobotBackdrop density="subtle" />
@@ -206,29 +263,30 @@ const PlanetPage: React.FC = () => {
   const academic = isAcademicPlanet(planet);
   const directionLine = `${DIRECTION_CODE[direction.id]} · ${loc(language, direction.name)}`;
 
-  const safeActiveIdx = Math.max(0, Math.min(activeIdx, content.sections.length - 1));
-  const statuses: PlanetLevelStatus[] = content.sections.map((_, i) =>
-    progress.completedSections.includes(i)
+  const safeActiveIdx = Math.max(0, Math.min(activeIdx, sections.length - 1));
+  const statuses: PlanetLevelStatus[] = sections.map((_, i) =>
+    progress.completedSections.includes(flatIndexAt(i))
       ? 'done'
-      : i > 0 && !progress.completedSections.includes(i - 1)
+      : i > 0 && !progress.completedSections.includes(flatIndexAt(i - 1))
         ? 'locked'
         : 'open',
   );
-  const firstIncomplete = content.sections.findIndex(
-    (_, i) => !progress.completedSections.includes(i),
+  const firstIncomplete = sections.findIndex(
+    (_, i) => !progress.completedSections.includes(flatIndexAt(i)),
   );
   const hasLockedLevel = statuses.some((status) => status === 'locked');
 
-  const activeSection = content.sections[safeActiveIdx];
+  const activeSection = sections[safeActiveIdx];
   const activeStatus = statuses[safeActiveIdx];
-  const activeCompleted = progress.completedSections.includes(safeActiveIdx);
-  const activeSkipped = progress.skipped.includes(safeActiveIdx);
+  const activeFlatIdx = flatIndexAt(safeActiveIdx);
+  const activeCompleted = progress.completedSections.includes(activeFlatIdx);
+  const activeSkipped = progress.skipped.includes(activeFlatIdx);
 
   // Урок → Тест → Уровень пройден for the active level. lessonRead entries
   // written before this field existed are implied by completedSections.
   const activeLessonRead =
-    progress.lessonRead.includes(safeActiveIdx) || activeCompleted;
-  const activeSectionHasTest = buildSkipTest(activeSection, language, content.sections) !== null;
+    progress.lessonRead.includes(activeFlatIdx) || activeCompleted;
+  const activeSectionHasTest = buildSkipTest(activeSection, language, sections) !== null;
   const lessonStepState: LevelStepState = activeLessonRead ? 'done' : 'active';
   const testStepState: LevelStepState = activeCompleted
     ? 'done'
@@ -248,39 +306,46 @@ const PlanetPage: React.FC = () => {
     activeSection.titleRu,
     activeSection.titleKk,
   );
-  const prevSection = safeActiveIdx > 0 ? content.sections[safeActiveIdx - 1] : undefined;
+  const prevSection = safeActiveIdx > 0 ? sections[safeActiveIdx - 1] : undefined;
   const skipTestAvailable =
     activeStatus === 'locked' &&
     prevSection !== undefined &&
-    buildSkipTest(prevSection, language, content.sections) !== null;
+    buildSkipTest(prevSection, language, sections) !== null;
 
   const jumpToRecommended = () => setActiveIdx(firstIncomplete >= 0 ? firstIncomplete : 0);
   const handleSkipPass = () => {
     if (skipTestFor === null) return;
-    setProgress(markSectionSkipped(planet.slug, skipTestFor - 1));
+    setProgress(markSectionSkipped(planet.slug, flatIndexAt(skipTestFor - 1)));
   };
   const handleLevelTestPass = () => {
     if (levelTestFor === null) return;
-    setProgress(markSectionCompleted(planet.slug, levelTestFor));
+    setProgress(markSectionCompleted(planet.slug, flatIndexAt(levelTestFor)));
   };
   // Sections before the assigned level are unlocked via the same skip helper
   // the locked-level flow uses; the assigned level itself is left open (not
   // completed) so the student still takes its lesson/test, unless the test
-  // already implied mastery of the whole planet (acedEverything).
+  // already implied mastery of the whole planet (acedEverything). Placement
+  // positions are ladder positions — map them to flat indices for storage.
   const handlePlacementResult = (result: PlacementResult) => {
     let latest = progress;
     for (const idx of result.sectionsToSkip) {
-      latest = markSectionSkipped(planet.slug, idx);
+      latest = markSectionSkipped(planet.slug, flatIndexAt(idx));
     }
     setProgress(latest);
     setActiveIdx(result.assignedLevel);
   };
-  const canPlacementTest = canBuildPlacementTest(content.sections, language);
+  const canPlacementTest = canBuildPlacementTest(sections, language);
   const handleBannerCta = () => {
     if (canPlacementTest) setPlacementTestOpen(true);
     else jumpToRecommended();
   };
-  const lessonPath = `/learn/p/${planet.slug}/${safeActiveIdx}`;
+  const lessonPath = `/learn/p/${planet.slug}/${activeFlatIdx}`;
+  const gradeLabels = ladder
+    ? ladder.map((f) => (f.grade === null ? null : gradeChipLabel(language, f.grade)))
+    : undefined;
+  const switchSubject = (subjectId: string) => {
+    setSearchParams({ subject: subjectId }, { replace: true });
+  };
 
   return (
     <main className="relative min-h-screen bg-canvas font-sans text-ink">
@@ -320,14 +385,45 @@ const PlanetPage: React.FC = () => {
             </div>
           </div>
 
+          {/* subject switcher — multi-subject planets split levels into
+              per-subject difficulty ladders (see constants/academy/subjects.ts) */}
+          {planetSubjects && activeSubject && (
+            <div
+              role="tablist"
+              aria-label={loc(language, SUBJECT_WORD)}
+              className="mt-6 flex flex-wrap items-center gap-1.5 rounded-2xl border border-line/50 bg-white p-1.5 shadow-[0_1px_3px_rgba(17,26,42,0.04)]"
+            >
+              {planetSubjects.map((subject) => {
+                const isActive = subject.id === activeSubject.id;
+                return (
+                  <button
+                    key={subject.id}
+                    type="button"
+                    role="tab"
+                    aria-selected={isActive}
+                    onClick={() => switchSubject(subject.id)}
+                    className={`${FOCUS_RING} rounded-full px-4 py-2 text-sm font-semibold transition-colors ${
+                      isActive
+                        ? 'bg-teal text-white shadow-[0_4px_12px_rgba(33,159,162,0.25)]'
+                        : 'text-slateink hover:bg-teal/5 hover:text-teal-dark'
+                    }`}
+                  >
+                    {loc(language, subject.name)}
+                  </button>
+                );
+              })}
+            </div>
+          )}
+
           {/* level swiper — planet sections as sequential levels */}
           <div className="mt-8">
             <PlanetLevels
-              sections={content.sections}
+              sections={sections}
               statuses={statuses}
               activeIdx={safeActiveIdx}
               recommendedIdx={firstIncomplete}
               isAcademic={academic}
+              gradeLabels={gradeLabels}
               onSelect={setActiveIdx}
             />
           </div>
@@ -517,22 +613,22 @@ const PlanetPage: React.FC = () => {
       {skipTestFor !== null && prevSection && (
         <PlanetSkipTest
           section={prevSection}
-          allSections={content.sections}
+          allSections={sections}
           academic={academic}
-          band={bandForIndex(skipTestFor, content.sections.length)}
+          band={bandForIndex(skipTestFor, sections.length)}
           onPass={handleSkipPass}
           onClose={() => setSkipTestFor(null)}
         />
       )}
 
       {/* level test for the active section — passing marks it fully completed */}
-      {levelTestFor !== null && content.sections[levelTestFor] && (
+      {levelTestFor !== null && sections[levelTestFor] && (
         <PlanetSkipTest
           mode="level"
-          section={content.sections[levelTestFor]}
-          allSections={content.sections}
+          section={sections[levelTestFor]}
+          allSections={sections}
           academic={academic}
-          band={bandForIndex(levelTestFor, content.sections.length)}
+          band={bandForIndex(levelTestFor, sections.length)}
           onPass={handleLevelTestPass}
           onClose={() => setLevelTestFor(null)}
         />
@@ -541,7 +637,7 @@ const PlanetPage: React.FC = () => {
       {/* placement test — «Подобрать уровень», samples questions across every level */}
       {placementTestOpen && (
         <PlanetPlacementTest
-          sections={content.sections}
+          sections={sections}
           directionCode={DIRECTION_CODE[direction.id]}
           academic={academic}
           onPlaced={handlePlacementResult}

@@ -23,6 +23,7 @@ import {
   planetBySlug,
   type AcademySection,
 } from '../../constants/academy/catalog.ts';
+import { flattenPlanetSections, hasSubjects } from '../../constants/academy/subjects.ts';
 import { loadPlanetProgress, markLessonRead, markSectionCompleted } from './PlanetLevels.tsx';
 import { buildSkipTest } from './PlanetSkipTest.tsx';
 
@@ -326,8 +327,15 @@ const AcademyLessonPage: React.FC = () => {
   const direction = planet ? directionById(planet.directionId) : undefined;
   const content = planet ? pickGradeContent(planet.lessons, profile?.grade ?? null) : undefined;
   const sectionIndex = sectionParam ? Number.parseInt(sectionParam, 10) : Number.NaN;
+  /* Multi-subject planets address sections by FLAT index across all grades
+     (see constants/academy/subjects.ts); everyone else keeps grade-picked
+     section indices. Progress helpers take the same number either way. */
   const section =
-    content && Number.isInteger(sectionIndex) ? content.sections[sectionIndex] : undefined;
+    planet && Number.isInteger(sectionIndex)
+      ? hasSubjects(planet.slug)
+        ? flattenPlanetSections(planet)[sectionIndex]?.section
+        : content?.sections[sectionIndex]
+      : undefined;
 
   const [lessonDone, setLessonDone] = useState(false);
 

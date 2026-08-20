@@ -18,6 +18,7 @@ import {
   type AcademySection,
   type LevelBand,
 } from '../../constants/academy/catalog.ts';
+import { hasSubjects } from '../../constants/academy/subjects.ts';
 
 /* --- planet progress (localStorage) ---
    Level gating state lives in localStorage for the MVP — persistence to the
@@ -34,7 +35,11 @@ export interface PlanetProgress {
   lessonRead: number[];
 }
 
-const progressKey = (slug: string): string => `novex.planet.${slug}`;
+/* Multi-subject planets (see constants/academy/subjects.ts) version their key:
+   progress arrays there hold FLAT indices across all grades, which old
+   grade-relative entries must not bleed into. */
+const progressKey = (slug: string): string =>
+  hasSubjects(slug) ? `novex.planet.v2.${slug}` : `novex.planet.${slug}`;
 
 const sanitizeIndices = (value: unknown): number[] =>
   Array.isArray(value)
@@ -173,6 +178,10 @@ interface PlanetLevelsProps {
       every other direction labels pills with beginner/intermediate/advanced
       bands instead (see `bandForIndex`). */
   isAcademic: boolean;
+  /** Optional per-section grade chip («8 класс» / "Grade 8"), parallel to
+      `sections`; subject ladders pass it so the grade climb stays visible.
+      Absent → pills render exactly as before. */
+  gradeLabels?: (string | null)[];
   onSelect: (idx: number) => void;
 }
 
@@ -183,6 +192,7 @@ const PlanetLevels: React.FC<PlanetLevelsProps> = ({
   activeIdx,
   recommendedIdx,
   isAcademic,
+  gradeLabels,
   onSelect,
 }) => {
   const { language } = useLanguage();
@@ -237,23 +247,9 @@ const PlanetLevels: React.FC<PlanetLevelsProps> = ({
               bandOrdinal += 1;
             }
             const RankIcon = BAND_RANK[band].icon;
-            return (
-              <button
-                key={`${section.title}-${idx}`}
-                type="button"
-                role="tab"
-                aria-selected={isActive}
-                data-level-idx={idx}
-                onClick={() => onSelect(idx)}
-                className={`${FOCUS_RING} inline-flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-full border px-3.5 py-2 text-xs font-semibold transition-colors ${
-                  isActive
-                    ? 'border-teal bg-teal text-white shadow-[0_4px_12px_rgba(33,159,162,0.25)]'
-                    : isLocked
-                      ? 'border-line/40 bg-mist/30 text-slateink/70 hover:border-line/70'
-                      : 'border-line/60 bg-white text-slateink hover:border-teal/40 hover:text-teal-dark'
-                }`}
-              >
-                {isLocked && <Lock className="h-3 w-3 shrink-0" aria-hidden="true" />}
+            const gradeLabel = gradeLabels?.[idx] ?? null;
+            const pillBody = (
+              <>
                 {isAcademic ? (
                   <span>
                     {loc(language, LEVEL_WORD)} {idx + 1} ·{' '}
@@ -278,6 +274,37 @@ const PlanetLevels: React.FC<PlanetLevelsProps> = ({
                   >
                     {loc(language, RECOMMENDED)}
                   </span>
+                )}
+              </>
+            );
+            return (
+              <button
+                key={`${section.title}-${idx}`}
+                type="button"
+                role="tab"
+                aria-selected={isActive}
+                data-level-idx={idx}
+                onClick={() => onSelect(idx)}
+                className={`${FOCUS_RING} inline-flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-full border px-3.5 py-2 text-xs font-semibold transition-colors ${
+                  isActive
+                    ? 'border-teal bg-teal text-white shadow-[0_4px_12px_rgba(33,159,162,0.25)]'
+                    : isLocked
+                      ? 'border-line/40 bg-mist/30 text-slateink/70 hover:border-line/70'
+                      : 'border-line/60 bg-white text-slateink hover:border-teal/40 hover:text-teal-dark'
+                }`}
+              >
+                {isLocked && <Lock className="h-3 w-3 shrink-0" aria-hidden="true" />}
+                {gradeLabel !== null ? (
+                  <span className="flex flex-col items-start">
+                    <span
+                      className={`font-mono text-[9px] uppercase tracking-wider ${isActive ? 'text-white/70' : 'text-slateink'}`}
+                    >
+                      {gradeLabel}
+                    </span>
+                    <span className="inline-flex items-center gap-1.5">{pillBody}</span>
+                  </span>
+                ) : (
+                  pillBody
                 )}
               </button>
             );
