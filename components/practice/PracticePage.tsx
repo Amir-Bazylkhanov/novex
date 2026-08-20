@@ -215,9 +215,7 @@ const PracticePage: React.FC = () => {
 
   // Picker expand state: which direction cards and which subjects' topic
   // lists are open. Multiple directions/subjects can be expanded at once.
-  const [expandedDirections, setExpandedDirections] = useState<Set<MentorRobotId>>(
-    () => new Set([directionForSubject('math').robot]),
-  );
+  const [expandedDirections, setExpandedDirections] = useState<Set<MentorRobotId>>(new Set());
   const [expandedSubjects, setExpandedSubjects] = useState<Set<DiagnosticSubject>>(new Set());
 
   // Active attempt state.
@@ -307,7 +305,6 @@ const PracticePage: React.FC = () => {
     const cfg = stored.session.config;
     setSubject(cfg.subject);
     setSelectedTopics(cfg.topics ?? []);
-    setExpandedDirections(new Set([directionForSubject(cfg.subject).robot]));
     setCount(cfg.count);
     setDifficulty(cfg.difficulty);
     setTimed(isTimed);
