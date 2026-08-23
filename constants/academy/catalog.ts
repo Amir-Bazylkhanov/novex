@@ -30,9 +30,17 @@ import { ENTREPRENEURSHIP_FULL } from './lessons/entrepreneurship_full.ts';
 import { CREATIVITY_FULL } from './lessons/creativity_full.ts';
 import { CAREER_FULL } from './lessons/career_full.ts';
 
-/* The Locus Academy curriculum ported into Novex: three directions (the three
+// ============================================
+// Каталог «Академии» (не путать с уроками /learn): три направления (по одному
+// роботу-наставнику на каждое), в каждом — по несколько «планет» (модулей).
+// Сам учебный контент планет лежит в файлах constants/academy/lessons/*.ts и
+// здесь не меняется — этот файл только собирает планеты в каталог и содержит
+// вспомогательные функции: поиск планеты по slug, разбивка уровней на
+// beginner/intermediate/advanced, выбор нужного языка у текста урока.
+// ============================================
+/* Учебная программа Академии Novex: three directions (the three
    mentor robots) with four modules each. Every module carries the full
-   grade-keyed LessonContent records copied from Locus — content itself lives
+   grade-keyed LessonContent records — content itself lives
    in ./lessons and is not modified here. */
 
 /* Internal ids stay 'nov04'|'nov05'|'nov06' for compatibility (career module,
@@ -40,6 +48,8 @@ import { CAREER_FULL } from './lessons/career_full.ts';
    NOV-03 Кибер. */
 export type AcademyDirectionId = 'nov04' | 'nov05' | 'nov06';
 
+// Одно направление Академии (например, «Академическая база») — своё имя и
+// робот-наставник, который его ведёт.
 export interface AcademyDirection {
   id: AcademyDirectionId;
   /** Mentor robot that leads this direction on /learn. */
@@ -47,6 +57,8 @@ export interface AcademyDirection {
   name: Localized;
 }
 
+// Одна «планета» (модуль) внутри направления — например, «Точные науки».
+// Хранит своё название, иконку и весь урочный контент по классам (lessons).
 export interface AcademyPlanet {
   slug: string;
   directionId: AcademyDirectionId;
@@ -162,6 +174,7 @@ export const ACADEMY_PLANETS: AcademyPlanet[] = [
   },
 ];
 
+// Найти планету по её slug (короткому текстовому идентификатору в URL).
 export const planetBySlug = (slug: string): AcademyPlanet | undefined =>
   ACADEMY_PLANETS.find((p) => p.slug === slug);
 
@@ -172,12 +185,16 @@ export const planetBySlug = (slug: string): AcademyPlanet | undefined =>
     instead (see `LevelBand` / `bandForIndex` below). */
 export const isAcademicPlanet = (planet: AcademyPlanet): boolean => planet.directionId === 'nov04';
 
+// Три «полосы» сложности для немодульных (неакадемических) направлений —
+// вместо привычных классов 8–12 там показывают уровень новичок/средний/продвинутый.
 export type LevelBand = 'beginner' | 'intermediate' | 'advanced';
 
 /** Splits a module's N sections into three even bands (thirds) — the
     presentation-layer grouping non-academic modules use in place of grade
     framing. Section content itself is untouched; this only decides which
     band label a given section index falls under. */
+// Делит N секций модуля на три равные трети — так решается, какой ярлык
+// сложности (beginner/intermediate/advanced) получит секция с данным индексом.
 export const bandForIndex = (index: number, total: number): LevelBand => {
   if (total <= 1) return 'beginner';
   const third = total / 3;
@@ -186,15 +203,19 @@ export const bandForIndex = (index: number, total: number): LevelBand => {
   return 'advanced';
 };
 
+// Все планеты, которые ведёт данный робот-наставник.
 export const planetsByRobot = (robot: MentorRobotId): AcademyPlanet[] => {
   const direction = ACADEMY_DIRECTIONS.find((d) => d.robot === robot);
   return direction ? ACADEMY_PLANETS.filter((p) => p.directionId === direction.id) : [];
 };
 
+// Найти направление по его id (с запасным вариантом на случай ошибки данных).
 export const directionById = (id: AcademyDirectionId): AcademyDirection =>
   ACADEMY_DIRECTIONS.find((d) => d.id === id) ?? ACADEMY_DIRECTIONS[0];
 
 /** Pick the grade-keyed entry that matches the student's grade, else the first one. */
+// Достаёт из lessons контент под класс ученика (ключи вида "Название_8",
+// "Название_9" и т.д.); если подходящего класса нет — берёт первый попавшийся.
 export const pickGradeContent = (
   lessons: Record<string, LessonContent>,
   grade: number | null,
@@ -212,6 +233,8 @@ export const pickGradeContent = (
  * field, ru the *Ru variant, kk the *Kk variant with a fallback to Russian
  * (the academy data has full kk coverage on sections but not everywhere).
  */
+// Выбирает нужный языковой вариант текста урока: en — основной, ru — русский,
+// kk — казахский (если казахского текста нет, показывает русский).
 export const pickLangField = (lang: Lang, en: string, ru: string, kk?: string): string => {
   if (lang === 'en') return en;
   if (lang === 'ru') return ru;
@@ -222,6 +245,8 @@ export const pickLangField = (lang: Lang, en: string, ru: string, kk?: string): 
  * Like pickLangField, but for optional localized variants (answerRu/answerKk,
  * hintRu/hintKk): ru falls back to en, kk falls back to ru then en.
  */
+// То же самое, но для необязательных полей (ответ/подсказка есть не всегда):
+// ru при отсутствии откатывается на en, kk — на ru, потом на en.
 export const pickLangFieldOptional = (
   lang: Lang,
   en: string,

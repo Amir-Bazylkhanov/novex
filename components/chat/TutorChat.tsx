@@ -14,8 +14,8 @@ import { spendNovas } from '../../services/novasService.ts';
  * Floating AI tutor chat widget (NOV-01 Академик).
  *
  * Live backend: the widget calls the Novex edge function `ai-chat` via
- * `services/aiService.ts`, which relays through the Locus `novex-ai` function
- * to Anthropic / OpenAI. `constants/tutorResponses.ts` is still on disk but
+ * `services/aiService.ts`, which relays through the server-side `novex-ai`
+ * function to Anthropic / OpenAI. `constants/tutorResponses.ts` is still on disk but
  * is used here ONLY for the suggested starter-question chips.
  *
  * Each successful reply costs Novas (see NOVA_COST): the widget calls the AI
@@ -24,6 +24,15 @@ import { spendNovas } from '../../services/novasService.ts';
  * reports 'insufficient_balance' the user keeps the reply but also gets the
  * out-of-Novas notice; any other charge error fails open with a console.warn.
  */
+
+// ============================================================
+// Плавающее окно чата с ИИ-репетитором NOV-01 «Академик» — круглая
+// кнопка внизу справа на любой странице сайта. Пользователь пишет
+// вопрос, ответ приходит от настоящей нейросети (не заготовленный
+// текст). Каждый ответ стоит Новасы — списываются только после
+// того, как ответ успешно пришёл, поэтому неудачный запрос ничего
+// не стоит. Гостям (без входа) чат показывает приглашение войти.
+// ============================================================
 
 const UNIT_LABEL: Localized = {
   ru: 'NOV-01 · АКАДЕМИК',
@@ -217,6 +226,8 @@ function loadModel(preferred: TutorModel | null | undefined): TutorModel {
 }
 
 /** System prompt for NOV-01, telling the model which UI language to answer in. */
+// Инструкция для нейросети: как вести себя (терпеливо, по шагам, без формул
+// в LaTeX) и на каком языке отвечать — на языке интерфейса пользователя.
 function buildSystemPrompt(language: Lang): string {
   const langName = language === 'ru' ? 'Russian' : language === 'kk' ? 'Kazakh' : 'English';
   return [
@@ -234,6 +245,9 @@ function buildSystemPrompt(language: Lang): string {
  * '## '/'### ' heading lines, '---' dividers, **bold**, `code`, and $$...$$ /
  * $...$ formulas rendered as plain text with common tokens converted.
  */
+// Приводит ответ нейросети к красивому виду: даже если модель случайно
+// написала заголовок markdown («## …») или формулу в LaTeX, здесь это
+// превращается в обычный читаемый текст, а не в «сырую» разметку.
 function renderTutorText(text: string): React.ReactNode {
   const SUBS = '₀₁₂₃₄₅₆₇₈₉';
   const SUPS = '⁰¹²³⁴⁵⁶⁷⁸⁹';
@@ -301,6 +315,10 @@ const TutorChat: React.FC = () => {
   const { user, profile, updateProfile } = useAuth();
   const reduceMotion = useReducedMotion();
 
+  // open — открыто ли окно чата; messages — вся переписка; input — текст,
+  // который сейчас печатает пользователь; typing — ждём ли ответа от ИИ;
+  // error — текст ошибки, если запрос не удался; model/modelMenuOpen —
+  // какая модель ИИ выбрана и открыт ли выпадающий список моделей.
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [input, setInput] = useState('');
@@ -319,6 +337,8 @@ const TutorChat: React.FC = () => {
 
   const systemPrompt = useMemo(() => buildSystemPrompt(language), [language]);
 
+  // Меняет выбранную модель ИИ: запоминает её в браузере (localStorage)
+  // и сохраняет в профиль пользователя, чтобы выбор перешёл на другое устройство.
   const setModel = useCallback(
     (next: TutorModel) => {
       setModelState(next);
@@ -334,6 +354,9 @@ const TutorChat: React.FC = () => {
     [updateProfile],
   );
 
+  // Профиль пользователя может загрузиться позже первой отрисовки —
+  // подставляем его любимую модель, только если пользователь ещё не
+  // выбирал модель прямо в этом чате.
   // The profile may arrive after the first render — apply its preferred model
   // only when the user has not picked one in-chat this session (localStorage).
   useEffect(() => {
@@ -341,6 +364,8 @@ const TutorChat: React.FC = () => {
     setModelState(profile.preferredModel);
   }, [profile?.preferredModel]);
 
+  // При открытии чата курсор сразу ставится в поле ввода; при закрытии —
+  // фокус возвращается на круглую кнопку, которой чат открывали.
   // Focus the input on open; return focus to the FAB on close.
   useEffect(() => {
     if (open) {
@@ -351,6 +376,8 @@ const TutorChat: React.FC = () => {
     prevOpenRef.current = open;
   }, [open]);
 
+  // Клавиша Escape: сначала закрывает список моделей, если он открыт,
+  // иначе — закрывает всё окно чата.
   // Escape closes the model menu first, then the panel.
   useEffect(() => {
     if (!open) return;
@@ -366,6 +393,7 @@ const TutorChat: React.FC = () => {
     return () => window.removeEventListener('keydown', onKeyDown);
   }, [open, modelMenuOpen]);
 
+  // Клик мимо окна чата (и мимо кнопки-открывашки) закрывает окно.
   // Clicking outside the panel (and the FAB) closes it — same pattern as
   // NotificationsBell. The model menu lives inside the panel, so its clicks
   // never reach this branch.
@@ -399,6 +427,10 @@ const TutorChat: React.FC = () => {
     if (el) el.scrollTop = el.scrollHeight;
   }, [messages, typing, error]);
 
+  // Отправка сообщения Академику: сначала показываем сообщение пользователя
+  // и запрашиваем ответ у нейросети, и только если ответ пришёл успешно —
+  // списываем Новасы (см. NOVA_COST). Если Новасов не хватило, ответ всё
+  // равно остаётся у пользователя, а под ним появляется подсказка пополнить баланс.
   const send = useCallback(
     (raw: string) => {
       const text = raw.trim();

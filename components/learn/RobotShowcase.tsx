@@ -6,6 +6,12 @@ import { useLanguage } from '../../context/LanguageContext.tsx';
 import type { MentorRobotId } from '../robots/RobotAvatars.tsx';
 import { RobotModel, type RobotModelVariant } from '../robots/RobotModels.tsx';
 
+// Экран выбора робота-наставника: карточка на каждого из трёх роботов
+// (NOV-01/02/03) с анимациями — сборка из частиц при первом появлении,
+// покачивание, реакция на наведение (поворот головы, взмах рукой, бегущая
+// полоса на визоре), слежение «глазами» за курсором и короткая анимация
+// «загрузки» перед тем, как открыть уроки выбранного робота.
+
 /* --- content --- */
 
 const OPEN_MENTOR: Localized = {
@@ -115,6 +121,8 @@ const FOCUS_RING =
 /* The assembly intro plays once per session; module-level flag so switching
    between the picker and a mentor's lessons doesn't replay it. */
 let hasPlayed = false;
+// Флаг вне компонента: анимация сборки роботов из частиц проигрывается один
+// раз за сессию, а не каждый раз, когда пользователь возвращается на этот экран.
 
 export interface ShowcaseChip {
   icon: React.ReactNode;
@@ -140,6 +148,8 @@ interface EyeOffset {
 
 /** NOV-02 «Жизненные навыки» (internal variant nov05)'s HTML speech bubble: types the localized
    plan/act/reflect words in a loop. */
+// Облачко-«говорилка» над роботом NOV-02: печатает по буквам слова
+// «Планируй» / «Действуй» / «Рефлексируй» по кругу, как будто робот их набирает.
 const GreetingBubble: React.FC<{ reduced: boolean }> = ({ reduced }) => {
   const { language } = useLanguage();
   const words = useMemo(() => PLAN_WORDS.map((w) => loc(language, w)), [language]);
@@ -434,6 +444,10 @@ const RobotShowcase: React.FC<{ robots: ShowcaseRobot[] }> = ({ robots }) => {
 
   /* Cursor eye-tracking: one mousemove listener on the scene, throttled with
      requestAnimationFrame. Touch devices and reduced motion keep eyes centered. */
+  // «Глаза» роботов слегка смещаются в сторону курсора мыши. Считается один
+  // раз для всех роботов сразу и обновляется не чаще кадра анимации, чтобы
+  // не тормозить страницу. На сенсорных экранах и при отключённой анимации
+  // просто ничего не делает — глаза остаются по центру.
   useEffect(() => {
     const scene = sceneRef.current;
     if (!scene || reduced) return;
@@ -488,6 +502,9 @@ const RobotShowcase: React.FC<{ robots: ShowcaseRobot[] }> = ({ robots }) => {
     };
   }, [reduced]);
 
+  // При выборе робота сперва проигрывается короткая анимация «загрузки»
+  // (мигание на груди), и только потом вызывается robot.onSelect(), которая
+  // переключает экран на уроки этого робота. Без анимации — сразу.
   const handleSelect = (robot: ShowcaseRobot) => {
     if (bootingId !== null) return;
     if (reduced) {

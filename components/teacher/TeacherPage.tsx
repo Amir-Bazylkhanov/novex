@@ -43,6 +43,17 @@ import {
 } from '../../constants/academy/catalog.ts';
 import { flattenPlanetSections } from '../../constants/academy/subjects.ts';
 
+// ============================================================
+// Панель учителя (/teacher) — рабочее место учителя в Novex.
+// Здесь учитель создаёт классы (школа + название класса), видит список
+// учеников каждого класса с их прогрессом, публикует для класса свои
+// уроки (теория + короткий тест) и добавляет учебные материалы.
+// Классы, ученики и уроки читаются и сохраняются в базе данных Supabase.
+// Блоки со статистикой, графиком успеваемости и подсказкой от NOV-01
+// внизу страницы — демонстрационные примеры (заполнятся реальными
+// данными, когда ученики начнут проходить уроки).
+// ============================================================
+
 /* --- content --- */
 
 const PAGE_TITLE: Localized = {
@@ -544,6 +555,8 @@ const formatDate = (lang: Lang, iso: string): string => {
   return date.toLocaleDateString(locale, { day: 'numeric', month: 'long', year: 'numeric' });
 };
 
+// Собирает готовое предложение для подсказки NOV-01 на нужном языке —
+// какие ученики и по какой теме отстают.
 /** Localized NOV-01 sentence: «Эти N учеников отстают по теме X: names». */
 const curatorMessage = (
   lang: Lang,
@@ -685,6 +698,8 @@ const TeacherPage: React.FC = () => {
   const reducedMotion = useReducedMotion();
 
   /* classes */
+  // Классы этого учителя: список классов, какой класс сейчас выбран,
+  // форма создания нового класса и состояние удаления класса.
   // null = still loading; a load failure sets classesError instead
   const [classes, setClasses] = useState<ClassRow[] | null>(null);
   const [classesError, setClassesError] = useState(false);
@@ -697,16 +712,22 @@ const TeacherPage: React.FC = () => {
   const [deletingClassId, setDeletingClassId] = useState<string | null>(null);
   const [classDeleteError, setClassDeleteError] = useState(false);
 
+  // Список учеников выбранного класса с их прогрессом. Если в классе
+  // ещё нет ни одного ученика, ниже вместо пустого списка показывается
+  // демонстрационный пример.
   /* roster of the selected class; null = loading. Empty array → demo fallback. */
   const [roster, setRoster] = useState<RosterStudent[] | null>(null);
   const [rosterError, setRosterError] = useState(false);
 
+  // Уроки, которые учитель опубликовал для выбранного класса.
   /* lessons of the selected class; null = loading */
   const [lessons, setLessons] = useState<TeacherLessonRow[] | null>(null);
   const [lessonsError, setLessonsError] = useState(false);
   const [deletingLessonId, setDeletingLessonId] = useState<string | null>(null);
   const [lessonDeleteError, setLessonDeleteError] = useState(false);
 
+  // Форма создания нового урока: заголовок, предмет, текст теории
+  // и список вопросов теста (у каждого — варианты ответа и пояснение).
   /* lesson builder */
   const [lessonForm, setLessonForm] = useState<LessonForm>(newLessonForm);
   const [lessonErrors, setLessonErrors] = useState<LessonErrors>({});
@@ -714,6 +735,9 @@ const TeacherPage: React.FC = () => {
   const [lessonSaveError, setLessonSaveError] = useState(false);
   const [lessonPublished, setLessonPublished] = useState(false);
 
+  // Ниже — состояние для демонстрационного списка учеников (используется,
+  // пока в классе нет реальных учеников) и для блока «Материалы» (модули,
+  // которые учитель добавляет сам и которые сохраняются в базе).
   /* demo roster + modules (pre-existing) */
   const [sortKey, setSortKey] = useState<SortKey>('name');
   const [expandedId, setExpandedId] = useState<string | null>(null);
@@ -748,6 +772,9 @@ const TeacherPage: React.FC = () => {
     [],
   );
 
+  // Подсказка от робота NOV-01: находит тему, по которой отстаёт больше
+  // всего учеников (из демонстрационных данных класса), чтобы предложить
+  // учителю обратить на неё внимание.
   /* NOV-01 insight: topic with the most struggling students, derived from data */
   const curatorInsight = useMemo(() => {
     const byTopic = new Map<string, TeacherStudent[]>();
@@ -788,6 +815,9 @@ const TeacherPage: React.FC = () => {
     return list;
   }, [sortKey, language]);
 
+  // При открытии страницы загружаем из базы все классы этого учителя.
+  // Если на эту страницу случайно зайдёт ученик, он просто увидит пустой
+  // список — правила доступа в базе не пускают его к чужим классам.
   /* load the teacher's classes on mount (RLS: select is open to signed-in users,
      so a student who lands here simply sees an empty list) */
   useEffect(() => {
@@ -826,6 +856,9 @@ const TeacherPage: React.FC = () => {
     }
   }, [profile]);
 
+  // Как только учитель выбирает другой класс — заново загружаем список
+  // его учеников и опубликованные для него уроки, а форму создания урока
+  // сбрасываем к пустой.
   /* load roster + lessons whenever the selected class changes */
   useEffect(() => {
     if (!user || !selectedClassId) {
@@ -912,6 +945,8 @@ const TeacherPage: React.FC = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user, selectedClassId]);
 
+  // Загружаем модули, добавленные учителями, из базы данных (их видят
+  // все вошедшие пользователи, не только автор).
   /* load teacher-authored modules from the DB on mount (all signed-in users may read them) */
   useEffect(() => {
     if (!user) return;
@@ -938,6 +973,9 @@ const TeacherPage: React.FC = () => {
     };
   }, [user]);
 
+  // Поведение окна «Новый модуль»: при открытии фокус сразу ставится
+  // в первое поле, по Escape окно закрывается, а клавиша Tab «зациклена»
+  // внутри окна и не даёт фокусу случайно уйти за его пределы.
   /* modal lifecycle: focus first field on open, Escape closes, Tab is trapped */
   useEffect(() => {
     if (!modalOpen) return;
@@ -973,6 +1011,8 @@ const TeacherPage: React.FC = () => {
     setModalOpen(true);
   };
 
+  // Проверяет форму нового модуля и, если всё заполнено верно, сохраняет
+  // модуль в базу данных.
   const handleModuleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const next: ModuleErrors = {};
@@ -1027,6 +1067,8 @@ const TeacherPage: React.FC = () => {
     }
   };
 
+  // Проверяет форму нового класса и создаёт его в базе, затем сразу
+  // делает новый класс выбранным.
   const handleCreateClass = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const next: ClassFormErrors = {};
@@ -1093,6 +1135,8 @@ const TeacherPage: React.FC = () => {
     }));
   };
 
+  // Проверяет форму урока (заголовок, предмет, теория, вопросы) и публикует
+  // урок для выбранного класса — база данных сама уведомит его учеников.
   const handleLessonSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const next: LessonErrors = {};
@@ -1292,6 +1336,8 @@ const TeacherPage: React.FC = () => {
           </button>
         </header>
 
+        {/* Блок «Мои классы»: список классов учителя, кнопка их удаления
+            и форма создания нового класса (школа + название). */}
         {/* my classes */}
         <motion.section
           {...sectionMotion(0)}
@@ -1468,6 +1514,8 @@ const TeacherPage: React.FC = () => {
           </form>
         </motion.section>
 
+        {/* Панель выбранного класса: показывается, только когда учитель
+            выбрал конкретный класс — список учеников и блок его уроков. */}
         {/* selected-class panel */}
         {selectedClass && (
           <>
@@ -2222,6 +2270,8 @@ const TeacherPage: React.FC = () => {
           </section>
         </motion.div>
 
+        {/* Блок «Материалы»: модули, которые учителя добавляют сами (хранятся
+            в базе) плюс несколько готовых демонстрационных модулей. */}
         {/* materials (teacher_modules) */}
         <motion.section
           {...sectionMotion(5)}
@@ -2325,6 +2375,7 @@ const TeacherPage: React.FC = () => {
         </motion.section>
       </div>
 
+      {/* Всплывающее окно «Новый модуль»: направление → модуль → тема (необязательно) + описание. */}
       {/* add-module modal */}
       {modalOpen && (
         <div

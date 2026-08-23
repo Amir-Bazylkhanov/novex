@@ -98,7 +98,7 @@ const LEVEL_FAIL_SUB: Localized = {
 };
 
 /* Non-academic modules speak in bands instead of grade-style numbering — see
-   PlanetLevels.tsx for the matching pill labels and the Locus rank mirror. */
+   PlanetLevels.tsx for the matching pill labels and the XP rank ladder. */
 const BAND_LABEL: Record<LevelBand, Localized> = {
   beginner: { ru: 'Начальный', kk: 'Бастауыш', en: 'Beginner' },
   intermediate: { ru: 'Средний', kk: 'Орта', en: 'Intermediate' },

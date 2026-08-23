@@ -1,3 +1,7 @@
+// Значок баланса новасов (внутренней валюты Novex) в шапке сайта.
+// Показывает текущее число новасов, а при наведении/фокусе — подсказку
+// с тем, как их заработать и на что потратить. Клик по значку ведёт
+// на страницу тарифов.
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Cog } from 'lucide-react';
@@ -68,6 +72,8 @@ const NovaBadge: React.FC = () => {
   const [balance, setBalance] = useState<number | null>(null);
   const [open, setOpen] = useState(false);
 
+  // Подгружает баланс при входе пользователя и затем обновляет его каждую
+  // минуту (REFRESH_MS), чтобы значок не отставал после начисления новасов.
   useEffect(() => {
     if (!user) {
       setBalance(null);
@@ -88,6 +94,7 @@ const NovaBadge: React.FC = () => {
 
   if (!user || balance === null) return null;
 
+  // Списки строк для двух секций подсказки: «как заработать» и «на что потратить».
   const earnItems = [EARN_SIGNUP, EARN_DIAGNOSTIC, EARN_LESSON, EARN_PRO];
   const spendItems = [SPEND_MENTOR];
 
@@ -98,6 +105,7 @@ const NovaBadge: React.FC = () => {
       onMouseLeave={() => setOpen(false)}
       onFocus={() => setOpen(true)}
       onBlur={() => setOpen(false)}
+      // Подсказка открывается при наведении/фокусе и закрывается по Escape.
       onKeyDown={(event) => {
         if (event.key === 'Escape') setOpen(false);
       }}

@@ -158,7 +158,7 @@ This makes `bg-canvas`, `text-ink`, `text-teal`, `bg-teal`, `border-line`, `bg-m
 
 ## 2. Technical contracts (BOTH agents depend on these — do not change signatures)
 
-Directory layout is **flat, not nested under `src/`** (inherited from the Locus convention).
+Directory layout is **flat, not nested under `src/`** (принятое в проекте соглашение).
 
 ```
 index.html
@@ -235,7 +235,7 @@ const TITLE: Localized = {
 Kazakhstani product for Kazakhstani schools.
 
 ### 2.5 Imports & conventions
-- Import paths **include the `.tsx` / `.ts` extension** (Locus convention, `allowImportingTsExtensions`).
+- Import paths **include the `.tsx` / `.ts` extension** (принятое в проекте соглашение, `allowImportingTsExtensions`).
 - `import React from 'react';` at the top of every component file.
 - Every component: `const Name: React.FC = () => { … }; export default Name;`
 - Icons come from `lucide-react` only. No emoji as UI iconography, no external image URLs, no

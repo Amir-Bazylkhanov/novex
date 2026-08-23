@@ -1,3 +1,10 @@
+// ============================================
+// Тип LessonContent описывает структуру одного урока Академии (введение +
+// список секций, у каждой секции — теория, формулы, термины, разобранные
+// примеры и задачи для практики, всё на трёх языках). Сами данные лежат в
+// файлах constants/academy/lessons/*_full.ts, а здесь они просто собираются
+// в один общий объект LESSON_DATA по ключу "Название темы_класс".
+// ============================================
 import { CORE_SCIENCES_FULL } from './lessons/core_sciences_full.ts';
 import { APIB_FULL } from './lessons/apib_full.ts';
 import { ADMISSION_EXAMS_FULL } from './lessons/admission_exams_full.ts';
@@ -11,12 +18,15 @@ import { CREATIVITY_FULL } from './lessons/creativity_full.ts';
 import { PRODUCTIVITY_FULL } from './lessons/productivity_full.ts';
 import { CAREER_FULL } from './lessons/career_full.ts';
 
+// Один урок (для одного класса) внутри планеты Академии.
 export interface LessonContent {
   planetName: string;
   introduction: {
     en: string;
     ru: string;
   };
+  // Список секций (тем) урока — каждая со своей теорией, формулами,
+  // терминами, разобранными примерами и задачами для практики.
   sections: Array<{
     title: string;
     titleRu: string;
@@ -72,6 +82,8 @@ export interface LessonContent {
   }>;
 }
 
+// Все уроки Академии, объединённые из отдельных файлов *_full.ts в один
+// общий объект (ключ — "Название темы_класс", например "Finance_9").
 export const LESSON_DATA: Record<string, LessonContent> = {
   ...CORE_SCIENCES_FULL,
   ...APIB_FULL,

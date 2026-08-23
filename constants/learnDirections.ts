@@ -12,6 +12,15 @@ import type { LessonSubject } from './lessonData.ts';
  * NOV-02 Практик / NOV-03 Кибер. The internal keys are kept for compatibility
  * with the career module — no displayed codes live in this file.
  */
+// ============================================
+// Три направления обучения на странице /learn — по одному на каждого
+// робота-наставника. Это единый источник правды: отсюда берутся названия
+// направлений и то, какие школьные предметы к какому направлению относятся.
+// Используется на /learn (карточки наставников), /plan (заголовки разделов
+// плана) и в каталоге Академии (constants/academy/catalog.ts).
+// ============================================
+// Одно направление: робот-наставник, его название и список школьных
+// предметов, чьи уроки к нему относятся.
 export interface LearnDirection {
   /** Mentor robot that leads this direction on /learn. */
   robot: MentorRobotId;
@@ -43,10 +52,12 @@ export const LEARN_DIRECTIONS: LearnDirection[] = [
 ];
 
 /** Direction that owns a school subject; the academic base is the fallback. */
+// Находит направление, которому принадлежит школьный предмет.
 export const directionForSubject = (subject: string): LearnDirection =>
   LEARN_DIRECTIONS.find((direction) =>
     direction.subjects.includes(subject as LessonSubject),
   ) ?? LEARN_DIRECTIONS[0];
 
+// Находит направление по роботу-наставнику, который его ведёт.
 export const directionByRobot = (robot: MentorRobotId): LearnDirection =>
   LEARN_DIRECTIONS.find((direction) => direction.robot === robot) ?? LEARN_DIRECTIONS[0];

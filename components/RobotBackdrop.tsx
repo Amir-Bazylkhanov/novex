@@ -1,9 +1,12 @@
 import React from 'react';
 
+// Декоративный фон в «роботизированном» стиле Novex: точечная сетка,
+// медленно вращающиеся шестерёнки и линии печатной платы. Ничего не значит
+// функционально — просто красиво заполняет фон под контентом страницы.
 /**
  * RobotBackdrop — the Novex robot-theme "starfield".
  *
- * Light-palette analogue of Locus's space/starfield layer: a decorative,
+ * Light-palette decorative space/starfield layer: a decorative,
  * purely visual backdrop meant to sit behind app pages. Callers render it
  * as an absolutely-positioned layer (inset-0, z-0) inside a relative
  * parent and put their content in a `relative z-10` sibling.
@@ -18,6 +21,8 @@ type Density = 'full' | 'subtle';
 const GEAR_TEETH = 10;
 
 /** Stroke-only gear outline: outer circle, teeth ring, center hole. */
+// Рисует одну шестерёнку (контур) заданного размера — переиспользуется ниже
+// несколько раз с разными размерами и скоростью вращения.
 const Gear: React.FC<{ size: number; className?: string }> = ({ size, className }) => (
   <svg
     width={size}
@@ -45,12 +50,15 @@ const Gear: React.FC<{ size: number; className?: string }> = ({ size, className 
   </svg>
 );
 
+// density="subtle" убирает часть шестерёнок и делает сетку бледнее — для
+// мест, где фон не должен отвлекать от контента.
 const RobotBackdrop: React.FC<{ density?: Density }> = ({ density = 'full' }) => (
   <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden" aria-hidden="true">
     <style>{`
       .robot-gear-spin { animation: robot-gear-rotate 80s linear infinite; }
       .robot-gear-spin-rev { animation: robot-gear-rotate 60s linear infinite reverse; }
       @keyframes robot-gear-rotate { to { transform: rotate(360deg); } }
+      /* Если у пользователя в системе отключена анимация — шестерёнки не крутятся */
       @media (prefers-reduced-motion: reduce) {
         .robot-gear-spin, .robot-gear-spin-rev { animation: none; }
       }

@@ -1,5 +1,12 @@
 import type { Localized } from '../../utils/i18n.ts';
 
+// ============================================
+// Общие типы (описания структуры данных) для банка вопросов вступительной
+// диагностики. Вынесены в отдельный файл, чтобы файлы с вопросами по
+// предметам (math.ts, physics.ts и т.д.) могли их использовать напрямую, а
+// ../diagnosticData.ts потом собирал всё вместе и заново их же экспортировал
+// — так старые пути импорта продолжают работать без изменений.
+// ============================================
 /**
  * Shared types for the NOV-01 Академик diagnostic question bank.
  *
@@ -9,6 +16,7 @@ import type { Localized } from '../../utils/i18n.ts';
  * import path keeps working.
  */
 
+// Список предметов, по которым есть банк вопросов диагностики.
 export type DiagnosticSubject =
   | 'math'
   | 'physics'
@@ -19,9 +27,13 @@ export type DiagnosticSubject =
   | 'english'
   | 'history';
 
+// Сложность вопроса: 1 — лёгкий, 2 — средний, 3 — сложный.
 export type DiagnosticDifficulty = 1 | 2 | 3;
+// Итоговый уровень ученика по предмету после диагностики.
 export type DiagnosticLevel = 'beginner' | 'intermediate' | 'advanced';
 
+// Один вопрос диагностики: текст, 4 варианта ответа, индекс правильного,
+// сложность и класс(ы), которым он подходит.
 export interface DiagnosticQuestion<S extends DiagnosticSubject = DiagnosticSubject> {
   id: string;
   subject: S;
@@ -37,6 +49,7 @@ export interface DiagnosticQuestion<S extends DiagnosticSubject = DiagnosticSubj
   gradeMax: number;
 }
 
+// Краткое описание предмета: его slug и название на трёх языках.
 export interface DiagnosticSubjectMeta {
   slug: DiagnosticSubject;
   label: Localized;

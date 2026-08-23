@@ -45,6 +45,15 @@ import {
 } from '../../constants/academy/subjects.ts';
 import { topicName } from '../../constants/diagnosticData.ts';
 
+// ============================================================
+// Страница «План» (/plan) — персональный учебный план ученика по неделям.
+// Сначала ученик проходит короткий мастер из трёх шагов (дедлайн, цель
+// и предметы, время в неделю), затем робот NOV-01 строит маршрут:
+// сначала слабые темы (из диагностики), потом новые темы, в конце —
+// недели повторения и пробный тест. План сохраняется в базу Supabase,
+// его можно пересобрать заново в любой момент.
+// ============================================================
+
 /* --- content --- */
 
 const ROBOT_LABEL: Localized = {
@@ -531,6 +540,13 @@ const shuffled = <T,>(items: T[], rng: () => number): T[] => {
   return arr;
 };
 
+// Главная функция, которая собирает сам план по неделям. Логика такая:
+// сначала в план идут слабые темы ученика (по данным диагностики, по
+// каждому предмету), затем — остальные темы предметов в перемешанном
+// порядке (при пересборке порядок специально меняется, чтобы план
+// выглядел свежим). В конце добавляются 1–2 недели повторения и пробный
+// тест. Сколько тем помещается в неделю — зависит от того, сколько
+// часов в неделю ученик указал в мастере.
 /**
  * Roadmap for the wizard-picked subjects/modules: weak topics first (subject by subject, in
  * diagnostic order), then each subject's remaining topic pool in an order shuffled by `seed` — a
@@ -877,6 +893,9 @@ const PlanWizard: React.FC<PlanWizardProps> = ({
 }) => {
   const { language } = useLanguage();
   const reducedMotion = useReducedMotion();
+  // Ответы ученика на трёх шагах мастера: дедлайн, цели и выбранные
+  // предметы/модули, время в неделю; openDirections — какие карточки
+  // направлений сейчас раскрыты на шаге выбора предметов.
   const [step, setStep] = useState<1 | 2 | 3>(1);
   const [deadline, setDeadline] = useState(initialDeadline);
   const [goals, setGoals] = useState<string[]>(initialGoals);
@@ -1165,6 +1184,11 @@ const PlanPage: React.FC = () => {
   const reducedMotion = useReducedMotion();
   const firstName = profile?.full_name?.trim().split(/\s+/)[0] || null;
 
+  // source — данные профиля и диагностики, из которых строится план;
+  // plan — уже собранный и сохранённый план по неделям; busy/saveNote —
+  // идёт ли сейчас сборка/сохранение и её результат; wizardOpen — показан
+  // ли сейчас мастер настройки плана (открывается, если плана ещё нет,
+  // или когда ученик нажимает «Пересобрать план»).
   const [source, setSource] = useState<PlanSource | null>(null);
   const [plan, setPlan] = useState<StudyPlanJson | null>(null);
   const [updatedAt, setUpdatedAt] = useState<string | null>(null);
@@ -1173,6 +1197,7 @@ const PlanPage: React.FC = () => {
   const [saveNote, setSaveNote] = useState<'saved' | 'error' | null>(null);
   const [wizardOpen, setWizardOpen] = useState(false);
 
+  // Сохраняет собранный план в базу данных Supabase (таблица study_plans).
   const persistPlan = useCallback(
     async (planJson: StudyPlanJson, goal: string | null, examDate: string | null): Promise<boolean> => {
       if (!user) return false;
@@ -1203,6 +1228,9 @@ const PlanPage: React.FC = () => {
     [user],
   );
 
+  // При входе загружаем из базы нужные поля профиля, результаты диагностики
+  // и уже сохранённый план (если он есть). Если плана ещё нет — ниже
+  // откроется мастер настройки, который соберёт план с нуля.
   // Load the profile fields, diagnostics and any saved plan. When nothing is
   // saved yet, the wizard collects the config before anything is generated.
   useEffect(() => {
@@ -1251,6 +1279,8 @@ const PlanPage: React.FC = () => {
     };
   }, [user, persistPlan]);
 
+  // Вызывается по кнопке «Собрать план» / «Пересобрать план» в мастере:
+  // строит новый план по ответам ученика и сохраняет его в базу.
   const generate = async (config: PlanConfigJson) => {
     if (!user || !source || busy) return;
     setBusy(true);
@@ -1413,6 +1443,10 @@ const PlanPage: React.FC = () => {
           )}
         </header>
 
+        {/* Что показать вместо самого плана зависит от состояния: ошибка загрузки,
+            данные ещё грузятся, диагностика ни разу не пройдена (без неё план
+            строить не из чего), мастер настройки открыт, план ещё собирается,
+            или план уже готов и показывается по неделям. */}
         {loadError ? (
           <div role="alert" className={`${CARD} mt-8 flex items-start gap-3 border-coral/40`}>
             <AlertTriangle className="h-5 w-5 shrink-0 text-coral" aria-hidden="true" />

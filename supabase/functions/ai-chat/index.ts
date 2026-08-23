@@ -2,7 +2,7 @@
 // NOVEX · серверная функция «ai-chat» (чат с ИИ-тьютором NOV-01).
 // Это «посредник» между браузером ученика и ИИ-моделью: браузер присылает
 // сюда переписку, функция проверяет, что пользователь вошёл в Novex,
-// и передаёт диалог дальше — в сервис Locus, который хранит ключи доступа
+// и передаёт диалог дальше — во внешний AI-шлюз novex-ai, который хранит ключи доступа
 // к ИИ (Anthropic / OpenAI). Благодаря этому секретные ключи никогда
 // не попадают в браузер и не видны никому извне.
 // ============================================================================
@@ -10,7 +10,7 @@
 // ai-chat — NOVEX edge function for the NOV-01 tutor chat.
 //
 // browser -> this function (validates the NOVEX user JWT)
-//         -> Locus 'novex-ai' (validates the shared secret, holds the keys)
+//         -> external AI gateway 'novex-ai' (validates the shared secret, holds the keys)
 //         -> Anthropic / OpenAI
 // The shared secret never reaches the browser.
 
@@ -56,7 +56,7 @@ function json(
 
 // Главная часть: обработчик входящих запросов. Выполняется на каждый
 // запрос от браузера. Порядок: проверить метод -> проверить вход пользователя
-// -> проверить модель и сообщения -> передать диалог в Locus -> вернуть ответ.
+// -> проверить модель и сообщения -> передать диалог во внешний AI-шлюз -> вернуть ответ.
 Deno.serve(async (req) => {
   const cors = corsHeaders(req.headers.get('Origin'));
 
@@ -107,7 +107,7 @@ Deno.serve(async (req) => {
   }
   const trimmed = messages.slice(-MAX_MESSAGES);
 
-  // Адрес сервиса Locus и общий секрет берутся из настроек сервера
+  // Адрес внешнего AI-шлюза novex-ai и общий секрет берутся из настроек сервера
   // (их не видно в браузере). Если что-то не настроено — честно сообщаем об ошибке.
   const locusUrl = Deno.env.get('LOCUS_AI_URL');
   const sharedSecret = Deno.env.get('NOVEX_SHARED_SECRET');
@@ -116,7 +116,7 @@ Deno.serve(async (req) => {
   }
 
   try {
-    // Передаём диалог в Locus вместе с секретом, а ответ ИИ возвращаем браузеру.
+    // Передаём диалог во внешний AI-шлюз novex-ai вместе с секретом, а ответ ИИ возвращаем браузеру.
     const res = await fetch(locusUrl, {
       method: 'POST',
       headers: {

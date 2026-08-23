@@ -5,6 +5,10 @@ import { loc, type Localized } from '../../utils/i18n.ts';
 import { useLanguage } from '../../context/LanguageContext.tsx';
 import { RobotAvatar, type RobotId } from '../robots/RobotAvatars.tsx';
 
+// Секция «Частые вопросы» на лендинге: раскрывающийся список вопрос-ответ.
+// Последний пункт (про трёх роботов Novex) собран отдельно, с карточками
+// роботов внутри ответа, а не просто текстом.
+
 const BADGE: Localized = {
   ru: 'FAQ',
   kk: 'Жиі қойылатын сұрақтар',
@@ -159,16 +163,22 @@ const fadeUp = {
 };
 
 const FAQ_COUNT = ITEMS.length + 1; // regular items + robots question
+// Общее число вопросов (обычные + вопрос про роботов) — нужно для расчёта
+// задержки анимации появления последней карточки.
 
 const Faq: React.FC = () => {
   const { language } = useLanguage();
   const reduceMotion = useReducedMotion();
+  // Индекс раскрытого вопроса; null — все свёрнуты. По умолчанию открыт первый.
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   const motionProps = reduceMotion
     ? { ...fadeUp, initial: { opacity: 0 }, whileInView: { opacity: 1 } }
     : fadeUp;
 
+  // Вспомогательные функции ниже собирают кнопку-вопрос и панель-ответ для
+  // одной карточки аккордеона, чтобы не дублировать разметку для обычных
+  // вопросов и для вопроса про роботов.
   const renderPanel = (index: number, children: React.ReactNode) => (
     <div
       id={`faq-panel-${index}`}

@@ -104,7 +104,7 @@ interface Mentor {
   subjects: LessonSubject[];
 }
 
-/* The three direction robots mirror Locus Academy's three galaxies: academic
+/* The three direction robots represent the Academy's three tracks: academic
    base, life skills and future skills. Direction names and subjects come from
    the shared learn-directions catalogue so /learn and /plan can never drift.
    Internal robot keys stay nov4/nov5/nov6 (the career module depends on them);
@@ -556,7 +556,7 @@ const LearnPage: React.FC = () => {
                 </div>
               </div>
 
-              {/* academy modules of this direction (Locus curriculum) */}
+              {/* academy modules of this direction (программа Академии) */}
               {(() => {
                 const mentorPlanets = planetsByRobot(activeMentor.id);
                 if (mentorPlanets.length === 0) return null;

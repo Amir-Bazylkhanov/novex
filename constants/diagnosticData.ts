@@ -24,6 +24,13 @@ export type {
   DiagnosticSubjectMeta,
 } from './diagnostic/types.ts';
 
+// ============================================
+// Слой сборки банка вопросов для вступительной диагностики (тест, который
+// определяет уровень ученика перед началом обучения). Сами вопросы по
+// предметам лежат в constants/diagnostic/*.ts, а этот файл их объединяет,
+// подбирает вопросы под класс ученика, считает итоговый уровень
+// (beginner/intermediate/advanced) и хранит русские названия тем.
+// ============================================
 /**
  * NOV-01 Академик — aggregation layer for the placement-diagnostic bank.
  *
@@ -39,6 +46,7 @@ export type {
  * without updating `correctIndex`.
  */
 
+// Список всех предметов диагностики с их названиями на трёх языках.
 export const DIAGNOSTIC_SUBJECTS: DiagnosticSubjectMeta[] = [
   { slug: 'math', label: { ru: 'Математика', kk: 'Математика', en: 'Mathematics' } },
   { slug: 'physics', label: { ru: 'Физика', kk: 'Физика', en: 'Physics' } },
@@ -66,8 +74,10 @@ export const ALL_DIAGNOSTIC_QUESTIONS: DiagnosticQuestion[] = [
 ];
 
 /** A question fits a grade if its band overlaps [grade − GRADE_BAND, grade + GRADE_BAND]. */
+// Насколько классов в сторону от класса ученика ещё считается "подходящим".
 const GRADE_BAND = 1;
 /** Below this many band-matched questions the band is padded with the nearest out-of-band ones. */
+// Минимум вопросов в подборке; если подходящих меньше — добираем соседними по сложности.
 const MIN_BAND_POOL = 6;
 
 /**
@@ -78,6 +88,7 @@ const MIN_BAND_POOL = 6;
  * min(|gradeMin − grade|, |gradeMax − grade|)) instead of the raw full
  * pool, so a run never starves yet stays close to the student's grade.
  */
+// Возвращает вопросы одного предмета под класс ученика (от простых к сложным).
 export function questionsForSubject(
   subject: DiagnosticSubject,
   grade?: number,
@@ -97,11 +108,14 @@ export function questionsForSubject(
 }
 
 /**
- * Level thresholds (same strict cut-offs as Locus Academy):
+ * Level thresholds (строгие пороги уровней):
  * <50% beginner, 50–79% intermediate, ≥80% advanced.
  */
+// Пороги для итогового уровня: меньше 50% правильных — новичок, 50–79% —
+// средний, 80% и больше — продвинутый.
 export const LEVEL_THRESHOLDS = { intermediate: 0.5, advanced: 0.8 } as const;
 
+// Считает итоговый уровень ученика по числу правильных ответов из общего числа вопросов.
 export function levelForScore(score: number, total: number): DiagnosticLevel {
   const ratio = total === 0 ? 0 : score / total;
   if (ratio < LEVEL_THRESHOLDS.intermediate) return 'beginner';
@@ -109,11 +123,14 @@ export function levelForScore(score: number, total: number): DiagnosticLevel {
   return 'advanced';
 }
 
+// Одна тема (слабая или сильная сторона ученика) с её названием на трёх языках.
 export interface TopicStat {
   slug: string;
   label: Localized;
 }
 
+// Итоговый результат по одному предмету: сколько баллов набрано, какой
+// уровень получился, какие темы даются легко, а какие — слабое место.
 export interface SubjectResult {
   subject: DiagnosticSubject;
   label: Localized;
@@ -124,6 +141,8 @@ export interface SubjectResult {
   strongTopics: TopicStat[];
 }
 
+// Один ответ ученика во время диагностики (какой вопрос, какой предмет,
+// какая тема, правильно ли ответил).
 export interface AnswerRecord {
   questionId: string;
   subject: DiagnosticSubject;
@@ -133,6 +152,8 @@ export interface AnswerRecord {
 }
 
 /** Aggregate raw answers into one result row per subject. */
+// Собирает список отдельных ответов в итоговую сводку по каждому предмету
+// (сколько баллов, какой уровень, какие темы слабые/сильные).
 export function buildResults(
   subjects: DiagnosticSubject[],
   answers: AnswerRecord[],
@@ -166,6 +187,7 @@ export function buildResults(
  * Slugs are stored raw in diagnostic_results.weak_topics / strong_topics,
  * so all UI must render them through this map.
  */
+// Русские/казахские/английские названия для каждой темы вопросов диагностики.
 export const TOPIC_NAMES: Record<string, Localized> = {
   // math
   'linear-equations': { ru: 'Линейные уравнения', kk: 'Сызықтық теңдеулер', en: 'Linear equations' },
@@ -223,6 +245,7 @@ export const TOPIC_NAMES: Record<string, Localized> = {
  * bank question with that topic (the newer banks have many topics TOPIC_NAMES
  * doesn't list), then to the raw id.
  */
+// Возвращает название темы на нужном языке по её id.
 export function topicName(lang: Lang, id: string): string {
   const known = TOPIC_NAMES[id];
   if (known) return loc(lang, known);
@@ -235,6 +258,8 @@ export function topicName(lang: Lang, id: string): string {
  * constants/lessonData.ts that covers it. Only topics with an actually
  * playable lesson (`available: true`) are mapped; the rest link to /learn.
  */
+// Связь "тема диагностики → урок в /learn": если после теста у ученика
+// слабая тема, отсюда берётся ссылка на конкретный урок для повторения.
 export const TOPIC_LESSON_SLUGS: Record<string, string> = {
   'quadratic-equations': 'quadratic-equations',
   'linear-functions': 'linear-functions',
@@ -248,6 +273,8 @@ export const TOPIC_LESSON_SLUGS: Record<string, string> = {
  * the band holds no difficulty-3 question, falls back to the subject's full
  * difficulty-3 set so probe mode never returns an empty pool.
  */
+// Только самые сложные вопросы предмета — используются, чтобы проверить,
+// не занижен ли класс ученика (проверка "на повышение" уровня).
 export function hardQuestionsForSubject(
   subject: DiagnosticSubject,
   grade?: number,

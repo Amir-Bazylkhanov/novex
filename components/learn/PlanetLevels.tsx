@@ -137,7 +137,7 @@ const NEXT_LEVEL: Localized = {
 };
 
 /* Non-academic modules (Жизненные навыки / Навыки будущего) label their
-   sections with Locus Academy's difficulty bands instead of grade-style
+   sections with Novex's own difficulty bands instead of grade-style
    numbering. */
 const BAND_LABEL: Record<LevelBand, Localized> = {
   beginner: { ru: 'Начальный', kk: 'Бастауыш', en: 'Beginner' },
@@ -145,11 +145,12 @@ const BAND_LABEL: Record<LevelBand, Localized> = {
   advanced: { ru: 'Продвинутый', kk: 'Жоғары', en: 'Advanced' },
 };
 
-/* Mirrors Locus Academy's second level type — the account-wide XP rank
-   ladder (Explorer → Voyager → Pioneer → Innovator → Founder), which Locus
-   pairs an icon with a localized name for. Each difficulty band here maps to
-   the matching rank tier (first three of that ladder) so the pill carries
-   both classifications, the way Locus does. */
+/* Novex's second level system: the account-wide XP rank ladder
+   (Explorer → Voyager → Pioneer → Innovator → Founder), each rank pairing an
+   icon with a localized name. Each difficulty band here maps to the matching
+   rank tier (first three of that ladder) so the pill carries both
+   classifications — ступени Начальный/Средний/Продвинутый and the overall
+   XP rank ladder. */
 const BAND_RANK: Record<LevelBand, { icon: LucideIcon; name: Localized }> = {
   beginner: { icon: Telescope, name: { ru: 'Исследователь', kk: 'Зерттеуші', en: 'Explorer' } },
   intermediate: { icon: Rocket, name: { ru: 'Путешественник', kk: 'Саяхатшы', en: 'Voyager' } },

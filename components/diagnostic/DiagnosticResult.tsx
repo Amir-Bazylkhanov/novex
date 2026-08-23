@@ -24,6 +24,15 @@ import {
   type SubjectResult,
 } from '../../constants/diagnosticData.ts';
 
+// ============================================================
+// Экран результатов диагностики (показывается внутри DiagnosticPage.tsx
+// после последнего вопроса). Показывает по каждому предмету уровень,
+// балл, слабые и сильные темы, что делать дальше (пройти урок по слабой
+// теме или тест уровнем выше при идеальном результате), а также короткий
+// персональный разбор от NOV-01, который генерируется нейросетью.
+// Результат сразу сохраняется в базу Supabase.
+// ============================================================
+
 /* --- content --- */
 
 const ROBOT_LABEL: Localized = {
@@ -182,6 +191,9 @@ const DiagnosticResult: React.FC<DiagnosticResultProps> = ({
 }) => {
   const { language } = useLanguage();
   const { user, profile, updateProfile } = useAuth();
+  // saveState — идёт ли сохранение результата в базу, сохранилось или произошла ошибка;
+  // aiText/aiLoading — текст персонального разбора от NOV-01 и загружается ли он ещё.
+  // persistedRef/aiRequestedRef защищают от повторного сохранения/запроса при перерисовке.
   const [saveState, setSaveState] = useState<'saving' | 'saved' | 'error'>('saving');
   const persistedRef = useRef(false);
   const [aiText, setAiText] = useState<string | null>(null);
@@ -191,6 +203,9 @@ const DiagnosticResult: React.FC<DiagnosticResultProps> = ({
   // The student's real grade comes from the profile; the prop is a fallback.
   const studentGrade = profile?.grade ?? grade;
 
+  // Сохраняем результат один раз: по одной строке в diagnostic_results на
+  // каждый предмет. Для «теста уровнем выше» (isProbe) профиль не трогаем —
+  // ученик уже прошёл первичную диагностику раньше.
   // Persist once: one diagnostic_results row per subject. A probe run must NOT
   // touch profiles.onboarded/goal — the student already onboarded.
   useEffect(() => {
@@ -231,6 +246,10 @@ const DiagnosticResult: React.FC<DiagnosticResultProps> = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  // Один автоматический персональный разбор результатов от NOV-01 — этот
+  // запрос к нейросети специально сделан БЕСПЛАТНЫМ для ученика (Новасы
+  // за него не списываются). Собирает результаты по предметам в текстовое
+  // описание и просит нейросеть дать короткую рекомендацию.
   // AI layer: one automatic personalized analysis from NOV-01. This call is
   // intentionally FREE for the user — do NOT call spendNovas here.
   useEffect(() => {
@@ -267,6 +286,8 @@ Give a personalized 3-5 sentence recommendation on what to do next, referencing 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  // Раскладка карточек с результатами: один предмет — одна широкая карточка
+  // по центру; два предмета — две колонки; три — три колонки.
   // one subject → a single centered wide card; two → two columns; three → three
   const gridClass =
     results.length === 1

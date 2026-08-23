@@ -49,7 +49,7 @@ const CONTINUE: Localized = { ru: 'Продолжить', kk: 'Жалғасты�
 const CLOSE: Localized = { ru: 'Закрыть', kk: 'Жабу', en: 'Close' };
 
 /* Non-academic modules speak in bands instead of grade-style numbering — see
-   PlanetLevels.tsx for the matching pill labels and the Locus rank mirror. */
+   PlanetLevels.tsx for the matching pill labels and the XP rank ladder. */
 const BAND_LABEL: Record<LevelBand, Localized> = {
   beginner: { ru: 'Начальный', kk: 'Бастауыш', en: 'Beginner' },
   intermediate: { ru: 'Средний', kk: 'Орта', en: 'Intermediate' },

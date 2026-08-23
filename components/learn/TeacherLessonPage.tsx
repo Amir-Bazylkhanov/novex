@@ -17,6 +17,14 @@ import { useLanguage } from '../../context/LanguageContext.tsx';
 import { supabase } from '../../services/supabaseClient.ts';
 import { shuffleOptions } from '../../services/practiceService.ts';
 
+// ============================================================
+// Страница одного урока, который создал учитель (/learn/class-lesson/:id).
+// Видна только ученикам класса, для которого урок опубликован — это
+// проверяется в базе данных (RLS), не на этой странице. Показывает
+// теорию учителя, затем короткий тест по ней, а в конце — результат
+// с возможностью пройти тест ещё раз.
+// ============================================================
+
 /* --- content --- */
 
 const WORDMARK: Localized = { ru: 'Novex', kk: 'Novex', en: 'Novex' };
@@ -122,6 +130,9 @@ interface TeacherLesson {
   questions: TeacherQuestion[];
 }
 
+// Вопросы урока приходят из базы как «сырой» JSON, который заполнял учитель
+// вручную, поэтому перед использованием их нужно проверить и отбросить
+// всё некорректное (без текста вопроса, без вариантов, без правильного ответа).
 /** The questions column is teacher-authored jsonb — validate before trusting it. */
 const parseQuestions = (value: unknown): TeacherQuestion[] => {
   if (!Array.isArray(value)) return [];
@@ -145,6 +156,8 @@ const parseQuestions = (value: unknown): TeacherQuestion[] => {
 
 type Phase = 'theory' | 'quiz' | 'done';
 
+// Общая «рамка» страницы: логотип и кнопка «Назад» — одинаковая для всех
+// состояний (загрузка, урок не найден, сам урок).
 /** Back link + wordmark header shared by every state of the page. */
 const PageChrome: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const { language } = useLanguage();
@@ -176,10 +189,18 @@ const PageChrome: React.FC<{ children: React.ReactNode }> = ({ children }) => {
  * One teacher-authored lesson: theory paragraphs, then a linear scored quiz.
  * Mirrors the platform lesson answer flow, minus XP and progress writes.
  */
+// Сам урок учителя: сначала показывается теория, потом ученик проходит
+// вопросы один за другим, в конце видит счёт и может пройти ещё раз.
+// В отличие от обычных уроков платформы, здесь НЕ начисляется опыт (XP)
+// и прогресс ученика — это упрощённый, «домашний» формат учителя.
 const ClassLessonRunner: React.FC<{ lesson: TeacherLesson }> = ({ lesson }) => {
   const { language } = useLanguage();
   const reducedMotion = useReducedMotion();
 
+  // phase — на каком этапе урока ученик; cursor — номер текущего вопроса;
+  // selected/answered — выбранный вариант и отвечено ли уже на вопрос;
+  // correctCount — сколько вопросов пройдено верно; roundSeed — меняется
+  // при каждой новой попытке, чтобы варианты ответов перемешивались заново.
   const [phase, setPhase] = useState<Phase>('theory');
   const [cursor, setCursor] = useState(0);
   const [selected, setSelected] = useState<number | null>(null);
@@ -191,6 +212,9 @@ const ClassLessonRunner: React.FC<{ lesson: TeacherLesson }> = ({ lesson }) => {
   const questionHeadingRef = useRef<HTMLHeadingElement | null>(null);
   const doneHeadingRef = useRef<HTMLHeadingElement | null>(null);
 
+  // Варианты ответов перемешиваются один раз за попытку (чтобы ученик не
+  // запоминал позицию правильного ответа), а индекс правильного варианта
+  // пересчитывается под новый порядок.
   // Options are shuffled ONCE per round (frozen in this memo) — the teacher's
   // `correct` index is remapped to the shuffled order.
   const roundQuestions = useMemo(
@@ -209,6 +233,9 @@ const ClassLessonRunner: React.FC<{ lesson: TeacherLesson }> = ({ lesson }) => {
     .map((p) => p.trim())
     .filter((p) => p.length > 0);
 
+  // Эти два эффекта переводят фокус на заголовок нового вопроса или на
+  // заголовок результата — это помогает пользователям экранных дикторов
+  // сразу услышать, что изменилось на странице.
   // move focus to the question whenever it changes
   useEffect(() => {
     if (phase === 'quiz' && currentQuestion) questionHeadingRef.current?.focus();
@@ -218,6 +245,8 @@ const ClassLessonRunner: React.FC<{ lesson: TeacherLesson }> = ({ lesson }) => {
     if (phase === 'done') doneHeadingRef.current?.focus();
   }, [phase]);
 
+  // Запускает прохождение вопросов: перемешивает варианты заново и переводит
+  // на первый вопрос.
   const startPractice = () => {
     setRoundSeed((s) => s + 1);
     setCursor(0);
@@ -226,6 +255,7 @@ const ClassLessonRunner: React.FC<{ lesson: TeacherLesson }> = ({ lesson }) => {
     setPhase('quiz');
   };
 
+  // Проверяет выбранный ответ и запоминает, верный он или нет.
   const submitAnswer = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (!currentQuestion || selected === null || answered) return;
@@ -233,6 +263,7 @@ const ClassLessonRunner: React.FC<{ lesson: TeacherLesson }> = ({ lesson }) => {
     setAnswered(true);
   };
 
+  // Переходит к следующему вопросу или, если вопросы кончились, — к экрану результата.
   const goNext = () => {
     if (cursor + 1 < totalQuestions) {
       setCursor(cursor + 1);
@@ -243,6 +274,7 @@ const ClassLessonRunner: React.FC<{ lesson: TeacherLesson }> = ({ lesson }) => {
     }
   };
 
+  // Полный сброс урока к началу — снова показывается теория.
   const retry = () => {
     setPhase('theory');
     setCursor(0);
@@ -278,6 +310,7 @@ const ClassLessonRunner: React.FC<{ lesson: TeacherLesson }> = ({ lesson }) => {
         </div>
       </div>
 
+      {/* Этап теории: конспект учителя и кнопка «Перейти к практике». */}
       {/* --- theory --- */}
       {phase === 'theory' && (
         <div className="mt-6 space-y-4">
@@ -310,6 +343,7 @@ const ClassLessonRunner: React.FC<{ lesson: TeacherLesson }> = ({ lesson }) => {
         </div>
       )}
 
+      {/* Этап теста: один вопрос за раз с проверкой ответа. */}
       {/* --- quiz --- */}
       {phase === 'quiz' && currentQuestion && (
         <div className="mt-6">
@@ -443,6 +477,7 @@ const ClassLessonRunner: React.FC<{ lesson: TeacherLesson }> = ({ lesson }) => {
         </div>
       )}
 
+      {/* Этап результата: счёт и кнопки «Пройти ещё раз» / «Назад». */}
       {/* --- result --- */}
       {phase === 'done' && (
         <motion.div
@@ -489,6 +524,8 @@ const ClassLessonRunner: React.FC<{ lesson: TeacherLesson }> = ({ lesson }) => {
   );
 };
 
+// Точка входа страницы: по id из адреса загружает урок из базы Supabase
+// и показывает либо загрузку, либо «урок не найден», либо сам урок.
 const TeacherLessonPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const { language } = useLanguage();
@@ -496,6 +533,9 @@ const TeacherLessonPage: React.FC = () => {
   const [lesson, setLesson] = useState<TeacherLesson | null>(null);
   const [status, setStatus] = useState<'loading' | 'ready' | 'missing'>('loading');
 
+  // Загружаем урок по id из адресной строки. Если строки в базе нет или
+  // доступ запрещён политиками безопасности (RLS) — считаем урок «не найден»,
+  // отдельно эти два случая не различаем (чтобы не палить чужие id).
   useEffect(() => {
     if (!id) {
       setStatus('missing');

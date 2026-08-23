@@ -1,5 +1,13 @@
 import type { Localized } from '../utils/i18n.ts';
 
+// ============================================
+// Банк заранее написанных ответов для демо-виджета «ИИ-репетитор» в чате.
+// Никакого настоящего ИИ здесь нет — это заготовленные, вручную проверенные
+// объяснения по пяти темам уроков MVP. Виджет честно показывает пользователю
+// пометку «Демо-режим». Структура записи (TutorQA): вопрос на трёх языках,
+// ключевые слова для поиска подходящего ответа (см. findResponse ниже) и
+// пошаговое объяснение. Используется в чат-виджете тренажёра.
+// ============================================
 /**
  * NOV-01 Академик — scripted response bank for the chat widget demo.
  *
@@ -406,6 +414,9 @@ export const FALLBACK_TEXT: Localized = {
  * The entry must reach a score of 2 to win — otherwise the caller shows the
  * fallback. Returns `null` when nothing matches well enough.
  */
+// Ищет в банке TUTOR_QA ответ, чьи ключевые слова лучше всего совпадают с
+// вопросом пользователя (простой подсчёт совпадений по подстрокам).
+// Если совпадений мало, возвращает null — тогда показывается FALLBACK_TEXT.
 export function findResponse(input: string): TutorQA | null {
   const text = input.toLowerCase();
   let best: TutorQA | null = null;

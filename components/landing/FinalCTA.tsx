@@ -6,6 +6,10 @@ import { loc, type Localized } from '../../utils/i18n.ts';
 import { useLanguage } from '../../context/LanguageContext.tsx';
 import { GearDecor } from '../robots/RobotAvatars.tsx';
 
+// Финальный призыв к действию в самом низу лендинга: бирюзовая полоса с
+// заголовком, подзаголовком и кнопкой «Пройти диагностику», ведущей
+// в анкету профиля/карьеры.
+
 const TITLE: Localized = {
   ru: 'Персональное образование — для каждого ученика, в любом регионе',
   kk: 'Жеке білім — әр оқушыға, кез келген өңірде',
@@ -54,6 +58,7 @@ const FinalCTA: React.FC = () => {
       className="relative overflow-hidden bg-gradient-to-br from-teal via-teal to-teal-dark"
     >
       {/* faint outline gears decor */}
+      {/* Едва заметные вращающиеся шестерёнки на фоне — просто декор */}
       <GearDecor
         className="pointer-events-none absolute -right-20 -top-24 h-72 w-72 text-white/10"
         teeth={10}
@@ -78,6 +83,7 @@ const FinalCTA: React.FC = () => {
           </p>
 
           <div className="mt-8 flex justify-center">
+            {/* Кнопка ведёт на анкету профиля/карьеры, а не сразу на диагностику уровня */}
             <Link
               to="/career?from=onboarding"
               className={`${FOCUS_RING_TEAL_BAND} inline-flex items-center justify-center gap-2 rounded-xl bg-white px-6 py-3.5 text-base font-semibold text-teal-dark shadow-[0_8px_30px_rgba(17,26,42,0.18)] transition-colors hover:bg-canvas`}

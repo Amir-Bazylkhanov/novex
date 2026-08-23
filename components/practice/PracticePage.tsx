@@ -43,6 +43,16 @@ import {
   type StoredPractice,
 } from '../../services/practiceService.ts';
 
+// ============================================================
+// Страница «Практика» (/practice) — тренажёр с вопросами по предмету.
+// Ученик настраивает тренировку (предмет, темы, сложность, число вопросов,
+// режим с таймером или без), затем отвечает на вопросы один за другим
+// и в конце видит результат с разбором каждого ответа. Незавершённая
+// попытка сохраняется в sessionStorage вкладки — переживает обновление
+// страницы, но не расшаривается между вкладками (важно для школьных
+// компьютеров, которыми пользуются по очереди).
+// ============================================================
+
 /* --- content --- */
 
 const ROBOT_LABEL: Localized = {
@@ -206,6 +216,8 @@ const PracticePage: React.FC = () => {
   const { language } = useLanguage();
   const reducedMotion = useReducedMotion();
 
+  // Настройки будущей тренировки: какой предмет, какие темы отмечены,
+  // сколько вопросов, какая сложность и включён ли таймер.
   // Config state.
   const [subject, setSubject] = useState<PracticeSubject>('math');
   const [selectedTopics, setSelectedTopics] = useState<string[]>([]);
@@ -213,23 +225,34 @@ const PracticePage: React.FC = () => {
   const [difficulty, setDifficulty] = useState<PracticeDifficultyFilter>('any');
   const [timed, setTimed] = useState(false);
 
+  // Какие карточки направлений и списки тем сейчас развёрнуты на экране
+  // настройки (можно раскрыть сразу несколько).
   // Picker expand state: which direction cards and which subjects' topic
   // lists are open. Multiple directions/subjects can be expanded at once.
   const [expandedDirections, setExpandedDirections] = useState<Set<MentorRobotId>>(new Set());
   const [expandedSubjects, setExpandedSubjects] = useState<Set<PracticeSubject>>(new Set());
 
+  // Состояние текущей попытки: на каком этапе ученик (настройка / прохождение
+  // / результат), какой набор вопросов ему достался, какой вопрос сейчас
+  // и что он уже успел ответить.
   // Active attempt state.
   const [phase, setPhase] = useState<Phase>('config');
   const [session, setSession] = useState<PracticeSession | null>(null);
   const [current, setCurrent] = useState(0);
   const [answers, setAnswers] = useState<Record<string, number>>({});
   const [result, setResult] = useState<PracticeResult | null>(null);
+  // Момент времени, когда истекает таймер (для режима «на время»); для
+  // тренировки без таймера — null. Оставшиеся секунды каждый раз вычисляются
+  // заново из текущего времени, а не отсчитываются вниз, — так таймер не
+  // «врёт», даже если вкладка была свёрнута.
   // Absolute deadline for timed attempts (ms epoch); untimed → null. The
   // displayed seconds are DERIVED from Date.now(), never stored as a
   // decrementing counter, so backgrounded/suspended time still counts down.
   const [deadlineMs, setDeadlineMs] = useState<number | null>(null);
   const [nowTick, setNowTick] = useState<number>(() => Date.now());
 
+  // Технические «слепки» последних ответов и сессии — нужны, чтобы таймер,
+  // когда время выйдет, засчитал именно те ответы, что ученик успел дать.
   // Latest answers/session refs so the timed-expiry path scores the CURRENT
   // answers (the timer effect can't depend on `answers` without resetting its
   // 1s interval on every answer change, so it reads via refs).
@@ -252,6 +275,10 @@ const PracticePage: React.FC = () => {
     clearStored();
   };
 
+  // При открытии страницы пытаемся восстановить незавершённую тренировку
+  // из памяти вкладки: если она есть и данные не повреждены — возвращаем
+  // ученика туда, где он остановился. Если пока он отсутствовал истёк
+  // таймер — попытка сразу завершается и показывается результат.
   // Restore an in-flight attempt on mount. The stored session is used VERBATIM
   // (no reshuffle) so saved answer indices stay valid; corrupt/obsolete data is
   // discarded and we fall back to the config screen. A timed attempt whose
@@ -321,6 +348,8 @@ const PracticePage: React.FC = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  // Пока идёт прохождение, после каждого изменения сохраняем всю попытку
+  // целиком в память вкладки, чтобы её можно было восстановить при обновлении.
   // Persist the whole attempt (session + answers + cursor + deadline) as one
   // composite object so it is always internally consistent on restore.
   useEffect(() => {
@@ -333,6 +362,8 @@ const PracticePage: React.FC = () => {
     }
   }, [phase, session, answers, current, deadlineMs]);
 
+  // Обратный отсчёт таймера: каждую секунду пересчитываем оставшееся время.
+  // Когда время выходит — тренировка завершается автоматически.
   // Live countdown: derive remaining from Date.now() each second. When the
   // deadline actually passes, submit with the latest answers (via refs).
   const secondsLeft = secondsRemaining(deadlineMs, nowTick);
@@ -348,6 +379,8 @@ const PracticePage: React.FC = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [phase, deadlineMs, nowTick]);
 
+  // Если ученик свернул вкладку и вернулся — сразу пересчитываем оставшееся
+  // время, чтобы таймер не показывал устаревшее значение.
   // A backgrounded tab didn't tick: on focus, jump the display to the true
   // wall-clock remaining (and submit via the countdown effect if it expired).
   useEffect(() => {
@@ -362,6 +395,7 @@ const PracticePage: React.FC = () => {
   const activeTopics = selectedTopics.length > 0 ? selectedTopics : undefined;
   const available = availableCount(subject, difficulty, activeTopics);
 
+  // Собирает набор вопросов по выбранным настройкам и запускает тренировку.
   const handleStart = () => {
     const config: PracticeConfig = {
       subject,
@@ -435,6 +469,7 @@ const PracticePage: React.FC = () => {
     });
   };
 
+  // Клик по строке предмета выбирает весь предмет целиком (сброс отметок тем).
   // Selecting the subject row scopes the whole subject — matches the legacy
   // flat-picker behaviour exactly (topics reset to "any").
   const handleSelectSubject = (s: PracticeSubject) => {
@@ -442,6 +477,8 @@ const PracticePage: React.FC = () => {
     setSelectedTopics([]);
   };
 
+  // Клик по конкретной теме одновременно выбирает её предмет и отмечает
+  // саму тему; можно отметить сразу несколько тем одного предмета.
   // A topic chip both picks its subject (if not already active) and toggles
   // itself into the topic scope; multiple topics within one subject can mix.
   const handleToggleTopic = (s: PracticeSubject, topic: string) => {
@@ -509,6 +546,7 @@ const PracticePage: React.FC = () => {
             </div>
           </div>
 
+          {/* Экран настройки: выбор предмета/тем, числа вопросов, сложности и режима. */}
           {/* --- config --- */}
           {phase === 'config' && (
             <div className="mt-6 space-y-4">
@@ -751,6 +789,8 @@ const PracticePage: React.FC = () => {
             </div>
           )}
 
+          {/* Экран прохождения: один вопрос за раз, сразу после ответа — правильный
+              вариант и объяснение (или ссылка на урок, если объяснения нет). */}
           {/* --- run --- */}
           {phase === 'run' && session && currentQuestion && (
             <div className="mt-6">
@@ -929,6 +969,7 @@ const PracticePage: React.FC = () => {
             </div>
           )}
 
+          {/* Экран результата: итоговый процент и построчный разбор каждого вопроса. */}
           {/* --- review --- */}
           {phase === 'review' && result && session && (
             <div className="mt-6">

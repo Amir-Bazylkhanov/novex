@@ -11,6 +11,9 @@ import {
 import { loc, type Lang, type Localized } from '../../utils/i18n.ts';
 import { useLanguage } from '../../context/LanguageContext.tsx';
 
+// Вкладка «Аналитика» в личном кабинете: плитки с общими цифрами (XP, уроки,
+// новасы, дни с нами) и лента последних операций с новасами под ними.
+
 /* --- content --- */
 
 const SECTION_TITLE: Localized = { ru: 'Аналитика', kk: 'Аналитика', en: 'Analytics' };
@@ -91,6 +94,8 @@ interface AnalyticsSectionProps {
   transactions: NovaTransactionRow[];
 }
 
+// Подбирает правильное слово «день/дня/дней» под число — в русском и
+// казахском склонение отличается от английского.
 const daysWord = (lang: Lang, days: number): string => {
   if (lang === 'kk') return 'күн';
   if (lang === 'en') return days === 1 ? 'day' : 'days';
@@ -101,12 +106,15 @@ const daysWord = (lang: Lang, days: number): string => {
   return 'дней';
 };
 
+// Подставляет значения вместо плейсхолдеров вида {n} в строке перевода.
 const fill = (template: string, vars: Record<string, string | number>): string =>
   Object.entries(vars).reduce(
     (acc, [key, value]) => acc.split(`{${key}}`).join(String(value)),
     template,
   );
 
+// По типу операции (action_type из базы) подбирает понятную подпись для ленты:
+// бонус за регистрацию, диагностику, урок, чат с Академиком или возврат.
 const txLabel = (language: Lang, tx: NovaTransactionRow): string => {
   if (tx.action_type === 'welcome') return loc(language, TX_WELCOME);
   if (tx.action_type === 'diagnostic') return loc(language, TX_DIAGNOSTIC);
@@ -117,6 +125,7 @@ const txLabel = (language: Lang, tx: NovaTransactionRow): string => {
 };
 
 /* "today" / "yesterday" / "n days ago", then a plain date past a week. */
+// «сегодня» / «вчера» / «N дней назад», а после недели — обычная дата.
 const relativeDate = (language: Lang, iso: string): string => {
   const date = new Date(iso);
   if (Number.isNaN(date.getTime())) return '';

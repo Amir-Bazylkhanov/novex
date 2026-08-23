@@ -1,3 +1,7 @@
+// Поле ввода с автодополнением школы. Пока пользователь печатает, ищет
+// совпадения в общем списке школ (SCHOOLS) и в переданном списке extraSchools,
+// умеет находить школу даже если написать название на латинице, с опечаткой
+// в «й»/«и» или сокращением вроде «НИШ». Управляется стрелками и Enter.
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { SCHOOLS } from '../constants/schools.ts';
 
@@ -19,6 +23,8 @@ interface Option {
   value: string;
 }
 
+// Приводит строку к единому виду для сравнения: без лишних пробелов, в нижнем
+// регистре, «ё» заменена на «е» — чтобы одинаковые по смыслу строки совпадали.
 const normalize = (s: string): string => s.trim().toLowerCase().replace(/ё/g, 'е');
 
 /* Cyrillic → Latin, so Latin queries («Nazarbayev», «bilim») match the
@@ -67,6 +73,9 @@ const SchoolAutocomplete: React.FC<SchoolAutocompleteProps> = ({
   const containerRef = useRef<HTMLDivElement>(null);
   const listboxId = `${id}-listbox`;
 
+  // Список подходящих вариантов пересчитывается при каждом изменении текста
+  // в поле: сначала ищем среди extraSchools (например, школа самого ученика),
+  // затем — среди общего списка SCHOOLS, не более 8 совпадений.
   const options = useMemo<Option[]>(() => {
     const q = canon(value);
     if (q.length < 2) return [];
@@ -129,6 +138,8 @@ const SchoolAutocomplete: React.FC<SchoolAutocompleteProps> = ({
     setHighlightedIndex(-1);
   };
 
+  // Навигация по списку клавиатурой: стрелки вверх/вниз двигают выделение
+  // по кругу, Enter выбирает подсвеченный вариант, Escape закрывает список.
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (!showDropdown) {
       if (e.key === 'ArrowDown' && options.length > 0) {

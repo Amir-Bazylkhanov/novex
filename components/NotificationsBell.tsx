@@ -1,3 +1,7 @@
+// Колокольчик уведомлений в шапке сайта. Показывает счётчик непрочитанных
+// уведомлений, а по клику открывает выпадающий список: начисления новасов,
+// новые модули от учителя и т.д. Здесь же живёт переключатель push-уведомлений
+// браузера (если устройство их поддерживает).
 import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
@@ -69,6 +73,7 @@ const POLL_MS = 60_000;
 const FOCUS_RING =
   'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2 focus-visible:ring-offset-canvas';
 
+// Переводит дату создания уведомления в короткую фразу «5 мин назад», «2 ч назад» и т.п.
 function relativeTime(iso: string, language: Lang): string {
   const seconds = Math.max(0, Math.floor((Date.now() - new Date(iso).getTime()) / 1000));
   if (seconds < 60) return loc(language, TIME_JUST_NOW);
@@ -80,6 +85,9 @@ function relativeTime(iso: string, language: Lang): string {
 }
 
 /** Localized text built from kind + payload; null means "use the stored title". */
+// По типу уведомления (kind) и данным из payload (сумма новасов, название модуля)
+// собирает готовый текст на трёх языках. Если тип неизвестен — вернётся null,
+// и тогда просто покажется заголовок, сохранённый в базе.
 function localizedText(row: NotificationRow): Localized | null {
   const amount = typeof row.payload.amount === 'number' ? row.payload.amount : null;
   const moduleTitle = typeof row.payload.title === 'string' ? row.payload.title : null;
@@ -143,6 +151,9 @@ const NotificationsBell: React.FC = () => {
 
   const unreadCount = rows.filter((row) => row.read_at === null).length;
 
+  // Загружаем список уведомлений при входе пользователя и затем обновляем
+  // его каждую минуту (POLL_MS), чтобы новые уведомления появлялись сами,
+  // без перезагрузки страницы.
   useEffect(() => {
     if (!user) {
       setRows([]);
@@ -161,6 +172,7 @@ const NotificationsBell: React.FC = () => {
     };
   }, [user]);
 
+  // Закрывает выпадающий список при клике вне его или при нажатии Escape.
   useEffect(() => {
     if (!open) return;
     const onPointerDown = (e: MouseEvent) => {
@@ -177,6 +189,8 @@ const NotificationsBell: React.FC = () => {
     };
   }, [open]);
 
+  // Проверяем, подписан ли уже браузер на push-уведомления — чтобы сразу
+  // показать переключатель в правильном состоянии.
   useEffect(() => {
     if (!user || !pushSupported) return;
     let cancelled = false;
@@ -206,6 +220,7 @@ const NotificationsBell: React.FC = () => {
     setRows((prev) => prev.map((r) => ({ ...r, read_at: r.read_at ?? now })));
   };
 
+  // Включает или выключает push-уведомления браузера по клику на кнопку.
   const togglePush = async () => {
     setPushLoading(true);
     try {

@@ -1,5 +1,13 @@
 import type { Localized } from '../utils/i18n.ts';
 
+// ============================================
+// Каталог уроков раздела /learn (не путать с Академией из constants/academy/).
+// Здесь описаны типы урока и вопроса, а ниже — сами уроки: и открытые
+// (available: true, с полной теорией и вопросами), и «заглушки» (available:
+// false, карточка показывается серой и никуда не ведёт). Отдельные уроки в
+// массиве LESSONS ниже не комментируются — комментарии только для типов и
+// вспомогательных функций внизу файла.
+// ============================================
 /**
  * NOV-01 Академик — lesson catalogue for the /learn module.
  *
@@ -15,10 +23,15 @@ import type { Localized } from '../utils/i18n.ts';
  * without updating `correctIndex`.
  */
 
+// Предметы, для которых есть уроки в /learn.
 export type LessonSubject = 'math' | 'physics' | 'english' | 'informatics';
+// Общая сложность урока (показывается на карточке).
 export type LessonDifficulty = 'easy' | 'medium' | 'hard';
+// Сложность отдельного вопроса внутри урока (используется для адаптивного
+// порядка вопросов — см. QuestionDifficulty в комментарии к LessonQuestion).
 export type QuestionDifficulty = 1 | 2 | 3;
 
+// Один блок теории урока: заголовок, текст и разобранный пример.
 export interface LessonTheoryBlock {
   heading: Localized;
   body: Localized;
@@ -26,6 +39,8 @@ export interface LessonTheoryBlock {
   example: Localized;
 }
 
+// Один вопрос урока: текст, 4 варианта ответа, индекс правильного,
+// объяснение и уровень сложности (для адаптивной практики).
 export interface LessonQuestion {
   id: string;
   /** Short label surfaced in the finish summary for questions answered wrong. */
@@ -39,6 +54,8 @@ export interface LessonQuestion {
   difficulty: QuestionDifficulty;
 }
 
+// Один урок целиком: метаданные (название, сложность, время, опыт) плюс
+// теория и вопросы. available: false — это карточка-заглушка без контента.
 export interface Lesson {
   slug: string;
   subject: LessonSubject;
@@ -55,11 +72,13 @@ export interface Lesson {
   questions: LessonQuestion[];
 }
 
+// Краткое описание предмета: его slug и название на трёх языках.
 export interface LessonSubjectMeta {
   slug: LessonSubject;
   label: Localized;
 }
 
+// Список предметов, которые показываются как фильтр на странице /learn.
 export const LESSON_SUBJECTS: LessonSubjectMeta[] = [
   { slug: 'math', label: { ru: 'Математика', kk: 'Математика', en: 'Mathematics' } },
   { slug: 'physics', label: { ru: 'Физика', kk: 'Физика', en: 'Physics' } },
@@ -70,6 +89,7 @@ export const LESSON_SUBJECTS: LessonSubjectMeta[] = [
   },
 ];
 
+// Названия предметов на трёх языках (используется функцией subjectLabel ниже).
 const SUBJECT_LABEL: Record<LessonSubject, Localized> = {
   math: { ru: 'Математика', kk: 'Математика', en: 'Mathematics' },
   physics: { ru: 'Физика', kk: 'Физика', en: 'Physics' },
@@ -77,6 +97,8 @@ const SUBJECT_LABEL: Record<LessonSubject, Localized> = {
   informatics: { ru: 'Информатика', kk: 'Информатика', en: 'Computer science' },
 };
 
+// Сами уроки (открытые и заглушки), по всем предметам. Ниже — контент, его
+// отдельные записи не комментируются (см. пояснение в шапке файла).
 export const LESSONS: Lesson[] = [
   // -------------------------------------------------------------------------
   // math / quadratic-equations — REAL
@@ -1244,11 +1266,13 @@ export const LESSONS: Lesson[] = [
 ];
 
 /** Look up a lesson (real or placeholder) by slug. */
+// Находит урок по его slug (используется на странице конкретного урока).
 export function lessonBySlug(slug: string): Lesson | undefined {
   return LESSONS.find((l) => l.slug === slug);
 }
 
 /** Localized display name for a subject slug. */
+// Название предмета на текущем языке интерфейса.
 export function subjectLabel(subject: LessonSubject): Localized {
   return SUBJECT_LABEL[subject];
 }

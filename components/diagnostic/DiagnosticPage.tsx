@@ -38,6 +38,16 @@ import {
   type SubjectResult,
 } from '../../constants/diagnosticData.ts';
 
+// ============================================================
+// Страница «Диагностика уровня» (/onboarding). Ученик выбирает класс,
+// цель и предметы, а дальше отвечает на вопросы, которые NOV-01
+// подстраивает под его ответы «на лету»: два верных ответа подряд —
+// следующий вопрос сложнее, два неверных — легче. В конце показывается
+// экран с результатами (DiagnosticResult.tsx). Эта же страница умеет
+// запускать «тест уровнем выше» по одному предмету (?probe=предмет)
+// для ученика, который уже прошёл диагностику и ответил идеально.
+// ============================================================
+
 /* --- content --- */
 
 const WORDMARK: Localized = { ru: 'Novex', kk: 'Novex', en: 'Novex' };
@@ -219,6 +229,9 @@ const DiagnosticPage: React.FC = () => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
 
+  // Режим «тест уровнем выше»: если в адресе есть ?probe=предмет, шаг
+  // настройки пропускается и ученику сразу задают только самые сложные
+  // вопросы по этому одному предмету.
   // Grade-up probe mode: /onboarding?probe=<subject> skips setup and runs
   // only the hardest questions of that one subject.
   const probeParam = searchParams.get('probe');
@@ -228,6 +241,8 @@ const DiagnosticPage: React.FC = () => {
     ? (probeParam as DiagnosticSubject)
     : null;
 
+  // phase — на каком экране мы сейчас: настройка, сам тест или результат;
+  // grade/goals/picked — класс, цель и предметы, выбранные на экране настройки.
   const [phase, setPhase] = useState<Phase>(probeSubject ? 'quiz' : 'setup');
   const [grade, setGrade] = useState<number | null>(null);
   const [goals, setGoals] = useState<Goal[]>([]);
@@ -243,6 +258,12 @@ const DiagnosticPage: React.FC = () => {
   const [careerGateChecked, setCareerGateChecked] = useState(false);
 
   // quiz state
+  // Состояние самого теста: answers — уже данные ответы; subjectIndex —
+  // какой предмет из picked проходим сейчас; askedIds/cursor — какие вопросы
+  // уже заданы и какой вопрос показан сейчас; streak — сколько верных (или
+  // неверных) ответов подряд, от него зависит подстройка сложности; adapted —
+  // стала ли сложность выше/ниже после последнего ответа; selected — какой
+  // вариант ответа отмечен; results — итоговые результаты по предметам.
   const [answers, setAnswers] = useState<AnswerRecord[]>([]);
   const [subjectIndex, setSubjectIndex] = useState(0);
   const [askedIds, setAskedIds] = useState<string[]>([]);
@@ -257,6 +278,8 @@ const DiagnosticPage: React.FC = () => {
   const hydratedRef = useRef(false);
   const questionHeadingRef = useRef<HTMLHeadingElement | null>(null);
 
+  // Проверка «сначала профориентационный тест»: если ученик ещё не проходил
+  // /career, отправляем его туда — диагностика уровня начинается только после.
   // Two-stage gate: if neither career-test key exists yet, send the student
   // through /career first. Runs once on mount; a brief loading render covers
   // the redirect.
@@ -268,6 +291,10 @@ const DiagnosticPage: React.FC = () => {
     navigate('/career?from=onboarding', { replace: true });
   }, [probeSubject, navigate]);
 
+  // Подставляем класс и предметы из профиля, как только он загрузился.
+  // Предметы, которые подобрал профориентационный тест, всегда важнее того,
+  // что было сохранено в профиле раньше — профиль используется, только
+  // если профориентационных предметов нет.
   // prefill grade and subjects from the profile once it arrives. The
   // career-test preselection (the funnel the student just came through)
   // always outranks whatever subjects an older profile row carries; the
@@ -291,6 +318,8 @@ const DiagnosticPage: React.FC = () => {
   const activeSubject = picked[subjectIndex];
   // In probe mode the grade comes from the profile (the student already onboarded).
   const effectiveGrade = grade ?? profile?.grade ?? null;
+  // Варианты ответа перемешиваются один раз за прохождение (чтобы правильный
+  // ответ не был всегда на одном и том же месте), а дальше порядок не меняется.
   // Options are shuffled ONCE per run (frozen in this memo) — answer records
   // key on question id and scoring uses the remapped correctIndex.
   const subjectQuestions = useMemo(() => {
@@ -342,6 +371,8 @@ const DiagnosticPage: React.FC = () => {
       prev.includes(value) ? prev.filter((g) => g !== value) : [...prev, value],
     );
 
+  // Запускает тест: сохраняет выбранную цель в профиль и сбрасывает
+  // всё состояние теста «с нуля» — на случай, если ученик проходит его повторно.
   const startQuiz = () => {
     if (!grade || goals.length === 0 || picked.length === 0) return;
     // Persist the chosen goals right away (the legacy goal column is rewritten
@@ -360,6 +391,13 @@ const DiagnosticPage: React.FC = () => {
     setPhase('quiz');
   };
 
+  // Обработка ответа на вопрос — самое важное место всей диагностики.
+  // Здесь: 1) проверяем, верный ли ответ, и запоминаем его; 2) если ученик
+  // ответил верно два раза подряд — следующий вопрос будет сложнее, если
+  // ошибся два раза подряд — легче (иначе просто следующий по порядку);
+  // 3) когда вопросы по предмету закончились — переходим к следующему
+  // выбранному предмету, а когда закончились все предметы — показываем
+  // экран результатов.
   const submitAnswer = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (!currentQuestion || selected === null || !activeSubject) return;
@@ -378,6 +416,9 @@ const DiagnosticPage: React.FC = () => {
     const nextAsked = [...askedIds, currentQuestion.id];
     const nextStreak = correct ? Math.max(streak, 0) + 1 : Math.min(streak, 0) - 1;
 
+    // Подбор следующего вопроса: два верных ответа подряд → берём самый
+    // сложный из ещё не заданных, два неверных подряд → самый лёгкий;
+    // предмет заканчивается, когда набрано runLength ответов или вопросы кончились.
     // adaptive pick: two right in a row → hardest unasked, two wrong → easiest;
     // the subject run ends after runLength answers or when the pool is exhausted
     const unasked = subjectQuestions

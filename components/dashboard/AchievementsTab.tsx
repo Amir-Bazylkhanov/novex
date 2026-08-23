@@ -19,6 +19,10 @@ import {
 import { loc, type Localized } from '../../utils/i18n.ts';
 import { useLanguage } from '../../context/LanguageContext.tsx';
 
+// Вкладка «Достижения» в личном кабинете: сетка карточек-значков за успехи
+// ученика (первый урок, набранный XP, серия дней подряд и т.д.). Каждая
+// карточка сама решает, заработана она или нет, глядя на данные ученика (data).
+
 /* --- content --- */
 
 const SECTION_TITLE: Localized = { ru: 'Достижения', kk: 'Жетістіктер', en: 'Achievements' };
@@ -39,6 +43,8 @@ export interface AchievementData {
   profileCreatedAt: string | null;
 }
 
+// Описание одного достижения: иконка, название, текст и функция-проверка,
+// которая по данным ученика решает, засчитано ли достижение.
 interface AchievementDef {
   id: string;
   Icon: LucideIcon;
@@ -48,8 +54,10 @@ interface AchievementDef {
 }
 
 /* Early adopters: profiles created before the 2026 school year starts. */
+// Достижение «Пионер» даётся тем, кто зарегистрировался до этой даты.
 const PIONEER_CUTOFF = new Date('2026-09-01T00:00:00');
 
+// Полный список достижений, которые выводятся карточками на вкладке.
 const ACHIEVEMENTS: AchievementDef[] = [
   {
     id: 'first_steps',
@@ -181,6 +189,7 @@ const HEADING_ICON = 'flex h-10 w-10 shrink-0 items-center justify-center rounde
 const AchievementsTab: React.FC<{ data: AchievementData }> = ({ data }) => {
   const { language } = useLanguage();
   const reduceMotion = useReducedMotion();
+  // Сколько достижений уже открыто — выводится в счётчике «N / всего».
   const earnedCount = ACHIEVEMENTS.filter((a) => a.earned(data)).length;
 
   return (

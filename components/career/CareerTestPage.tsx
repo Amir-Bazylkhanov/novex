@@ -91,9 +91,9 @@ const openCounterLine = (lang: 'ru' | 'kk' | 'en', current: number, total: numbe
 };
 
 /* --- open questions: free-text anchors, interleaved after the 18 scale
-      statements. Mirrors the depth of Locus Guide's open anchors (a moment
-      that clicked / a task that absorbs you / a self-projection question)
-      without copying its country-fit or major-matching scope. --- */
+      statements — a moment that clicked / a task that absorbs you / a
+      self-projection question, kept narrower than a full country-fit or
+      major-matching profile. --- */
 
 const OPEN_INTRO: Localized = {
   ru: 'Ещё несколько вопросов своими словами — они помогут NOV-01 понять тебя точнее, чем шкала.',

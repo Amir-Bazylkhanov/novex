@@ -4,7 +4,7 @@
 // урок»), база автоматически вызывает эту функцию. Она рассылает уведомление
 // на все устройства пользователя (push в браузер) и, для важных событий,
 // дополнительно отправляет письмо на e-mail. Сама отправка идёт через
-// сервис Locus, поэтому ключи почтовых и push-сервисов здесь не хранятся.
+// внешний релей уведомлений (novex-notify), поэтому ключи почтовых и push-сервисов здесь не хранятся.
 // ============================================================================
 //
 // dispatch-notification-push — NOVEX edge function.
@@ -16,7 +16,7 @@
 // service-role-only RPC get_push_dispatch_secret() on every call, then
 // compared constant-time.
 //
-// Push + email are relayed through the Locus notify function
+// Push + email are relayed through an external notify relay (novex-notify)
 // (LOCUS_NOTIFY_URL, x-novex-secret auth) — the same shared-secret
 // pattern as ai-chat, so no provider keys live here.
 //
@@ -26,8 +26,8 @@
 
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2.38.4';
 
-// Настройки подключения: адрес базы, служебный ключ Supabase, адрес Locus
-// и общий секрет. Всё это задаётся на сервере и не видно в браузере.
+// Настройки подключения: адрес базы, служебный ключ Supabase, адрес внешнего
+// релея уведомлений и общий секрет. Всё это задаётся на сервере и не видно в браузере.
 const SUPABASE_URL = Deno.env.get('SUPABASE_URL') ?? '';
 const SUPABASE_SERVICE_ROLE_KEY = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') ?? '';
 const RELAY_URL = Deno.env.get('LOCUS_NOTIFY_URL') ?? '';
@@ -128,7 +128,7 @@ function buildEmailHtml(title: string, bodyLine: string | null): string {
   ].join('');
 }
 
-// Отправляет сообщение в Locus (push или e-mail) с общим секретом
+// Отправляет сообщение во внешний релей уведомлений (push или e-mail) с общим секретом
 // и возвращает ответ. Вся реальная отправка происходит там.
 async function relay(message: Record<string, unknown>): Promise<Record<string, unknown>> {
   const res = await fetch(RELAY_URL, {

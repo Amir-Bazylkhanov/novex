@@ -32,6 +32,15 @@ import { ACADEMY_DIRECTIONS, ACADEMY_PLANETS } from '../constants/academy/catalo
 import { RobotAvatar } from './robots/RobotAvatars.tsx';
 import SchoolAutocomplete from './SchoolAutocomplete.tsx';
 
+// ============================================================
+// Страница «Профиль» (/profile). Здесь пользователь редактирует
+// свой аккаунт (имя, фото), учебный профиль (класс, предметы,
+// цель, школа, регион), баллы ЕНТ/SAT/IELTS, выбирает модель ИИ
+// для чата с Академиком и (для ученика) свой класс. Все данные
+// читаются и сохраняются через Supabase (см. context/AuthContext.tsx
+// и services/supabaseClient.ts).
+// ============================================================
+
 /* --- content --- */
 
 const PAGE_TITLE: Localized = {
@@ -376,6 +385,12 @@ const GRADES: readonly number[] = [7, 8, 9, 10, 11, 12];
 
 /* --- form state --- */
 
+// FormState собирает все поля формы в один объект. fromProfile превращает
+// профиль из базы в такой объект, а serialize — обратно в строку: сравнивая
+// две строки (текущую форму и ту, что была при загрузке), ниже определяется,
+// изменил ли пользователь что-то (переменная dirty), и нужно ли показывать
+// кнопку «Сохранить».
+
 interface ClassRow {
   id: string;
   school: string;
@@ -426,6 +441,10 @@ const serialize = (f: FormState): string =>
   });
 
 /* Exam score validation — empty means "not set"; only non-empty values are checked. */
+
+// Проверка баллов ЕНТ, SAT и IELTS: пустое поле считается «балл не указан»
+// и ошибкой не считается, а ошибка показывается только если поле заполнено,
+// но введённое число не подходит под допустимый диапазон/формат.
 
 const validEntScore = (raw: string): boolean => {
   if (!/^\d+$/.test(raw)) return false;
@@ -487,6 +506,10 @@ const ProfilePage: React.FC = () => {
     ? { ...FADE_UP, initial: { opacity: 0 }, animate: { opacity: 1 } }
     : FADE_UP;
 
+  // form — все поля формы (пустые по умолчанию, заполняются из профиля ниже);
+  // baseline — «слепок» формы на момент загрузки, для сравнения с текущей;
+  // saving/saved/error — состояние отправки формы и сообщение об ошибке;
+  // avatarUploading/avatarBroken — идёт ли загрузка фото и не сломалась ли картинка аватарки.
   const [form, setForm] = useState<FormState>({
     fullName: '',
     grade: null,
@@ -512,6 +535,8 @@ const ProfilePage: React.FC = () => {
   const [openDirections, setOpenDirections] = useState<Record<string, boolean>>({});
   const [openGroups, setOpenGroups] = useState<Record<string, boolean>>({});
 
+  // Класс ученика (только для роли «ученик») — id класса, список классов
+  // для выбора, поисковая строка и статус сохранения/ошибки.
   // class membership (student role only) — class_id is not part of the
   // AuthContext profile mapping, so this card reads/writes it directly
   const [myClassId, setMyClassId] = useState<string | null>(null);
@@ -520,6 +545,8 @@ const ProfilePage: React.FC = () => {
   const [classSaving, setClassSaving] = useState(false);
   const [classError, setClassError] = useState<string | null>(null);
 
+  // Как только профиль загрузился из базы — заполняем им форму (один раз
+  // на каждый профиль, hydratedIdRef не даёт затереть то, что уже правит пользователь).
   useEffect(() => {
     if (profile && hydratedIdRef.current !== profile.id) {
       hydratedIdRef.current = profile.id;
@@ -531,6 +558,7 @@ const ProfilePage: React.FC = () => {
     }
   }, [profile]);
 
+  // dirty — есть ли несохранённые изменения (сравниваем текущую форму со «слепком»).
   const dirty = useMemo(
     () => baseline !== null && serialize(form) !== baseline,
     [form, baseline],
@@ -541,11 +569,15 @@ const ProfilePage: React.FC = () => {
   }, [dirty]);
 
   // a new avatar URL gets a fresh chance to load
+  // Новая ссылка на аватарку — снова пробуем её показать (даже если
+  // предыдущая картинка не загрузилась).
   useEffect(() => {
     setAvatarBroken(false);
   }, [profile?.avatar_url]);
 
   // load the student's current class and the list of classes to pick from
+  // Загружаем из базы текущий класс ученика и полный список классов,
+  // из которых можно выбрать (используется в блоке «Мой класс» ниже).
   useEffect(() => {
     if (!profile || profile.role !== 'student') return;
     let cancelled = false;
@@ -590,6 +622,8 @@ const ProfilePage: React.FC = () => {
 
   const myClass = myClassId ? (classOptions.find((c) => c.id === myClassId) ?? null) : null;
 
+  // Сохраняет выбор класса (или выход из класса, если передать null)
+  // напрямую в таблицу profiles в базе данных.
   const saveClass = async (nextClassId: string | null) => {
     if (!profile || classSaving) return;
     setClassSaving(true);
@@ -616,6 +650,8 @@ const ProfilePage: React.FC = () => {
     );
   }
 
+  // Отправка формы: собирает изменённые поля в один объект (patch)
+  // и сохраняет его в профиль через updateProfile (AuthContext).
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (!dirty || saving) return;
@@ -648,6 +684,7 @@ const ProfilePage: React.FC = () => {
 
   const avatarInitial = (profile.full_name?.trim() || user.email).charAt(0).toUpperCase();
 
+  // Загрузка новой фотографии профиля (файл выбирается через скрытый input).
   const handleAvatarChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     // reset so picking the same file again still fires onChange
@@ -666,6 +703,9 @@ const ProfilePage: React.FC = () => {
     if (removeError) setError(removeError);
   };
 
+  // toggleSubject/toggleDirection/toggleSubjectGroup — добавляют или убирают
+  // предмет из выбранных и открывают/закрывают раскрывающиеся списки
+  // направлений и групп предметов в дереве ниже.
   const toggleSubject = (slug: string) =>
     setForm((f) => ({
       ...f,
@@ -680,6 +720,8 @@ const ProfilePage: React.FC = () => {
   const toggleSubjectGroup = (key: string) =>
     setOpenGroups((m) => ({ ...m, [key]: !m[key] }));
 
+  // Считает, сколько предметов/планет выбрано внутри одного направления —
+  // число показывается на свёрнутой карточке направления.
   // selections bubble up: academic counts school subjects, others count planets
   const countDirectionSelections = (direction: (typeof SUBJECT_TREE)[number]): number =>
     direction.groups.length > 0

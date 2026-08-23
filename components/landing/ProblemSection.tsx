@@ -5,6 +5,10 @@ import { GearDecor, CircuitTrace } from '../robots/RobotAvatars.tsx';
 import { loc, type Localized } from '../../utils/i18n.ts';
 import { useLanguage } from '../../context/LanguageContext.tsx';
 
+// Секция лендинга «Проблема»: четыре карточки с проблемами неравного доступа
+// к качественной подготовке плюс боковая карточка с иллюстративной цифрой
+// «×2–3». Цифра условная, для наглядности, о чём честно написано в подписи.
+
 const EYEBROW: Localized = {
   ru: 'Проблема',
   kk: 'Мәселе',
@@ -23,6 +27,7 @@ const SUBTITLE: Localized = {
   en: 'Kazakhstan is big and opportunities are uneven. These are the four problems Novex solves.',
 };
 
+// Четыре проблемы, которые выводятся карточками в сетке.
 const PROBLEMS: Array<{ icon: React.ElementType; title: Localized; effect: Localized }> = [
   {
     icon: MapPin,
@@ -88,6 +93,7 @@ const STAT_CAPTION: Localized = {
   kk: 'Ірі қалаларда репетиторларға қолжетімділік ауылдарға қарағанда осынша есе жоғары.',
   en: 'How many times wider tutor access is in big cities than in rural areas.',
 };
+// Честная сноска: цифра ×2–3 рядом — не официальная статистика, а оценка для иллюстрации.
 const STAT_NOTE: Localized = {
   ru: 'Это оценка для иллюстрации проблемы, а не официальная статистика.',
   kk: 'Бұл мәселені көрсету үшін берілген бағалау, ресми статистика емес.',
@@ -114,6 +120,8 @@ const ProblemSection: React.FC = () => {
     transition: { duration: reduceMotion ? 0 : 0.5 },
   };
 
+  // Хелпер для задержки анимации каждой следующей карточки — чтобы они
+  // появлялись по очереди, а не все разом.
   const step = (delay: number) => ({
     duration: reduceMotion ? 0 : 0.5,
     delay: reduceMotion ? 0 : delay,

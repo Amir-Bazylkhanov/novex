@@ -1,6 +1,15 @@
 import type { Localized } from '../../utils/i18n.ts';
 import type { AcademyPlanet, AcademySection } from './catalog.ts';
 
+// ============================================
+// Разбивка «многопредметных» планет Академии (core_sciences, apib,
+// admission_exams) на отдельные предметы. У таких планет внутри одного
+// класса вперемешку идут секции разных предметов (математика, физика,
+// химия...), из-за чего просто открыть все секции подряд неудобно — темы
+// прыгают туда-сюда. Этот файл строит для каждого предмета свою «лестницу
+// сложности»: подряд идут все его секции по всем классам, от младших к
+// старшим. Другие (однопредметные) планеты этот файл не трогает.
+// ============================================
 /* Multi-subject planets (core_sciences, apib, admission_exams) interleave
    several subjects inside every grade's sections[] — so the raw grade-picked
    strip reads "Level 1–4 = math, Level 5–6 = physics…". This module splits
@@ -8,6 +17,7 @@ import type { AcademyPlanet, AcademySection } from './catalog.ts';
    subject across ALL grades, ascending grade order, then in-file order.
    All other planets are untouched and keep the grade-picked flow. */
 
+// Один предмет внутри многопредметной планеты (например, "math" в core_sciences).
 export interface AcademyTrackSubject {
   id: string;
   name: Localized;
@@ -19,6 +29,8 @@ const GENERAL_PREP: Localized = {
   en: 'General',
 };
 
+// Список предметов для каждой многопредметной планеты (по slug планеты).
+// Планеты, которых здесь нет, считаются однопредметными.
 export const PLANET_SUBJECTS: Record<string, AcademyTrackSubject[]> = {
   core_sciences: [
     { id: 'math', name: { ru: 'Математика', kk: 'Математика', en: 'Mathematics' } },
@@ -43,12 +55,16 @@ export const PLANET_SUBJECTS: Record<string, AcademyTrackSubject[]> = {
   ],
 };
 
+// Есть ли у планеты деление на предметы (многопредметная она или нет).
 export const hasSubjects = (slug: string): boolean => PLANET_SUBJECTS[slug] !== undefined;
 
 /* Exhaustive title → subject table for core_sciences: every section title in
    lessons/core_sciences_full.ts (grades 8–12), keyed by the ENGLISH title.
    Grade-12 "Biochemistry" reads as chemistry (chemical processes in living
    organisms, biomolecules, the respiration equation), so it sits in chemistry. */
+// Таблица «название темы (по-английски) → предмет» для планеты core_sciences:
+// перечислены все темы уроков 8–12 классов, чтобы понять, к математике,
+// физике, химии или биологии относится каждая секция.
 const CORE_SCIENCES_SUBJECT: Record<string, string> = {
   // math — grade 8
   'Integers and rationals: Number sets': 'math',
@@ -113,6 +129,8 @@ const CORE_SCIENCES_SUBJECT: Record<string, string> = {
   'Human Physiology': 'biology',
 };
 
+// Определяет предмет секции планеты apib по началу её английского названия
+// (AP Calc → ap_calc, AP Physics → ap_physics и т.д.).
 const apibSubjectId = (title: string): string => {
   if (title.startsWith('AP Calc') || title.startsWith('Pre-AP Math')) return 'ap_calc';
   if (title.startsWith('AP Physics')) return 'ap_physics';
@@ -122,6 +140,7 @@ const apibSubjectId = (title: string): string => {
   return 'general';
 };
 
+// То же самое для планеты admission_exams: SAT/ACT/IELTS/TOEFL по началу названия.
 const admissionExamsSubjectId = (title: string): string => {
   if (title.startsWith('SAT') || title.startsWith('Subject SAT')) return 'sat';
   if (title.startsWith('ACT')) return 'act';
@@ -133,6 +152,8 @@ const admissionExamsSubjectId = (title: string): string => {
 /** Classify a section into its subject by the ENGLISH title. Unknown titles
     fall back to the planet's first subject (defensive — the tables above are
     meant to be exhaustive). */
+// Определяет предмет секции по её английскому названию и slug планеты
+// (переключается между тремя таблицами выше в зависимости от планеты).
 export const sectionSubjectId = (planetSlug: string, sectionTitle: string): string => {
   const subjects = PLANET_SUBJECTS[planetSlug];
   const fallback = subjects?.[0]?.id ?? '';
@@ -148,6 +169,8 @@ export const sectionSubjectId = (planetSlug: string, sectionTitle: string): stri
   }
 };
 
+// Одна секция planet.lessons, "распрямлённая" в общий список по всем классам,
+// с указанием предмета и сквозного номера (flatIndex).
 export interface FlatSection {
   /** Position across all grades concatenated — the identity progress, routes
       (`/learn/p/<slug>/<flatIndex>`) and plan refs (`slug::flatIndex`) use. */
@@ -159,10 +182,14 @@ export interface FlatSection {
 
 /* flattenPlanetSections is called from several pages per render — memoize per
    planet slug (lesson data is a static module constant). */
+// Кэш результатов flattenPlanetSections, чтобы не пересчитывать список заново
+// при каждом рендере страницы (данные уроков не меняются во время работы сайта).
 const flatCache = new Map<string, FlatSection[]>();
 
 /** All of a planet's sections, grades ascending (trailing `_N` key), then
     in-file order, each stamped with its running flat index. */
+// Собирает все секции планеты (по всем классам, от младших к старшим) в один
+// плоский список с проставленным предметом и сквозным номером каждой секции.
 export const flattenPlanetSections = (planet: AcademyPlanet): FlatSection[] => {
   const cached = flatCache.get(planet.slug);
   if (cached) return cached;
@@ -189,5 +216,7 @@ export const flattenPlanetSections = (planet: AcademyPlanet): FlatSection[] => {
 
 /** One subject's difficulty ladder: its sections across all grades, in
     ascending grade order. */
+// Возвращает "лестницу сложности" одного предмета: все его секции по всем
+// классам, от простых к сложным, — то, что видит ученик, выбравший этот предмет.
 export const ladderForSubject = (planet: AcademyPlanet, subjectId: string): FlatSection[] =>
   flattenPlanetSections(planet).filter((entry) => entry.subjectId === subjectId);
