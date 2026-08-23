@@ -1,3 +1,8 @@
+// Страница регистрации (маршрут /signup).
+// Новый пользователь выбирает роль (ученик или учитель), вводит имя, email
+// и пароль либо регистрируется через Google. Если включено подтверждение
+// почты, вместо формы показывается экран «Проверьте почту».
+// Регистрация выполняется через Supabase (см. context/AuthContext.tsx).
 import React, { useRef, useState } from 'react';
 import { Link, Navigate, useNavigate } from 'react-router-dom';
 import {
@@ -156,8 +161,11 @@ const CONFIRM_BODY2: Localized = {
   en: 'Click it to finish creating your account.',
 };
 
+// Простая проверка, что строка похожа на адрес электронной почты.
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+// Требования к паролю: минимум 8 символов, заглавная и строчная буквы, цифра.
+// Каждое правило умеет проверять пароль и показывается в списке под полем.
 const PASSWORD_RULES: Array<{
   key: string;
   label: Localized;
@@ -169,9 +177,11 @@ const PASSWORD_RULES: Array<{
   { key: 'digit', label: RULE_DIGIT, test: (p) => /\d/.test(p) },
 ];
 
+// Общий стиль подсветки элементов при фокусе с клавиатуры.
 const FOCUS_RING =
   'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2 focus-visible:ring-offset-canvas';
 
+// Иконка-логотип Novex (буква N в бирюзовом квадрате).
 const LogoGlyph: React.FC = () => (
   <svg aria-hidden="true" viewBox="0 0 32 32" className="h-8 w-8 shrink-0" fill="none">
     <rect width="32" height="32" rx="8" className="fill-teal" />

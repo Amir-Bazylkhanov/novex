@@ -1,3 +1,7 @@
+// Модальное окно жалобы на сообщение.
+// Пользователь описывает проблему, жалоба сохраняется в базе через
+// services/communityService.ts, после чего недолго показывается экран
+// «Жалоба отправлена». Открывается из ChannelView по кнопке с флажком.
 import React, { useEffect, useState } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { AlertCircle, Flag, Loader2, ShieldCheck, X } from 'lucide-react';
@@ -6,6 +10,7 @@ import { useLanguage } from '../../context/LanguageContext.tsx';
 import { useAuth } from '../../context/AuthContext.tsx';
 import { reportMessage } from '../../services/communityService.ts';
 
+// Тексты интерфейса на трёх языках (русский / казахский / английский).
 const TITLE: Localized = {
   ru: 'Пожаловаться на сообщение',
   kk: 'Хабарламаға шағымдану',
@@ -47,10 +52,13 @@ interface ReportModalProps {
   onClose: () => void;
 }
 
+// Компонент модального окна: open — открыто ли окно, messageId — на какое
+// сообщение жалуемся, messagePreview — его текст для показа в окне.
 const ReportModal: React.FC<ReportModalProps> = ({ open, messageId, messagePreview, onClose }) => {
   const { language } = useLanguage();
   const { user } = useAuth();
   const reducedMotion = useReducedMotion();
+  // Текст жалобы и служебные флаги: отправка, ошибка, успешная отправка.
   const [reason, setReason] = useState('');
   const [submitting, setSubmitting] = useState(false);
   const [failed, setFailed] = useState(false);

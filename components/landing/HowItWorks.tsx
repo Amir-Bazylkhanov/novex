@@ -1,3 +1,8 @@
+// HowItWorks — секция лендинга «Как это работает»: пять шагов пути ученика в Novex.
+// На больших экранах это интерактивная витрина: секция «прилипает» к экрану, и пока
+// пользователь листает страницу, слева подсвечивается текущий шаг, а справа меняется
+// скриншот соответствующего экрана платформы. На телефонах — просто список шагов
+// с картинками один под другим. Тексты хранятся на трёх языках (ru/kk/en).
 import React, { useRef, useState } from 'react';
 import {
   AnimatePresence,
@@ -45,6 +50,8 @@ const SUBTITLE: Localized = {
 };
 
 /* --- steps --- */
+// Данные о пяти шагах: иконка, адрес страницы (показывается в «окне браузера»),
+// скриншот экрана и тексты названия с описанием.
 
 const STEPS: Array<{
   icon: React.ElementType;
@@ -136,6 +143,7 @@ const FOCUS_RING =
   'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2 focus-visible:ring-offset-canvas';
 
 /** Fake browser window chrome, same look as the TeacherPanel mock. */
+// Рамка «окна браузера» вокруг скриншота: три цветные точки и строка с адресом сайта.
 const BrowserFrame: React.FC<{
   url: string;
   heightClass: string;
@@ -158,6 +166,8 @@ const BrowserFrame: React.FC<{
 
 /** Thin vertical meter between two step circles, filled by scroll progress
     across this step's slice of the pinned track. */
+// Тонкая вертикальная линия между кружками шагов. По мере прокрутки страницы
+// она постепенно «заполняется» бирюзовым цветом — показывает прогресс.
 const StepMeter: React.FC<{ progress: MotionValue<number>; index: number }> = ({
   progress,
   index,
@@ -171,6 +181,8 @@ const StepMeter: React.FC<{ progress: MotionValue<number>; index: number }> = ({
 };
 
 /** Numbered step circle: solid teal when active, gear-decorated when idle. */
+// Кружок с номером шага. У активного шага — сплошная бирюзовая заливка,
+// у остальных — белый фон с декоративной шестерёнкой.
 const StepCircle: React.FC<{ index: number; active: boolean }> = ({ index, active }) => (
   <span
     className={`relative flex h-11 w-11 shrink-0 items-center justify-center rounded-full ${
@@ -194,19 +206,26 @@ const StepCircle: React.FC<{ index: number; active: boolean }> = ({ index, activ
 
 const HowItWorks: React.FC = () => {
   const { language } = useLanguage();
+  // Учитываем настройку пользователя «уменьшить анимации» (для людей, чувствительных к движению).
   const reduceMotion = useReducedMotion();
+  // Ссылка на высокий «трек» секции — по его положению считаем, какой шаг сейчас активен.
   const trackRef = useRef<HTMLDivElement>(null);
+  // Номер текущего активного шага (от 0 до 4).
   const [active, setActive] = useState(0);
 
+  // Прогресс прокрутки внутри «трека»: от 0 (секция только вошла) до 1 (секция прошла полностью).
   const { scrollYProgress } = useScroll({
     target: trackRef,
     offset: ['start start', 'end end'],
   });
 
+  // Каждый раз, когда прогресс прокрутки меняется, переводим его в номер шага (0–4)
+  // и обновляем подсветку в списке и скриншот справа.
   useMotionValueEvent(scrollYProgress, 'change', (v) => {
     setActive(Math.min(4, Math.max(0, Math.floor(v * 5))));
   });
 
+  // Клик по шагу в списке: плавно прокручиваем страницу к месту, где этот шаг станет активным.
   const jumpTo = (i: number) => {
     const el = trackRef.current;
     if (!el) return;
@@ -246,6 +265,8 @@ const HowItWorks: React.FC = () => {
         </motion.div>
 
         {/* Desktop: scroll-pinned showcase */}
+        {/* Версия для больших экранов: высокий блок (в 4,5 раза выше экрана), внутри которого
+            содержимое «прилипает» к верху. Прокрутка страницы переключает шаги и скриншоты. */}
         <div ref={trackRef} className="relative mt-4 hidden lg:block lg:h-[450vh]">
           <div className="sticky top-16 flex h-[calc(100vh-4rem)] items-center">
             <div className="grid w-full items-center gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] xl:gap-16">
@@ -285,7 +306,8 @@ const HowItWorks: React.FC = () => {
                 })}
               </ol>
 
-              {/* screen mock */}
+              {/* screen mock — «окно браузера» со скриншотом текущего шага;
+                  при смене шага картинка плавно уезжает вверх, а новая появляется снизу */}
               <div className="min-w-0">
                 <BrowserFrame url={STEPS[active].url} heightClass="h-[26rem] xl:h-[28rem]">
                   <AnimatePresence initial={false}>
@@ -315,6 +337,7 @@ const HowItWorks: React.FC = () => {
         </div>
 
         {/* Mobile: stacked steps, no pinning */}
+        {/* Версия для телефонов: шаги просто идут один за другим, без «прилипания» экрана */}
         <ol className="mt-12 space-y-12 lg:hidden">
           {STEPS.map((step, i) => {
             const Icon = step.icon;

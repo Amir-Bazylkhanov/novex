@@ -1,3 +1,9 @@
+// Корневой компонент приложения Novex — «скелет» всего сайта.
+// Здесь собрана карта всех страниц (маршруты): лендинг, вход/регистрация,
+// дашборд ученика, обучение, практика, сообщество, профориентация и т.д.
+// Также здесь подключаются шапка (Header), подвал (Footer), чат с ИИ-тьютором
+// и глобальные настройки языка (LanguageContext) и авторизации (AuthContext).
+// Этот файл запускается из index.tsx.
 import React, { useEffect } from 'react';
 import { BrowserRouter, Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import { LanguageProvider } from './context/LanguageContext.tsx';
@@ -43,6 +49,8 @@ const ScrollToTop: React.FC = () => {
 const Shell: React.FC = () => {
   const { pathname } = useLocation();
   // Auth pages render their own chrome (own Novex wordmark), so no Header/Footer there.
+  // На страницах входа, регистрации и онбординга (первичной диагностики)
+  // общая шапка и подвал не показываются — у них собственный вид.
   const bareRoute =
     pathname === '/login' ||
     pathname === '/signup' ||
@@ -50,16 +58,21 @@ const Shell: React.FC = () => {
     pathname === '/onboarding';
 
   return (
+    // Невидимый компонент: при переходе на новую страницу мгновенно
+    // прокручивает экран наверх, чтобы пользователь не оказался внизу.
     <>
       <ScrollToTop />
       {!bareRoute && <Header />}
       <Routes>
+        {/* Публичные страницы — доступны всем без входа в аккаунт */}
         <Route path="/" element={<LandingPage />} />
         <Route path="/pricing" element={<PricingPage />} />
         <Route path="/faq" element={<FaqPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/auth/callback" element={<AuthCallback />} />
+        {/* Защищённые страницы — только для вошедших пользователей.
+            ProtectedRoute проверяет авторизацию и иначе отправляет на вход. */}
         <Route element={<ProtectedRoute />}>
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/onboarding" element={<DiagnosticPage />} />
@@ -75,6 +88,7 @@ const Shell: React.FC = () => {
           <Route path="/community" element={<CommunityPage />} />
           <Route path="/career" element={<CareerTestPage />} />
         </Route>
+        {/* Любой неизвестный адрес — перенаправляем на главную страницу */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
       {!bareRoute && <Footer />}
@@ -89,6 +103,8 @@ const Shell: React.FC = () => {
 
 const App: React.FC = () => {
   // Smooth scrolling for anchor navigation, disabled for reduced-motion users.
+  // Плавная прокрутка при переходе по якорным ссылкам; отключается для
+  // пользователей, у которых в системе включён режим «меньше анимаций».
   useEffect(() => {
     const media = window.matchMedia('(prefers-reduced-motion: reduce)');
     const apply = () => {
@@ -100,6 +116,10 @@ const App: React.FC = () => {
   }, []);
 
   return (
+    // Обёртки приложения: BrowserRouter отвечает за переходы по страницам,
+    // LanguageProvider — за язык интерфейса (ru/kk/en),
+    // AuthProvider — за вход пользователя и его профиль.
+    // Внутри них лежит Shell — сама разметка страниц (см. выше).
     <BrowserRouter>
       <LanguageProvider>
         <AuthProvider>

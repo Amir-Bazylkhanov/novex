@@ -1,6 +1,13 @@
 <!doctype html>
 <html lang="ru">
   <head>
+    <!--
+      NOVEX · главная (и единственная) HTML-страница приложения.
+      Это «коробка», в которую браузер загружает всё приложение Novex:
+      сам интерфейс собирается кодом из файла index.tsx и появляется
+      внутри пустого блока <div id="root"> внизу страницы. Здесь задаются
+      название вкладки, описание сайта для поисковиков, иконка и шрифты.
+    -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
@@ -11,6 +18,8 @@
       rel="icon"
       href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23219FA2'/%3E%3Cpath d='M10 23V9l12 14V9' stroke='white' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E"
     />
+    <!-- Подключаем шрифты сайта (Inter, JetBrains Mono, Manrope) с Google Fonts,
+         включая кириллицу для русского и казахского текстов. -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -20,7 +29,10 @@
     <title>Novex - AI-платформа персонализированного образования</title>
   </head>
   <body>
+    <!-- Пустой блок-контейнер: сюда код из index.tsx «монтирует» весь
+         интерфейс приложения (страницы, кнопки, чаты и т.д.). -->
     <div id="root"></div>
+    <!-- Точка входа: этот скрипт загружает и запускает всё приложение. -->
     <script type="module" src="/index.tsx"></script>
   </body>
 </html>

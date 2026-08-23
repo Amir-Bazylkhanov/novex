@@ -1,3 +1,9 @@
+// ============================================
+// Сервис внутренней валюты приложения — «Новасов».
+// Ученик зарабатывает Новасы за учебные действия (начисляет сервер
+// автоматически) и тратит их, например, на вопросы ИИ-тьютору.
+// Здесь всего две операции: узнать баланс и списать Новасы.
+// ============================================
 import { supabase } from './supabaseClient.ts';
 
 /**
@@ -12,6 +18,7 @@ export interface SpendNovasResult {
   error?: string;
 }
 
+// Узнать текущий баланс Новасов пользователя (null — если записи нет или запрос не удался).
 /** Current user's Nova balance, or null when there is no row / request fails. */
 export async function fetchNovaBalance(): Promise<number | null> {
   const { data, error } = await supabase.from('user_novas').select('balance').single();
@@ -19,6 +26,8 @@ export async function fetchNovaBalance(): Promise<number | null> {
   return data.balance;
 }
 
+// Списывает Новасы за действие (например, за сообщение ИИ-тьютору).
+// Сервер сам определяет, кто пользователь, — поэтому id передавать не нужно.
 /**
  * Charge Novas for an action. Returns the RPC payload verbatim in typed form;
  * `error` is 'insufficient_balance' | 'no_account' | a transport message.

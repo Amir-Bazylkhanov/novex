@@ -1,3 +1,8 @@
+// Страница «Сообщество» — общий раздел для общения учеников и учителей.
+// Показывает список каналов (тем для обсуждения), позволяет создавать новые
+// каналы и удалять свои. Сам чат выбранного канала рисует компонент
+// ChannelView, а список каналов загружается из базы Supabase через
+// services/communityService.ts.
 import React, { useCallback, useEffect, useState } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { AlertCircle, Hash, Loader2, MessagesSquare, Plus, Trash2 } from 'lucide-react';
@@ -13,6 +18,8 @@ import {
   type CommunityChannel,
 } from '../../services/communityService.ts';
 
+// Тексты интерфейса на трёх языках (русский / казахский / английский).
+// Нужный вариант выбирает функция loc() по текущему языку пользователя.
 const KICKER: Localized = {
   ru: 'Сообщество Novex',
   kk: 'Novex қауымдастығы',
@@ -86,13 +93,17 @@ const DELETE_ERROR: Localized = {
   en: 'Could not delete the channel.',
 };
 
+// Единый стиль рамки фокуса — чтобы страницей было удобно пользоваться с клавиатуры.
 const FOCUS_RING =
   'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2 focus-visible:ring-offset-canvas';
 
+// Главный компонент страницы: хранит список каналов и то, какой канал сейчас открыт.
 const CommunityPage: React.FC = () => {
   const { language } = useLanguage();
   const { user } = useAuth();
   const reducedMotion = useReducedMotion();
+  // Состояния: каналы, открытый канал, флаги загрузки и ошибок,
+  // окно создания канала и процесс удаления канала.
   const [channels, setChannels] = useState<CommunityChannel[]>([]);
   const [activeId, setActiveId] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);

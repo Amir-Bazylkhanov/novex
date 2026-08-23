@@ -20,6 +20,14 @@ import {
 } from '../../constants/academy/catalog.ts';
 import { buildSkipTest, type SkipTestQuestion } from './PlanetSkipTest.tsx';
 
+// ============================================================
+// Тест на определение уровня («Подобрать уровень») — всплывающее
+// окно на странице модуля. Задаёт по паре вопросов с каждого уровня
+// и по ответам решает, с какого уровня ученику начинать: все уровни
+// ниже открываются автоматически. Открывается из PlanetPage, вопросы
+// собирает с помощью buildSkipTest из PlanetSkipTest.tsx.
+// ============================================================
+
 /* --- content --- */
 
 const PLACEMENT_TITLE: Localized = {
@@ -104,6 +112,8 @@ interface PlacementQuestion extends SkipTestQuestion {
   sectionIndex: number;
 }
 
+// Собираем вопросы для теста: берём до 2 вопросов с каждого уровня,
+// чередуя уровни, — всего не больше 12 вопросов на тест.
 const buildPlacementTest = (sections: AcademySection[], language: Lang): PlacementQuestion[] => {
   const bySection: Array<{ sectionIndex: number; questions: SkipTestQuestion[] }> = [];
   sections.forEach((section, sectionIndex) => {
@@ -140,6 +150,10 @@ export interface PlacementResult {
   acedEverything: boolean;
 }
 
+// Подсчёт результата: находим первый уровень, где ученик набрал
+// меньше 50% правильных ответов, — с него он и начнёт. Все уровни
+// до него считаются известными и открываются сразу; уровни, из которых
+// не попало ни одного вопроса, тоже считаем известными.
 const scorePlacement = (
   sections: AcademySection[],
   questions: PlacementQuestion[],
@@ -174,6 +188,8 @@ const scorePlacement = (
 
 /* --- component --- */
 
+// Само окно теста: вопросы показываются по одному с полосой прогресса,
+// в конце — экран результата с подобранным уровнем.
 interface PlanetPlacementTestProps {
   sections: AcademySection[];
   /** Shown in the intro copy, e.g. "NOV-01". */
@@ -197,12 +213,15 @@ const PlanetPlacementTest: React.FC<PlanetPlacementTestProps> = ({
 }) => {
   const { language } = useLanguage();
   const reducedMotion = useReducedMotion();
+  // Состояния окна: выбранные ответы, итог теста, номер текущего
+  // вопроса и направление анимации (вперёд/назад).
   const [answers, setAnswers] = useState<Record<number, number>>({});
   const [result, setResult] = useState<PlacementResult | null>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState<1 | -1>(1);
 
   const questions = useMemo(() => buildPlacementTest(sections, language), [sections, language]);
+  // true, когда на все вопросы дан ответ — тогда можно завершать тест.
   const allAnswered = questions.length > 0 && Object.keys(answers).length === questions.length;
 
   // Defensive: the caller only opens this when questions exist, but bail
@@ -211,6 +230,8 @@ const PlanetPlacementTest: React.FC<PlanetPlacementTestProps> = ({
     if (questions.length === 0) onClose();
   }, [questions.length, onClose]);
 
+  // Пока окно теста открыто — блокируем прокрутку страницы под ним;
+  // клавиша Escape закрывает тест.
   useEffect(() => {
     const prev = document.body.style.overflow;
     document.body.style.overflow = 'hidden';

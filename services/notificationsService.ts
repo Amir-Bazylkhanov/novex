@@ -1,3 +1,10 @@
+// ============================================
+// Сервис уведомлений.
+// Первая часть — уведомления внутри приложения: список и отметки
+// «прочитано» (сами уведомления создаёт сервер). Вторая часть —
+// браузерные push-уведомления: подписка, отписка и сохранение
+// подписки на сервере.
+// ============================================
 import { supabase } from './supabaseClient.ts';
 
 /**
@@ -43,6 +50,7 @@ export async function markAllRead(): Promise<void> {
 /** 'denied' is distinct so the UI can tell the user to unblock browser settings. */
 export type EnablePushResult = 'enabled' | 'denied' | 'error';
 
+// Переводит публичный ключ сервера (VAPID) в формат, который понимает браузер.
 function urlBase64ToUint8Array(base64String: string): Uint8Array {
   const padding = '='.repeat((4 - (base64String.length % 4)) % 4);
   const base64 = (base64String + padding).replace(/-/g, '+').replace(/_/g, '/');
@@ -54,6 +62,7 @@ function urlBase64ToUint8Array(base64String: string): Uint8Array {
   return outputArray;
 }
 
+// Проверка: умеет ли браузер вообще показывать push-уведомления.
 export function isPushSupported(): boolean {
   return 'serviceWorker' in navigator && 'PushManager' in window;
 }
@@ -66,13 +75,18 @@ export async function getPushSubscription(): Promise<PushSubscription | null> {
   return registration.pushManager.getSubscription();
 }
 
+// Включает push-уведомления: спрашивает разрешение у пользователя,
+// подписывает браузер и сохраняет подписку на сервере.
 export async function enablePush(): Promise<EnablePushResult> {
   if (!isPushSupported()) return 'error';
   try {
+    // Если пользователь раньше запретил уведомления в настройках браузера — сообщаем об этом.
     if (Notification.permission === 'denied') return 'denied';
     const registration = await navigator.serviceWorker.register('/sw.js');
+    // Спрашиваем у пользователя разрешение показывать уведомления.
     const permission = await Notification.requestPermission();
     if (permission !== 'granted') return 'denied';
+    // Публичный ключ сервера — нужен браузеру, чтобы оформить подписку.
     const vapidKey = import.meta.env.VITE_VAPID_PUBLIC_KEY as string | undefined;
     if (!vapidKey) return 'error';
     const subscription = await registration.pushManager.subscribe({
@@ -84,6 +98,7 @@ export async function enablePush(): Promise<EnablePushResult> {
     const p256dh = json.keys?.p256dh;
     const auth = json.keys?.auth;
     if (!endpoint || !p256dh || !auth) return 'error';
+    // Сохраняем подписку на сервере, чтобы сервер мог слать уведомления на это устройство.
     const { error } = await supabase.rpc('register_push_subscription', {
       p_endpoint: endpoint,
       p_p256dh: p256dh,

@@ -30,6 +30,14 @@ import {
 import { LEARN_DIRECTIONS } from '../../constants/learnDirections.ts';
 import { pickGradeContent, planetsByRobot } from '../../constants/academy/catalog.ts';
 
+// ============================================================
+// Страница «Обучение» (/learn) — главный раздел с уроками.
+// Здесь ученик выбирает робота-наставника (направление) и видит
+// его учебные модули, а также уроки, которые учитель добавил
+// для его класса. Прогресс, диагностика и класс загружаются
+// из базы Supabase (см. services/supabaseClient.ts).
+// ============================================================
+
 /* --- content --- */
 
 const ROBOT_LABEL: Localized = {
@@ -128,6 +136,8 @@ const MENTOR_EXTRAS: Record<MentorRobotId, Omit<Mentor, 'id' | 'name' | 'subject
   },
 };
 
+// Три робота-наставника собираются из общего каталога направлений
+// (constants/learnDirections.ts) и подписей из MENTOR_EXTRAS выше.
 const MENTORS: Mentor[] = LEARN_DIRECTIONS.map((direction) => ({
   id: direction.robot,
   name: direction.name,
@@ -161,6 +171,8 @@ const JOIN_BANNER_BTN: Localized = {
   en: 'Choose your class',
 };
 
+// Небольшие помощники: подбирают подписи счётчиков и дат
+// на текущем языке интерфейса (русский / казахский / английский).
 const questionsLine = (lang: 'ru' | 'kk' | 'en', total: number): string => {
   if (lang === 'kk') return `Сұрақтар: ${total}`;
   if (lang === 'en') return `Questions: ${total}`;
@@ -235,6 +247,10 @@ const LearnPage: React.FC = () => {
   const { user, profile, loading: authLoading } = useAuth();
   const reducedMotion = useReducedMotion();
 
+  // Состояния страницы: прогресс ученика по урокам, предметы,
+  // которые рекомендовала диагностика, роль пользователя, его класс
+  // и уроки учителя. selectedRobot — какой робот выбран на экране
+  // (null — показываем список всех роботов).
   const [progress, setProgress] = useState<Record<string, LessonProgressRow>>({});
   const [recommendedSubjects, setRecommendedSubjects] = useState<Set<string>>(new Set());
   const [role, setRole] = useState<Role | null>(null);
@@ -245,6 +261,9 @@ const LearnPage: React.FC = () => {
   // direction's module catalog
   const [selectedRobot, setSelectedRobot] = useState<MentorRobotId | null>(null);
 
+  // При входе пользователя загружаем из базы Supabase его профиль,
+  // прогресс по урокам, результаты диагностики и (для ученика)
+  // уроки, которые учитель добавил его классу.
   // load the signed-in user's lesson progress, diagnostic results and class
   // membership (with its teacher lessons); signed-out users just see cards
   useEffect(() => {
@@ -329,6 +348,7 @@ const LearnPage: React.FC = () => {
     };
   }, [user, authLoading]);
 
+  // Пока идёт загрузка данных — показываем вращающийся индикатор.
   if (authLoading || loadingProgress) {
     return (
       <div role="status" className="flex min-h-screen items-center justify-center bg-canvas">
@@ -363,6 +383,8 @@ const LearnPage: React.FC = () => {
             </div>
           </div>
 
+          // Блок «Уроки моего класса» — виден только ученику,
+          // который уже вступил в класс; уроки добавляет учитель.
           {/* teacher-authored lessons for the student's own class */}
           {role === 'student' && myClass && (
             <div className="mt-10">
@@ -430,6 +452,8 @@ const LearnPage: React.FC = () => {
             </div>
           )}
 
+          // Подсказка-баннер для ученика, который ещё не вступил в класс:
+          // предлагаем выбрать класс в профиле, чтобы видеть уроки учителя.
           {/* nudge for students who have not joined a class yet */}
           {role === 'student' && !myClass && (
             <div className="mt-8 flex flex-wrap items-center gap-3 rounded-2xl border border-line bg-white px-4 py-3 shadow-[0_1px_3px_rgba(17,26,42,0.04)]">
@@ -447,6 +471,9 @@ const LearnPage: React.FC = () => {
             </div>
           )}
 
+          // Двухуровневая навигация внутри страницы: если робот не выбран —
+          // список роботов-наставников (уровень 1); если выбран — каталог
+          // модулей этого направления с кнопкой «Ко всем роботам» (уровень 2).
           {activeMentor === null ? (
             /* LEVEL 1 — robot picker */
             <div className="mt-10" aria-labelledby="mentor-picker-heading">

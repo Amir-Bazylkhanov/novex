@@ -1,3 +1,7 @@
+// RobotTeam — секция лендинга «Три направления — один путь».
+// Показывает три направления обучения в Novex (школьная программа, жизненные навыки,
+// навыки будущего) в виде трёх карточек, каждую из которых «ведёт» свой робот-наставник.
+// Рисунки роботов берутся из components/robots/RobotAvatars.tsx, тексты — на трёх языках (ru/kk/en).
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Check } from 'lucide-react';
@@ -28,6 +32,8 @@ interface RobotCardData {
   id: MentorRobotId;
   code: string;
   /* accent classes built only from the locked Tailwind tokens */
+  // Классы цвета хранятся строками заранее (а не собираются на лету),
+  // чтобы Tailwind их увидел и не вырезал при сборке.
   text: string;
   border: string;
   hoverBorder: string;
@@ -38,6 +44,8 @@ interface RobotCardData {
   bullets: Localized[];
 }
 
+// Данные трёх карточек: какой робот показывается, его кодовое имя (NOV-01 и т.д.),
+// цвета оформления и тексты — название направления, его роль и список особенностей.
 const CARDS: RobotCardData[] = [
   {
     id: 'nov4',
@@ -137,6 +145,7 @@ const CARDS: RobotCardData[] = [
   },
 ];
 
+// Настройка анимации появления: карточки плавно «всплывают» снизу при прокрутке до секции.
 const fadeUp = {
   initial: { opacity: 0, y: 24 },
   whileInView: { opacity: 1, y: 0 },
@@ -186,6 +195,8 @@ const RobotTeam: React.FC = () => {
           <CircuitTrace className="pointer-events-none absolute left-1/2 top-24 hidden w-3/4 -translate-x-1/2 text-teal-light/60 md:block" />
 
           <div className="relative grid gap-6 md:grid-cols-3">
+            {/* Карточки трёх направлений. Они появляются по очереди — каждая следующая
+                с небольшой задержкой (delay: i * 0.12), чтобы это выглядело красиво. */}
             {CARDS.map((card, i) => (
               <motion.article
                 key={card.id}
@@ -193,7 +204,8 @@ const RobotTeam: React.FC = () => {
                 transition={{ duration: 0.5, delay: i * 0.12 }}
                 className={`relative rounded-2xl border bg-white p-6 shadow-[0_1px_3px_rgba(17,26,42,0.04)] transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(33,159,162,0.10)] md:p-8 ${card.border} ${card.hoverBorder}`}
               >
-                {/* status LED */}
+                {/* status LED — маленькая цветная точка в углу карточки,
+                    как индикатор «робот на связи» */}
                 <span
                   aria-hidden="true"
                   className={`absolute right-5 top-5 h-2 w-2 rounded-full ${card.bg}`}

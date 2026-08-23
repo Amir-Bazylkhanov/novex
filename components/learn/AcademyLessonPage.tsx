@@ -1,3 +1,8 @@
+// Страница одного урока (темы) внутри академии — «планеты» обучения.
+// Показывает теорию, ключевые термины, формулы, разобранные примеры
+// и задачи для самопроверки. Адрес страницы — /learn/p/<планета>/<номер темы>.
+// Весь контент берётся из локальных данных constants/academy/, а прогресс
+// (прочитан ли урок) хранится в localStorage браузера через PlanetLevels.tsx.
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { motion, useReducedMotion } from 'framer-motion';
@@ -33,6 +38,8 @@ import { buildSkipTest } from './PlanetSkipTest.tsx';
 
 /* --- content --- */
 
+// Ниже — все тексты интерфейса на трёх языках (русский, казахский, английский).
+// Какой вариант показать, решает выбранный пользователем язык.
 const NOT_FOUND_TITLE: Localized = {
   ru: 'Тема не найдена',
   kk: 'Тақырып табылмады',
@@ -134,6 +141,8 @@ const DIFFICULTY_LABEL: Record<'easy' | 'medium' | 'hard', Localized> = {
 
 /* --- shared classes --- */
 
+// Готовые наборы CSS-классов (Tailwind): подсветка элемента при навигации
+// с клавиатуры и внешний вид «карточки» — белый блок с рамкой и тенью.
 const FOCUS_RING =
   'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2 focus-visible:ring-offset-canvas';
 
@@ -187,6 +196,8 @@ const answerVariants = (problem: PracticeProblem): string[] => {
 };
 
 /** One free-form practice problem: question + hint + answer check + expandable solution. */
+// Карточка одной задачи для практики: вопрос, подсказка, поле для ответа,
+// кнопка проверки и раскрывающееся решение.
 const PracticeProblemCard: React.FC<{ problem: PracticeProblem; index: number }> = ({
   problem,
   index,
@@ -198,9 +209,12 @@ const PracticeProblemCard: React.FC<{ problem: PracticeProblem; index: number }>
   const [status, setStatus] = useState<'idle' | 'correct' | 'wrong'>('idle');
 
   const hint = pickLangFieldOptional(language, problem.hint ?? '', problem.hintRu, problem.hintKk);
+  // solved — задача уже решена верно; solutionVisible — показывать ли блок с ответом
+  // (либо пользователь сам раскрыл решение, либо он уже решил задачу).
   const solved = status === 'correct';
   const solutionVisible = open || solved;
 
+  // Проверка ответа: сравниваем введённый текст со всеми языковыми вариантами ответа.
   const handleCheck = () => {
     if (answerInput.trim().length === 0) return;
     const correct = answerVariants(problem).some((variant) => answerMatches(answerInput, variant));
@@ -313,7 +327,10 @@ const PracticeProblemCard: React.FC<{ problem: PracticeProblem; index: number }>
 };
 
 /** One academy topic (a planet section) rendered as a rich read-only lesson. */
+// Главный компонент страницы. Находит нужную «планету» (модуль) и тему
+// по адресу страницы, подставляет тексты на выбранном языке и рисует урок.
 const AcademyLessonPage: React.FC = () => {
+  // Параметры из адреса страницы: какая планета и какой номер темы.
   const { planet: planetSlug, sectionIndex: sectionParam } = useParams<{
     planet: string;
     sectionIndex: string;
@@ -341,6 +358,8 @@ const AcademyLessonPage: React.FC = () => {
 
   // Completion comes from the planet's localStorage progress; re-read on every
   // planet/section change so same-route param changes stay correct.
+  // При открытии страницы (или смене темы) проверяем, был ли этот урок уже
+  // пройден — читаем сохранённый прогресс из localStorage браузера.
   useEffect(() => {
     if (planet && Number.isInteger(sectionIndex)) {
       setLessonDone(loadPlanetProgress(planet.slug).completedSections.includes(sectionIndex));
@@ -349,6 +368,8 @@ const AcademyLessonPage: React.FC = () => {
     }
   }, [planet, sectionIndex]);
 
+  // Если планета или тема по такому адресу не нашлись — показываем
+  // страницу «Тема не найдена» с кнопкой возврата.
   if (!planet || !direction || !content || !section) {
     return (
       <main className="relative min-h-screen bg-canvas font-sans text-ink">
@@ -373,6 +394,8 @@ const AcademyLessonPage: React.FC = () => {
   }
 
   const directionLine = `${DIRECTION_CODE[direction.id]} · ${loc(language, direction.name)}`;
+  // Текст теории хранится одним куском — разбиваем его на отдельные абзацы
+  // по пустым строкам, чтобы красиво вывести на странице.
   const paragraphs = pickLangField(language, section.content, section.contentRu, section.contentKk)
     .split(/\n\s*\n/)
     .map((p) => p.trim())
@@ -383,6 +406,9 @@ const AcademyLessonPage: React.FC = () => {
   // complete-directly behavior.
   const hasLevelTest = buildSkipTest(section, language, content.sections) !== null;
 
+  // Нажатие на кнопку завершения урока. Если по теме можно составить тест —
+  // отмечаем урок прочитанным и отправляем на тест; если теста нет —
+  // сразу засчитываем уровень и возвращаем к списку тем планеты.
   const handleCompleteLesson = () => {
     if (!Number.isInteger(sectionIndex)) return;
     if (hasLevelTest) {
@@ -420,6 +446,7 @@ const AcademyLessonPage: React.FC = () => {
           </div>
 
           {/* theory */}
+          {/* Блок «Теория»: основной текст урока, разбитый на абзацы */}
           <motion.article
             initial={reducedMotion ? { opacity: 0 } : { opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -441,6 +468,7 @@ const AcademyLessonPage: React.FC = () => {
           </motion.article>
 
           {/* key terms */}
+          {/* Блок «Ключевые термины»: сетка карточек термин → определение */}
           {section.keyTerms && section.keyTerms.length > 0 && (
             <div className="mt-8">
               <h2 className="font-display text-lg font-bold tracking-tight text-ink sm:text-xl">
@@ -474,6 +502,7 @@ const AcademyLessonPage: React.FC = () => {
           )}
 
           {/* key formulas */}
+          {/* Блок «Ключевые формулы»: формула и пояснение к ней */}
           {section.keyFormulas && section.keyFormulas.length > 0 && (
             <div className="mt-8">
               <h2 className="flex items-center gap-2 font-display text-lg font-bold tracking-tight text-ink sm:text-xl">
@@ -513,6 +542,7 @@ const AcademyLessonPage: React.FC = () => {
           )}
 
           {/* worked examples — numbered step-by-step walkthroughs */}
+          {/* Блок «Разобранные примеры»: задача, решение по шагам (1, 2, 3...) и ответ */}
           {section.solvedExamples.length > 0 && (
             <div className="mt-8">
               <h2 className="font-display text-lg font-bold tracking-tight text-ink sm:text-xl">
@@ -564,6 +594,7 @@ const AcademyLessonPage: React.FC = () => {
           )}
 
           {/* practice — free-form problems with expandable solutions */}
+          {/* Блок «Практика»: задачи, в которые ученик сам вписывает ответ */}
           {section.practiceProblems.length > 0 && (
             <div className="mt-8">
               <h2 className="flex items-center gap-2 font-display text-lg font-bold tracking-tight text-ink sm:text-xl">
@@ -581,6 +612,8 @@ const AcademyLessonPage: React.FC = () => {
           )}
 
           {/* completion — writes the planet progress, unlocks the next level */}
+          {/* Финальный блок: если урок уже пройден — поздравление и кнопка «Назад»;
+              если нет — кнопка «Завершить урок» или «К тесту уровня» */}
           <div className={`${CARD} mt-8 flex flex-col items-center text-center`}>
             {lessonDone ? (
               <>

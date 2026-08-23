@@ -1,3 +1,8 @@
+// Всплывающее окно «Нужен аккаунт».
+// Показывается, когда незарегистрированный посетитель пытается открыть раздел,
+// доступный только с аккаунтом (уроки, прогресс, панель учителя).
+// Предлагает войти или зарегистрироваться и запоминает, куда пользователь
+// хотел попасть, чтобы после входа вернуть его туда.
 import React, { useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
@@ -44,6 +49,9 @@ const LoginRequiredModal: React.FC<LoginRequiredModalProps> = ({
   /** Element that opened the dialog — focus returns here on close. */
   const triggerRef = useRef<HTMLElement | null>(null);
 
+  // Пока окно открыто: блокируем прокрутку страницы, переносим фокус на главную
+  // кнопку и следим за клавиатурой (Escape закрывает окно, Tab не даёт фокусу
+  // выйти за пределы окна). При закрытии всё возвращаем, как было.
   useEffect(() => {
     if (!open) return;
     triggerRef.current =
@@ -86,6 +94,8 @@ const LoginRequiredModal: React.FC<LoginRequiredModalProps> = ({
     };
   }, [open, onClose]);
 
+  // Переход на страницу входа или регистрации. Вместе с переходом запоминаем,
+  // куда пользователь хотел попасть, чтобы после входа вернуть его туда.
   const goToAuth = (path: '/login' | '/signup') => {
     onClose();
     // LoginPage reads location.state.from after a successful sign-in and lands

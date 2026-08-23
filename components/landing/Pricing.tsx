@@ -1,3 +1,6 @@
+// Секция лендинга «Тарифы»: бесплатный тариф для учеников, бесплатный тариф
+// для учителей государственных школ и три платных тарифа (Старт, Про, Максимум).
+// Кнопки ведут на страницу регистрации. Секция вставляется на главную страницу.
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useReducedMotion } from 'framer-motion';
@@ -23,6 +26,8 @@ const SUBTITLE: Localized = {
   en: 'Start for free. State schools get full access at no cost — that is part of our social mission.',
 };
 
+// Бесплатный тариф для ученика: название, короткая подпись, три пункта и текст кнопки.
+// Localized — объект с текстом на трёх языках: ru, kk, en.
 interface FreePlan {
   name: Localized;
   tagline: Localized;
@@ -41,6 +46,7 @@ const FREE_PLAN: FreePlan = {
   cta: { ru: 'Начать бесплатно', kk: 'Тегін бастау', en: 'Start for free' },
 };
 
+// Тариф для учителей государственных школ — полностью бесплатный.
 interface TeacherPlan {
   name: Localized;
   price: Localized;
@@ -83,6 +89,8 @@ interface Plan {
   popular: boolean;
 }
 
+// Три платных тарифа. У одного из них popular: true — он визуально выделяется
+// как «Популярный» (лента сверху и акцентная рамка).
 const PAID_PLANS: Plan[] = [
   {
     name: { ru: 'Старт', kk: 'Старт', en: 'Start' },
@@ -152,6 +160,7 @@ const POPULAR_RIBBON: Localized = {
 const FOCUS_RING =
   'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2 focus-visible:ring-offset-canvas';
 
+// Настройки анимации появления блока при прокрутке страницы до него.
 const fadeUp = {
   initial: { opacity: 0, y: 24 },
   whileInView: { opacity: 1, y: 0 },
@@ -162,6 +171,8 @@ const fadeUp = {
 const Pricing: React.FC = () => {
   const { language } = useLanguage();
   const reduceMotion = useReducedMotion();
+  // Если пользователь отключил анимации в системе — показываем блоки без сдвига,
+  // только простое появление.
   const motionProps = reduceMotion
     ? { ...fadeUp, initial: { opacity: 0 }, whileInView: { opacity: 1 } }
     : fadeUp;

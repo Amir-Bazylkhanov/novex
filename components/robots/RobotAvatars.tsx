@@ -1,3 +1,10 @@
+// ============================================================================
+// Роботы-аватары Novex — маленькие «лица» маскотов, нарисованные кодом (SVG),
+// без картинок-файлов. Здесь описаны шесть роботов: три для выбора направления
+// (nov1–nov3) и три наставника раздела «Обучение» — Академик, Практик и Кибер
+// (nov4–nov6). Эти компоненты вставляются на страницах приложения (в первую
+// очередь на /learn) как обычные React-компоненты.
+// ============================================================================
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 
@@ -12,6 +19,7 @@ type AnyRobotId = RobotId | MentorRobotId;
 
 /* Palette values from SPEC.md 1.1 — literal hex is allowed inside SVG paint
    attributes (Tailwind classes do not apply to SVG fills/strokes reliably). */
+// Акцентный («фирменный») цвет каждого робота: рамка головы, глаза, детали.
 const ACCENT: Record<AnyRobotId, string> = {
   nov1: '#276F83', // teal-dark
   nov2: '#219FA2', // teal
@@ -26,6 +34,8 @@ const WHITE = '#FFFFFF';
 
 /* Glow pulse / antenna blink. Rendered static under prefers-reduced-motion:
    the animation classes only exist inside the no-preference media query. */
+// Мягкие анимации: «дыхание» подсветки и мигание лампочки на антенне.
+// Если у пользователя в системе отключена анимация, робот остаётся статичным.
 const ROBOT_MOTION_CSS = `
 @keyframes nvx-pulse { 0%, 100% { opacity: 0.14; } 50% { opacity: 0.38; } }
 @keyframes nvx-blink { 0%, 88%, 100% { opacity: 1; } 93% { opacity: 0.15; } }
@@ -48,6 +58,8 @@ const GEAR_MOTION_CSS = `
 
 /* Fixed per-robot seeds so the blink rhythm differs per character but stays
    deterministic across renders (4–7 s interval range). */
+// У каждого робота свой ритм моргания: числа ниже задают разные паузы
+// между морганиями, но у одного робота ритм всегда одинаковый.
 const BLINK_SEED: Record<AnyRobotId, number> = {
   nov1: 1,
   nov2: 4,
@@ -60,6 +72,12 @@ const BLINK_SEED: Record<AnyRobotId, number> = {
 /** Inline-SVG robot mascot. Square aspect. Size it with className, e.g. "h-24 w-24".
     Optional animation hooks (used by the /learn robot showcase): eyeOffset shifts
     the pupils towards the cursor, animated enables idle details (blink, glint, scan). */
+// Компонент RobotAvatar — рисует одного робота-аватара.
+// Параметры:
+//   robot — какого робота рисовать;
+//   className — размер, например "h-24 w-24";
+//   eyeOffset — смещение зрачков (робот «следит» за курсором);
+//   animated — включить «живые» детали: моргание, блик, сканирование.
 export const RobotAvatar: React.FC<{
   robot: AnyRobotId;
   className?: string;
@@ -69,11 +87,14 @@ export const RobotAvatar: React.FC<{
   animated?: boolean;
 }> = ({ robot, className, eyeOffset, animated = false }) => {
   const accent = ACCENT[robot];
+  // Смещение зрачков ограничено ±2,5 единицы, чтобы зрачки не «выезжали» за глаза.
   const ox = Math.max(-2.5, Math.min(2.5, eyeOffset?.x ?? 0));
   const oy = Math.max(-2.5, Math.min(2.5, eyeOffset?.y ?? 0));
   const pupilTransform = eyeOffset ? `translate(${ox} ${oy})` : undefined;
 
   /* Eyelid blink: a brief overlay over the eyes every 4–7 s (seeded per robot). */
+  // Моргание: раз в 4–7 секунд поверх глаз на 0,15 секунды появляются «веки».
+  // Работает только когда включён режим animated; при уходе со страницы таймеры останавливаются.
   const [blinking, setBlinking] = useState(false);
   useEffect(() => {
     if (!animated) return;
@@ -96,6 +117,8 @@ export const RobotAvatar: React.FC<{
   }, [animated, robot]);
   /* Head silhouette per character: nov4 square/analytical, nov5 extra-round
      and friendly, nov6 angular techy, nov1–3 keep the original rounded rect. */
+  // Форма головы (насколько скруглены углы) у каждого персонажа своя —
+  // так роботы отличаются характером: «квадратный» аналитик, «круглый» добряк и т.д.
   const headRx = robot === 'nov4' ? 10 : robot === 'nov5' ? 46 : robot === 'nov6' ? 16 : 26;
 
   return (
@@ -181,6 +204,7 @@ export const RobotAvatar: React.FC<{
       )}
 
       {/* eyes — one shape per unit */}
+      {/* Глаза: у каждого робота своя форма — выбирается нужный вариант ниже */}
       {robot === 'nov1' && (
         <>
           <rect x="50" y="68" width="44" height="16" rx="8" fill={accent} opacity="0.16" className="nvx-pulse" />
@@ -280,6 +304,7 @@ export const RobotAvatar: React.FC<{
       )}
 
       {/* eyelid blink overlays (animated mode only) */}
+      {/* «Веки» поверх глаз на мгновение моргания (только в режиме animated) */}
       {blinking && robot === 'nov4' && (
         <>
           <rect x="54" y="66" width="32" height="22" rx="5" fill={WHITE} />
@@ -304,6 +329,7 @@ export const RobotAvatar: React.FC<{
       )}
 
       {/* mouth */}
+      {/* Рот — тоже у каждого робота свой (полоска, улыбка, зигзаг и т.д.) */}
       {robot === 'nov1' && (
         <rect x="88" y="104" width="24" height="5" rx="2.5" fill={LINE} />
       )}
@@ -348,6 +374,7 @@ export const RobotAvatar: React.FC<{
       )}
 
       {/* chest panel: status LED + readout lines */}
+      {/* Панель на груди: лампочка статуса и декоративные «строки данных» */}
       <rect
         x="56"
         y="148"
@@ -368,6 +395,8 @@ export const RobotAvatar: React.FC<{
 };
 
 /** Thin-stroke outline gear. Decorative only — always aria-hidden. */
+// Декоративная шестерёнка тонким контуром; зубцы рисуются линиями по кругу.
+// Может медленно вращаться (spin), если у пользователя не отключена анимация.
 export const GearDecor: React.FC<{ className?: string; teeth?: number; spin?: boolean }> = ({
   className,
   teeth = 8,
@@ -413,6 +442,7 @@ export const GearDecor: React.FC<{ className?: string; teeth?: number; spin?: bo
 };
 
 /** Thin circuit/PCB trace lines with node dots. Decorative only — always aria-hidden. */
+// Декоративная «дорожка печатной платы» — линии с точками-контактами.
 export const CircuitTrace: React.FC<{ className?: string }> = ({ className }) => (
   <svg
     viewBox="0 0 240 64"

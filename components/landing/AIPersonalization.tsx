@@ -1,3 +1,7 @@
+// AIPersonalization — секция лендинга про ИИ-персонализацию.
+// Показывает «конвейер» из четырёх этапов (диагностика → карта знаний → адаптация → объяснение),
+// пример того, как ИИ разбирает ошибку ученика в задаче, и тизер ИИ-чата с роботом-Академиком.
+// Все примеры здесь декоративные (не настоящие ответы ИИ), тексты — на трёх языках (ru/kk/en).
 import React from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import {
@@ -48,6 +52,7 @@ const SUBTITLE: Localized = {
 };
 
 /* --- pipeline stages --- */
+// Подписи роботов рядом с каждым этапом конвейера (какой робот за что отвечает).
 
 const ROBOT_LABELS: Record<RobotId, Localized> = {
   nov1: {
@@ -74,6 +79,8 @@ interface Stage {
   desc: Localized;
 }
 
+// Четыре этапа работы ИИ с учеником: какой робот и иконка показываются,
+// название этапа и его пояснение простыми словами.
 const STAGES: Stage[] = [
   {
     robot: 'nov1',
@@ -124,6 +131,8 @@ const HANDOFF_TEXT: Localized = {
 };
 
 /* --- AI feedback mock strings --- */
+// Тексты для декоративного примера: задача по алгебре, неправильный ответ ученика
+// и пошаговый разбор ошибки от ИИ. Это «бутафория» для демонстрации, а не живые данные.
 
 const MOCK_TASK_LABEL: Localized = {
   ru: 'Задание · Алгебра, 8 класс',
@@ -172,6 +181,8 @@ const MOCK_NEXT_TEXT: Localized = {
 };
 
 /* --- honesty chips + chat teaser --- */
+// Короткие «чипсы» честности внизу секции: чего от платформы ждать можно
+// (три языка, слабый интернет, учитель в курсе).
 
 const CHIPS: Array<{
   icon: React.ComponentType<{ className?: string; 'aria-hidden'?: boolean | 'true' | 'false' }>;
@@ -242,7 +253,9 @@ const fadeUp = {
 
 const AIPersonalization: React.FC = () => {
   const { language } = useLanguage();
+  // Учитываем настройку «уменьшить анимации»: если она включена, отключаем все движения.
   const reduceMotion = useReducedMotion();
+  // Помощник для анимации появления блоков: либо «всплытие» с задержкой, либо ничего.
   const fu = (delay = 0) =>
     reduceMotion
       ? {}
@@ -279,7 +292,7 @@ const AIPersonalization: React.FC = () => {
           </p>
         </motion.div>
 
-        {/* Pipeline stages */}
+        {/* Pipeline stages — четыре карточки этапов в ряд, соединённые стрелками */}
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
           {STAGES.map((stage, i) => {
             const Icon = stage.icon;
@@ -327,7 +340,8 @@ const AIPersonalization: React.FC = () => {
           })}
         </div>
 
-        {/* NOV-01 handoff strip */}
+        {/* NOV-01 handoff strip — полоса «передачи эстафеты»:
+            после четырёх этапов дальше работу ведёт робот-Академик */}
         <motion.div
           {...fu(0.2)}
           className="mt-6 flex items-center gap-4 rounded-2xl border border-line/50 bg-white p-4 shadow-[0_1px_3px_rgba(17,26,42,0.04)]"
@@ -343,7 +357,7 @@ const AIPersonalization: React.FC = () => {
           </div>
         </motion.div>
 
-        {/* Feedback mock + chat teaser */}
+        {/* Feedback mock + chat teaser — слева пример разбора ошибки, справа тизер чата */}
         <div className="mt-12 grid items-start gap-8 lg:grid-cols-[3fr_2fr]">
           <motion.div
             {...fu(0.1)}
@@ -370,7 +384,7 @@ const AIPersonalization: React.FC = () => {
                 {loc(language, MOCK_TASK)}
               </p>
 
-              {/* student answer */}
+              {/* student answer — строка с неправильным ответом ученика и плашкой «Неверно» */}
               <div className="mt-3 flex flex-wrap items-center gap-2 rounded-xl border border-coral/30 bg-coral/10 px-3.5 py-2.5">
                 <XCircle className="h-4 w-4 shrink-0 text-coral" aria-hidden="true" />
                 <span className="text-xs text-slateink">
@@ -382,7 +396,8 @@ const AIPersonalization: React.FC = () => {
                 </span>
               </div>
 
-              {/* NOV-01 message */}
+              {/* NOV-01 message — «сообщение» робота: пошаговый разбор, где именно ошибка,
+                  и подсказка, что делать дальше */}
               <div className="mt-4 rounded-2xl rounded-tl-md border border-teal/25 bg-mist/25 p-4">
                 <div className="flex items-center gap-2.5">
                   <RobotAvatar robot="nov1" className="h-9 w-9 shrink-0" />
@@ -416,7 +431,8 @@ const AIPersonalization: React.FC = () => {
             </div>
           </motion.div>
 
-          {/* chat teaser */}
+          {/* chat teaser — карточка, показывающая, что ученик может задать вопрос ИИ в чате
+              прямо из задания (сама карточка декоративная, чат здесь не работает) */}
           <motion.div
             {...fu(0.2)}
             className="rounded-2xl border border-line/50 bg-white p-5 shadow-[0_1px_3px_rgba(17,26,42,0.04)]"
@@ -450,7 +466,7 @@ const AIPersonalization: React.FC = () => {
           </motion.div>
         </div>
 
-        {/* honesty chips */}
+        {/* honesty chips — три коротких тезиса о честных возможностях платформы */}
         <motion.div
           {...fu(0.15)}
           className="mt-10 flex flex-wrap items-center justify-center gap-3"

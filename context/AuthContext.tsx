@@ -1,3 +1,9 @@
+// Контекст авторизации — «центральная будка» входа и профиля пользователя.
+// Хранит, кто сейчас вошёл (user) и его анкету из базы (profile: класс,
+// предметы, цели — ЕНТ/олимпиада, регион, аватар и т.п.), а также даёт всем
+// страницам функции входа, регистрации, выхода и обновления профиля.
+// Все данные живут в Supabase (облачная база, см. services/supabaseClient.ts).
+// Любой компонент получает доступ к этому через хук useAuth().
 import React, { createContext, useCallback, useContext, useEffect, useRef, useState } from 'react';
 import { supabase } from '../services/supabaseClient.ts';
 import type { TutorModel } from '../services/aiService.ts';
@@ -5,6 +11,8 @@ import { loc, type Lang, type Localized } from '../utils/i18n.ts';
 import { useLanguage } from './LanguageContext.tsx';
 
 export type Role = 'student' | 'teacher' | 'admin';
+// Возможные цели ученика: ent — подготовка к ЕНТ, olympiad — олимпиады,
+// revision — подтянуть школьную программу, admission — поступление за рубеж.
 export type Goal = 'ent' | 'olympiad' | 'revision' | 'admission';
 
 const GOAL_VALUES: readonly Goal[] = ['ent', 'olympiad', 'revision', 'admission'];
@@ -16,6 +24,8 @@ export interface ExamScores {
   ielts?: number;
 }
 
+// Анкета пользователя: как хранится профиль в приложении.
+// Поля повторяют колонки таблицы profiles в базе данных Supabase.
 export interface Profile {
   id: string;
   full_name: string | null;
@@ -39,6 +49,7 @@ export interface Profile {
   onboarded: boolean;
 }
 
+// Данные вошедшего пользователя: id, email и фото из Google (если есть).
 interface AuthUser {
   id: string;
   email: string;
@@ -47,6 +58,8 @@ interface AuthUser {
 }
 
 /** Map a Supabase session user to our lighter AuthUser shape. */
+// Превращаем «сырые» данные пользователя из Supabase в удобный нам вид
+// (оставляем только id, email и фото из Google-аккаунта).
 const toAuthUser = (u: {
   id: string;
   email?: string;
@@ -63,9 +76,14 @@ const toAuthUser = (u: {
 };
 
 /** Avatars the user uploaded live in our own bucket; Google's must not clobber them. */
+// Проверяем, загружал ли пользователь аватар сам (тогда ссылка ведёт
+// в наше хранилище). Такой аватар нельзя затирать фото из Google.
 const isUploadedAvatar = (url: string | null): boolean =>
   !!url && url.includes('/storage/v1/object/public/avatars/');
 
+// Полный список того, что контекст отдаёт остальному приложению:
+// текущий пользователь, его профиль, флаг загрузки и функции
+// входа/регистрации/выхода, обновления профиля и загрузки аватара.
 interface AuthContextValue {
   user: AuthUser | null;
   profile: Profile | null;
@@ -131,6 +149,8 @@ const ERR_IMAGE_TOO_BIG: Localized = {
 };
 
 /** Active UI language, read the same way LanguageContext initializes it. */
+// Узнаём текущий язык интерфейса прямо из памяти браузера — нужно,
+// чтобы показывать ошибки на понятном пользователю языке.
 function activeLang(): Lang {
   try {
     const stored = window.localStorage.getItem('novex.lang');
@@ -142,6 +162,8 @@ function activeLang(): Lang {
 }
 
 /** Map a Supabase auth failure to localized user-facing text. */
+// Переводим технические ошибки Supabase в понятные сообщения для
+// пользователя на его языке (например, «Неверный email или пароль»).
 function mapAuthError(err: unknown): string {
   const lang = activeLang();
   const message = err instanceof Error ? err.message.toLowerCase() : '';
@@ -161,6 +183,8 @@ function mapAuthError(err: unknown): string {
 }
 
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  // user — кто сейчас вошёл (null — никто); profile — его анкета из базы;
+  // loading — пока true, мы ещё проверяем, есть ли сохранённый вход.
   const [user, setUser] = useState<AuthUser | null>(null);
   const [profile, setProfile] = useState<Profile | null>(null);
   const [loading, setLoading] = useState(true);
@@ -173,6 +197,9 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     mountedRef.current = true;
 
     // initial session check
+    // Проверяем, был ли пользователь уже вошёл (например, обновил страницу):
+    // спрашиваем у Supabase сохранённую сессию и подписываемся на события
+    // входа/выхода, чтобы интерфейс реагировал на них сразу.
     supabase.auth
       .getSession()
       .then(({ data }) => {
@@ -200,6 +227,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   }, []);
 
   // load the profile row whenever the signed-in user changes
+  // Как только появился вошедший пользователь — загружаем его анкету
+  // из таблицы profiles в базе данных (класс, предметы, цели, аватар и т.д.).
   useEffect(() => {
     if (!user) {
       setProfile(null);
@@ -268,6 +297,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     };
   }, [user]);
 
+  // Вход по email и паролю.
   const signIn = useCallback(async (email: string, password: string) => {
     try {
       const { error } = await supabase.auth.signInWithPassword({ email, password });
@@ -277,6 +307,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     }
   }, []);
 
+  // Регистрация нового пользователя (ученика или учителя) по email и паролю.
+  // needsConfirmation = true означает: нужно подтвердить email по ссылке из письма.
   const signUp = useCallback(
     async (email: string, password: string, fullName: string, role: 'student' | 'teacher') => {
       try {
@@ -298,6 +330,9 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     [],
   );
 
+  // Вход через кнопку «Войти с Google»: перенаправляет пользователя
+  // на страницу Google, а после входа Google возвращает его обратно
+  // на адрес /auth/callback.
   const signInWithGoogle = useCallback(async () => {
     try {
       const { error } = await supabase.auth.signInWithOAuth({
@@ -310,11 +345,14 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     }
   }, []);
 
+  // Выход из аккаунта: завершаем сессию в Supabase и очищаем профиль.
   const signOut = useCallback(async () => {
     await supabase.auth.signOut();
     setProfile(null);
   }, []);
 
+  // Сохранение изменений анкеты: принимает только изменённые поля (patch),
+  // отправляет их в базу и сразу обновляет профиль в памяти приложения.
   const updateProfile = useCallback(
     async (patch: Partial<Profile>) => {
       if (!user) return { error: loc(activeLang(), ERR_UNKNOWN) };
@@ -347,6 +385,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     [user],
   );
 
+  // Загрузка фото профиля: проверяем, что это картинка до 2 МБ,
+  // сохраняем файл в хранилище Supabase и записываем ссылку в анкету.
   const uploadAvatar = useCallback(
     async (file: File): Promise<{ error: string | null; url: string | null }> => {
       const lang = activeLang();
@@ -394,6 +434,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   );
 };
 
+// Хук useAuth() — дверца в этот контекст для любого компонента:
+// например, const { user, profile, signOut } = useAuth().
 export function useAuth(): AuthContextValue {
   const ctx = useContext(AuthContext);
   if (!ctx) {

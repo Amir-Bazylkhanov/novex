@@ -1,3 +1,8 @@
+// Техническая страница (маршрут /auth/callback), на которую Google возвращает
+// пользователя после входа через Google. Здесь временный код из адреса страницы
+// обменивается на полноценную сессию в Supabase, при необходимости применяется
+// роль, выбранная при регистрации, и пользователь переносится в профиль.
+// Обычно пользователь видит здесь только спиннер «Выполняется вход…».
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Loader2 } from 'lucide-react';
@@ -23,6 +28,8 @@ const AuthCallback: React.FC = () => {
   const { language } = useLanguage();
   const navigate = useNavigate();
 
+  // При открытии страницы один раз завершаем вход: обмениваем временный код
+  // на сессию, применяем роль, выбранную при регистрации, и перенаправляем.
   useEffect(() => {
     let cancelled = false;
     const message = loc(language, ERR_EXCHANGE);
@@ -67,6 +74,8 @@ const AuthCallback: React.FC = () => {
     };
   }, [language, navigate]);
 
+  // Пока идёт обмен кода на сессию, пользователь видит только спиннер
+  // и надпись «Выполняется вход…».
   return (
     <main className="flex min-h-screen flex-col items-center justify-center bg-canvas px-5">
       <Loader2 className="h-10 w-10 animate-spin text-teal" aria-hidden="true" />

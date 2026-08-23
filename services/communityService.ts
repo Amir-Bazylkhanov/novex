@@ -1,3 +1,9 @@
+// ============================================
+// Сервис раздела «Сообщество» (страница /community).
+// Всё общение с базой данных для ученического чата: список каналов,
+// сообщения, реакции-эмодзи, жалобы, загрузка картинок, создание каналов.
+// Здесь нет кода интерфейса — только функции работы с данными.
+// ============================================
 /**
  * Community chat data layer for /community: channels, messages, reactions,
  * reports. Pure Supabase access, no React.
@@ -71,6 +77,8 @@ interface ReactionRow {
   emoji: string;
 }
 
+// --- Реакции (эмодзи под сообщениями) ---
+// Собирает отдельные реакции пользователей в группы: эмодзи + сколько раз поставили.
 /** Fold raw reaction rows into per-emoji groups. */
 export function groupReactions(rows: Array<{ user_id: string; emoji: string }>): ReactionGroup[] {
   const groups: ReactionGroup[] = [];
@@ -114,6 +122,9 @@ export function withReaction(
   return next;
 }
 
+// --- Каналы, авторы и сообщения ---
+
+// Загружает список каналов чата.
 export async function fetchChannels(): Promise<CommunityChannel[]> {
   const { data, error } = await supabase
     .from('community_channels')
@@ -123,6 +134,8 @@ export async function fetchChannels(): Promise<CommunityChannel[]> {
   return (data ?? []) as CommunityChannel[];
 }
 
+// Узнаёт публичные данные авторов сообщений (имя, аватарка, роль) по их id.
+// Если профиля нет — интерфейс покажет запасное имя вроде «Ученик».
 /**
  * Look up display data for message authors via the get_public_profiles RPC
  * (security definer, public fields only). Returns a partial or empty map only
@@ -161,6 +174,8 @@ export async function fetchReactionsFor(
 
 const MESSAGE_COLUMNS = 'id, channel_id, user_id, content, reply_to_id, image_url, created_at';
 
+// Загружает последние сообщения канала (до 50 штук) вместе с авторами,
+// реакциями и сообщениями, на которые отвечали.
 /** Newest MESSAGE_PAGE_SIZE messages of a channel, oldest first, with authors,
  *  reactions and reply targets resolved. */
 export async function fetchMessages(channelId: string): Promise<CommunityMessage[]> {

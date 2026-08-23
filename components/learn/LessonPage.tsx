@@ -1,3 +1,8 @@
+// Страница урока в разделе «Обучение» (адрес вида /learn/lesson/<урок>).
+// Проводит ученика через три этапа: теория → практика (вопросы с вариантами
+// ответа) → итоги. Сложность вопросов подстраивается под ответы ученика.
+// Материалы урока берутся из constants/lessonData.ts, а результат прохождения
+// сохраняется в базу Supabase (таблица lesson_progress) для вошедших пользователей.
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
@@ -31,6 +36,8 @@ import {
 
 /* --- content --- */
 
+// Все тексты интерфейса на трёх языках (ru/kk/en) — выбор зависит
+// от языка, который пользователь включил в настройках.
 const WORDMARK: Localized = { ru: 'Novex', kk: 'Novex', en: 'Novex' };
 const ROBOT_LABEL: Localized = {
   ru: 'NOV-01 · Академик',
@@ -146,6 +153,8 @@ const DIFFICULTY_LABEL: Record<LessonDifficulty, Localized> = {
   hard: { ru: 'Сложный', kk: 'Қиын', en: 'Hard' },
 };
 
+// Небольшие функции, которые собирают фразы с числами («Вопрос 2 из 5»,
+// «Правильных ответов: 4 из 5») с учётом порядка слов в каждом языке.
 const counterLine = (lang: 'ru' | 'kk' | 'en', current: number, total: number): string => {
   if (lang === 'kk') return `Сұрақ ${current} / ${total}`;
   if (lang === 'en') return `Question ${current} of ${total}`;
@@ -171,6 +180,8 @@ const minutesLine = (lang: 'ru' | 'kk' | 'en', minutes: number): string => {
 
 /* --- shared classes --- */
 
+// Готовые наборы CSS-классов (Tailwind): вид карточки, главной кнопки
+// и подсветка элемента при навигации с клавиатуры.
 const FOCUS_RING =
   'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2 focus-visible:ring-offset-canvas';
 
@@ -181,9 +192,13 @@ const PRIMARY_BTN = `${FOCUS_RING} inline-flex items-center gap-2 rounded-xl bg-
 
 const OPTION_LETTERS = ['A', 'B', 'C', 'D'] as const;
 
+// Phase — три этапа урока: теория, практика (викторина), итог.
 type Phase = 'theory' | 'quiz' | 'done';
+// SaveState — состояние сохранения результата в базу: ждём, сохраняем,
+// сохранено, ошибка или «пропущено» (пользователь не вошёл в аккаунт).
 type SaveState = 'idle' | 'saving' | 'saved' | 'error' | 'skipped';
 
+// Один данный ответ: на какой вопрос, по какой теме, верный или нет.
 interface LessonAnswer {
   questionId: string;
   topicLabel: Localized;
@@ -191,6 +206,8 @@ interface LessonAnswer {
 }
 
 /** Back link + wordmark header shared by every state of the page. */
+// Общая «рамка» страницы: логотип Novex слева, кнопка «Ко всем модулям» справа.
+// Используется на всех экранах этой страницы (урок, «не найден», «скоро добавим»).
 const PageChrome: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const { language } = useLanguage();
   return (
@@ -218,11 +235,17 @@ const PageChrome: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 };
 
 /** One lesson: theory blocks, then scored practice with NOV-01 explanations. */
+// Главная «машина урока»: хранит все состояния прохождения и переключает
+// экраны теория → вопросы → итоги.
 const LessonRunner: React.FC<{ lesson: Lesson }> = ({ lesson }) => {
   const { language } = useLanguage();
   const { user } = useAuth();
   const reducedMotion = useReducedMotion();
 
+  // phase — текущий этап урока; cursor — номер текущего вопроса;
+  // selected — выбранный вариант ответа; answered — ответ уже отправлен;
+  // answers — все данные ответы; streak — сколько верных ответов подряд;
+  // adapted — подняли или снизили сложность следующего вопроса.
   const [phase, setPhase] = useState<Phase>('theory');
   const [cursor, setCursor] = useState(0);
   const [selected, setSelected] = useState<number | null>(null);
@@ -254,12 +277,15 @@ const LessonRunner: React.FC<{ lesson: Lesson }> = ({ lesson }) => {
   const totalQuestions = roundQuestions.length;
   const currentQuestion = roundQuestions[cursor] ?? null;
   const score = answers.filter((a) => a.correct).length;
+  // Темы, по которым были ошибки, — покажем их в итогах как «что повторить».
   const reviewTopics = answers
     .filter((a) => !a.correct)
     .map((a) => a.topicLabel)
     .filter((label, i, all) => all.findIndex((l) => l.ru === label.ru) === i);
 
   // move focus to the question whenever it changes
+  // Переводим фокус на заголовок вопроса/итога — чтобы пользователи
+  // скринридеров и клавиатуры сразу попадали на новый экран.
   useEffect(() => {
     if (phase === 'quiz' && currentQuestion) questionHeadingRef.current?.focus();
   }, [phase, currentQuestion]);
@@ -269,6 +295,8 @@ const LessonRunner: React.FC<{ lesson: Lesson }> = ({ lesson }) => {
   }, [phase]);
 
   // persist an in_progress row when practice starts (signed-in users only)
+  // Когда ученик начинает практику, записываем в базу, что урок «в процессе»
+  // (только для вошедших в аккаунт; ошибки здесь намеренно игнорируются).
   useEffect(() => {
     if (phase !== 'quiz' || !user || startedRef.current) return;
     startedRef.current = true;
@@ -290,6 +318,9 @@ const LessonRunner: React.FC<{ lesson: Lesson }> = ({ lesson }) => {
   }, [phase, user, lesson]);
 
   // persist the completed result once (signed-in users only)
+  // Когда урок завершён, один раз сохраняем результат в базу Supabase:
+  // счёт, набранный опыт (XP) и отметку «completed». Если пользователь не
+  // вошёл в аккаунт — показываем заметку, что результат не сохранён.
   useEffect(() => {
     if (phase !== 'done' || savedRef.current) return;
     savedRef.current = true;
@@ -322,6 +353,8 @@ const LessonRunner: React.FC<{ lesson: Lesson }> = ({ lesson }) => {
     persist();
   }, [phase, user, lesson, score, totalQuestions]);
 
+  // Начало практики: сбрасываем все счётчики и переходим к первому вопросу.
+  // Увеличение roundSeed заставляет варианты ответов перемешаться заново.
   const startPractice = () => {
     setRoundSeed((s) => s + 1);
     setCursor(0);
@@ -334,6 +367,9 @@ const LessonRunner: React.FC<{ lesson: Lesson }> = ({ lesson }) => {
     setPhase('quiz');
   };
 
+  // Обработка нажатия «Ответить»: проверяем ответ, запоминаем его и
+  // подбираем следующий вопрос. Подбор адаптивный: два верных ответа
+  // подряд — следующий вопрос посложнее, ошибка — попроще.
   const submitAnswer = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (!currentQuestion || selected === null || answered) return;
@@ -395,6 +431,8 @@ const LessonRunner: React.FC<{ lesson: Lesson }> = ({ lesson }) => {
     setNextCursor(next);
   };
 
+  // Кнопка «Дальше»: переходим к выбранному следующему вопросу,
+  // а если вопросы закончились — показываем итоги.
   const goNext = () => {
     if (nextCursor !== null) {
       setCursor(nextCursor);
@@ -405,6 +443,8 @@ const LessonRunner: React.FC<{ lesson: Lesson }> = ({ lesson }) => {
     }
   };
 
+  // «Пройти ещё раз»: полный сброс урока обратно к теории, включая
+  // разрешение сохранить новый результат в базу.
   const retry = () => {
     savedRef.current = false;
     startedRef.current = false;
@@ -454,6 +494,7 @@ const LessonRunner: React.FC<{ lesson: Lesson }> = ({ lesson }) => {
       </div>
 
       {/* --- theory --- */}
+      {/* Этап «Теория»: карточки с материалом и кнопка перехода к практике */}
       {phase === 'theory' && (
         <div className="mt-6 space-y-4">
           <p className="text-sm text-slateink">{loc(language, lesson.summary)}</p>

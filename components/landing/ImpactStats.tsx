@@ -1,3 +1,7 @@
+// Секция лендинга «Целевые показатели»: четыре карточки с цифрами о том,
+// какую пользу проект хочет принести (регионы, языки, бесплатность для школ).
+// Это заявленные цели проекта, а не реальная статистика — об этом честно
+// написано в сноске внизу секции. Секция вставляется на главную страницу.
 import React from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { Target, Languages, School, Clock, MapPin } from 'lucide-react';
@@ -23,12 +27,14 @@ const SUBTITLE: Localized = {
   en: 'Novex is built so that quality personalised support reaches every student — from a regional capital to a small village school.',
 };
 
+// Описание одной карточки-метрики: сама цифра, подпись и пояснение.
 interface Metric {
   value: string;
   label: Localized;
   detail: Localized;
 }
 
+// Четыре целевых показателя, которые выводятся карточками в сетке.
 const METRICS: Metric[] = [
   {
     value: '17',
@@ -74,6 +80,7 @@ const FOOTNOTE: Localized = {
   en: 'These are project goals, not current numbers. We are honest about what we are aiming for.',
 };
 
+// Настройки анимации появления блока при прокрутке страницы до него.
 const fadeUp = {
   initial: { opacity: 0, y: 24 },
   whileInView: { opacity: 1, y: 0 },
@@ -81,11 +88,14 @@ const fadeUp = {
   transition: { duration: 0.5 },
 };
 
+// Иконки для карточек по порядку, в том же порядке, что и METRICS.
 const METRIC_ICONS = [MapPin, Languages, School, Clock] as const;
 
 const ImpactStats: React.FC = () => {
   const { language } = useLanguage();
   const reduceMotion = useReducedMotion();
+  // Если пользователь отключил анимации в системе — показываем блоки без сдвига,
+  // только простое появление.
   const motionProps = reduceMotion
     ? { ...fadeUp, initial: { opacity: 0 }, whileInView: { opacity: 1 } }
     : fadeUp;
@@ -127,6 +137,7 @@ const ImpactStats: React.FC = () => {
         </motion.div>
 
         <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {/* Карточки метрик: по одной на каждый элемент METRICS */}
           {METRICS.map((metric, i) => {
             const Icon = METRIC_ICONS[i];
             return (

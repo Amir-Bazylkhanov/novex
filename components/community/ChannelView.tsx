@@ -1,3 +1,8 @@
+// Один открытый канал сообщества: шапка, список сообщений и поле ввода.
+// Подписан на изменения базы Supabase в реальном времени — новые сообщения
+// и реакции появляются сразу, без обновления страницы. Открывается из
+// CommunityPage; отдельные сообщения рисует MessageItem, поле ввода —
+// MessageComposer, окно жалобы — ReportModal.
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { AlertCircle, Hash, Loader2, MessagesSquare } from 'lucide-react';
 import { loc, type Localized } from '../../utils/i18n.ts';
@@ -23,6 +28,7 @@ import MessageItem from './MessageItem.tsx';
 import MessageComposer from './MessageComposer.tsx';
 import ReportModal from './ReportModal.tsx';
 
+// Тексты интерфейса на трёх языках (русский / казахский / английский).
 const LOADING: Localized = {
   ru: 'Загрузка…',
   kk: 'Жүктелуде…',
@@ -61,9 +67,12 @@ interface ChannelViewProps {
   channel: CommunityChannel;
 }
 
+// Компонент одного канала: загружает историю сообщений и держит её актуальной.
 const ChannelView: React.FC<ChannelViewProps> = ({ channel }) => {
   const { language } = useLanguage();
   const { user, profile } = useAuth();
+  // Состояния: список сообщений, флаги загрузки/ошибок, сообщение,
+  // на которое отвечаем, и сообщение, на которое жалуемся.
   const [messages, setMessages] = useState<CommunityMessage[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);

@@ -1,3 +1,7 @@
+// Секция лендинга «Кабинет ученика»: показывает макет (картинку-имитацию) экрана
+// прогресса ученика — темы, слабые места, дедлайн до ЕНТ и достижения.
+// Это только демонстрационный макет на придуманных данных, без запросов к базе.
+// Секция вставляется на главную страницу вместе с остальными блоками лендинга.
 import React from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import {
@@ -12,6 +16,8 @@ import { loc, type Localized } from '../../utils/i18n.ts';
 import { useLanguage } from '../../context/LanguageContext.tsx';
 import { GearDecor } from '../robots/RobotAvatars.tsx';
 
+// Бейдж (маленькая подпись-плашка) над заголовком секции.
+// Localized — объект с текстом на трёх языках: ru, kk, en.
 const BADGE: Localized = {
   ru: 'Кабинет ученика',
   kk: 'Оқушы кабинеті',
@@ -38,6 +44,8 @@ const SUBTITLE: Localized = {
 
 /* --- feature bullets --- */
 
+// Список из четырёх преимуществ, которые показываются справа от макета:
+// иконка, заголовок и короткое описание на трёх языках.
 const FEATURES: Array<{
   icon: React.ComponentType<{ className?: string; 'aria-hidden'?: boolean | 'true' | 'false' }>;
   title: Localized;
@@ -99,6 +107,7 @@ const FEATURES: Array<{
 
 /* --- dashboard mock strings --- */
 
+// Тексты для демонстрационного макета кабинета ученика (не реальные данные).
 const MOCK_TITLE: Localized = {
   ru: 'Мой прогресс',
   kk: 'Менің үдерісім',
@@ -114,6 +123,7 @@ const MOCK_TOPICS_LABEL: Localized = {
   kk: 'Тақырыптар',
   en: 'Topics',
 };
+// Темы и процент их освоения для полосок прогресса в макете.
 const MOCK_TOPICS: Array<{ name: Localized; pct: number }> = [
   {
     name: { ru: 'Функции и графики', kk: 'Функциялар мен графиктер', en: 'Functions and graphs' },
@@ -168,6 +178,7 @@ const MOCK_AWARDS: Localized = {
   en: '3 awards',
 };
 
+// Настройки анимации появления блока при прокрутке страницы до него.
 const fadeUp = {
   initial: { opacity: 0, y: 24 },
   whileInView: { opacity: 1, y: 0 },
@@ -178,6 +189,8 @@ const fadeUp = {
 const StudentDashboardPreview: React.FC = () => {
   const { language } = useLanguage();
   const reduceMotion = useReducedMotion();
+  // fu() возвращает настройки анимации появления с задержкой.
+  // Если пользователь отключил анимации в системе — анимацию не применяем.
   const fu = (delay = 0) =>
     reduceMotion
       ? {}
@@ -196,6 +209,7 @@ const StudentDashboardPreview: React.FC = () => {
 
       <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-5 py-20 sm:px-6 md:py-28 lg:grid-cols-2 lg:gap-14 lg:px-8">
         {/* Dashboard mock */}
+        {/* Макет кабинета ученика, стилизованный под окно браузера */}
         <motion.div {...fu()} className="relative">
           <div
             aria-hidden="true"
@@ -229,6 +243,7 @@ const StudentDashboardPreview: React.FC = () => {
               </div>
 
               {/* topic progress */}
+              {/* Полоски прогресса по темам: рисуем по одной на каждую тему из MOCK_TOPICS */}
               <p className="mt-4 text-[11px] font-semibold uppercase tracking-wide text-slateink">
                 {loc(language, MOCK_TOPICS_LABEL)}
               </p>
@@ -254,6 +269,7 @@ const StudentDashboardPreview: React.FC = () => {
               </div>
 
               {/* weak spots */}
+              {/* Слабые места: берём последние две темы (с самым низким процентом) */}
               <p className="mt-4 text-[11px] font-semibold uppercase tracking-wide text-slateink">
                 {loc(language, MOCK_WEAK_LABEL)}
               </p>
@@ -270,6 +286,7 @@ const StudentDashboardPreview: React.FC = () => {
               </div>
 
               {/* deadline card */}
+              {/* Карточка с датой ЕНТ и темой на сегодня из плана NOV-01 */}
               <div className="mt-4 rounded-xl border border-teal/25 bg-mist/25 p-3.5">
                 <div className="flex items-center justify-between gap-2">
                   <span className="font-mono text-[10px] font-semibold uppercase tracking-widest text-coral">
@@ -295,6 +312,7 @@ const StudentDashboardPreview: React.FC = () => {
               </div>
 
               {/* achievements row */}
+              {/* Строка достижений: серия дней занятий и награды */}
               <div className="mt-4 flex flex-wrap items-center gap-2">
                 <span className="flex items-center gap-1.5 rounded-full bg-coral/10 px-2.5 py-1 text-[11px] font-semibold text-coral">
                   <Flame className="h-3.5 w-3.5" aria-hidden="true" />
@@ -310,6 +328,7 @@ const StudentDashboardPreview: React.FC = () => {
         </motion.div>
 
         {/* Feature bullets */}
+        {/* Правая колонка: заголовок секции и список преимуществ */}
         <div>
           <motion.div {...fu(0.1)}>
             <span className="inline-flex items-center gap-2 rounded-full border border-teal/30 bg-white px-3.5 py-1.5 text-xs font-semibold text-teal-dark">

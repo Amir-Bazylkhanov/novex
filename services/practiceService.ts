@@ -1,3 +1,10 @@
+// ============================================
+// Сервис тренировочных тестов (страница /practice).
+// Собирает вопросы из трёх источников: банк диагностики, вопросы из уроков
+// и задачи «Академии». Из них формируется сессия: вопросы и варианты ответов
+// перемешиваются, засекается таймер, а в конце считается результат.
+// Здесь нет кода интерфейса — только логика подбора и проверки вопросов.
+// ============================================
 /**
  * Practice-session assembly + scoring for /practice (NOV-01 Академик).
  *
@@ -93,6 +100,8 @@ export interface PracticeResult {
   reviews: PracticeAnswerReview[];
 }
 
+// --- Банк вопросов (pool) ---
+// Сюда собираются вопросы из всех источников, из них потом формируется тест.
 /* --- pool --- */
 
 interface PoolQuestion {
@@ -117,6 +126,7 @@ const normalizeDifficulty = (
   return d;
 };
 
+// Источник 1: банк вопросов вступительной диагностики (все 8 предметов).
 // The full eight-subject diagnostic bank feeds the pool, so every subject on
 // the config screen has questions even where no lessons exist yet.
 const DIAGNOSTIC_POOL: PoolQuestion[] = ALL_DIAGNOSTIC_QUESTIONS.map((q) => ({
@@ -130,6 +140,7 @@ const DIAGNOSTIC_POOL: PoolQuestion[] = ALL_DIAGNOSTIC_QUESTIONS.map((q) => ({
   difficulty: normalizeDifficulty(q.difficulty),
 }));
 
+// Источник 2: вопросы из открытых уроков (у них есть пошаговые объяснения).
 // Only real lessons contribute questions; locked placeholders carry empty
 // question lists anyway, but the filter keeps that contract explicit. Ids are
 // prefixed with the lesson slug so they can't collide with the diagnostic bank.
@@ -147,6 +158,9 @@ const LESSON_POOL: PoolQuestion[] = LESSONS.filter((l) => l.available).flatMap((
   })),
 );
 
+// Источник 3: задачи из разделов «планет» Академии. Там ответы — свободный
+// текст, поэтому здесь они превращаются в тест: правильный ответ плюс до трёх
+// «неправильных» вариантов, взятых из других задач той же планеты.
 /* Academy planets feed the pool too: their sections' practiceProblems are
    free-text answers, so each is converted to an MCQ here — the correct answer
    plus up to 3 distractor answers sampled from OTHER problems of the SAME

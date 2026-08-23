@@ -1,3 +1,12 @@
+// ============================================================================
+// NOVEX · серверная функция «dispatch-notification-push» (рассылка уведомлений).
+// Когда в базе данных появляется новое уведомление (например, «вышел новый
+// урок»), база автоматически вызывает эту функцию. Она рассылает уведомление
+// на все устройства пользователя (push в браузер) и, для важных событий,
+// дополнительно отправляет письмо на e-mail. Сама отправка идёт через
+// сервис Locus, поэтому ключи почтовых и push-сервисов здесь не хранятся.
+// ============================================================================
+//
 // dispatch-notification-push — NOVEX edge function.
 //
 // Fan-out point for web push + email. An AFTER INSERT trigger on
@@ -17,6 +26,8 @@
 
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2.38.4';
 
+// Настройки подключения: адрес базы, служебный ключ Supabase, адрес Locus
+// и общий секрет. Всё это задаётся на сервере и не видно в браузере.
 const SUPABASE_URL = Deno.env.get('SUPABASE_URL') ?? '';
 const SUPABASE_SERVICE_ROLE_KEY = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') ?? '';
 const RELAY_URL = Deno.env.get('LOCUS_NOTIFY_URL') ?? '';
@@ -25,8 +36,12 @@ const RELAY_SECRET = Deno.env.get('NOVEX_SHARED_SECRET') ?? '';
 const APP_ORIGIN = 'https://novex-edu.vercel.app';
 
 // Kinds that also get an email on top of the push. Extend as needed.
+// По-русски: какие типы уведомлений помимо push дублируются письмом на e-mail
+// (сейчас — «новый модуль» и «новый урок»).
 const EMAIL_KINDS: readonly string[] = ['new_module', 'new_lesson'];
 
+// Ниже описаны «формы» данных, с которыми работает функция:
+// строчка уведомления из базы и подписка на push одного устройства.
 interface NotificationRow {
   id: string;
   user_id: string;
@@ -52,6 +67,9 @@ function json(status: number, body: Record<string, unknown>): Response {
   });
 }
 
+// Сравнение двух секретов «в лоб», символ за символом, без раннего выхода.
+// Так сравнение занимает одинаковое время при любом вводе, и по скорости
+// ответа нельзя угадать правильный секрет.
 function safeEq(a: string, b: string): boolean {
   if (a.length !== b.length) return false;
   let diff = 0;
@@ -59,6 +77,8 @@ function safeEq(a: string, b: string): boolean {
   return diff === 0;
 }
 
+// Защита от подмены: заменяет спецсимволы (<, >, кавычки) на безопасные
+// обозначения, чтобы текст уведомления не сломал вёрстку письма.
 function escapeHtml(s: string): string {
   return s
     .replace(/&/g, '&amp;')
@@ -83,6 +103,8 @@ function bodyLineFromPayload(payload: Record<string, unknown> | null): string | 
   return parts.length > 0 ? parts.join(' — ') : null;
 }
 
+// Собирает HTML-код письма: заголовок, поясняющая строка и кнопка
+// «Открыть урок», ведущая на сайт Novex.
 function buildEmailHtml(title: string, bodyLine: string | null): string {
   const safeTitle = escapeHtml(title);
   const safeBody = bodyLine ? escapeHtml(bodyLine) : null;
@@ -106,6 +128,8 @@ function buildEmailHtml(title: string, bodyLine: string | null): string {
   ].join('');
 }
 
+// Отправляет сообщение в Locus (push или e-mail) с общим секретом
+// и возвращает ответ. Вся реальная отправка происходит там.
 async function relay(message: Record<string, unknown>): Promise<Record<string, unknown>> {
   const res = await fetch(RELAY_URL, {
     method: 'POST',
@@ -118,6 +142,9 @@ async function relay(message: Record<string, unknown>): Promise<Record<string, u
   return await res.json().catch(() => ({}));
 }
 
+// Главная часть: обработчик вызова от базы данных. Порядок действий:
+// проверить секрет -> найти уведомление в базе -> разослать push на все
+// устройства пользователя -> при необходимости отправить письмо -> отчитаться.
 Deno.serve(async (req: Request) => {
   try {
     if (req.method !== 'POST') return json(405, { error: 'method not allowed' });
@@ -172,6 +199,9 @@ Deno.serve(async (req: Request) => {
     const notification = notif as NotificationRow;
 
     // --- PUSH: one relay call per device; a dead device never stops the rest.
+    // По-русски: рассылаем push по очереди на каждое устройство пользователя.
+    // Если какое-то устройство «умерло» (подписка устарела) — это не мешает
+    // остальным, а устаревшую подписку мы потом удалим из базы.
     const push = { sent: 0, expired: 0, failed: 0 };
 
     const { data: subs, error: subsErr } = await supabase
@@ -230,6 +260,9 @@ Deno.serve(async (req: Request) => {
     }
 
     // --- EMAIL: allowlisted kinds only, best-effort.
+    // По-русски: письмо на e-mail отправляем только для важных типов
+    // уведомлений (список EMAIL_KINDS выше) и не прерываем работу,
+    // если с почтой что-то пошло не так.
     let email: EmailResult = 'skipped';
 
     if (EMAIL_KINDS.includes(notification.kind)) {
@@ -269,7 +302,7 @@ Deno.serve(async (req: Request) => {
       }
     }
 
-    return json(200, { ok: true, push, email });
+    return json(200, { ok: true, push, email }); // Итоговый отчёт: сколько push отправлено и что стало с письмом.
   } catch (err) {
     console.error(
       'dispatch-notification-push: unhandled error',

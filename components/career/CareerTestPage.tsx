@@ -1,3 +1,10 @@
+// Страница профориентационного теста (маршрут /career/test).
+// Ученик отвечает на 18 утверждений по 5-балльной шкале и 3 открытых вопроса.
+// Ответы раскладываются по шести направлениям (аналитик, инженер, гуманитарий,
+// коммуникатор, творец, организатор), после чего страница показывает профиль:
+// подходящие профессии, предметы Novex и персональный разбор от ИИ (робот NOV-01).
+// Черновик незавершённой попытки хранится в localStorage браузера, итоговый
+// результат — в базе Supabase (таблица career_results) с локальным кэшем.
 import React, { useEffect, useRef, useState } from 'react';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
@@ -118,6 +125,8 @@ interface OpenQuestion {
   placeholder: Localized;
 }
 
+// Три открытых вопроса, на которые ученик отвечает своими словами
+// после 18 шкальных утверждений. Их текст потом читает ИИ (NOV-01).
 const OPEN_QUESTIONS: readonly OpenQuestion[] = [
   {
     id: 'open1',
@@ -242,6 +251,8 @@ interface DimensionMeta {
   subjects: LessonSubject[];
 }
 
+// Шесть направлений теста. Для каждого заданы название, описание сильной
+// стороны, список подходящих профессий и предметы Novex, которые стоит учить.
 const DIMENSIONS: readonly DimensionMeta[] = [
   {
     key: 'analyst',

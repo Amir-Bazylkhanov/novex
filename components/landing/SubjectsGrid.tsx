@@ -1,3 +1,7 @@
+// SubjectsGrid — секция лендинга «Предметы и модули».
+// Показывает сетку из восьми школьных предметов (для 7–12 классов) с коротким описанием
+// и количеством тем в каждом, а сверху — чипсы с целями обучения (ЕНТ, олимпиады и т.д.).
+// Тексты хранятся на трёх языках (ru/kk/en) и выбираются через loc() по текущему языку.
 import React from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import {
@@ -35,6 +39,7 @@ const SUBTITLE: Localized = {
   en: 'Every subject has topics, tasks and AI explanations: from topic revision to UNT.',
 };
 
+// Цели обучения, которые показываются чипсами над сеткой предметов.
 const GOALS: Array<{ icon: React.ElementType; label: Localized }> = [
   { icon: Target, label: { ru: 'ЕНТ', kk: 'ҰБТ', en: 'UNT' } },
   { icon: Sparkles, label: { ru: 'Олимпиады', kk: 'Олимпиадалар', en: 'Olympiads' } },
@@ -45,6 +50,7 @@ const GOALS: Array<{ icon: React.ElementType; label: Localized }> = [
   { icon: Landmark, label: { ru: 'Поступление', kk: 'Оқуға түсу', en: 'Admissions' } },
 ];
 
+// Список восьми предметов: иконка, название, короткая подпись и количество тем.
 const SUBJECTS: Array<{
   icon: React.ElementType;
   name: Localized;
@@ -131,8 +137,10 @@ const SUBJECTS: Array<{
 
 const SubjectsGrid: React.FC = () => {
   const { language } = useLanguage();
+  // Если у пользователя включена настройка «уменьшить анимации», показываем всё сразу, без движения.
   const reduceMotion = useReducedMotion();
 
+  // Настройка анимации появления блоков при прокрутке до секции.
   const fadeUp = {
     initial: { opacity: reduceMotion ? 1 : 0, y: reduceMotion ? 0 : 24 },
     whileInView: { opacity: 1, y: 0 },
@@ -140,6 +148,7 @@ const SubjectsGrid: React.FC = () => {
     transition: { duration: reduceMotion ? 0 : 0.5 },
   };
 
+  // Задержка появления: карточки всплывают по очереди, а не все одновременно.
   const step = (delay: number) => ({
     duration: reduceMotion ? 0 : 0.5,
     delay: reduceMotion ? 0 : delay,
@@ -188,6 +197,8 @@ const SubjectsGrid: React.FC = () => {
         <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {SUBJECTS.map((subject, i) => {
             const Icon = subject.icon;
+            // У каждой третьей карточки сверху добавляем декоративную «полоску-индикатор»,
+            // чтобы сетка выглядела живее.
             const withLed = i % 3 === 0;
             return (
               <motion.li key={subject.name.en} {...fadeUp} transition={step(0.18 + i * 0.05)}>

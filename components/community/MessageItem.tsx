@@ -1,3 +1,8 @@
+// Одно сообщение в чате: аватарка, имя автора, время, текст, картинка,
+// реакции и кнопки действий, появляющиеся при наведении (ответить,
+// поставить реакцию, пожаловаться, удалить). Подряд идущие сообщения
+// одного автора могут рисоваться «сгруппированными» — без повтора имени.
+// Используется списком внутри ChannelView.
 import React, { useEffect, useRef, useState } from 'react';
 import { useReducedMotion } from 'framer-motion';
 import { Flag, Reply, SmilePlus, Trash2 } from 'lucide-react';
@@ -6,6 +11,7 @@ import { useLanguage } from '../../context/LanguageContext.tsx';
 import type { CommunityMessage } from '../../services/communityService.ts';
 import { IMAGE_FALLBACK_CONTENT } from '../../services/communityService.ts';
 
+// Тексты интерфейса на трёх языках (русский / казахский / английский).
 const STUDENT_FALLBACK: Localized = { ru: 'Ученик', kk: 'Оқушы', en: 'Student' };
 const TEACHER_CHIP: Localized = { ru: 'Учитель', kk: 'Мұғалім', en: 'Teacher' };
 const REPLY_ACTION: Localized = { ru: 'Ответить', kk: 'Жауап беру', en: 'Reply' };
@@ -42,6 +48,7 @@ const EMOJIS: Array<{ emoji: string; label: Localized }> = [
 const FOCUS_RING =
   'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2 focus-visible:ring-offset-canvas';
 
+// Подбирает формат даты и времени под язык интерфейса.
 function localeTag(language: Lang): string {
   return language === 'kk' ? 'kk-KZ' : language === 'ru' ? 'ru-RU' : 'en-US';
 }

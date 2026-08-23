@@ -1,3 +1,7 @@
+// Страница «Частые вопросы» (FAQ).
+// Сверху — декоративный фон с шестерёнками (RobotBackdrop), затем список
+// вопросов-ответов из components/landing/FAQ.tsx и карточка-приглашение
+// спросить ИИ-тьютора (или зарегистрироваться, если пользователь не вошёл).
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useReducedMotion } from 'framer-motion';
@@ -51,6 +55,8 @@ const FaqPage: React.FC = () => {
         <FAQ />
 
         <div className="mx-auto w-full max-w-5xl px-5 pb-16 sm:px-6 lg:px-8">
+          {/* Карточка внизу страницы: для вошедших ведёт в чат с ИИ-тьютором,
+              для гостей — на регистрацию. */}
           <motion.div
             {...motionProps}
             className="flex flex-col items-start justify-between gap-4 rounded-2xl border border-line bg-white p-6 sm:flex-row sm:items-center md:p-8"

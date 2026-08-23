@@ -1,3 +1,9 @@
+// Виджет обратной связи: плавающая круглая кнопка в левом нижнем углу экрана.
+// По нажатию открывает форму «Ошибка / Идея / Отзыв» с текстом и возможностью
+// приложить до 5 скриншотов (перетаскиванием, вставкой Ctrl+V или выбором файла).
+// ВАЖНО: сейчас это демонстрация — сообщение никуда не отправляется,
+// «отправка» просто имитируется задержкой, а скриншоты остаются только в браузере.
+// Открыть форму можно также из футера: он посылает событие 'novex:open-feedback'.
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import {
@@ -126,6 +132,8 @@ const TYPE_ORDER: FeedbackType[] = ['bug', 'idea', 'review'];
 const FeedbackWidget: React.FC<{ hideFab?: boolean }> = ({ hideFab = false }) => {
   const { language } = useLanguage();
   const reduceMotion = useReducedMotion();
+  // open — открыта ли форма; type — выбранный тип (ошибка/идея/отзыв);
+  // status — этап отправки: idle (заполнение) → sending (отправляем) → sent (отправлено).
   const [open, setOpen] = useState(false);
   const [type, setType] = useState<FeedbackType>('bug');
   const [message, setMessage] = useState('');
@@ -145,6 +153,7 @@ const FeedbackWidget: React.FC<{ hideFab?: boolean }> = ({ hideFab = false }) =>
     timersRef.current = [];
   };
 
+  // Полностью закрывает форму и очищает всё: текст, скриншоты, статус и таймеры.
   const resetAndClose = () => {
     clearTimers();
     shotsRef.current.forEach((s) => URL.revokeObjectURL(s.url));

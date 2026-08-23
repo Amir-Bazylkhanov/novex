@@ -1,3 +1,6 @@
+// Подвал сайта — тёмная полоса внизу каждой страницы.
+// Содержит логотип и слоган Novex, ссылки на тарифы и частые вопросы,
+// а также кнопку «Связаться с нами», которая открывает виджет обратной связи.
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { loc, type Localized } from '../utils/i18n.ts';
@@ -75,6 +78,8 @@ const Footer: React.FC = () => {
                 </li>
               ))}
               <li>
+                {/* Не ссылка, а кнопка: отправляет событие novex:open-feedback,
+                    которое ловит FeedbackWidget и открывает форму обратной связи. */}
                 <button
                   type="button"
                   onClick={() => window.dispatchEvent(new CustomEvent('novex:open-feedback'))}

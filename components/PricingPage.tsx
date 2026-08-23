@@ -1,3 +1,6 @@
+// Страница «Тарифы» — сравнение бесплатного и платного планов Novex.
+// Это тонкая обёртка: кнопка «На главную» сверху и готовый блок цен
+// из components/landing/Pricing.tsx (тот же блок используется на лендинге).
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useReducedMotion } from 'framer-motion';
@@ -26,6 +29,8 @@ const fadeUp = {
 
 const PricingPage: React.FC = () => {
   const { language } = useLanguage();
+  // Если у пользователя в системе включён режим «уменьшить движение»,
+  // отключаем подъём блока при появлении — оставляем только плавное проявление.
   const reduceMotion = useReducedMotion();
   const motionProps = reduceMotion
     ? { ...fadeUp, initial: { opacity: 0 }, whileInView: { opacity: 1 } }

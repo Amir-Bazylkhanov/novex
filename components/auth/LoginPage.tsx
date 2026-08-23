@@ -1,3 +1,8 @@
+// Страница входа в аккаунт (маршрут /login).
+// Позволяет войти по email и паролю или через Google. После успешного входа
+// перенаправляет учителя в его панель (/teacher), остальных — в профиль или
+// на страницу, откуда они пришли. Вход выполняется через Supabase
+// (см. context/AuthContext.tsx).
 import React, { useEffect, useRef, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AlertCircle, ArrowLeft, Eye, EyeOff, Loader2, Lock, LogIn, Mail } from 'lucide-react';
@@ -71,11 +76,14 @@ const HIDE_PASSWORD: Localized = {
 };
 const BACK: Localized = { ru: 'Назад', kk: 'Артқа', en: 'Back' };
 
+// Простая проверка, что строка похожа на адрес электронной почты.
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+// Общий стиль подсветки элементов при фокусе с клавиатуры.
 const FOCUS_RING =
   'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2 focus-visible:ring-offset-canvas';
 
+// Иконка-логотип Novex (буква N в бирюзовом квадрате).
 const LogoGlyph: React.FC = () => (
   <svg aria-hidden="true" viewBox="0 0 32 32" className="h-8 w-8 shrink-0" fill="none">
     <rect width="32" height="32" rx="8" className="fill-teal" />
@@ -112,12 +120,15 @@ const GoogleIcon: React.FC = () => (
 
 type LoginFields = { email?: string; password?: string };
 
+// Компонент страницы входа: форма email/пароль и кнопка входа через Google.
 const LoginPage: React.FC = () => {
   const { language } = useLanguage();
   const { user, profile, signIn, signInWithGoogle } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
 
+  // Состояние страницы: введённые email и пароль, ошибки полей,
+  // флаги загрузки и показа пароля.
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);

@@ -1,3 +1,7 @@
+// Секция лендинга «Для школ и учителей»: показывает макет панели учителя —
+// статистику класса, график по темам и список учеников с отметками о помощи.
+// Это демонстрационный макет на придуманных данных, без запросов к базе.
+// Секция вставляется на главную страницу вместе с остальными блоками лендинга.
 import React from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import {
@@ -11,6 +15,8 @@ import { loc, type Localized } from '../../utils/i18n.ts';
 import { useLanguage } from '../../context/LanguageContext.tsx';
 import { RobotAvatar, CircuitTrace } from '../robots/RobotAvatars.tsx';
 
+// Бейдж (маленькая подпись-плашка) над заголовком секции.
+// Localized — объект с текстом на трёх языках: ru, kk, en.
 const BADGE: Localized = {
   ru: 'Для школ и учителей',
   kk: 'Мектептер мен мұғалімдерге',
@@ -36,6 +42,7 @@ const SUBTITLE: Localized = {
 
 /* --- feature bullets --- */
 
+// Список из четырёх возможностей панели учителя: иконка, заголовок и описание.
 const FEATURES: Array<{
   icon: React.ComponentType<{ className?: string; 'aria-hidden'?: boolean | 'true' | 'false' }>;
   title: Localized;
@@ -97,6 +104,7 @@ const FEATURES: Array<{
 
 /* --- teacher mock strings --- */
 
+// Тексты для демонстрационного макета панели учителя (не реальные данные).
 const MOCK_CLASS: Localized = {
   ru: '9 «Б» класс · Математика',
   kk: '9 «Б» сынып · Математика',
@@ -127,6 +135,7 @@ const MOCK_CHART_LABEL: Localized = {
   kk: 'Тақырыптар бойынша үлгерім',
   en: 'Performance by topic',
 };
+// Данные графика успеваемости по темам: название темы и процент.
 const MOCK_CHART: Array<{ name: Localized; pct: number }> = [
   {
     name: { ru: 'Алгебра', kk: 'Алгебра', en: 'Algebra' },
@@ -155,6 +164,7 @@ const MOCK_TABLE_PROGRESS: Localized = {
   kk: 'Үдеріс',
   en: 'Progress',
 };
+// Список учеников в макете: имя, процент прогресса и флаг «нужна помощь».
 const MOCK_STUDENTS: Array<{ name: Localized; pct: number; flag: boolean }> = [
   {
     name: { ru: 'Айгерим', kk: 'Айгерім', en: 'Aigerim' },
@@ -191,6 +201,7 @@ const MOCK_ADD: Localized = {
 const FOCUS_RING =
   'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2 focus-visible:ring-offset-canvas';
 
+// Настройки анимации появления блока при прокрутке страницы до него.
 const fadeUp = {
   initial: { opacity: 0, y: 24 },
   whileInView: { opacity: 1, y: 0 },
@@ -201,6 +212,8 @@ const fadeUp = {
 const TeacherPanel: React.FC = () => {
   const { language } = useLanguage();
   const reduceMotion = useReducedMotion();
+  // fu() возвращает настройки анимации появления с задержкой.
+  // Если пользователь отключил анимации в системе — анимацию не применяем.
   const fu = (delay = 0) =>
     reduceMotion
       ? {}
@@ -216,6 +229,7 @@ const TeacherPanel: React.FC = () => {
 
       <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-5 py-20 sm:px-6 md:py-28 lg:grid-cols-2 lg:gap-14 lg:px-8">
         {/* Feature bullets */}
+        {/* Левая колонка: заголовок секции и список возможностей панели */}
         <div>
           <motion.div {...fu()}>
             <span className="inline-flex items-center gap-2 rounded-full border border-teal/30 bg-mist/25 px-3.5 py-1.5 text-xs font-semibold text-teal-dark">
@@ -261,6 +275,7 @@ const TeacherPanel: React.FC = () => {
         </div>
 
         {/* Teacher panel mock */}
+        {/* Макет панели учителя, стилизованный под окно браузера */}
         <motion.div {...fu(0.15)} className="relative">
           <div
             aria-hidden="true"
@@ -295,6 +310,7 @@ const TeacherPanel: React.FC = () => {
               </div>
 
               {/* class average + curator alert */}
+              {/* Средний балл класса и подсказка от робота NOV-01 Академика */}
               <div className="mt-3 grid gap-2.5 sm:grid-cols-[auto_1fr]">
                 <div className="rounded-xl border border-line/50 bg-canvas px-4 py-3">
                   <p className="text-[10px] font-semibold uppercase tracking-wide text-slateink">
@@ -321,6 +337,7 @@ const TeacherPanel: React.FC = () => {
               </div>
 
               {/* bar chart by topic */}
+              {/* График успеваемости по темам; темы ниже 50% подсвечиваются красным */}
               <p className="mt-4 text-[11px] font-semibold uppercase tracking-wide text-slateink">
                 {loc(language, MOCK_CHART_LABEL)}
               </p>
@@ -351,6 +368,7 @@ const TeacherPanel: React.FC = () => {
               </div>
 
               {/* student table */}
+              {/* Таблица учеников: прогресс и пометка «нужна помощь» для отстающих */}
               <div className="mt-4 overflow-hidden rounded-xl border border-line/50">
                 <div className="grid grid-cols-[1fr_auto] gap-2 border-b border-line/40 bg-canvas px-3.5 py-2 sm:grid-cols-[7rem_1fr_auto]">
                   <span className="text-[10px] font-semibold uppercase tracking-wide text-slateink">

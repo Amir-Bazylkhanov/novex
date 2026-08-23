@@ -1,6 +1,16 @@
+/* ============================================================================
+ * NOVEX · service worker — фоновый «помощник» браузера для push-уведомлений.
+ * Этот файл работает в браузере ученика/учителя даже когда вкладка с сайтом
+ * закрыта: он принимает push-уведомления от сервера (например, «вышел новый
+ * урок»), показывает их на экране и открывает нужную страницу Novex по клику.
+ * Уведомления рассылает серверная функция supabase/functions/dispatch-notification-push.
+ * Ничего, кроме уведомлений, этот файл не делает — специально, чтобы было
+ * просто и надёжно.
+ * ========================================================================= */
 /* Novex service worker — push notifications only.
  * No caching, no offline logic, no fetch handler. Minimal by design. */
 
+// Установка помощника: активируемся сразу, не дожидаясь закрытия вкладок.
 self.addEventListener('install', () => {
   // Activate the new service worker immediately without waiting for old
   // clients to close.
@@ -12,6 +22,8 @@ self.addEventListener('activate', (event) => {
   event.waitUntil(self.clients.claim());
 });
 
+// Приём push-уведомления с сервера: достаём из него заголовок, текст
+// и ссылку на страницу, а затем показываем уведомление на экране.
 self.addEventListener('push', (event) => {
   let payload = { title: 'Novex', body: '', url: '/' };
 
@@ -44,6 +56,9 @@ self.addEventListener('push', (event) => {
   event.waitUntil(self.registration.showNotification(payload.title, options));
 });
 
+// Клик по уведомлению: закрываем его и открываем нужную страницу Novex.
+// Если сайт уже открыт во вкладке — просто переключаемся на неё и переходим
+// по ссылке, если нет — открываем новое окно.
 self.addEventListener('notificationclick', (event) => {
   event.notification.close();
   const targetUrl = (event.notification.data && event.notification.data.url) || '/';

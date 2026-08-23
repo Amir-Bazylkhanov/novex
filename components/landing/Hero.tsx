@@ -1,3 +1,8 @@
+// Hero — главный («первый») экран лендинга: заголовок, подзаголовок и кнопка «Пройти диагностику».
+// Справа показывается декоративный макет интерфейса платформы — как будто открыто окно
+// с личным кабинетом ученика. Это не реальные данные, а пример того, как выглядит продукт.
+// Все тексты хранятся сразу на трёх языках (ru/kk/en) и выбираются через loc() по текущему языку.
+// Секция подключается на странице лендинга вместе с остальными блоками из components/landing/.
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
@@ -16,6 +21,7 @@ import { loc, type Localized } from '../../utils/i18n.ts';
 import { useLanguage } from '../../context/LanguageContext.tsx';
 import { RobotAvatar, GearDecor, CircuitTrace } from '../robots/RobotAvatars.tsx';
 
+// Тексты для блока слева: бейдж, заголовок, подзаголовок и кнопка.
 const BADGE: Localized = {
   ru: 'ИИ для школ Казахстана · Future Minds Hackathon 2026',
   kk: 'Қазақстан мектептеріне арналған ИИ · Future Minds Hackathon 2026',
@@ -52,6 +58,8 @@ const TRUST: Localized = {
 };
 
 /* --- product mock strings --- */
+// Тексты для декоративного макета интерфейса справа: приветствие, меню, предметы и т.д.
+// Это всё — «бутафория» для картинки, а не настоящие данные ученика.
 
 const MOCK_GREETING: Localized = {
   ru: 'Привет, Айгерим!',
@@ -126,9 +134,11 @@ const MOCK_ROBOT_LABEL: Localized = {
   en: 'NOV-01 · ACADEMIC',
 };
 
+// Стили подсветки при навигации с клавиатуры (чтобы кнопка была видна, когда на неё переходят через Tab).
 const FOCUS_RING =
   'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2 focus-visible:ring-offset-canvas';
 
+// Соответствие между именами пунктов меню в макете и иконками.
 const NAV_ICONS = {
   home: Home,
   book: BookOpen,
@@ -136,6 +146,7 @@ const NAV_ICONS = {
   stats: BarChart3,
 } as const;
 
+// Настройка анимации появления: блок плавно «всплывает» снизу, когда попадает в поле зрения.
 const fadeUp = {
   initial: { opacity: 0, y: 24 },
   whileInView: { opacity: 1, y: 0 },
@@ -144,6 +155,7 @@ const fadeUp = {
 };
 
 const Hero: React.FC = () => {
+  // Текущий язык интерфейса (русский / казахский / английский) — из глобального контекста.
   const { language } = useLanguage();
 
   return (
@@ -152,6 +164,7 @@ const Hero: React.FC = () => {
       aria-labelledby="hero-heading"
       className="relative overflow-hidden bg-canvas"
     >
+      {/* Левая колонка: бейдж, большой заголовок, подзаголовок и кнопка перехода к диагностике */}
       <div className="mx-auto grid max-w-7xl items-center gap-14 px-5 pb-20 pt-14 sm:px-6 md:pb-28 md:pt-20 lg:grid-cols-2 lg:gap-10 lg:px-8">
         <motion.div {...fadeUp}>
           <span className="inline-flex items-center gap-2 rounded-full border border-teal/30 bg-mist/25 px-3.5 py-1.5 text-xs font-semibold text-teal-dark">
@@ -186,6 +199,8 @@ const Hero: React.FC = () => {
         </motion.div>
 
         {/* Product UI mock */}
+        {/* Правая колонка: декоративный макет интерфейса платформы внутри «окна браузера».
+            Вокруг него — размытые пятна, шестерёнки и линии схемы чисто для красоты. */}
         <motion.div
           {...fadeUp}
           transition={{ duration: 0.5, delay: 0.15 }}
@@ -223,7 +238,7 @@ const Hero: React.FC = () => {
             </div>
 
             <div className="flex">
-              {/* sidebar */}
+              {/* sidebar — левая панель меню внутри макета (видна только на больших экранах) */}
               <div className="hidden w-40 shrink-0 flex-col gap-1 border-r border-line/40 bg-canvas p-3 sm:flex">
                 <div className="mb-2 flex items-center gap-1.5 px-1.5">
                   <svg aria-hidden="true" viewBox="0 0 32 32" className="h-5 w-5" fill="none">
@@ -255,7 +270,8 @@ const Hero: React.FC = () => {
                 })}
               </div>
 
-              {/* main panel */}
+              {/* main panel — основная часть макета: приветствие, серия дней, прогресс по предметам,
+                  слабые темы и карточка с дедлайном подготовки к ЕНТ */}
               <div className="min-w-0 flex-1 p-4 sm:p-5">
                 <div className="flex items-start justify-between gap-3">
                   <div>
@@ -343,7 +359,8 @@ const Hero: React.FC = () => {
             </div>
           </div>
 
-          {/* floating AI chip */}
+          {/* floating AI chip — маленькая «парящая» карточка поверх макета:
+              показывает, что робот-Академик уже разобрал ошибку ученика */}
           <div className="absolute -right-3 -top-5 hidden items-center gap-2.5 rounded-xl border border-line/50 bg-white px-3.5 py-2.5 shadow-[0_8px_30px_rgba(33,159,162,0.15)] md:flex lg:-right-6">
             <RobotAvatar robot="nov1" className="h-11 w-11 shrink-0" />
             <span>

@@ -41,6 +41,15 @@ import PlanetPlacementTest, {
   type PlacementResult,
 } from './PlanetPlacementTest.tsx';
 
+// ============================================================
+// Страница учебного модуля («планеты») — открывается по адресу
+// /learn/p/<модуль> из LearnPage. Модуль состоит из уровней,
+// идущих по порядку: следующий открывается после предыдущего.
+// Есть тест на пропуск уровня и тест «Подобрать уровень» для
+// определения стартовой точки. Полоса уровней — в PlanetLevels.tsx,
+// тесты — в PlanetSkipTest.tsx и PlanetPlacementTest.tsx.
+// ============================================================
+
 /* --- content --- */
 
 const BACK: Localized = {
@@ -135,6 +144,8 @@ const problemsLine = (language: 'ru' | 'kk' | 'en', total: number): string => {
 const FOCUS_RING =
   'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2 focus-visible:ring-offset-canvas';
 
+// Основная часть страницы: сверху полоса уровней, под ней — карточка
+// активного уровня с кнопками «Начать урок» / «Пройти тест».
 /** Planet page: sections as sequential levels — swiper strip on top, the
     active level's (locked or unlocked) content below. Level N unlocks when
     level N−1 is completed, or by passing the previous section's skip test. */
@@ -150,6 +161,9 @@ const PlanetPage: React.FC = () => {
   // grade-matched copy of the content (falls back to the lowest grade)
   const content = planet ? pickGradeContent(planet.lessons, profile?.grade ?? null) : undefined;
 
+// Состояния страницы: прогресс по модулю, номер активного уровня
+// и открытые сейчас тесты (на пропуск уровня, обычный тест уровня
+// и тест «Подобрать уровень»).
   const [progress, setProgress] = useState<PlanetProgress>(() =>
     loadPlanetProgress(planetSlug ?? ''),
   );
@@ -179,6 +193,9 @@ const PlanetPage: React.FC = () => {
   /** Ladder position → flat index (identity for non-subject planets). */
   const flatIndexAt = (idx: number): number => (ladder ? ladder[idx].flatIndex : idx);
 
+  // При открытии модуля (или смене предмета) перечитываем сохранённый
+  // прогресс и подставляем первый непройденный уровень. Параметр ?test=
+  // в адресе означает «сразу открыть тест этого уровня».
   // Re-sync progress + land on the first incomplete level per planet/subject,
   // or on the level named by ?test= (set by the lesson page's "К тесту уровня"
   // — a flat index for subject planets, a section index otherwise).
@@ -236,6 +253,8 @@ const PlanetPage: React.FC = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [planetSlug, content, activeSubject?.id]);
 
+  // Если модуль с таким адресом не найден — показываем заглушку
+  // с кнопкой возврата к списку направлений.
   if (!planet || !direction || !content || !sections) {
     return (
       <main className="relative min-h-screen bg-canvas font-sans text-ink">
@@ -264,6 +283,8 @@ const PlanetPage: React.FC = () => {
   const directionLine = `${DIRECTION_CODE[direction.id]} · ${loc(language, direction.name)}`;
 
   const safeActiveIdx = Math.max(0, Math.min(activeIdx, sections.length - 1));
+  // Статус каждого уровня: пройден, открыт или заблокирован
+  // (заблокирован, пока не пройден предыдущий).
   const statuses: PlanetLevelStatus[] = sections.map((_, i) =>
     progress.completedSections.includes(flatIndexAt(i))
       ? 'done'
@@ -282,6 +303,8 @@ const PlanetPage: React.FC = () => {
   const activeCompleted = progress.completedSections.includes(activeFlatIdx);
   const activeSkipped = progress.skipped.includes(activeFlatIdx);
 
+  // Три шага активного уровня: урок прочитан → тест сдан →
+  // уровень пройден. На их основе решаем, какие кнопки показывать.
   // Урок → Тест → Уровень пройден for the active level. lessonRead entries
   // written before this field existed are implied by completedSections.
   const activeLessonRead =
@@ -312,6 +335,9 @@ const PlanetPage: React.FC = () => {
     prevSection !== undefined &&
     buildSkipTest(prevSection, language, sections) !== null;
 
+  // Обработчики результатов тестов: пропуск уровня через тест,
+  // сдача обычного теста уровня и итог теста «Подобрать уровень»
+  // (открываем все уровни ниже подобранного).
   const jumpToRecommended = () => setActiveIdx(firstIncomplete >= 0 ? firstIncomplete : 0);
   const handleSkipPass = () => {
     if (skipTestFor === null) return;
@@ -385,6 +411,8 @@ const PlanetPage: React.FC = () => {
             </div>
           </div>
 
+          // Переключатель предметов — показывается только у модулей,
+          // где внутри несколько предметов (у каждого своя лестница уровней).
           {/* subject switcher — multi-subject planets split levels into
               per-subject difficulty ladders (see constants/academy/subjects.ts) */}
           {planetSubjects && activeSubject && (

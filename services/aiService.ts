@@ -1,3 +1,10 @@
+// ============================================
+// Сервис ИИ-тьютора «Академик».
+// Отправляет переписку ученика в серверную функцию Supabase (ai-chat)
+// и возвращает ответ ИИ. Технические ошибки (нет интернета, слишком
+// много запросов, не выполнен вход) превращаются в понятные тексты
+// на языке интерфейса. Используется чатом components/chat/TutorChat.tsx.
+// ============================================
 import { supabase } from './supabaseClient.ts';
 import { loc, type Lang, type Localized } from '../utils/i18n.ts';
 
@@ -10,6 +17,7 @@ export type TutorModel =
   | 'gpt-5.6-terra'
   | 'gpt-5.6-sol';
 
+// Тексты ошибок на трёх языках интерфейса: русский, казахский, английский.
 const ERR_NOT_SIGNED_IN: Localized = {
   ru: 'Чтобы общаться с Академиком, войдите в аккаунт.',
   kk: 'Академикпен сөйлесу үшін аккаунтыңызға кіріңіз.',
@@ -45,6 +53,8 @@ function activeLang(): Lang {
   return 'ru';
 }
 
+// Главная функция сервиса: отправляет сообщения ИИ-тьютору и возвращает
+// либо текст ответа, либо понятное сообщение об ошибке.
 export async function askTutor(args: {
   model: TutorModel;
   messages: Array<{ role: 'user' | 'assistant'; content: string }>;
@@ -52,17 +62,20 @@ export async function askTutor(args: {
 }): Promise<{ text: string | null; error: string | null }> {
   const lang = activeLang();
 
+  // Сначала проверяем, что пользователь вошёл в аккаунт.
   const {
     data: { session },
   } = await supabase.auth.getSession();
   if (!session) return { text: null, error: loc(lang, ERR_NOT_SIGNED_IN) };
 
   try {
+    // Отправляем переписку на сервер; «пропуск» пользователя (JWT) подставляется автоматически.
     // supabase.functions.invoke attaches the user's JWT automatically.
     const { data, error } = await supabase.functions.invoke('ai-chat', {
       body: { model: args.model, messages: args.messages, system: args.system },
     });
     if (error) {
+      // По тексту технической ошибки понимаем причину и показываем понятное сообщение.
       const message = (error.message ?? '').toLowerCase();
       if (message.includes('failed to fetch') || message.includes('network')) {
         return { text: null, error: loc(lang, ERR_NETWORK) };

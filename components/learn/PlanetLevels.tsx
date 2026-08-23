@@ -20,6 +20,16 @@ import {
 } from '../../constants/academy/catalog.ts';
 import { hasSubjects } from '../../constants/academy/subjects.ts';
 
+// ============================================================
+// Две вещи для страницы модуля (PlanetPage):
+// 1) хранение прогресса ученика по уровням модуля — пока в памяти
+//    браузера (localStorage): функции loadPlanetProgress,
+//    markSectionCompleted, markSectionSkipped, markLessonRead;
+// 2) горизонтальная полоса уровней с замками и плашки шагов
+//    «Урок → Тест → Уровень пройден» — компоненты PlanetLevels
+//    и LevelStepPills.
+// ============================================================
+
 /* --- planet progress (localStorage) ---
    Level gating state lives in localStorage for the MVP — persistence to the
    lesson_progress table in Supabase is a later pass. */
@@ -46,6 +56,8 @@ const sanitizeIndices = (value: unknown): number[] =>
     ? value.filter((n): n is number => typeof n === 'number' && Number.isInteger(n) && n >= 0)
     : [];
 
+// Читаем сохранённый прогресс из браузера; если записи нет или она
+// испорчена — начинаем с чистого листа.
 export const loadPlanetProgress = (slug: string): PlanetProgress => {
   try {
     const raw = window.localStorage.getItem(progressKey(slug));
@@ -72,6 +84,9 @@ const savePlanetProgress = (slug: string, progress: PlanetProgress): void => {
 const addToSorted = (list: number[], value: number): number[] =>
   list.includes(value) ? list : [...list, value].sort((a, b) => a - b);
 
+// Отмечаем уровень пройденным (markSectionCompleted), пропущенным
+// через тест (markSectionSkipped) или «урок прочитан» (markLessonRead)
+// и сразу сохраняем результат в браузере.
 export const markSectionCompleted = (slug: string, sectionIndex: number): PlanetProgress => {
   const current = loadPlanetProgress(slug);
   const next: PlanetProgress = {
@@ -186,6 +201,9 @@ interface PlanetLevelsProps {
 }
 
 /** Horizontal level rail: planet sections as sequential locked/unlocked pills. */
+// Полоса уровней: круглые кнопки-уровни. Заблокированные показаны
+// с замком, следующий непройденный — с пометкой «Рекомендуется».
+// Активный уровень автоматически прокручивается в поле зрения.
 const PlanetLevels: React.FC<PlanetLevelsProps> = ({
   sections,
   statuses,
@@ -200,6 +218,8 @@ const PlanetLevels: React.FC<PlanetLevelsProps> = ({
   const stripRef = useRef<HTMLDivElement | null>(null);
 
   // Keep the active pill in view as the level changes.
+  // При смене уровня прокручиваем полосу так, чтобы активная кнопка
+  // оставалась видимой.
   useEffect(() => {
     const el = stripRef.current?.querySelector<HTMLElement>(`[data-level-idx="${activeIdx}"]`);
     el?.scrollIntoView({
@@ -325,6 +345,9 @@ const PlanetLevels: React.FC<PlanetLevelsProps> = ({
 export default PlanetLevels;
 
 /* --- level step pills (Урок → Тест → Уровень пройден) --- */
+
+// Плашки шагов внутри карточки уровня: «Урок → Тест → Уровень пройден».
+// Шаг «Тест» скрывается, если для уровня нельзя собрать тест.
 
 export type LevelStepState = 'done' | 'active' | 'locked';
 

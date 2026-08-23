@@ -1,4 +1,14 @@
 -- ============================================================================
+-- NOVEX · миграция 0001 · таблица профилей пользователей (public.profiles).
+-- Этот файл — инструкция для базы данных Supabase: он создаёт таблицу,
+-- в которой хранится карточка каждого пользователя (имя, роль — ученик,
+-- учитель или админ, класс, предметы, цель обучения, язык интерфейса).
+-- Также здесь настроены правила безопасности: человек видит и меняет
+-- только свою карточку, и автоматика, которая создаёт карточку
+-- при регистрации нового пользователя.
+-- ============================================================================
+--
+-- ============================================================================
 -- novex · migration 0001 · public.profiles
 -- one profile row per auth user, protected by row level security.
 -- review carefully before applying to the live database.
@@ -8,6 +18,10 @@
 -- table: public.profiles
 -- keyed by auth.users.id; one row per user.
 -- ----------------------------------------------------------------------------
+-- По-русски: создаём таблицу «профили». Одна строка = один пользователь.
+-- Поля: имя, роль (ученик / учитель / админ), класс (7–12), список предметов,
+-- цель обучения (ЕНТ, олимпиада, повторение, поступление), язык интерфейса
+-- (ru / kk / en), школа, регион и служебные даты создания/изменения.
 create table if not exists public.profiles (
   id          uuid        primary key references auth.users (id) on delete cascade,
   full_name   text,
@@ -31,6 +45,10 @@ create table if not exists public.profiles (
 -- note: (select auth.uid()) is wrapped in a subselect on purpose so the call
 -- is evaluated once per statement instead of once per row (rls initplan).
 -- ----------------------------------------------------------------------------
+-- По-русски: включаем защиту на уровне строк. Каждый вошедший пользователь
+-- может читать, создавать и менять только СВОЮ карточку — чужие профили
+-- ему недоступны. Удалять карточки вручную нельзя: они удаляются
+-- автоматически вместе с аккаунтом.
 alter table public.profiles enable row level security;
 
 drop policy if exists profiles_select_own on public.profiles;
@@ -54,6 +72,9 @@ create policy profiles_update_own on public.profiles
 -- security definer so it can write past rls; search_path is pinned to ''
 -- so every identifier below is fully schema-qualified (no hijackable lookups).
 -- ----------------------------------------------------------------------------
+-- По-русски: автоматика регистрации. Как только человек создаёт аккаунт,
+-- база сама заводит ему пустую карточку профиля (с именем, если оно было
+-- указано при регистрации). Писать отдельный код в приложении не нужно.
 create or replace function public.handle_new_user()
 returns trigger
 language plpgsql
@@ -80,6 +101,8 @@ create trigger on_auth_user_created
 -- ----------------------------------------------------------------------------
 -- trigger: keep updated_at fresh on every update.
 -- ----------------------------------------------------------------------------
+-- По-русски: при любом изменении карточки автоматически обновляем поле
+-- updated_at — так всегда видно, когда профиль менялся в последний раз.
 create or replace function public.touch_updated_at()
 returns trigger
 language plpgsql
@@ -113,5 +136,7 @@ create trigger profiles_touch_updated_at
 -- security advisor flagged both. revoke closes that surface; triggers do not
 -- need execute granted to any role to fire.
 -- ============================================================================
+-- По-русски: закрываем прямой вызов этих служебных функций извне — они нужны
+-- только самой базе для автоматики, а не пользователям приложения.
 revoke execute on function public.handle_new_user() from public, anon, authenticated;
 revoke execute on function public.touch_updated_at() from public, anon, authenticated;

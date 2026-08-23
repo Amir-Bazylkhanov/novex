@@ -1,3 +1,10 @@
+/*
+  Страница дашборда ученика (личный кабинет).
+  Показывает прогресс по предметам, слабые и сильные темы после диагностики,
+  обратный отсчёт до экзамена ЕНТ, результат профориентации, аналитику
+  и достижения. Все данные запрашиваются из базы Supabase; блоки аналитики
+  и достижений вынесены в соседние файлы AnalyticsSection.tsx и AchievementsTab.tsx.
+*/
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
@@ -24,6 +31,8 @@ import AchievementsTab from './AchievementsTab.tsx';
 
 /* --- content --- */
 
+// Ниже — все тексты интерфейса этой страницы на трёх языках (русский, казахский,
+// английский). Функция loc() в разметке выбирает нужный вариант по текущему языку сайта.
 const LOADING: Localized = { ru: 'Загружаем…', kk: 'Жүктелуде…', en: 'Loading…' };
 const GREETING: Localized = { ru: 'Привет, {name}!', kk: 'Сәлем, {name}!', en: 'Hi, {name}!' };
 const GREETING_FALLBACK: Localized = { ru: 'Привет!', kk: 'Сәлем!', en: 'Hi!' };
@@ -248,6 +257,8 @@ interface EntSitting {
   date: string; // YYYY-MM-DD, approximate
 }
 
+// Примерные даты ближайших потоков ЕНТ. Показываются как ориентир, когда
+// ученик не указал точную дату экзамена в профиле.
 const ENT_SITTINGS: EntSitting[] = [
   {
     label: { ru: 'Январское ЕНТ', kk: 'Қаңтарлық ҰБТ', en: 'January UNT' },
@@ -261,6 +272,8 @@ const ENT_SITTINGS: EntSitting[] = [
 
 /* --- shared classes --- */
 
+// Готовые наборы CSS-классов (рамка фокуса, карточка, основная кнопка),
+// чтобы не повторять одни и те же длинные списки классов в разметке ниже.
 const FOCUS_RING =
   'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2 focus-visible:ring-offset-canvas';
 
@@ -273,6 +286,8 @@ const HEADING_ICON = 'flex h-10 w-10 shrink-0 items-center justify-center rounde
 
 /* --- data --- */
 
+// Описания формата данных, которые приходят из базы Supabase
+// (прогресс уроков, результаты диагностики и т.д.).
 interface LessonProgressRow {
   lesson_slug: string;
   subject: string;
@@ -305,9 +320,12 @@ interface SubjectStat {
   pct: number;
 }
 
+// Убирает пустые и некорректные значения из списка тем, пришедшего из базы.
 const cleanTopics = (topics: string[] | null): string[] =>
   (topics ?? []).filter((t) => typeof t === 'string' && t.trim().length > 0);
 
+// Считает по каждому предмету, сколько уроков пройдено из скольких,
+// и переводит это в проценты для полос прогресса.
 const buildSubjectStats = (lessons: LessonProgressRow[]): SubjectStat[] => {
   const bySubject = new Map<string, Map<string, boolean>>();
   for (const row of lessons) {
@@ -343,6 +361,8 @@ const daysUntilDate = (iso: string): number | null => {
   return Math.round((target.getTime() - today.getTime()) / 86_400_000);
 };
 
+// Подбирает правильную форму слова «день»: 1 день, 2 дня, 5 дней
+// (и аналоги для казахского и английского языков).
 const daysWord = (lang: Lang, days: number): string => {
   if (lang === 'kk') return 'күн';
   if (lang === 'en') return days === 1 ? 'day' : 'days';
@@ -353,22 +373,27 @@ const daysWord = (lang: Lang, days: number): string => {
   return 'дней';
 };
 
+// Подставляет значения в текстовый шаблон вместо меток вида {name}, {date} и т.п.
 const fill = (template: string, vars: Record<string, string | number>): string =>
   Object.entries(vars).reduce(
     (acc, [key, value]) => acc.split(`{${key}}`).join(String(value)),
     template,
   );
 
+// Сама страница дашборда.
 const DashboardPage: React.FC = () => {
-  const { user, profile, loading } = useAuth();
-  const { language } = useLanguage();
-  const [data, setData] = useState<DashboardData | null>(null);
-  const [loadError, setLoadError] = useState(false);
-  const [activeTab, setActiveTab] = useState<'overview' | 'achievements'>('overview');
+  const { user, profile, loading } = useAuth(); // текущий пользователь и его профиль
+  const { language } = useLanguage(); // выбранный язык интерфейса
+  const [data, setData] = useState<DashboardData | null>(null); // данные из базы (null = ещё загружаются)
+  const [loadError, setLoadError] = useState(false); // true, если загрузка не удалась
+  const [activeTab, setActiveTab] = useState<'overview' | 'achievements'>('overview'); // открытая вкладка
 
+  // При открытии страницы один раз загружает из базы Supabase всё необходимое:
+  // прогресс уроков, последнюю диагностику, операции с новасами, наличие плана
+  // и модулей учителя, дату регистрации и результат профориентации.
   useEffect(() => {
     if (!user) return;
-    let cancelled = false;
+    let cancelled = false; // защита: если страницу закрыли до ответа базы, ничего не обновляем
     const load = async () => {
       try {
         const [lessonsRes, diagRes, txRes, planRes, modulesRes, profileRes, careerRes] =
@@ -432,6 +457,7 @@ const DashboardPage: React.FC = () => {
     };
   }, [user]);
 
+  // Пока идёт авторизация или профиль не загружен — показываем только индикатор загрузки.
   if (loading || !user || !profile) {
     return (
       <div role="status" className="flex min-h-screen items-center justify-center bg-canvas">
@@ -449,6 +475,8 @@ const DashboardPage: React.FC = () => {
     return known ? loc(language, known) : slug;
   };
 
+  // Ниже из сырых данных базы вычисляется всё, что нужно для отображения:
+  // общий опыт (XP), число пройденных уроков, слабые и сильные темы и т.д.
   const lessons = data?.lessons ?? [];
   const stats = buildSubjectStats(lessons);
   const totalXp = lessons.reduce((sum, row) => sum + (row.xp ?? 0), 0);
@@ -474,6 +502,7 @@ const DashboardPage: React.FC = () => {
         .join(' · ')
     : '';
 
+  // Сколько целых дней осталось до экзамена (null — дата не указана в профиле).
   const examDays = profile.examDate ? daysUntilDate(profile.examDate) : null;
   // All selected goals, falling back to the legacy single-goal column.
   const displayGoals: Goal[] =
@@ -493,6 +522,8 @@ const DashboardPage: React.FC = () => {
         });
   };
 
+  // Собирает до двух напоминаний: о приближающемся экзамене и о теме,
+  // которую пора повторить.
   const reminders: Array<{ key: string; text: string; to: string | null }> = [];
   if (examDays !== null && examDays >= 0 && examDays <= 30) {
     reminders.push({
@@ -513,6 +544,8 @@ const DashboardPage: React.FC = () => {
   }
   const visibleReminders = reminders.slice(0, 2);
 
+  // Метрики для раздела достижений: сколько новасов заработано и потрачено,
+  // в сколько разных дней ученик занимался.
   const transactions = data?.transactions ?? [];
   const novasEarned = transactions.reduce((sum, tx) => sum + (tx.amount > 0 ? tx.amount : 0), 0);
   const novasSpent = transactions.reduce((sum, tx) => sum + (tx.amount < 0 ? -tx.amount : 0), 0);
@@ -522,6 +555,7 @@ const DashboardPage: React.FC = () => {
       .map((row) => (row.completed_at ?? '').slice(0, 10)),
   ).size;
 
+  // Сколько дней ученик с нами (считается от даты регистрации).
   const profileCreatedAt = data?.profileCreatedAt ?? null;
   const profileCreatedMs = profileCreatedAt ? new Date(profileCreatedAt).getTime() : NaN;
   const daysWithUs = Number.isNaN(profileCreatedMs)
@@ -533,6 +567,7 @@ const DashboardPage: React.FC = () => {
     ? fill(loc(language, GREETING), { name: displayName })
     : loc(language, GREETING_FALLBACK);
 
+  // Название профориентационного профиля из результата теста, например «Аналитик-инженер».
   const careerLabels = (data?.careerTop ?? [])
     .map((key) => CAREER_DIMENSION_LABELS[key])
     .filter((label): label is Localized => label !== undefined)
@@ -558,6 +593,7 @@ const DashboardPage: React.FC = () => {
           </p>
         </header>
 
+        {/* Переключатель вкладок: «Обзор» и «Достижения» */}
         <div
           className="mt-6 flex flex-wrap gap-2"
           role="group"
@@ -588,8 +624,10 @@ const DashboardPage: React.FC = () => {
           })}
         </div>
 
+        {/* Вкладка «Обзор»: напоминания, карточки прогресса и аналитика */}
         {activeTab === 'overview' ? (
           <>
+        {/* Полоса напоминаний — показывается, только если есть что напомнить */}
         {visibleReminders.length > 0 && (
           <section
             aria-labelledby="dash-reminders-heading"
@@ -625,6 +663,8 @@ const DashboardPage: React.FC = () => {
           </section>
         )}
 
+        {/* Сетка карточек. Если загрузка не удалась — сообщение об ошибке,
+            если данные ещё в пути — индикатор загрузки, иначе — сами карточки. */}
         <div className="mt-8 grid gap-6 lg:grid-cols-2">
           {loadError ? (
             <div role="alert" className={`${CARD} flex items-start gap-3 border-coral/40 lg:col-span-2`}>
@@ -968,6 +1008,7 @@ const DashboardPage: React.FC = () => {
           )}
         </div>
 
+        {/* Раздел аналитики: суммарные цифры и лента операций с новасами */}
         {!loadError && data && (
           <AnalyticsSection
             totalXp={totalXp}
@@ -991,6 +1032,8 @@ const DashboardPage: React.FC = () => {
             <span className="sr-only">{loc(language, LOADING)}</span>
           </div>
         ) : (
+          /* Вкладка «Достижения»: получает уже посчитанные метрики и сама
+             решает, какие награды открыты */
           <AchievementsTab
             data={{
               lessonsDone: doneTotal,

@@ -1,3 +1,7 @@
+// Модальное окно «Создать канал».
+// Форма с названием, описанием и автоматически сгенерированным адресом канала.
+// По кнопке «Создать» записывает канал в базу через services/communityService.ts
+// и сообщает об этом странице CommunityPage (через onCreated).
 import React, { useEffect, useMemo, useState } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { AlertCircle, Hash, Loader2, X } from 'lucide-react';
@@ -13,6 +17,7 @@ import {
   type CommunityChannel,
 } from '../../services/communityService.ts';
 
+// Тексты интерфейса на трёх языках (русский / казахский / английский).
 const TITLE: Localized = {
   ru: 'Создать канал',
   kk: 'Арна құру',
@@ -52,6 +57,7 @@ const SUBMIT_ERROR: Localized = {
   en: 'Could not create the channel. Please try again.',
 };
 
+// Единый стиль рамки фокуса для удобной навигации с клавиатуры.
 const FOCUS_RING =
   'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2 focus-visible:ring-offset-canvas';
 
@@ -61,10 +67,13 @@ interface CreateChannelModalProps {
   onCreated: (channel: CommunityChannel) => void;
 }
 
+// Компонент модального окна: open — открыто ли окно, onClose — закрыть,
+// onCreated — сообщить странице о созданном канале.
 const CreateChannelModal: React.FC<CreateChannelModalProps> = ({ open, onClose, onCreated }) => {
   const { language } = useLanguage();
   const { user } = useAuth();
   const reducedMotion = useReducedMotion();
+  // Поля формы и служебные флаги: идёт ли отправка, была ли ошибка.
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [submitting, setSubmitting] = useState(false);

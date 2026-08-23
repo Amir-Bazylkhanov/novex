@@ -1,3 +1,8 @@
+// Шапка сайта (верхняя панель навигации). Показывается на всех страницах.
+// Содержит логотип, ссылки на разделы приложения, переключатель языка (RU/KK/EN),
+// баланс Новасов, колокольчик уведомлений и меню профиля.
+// Поведение зависит от того, вошёл ли пользователь: гостям вместо переходов
+// по разделам показывается окно с предложением войти.
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import {
@@ -23,6 +28,8 @@ import LoginRequiredModal from './auth/LoginRequiredModal.tsx';
 import NovaBadge from './NovaBadge.tsx';
 import NotificationsBell from './NotificationsBell.tsx';
 
+// Список разделов приложения, которые показываются в меню шапки.
+// Каждая запись: адрес страницы, подпись на трёх языках и иконка.
 const APP_NAV_LINKS: Array<{
   to: string;
   label: Localized;
@@ -78,6 +85,7 @@ const LANGS: Array<{ code: Lang; short: string }> = [
 const FOCUS_RING =
   'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2 focus-visible:ring-offset-canvas';
 
+// Маленький логотип Novex — бирюзовый квадрат с буквой «N», рисуется прямо в коде.
 const LogoGlyph: React.FC = () => (
   <svg
     aria-hidden="true"
@@ -96,6 +104,8 @@ const LogoGlyph: React.FC = () => (
   </svg>
 );
 
+// Переключатель языка интерфейса (три круглые кнопки RU / KK / EN).
+// Выбор вошедшего пользователя дополнительно сохраняется в его профиле в базе.
 const LanguageSwitcher: React.FC<{ onSwitch?: () => void }> = ({ onSwitch }) => {
   const { language, setLanguage } = useLanguage();
   // Signed-in users get their choice saved to the profile row, so it follows
@@ -135,6 +145,9 @@ const Header: React.FC = () => {
   const { language } = useLanguage();
   const { user, profile, signOut } = useAuth();
   const { pathname } = useLocation();
+  // scrolled — добавить тень шапке, когда страница прокручена вниз.
+  // menuOpen / profileMenuOpen — открыты ли мобильное меню и меню профиля.
+  // avatarBroken — если картинка аватарки не загрузилась, показываем первую букву имени.
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [profileMenuOpen, setProfileMenuOpen] = useState(false);
@@ -153,6 +166,7 @@ const Header: React.FC = () => {
     setAvatarBroken(false);
   }, [profile?.avatar_url]);
 
+  // Следим за прокруткой страницы: как только прошли 8 пикселей, под шапкой появляется тень.
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
     onScroll();
@@ -160,6 +174,7 @@ const Header: React.FC = () => {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  // Клавиша Escape закрывает открытое мобильное меню.
   useEffect(() => {
     if (!menuOpen) return;
     const onKeyDown = (e: KeyboardEvent) => {
@@ -169,6 +184,7 @@ const Header: React.FC = () => {
     return () => window.removeEventListener('keydown', onKeyDown);
   }, [menuOpen]);
 
+  // Меню профиля закрывается по клику вне него или по Escape.
   useEffect(() => {
     if (!profileMenuOpen) return;
     const onMouseDown = (e: MouseEvent) => {
@@ -253,6 +269,8 @@ const Header: React.FC = () => {
         </nav>
 
         <div className="hidden items-center gap-3 lg:flex">
+          {/* Правая часть шапки на больших экранах: для вошедших — Новасы,
+              уведомления и меню профиля; для гостей — язык и кнопка регистрации. */}
           {user ? (
             <>
               <NovaBadge />
@@ -355,6 +373,8 @@ const Header: React.FC = () => {
       </div>
 
       {menuOpen && (
+        // Мобильное меню (телефоны и планшеты): те же разделы списком
+        // плюс профиль, переключатель языка и кнопка выхода.
         <div
           id="mobile-menu"
           className="border-t border-line/50 bg-canvas px-5 pb-6 pt-3 sm:px-6 lg:hidden"

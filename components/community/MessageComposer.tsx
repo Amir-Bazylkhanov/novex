@@ -1,3 +1,8 @@
+// Поле ввода сообщения внизу канала.
+// Поддерживает многострочный текст (Enter — отправить, Shift+Enter — новая
+// строка), прикрепление картинки кнопкой или вставкой из буфера обмена,
+// а также режим «ответа» на другое сообщение. Саму отправку выполняет
+// родительский компонент ChannelView (через onSend).
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { ImagePlus, Reply, Send, X } from 'lucide-react';
 import { loc, type Localized } from '../../utils/i18n.ts';
@@ -9,6 +14,7 @@ import {
   type CommunityMessage,
 } from '../../services/communityService.ts';
 
+// Тексты интерфейса на трёх языках (русский / казахский / английский).
 const PLACEHOLDER: Localized = {
   ru: 'Написать сообщение…',
   kk: 'Хабарлама жазу…',
@@ -61,8 +67,11 @@ interface MessageComposerProps {
   onSend: (content: string, image: File | null) => Promise<void>;
 }
 
+// Компонент поля ввода: replyTo — сообщение, на которое отвечаем,
+// onSend — функция отправки, которую выполняет родитель (ChannelView).
 const MessageComposer: React.FC<MessageComposerProps> = ({ replyTo, onCancelReply, onSend }) => {
   const { language } = useLanguage();
+  // Текст сообщения, флаг отправки, прикреплённая картинка, её превью и ошибка.
   const [content, setContent] = useState('');
   const [sending, setSending] = useState(false);
   const [image, setImage] = useState<File | null>(null);

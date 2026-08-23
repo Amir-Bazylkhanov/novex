@@ -20,6 +20,18 @@ import {
 } from '../../constants/academy/catalog.ts';
 import { shuffleOptions } from '../../services/practiceService.ts';
 
+// ============================================================
+// Всплывающее окно теста по материалу уровня. Используется в двух
+// сценариях на странице модуля (PlanetPage):
+// 1) «Тест на пропуск» — сдал 70%+ по предыдущему уровню, и текущий
+//    заблокированный уровень открывается без чтения урока;
+// 2) «Тест уровня» — обычная проверка после чтения урока, шаг
+//    «Урок → Тест → Уровень пройден».
+// Отсюда же экспортируется buildSkipTest — функция, которая
+// автоматически собирает вопросы с вариантами ответов из материалов
+// уровня (ею пользуется и PlanetPlacementTest).
+// ============================================================
+
 /* --- content --- */
 
 const SKIP_TEST_TITLE: Localized = {
@@ -101,6 +113,15 @@ const BAND_RANK: Record<LevelBand, { icon: LucideIcon; name: Localized }> = {
 const FOCUS_RING =
   'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2 focus-visible:ring-offset-canvas';
 
+// Как собирается тест. В материалах уровня ответы заданы свободным
+// текстом без вариантов, поэтому правильный ответ превращаем в верный
+// вариант, а ответы других заданий — в неправильные варианты.
+// Неправильные варианты подбираются похожими на правильный (по длине,
+// наличию чисел, валют, формул), чтобы ответ нельзя было угадать
+// «на глаз». Если подходящих вариантов не хватает, числовые варианты
+// генерируются автоматически (например, в 1,5 или 2 раза больше
+// правильного числа). Порядок вариантов перемешивается всегда
+// одинаково, поэтому тест не меняется при повторном открытии.
 /* --- test construction ---
    Academy practiceProblems are free-form (short EN answers, no options), so a
    skip test is assembled into multiple choice: the problem's answer becomes
@@ -325,6 +346,9 @@ const pickDistractors = (
   return distractors;
 };
 
+// Собирает тест по уровню (не больше 5 вопросов). Если материала
+// не хватает даже на два вопроса — возвращает null, и кнопка теста
+// для такого уровня просто не показывается.
 /** Build the skip test for a section, or null when no quiz can be assembled.
     `allSections` (the planet's full section list) enables cross-section
     distractor padding; omit it to source distractors from `section` alone. */
@@ -355,6 +379,9 @@ const scoreLine = (language: Lang, score: number): string => {
 
 /* --- component --- */
 
+// Само окно теста: вопросы показываются по одному, в конце — экран
+// «сдал / не сдал». При успешной сдаче вызывается onPass, который
+// записывает прогресс на странице модуля.
 interface PlanetSkipTestProps {
   /** The section whose material the test draws from — the PREVIOUS section
       for mode="skip" (skip-ahead), or the CURRENT section for mode="level"
@@ -405,6 +432,8 @@ const PlanetSkipTest: React.FC<PlanetSkipTestProps> = ({
   );
   const allAnswered = questions.length > 0 && Object.keys(answers).length === questions.length;
 
+  // Пока окно теста открыто — блокируем прокрутку страницы под ним;
+  // клавиша Escape закрывает тест.
   // Lock page scroll behind the modal; Escape closes it.
   useEffect(() => {
     const prev = document.body.style.overflow;
@@ -421,6 +450,8 @@ const PlanetSkipTest: React.FC<PlanetSkipTestProps> = ({
     return () => window.removeEventListener('keydown', onKey);
   }, [onClose]);
 
+  // Завершение теста: считаем долю правильных ответов; если 70% или
+  // больше — тест сдан, вызываем onPass (уровень открывается/зачитывается).
   const handleSubmit = () => {
     if (!allAnswered || submitted) return;
     const correct = questions.filter((q, i) => answers[i] === q.correctIndex).length;
@@ -430,6 +461,7 @@ const PlanetSkipTest: React.FC<PlanetSkipTestProps> = ({
     setSubmitted({ score, passed });
   };
 
+  // «Попробовать снова» — сбрасываем ответы и начинаем тест заново.
   const handleRetry = () => {
     setAnswers({});
     setSubmitted(null);
