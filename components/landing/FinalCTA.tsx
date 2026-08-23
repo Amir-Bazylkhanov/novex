@@ -79,7 +79,7 @@ const FinalCTA: React.FC = () => {
 
           <div className="mt-8 flex justify-center">
             <Link
-              to="/onboarding"
+              to="/career?from=onboarding"
               className={`${FOCUS_RING_TEAL_BAND} inline-flex items-center justify-center gap-2 rounded-xl bg-white px-6 py-3.5 text-base font-semibold text-teal-dark shadow-[0_8px_30px_rgba(17,26,42,0.18)] transition-colors hover:bg-canvas`}
             >
               {loc(language, CTA_PRIMARY)}

@@ -174,7 +174,7 @@ const Hero: React.FC = () => {
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
             <Link
-              to="/onboarding"
+              to="/career?from=onboarding"
               className={`${FOCUS_RING} inline-flex items-center justify-center gap-2 rounded-xl bg-teal px-6 py-3.5 text-base font-semibold text-white shadow-[0_4px_14px_rgba(33,159,162,0.25)] transition-colors hover:bg-teal-dark`}
             >
               {loc(language, CTA_PRIMARY)}
