@@ -34,6 +34,14 @@ import {
   type SubjectSlug,
   type TeacherStudent,
 } from '../../constants/teacherMockData.ts';
+import {
+  ACADEMY_DIRECTIONS,
+  ACADEMY_PLANETS,
+  pickLangField,
+  planetBySlug,
+  type AcademyDirectionId,
+} from '../../constants/academy/catalog.ts';
+import { flattenPlanetSections } from '../../constants/academy/subjects.ts';
 
 /* --- content --- */
 
@@ -428,6 +436,21 @@ const FIELD_TITLE_PLACEHOLDER: Localized = {
   en: 'e.g. Quadratic equations',
 };
 const FIELD_SUBJECT: Localized = { ru: 'Предмет', kk: 'Пән', en: 'Subject' };
+const FIELD_DIRECTION: Localized = { ru: 'Направление', kk: 'Бағыт', en: 'Direction' };
+const FIELD_MODULE: Localized = { ru: 'Модуль', kk: 'Модуль', en: 'Module' };
+const FIELD_TOPIC: Localized = {
+  ru: 'Тема (необязательно)',
+  kk: 'Тақырып (міндетті емес)',
+  en: 'Topic (optional)',
+};
+const TOPIC_WHOLE: Localized = { ru: 'Весь модуль', kk: 'Бүкіл модуль', en: 'Whole module' };
+/* Displayed direction codes were renumbered NOV-04/05/06 → NOV-01/02/03;
+   internal AcademyDirectionId keys stay 'nov04'|'nov05'|'nov06'. */
+const DIRECTION_CODE = {
+  nov04: 'NOV-01',
+  nov05: 'NOV-02',
+  nov06: 'NOV-03',
+} as const;
 const FIELD_DESCRIPTION: Localized = {
   ru: 'Описание',
   kk: 'Сипаттама',
@@ -445,9 +468,9 @@ const ERR_TITLE: Localized = {
   en: 'Enter a title (at least 3 characters)',
 };
 const ERR_SUBJECT: Localized = {
-  ru: 'Выберите предмет',
-  kk: 'Пәнді таңдаңыз',
-  en: 'Choose a subject',
+  ru: 'Выберите модуль',
+  kk: 'Модульді таңдаңыз',
+  en: 'Choose a module',
 };
 const ERR_DESCRIPTION: Localized = {
   ru: 'Опишите модуль (минимум 10 символов)',
@@ -541,17 +564,21 @@ type SortKey = 'name' | 'progress';
 
 interface ModuleForm {
   title: string;
-  subject: '' | SubjectSlug;
+  direction: '' | AcademyDirectionId;
+  /** Planet slug from ACADEMY_PLANETS. */
+  planet: string;
+  /** '' = whole module, else a stringified flatIndex of flattenPlanetSections. */
+  topic: string;
   description: string;
 }
 
 interface ModuleErrors {
   title?: string;
-  subject?: string;
+  planet?: string;
   description?: string;
 }
 
-const EMPTY_FORM: ModuleForm = { title: '', subject: '', description: '' };
+const EMPTY_FORM: ModuleForm = { title: '', direction: '', planet: '', topic: '', description: '' };
 
 /** Row shape of public.teacher_modules — teacher-authored modules, persisted in the DB. */
 interface TeacherModuleRow {
@@ -950,7 +977,7 @@ const TeacherPage: React.FC = () => {
     event.preventDefault();
     const next: ModuleErrors = {};
     if (form.title.trim().length < 3) next.title = loc(language, ERR_TITLE);
-    if (form.subject === '') next.subject = loc(language, ERR_SUBJECT);
+    if (form.planet === '') next.planet = loc(language, ERR_SUBJECT);
     if (form.description.trim().length < 10) next.description = loc(language, ERR_DESCRIPTION);
     setErrors(next);
     if (Object.keys(next).length > 0 || !user || saving) return;
@@ -958,13 +985,15 @@ const TeacherPage: React.FC = () => {
     // user-authored content is entered in the active language only
     const title = form.title.trim();
     const description = form.description.trim();
+    // no schema change: the subject text column stores `planet` or `planet::flatIndex`
+    const subject = form.topic === '' ? form.planet : `${form.planet}::${form.topic}`;
     setSaving(true);
     setSaveError(false);
     try {
       const { data, error } = await supabase
         .from('teacher_modules')
         // RLS requires created_by = auth.uid() on insert
-        .insert({ created_by: user.id, title, subject: form.subject, description })
+        .insert({ created_by: user.id, title, subject, description })
         .select('id, created_by, title, subject, description, created_at')
         .single();
       if (error) {
@@ -1140,11 +1169,23 @@ const TeacherPage: React.FC = () => {
   const subjectLabel = (slug: SubjectSlug): string =>
     loc(language, SUBJECTS.find((s) => s.slug === slug)?.label ?? SUBJECTS[0].label);
 
-  /** DB subjects are stored as slugs, but the column is free text — fall back to the raw value. */
+  /** DB subjects are stored as slugs, but the column is free text: resolve legacy
+      SUBJECTS slugs, then `planet` / `planet::flatIndex` refs, else the raw value. */
   const dbSubjectLabel = (subject: string): string => {
     const meta = SUBJECTS.find((s) => s.slug === subject);
-    return meta ? loc(language, meta.label) : subject;
+    if (meta) return loc(language, meta.label);
+    const [slug, indexPart] = subject.split('::');
+    const planet = planetBySlug(slug);
+    if (!planet) return subject;
+    const planetName = loc(language, planet.name);
+    if (indexPart === undefined) return planetName;
+    const section = flattenPlanetSections(planet)[Number(indexPart)];
+    if (!section) return subject;
+    return `${planetName} · ${pickLangField(language, section.section.title, section.section.titleRu, section.section.titleKk)}`;
   };
+
+  const selectedPlanet = form.planet === '' ? undefined : planetBySlug(form.planet);
+  const topicSections = selectedPlanet ? flattenPlanetSections(selectedPlanet) : [];
 
   const sectionMotion = (index: number) => ({
     initial: reducedMotion ? { opacity: 0 } : { opacity: 0, y: 24 },
@@ -2340,31 +2381,83 @@ const TeacherPage: React.FC = () => {
               </div>
 
               <div>
-                <label htmlFor="module-subject" className="block text-sm font-semibold text-ink">
-                  {loc(language, FIELD_SUBJECT)}
+                <label htmlFor="module-direction" className="block text-sm font-semibold text-ink">
+                  {loc(language, FIELD_DIRECTION)}
                 </label>
                 <select
-                  id="module-subject"
-                  value={form.subject}
+                  id="module-direction"
+                  value={form.direction}
                   onChange={(e) =>
-                    setForm((f) => ({ ...f, subject: e.target.value as ModuleForm['subject'] }))
+                    setForm((f) => ({
+                      ...f,
+                      direction: e.target.value as ModuleForm['direction'],
+                      planet: '',
+                      topic: '',
+                    }))
                   }
-                  aria-invalid={Boolean(errors.subject)}
-                  aria-describedby={errors.subject ? 'module-subject-error' : undefined}
                   className={`${INPUT} mt-1.5`}
                 >
                   <option value="">{loc(language, CHOOSE)}</option>
-                  {SUBJECTS.map((subject) => (
-                    <option key={subject.slug} value={subject.slug}>
-                      {loc(language, subject.label)}
+                  {ACADEMY_DIRECTIONS.map((direction) => (
+                    <option key={direction.id} value={direction.id}>
+                      {`${DIRECTION_CODE[direction.id]} · ${loc(language, direction.name)}`}
                     </option>
                   ))}
                 </select>
-                {errors.subject && (
+              </div>
+
+              <div>
+                <label htmlFor="module-subject" className="block text-sm font-semibold text-ink">
+                  {loc(language, FIELD_MODULE)}
+                </label>
+                <select
+                  id="module-subject"
+                  value={form.planet}
+                  disabled={form.direction === ''}
+                  onChange={(e) => setForm((f) => ({ ...f, planet: e.target.value, topic: '' }))}
+                  aria-invalid={Boolean(errors.planet)}
+                  aria-describedby={errors.planet ? 'module-subject-error' : undefined}
+                  className={`${INPUT} mt-1.5`}
+                >
+                  <option value="">{loc(language, CHOOSE)}</option>
+                  {ACADEMY_PLANETS.filter((planet) => planet.directionId === form.direction).map(
+                    (planet) => (
+                      <option key={planet.slug} value={planet.slug}>
+                        {loc(language, planet.name)}
+                      </option>
+                    ),
+                  )}
+                </select>
+                {errors.planet && (
                   <p id="module-subject-error" role="alert" className="mt-1.5 text-xs font-medium text-coral">
-                    {errors.subject}
+                    {errors.planet}
                   </p>
                 )}
+              </div>
+
+              <div>
+                <label htmlFor="module-topic" className="block text-sm font-semibold text-ink">
+                  {loc(language, FIELD_TOPIC)}
+                </label>
+                <select
+                  id="module-topic"
+                  value={form.topic}
+                  disabled={form.planet === ''}
+                  onChange={(e) => setForm((f) => ({ ...f, topic: e.target.value }))}
+                  className={`${INPUT} mt-1.5`}
+                >
+                  <option value="">{loc(language, TOPIC_WHOLE)}</option>
+                  {topicSections.map((entry) => (
+                    <option key={entry.flatIndex} value={String(entry.flatIndex)}>
+                      {pickLangField(
+                        language,
+                        entry.section.title,
+                        entry.section.titleRu,
+                        entry.section.titleKk,
+                      )}
+                    </option>
+                  ))}
+                </select>
               </div>
 
               <div>

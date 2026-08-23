@@ -170,6 +170,35 @@ const MODEL_OPTIONS: Array<{ id: TutorModel; label: string }> = [
   { id: 'gpt-5.6-luna', label: 'ChatGPT 5.6 Luna' },
 ];
 
+/** One short "what is this model for" line per model, shown in the dropdown. */
+const MODEL_DESCRIPTIONS: Record<TutorModel, Localized> = {
+  'claude-opus-5': {
+    ru: 'Самая сильная модель — сложные задачи, олимпиады, глубокий разбор',
+    kk: 'Ең мықты модель — күрделі есептер, олимпиадалар, терең талдау',
+    en: 'The strongest model — hard problems, olympiads, deep analysis',
+  },
+  'gpt-5.6-sol': {
+    ru: 'Развёрнутые объяснения, эссе и гуманитарные предметы',
+    kk: 'Толық түсіндірмелер, эссе және гуманитарлық пәндер',
+    en: 'Detailed explanations, essays and humanities',
+  },
+  'claude-sonnet-5': {
+    ru: 'Баланс скорости и качества — лучший выбор на каждый день',
+    kk: 'Жылдамдық пен сапа балансы — күнделікті ең үздік таңдау',
+    en: 'Balanced speed and quality — the best everyday pick',
+  },
+  'gpt-5.6-terra': {
+    ru: 'Быстрые ответы на типовые вопросы и домашние задания',
+    kk: 'Типтік сұрақтар мен үй тапсырмасына жылдам жауаптар',
+    en: 'Quick answers for routine questions and homework',
+  },
+  'gpt-5.6-luna': {
+    ru: 'Самая быстрая и дешёвая — короткие подсказки и проверка ответов',
+    kk: 'Ең жылдам әрі арзан — қысқа кеңестер мен жауап тексеру',
+    en: 'Fastest and cheapest — short hints and answer checks',
+  },
+};
+
 const MODEL_STORAGE_KEY = 'novex.tutorModel';
 
 function storedModel(): TutorModel | null {
@@ -480,7 +509,7 @@ const TutorChat: React.FC = () => {
                       <ul
                         role="listbox"
                         aria-label={loc(language, ARIA_MODEL_SWITCHER)}
-                        className="absolute left-0 top-full z-10 mt-1 min-w-[190px] overflow-hidden rounded-lg border border-line/50 bg-white py-1 shadow-[0_8px_24px_rgba(17,26,42,0.12)]"
+                        className="absolute left-0 top-full z-10 mt-1 min-w-[230px] max-w-[260px] overflow-hidden rounded-lg border border-line/50 bg-white py-1 shadow-[0_8px_24px_rgba(17,26,42,0.12)]"
                       >
                         {MODEL_OPTIONS.map((option) => (
                           <li key={option.id}>
@@ -493,16 +522,21 @@ const TutorChat: React.FC = () => {
                                 setModelMenuOpen(false);
                                 inputRef.current?.focus();
                               }}
-                              className={`${FOCUS_RING} flex w-full items-center justify-between gap-3 px-2.5 py-1.5 text-left text-[11px] font-semibold transition-colors ${
+                              className={`${FOCUS_RING} w-full px-2.5 py-1.5 text-left text-[11px] font-semibold transition-colors ${
                                 model === option.id
                                   ? 'bg-mist/30 text-teal-dark'
                                   : 'text-ink hover:bg-mist/20'
                               }`}
                             >
-                              {option.label}
-                              <span className="inline-flex items-center gap-0.5 text-slateink">
-                                <Cog className="h-3 w-3" aria-hidden="true" />
-                                {NOVA_COST[option.id]}
+                              <span className="flex w-full items-center justify-between gap-3">
+                                {option.label}
+                                <span className="inline-flex items-center gap-0.5 text-slateink">
+                                  <Cog className="h-3 w-3" aria-hidden="true" />
+                                  {NOVA_COST[option.id]}
+                                </span>
+                              </span>
+                              <span className="block text-[10px] font-normal leading-snug text-slateink">
+                                {loc(language, MODEL_DESCRIPTIONS[option.id])}
                               </span>
                             </button>
                           </li>

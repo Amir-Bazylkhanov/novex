@@ -217,6 +217,35 @@ const MODEL_OPTIONS: Array<{ id: TutorModel; label: string }> = [
   { id: 'gpt-5.6-luna', label: 'ChatGPT 5.6 Luna · 1 ⚙' },
 ];
 
+/** One short "what is this model for" line per model, shown under the select. */
+const MODEL_DESCRIPTIONS: Record<TutorModel, Localized> = {
+  'claude-opus-5': {
+    ru: 'Самая сильная модель — сложные задачи, олимпиады, глубокий разбор',
+    kk: 'Ең мықты модель — күрделі есептер, олимпиадалар, терең талдау',
+    en: 'The strongest model — hard problems, olympiads, deep analysis',
+  },
+  'gpt-5.6-sol': {
+    ru: 'Развёрнутые объяснения, эссе и гуманитарные предметы',
+    kk: 'Толық түсіндірмелер, эссе және гуманитарлық пәндер',
+    en: 'Detailed explanations, essays and humanities',
+  },
+  'claude-sonnet-5': {
+    ru: 'Баланс скорости и качества — лучший выбор на каждый день',
+    kk: 'Жылдамдық пен сапа балансы — күнделікті ең үздік таңдау',
+    en: 'Balanced speed and quality — the best everyday pick',
+  },
+  'gpt-5.6-terra': {
+    ru: 'Быстрые ответы на типовые вопросы и домашние задания',
+    kk: 'Типтік сұрақтар мен үй тапсырмасына жылдам жауаптар',
+    en: 'Quick answers for routine questions and homework',
+  },
+  'gpt-5.6-luna': {
+    ru: 'Самая быстрая и дешёвая — короткие подсказки и проверка ответов',
+    kk: 'Ең жылдам әрі арзан — қысқа кеңестер мен жауап тексеру',
+    en: 'Fastest and cheapest — short hints and answer checks',
+  },
+};
+
 const SAVE_BTN: Localized = { ru: 'Сохранить', kk: 'Сақтау', en: 'Save' };
 const SAVING: Localized = { ru: 'Сохраняем…', kk: 'Сақталуда…', en: 'Saving…' };
 const SAVED: Localized = { ru: 'Сохранено', kk: 'Сақталды', en: 'Saved' };
@@ -1199,6 +1228,9 @@ const ProfilePage: React.FC = () => {
                   </option>
                 ))}
               </select>
+              <p className="mt-2 text-xs leading-relaxed text-slateink">
+                {loc(language, MODEL_DESCRIPTIONS[form.preferredModel ?? 'claude-sonnet-5'])}
+              </p>
             </div>
           </section>
 
