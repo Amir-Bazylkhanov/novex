@@ -1,9 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import {
+  ArrowRight,
   BookOpen,
   Briefcase,
+  Check,
   Compass,
   Loader2,
   MessageSquareText,
@@ -200,6 +202,11 @@ const PLAN_CTA: Localized = {
   ru: 'Собрать план под цель',
   kk: 'Мақсатқа жоспар құру',
   en: 'Build a plan for your goal',
+};
+const CONTINUE_ONBOARDING_CTA: Localized = {
+  ru: 'Продолжить: определить свой уровень →',
+  kk: 'Жалғастыру: деңгейіңді анықтау →',
+  en: 'Continue: find your level →',
 };
 const RETAKE_BTN: Localized = {
   ru: 'Пройти заново',
@@ -557,6 +564,8 @@ interface CareerResult {
 
 const DRAFT_KEY = 'novex.career.draft';
 const RESULT_KEY = 'novex.career.result';
+/** Onboarding handoff: recommended subjects for the level diagnostic, read by DiagnosticPage. */
+const SUBJECTS_KEY = 'novex.career.subjects';
 const MAX_SCORE = 3 * 5; // 3 questions × max 5 points
 const OPEN_MIN_CHARS = 20;
 
@@ -652,6 +661,26 @@ const scoreAnswers = (answers: number[], openAnswers: string[]): CareerResult =>
   };
 };
 
+/** Union of the top-2 dimensions' subjects, deduped, order preserved by rank — the default (fully selected) recommendation set. */
+const rankedRecommendedSlugs = (result: CareerResult): LessonSubject[] => {
+  const top = dimensionMeta(result.top[0]);
+  const second = dimensionMeta(result.top[1]);
+  const slugs: LessonSubject[] = [];
+  for (const slug of [...top.subjects, ...second.subjects]) {
+    if (!slugs.includes(slug)) slugs.push(slug);
+  }
+  return slugs;
+};
+
+/** Onboarding handoff: persists the student's current subject selection (rank order preserved by the caller). */
+const persistRecommendedSubjects = (subjects: LessonSubject[]): void => {
+  try {
+    localStorage.setItem(SUBJECTS_KEY, JSON.stringify(subjects));
+  } catch {
+    /* storage may be unavailable */
+  }
+};
+
 /* --- Supabase persistence (career_results is the source of truth,
       localStorage stays as an offline cache).
 
@@ -744,12 +773,20 @@ const CARD =
 const TEAL_BTN = `${FOCUS_RING} inline-flex items-center gap-2 rounded-xl bg-teal px-6 py-3 text-sm font-semibold text-white shadow-[0_4px_14px_rgba(33,159,162,0.25)] transition-colors hover:bg-teal-dark`;
 const GHOST_BTN = `${FOCUS_RING} inline-flex items-center gap-2 rounded-xl border border-line bg-white px-6 py-3 text-sm font-semibold text-ink transition-colors hover:border-teal/60 hover:text-teal`;
 
+/** Recommended-subject toggle chips — selected uses the teal recommendation look, unselected is the neutral chip look used across the app. */
+const SUBJECT_CHIP_BASE = `${FOCUS_RING} inline-flex items-center gap-1.5 rounded-xl border px-4 py-2 text-sm font-semibold transition-colors`;
+const SUBJECT_CHIP_ON = 'border-teal bg-mist/30 text-teal-dark';
+const SUBJECT_CHIP_OFF = 'border-line bg-white text-ink hover:border-teal/60 hover:text-teal';
+
 type Phase = 'intro' | 'quiz' | 'result';
 
 const CareerTestPage: React.FC = () => {
   const { language } = useLanguage();
   const { user, profile, loading } = useAuth();
   const reducedMotion = useReducedMotion();
+  const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const fromOnboarding = searchParams.get('from') === 'onboarding';
 
   const [phase, setPhase] = useState<Phase>(() => (readResult() ? 'result' : 'intro'));
   const [answers, setAnswers] = useState<number[]>([]);
@@ -757,6 +794,9 @@ const CareerTestPage: React.FC = () => {
   const [openDraft, setOpenDraft] = useState('');
   const [draftAvailable, setDraftAvailable] = useState(false);
   const [result, setResult] = useState<CareerResult | null>(() => readResult());
+  // Recommended-subject selection for the onboarding handoff — starts fully
+  // selected (all pills on), toggleable by the student.
+  const [selectedSubjects, setSelectedSubjects] = useState<Set<LessonSubject>>(new Set());
   const questionHeadingRef = useRef<HTMLHeadingElement | null>(null);
   // Mirror of `phase` for effects that must not capture a stale value: the
   // DB-load effect re-fires when the auth context re-emits `user` (token
@@ -766,6 +806,10 @@ const CareerTestPage: React.FC = () => {
   // Set once the student discards their result via «Пройти заново», so the
   // DB-load effect can't restore the row they just dismissed.
   const dismissedResultRef = useRef(false);
+  // Which result (by top-2 pair) `selectedSubjects` currently belongs to, so
+  // a same-result re-render (e.g. the AI analysis arriving) doesn't reset
+  // the student's toggles back to the default full selection.
+  const selectionKeyRef = useRef<string | null>(null);
 
   // AI layer state — NOV-01's read of the open answers, requested once the
   // deterministic result is available. This call is intentionally FREE for
@@ -832,6 +876,20 @@ const CareerTestPage: React.FC = () => {
       questionHeadingRef.current?.focus();
     }
   }, [phase, currentQuestion, currentOpen]);
+
+  // Onboarding handoff: whenever the result phase computes or loads a
+  // *different* result (fresh completion, DB load, or cached load on mount —
+  // identified by its top-2 pair), reset the selection to the full default
+  // list and refresh the recommended-subjects cache DiagnosticPage reads.
+  useEffect(() => {
+    if (phase !== 'result' || !result) return;
+    const topKey = result.top.join('|');
+    if (selectionKeyRef.current === topKey) return;
+    selectionKeyRef.current = topKey;
+    const defaults = rankedRecommendedSlugs(result);
+    setSelectedSubjects(new Set(defaults));
+    persistRecommendedSubjects(defaults);
+  }, [phase, result]);
 
   // AI layer: once the deterministic result is ready, ask NOV-01 to read the
   // open answers and add a personalized 4-6 sentence analysis. Guarded by a
@@ -952,6 +1010,21 @@ Give a personalized 4-6 sentence career analysis that connects the dimension sco
 
   const skipOpen = () => submitOpen('');
 
+  const toggleSubject = (slug: LessonSubject) => {
+    setSelectedSubjects((prev) => {
+      const next = new Set(prev);
+      if (next.has(slug)) {
+        next.delete(slug);
+      } else {
+        next.add(slug);
+      }
+      if (result) {
+        persistRecommendedSubjects(rankedRecommendedSlugs(result).filter((s) => next.has(s)));
+      }
+      return next;
+    });
+  };
+
   const retake = () => {
     dismissedResultRef.current = true;
     try {
@@ -982,6 +1055,9 @@ Give a personalized 4-6 sentence career analysis that connects the dimension sco
           (s) => topMeta.subjects.includes(s.slug) || secondMeta.subjects.includes(s.slug),
         )
       : [];
+  const orderedSelectedSubjects: LessonSubject[] = result
+    ? rankedRecommendedSlugs(result).filter((slug) => selectedSubjects.has(slug))
+    : [];
   const profileName =
     topMeta && secondMeta
       ? `${loc(language, topMeta.label)}-${loc(language, secondMeta.label).toLowerCase()}`
@@ -1224,19 +1300,42 @@ Give a personalized 4-6 sentence career analysis that connects the dimension sco
                     {loc(language, RESULT_SUBJECTS)}
                   </h2>
                   <div className="mt-3 flex flex-wrap gap-2">
-                    {subjects.map((s) => (
-                      <Link
-                        key={s.slug}
-                        to="/learn"
-                        className={`${FOCUS_RING} inline-flex items-center rounded-xl border border-teal/40 bg-teal/10 px-4 py-2 text-sm font-semibold text-teal-dark transition-colors hover:bg-teal hover:text-white`}
-                      >
-                        {loc(language, s.label)}
-                      </Link>
-                    ))}
+                    {subjects.map((s) => {
+                      const isSelected = selectedSubjects.has(s.slug);
+                      return (
+                        <button
+                          key={s.slug}
+                          type="button"
+                          aria-pressed={isSelected}
+                          onClick={() => toggleSubject(s.slug)}
+                          className={`${SUBJECT_CHIP_BASE} ${isSelected ? SUBJECT_CHIP_ON : SUBJECT_CHIP_OFF}`}
+                        >
+                          {isSelected && <Check className="h-3.5 w-3.5" aria-hidden="true" />}
+                          {loc(language, s.label)}
+                        </button>
+                      );
+                    })}
                   </div>
                 </div>
 
-                <div className="mt-8 flex flex-wrap items-center gap-3">
+                {fromOnboarding && (
+                  <div className="mt-8">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        persistRecommendedSubjects(orderedSelectedSubjects);
+                        navigate('/onboarding');
+                      }}
+                      disabled={orderedSelectedSubjects.length === 0}
+                      className={`${TEAL_BTN} disabled:cursor-not-allowed disabled:border disabled:border-line disabled:bg-white disabled:text-slateink disabled:shadow-none`}
+                    >
+                      {loc(language, CONTINUE_ONBOARDING_CTA)}
+                      <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                    </button>
+                  </div>
+                )}
+
+                <div className={`${fromOnboarding ? 'mt-3' : 'mt-8'} flex flex-wrap items-center gap-3`}>
                   <Link to="/plan" className={TEAL_BTN}>
                     {loc(language, PLAN_CTA)}
                     <Target className="h-4 w-4" aria-hidden="true" />

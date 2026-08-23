@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
-import { Link, useSearchParams } from 'react-router-dom';
+import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import {
   Atom,
@@ -92,6 +92,11 @@ const SUBJECTS_HINT: Localized = {
   kk: 'Бірден үш пәнге дейін таңда.',
   en: 'Pick between one and three subjects.',
 };
+const CAREER_PREFILL_NOTE: Localized = {
+  ru: 'NOV-01 подобрал предметы по твоему профориентационному профилю — можешь изменить выбор.',
+  kk: 'NOV-01 кәсіби бағдар профиліңе сай пәндерді таңдап берді — таңдауды өзгертуге болады.',
+  en: 'NOV-01 picked these subjects based on your career profile — feel free to change the selection.',
+};
 const START_BTN: Localized = {
   ru: 'Начать диагностику',
   kk: 'Диагностиканы бастау',
@@ -138,6 +143,37 @@ const MAX_SUBJECTS = 3;
 /** Questions asked per subject in one run (fewer when the grade band pool is smaller). */
 const QUESTIONS_PER_RUN = 10;
 
+/* --- career-test handoff: /onboarding first sends the student through the
+      career test (/career), which writes these two keys before this page's
+      setup phase runs. See components/career/CareerTestPage.tsx. --- */
+const CAREER_RESULT_KEY = 'novex.career.result';
+const CAREER_SUBJECTS_KEY = 'novex.career.subjects';
+
+/** Defensive parse of the recommended subjects the career test cached; ignores unknown slugs and bad JSON. */
+const readCareerSubjects = (): DiagnosticSubject[] => {
+  try {
+    const raw = localStorage.getItem(CAREER_SUBJECTS_KEY);
+    if (!raw) return [];
+    const parsed: unknown = JSON.parse(raw);
+    if (!Array.isArray(parsed)) return [];
+    return parsed
+      .filter((s): s is DiagnosticSubject =>
+        typeof s === 'string' && DIAGNOSTIC_SUBJECTS.some((d) => d.slug === s),
+      )
+      .slice(0, MAX_SUBJECTS);
+  } catch {
+    return [];
+  }
+};
+
+const hasCareerStage = (): boolean => {
+  try {
+    return !!localStorage.getItem(CAREER_RESULT_KEY) || !!localStorage.getItem(CAREER_SUBJECTS_KEY);
+  } catch {
+    return true; // storage unavailable — don't block onboarding
+  }
+};
+
 const SUBJECT_ICONS: Record<DiagnosticSubject, React.ReactNode> = {
   math: <Calculator className="h-4 w-4" aria-hidden="true" />,
   physics: <Atom className="h-4 w-4" aria-hidden="true" />,
@@ -180,6 +216,7 @@ const DiagnosticPage: React.FC = () => {
   const { language } = useLanguage();
   const { profile, loading, updateProfile } = useAuth();
   const reducedMotion = useReducedMotion();
+  const navigate = useNavigate();
   const [searchParams] = useSearchParams();
 
   // Grade-up probe mode: /onboarding?probe=<subject> skips setup and runs
@@ -194,9 +231,16 @@ const DiagnosticPage: React.FC = () => {
   const [phase, setPhase] = useState<Phase>(probeSubject ? 'quiz' : 'setup');
   const [grade, setGrade] = useState<number | null>(null);
   const [goals, setGoals] = useState<Goal[]>([]);
-  const [picked, setPicked] = useState<DiagnosticSubject[]>(
-    probeSubject ? [probeSubject] : [],
+  const [careerSubjects] = useState<DiagnosticSubject[]>(() =>
+    probeSubject ? [] : readCareerSubjects(),
   );
+  const [picked, setPicked] = useState<DiagnosticSubject[]>(
+    probeSubject ? [probeSubject] : careerSubjects,
+  );
+  // Two-stage onboarding gate: /onboarding first routes through /career, which
+  // writes CAREER_RESULT_KEY / CAREER_SUBJECTS_KEY. Probe runs (grade-up
+  // retests) come from an already-onboarded student and skip the gate.
+  const [careerGateChecked, setCareerGateChecked] = useState(false);
 
   // quiz state
   const [answers, setAnswers] = useState<AnswerRecord[]>([]);
@@ -213,21 +257,36 @@ const DiagnosticPage: React.FC = () => {
   const hydratedRef = useRef(false);
   const questionHeadingRef = useRef<HTMLHeadingElement | null>(null);
 
-  // prefill grade and subjects from the profile once it arrives
+  // Two-stage gate: if neither career-test key exists yet, send the student
+  // through /career first. Runs once on mount; a brief loading render covers
+  // the redirect.
+  useEffect(() => {
+    if (probeSubject || hasCareerStage()) {
+      setCareerGateChecked(true);
+      return;
+    }
+    navigate('/career?from=onboarding', { replace: true });
+  }, [probeSubject, navigate]);
+
+  // prefill grade and subjects from the profile once it arrives. The
+  // career-test preselection (the funnel the student just came through)
+  // always outranks whatever subjects an older profile row carries; the
+  // profile is only a fallback when there is no career selection.
   useEffect(() => {
     if (profile && !hydratedRef.current) {
       hydratedRef.current = true;
       setGrade(profile.grade);
       setGoals(profile.goals);
-      if (!probeSubject) {
-        setPicked(
-          profile.subjects.filter((s): s is DiagnosticSubject =>
-            DIAGNOSTIC_SUBJECTS.some((d) => d.slug === s),
-          ),
+      if (!probeSubject && careerSubjects.length === 0) {
+        const fromProfile = profile.subjects.filter((s): s is DiagnosticSubject =>
+          DIAGNOSTIC_SUBJECTS.some((d) => d.slug === s),
         );
+        if (fromProfile.length > 0) {
+          setPicked(fromProfile);
+        }
       }
     }
-  }, [profile, probeSubject]);
+  }, [profile, probeSubject, careerSubjects]);
 
   const activeSubject = picked[subjectIndex];
   // In probe mode the grade comes from the profile (the student already onboarded).
@@ -260,7 +319,7 @@ const DiagnosticPage: React.FC = () => {
     }
   }, [phase, currentQuestion]);
 
-  if (loading) {
+  if (!careerGateChecked || loading) {
     return (
       <div role="status" className="flex min-h-screen items-center justify-center bg-canvas">
         <Loader2 className="h-10 w-10 animate-spin text-teal" aria-hidden="true" />
@@ -478,6 +537,11 @@ const DiagnosticPage: React.FC = () => {
                   {loc(language, SUBJECTS_LABEL)}
                 </legend>
                 <p className="mt-1 text-xs text-slateink">{loc(language, SUBJECTS_HINT)}</p>
+                {careerSubjects.length > 0 && (
+                  <p className="mt-1 text-xs text-teal-dark">
+                    {loc(language, CAREER_PREFILL_NOTE)}
+                  </p>
+                )}
                 <div className="mt-2.5 flex flex-wrap gap-2">
                   {DIAGNOSTIC_SUBJECTS.map((s) => {
                     const isPicked = picked.includes(s.slug);
