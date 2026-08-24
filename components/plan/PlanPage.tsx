@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import type { LucideIcon } from 'lucide-react';
@@ -1196,6 +1196,12 @@ const PlanPage: React.FC = () => {
   const [busy, setBusy] = useState(false);
   const [saveNote, setSaveNote] = useState<'saved' | 'error' | null>(null);
   const [wizardOpen, setWizardOpen] = useState(false);
+  // AuthContext переизлучает `user` при фокусе вкладки/обновлении токена, из-за
+  // чего эффект загрузки ниже перезапускается уже после того, как на экране
+  // появился свежесобранный план. loadedRef не даёт этому повторному запуску
+  // снова читать план из базы и затирать им актуальное состояние в памяти —
+  // загрузка выполняется один раз за «сессию» входа (сбрасывается при выходе).
+  const loadedRef = useRef(false);
 
   // Сохраняет собранный план в базу данных Supabase (таблица study_plans).
   const persistPlan = useCallback(
@@ -1234,8 +1240,22 @@ const PlanPage: React.FC = () => {
   // Load the profile fields, diagnostics and any saved plan. When nothing is
   // saved yet, the wizard collects the config before anything is generated.
   useEffect(() => {
-    if (!user) return;
+    if (!user) {
+      // Ученик вышел — сбрасываем флаг, чтобы следующий вход снова подгрузил
+      // план из базы (а не молча остался с планом предыдущего пользователя).
+      loadedRef.current = false;
+      return;
+    }
+    // Эффект уже выполнил первую загрузку в этом входе — дальнейшие
+    // переизлучения `user` (фокус вкладки, обновление токена) не должны
+    // повторно читать базу и перезаписывать план, собранный уже после этого.
+    if (loadedRef.current) return;
+    loadedRef.current = true;
     let cancelled = false;
+    // Отличаем завершённую загрузку от отменённой: StrictMode в dev-режиме
+    // сразу отменяет первый запуск эффекта, и защёлку нужно вернуть назад,
+    // иначе второй запуск выйдет раньше времени и план не загрузится вовсе.
+    let finished = false;
     const load = async () => {
       try {
         const [profileRes, diagRes, planRes] = await Promise.all([
@@ -1271,11 +1291,14 @@ const PlanPage: React.FC = () => {
         }
       } catch {
         if (!cancelled) setLoadError(true);
+      } finally {
+        finished = true;
       }
     };
     void load();
     return () => {
       cancelled = true;
+      if (!finished) loadedRef.current = false;
     };
   }, [user, persistPlan]);
 
@@ -1288,15 +1311,18 @@ const PlanPage: React.FC = () => {
     try {
       const built = buildPlan(source.profileRow, source.diagRows, config, Date.now());
       const goal = config.goals[0] ?? null;
-      const ok = await persistPlan(built, goal, config.deadline);
+      // Показываем свежий план сразу, не дожидаясь ответа базы: он должен
+      // остаться на экране независимо от результата сохранения ниже и от
+      // повторных срабатываний эффекта загрузки (см. loadedRef выше).
       setSource({
         profileRow: { ...source.profileRow, goal, goals: config.goals, exam_date: config.deadline },
         diagRows: source.diagRows,
       });
       setPlan(built);
       setUpdatedAt(new Date().toISOString());
-      setSaveNote(ok ? 'saved' : 'error');
       setWizardOpen(false);
+      const ok = await persistPlan(built, goal, config.deadline);
+      setSaveNote(ok ? 'saved' : 'error');
     } catch {
       setSaveNote('error');
     } finally {
