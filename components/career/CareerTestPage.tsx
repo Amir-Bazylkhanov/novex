@@ -27,7 +27,7 @@ import { useAuth } from '../../context/AuthContext.tsx';
 import { supabase } from '../../services/supabaseClient.ts';
 import { askTutor } from '../../services/aiService.ts';
 import { RobotAvatar } from '../robots/RobotAvatars.tsx';
-import { LESSON_SUBJECTS, type LessonSubject } from '../../constants/lessonData.ts';
+import { DIAGNOSTIC_SUBJECTS, type DiagnosticSubject } from '../../constants/diagnosticData.ts';
 
 /* --- content --- */
 
@@ -248,7 +248,7 @@ interface DimensionMeta {
   label: Localized;
   strength: Localized;
   professions: Localized[];
-  subjects: LessonSubject[];
+  subjects: DiagnosticSubject[];
 }
 
 // Шесть направлений теста. Для каждого заданы название, описание сильной
@@ -269,7 +269,8 @@ const DIMENSIONS: readonly DimensionMeta[] = [
       { ru: 'Финансовый аналитик', kk: 'Қаржы аналитигі', en: 'Financial analyst' },
       { ru: 'Экономист', kk: 'Экономист', en: 'Economist' },
     ],
-    subjects: ['math', 'physics'],
+    // Данные/финансы/физика — математика и информатика для анализа, физика для исследовательской работы.
+    subjects: ['math', 'informatics', 'physics'],
   },
   {
     key: 'engineer',
@@ -286,6 +287,7 @@ const DIMENSIONS: readonly DimensionMeta[] = [
       { ru: 'Инженер-нефтяник', kk: 'Мұнай инженері', en: 'Petroleum engineer' },
       { ru: 'Инженер-строитель', kk: 'Құрылыс инженері', en: 'Civil engineer' },
     ],
+    // Код/техника/строительство — информатика на первом месте, математика и физика как инженерная база.
     subjects: ['informatics', 'math', 'physics'],
   },
   {
@@ -303,7 +305,8 @@ const DIMENSIONS: readonly DimensionMeta[] = [
       { ru: 'Юрист-международник', kk: 'Халықаралық құқық заңгері', en: 'International lawyer' },
       { ru: 'Редактор-филолог', kk: 'Редактор-филолог', en: 'Editor-philologist' },
     ],
-    subjects: ['english'],
+    // Переводчик/журналист/историк/юрист-международник — языки (казахский и английский) плюс история.
+    subjects: ['kazakh', 'english', 'history'],
   },
   {
     key: 'communicator',
@@ -320,7 +323,8 @@ const DIMENSIONS: readonly DimensionMeta[] = [
       { ru: 'HR-специалист', kk: 'HR маманы', en: 'HR specialist' },
       { ru: 'Дипломат', kk: 'Дипломат', en: 'Diplomat' },
     ],
-    subjects: ['english'],
+    // Учитель/врач/психолог/HR/дипломат — биология для медицины и психологии, языки и история для общения и коммуникации.
+    subjects: ['biology', 'kazakh', 'english', 'history'],
   },
   {
     key: 'creator',
@@ -337,7 +341,8 @@ const DIMENSIONS: readonly DimensionMeta[] = [
       { ru: 'Моушн-дизайнер', kk: 'Моушн-дизайнер', en: 'Motion designer' },
       { ru: 'Художник-иллюстратор', kk: 'Суретші-иллюстратор', en: 'Illustrator' },
     ],
-    subjects: ['informatics', 'english'],
+    // Дизайнер/архитектор/режиссёр — математика для геометрии и композиции, информатика для цифровых инструментов, история для культурного контекста.
+    subjects: ['math', 'informatics', 'history'],
   },
   {
     key: 'organizer',
@@ -354,7 +359,8 @@ const DIMENSIONS: readonly DimensionMeta[] = [
       { ru: 'Маркетолог', kk: 'Маркетолог', en: 'Marketer' },
       { ru: 'Государственный менеджер', kk: 'Мемлекеттік басқарушы', en: 'Public administrator' },
     ],
-    subjects: ['math', 'english'],
+    // Предприниматель/PM/финансист/маркетолог/госменеджер — математика для финансов, английский для международного бизнеса, история для управления и права.
+    subjects: ['math', 'english', 'history'],
   },
 ];
 
@@ -672,19 +678,23 @@ const scoreAnswers = (answers: number[], openAnswers: string[]): CareerResult =>
   };
 };
 
-/** Union of the top-2 dimensions' subjects, deduped, order preserved by rank — the default (fully selected) recommendation set. */
-const rankedRecommendedSlugs = (result: CareerResult): LessonSubject[] => {
+/** Max number of subjects surfaced in the recommendation — keeps the union of two dimensions focused. */
+const MAX_RECOMMENDED_SUBJECTS = 4;
+
+/** Union of the top-2 dimensions' subjects, deduped, order preserved by rank, capped so the list stays focused — the default (fully selected) recommendation set. */
+const rankedRecommendedSlugs = (result: CareerResult): DiagnosticSubject[] => {
   const top = dimensionMeta(result.top[0]);
   const second = dimensionMeta(result.top[1]);
-  const slugs: LessonSubject[] = [];
+  const slugs: DiagnosticSubject[] = [];
   for (const slug of [...top.subjects, ...second.subjects]) {
     if (!slugs.includes(slug)) slugs.push(slug);
+    if (slugs.length >= MAX_RECOMMENDED_SUBJECTS) break;
   }
   return slugs;
 };
 
 /** Onboarding handoff: persists the student's current subject selection (rank order preserved by the caller). */
-const persistRecommendedSubjects = (subjects: LessonSubject[]): void => {
+const persistRecommendedSubjects = (subjects: DiagnosticSubject[]): void => {
   try {
     localStorage.setItem(SUBJECTS_KEY, JSON.stringify(subjects));
   } catch {
@@ -807,7 +817,7 @@ const CareerTestPage: React.FC = () => {
   const [result, setResult] = useState<CareerResult | null>(() => readResult());
   // Recommended-subject selection for the onboarding handoff — starts fully
   // selected (all pills on), toggleable by the student.
-  const [selectedSubjects, setSelectedSubjects] = useState<Set<LessonSubject>>(new Set());
+  const [selectedSubjects, setSelectedSubjects] = useState<Set<DiagnosticSubject>>(new Set());
   const questionHeadingRef = useRef<HTMLHeadingElement | null>(null);
   // Mirror of `phase` for effects that must not capture a stale value: the
   // DB-load effect re-fires when the auth context re-emits `user` (token
@@ -1021,7 +1031,7 @@ Give a personalized 4-6 sentence career analysis that connects the dimension sco
 
   const skipOpen = () => submitOpen('');
 
-  const toggleSubject = (slug: LessonSubject) => {
+  const toggleSubject = (slug: DiagnosticSubject) => {
     setSelectedSubjects((prev) => {
       const next = new Set(prev);
       if (next.has(slug)) {
@@ -1062,11 +1072,11 @@ Give a personalized 4-6 sentence career analysis that connects the dimension sco
     : [];
   const subjects =
     topMeta && secondMeta
-      ? LESSON_SUBJECTS.filter(
+      ? DIAGNOSTIC_SUBJECTS.filter(
           (s) => topMeta.subjects.includes(s.slug) || secondMeta.subjects.includes(s.slug),
         )
       : [];
-  const orderedSelectedSubjects: LessonSubject[] = result
+  const orderedSelectedSubjects: DiagnosticSubject[] = result
     ? rankedRecommendedSlugs(result).filter((slug) => selectedSubjects.has(slug))
     : [];
   const profileName =

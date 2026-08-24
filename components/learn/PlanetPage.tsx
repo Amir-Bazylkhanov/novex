@@ -411,8 +411,8 @@ const PlanetPage: React.FC = () => {
             </div>
           </div>
 
-          // Переключатель предметов — показывается только у модулей,
-          // где внутри несколько предметов (у каждого своя лестница уровней).
+          {/* Переключатель предметов — показывается только у модулей,
+          где внутри несколько предметов (у каждого своя лестница уровней). */}
           {/* subject switcher — multi-subject planets split levels into
               per-subject difficulty ladders (see constants/academy/subjects.ts) */}
           {planetSubjects && activeSubject && (
