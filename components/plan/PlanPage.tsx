@@ -121,6 +121,11 @@ const SAVE_ERROR: Localized = {
   kk: 'Жоспарды сақтау мүмкін болмады. Қайта сақтап көр.',
   en: 'Could not save the plan. Please try again.',
 };
+const RETRY_SAVE: Localized = {
+  ru: 'Повторить сохранение',
+  kk: 'Сақтауды қайталау',
+  en: 'Retry save',
+};
 const UPDATED_AT: Localized = { ru: 'Обновлено: {date}', kk: 'Жаңартылды: {date}', en: 'Updated: {date}' };
 
 const WEEK_LABEL: Localized = { ru: 'Неделя {n}', kk: '{n}-апта', en: 'Week {n}' };
@@ -426,6 +431,11 @@ interface SavedPlanRow {
   updated_at: string | null;
 }
 
+/** Строка study_plans, чей plan прошёл проверку isStudyPlan. */
+interface ValidSavedPlan extends Omit<SavedPlanRow, 'plan'> {
+  plan: StudyPlanJson;
+}
+
 interface PlanItemJson {
   kind: 'topic' | 'lesson' | 'mock' | 'errors' | 'academy';
   /** Topic slug, lesson slug, or "<planetSlug>::<sectionIndex>" for 'academy'; null for mock/errors. */
@@ -723,6 +733,87 @@ const currentWeekIndex = (plan: StudyPlanJson): number => {
   const index = Math.floor((startOfToday().getTime() - start.getTime()) / (7 * DAY_MS));
   return index >= 0 && index < plan.weeks.length ? index : -1;
 };
+
+/* --- local plan cache --- */
+
+// Локальный кэш последнего плана (ключ привязан к user.id, поэтому кэш
+// чужого пользователя никогда не подхватывается). Выручает, когда запись в
+// базу не прошла: план не теряется при уходе со страницы, показывается при
+// следующем заходе и догоняет базу автоповтором сохранения.
+interface PlanCacheJson {
+  plan: StudyPlanJson;
+  goal: string | null;
+  examDate: string | null;
+  goals: string[];
+  updatedAt: string;
+  /** true, пока план не удалось записать в базу — кэш в этом случае всегда новее базы. */
+  pendingSave: boolean;
+}
+
+const planCacheKey = (userId: string): string => `novex.plan.${userId}`;
+
+/** Читает кэш плана из localStorage; null, когда записи нет или она битая. */
+const readPlanCache = (userId: string): PlanCacheJson | null => {
+  try {
+    const raw = window.localStorage.getItem(planCacheKey(userId));
+    if (!raw) return null;
+    const parsed: unknown = JSON.parse(raw);
+    if (typeof parsed !== 'object' || parsed === null) return null;
+    const entry = parsed as Record<string, unknown>;
+    const planValue = entry.plan;
+    if (!isStudyPlan(planValue)) return null;
+    const goal = typeof entry.goal === 'string' ? entry.goal : null;
+    const examDate = typeof entry.examDate === 'string' ? entry.examDate : null;
+    const goals = Array.isArray(entry.goals)
+      ? (entry.goals as unknown[]).filter((g): g is string => typeof g === 'string')
+      : [];
+    // Без корректной даты кэш считается самым старым — пусть решает база.
+    const updatedAt =
+      typeof entry.updatedAt === 'string' && !Number.isNaN(Date.parse(entry.updatedAt))
+        ? entry.updatedAt
+        : new Date(0).toISOString();
+    return {
+      plan: planValue,
+      goal,
+      examDate,
+      goals,
+      updatedAt,
+      pendingSave: entry.pendingSave === true,
+    };
+  } catch {
+    // Приватный режим или недоступный localStorage — просто без кэша.
+    return null;
+  }
+};
+
+const writePlanCache = (userId: string, cache: PlanCacheJson): void => {
+  try {
+    window.localStorage.setItem(planCacheKey(userId), JSON.stringify(cache));
+  } catch {
+    // Переполнение квоты/приватный режим — запись кэша некритична.
+  }
+};
+
+/** Строго новее ли `candidate`, чем `other` (битая/пустая дата считается старой). */
+const isNewerTimestamp = (candidate: string, other: string | null): boolean => {
+  const candidateTime = Date.parse(candidate);
+  if (Number.isNaN(candidateTime)) return false;
+  const otherTime = other === null ? Number.NaN : Date.parse(other);
+  if (Number.isNaN(otherTime)) return true;
+  return candidateTime > otherTime;
+};
+
+/** Короткая расшифровка ошибки базы (сообщение + код) для блока неудачного сохранения. */
+const describeDbError = (error: { message: string; code?: string | null }): string => {
+  const code = typeof error.code === 'string' && error.code.trim().length > 0 ? error.code : null;
+  return code === null ? error.message : `${error.message} (code: ${code})`;
+};
+
+/** Результат сохранения плана в базу: удалось ли и короткая причина неудачи. */
+interface PersistPlanResult {
+  ok: boolean;
+  message?: string;
+}
 
 /* --- pieces --- */
 
@@ -1195,6 +1286,9 @@ const PlanPage: React.FC = () => {
   const [loadError, setLoadError] = useState(false);
   const [busy, setBusy] = useState(false);
   const [saveNote, setSaveNote] = useState<'saved' | 'error' | null>(null);
+  // Короткая расшифровка причины неудачного сохранения (сообщение/код ошибки
+  // базы) — показывается мелким шрифтом рядом с текстом ошибки.
+  const [saveErrorDetail, setSaveErrorDetail] = useState<string | null>(null);
   const [wizardOpen, setWizardOpen] = useState(false);
   // AuthContext переизлучает `user` при фокусе вкладки/обновлении токена, из-за
   // чего эффект загрузки ниже перезапускается уже после того, как на экране
@@ -1202,11 +1296,20 @@ const PlanPage: React.FC = () => {
   // снова читать план из базы и затирать им актуальное состояние в памяти —
   // загрузка выполняется один раз за «сессию» входа (сбрасывается при выходе).
   const loadedRef = useRef(false);
+  // Сколько автоповторов сохранения уже сделано за это монтирование: план, не
+  // дошедший до базы, дозаписывается один раз, без циклов.
+  const retrySaveRef = useRef(false);
 
   // Сохраняет собранный план в базу данных Supabase (таблица study_plans).
+  // Вместе с флагом успеха возвращает короткую причину неудачи — она видна
+  // в блоке ошибки, поэтому падение (например, отказ RLS) сразу заметно.
   const persistPlan = useCallback(
-    async (planJson: StudyPlanJson, goal: string | null, examDate: string | null): Promise<boolean> => {
-      if (!user) return false;
+    async (
+      planJson: StudyPlanJson,
+      goal: string | null,
+      examDate: string | null,
+    ): Promise<PersistPlanResult> => {
+      if (!user) return { ok: false };
       try {
         const row = {
           user_id: user.id,
@@ -1216,19 +1319,22 @@ const PlanPage: React.FC = () => {
           updated_at: new Date().toISOString(),
         };
         const { error } = await supabase.from('study_plans').upsert(row, { onConflict: 'user_id' });
-        if (!error) return true;
+        if (!error) return { ok: true };
         // A stale access token in a long-open tab is the usual cause here, so
         // refresh the session and retry once before surfacing the error.
         console.error('study_plans upsert failed', error);
         const { error: refreshError } = await supabase.auth.refreshSession();
-        if (refreshError) return false;
+        if (refreshError) return { ok: false, message: describeDbError(refreshError) };
         const { error: retryError } = await supabase
           .from('study_plans')
           .upsert(row, { onConflict: 'user_id' });
-        if (retryError) console.error('study_plans retry failed', retryError);
-        return !retryError;
+        if (retryError) {
+          console.error('study_plans retry failed', retryError);
+          return { ok: false, message: describeDbError(retryError) };
+        }
+        return { ok: true };
       } catch {
-        return false;
+        return { ok: false };
       }
     },
     [user],
@@ -1241,9 +1347,19 @@ const PlanPage: React.FC = () => {
   // saved yet, the wizard collects the config before anything is generated.
   useEffect(() => {
     if (!user) {
-      // Ученик вышел — сбрасываем флаг, чтобы следующий вход снова подгрузил
+      // Ученик вышел — сбрасываем флаги, чтобы следующий вход снова подгрузил
       // план из базы (а не молча остался с планом предыдущего пользователя).
       loadedRef.current = false;
+      retrySaveRef.current = false;
+      // Кэш привязан к user.id, но состояние страницы тоже чистим: план
+      // прошлого входа не должен оставаться в памяти после выхода.
+      setSource(null);
+      setPlan(null);
+      setUpdatedAt(null);
+      setLoadError(false);
+      setSaveNote(null);
+      setSaveErrorDetail(null);
+      setWizardOpen(false);
       return;
     }
     // Эффект уже выполнил первую загрузку в этом входе — дальнейшие
@@ -1257,6 +1373,13 @@ const PlanPage: React.FC = () => {
     // иначе второй запуск выйдет раньше времени и план не загрузится вовсе.
     let finished = false;
     const load = async () => {
+      // Кэш последнего плана читаем до сетевых запросов и сразу ставим его в
+      // состояние — план появляется мгновенно и не мигает старой строкой базы.
+      const cache = readPlanCache(user.id);
+      if (cache) {
+        setPlan(cache.plan);
+        setUpdatedAt(cache.updatedAt);
+      }
       try {
         const [profileRes, diagRes, planRes] = await Promise.all([
           supabase
@@ -1281,13 +1404,64 @@ const PlanPage: React.FC = () => {
         }
         const profileRow = profileRes.data as ProfilePlanRow;
         const diagRows = (diagRes.data ?? []) as DiagnosticPlanRow[];
-        setSource({ profileRow, diagRows });
 
         // study_plans may not exist yet — treat any read failure as "no plan"
         const saved = planRes.error ? null : ((planRes.data ?? null) as SavedPlanRow | null);
-        if (saved && isStudyPlan(saved.plan)) {
-          setPlan(saved.plan);
-          setUpdatedAt(saved.updated_at);
+        const savedPlan: ValidSavedPlan | null =
+          saved !== null && isStudyPlan(saved.plan) ? { ...saved, plan: saved.plan } : null;
+
+        // Кэш выигрывает, если он ещё не дождался записи в базу (такой план
+        // заведомо самый свежий — независимо от дат), если в базе плана нет
+        // вовсе или если он новее строки из базы по дате обновления.
+        const cacheWins =
+          cache !== null &&
+          (cache.pendingSave ||
+            savedPlan === null ||
+            isNewerTimestamp(cache.updatedAt, savedPlan.updated_at));
+
+        if (cache !== null && cacheWins) {
+          setPlan(cache.plan);
+          setUpdatedAt(cache.updatedAt);
+          // Шапка и мастер должны показывать настройки свежего плана, а не
+          // старые значения из профиля.
+          setSource({
+            profileRow: {
+              ...profileRow,
+              goal: cache.goal,
+              goals: cache.goals,
+              exam_date: cache.examDate,
+            },
+            diagRows,
+          });
+        } else {
+          setSource({ profileRow, diagRows });
+          if (savedPlan) {
+            setPlan(savedPlan.plan);
+            setUpdatedAt(savedPlan.updated_at);
+            // Синхронизируем кэш с более свежей версией из базы, чтобы при
+            // следующем заходе не мелькал устаревший локальный план.
+            const savedGoals =
+              parseConfig(savedPlan.plan.config)?.goals ??
+              (savedPlan.goal !== null ? [savedPlan.goal] : []);
+            writePlanCache(user.id, {
+              plan: savedPlan.plan,
+              goal: savedPlan.goal,
+              examDate: savedPlan.exam_date,
+              goals: savedGoals,
+              updatedAt: savedPlan.updated_at ?? new Date().toISOString(),
+              pendingSave: false,
+            });
+          }
+        }
+
+        // План из кэша не дошёл до базы — один раз тихо повторяем сохранение.
+        if (cache !== null && cache.pendingSave && !retrySaveRef.current) {
+          retrySaveRef.current = true;
+          const retry = await persistPlan(cache.plan, cache.goal, cache.examDate);
+          if (cancelled) return;
+          writePlanCache(user.id, { ...cache, pendingSave: !retry.ok });
+          setSaveNote(retry.ok ? 'saved' : 'error');
+          setSaveErrorDetail(retry.ok ? null : retry.message ?? null);
         }
       } catch {
         if (!cancelled) setLoadError(true);
@@ -1308,9 +1482,11 @@ const PlanPage: React.FC = () => {
     if (!user || !source || busy) return;
     setBusy(true);
     setSaveNote(null);
+    setSaveErrorDetail(null);
     try {
       const built = buildPlan(source.profileRow, source.diagRows, config, Date.now());
       const goal = config.goals[0] ?? null;
+      const generatedAt = new Date().toISOString();
       // Показываем свежий план сразу, не дожидаясь ответа базы: он должен
       // остаться на экране независимо от результата сохранения ниже и от
       // повторных срабатываний эффекта загрузки (см. loadedRef выше).
@@ -1319,12 +1495,54 @@ const PlanPage: React.FC = () => {
         diagRows: source.diagRows,
       });
       setPlan(built);
-      setUpdatedAt(new Date().toISOString());
+      setUpdatedAt(generatedAt);
       setWizardOpen(false);
-      const ok = await persistPlan(built, goal, config.deadline);
-      setSaveNote(ok ? 'saved' : 'error');
+      // Кэшируем план в браузере ДО запроса к базе: если сохранение упадёт
+      // (например, из-за RLS), план переживёт уход со страницы и вернётся при
+      // следующем заходе с флагом pendingSave для автоповтора.
+      const cached = {
+        plan: built,
+        goal,
+        examDate: config.deadline,
+        goals: config.goals,
+        updatedAt: generatedAt,
+      };
+      writePlanCache(user.id, { ...cached, pendingSave: true });
+      const result = await persistPlan(built, goal, config.deadline);
+      writePlanCache(user.id, { ...cached, pendingSave: !result.ok });
+      setSaveNote(result.ok ? 'saved' : 'error');
+      setSaveErrorDetail(result.ok ? null : result.message ?? null);
     } catch {
       setSaveNote('error');
+      setSaveErrorDetail(null);
+    } finally {
+      setBusy(false);
+    }
+  };
+
+  // Кнопка «Повторить сохранение» в блоке ошибки: ещё одна попытка записать
+  // текущий план в базу; кэш обновляется по результату попытки.
+  const retrySave = async () => {
+    if (!user || !source || !plan || busy) return;
+    setBusy(true);
+    setSaveNote(null);
+    setSaveErrorDetail(null);
+    try {
+      const profileRow = source.profileRow;
+      const result = await persistPlan(plan, profileRow.goal, profileRow.exam_date);
+      writePlanCache(user.id, {
+        plan,
+        goal: profileRow.goal,
+        examDate: profileRow.exam_date,
+        goals: cleanSlugs(profileRow.goals),
+        updatedAt: updatedAt ?? new Date().toISOString(),
+        pendingSave: !result.ok,
+      });
+      setSaveNote(result.ok ? 'saved' : 'error');
+      setSaveErrorDetail(result.ok ? null : result.message ?? null);
+    } catch {
+      setSaveNote('error');
+      setSaveErrorDetail(null);
     } finally {
       setBusy(false);
     }
@@ -1411,6 +1629,7 @@ const PlanPage: React.FC = () => {
                   type="button"
                   onClick={() => {
                     setSaveNote(null);
+                    setSaveErrorDetail(null);
                     setWizardOpen(true);
                   }}
                   disabled={busy}
@@ -1427,10 +1646,29 @@ const PlanPage: React.FC = () => {
                     </span>
                   )}
                   {saveNote === 'error' && (
-                    <span role="alert" className="flex items-center gap-1.5 text-sm font-medium text-coral">
-                      <AlertTriangle className="h-4 w-4" aria-hidden="true" />
-                      {loc(language, SAVE_ERROR)}
-                    </span>
+                    // Блок ошибки сохранения: сам текст, короткая причина
+                    // (сообщение/код ошибки базы) и кнопка повтора.
+                    <div
+                      role="alert"
+                      className="flex flex-col items-start gap-2 rounded-xl border border-coral/40 bg-coral/10 px-4 py-3"
+                    >
+                      <span className="flex items-center gap-1.5 text-sm font-medium text-coral">
+                        <AlertTriangle className="h-4 w-4 shrink-0" aria-hidden="true" />
+                        {loc(language, SAVE_ERROR)}
+                      </span>
+                      {saveErrorDetail && (
+                        <span className="break-words text-xs text-slateink">{saveErrorDetail}</span>
+                      )}
+                      <button
+                        type="button"
+                        onClick={() => void retrySave()}
+                        disabled={busy}
+                        className={`${FOCUS_RING} inline-flex items-center gap-1.5 rounded-lg border border-coral/40 bg-white px-3 py-1.5 text-xs font-semibold text-coral transition-colors hover:bg-coral/10 disabled:cursor-not-allowed disabled:opacity-60`}
+                      >
+                        <RefreshCw className="h-3.5 w-3.5" aria-hidden="true" />
+                        {loc(language, RETRY_SAVE)}
+                      </button>
+                    </div>
                   )}
                   {updatedText && <span className="text-xs text-slateink">{updatedText}</span>}
                 </div>
